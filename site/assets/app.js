@@ -20,7 +20,7 @@ function render() {
         <audio controls preload="none" src="${version.audio}"></audio>
       </div>`).join('');
     return `<article class="story">
-      <div class="story-head"><h2><span class="story-id">#${story.id}</span> ${story.title}</h2><span class="pill ${best ? 'good' : 'wait'}">${best ? `najlepiej ${best}/15` : 'bez oceny'}</span></div>
+      <div class="story-head"><h2><a href="stories/${story.id}/"><span class="story-id">#${story.id}</span> ${story.title}</a></h2><span class="pill ${best ? 'good' : 'wait'}">${best ? `najlepiej ${best}/15` : 'bez oceny'}</span></div>
       <p>${story.story}</p>
       <div class="meta"><span class="pill">${story.versions.length} wersji</span><span class="pill">${best ? 'ma ocenę' : 'nowy jingle'}</span></div>
       <details><summary>Odtwórz wersje</summary>${versions}</details>
