@@ -20,6 +20,9 @@ def main() -> None:
             shutil.rmtree(child) if child.is_dir() else child.unlink()
     args.output.mkdir(parents=True, exist_ok=True)
     shutil.copytree(Path("site"), args.output, dirs_exist_ok=True)
+    # Templates and example configuration are source files, not public assets.
+    for private_file in (args.output / "story-template.html", args.output / "data/config.example.json"):
+        if private_file.exists(): private_file.unlink()
     data = json.loads(args.catalog.read_text(encoding="utf-8"))
     (args.output / "data").mkdir(exist_ok=True)
     config = Path("site/data/config.example.json")
