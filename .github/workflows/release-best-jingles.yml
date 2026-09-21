@@ -13,16 +13,21 @@ permissions:
 
 jobs:
   release:
-    if: ${{ hashFiles('data/versions.json') != '' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Explain skipped release
+        if: ${{ hashFiles('data/versions.json') == '' }}
+        run: echo "data/versions.json is not present yet; release packaging is skipped."
       - uses: actions/setup-python@v5
+        if: ${{ hashFiles('data/versions.json') != '' }}
         with:
           python-version: '3.12'
       - name: Build flat ZIP
+        if: ${{ hashFiles('data/versions.json') != '' }}
         run: python scripts/build_best_zip.py --versions data/versions.json --output best-jingles-latest.zip
       - name: Encrypt ZIP when password is configured
+        if: ${{ hashFiles('data/versions.json') != '' }}
         env:
           ZIP_PASSWORD: ${{ secrets.JINGLE_ZIP_PASSWORD }}
         run: |
@@ -32,6 +37,7 @@ jobs:
             mv best-jingles-latest-protected.zip best-jingles-latest.zip
           fi
       - name: Publish rolling GitHub Release
+        if: ${{ hashFiles('data/versions.json') != '' }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
