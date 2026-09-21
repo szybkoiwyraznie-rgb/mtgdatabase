@@ -2,9 +2,13 @@
 
 Przeczytaj `AGENTS.md` przed każdą zmianą. Zmiany powinny być małe, możliwe do zweryfikowania i opisane w pull request.
 
+## Przed rozpoczęciem
+
+Najpierw wykonaj audyt poprzedniego PR lub commita: przeczytaj diff, uruchom walidację, sprawdź regresje i napraw znalezione problemy. Nie rozpoczynaj nowego zadania na niezweryfikowanym fundamencie.
+
 ## Przed zakończeniem
 
-```bash
+```
 python -m compileall -q scripts
 python scripts/build_best_zip.py --help
 ```

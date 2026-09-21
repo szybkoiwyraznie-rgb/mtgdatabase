@@ -4,7 +4,7 @@ Prywatny, niekomercyjny pipeline do projektowania, renderowania, oceniania i ite
 
 ## Cel
 
-Agent tworzy pierwsze wersje jingli, publikuje je w panelu odsłuchowym GitHub Pages, przyjmuje trzy oceny liczbowe i komentarz, a następnie poprawia najsłabsze wyniki. Równolegle rozwija dokumentację, narzędzia i bibliotekę sampli.
+Agent najpierw audytuje poprzedni PR i stan kodu, naprawia znalezione problemy, a następnie tworzy pierwsze wersje jingli, publikuje je w panelu odsłuchowym GitHub Pages, przyjmuje trzy oceny liczbowe i komentarz, a następnie poprawia najsłabsze wyniki. Równolegle rozwija dokumentację, narzędzia i bibliotekę sampli.
 
 ## Stan projektu
 

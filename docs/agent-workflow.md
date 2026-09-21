@@ -6,9 +6,22 @@ Agent najpierw szuka otwartego feedbacku dotyczącego najniżej ocenionej wersji
 
 ## Każda pętla
 
+### 0. Audyt poprzedniego PR i kodu
+
+Po przeczytaniu obowiązkowej dokumentacji agent najpierw audytuje poprzednią pracę:
+
+- sprawdź ostatni PR, commity i aktualny diff;
+- przeczytaj zmienione pliki, a nie tylko opis zmian;
+- uruchom testy, lint, walidatory i build;
+- sprawdź zgodność z `AGENTS.md`, kontraktami danych i kryteriami bezpieczeństwa;
+- poszukaj regresji, martwego kodu, placeholderów, błędnych ścieżek i brakujących konfiguracji;
+- napraw znalezione problemy przed podjęciem nowego zadania;
+- w raporcie zapisz, co zostało sprawdzone i co naprawiono.
+
+Jeśli audyt wykryje ryzyko utraty danych, sekret w kodzie albo nieodwracalną publikację, zatrzymaj się i opisz problem zamiast go omijać.
+
 ### 1. Zadanie produkcyjne
 
-- przeczytaj obowiązkową dokumentację;
 - sprawdź status repozytorium i kolejki;
 - zarezerwuj zadanie, aby dwóch agentów nie pracowało nad nim równocześnie;
 - zaprojektuj recepturę audio na podstawie tytułu i fabuły;
