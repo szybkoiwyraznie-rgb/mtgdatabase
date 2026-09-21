@@ -1,0 +1,28 @@
+{
+  "stories": [
+    {
+      "id": "67",
+      "title": "Przykładowa fabuła",
+      "ratings": [
+        {
+          "version": "v1",
+          "audio": "content/stories/67/v1/67_v1.mp3",
+          "scores": {
+            "feeling": 4,
+            "story_fit": 5,
+            "sample_quality": 3
+          }
+        },
+        {
+          "version": "v2",
+          "audio": "content/stories/67/v2/67_v2.mp3",
+          "scores": {
+            "feeling": 3,
+            "story_fit": 4,
+            "sample_quality": 4
+          }
+        }
+      ]
+    }
+  ]
+}
