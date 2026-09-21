@@ -20,9 +20,10 @@ To repozytorium jest prywatną, niekomercyjną linią produkcyjną krótkich for
 W każdej pętli wykonaj:
 
 1. **Audyt poprzedniej pracy:** sprawdź ostatni PR, commit lub wynik pracy poprzedniego agenta. Przeczytaj diff, uruchom dostępne testy i walidatory, zweryfikuj zgodność z dokumentacją oraz poszukaj regresji, niedokończonych fragmentów i błędów bezpieczeństwa. Jeśli znajdziesz problem, napraw go przed rozpoczęciem nowego zadania i opisz naprawę.
-2. **Produkcję:** popraw najniżej oceniony nierozwiązany jingle albo, jeśli nie ma takiego zadania, wybierz losową nieopracowaną fabułę i utwórz `v1`.
-3. **Rozwój warsztatu:** zbadaj lub ulepsz co najmniej jeden element narzędzi, dokumentacji, receptur albo biblioteki sampli. Zapisz konkretny rezultat.
-4. **Publikację i kontrolę:** uruchom walidację, zbuduj Pages, przygotuj paczkę najlepszych MP3 i opisz zmiany.
+2. **Nowa produkcja:** wybierz losową nieopracowaną fabułę i utwórz jej pierwszą wersję `v1`. Jeśli nie ma już nowych fabuł, jawnie odnotuj ten fakt.
+3. **Remake:** wyszukaj najgorzej oceniony nierozwiązany jingle spośród istniejących, zaplanuj poprawkę na podstawie ocen i komentarzy, a następnie utwórz kolejną wersję `vN`. Jeśli nie ma jeszcze ocenionego jingla wymagającego poprawy, odnotuj brak zadania.
+4. **Rozwój warsztatu:** zbadaj lub ulepsz co najmniej jeden element narzędzi, dokumentacji, receptur albo biblioteki sampli. Zapisz konkretny rezultat.
+5. **Publikację i kontrolę:** uruchom walidację, zbuduj Pages, przygotuj paczkę najlepszych MP3 i opisz zmiany.
 
 ## Oceny
 

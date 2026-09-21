@@ -2,7 +2,7 @@
 
 ## Priorytet
 
-Agent najpierw szuka otwartego feedbacku dotyczącego najniżej ocenionej wersji. Jeśli nie ma żadnego zadania do poprawy, losuje fabułę ze statusem `new` i tworzy pierwszą wersję.
+W każdej pętli agent wykonuje oba zadania produkcyjne: tworzy pierwszą wersję losowej nowej fabuły oraz wykonuje remake najgorzej ocenionego istniejącego jingla. Jeśli jedna z kolejek jest pusta, agent odnotowuje ten fakt i kontynuuje pozostałe zadania.
 
 ## Każda pętla
 
@@ -20,15 +20,24 @@ Po przeczytaniu obowiązkowej dokumentacji agent najpierw audytuje poprzednią p
 
 Jeśli audyt wykryje ryzyko utraty danych, sekret w kodzie albo nieodwracalną publikację, zatrzymaj się i opisz problem zamiast go omijać.
 
-### 1. Zadanie produkcyjne
+### 1. Nowa fabuła
 
 - sprawdź status repozytorium i kolejki;
-- zarezerwuj zadanie, aby dwóch agentów nie pracowało nad nim równocześnie;
+- zarezerwuj losową fabułę ze statusem `new`;
 - zaprojektuj recepturę audio na podstawie tytułu i fabuły;
-- wyrenderuj MP3 i zapisz metadane;
-- użyj kolejnego numeru wersji, bez kasowania poprzednich.
+- wyrenderuj pierwsze MP3 i zapisz metadane jako `v1`;
+- jeśli nie ma nowych fabuł, zapisz to w raporcie i przejdź dalej.
 
-### 2. Rozwój warsztatu
+### 2. Remake najgorszego jingla
+
+- znajdź najniżej oceniony, nierozwiązany raport;
+- zarezerwuj zadanie, aby dwóch agentów nie pracowało nad nim równocześnie;
+- przeanalizuj trzy oceny i komentarz;
+- zaprojektuj poprawkę, nie kasując poprzedniej wersji;
+- wyrenderuj kolejną wersję `vN` i oznacz raport jako obsłużony dopiero po udanej publikacji;
+- jeśli nie ma ocenionego jingla do poprawy, zapisz to w raporcie.
+
+### 3. Rozwój warsztatu
 
 W tej samej pętli wykonaj konkretną pracę rozwojową: dodaj zweryfikowane źródło sampli, popraw narzędzie DSP, test, prompt, dokumentację albo workflow. Sam link bez opisu licencji i zastosowania nie jest wystarczającym rezultatem.
 
