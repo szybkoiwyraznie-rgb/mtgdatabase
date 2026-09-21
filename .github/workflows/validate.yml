@@ -17,5 +17,7 @@ jobs:
           python-version: '3.12'
       - name: Compile Python files
         run: python -m compileall -q scripts
+      - name: Check required reading budget
+        run: python scripts/check_required_reading.py
       - name: Check best ZIP builder help
         run: python scripts/build_best_zip.py --help

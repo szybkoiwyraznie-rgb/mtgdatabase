@@ -4,8 +4,9 @@ To repozytorium jest prywatną, niekomercyjną linią produkcyjną krótkich for
 
 ## Zasady nadrzędne
 
-1. Pracuj tylko na zadaniu, które wynika z aktualnego stanu kolejki.
-2. Nie nadpisuj istniejących wersji jingla. Nowy render zapisuj jako kolejne `vN`.
+1. Przeczytaj całą obowiązkową lekturę z `docs/required-reading.md`, w tym aktywne ADR-y i `docs/LESSONS.md`.
+2. Pracuj tylko na zadaniu, które wynika z aktualnego stanu kolejki.
+3. Nie nadpisuj istniejących wersji jingla. Nowy render zapisuj jako kolejne `vN`.
 3. Nie usuwaj ocen, komentarzy ani historii wersji.
 4. Każdy jingle musi mieć identyfikator fabuły i wersję.
 5. Wynikiem pracy musi być działający MP3, metadane oraz aktualizacja strony.
