@@ -11,7 +11,7 @@ function render() {
   const stories = filtered.sort((a, b) => {
     const unrated = Number(!hasRating(a)) - Number(!hasRating(b));
     if (unrated) return -unrated;
-    const scoreDifference = (best(b) ?? -1) - (best(a) ?? -1);
+    const scoreDifference = (best(a) ?? -1) - (best(b) ?? -1);
     return scoreDifference || latest(b).localeCompare(latest(a));
   });
   $('#summary').textContent = `${stories.length} z ${state.stories.length} fabuł · nieocenione są na górze`;
