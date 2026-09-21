@@ -1,0 +1,7 @@
+name = "jingle-feedback-worker"
+main = "src/index.js"
+compatibility_date = "2026-09-21"
+
+[vars]
+GITHUB_REPOSITORY = "szybkoiwyraznie-rgb/mtgdatabase"
+# Set GITHUB_TOKEN as a secret with Issues: write permission.

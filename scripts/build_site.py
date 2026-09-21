@@ -24,6 +24,8 @@ def main() -> None:
     data = json.loads(args.catalog.read_text(encoding="utf-8"))
     (args.output / "data").mkdir(exist_ok=True)
     (args.output / "data/catalog.json").write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
+    config = Path("site/data/config.example.json")
+    if config.is_file(): shutil.copy2(config, args.output / "data/config.json")
 
     if args.audio_root:
         audio_out = args.output / "audio"

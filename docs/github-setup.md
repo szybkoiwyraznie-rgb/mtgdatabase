@@ -1,22 +1,23 @@
 # Jednorazowa konfiguracja GitHuba
 
-Ten dokument będzie uzupełniany wraz z kolejnymi elementami systemu.
+Ten dokument jest instrukcją dla właściciela repozytorium. Workflow i pliki przygotowujemy na branchu roboczym; nie scalaj pull requesta, dopóki nie zakończymy konfiguracji.
 
 ## Pages
 
-Po włączeniu workflow `Publish Pages preview`:
+Po scaleniu PR `Settings → Pages → Source: GitHub Actions`, a następnie `Actions → Publish Pages preview → Run workflow`.
 
-1. Wejdź w `Settings → Pages` repozytorium.
-2. Jako źródło wybierz `GitHub Actions`.
-3. Uruchom workflow ręcznie z zakładki `Actions` albo wypchnij zmianę na branch.
-4. Adres strony pojawi się w jobie `deploy` oraz w `Settings → Pages`.
+Na obecnym etapie strona jest wersją demonstracyjną z pięcioma plikami z materiałów prototypowych.
 
-Na tym etapie strona jest wersją demonstracyjną z pięcioma plikami z materiałów prototypowych. Docelowy CSV zastąpi `data/catalog.example.json`.
+## Raporty ocen
 
-## Następne sekrety
+Raporty wymagają wdrożenia workera z katalogu `feedback-worker/`. Instrukcja znajduje się w jego README. Po wdrożeniu adres workera trzeba wpisać do pliku konfiguracyjnego Pages. Token GitHub zapisuje się wyłącznie jako sekret workera.
 
-Nie ustawiaj jeszcze żadnych sekretów. W późniejszym kroku skonfigurujemy osobno:
+## Paczka ZIP
 
-- endpoint przyjmujący raporty ocen;
-- `JINGLE_ZIP_PASSWORD` do szyfrowania paczki;
-- publikację `best-jingles-latest.zip` jako GitHub Release.
+Po pojawieniu się `data/versions.json` workflow `Build best jingles release` zbuduje `best-jingles-latest.zip` i opublikuje go jako GitHub Release. Opcjonalne szyfrowanie:
+
+1. Wejdź w `Settings → Secrets and variables → Actions`.
+2. Utwórz sekret `JINGLE_ZIP_PASSWORD`.
+3. Wartość sekretu ustaw jako PIN do ZIP-a.
+
+Bez tego sekretu workflow opublikuje zwykły ZIP. Hasło nigdy nie jest zapisywane w repozytorium.
