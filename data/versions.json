@@ -775,9 +775,26 @@
           "label": "v2",
           "created_at": "2026-09-22T15:30:00Z",
           "audio": "legacy/source/jingle_output/8_v2.mp3",
-          "score": null,
-          "scores": null,
-          "reports": [],
+          "score": 3,
+          "scores": {
+            "feeling": 1,
+            "story_fit": 1,
+            "sample_quality": 1
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/26",
+              "created_at": "2026-09-22T18:10:28Z",
+              "state": "open",
+              "scores": {
+                "feeling": 1,
+                "story_fit": 1,
+                "sample_quality": 1
+              },
+              "total": 3,
+              "comment": "masakra"
+            }
+          ],
           "project_description": {
             "summary": "Krótka forma audio dla sceny: Goblin Deathraiders. Wersja v2 odpowiada na ocenę partii (~5/15): wszystkie sample natywne (zakaz pitchowania, AGENTS.md #15 — v1 przestrajaliśmy 0,45–1,25 i słuchacz słyszał hałas, nie szarżę), mniej zdarzeń (5 zamiast 10), smok jako żywy ryk w naturalnej wysokości.",
             "ambience": "wind (wulkaniczne zbocza Jundu)",
@@ -824,7 +841,9 @@
                 "Kontrast dramaturgiczny: 30.0/30 (ratio 5.63x)"
               ]
             }
-          }
+          },
+          "rated_at": "2026-09-22T18:10:28Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/26"
         }
       ]
     },
