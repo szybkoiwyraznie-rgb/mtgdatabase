@@ -54,9 +54,14 @@ def main() -> None:
             audio = version.get("audio", "").replace("audio/", "../../audio/", 1)
             score = version.get("score")
             label = f"{score}/15" if score is not None else "oczekuje na ocenę"
+            criteria = [("feeling", "Feeling ogólny"), ("story_fit", "Zgodność z fabułą"), ("sample_quality", "Jakość sampli")]
+            fields = []
+            for name, title in criteria:
+                options = "".join(f'<label class="rating-option"><input type="radio" name="{name}" value="{value}" required>{value}</label>' for value in range(1, 6))
+                fields.append(f'<fieldset><legend>{title}</legend><div class="rating-options">{options}</div></fieldset>')
+            form = f'<form class="feedback" data-story="{story["id"]}" data-version="{version["label"]}">' + "".join(fields) + '<textarea name="comment" maxlength="2000" placeholder="Komentarz (opcjonalnie)"></textarea><button>Prześlij ocenę tej wersji</button><output></output></form>'
             cards.append(
-                f'<div class="version"><div><strong>{version["label"]}</strong>'
-                f'<br><small>{label}</small></div><div class="player"><audio controls preload="metadata"><source src="{audio}" type="audio/mpeg">Twoja przeglądarka nie obsługuje audio.</audio><a href="{audio}">Otwórz plik MP3</a></div></div>'
+                f'<section class="version"><div class="version-head"><strong>{version["label"]}</strong><small>{label}</small></div><div class="player"><audio controls preload="metadata"><source src="{audio}" type="audio/mpeg">Twoja przeglądarka nie obsługuje audio.</audio><a href="{audio}">Otwórz plik MP3</a></div>{form}</section>'
             )
         latest = versions[-1]["label"] if versions else "v1"
         page = (template.replace("__ID__", str(story["id"]))
