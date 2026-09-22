@@ -26,6 +26,7 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4'   # <-- NOWA LINIA: pin aktualnego Wranglera
           workingDirectory: feedback-worker
           command: deploy
       - name: Store GitHub issue token in Cloudflare
