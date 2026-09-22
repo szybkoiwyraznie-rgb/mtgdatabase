@@ -504,9 +504,26 @@
           "label": "v1",
           "created_at": "2026-09-22T10:26:17Z",
           "audio": "legacy/source/jingle_output/568.mp3",
-          "score": null,
-          "scores": null,
-          "reports": [],
+          "score": 11,
+          "scores": {
+            "feeling": 4,
+            "story_fit": 4,
+            "sample_quality": 3
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/14",
+              "created_at": "2026-09-22T12:16:06Z",
+              "state": "open",
+              "scores": {
+                "feeling": 4,
+                "story_fit": 4,
+                "sample_quality": 3
+              },
+              "total": 11,
+              "comment": "Niezłe, chociaż ten dźwięk to brzmi jak melodyjka, pęknięcia przewodu też nie słychać"
+            }
+          ],
           "project_description": {
             "summary": "Krótka forma audio dla sceny: Nanoform Sentinel. Trójwarstwowa konstrukcja: zimne tło stacji orbitalnej, syntetyczny pad i wydarzenia technologiczne z kulminacją gotowości maszyny.",
             "ambience": "station_hum",
@@ -557,7 +574,9 @@
                 "Kontrast dramaturgiczny: 20.7/30 (ratio 3.46x)"
               ]
             }
-          }
+          },
+          "rated_at": "2026-09-22T12:16:06Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/14"
         }
       ]
     },
