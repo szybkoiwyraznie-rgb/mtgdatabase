@@ -20,6 +20,16 @@ Po przeczytaniu obowiązkowej dokumentacji, w tym `ENVIRONMENT.md` i aktualnej k
 
 Jeśli audyt wykryje ryzyko utraty danych, sekret w kodzie albo nieodwracalną publikację, zatrzymaj się i opisz problem zamiast go omijać.
 
+### 0.5 Synchronizacja ocen
+
+Przed nową produkcją zsynchronizuj oceny z issues z etykietą `feedback`:
+
+```bash
+python scripts/sync_ratings.py --versions data/versions.json
+```
+
+Najnowszy raport dla pary (fabuła, wersja) ustawia aktualną ocenę, a każdy raport trafia do historii `reports` wersji. Pominięte wpisy (np. ocena bez wyrenderowanej wersji) wypisz w raporcie. Workflow `Sync ratings from issues` wykonuje to samo automatycznie po każdym nowym issue i przebudowuje Pages oraz paczkę ZIP, ale agent nie zwaliduje pętli bez sprawdzenia, że wszystkie oceny są w `data/versions.json`.
+
 ### 1. Nowa fabuła
 
 - sprawdź status repozytorium i kolejki;

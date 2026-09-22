@@ -2,24 +2,48 @@
   "stories": [
     {
       "id": "67",
-      "title": "Przykładowa fabuła",
-      "ratings": [
+      "versions": [
         {
-          "version": "v1",
-          "audio": "content/stories/67/v1/67_v1.mp3",
+          "label": "v1",
+          "created_at": "2026-09-11T10:00:00Z",
+          "audio": "legacy/source/jingle_output/67.mp3",
+          "score": 12,
           "scores": {
             "feeling": 4,
             "story_fit": 5,
             "sample_quality": 3
-          }
-        },
-        {
-          "version": "v2",
-          "audio": "content/stories/67/v2/67_v2.mp3",
-          "scores": {
-            "feeling": 3,
-            "story_fit": 4,
-            "sample_quality": 4
+          },
+          "rated_at": "2026-09-20T18:30:00Z",
+          "feedback_issue": "https://github.com/example/repo/issues/1",
+          "reports": [
+            {
+              "issue_url": "https://github.com/example/repo/issues/1",
+              "created_at": "2026-09-20T18:30:00Z",
+              "state": "open",
+              "scores": {
+                "feeling": 4,
+                "story_fit": 5,
+                "sample_quality": 3
+              },
+              "total": 12,
+              "comment": ""
+            }
+          ],
+          "project_description": {
+            "description": "Ambience + dron • zdarzenia foley z timestampami • uwagi miksu",
+            "ambience": "example_ambience",
+            "drone": "example_drone (44.0 Hz)",
+            "events": [
+              {
+                "time_sec": 1.0,
+                "sample": "example.mp3",
+                "role": "warstwa foley"
+              }
+            ],
+            "mix_notes": "Przykładowe uwagi miksu.",
+            "qa": {
+              "score": 90.0
+            }
           }
         }
       ]

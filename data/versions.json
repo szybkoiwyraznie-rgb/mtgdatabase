@@ -1,0 +1,249 @@
+{
+  "stories": [
+    {
+      "id": "1",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-11T10:00:00Z",
+          "audio": "legacy/source/jingle_output/1.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Dunland Crebain. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "mountain_wind",
+            "drone": "cinematic_sub (44.0 Hz)",
+            "events": [
+              {
+                "time_sec": 2.0,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 2.45,
+                "sample": "raven_call.mp3",
+                "role": "warstwa foley / kulminacja"
+              },
+              {
+                "time_sec": 3.75,
+                "sample": "sword_draw.mp3",
+                "role": "warstwa foley"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Wiatr w wąwozie + sub-dron • szum ognia pochodni • pikujący kruk Yellowstone NPS • orkowa stal z echem",
+            "qa": {
+              "score": 87.4,
+              "base": 70.0,
+              "dramaturgy": 17.4,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 17.4/30"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-12T10:00:00Z",
+          "audio": "legacy/source/jingle_output/2.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Coralhelm Guide. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "cave_flooded",
+            "drone": "eldrazi_alien (66.0 Hz)",
+            "events": [
+              {
+                "time_sec": 0.85,
+                "sample": "beast_step_water",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 1.85,
+                "sample": "beast_roar",
+                "role": "warstwa foley / kulminacja"
+              },
+              {
+                "time_sec": 3.75,
+                "sample": "beast_step_water",
+                "role": "warstwa foley"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Ciemna jaskinia + dysonans Eldrazi • tąpnięcie w kamień • bliski ryk Balotha (Yellowstone grizzly + aligator) • fontanna wody",
+            "qa": {
+              "score": 87.3,
+              "base": 70.0,
+              "dramaturgy": 17.3,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 17.3/30"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-13T10:00:00Z",
+          "audio": "legacy/source/jingle_output/3.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Nefarious Imp. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "cave_flooded",
+            "drone": "cinematic_sub (38.0 Hz)",
+            "events": [
+              {
+                "time_sec": 1.1,
+                "sample": "gravel_feet.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 2.2,
+                "sample": "gravel_feet.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 3.4,
+                "sample": "sword_draw.mp3",
+                "role": "warstwa foley / kulminacja"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Gabinet po spisku + niski dron • dopalająca się mapa i stopione figurki • złośliwy chochlik • puls skradzionego kryształu",
+            "qa": {
+              "score": 84.4,
+              "base": 70.0,
+              "dramaturgy": 14.4,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 14.4/30"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-14T10:00:00Z",
+          "audio": "legacy/source/jingle_output/4.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Mystic Sanctuary. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "mountain_wind",
+            "drone": "cinematic_sub (52.0 Hz)",
+            "events": [
+              {
+                "time_sec": 0.9,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 1.7,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 2.5,
+                "sample": "beast_roar",
+                "role": "warstwa foley / kulminacja"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Mgliste jezioro Eldraine + spokojny dron • woda przy kamieniu i szelest księgi • świetlisty kryształ • baśniowa kulminacja",
+            "qa": {
+              "score": 100.0,
+              "base": 70.0,
+              "dramaturgy": 30.0,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 30.0/30"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-15T10:00:00Z",
+          "audio": "legacy/source/jingle_output/5.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Academy Journeymage. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "forest_night",
+            "drone": "cinematic_sub (48.0 Hz)",
+            "events": [
+              {
+                "time_sec": 0.9,
+                "sample": "gravel_feet.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 1.6,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 3.4,
+                "sample": "sword_swipe.mp3",
+                "role": "warstwa foley"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Nocny las + napięciowy sub-dron • chrzęst kroków i świst skrzydeł • nagłe cięcie miecza • krótki, czysty stinger",
+            "qa": {
+              "score": 90.1,
+              "base": 70.0,
+              "dramaturgy": 20.1,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 20.1/30"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

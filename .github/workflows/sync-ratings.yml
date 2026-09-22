@@ -1,0 +1,50 @@
+name: Sync ratings from issues
+
+on:
+  issues:
+    types: [opened, edited, reopened]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: read
+  actions: write
+
+concurrency:
+  group: sync-ratings
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'feedback') }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Export feedback issues
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api "repos/${{ github.repository }}/issues?labels=feedback&state=all&per_page=100" --paginate > /tmp/issues.json
+      - name: Sync ratings into data/versions.json
+        run: python scripts/sync_ratings.py --versions data/versions.json --issues-file /tmp/issues.json
+      - name: Validate synced versions and ZIP
+        run: |
+          python scripts/validate_versions.py data/versions.json
+          python scripts/build_best_zip.py --versions data/versions.json --output /tmp/best-jingles-test.zip
+      - name: Commit ratings and trigger rebuilds
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if git diff --quiet data/versions.json; then
+            echo "No rating changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/versions.json
+          git commit -m "Sync ratings from feedback issues"
+          git push
+          gh workflow run pages.yml
+          gh workflow run release-best-jingles.yml

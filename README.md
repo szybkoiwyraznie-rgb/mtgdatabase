@@ -8,7 +8,7 @@ Agent najpierw audytuje poprzedni PR i stan kodu, naprawia znalezione problemy, 
 
 ## Stan projektu
 
-Repozytorium zawiera fundament procesu, aktualną kolekcję `kolekcja.csv` oraz materiały prototypowe przeniesione do `legacy/source/`. Kolekcja ma format TSV `Ilustracja`, `Nazwa Karty`, `Narracja`; z artID, np. `123DOM`, importer wyciąga numer `123`, który jest ID jingla i nazwą pliku `123.mp3`. Sufiks setu jest zachowany w metadanych, ale nie bierze udziału w produkcji.
+Repozytorium zawiera fundament procesu, aktualną kolekcję `kolekcja.csv` oraz pięć produkcyjnych jingli `v1` (fabuły 1–5; audio w `legacy/source/jingle_output/`, stan ocen w `data/versions.json`). Kolekcja ma format TSV `Ilustracja`, `Nazwa Karty`, `Narracja`; z artID, np. `123DOM`, importer wyciąga numer `123`, który jest ID jingla i nazwą pliku `123.mp3`. Sufiks setu jest zachowany w metadanych, ale nie bierze udziału w produkcji.
 
 ## Zasady produktu
 
@@ -16,9 +16,10 @@ Repozytorium zawiera fundament procesu, aktualną kolekcję `kolekcja.csv` oraz 
 - każda wersja ma opis projektowy z użytymi samplami i timestampami efektów;
 - nowe wersje nie usuwają starszych;
 - ocena to suma: feeling + zgodność z fabułą + jakość sampli, każda 1–5;
+- ocena pokazuje się od razu na urządzeniu oceniającego, a po automatycznej synchronizacji z issues trafia do `data/versions.json` i na wszystkie urządzenia;
 - ZIP zawiera jedną najwyżej ocenioną, już ocenioną wersję każdej fabuły;
 - ZIP jest płaski i zawiera wyłącznie `id.mp3`;
-- paczka będzie publikowana jako asset GitHub Release, opcjonalnie jako szyfrowany ZIP;
+- paczka jest publikowana jako asset GitHub Release i pojawia się automatycznie po pierwszych ocenach; bez sekretu `JINGLE_ZIP_PASSWORD` ZIP jest nieszyfrowany;
 - Pages służy do odsłuchu i wysyłania raportów.
 
 ## Dokumentacja
