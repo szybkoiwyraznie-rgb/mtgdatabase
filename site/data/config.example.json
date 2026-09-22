@@ -1,3 +1,3 @@
 {
-  "feedbackEndpoint": ""
+  "feedbackEndpoint": "https://jingle-feedback-worker.szybkoiwyraznie.workers.dev"
 }
