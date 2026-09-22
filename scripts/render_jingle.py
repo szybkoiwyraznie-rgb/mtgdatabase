@@ -142,7 +142,8 @@ def drone_layer(kind: str, freq: float, dur: float, gain: float, params: dict) -
         sig = (0.55 * np.sin(2 * np.pi * freq * t) +
                0.30 * np.sin(2 * np.pi * (f2 + 2.0 * lfo) * t) +
                0.18 * np.sin(2 * np.pi * freq * 2.0 * t + 0.3))
-        tre = np.random.normal(0, 1, n)
+        rng = np.random.default_rng(params.get("seed", 11))  # deterministic shimmer
+        tre = rng.normal(0, 1, n)
         tre = filter_signal(tre, "band", 2400, 4800) * (0.05 + 0.05 * np.sin(2 * np.pi * 0.13 * t + 1.0))
         sig = sig + tre
         env = env_rise_fall(n, 0.9, 1.1)
@@ -156,6 +157,13 @@ def drone_layer(kind: str, freq: float, dur: float, gain: float, params: dict) -
             beat = 1.0 + 0.12 * np.sin(2 * np.pi * 0.8 * t + p * 0.01)
             sig += g * np.sin(2 * np.pi * (p + 0.4 * np.sin(2 * np.pi * 0.5 * t)) * t) * np.exp(-t / d) * beat
         sig = np.tanh(sig * 0.9) * (env_rise_fall(n, 0.06, 1.3) ** 0.5) * 0.34
+    elif kind == "eldrazi_alien":
+        # Dissonant alien drone, mirrors the legacy build_v2_scenes formula.
+        sig = (0.35 * np.sin(2 * np.pi * freq * t) +
+               0.25 * np.sin(2 * np.pi * (freq * 1.414) * t) +
+               0.18 * np.sin(2 * np.pi * (freq * 2.828) * t + 0.6 * np.sin(2 * np.pi * 3.2 * t)))
+        env = 0.35 + 0.45 * (1 - np.cos(np.pi * t / dur))
+        sig = np.tanh(sig * env * 1.2) * 0.38
     else:
         raise ValueError(f"unknown drone kind: {kind}")
     sig *= gain
@@ -187,6 +195,29 @@ def ambience_layer(kind: str, dur: float, gain: float, params: dict) -> tuple[np
         slow = 0.6 + 0.4 * np.sin(2 * np.pi * 0.11 * t + 2.0)
         sig = (base + airy) * slow
         return sig * gain * 0.85, sig * gain * 1.0
+    if kind == "forest_night":
+        left = filter_signal(noise, "low", 0, 480) * (0.55 + 0.45 * np.sin(2 * np.pi * 0.07 * t))
+        right = left * rng.uniform(0.9, 1.1)
+        # Procedural crickets: short 4.2-4.5 kHz chirps in small clusters.
+        for _ in range(int(params.get("crickets", 7))):
+            start = rng.uniform(0.15, dur - 0.9)
+            chirps = int(rng.integers(2, 5))
+            pan_pos = float(rng.uniform(-0.55, 0.55))
+            gL, gR = pan_gains(pan_pos)
+            for j in range(chirps):
+                s0 = int((start + j * rng.uniform(0.085, 0.12)) * SR)
+                L0 = int(0.05 * SR)
+                if s0 + L0 >= n:
+                    continue
+                tt = np.linspace(0, 0.05, L0, endpoint=False)
+                f = float(rng.uniform(4100, 4500))
+                chirp = np.sin(2 * np.pi * f * tt) * (0.5 + 0.5 * np.sin(2 * np.pi * 65 * tt)) * np.exp(-tt * 42)
+                level = float(rng.uniform(0.05, 0.11))
+                left[s0:s0 + L0] += chirp * level * gL
+                right[s0:s0 + L0] += chirp * level * gR
+        left += filter_signal(rng.normal(0, 1, n), "high", 5200, None) * 0.012
+        right += filter_signal(rng.normal(0, 1, n), "high", 5200, None) * 0.014
+        return left * gain, right * gain
     raise ValueError(f"unknown ambience kind: {kind}")
 
 
@@ -259,6 +290,12 @@ def synth_event(kind: str, dur: float, params: dict, seed: int) -> np.ndarray:
         freq = np.linspace(params.get("f1", 80.0), params.get("f2", 28.0), n)
         sig = np.sin(2 * np.pi * freq * t) * np.exp(-t / max(0.05, dur * 0.35))
         return np.tanh(sig * 1.6) * 0.85
+    if kind == "drip":
+        # Falling cave drip: fast pitch glide 2.3k->0.9k with sharp exponential decay.
+        f1, f2 = params.get("f1", 2300.0), params.get("f2", 900.0)
+        k = np.log(f2 / f1) / max(1e-6, dur)
+        phase = 2 * np.pi * f1 * (np.exp(k * t) - 1.0) / k
+        return np.sin(phase) * np.exp(-t * 42) * (0.75 + 0.25 * np.sin(2 * np.pi * 300 * t))
     raise ValueError(f"unknown synth kind: {kind}")
 
 
@@ -352,36 +389,22 @@ def render(recipe: dict) -> tuple[np.ndarray, dict]:
     mix = mix - dc  # kill any DC component before encoding
     peak = np.max(np.abs(mix)) + 1e-9
     mix = mix / peak * 0.55
-
-    qa = qa_audit(mix, tuple(recipe.get("climax_window", [1.5, 3.8])))
-    return mix, {"events": qa_events, "qa": qa}
+    return mix, qa_events
 
 
-def qa_audit(mix: np.ndarray, climax_window: tuple[float, float]) -> dict:
+def qa_audit_file(out_path: Path, climax_window: tuple[float, float]) -> dict:
+    """Audit the actual encoded MP3 (post-encode), not the pre-encode mix.
+
+    Decoded files measure slightly differently (encoder overshoot, RMS drift),
+    and metadata must describe the artifact we ship. Gates: DC 0.015, peak
+    0.25-0.999 (decoded may overshoot), <=1 dead 0.35 s window, Climax Ratio
+    via scripts/qa_score.py — identical to scripts/audit_audio.py.
+    """
     sys.path.insert(0, str(ROOT / "scripts"))
-    from qa_score import calculate_qa_score  # single scoring source
+    from audit_audio import analyze
 
-    mono = mix.mean(axis=1)
-    dc_ok = bool(np.abs(np.mean(mono)) <= 0.015)
-    peak = float(np.max(np.abs(mono)))
-    peak_ok = 0.25 <= peak <= 0.99
-    step = int(SR * 0.35)
-    dead = [i / SR for i in range(0, len(mono) - step, step)
-            if np.sqrt(np.mean(mono[i:i + step] ** 2)) < 0.003]
-    continuity_ok = len(dead) <= 1
-    rms_intro = float(np.sqrt(np.mean(mono[: int(SR * 1.0)] ** 2)) + 1e-5)
-    c0, c1 = int(climax_window[0] * SR), int(climax_window[1] * SR)
-    rms_climax = float(np.sqrt(np.mean(mono[c0:c1] ** 2)))
-    ratio = rms_climax / rms_intro
-    result = calculate_qa_score(climax_ratio=ratio, dc_ok=dc_ok, peak_ok=peak_ok, continuity_ok=continuity_ok)
-    result["details"] = [
-        ("DC offset: OK" if dc_ok else "DC offset: FAIL"),
-        ("Peak/headroom: OK" if peak_ok else f"Peak/headroom: FAIL ({peak:.2f})"),
-        ("Ciągłość tła: OK" if continuity_ok else f"Martwa cisza: {dead}"),
-        f"Kontrast dramaturgiczny: {result['dramaturgy']}/30 (ratio {ratio:.2f}x)",
-    ]
-    result["climax_ratio"] = round(ratio, 2)
-    return result
+    report = analyze(out_path, climax_window)
+    return {k: report[k] for k in ("score", "base", "dramaturgy", "status", "details", "climax_ratio")}
 
 
 def encode_mp3(mix: np.ndarray, out_path: Path, bitrate: int = 128) -> None:
@@ -407,9 +430,9 @@ def main() -> int:
     args = parser.parse_args()
 
     recipe = json.loads(args.recipe.read_text(encoding="utf-8"))
-    mix, meta = render(recipe)
+    mix, events = render(recipe)
     encode_mp3(mix, args.out)
-    qa = meta["qa"]
+    qa = qa_audit_file(args.out, tuple(recipe.get("climax_window", [1.5, 3.8])))
     print(f"Rendered {args.out} ({args.out.stat().st_size} B); QA {qa['score']}/100 [{qa['status']}], "
           f"climax ratio {qa['climax_ratio']}x", file=sys.stderr)
     # Self-correction gate (legacy quality doctrine): a render below the
@@ -417,13 +440,16 @@ def main() -> int:
     # re-render instead of shipping it.
     passed = str(qa["status"]).startswith("pass") and qa["score"] >= args.min_score
     if not passed:
+        # A rejected render must not linger on disk pretending to be accepted.
+        if args.out.exists():
+            args.out.unlink()
         for line in qa["details"]:
             print(f"  ! {line}", file=sys.stderr)
         print(f"  ! QA {qa['score']} poniżej progu {args.min_score} — popraw recepturę i renderuj ponownie.", file=sys.stderr)
         return 1
     if args.print_description:
         desc = dict(recipe.get("project_description", {}))
-        desc["events"] = meta["events"]
+        desc["events"] = events
         desc["qa"] = {k: qa[k] for k in ("score", "base", "dramaturgy", "status", "details")}
         print(json.dumps(desc, ensure_ascii=False, indent=2))
     return 0
