@@ -34,4 +34,4 @@ Egress sandboxa tnie TLS do Wikimedia/NPS/Freesound/raw.githubusercontent (patrz
 
 Pomocnicze: `Cy4nWare/sfx-api` (Kenney CC0, duplikat sparkstream przez jsdelivr), `stargatedaw/stargate-sample-pack` (PD, sample instrumentów do DAW — marginalne dla jingli). Odrzucone: repozytoria „SFX generowane z kodu" (blip8, free-sfx-bgm — sprzeczne z zasadą żywych sampli), scraper BBC Sound Effects (host blokowany + licencja RemArc niekomercyjna).
 
-Procedura pobierania: (1) potwierdź licencję packu na stronie źródłowej; (2) sparse-clone do `/tmp`; (3) w przypadku M4A zdekoduj PyAV do WAV w `/tmp`; (4) wytnij fragment (fade!), zapisz do `legacy/source/game-audio-pipeline/stems/`; (5) zarejestruj w `data/sources.json` z url oryginału i kanałem pobrania w `notes`.
+Procedura pobierania: (1) potwierdź licencję packu na stronie źródłowej; (2) sparse-clone do `/tmp`; (3) wytnij fragment i zapisz stem narzędziem `python scripts/make_stem.py <źródło> --start S --end E --out legacy/source/game-audio-pipeline/stems/<nazwa>.mp3` (obsługuje MP3/WAV/M4A — dekodowanie PyAV automatycznie, fade wliczony); (4) zarejestruj w `data/sources.json` z url oryginału i kanałem pobrania w `notes`.
