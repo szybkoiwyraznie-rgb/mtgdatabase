@@ -57,7 +57,10 @@ def main() -> None:
         audio_out.mkdir(exist_ok=True)
         for story in data.get("stories", []):
             for version in story.get("versions", []):
-                source = args.audio_root / f"{story['id']}.mp3"
+                # Per-version audio: `5_v2.mp3` serves v2, v1 keeps `5.mp3`.
+                source = args.audio_root / f"{story['id']}_{version.get('label')}.mp3"
+                if not source.is_file():
+                    source = args.audio_root / f"{story['id']}.mp3"
                 if source.is_file():
                     shutil.copy2(source, audio_out / source.name)
                     version["audio"] = f"audio/{source.name}"

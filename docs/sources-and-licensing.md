@@ -17,3 +17,5 @@ notes
 ```
 
 Agent może badać nowe biblioteki i narzędzia, ale nie powinien automatycznie dołączać materiału o nieznanej licencji do paczki dystrybucyjnej. Materiał eksperymentalny można oznaczyć jako roboczy i trzymać poza publicznym buildem Pages.
+
+Formalny rejestr istniejących sampli znajduje się w `data/sources.json`; każdy nowy sample dopisujemy tam przed użyciem w produkcji. Uwaga: edycja `alligator_bellow` jest CC BY-SA 2.5 (ShareAlike) — do nowych renderów używaj surowego oryginału FWS (PD).

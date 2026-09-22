@@ -42,4 +42,11 @@ python scripts/build_best_zip.py \
   --output build/best-jingles-latest.zip
 ```
 
+Render nowej wersji z receptury (`pip install numpy soundfile lameenc` w venv; narzędzie autorskie poza CI):
+
+```bash
+python scripts/render_jingle.py data/recipes/<id>_<vN>.json \
+  --out legacy/source/jingle_output/<id>[_<vN>].mp3 --print-description
+```
+
 Przed uruchomieniem produkcji należy skonfigurować publikację Pages, endpoint raportów oraz sekret szyfrowania ZIP-a. Instrukcja konfiguracji zostanie uzupełniona w kolejnym etapie wraz z pierwszym działającym panelem.
