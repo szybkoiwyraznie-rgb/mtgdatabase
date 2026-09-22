@@ -1,13 +1,13 @@
 # System ocen
 
-Formularz przy najnowszej wersji jingla ma trzy pola liczbowe 1–5 i komentarz:
+Formularz oceny pokazuje się wyłącznie przy wersjach bez oceny i ma trzy pola liczbowe 1–5 oraz komentarz:
 
 - feeling ogólny;
 - zgodność z fabułą;
 - jakość wykorzystanych sampli;
 - komentarz tekstowy.
 
-Wynik jest sumą trzech wartości, od 3 do 15.
+Wynik jest sumą trzech wartości, od 3 do 15. Wersja, która ma już ocenę, pokazuje na swojej karcie wynik z rozbiciem na trzy kryteria zamiast formularza — poprawy wprowadza się jako nową wersję `vN`, a nie przez ponowne ocenienie. Na liście fabuł karta, która ma ocenę i nowszą nieocenioną wersję, dostaje badge „nieoceniona nowa wersja" obok znacznika „najlepiej x/15".
 
 ## Zapis
 

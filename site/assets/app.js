@@ -27,6 +27,21 @@ function combinedBest(story) {
   return Math.max(remote, local);
 }
 function hasAnyRating(story) { return hasRating(story) || localBest(story.id) !== null; }
+function versionNumber(version) { const n = Number(String(version?.label || '').replace(/^v/, '')); return Number.isFinite(n) ? n : 0; }
+function isVersionRated(story, version) {
+  if (Number.isFinite(version?.score)) return true;
+  const entry = localStore[`${story.id}:${version.label}`];
+  return Boolean(entry && Number.isFinite(entry.total));
+}
+// "New unrated version": a version newer than the newest rated one is still
+// waiting for a score. The owner should spot it next to the best-rating badge.
+function hasUnratedNewVersion(story) {
+  const versions = story.versions || [];
+  const rated = versions.filter(v => isVersionRated(story, v));
+  if (!rated.length) return false;
+  const newestRated = Math.max(...rated.map(versionNumber));
+  return versions.some(v => versionNumber(v) > newestRated && !isVersionRated(story, v));
+}
 
 function render() {
   const query = ($('#search').value || '').toLowerCase().trim();
@@ -37,7 +52,8 @@ function render() {
     const scoreDifference = (combinedBest(a) ?? -1) - (combinedBest(b) ?? -1);
     return scoreDifference || latest(b).localeCompare(latest(a));
   });
-  $('#summary').textContent = `${stories.length} z ${state.stories.length} fabuł · nieocenione są na górze`;
+  const freshCount = stories.filter(hasUnratedNewVersion).length;
+  $('#summary').textContent = `${stories.length} z ${state.stories.length} fabuł · nieocenione są na górze${freshCount ? ` · ${freshCount} z nową nieocenioną wersją` : ''}`;
   $('#catalog').innerHTML = stories.map(story => {
     const remote = best(story);
     const rating = combinedBest(story);
@@ -45,7 +61,8 @@ function render() {
     const versions = story.versions?.length || 0;
     const versionLabel = versions === 1 ? 'wersja' : 'wersji';
     const status = rating === null ? 'nieocenione' : `najlepiej ${rating}/15${localOnly ? ' · na tym urządzeniu' : ''}`;
-    return `<article class="story"><div class="story-head"><h2><a href="stories/${story.id}/"><span class="story-id">#${story.id}</span> ${story.title}</a></h2><span class="pill ${rating === null ? 'wait' : 'good'}">${status}</span></div><div class="meta"><span class="pill">${versions} ${versionLabel}</span><span class="pill">${rating === null ? 'oczekuje na ocenę' : localOnly ? 'ocenione lokalnie' : 'ma ocenę'}</span></div></article>`;
+    const freshBadge = hasUnratedNewVersion(story) ? '<span class="pill fresh" title="Nowsza wersja tej fabuły czeka na ocenę">nieoceniona nowa wersja</span>' : '';
+    return `<article class="story"><div class="story-head"><h2><a href="stories/${story.id}/"><span class="story-id">#${story.id}</span> ${story.title}</a></h2><div class="badges"><span class="pill ${rating === null ? 'wait' : 'good'}">${status}</span>${freshBadge}</div></div><div class="meta"><span class="pill">${versions} ${versionLabel}</span><span class="pill">${rating === null ? 'oczekuje na ocenę' : localOnly ? 'ocenione lokalnie' : 'ma ocenę'}</span></div></article>`;
   }).join('') || '<p class="lede">Brak wyników.</p>';
 }
 
