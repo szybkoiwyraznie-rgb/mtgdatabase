@@ -107,9 +107,30 @@ def test_validator() -> None:
     record("validator: wersja historyczna bez genre -> akcept", run_validator(json.loads(json.dumps(base))) == 0)
 
 
+def test_sync_state_refresh() -> None:
+    import sync_ratings
+
+    data = {"stories": [{"id": "1", "versions": [{"label": "v1", "reports": [], "score": None, "scores": None}]}]}
+    issue = {
+        "html_url": "https://example.invalid/issues/1",
+        "created_at": "2026-01-01T00:00:00Z",
+        "state": "open",
+        "body": "<!-- jingle-feedback: 1:v1 -->\n**Feeling:** 3/5\n**Story fit:** 3/5\n**Sample quality:** 3/5\n**Comment:** x",
+    }
+    rating = sync_ratings.parse_issue(issue)
+    sync_ratings.apply_ratings(data, [rating])
+    # Same issue comes back on the next sync with an updated state.
+    sync_ratings.apply_ratings(data, [dict(rating, state="closed")])
+    version = data["stories"][0]["versions"][0]
+    reports = version["reports"]
+    record("sync: ponowny sync odświeża stan raportu bez duplikatu",
+           len(reports) == 1 and reports[0]["state"] == "closed" and version["score"] == 9)
+
+
 def main() -> int:
     test_render_gate()
     test_validator()
+    test_sync_state_refresh()
     failures = 0
     for name, status, note in results:
         suffix = f" ({note})" if note else ""

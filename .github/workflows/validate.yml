@@ -32,5 +32,8 @@ jobs:
       - name: Validate production project descriptions
         if: ${{ hashFiles('data/versions.json') != '' }}
         run: python scripts/validate_versions.py data/versions.json
+      - name: Print remake queue
+        if: ${{ hashFiles('data/versions.json') != '' }}
+        run: python scripts/remake_queue.py --versions data/versions.json
       - name: Check best ZIP builder help
         run: python scripts/build_best_zip.py --help

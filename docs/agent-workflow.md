@@ -2,7 +2,7 @@
 
 ## Priorytet
 
-W każdej pętli agent wykonuje oba zadania produkcyjne: tworzy pierwszą wersję losowej nowej fabuły oraz wykonuje remake najgorzej ocenionego istniejącego jingla. Jeśli jedna z kolejek jest pusta, agent odnotowuje ten fakt i kontynuuje pozostałe zadania.
+W każdej pętli agent wykonuje oba zadania produkcyjne: tworzy pierwszą wersję losowej nowej fabuły oraz wykonuje remake najsłabszej fabuli w kolejce (szeregowanie wg najlepszej ocenionej wersji fabuły — patrz krok 2). Jeśli jedna z kolejek jest pusta, agent odnotowuje ten fakt i kontynuuje pozostałe zadania.
 
 ## Każda pętla
 
@@ -38,14 +38,15 @@ Najnowszy raport dla pary (fabuła, wersja) ustawia aktualną ocenę, a każdy r
 - wyrenderuj pierwsze MP3 i zapisz metadane jako `v1`; render musi przejść audyt QA ≥85/100 — poniżej progu poprawiasz recepturę i liczysz ponownie, zanim zapiszesz metadane;
 - jeśli nie ma nowych fabuł, zapisz to w raporcie i przejdź dalej.
 
-### 2. Remake najgorszego jingla
+### 2. Remake najsłabszej fabuły (ranking wg najlepszej wersji)
 
-- znajdź najniżej oceniony, nierozwiązany raport;
+- uszereguj fabuły po **najlepiej ocenionej wersji** rosnąco: `python scripts/remake_queue.py --versions data/versions.json`; nisko oceniony remake (np. v2 = 3/15 przy v1 = 10/15) nie podnosi priorytetu fabuły ponad jej najlepszą wersję;
+- pomiń fabuły, których najnowsza wersja czeka jeszcze na ocenę (nie stackuj wersji), oraz fabuły bez otwartych raportów;
 - zarezerwuj zadanie, aby dwóch agentów nie pracowało nad nim równocześnie;
-- przeanalizuj trzy oceny i komentarz;
+- przeanalizuj trzy oceny i komentarz; nowa wersja `vN` buduje na mocnych stronach **najlepiej ocenionej wersji** tej fabuły — raporty wskazują, co poprawić, nie wymuszają kontynuacji po porażce;
 - zaprojektuj poprawkę, zaktualizuj opis projektowy i nie kasuj poprzedniej wersji;
 - wyrenderuj kolejną wersję `vN` (audyt QA ≥85/100) i oznacz raport jako obsłużony dopiero po udanej publikacji; po merge'u `data/versions.json` z nowszą wersją workflow `Sync ratings from issues` zamyka raport automatycznie, ale agent weryfikuje to na wypadek awarii automatu;
-- jeśli nie ma ocenionego jingla do poprawy, zapisz to w raporcie.
+- jeśli nie ma ocenionej fabuły do poprawy, zapisz to w raporcie.
 
 ### 3. Rozwój warsztatu
 
