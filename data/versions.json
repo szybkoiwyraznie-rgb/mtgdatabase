@@ -1420,9 +1420,26 @@
           "label": "v3",
           "created_at": "2026-09-22T15:30:00Z",
           "audio": "legacy/source/jingle_output/568_v3.mp3",
-          "score": null,
-          "scores": null,
-          "reports": [],
+          "score": 12,
+          "scores": {
+            "feeling": 4,
+            "story_fit": 4,
+            "sample_quality": 4
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/27",
+              "created_at": "2026-09-22T18:11:10Z",
+              "state": "open",
+              "scores": {
+                "feeling": 4,
+                "story_fit": 4,
+                "sample_quality": 4
+              },
+              "total": 12,
+              "comment": "to się czymś różni od poprzedniego?"
+            }
+          ],
           "project_description": {
             "summary": "Krótka forma audio dla sceny: Nanoform Sentinel. Wersja v3 odpowiada na ocenę partii (~5/15): stemy wyłącznie natywne (zakaz pitchowania, AGENTS.md #15 — v2 przestrywało impact 0,72/1,2), zachowane polubione elementy v1 (szum stacji, rój nanoformu) bez „melodyjki”.",
             "ambience": "station_hum (laboratoria orbitalne nad Uthros)",
@@ -1474,7 +1491,9 @@
                 "Kontrast dramaturgiczny: 16.0/30 (ratio 2.67x)"
               ]
             }
-          }
+          },
+          "rated_at": "2026-09-22T18:11:10Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/27"
         }
       ]
     }
