@@ -15,20 +15,25 @@ CRITERIA = [
 ]
 
 
+def escape(value: object) -> str:
+    """Escape every catalog value interpolated into generated HTML."""
+    return html.escape(str(value), quote=True)
+
+
 def project_description_html(version: dict) -> str:
     design = version.get("project_description", {})
     if not design:
         return '<p class="missing-design">Brak opisu projektowego.</p>'
     qa = design.get("qa", {})
     qa_score = qa.get("score")
-    qa_details = "<br>".join(html.escape(str(item)) for item in qa.get("details", []))
-    qa_badge = (f'<span class="qa-score-wrap"><span class="qa-score">QA Score: {qa_score}/100</span>'
+    qa_details = "<br>".join(escape(item) for item in qa.get("details", []))
+    qa_badge = (f'<span class="qa-score-wrap"><span class="qa-score">QA Score: {escape(qa_score)}/100</span>'
                 f'<span class="qa-tooltip">{qa_details}</span></span>'
                 if qa_score is not None else '')
     return (
         '<div class="design"><div class="design-heading"><strong>Opis projektowy</strong>'
         f'{qa_badge}</div>'
-        f'<p class="design-summary">{html.escape(str(design.get("description", design.get("summary", ""))) )}</p>'
+        f'<p class="design-summary">{escape(design.get("description", design.get("summary", "")))}</p>'
         '</div>'
     )
 
@@ -38,13 +43,13 @@ def rating_summary_html(version: dict) -> str:
     score = version.get("score")
     scores = version.get("scores") or {}
     breakdown = "".join(
-        f"<li>{title}: {scores.get(name) if scores.get(name) is not None else '–'}/5</li>"
+        f'<li>{title}: {escape(scores.get(name)) if scores.get(name) is not None else "–"}/5</li>'
         for name, title in CRITERIA
     )
     rated_at = version.get("rated_at")
-    when = f' · oceniono {html.escape(str(rated_at).split("T")[0])}' if rated_at else ""
+    when = f' · oceniono {escape(str(rated_at).split("T")[0])}' if rated_at else ""
     return (
-        f'<div class="rated"><p class="rated-total">Ocena tej wersji: {score}/15{when}</p>'
+        f'<div class="rated"><p class="rated-total">Ocena tej wersji: {escape(score)}/15{when}</p>'
         f'<ul class="rated-breakdown">{breakdown}</ul>'
         '<p class="rated-note">Ta wersja ma już ocenę — formularz oceny pokazuje się wyłącznie przy wersjach bez oceny.</p></div>'
     )
@@ -64,7 +69,8 @@ def main() -> None:
     shutil.copytree(Path("site"), args.output, dirs_exist_ok=True)
     # Templates and example configuration are source files, not public assets.
     for private_file in (args.output / "story-template.html", args.output / "data/config.example.json"):
-        if private_file.exists(): private_file.unlink()
+        if private_file.exists():
+            private_file.unlink()
     data = json.loads(args.catalog.read_text(encoding="utf-8"))
     # Pages is a showcase of finished work, not a list of empty production slots.
     data["stories"] = [story for story in data.get("stories", []) if story.get("versions")]
@@ -96,9 +102,10 @@ def main() -> None:
         versions = sorted(story.get("versions", []), key=lambda item: int(str(item.get("label", "v0")).lstrip("v")), reverse=True)
         cards = []
         for version in versions:
-            audio = version.get("audio", "").replace("audio/", "../../audio/", 1)
+            audio = escape(str(version.get("audio", "")).replace("audio/", "../../audio/", 1))
             score = version.get("score")
-            label = f"{score}/15" if score is not None else "oczekuje na ocenę"
+            label = f"{escape(score)}/15" if score is not None else "oczekuje na ocenę"
+            version_label = escape(version.get("label", ""))
             if score is not None:
                 form = rating_summary_html(version)
             else:
@@ -106,14 +113,19 @@ def main() -> None:
                 for name, title in CRITERIA:
                     options = "".join(f'<label class="rating-option"><input type="radio" name="{name}" value="{value}" required>{value}</label>' for value in range(1, 6))
                     fields.append(f'<fieldset><legend>{title}</legend><div class="rating-options">{options}</div></fieldset>')
-                form = f'<form class="feedback" data-story="{story["id"]}" data-version="{version["label"]}">' + "".join(fields) + '<textarea name="comment" maxlength="2000" placeholder="Komentarz (opcjonalnie)"></textarea><button>Prześlij ocenę tej wersji</button><output></output></form>'
+                form = (f'<form class="feedback" data-story="{escape(story["id"])}" '
+                        f'data-version="{version_label}">' + "".join(fields) +
+                        '<textarea name="comment" maxlength="2000" placeholder="Komentarz (opcjonalnie)"></textarea>'
+                        '<button>Prześlij ocenę tej wersji</button><output></output></form>')
             cards.append(
-                f'<section class="version"><div class="version-head"><strong>{version["label"]}</strong><small>{label}</small></div><div class="player"><audio controls preload="metadata"><source src="{audio}" type="audio/mpeg">Twoja przeglądarka nie obsługuje audio.</audio></div>{project_description_html(version)}{form}</section>'
+                f'<section class="version"><div class="version-head"><strong>{version_label}</strong><small>{label}</small></div>'
+                f'<div class="player"><audio controls preload="metadata"><source src="{audio}" type="audio/mpeg">'
+                f'Twoja przeglądarka nie obsługuje audio.</audio></div>{project_description_html(version)}{form}</section>'
             )
-        latest = versions[-1]["label"] if versions else "v1"
-        page = (template.replace("__ID__", str(story["id"]))
-                .replace("__TITLE__", story["title"])
-                .replace("__STORY__", story["story"])
+        latest = escape(versions[-1].get("label", "v1")) if versions else "v1"
+        page = (template.replace("__ID__", escape(story["id"]))
+                .replace("__TITLE__", escape(story["title"]))
+                .replace("__STORY__", escape(story["story"]))
                 .replace("__VERSIONS__", "".join(cards))
                 .replace("__LATEST__", latest))
         destination = args.output / "stories" / str(story["id"]) / "index.html"

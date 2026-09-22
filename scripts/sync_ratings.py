@@ -113,10 +113,16 @@ def apply_ratings(data: dict, ratings: list[dict]) -> tuple[int, int, list[str]]
             })
             reports.sort(key=lambda report: report.get("created_at", ""))
         else:
-            # Issues get closed by close_served_reports after a newer version
-            # ships; history stays, but the mutable state must refresh so the
-            # remake queue (scripts/remake_queue.py) sees the real status.
-            existing["state"] = rating["state"]
+            # Issues can be edited or closed after their first sync. Preserve
+            # the history entry, but refresh every mutable report field so its
+            # score, comment and state match GitHub rather than becoming stale.
+            existing.update({
+                "created_at": rating["created_at"],
+                "state": rating["state"],
+                "scores": rating["scores"],
+                "total": rating["total"],
+                "comment": rating["comment"],
+            })
         applied_targets.add((story_id, label))
     return len(applied_targets), len(skipped_notes), sorted(skipped_notes.values())
 
