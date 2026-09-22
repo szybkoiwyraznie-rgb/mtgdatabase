@@ -8,6 +8,7 @@ Recipe format (see data/recipes/*.json):
 
 {
   "story_id": "568", "label": "v1", "duration_sec": 5.5,
+  "genre": "sci-fi",
   "climax_window": [1.5, 3.8],
   "bed": {
     "ambience": {"type": "wind|station_hum|cave_water|terrace", "gain": 0.3, "params": {...}},
@@ -45,6 +46,41 @@ ROOT = Path(__file__).resolve().parents[1]
 STEMS = ROOT / "legacy/source/game-audio-pipeline/stems"
 SR = 44_100
 STORY_SECONDS_DEFAULT = 5.5
+
+
+def validate_live_samples(recipe: dict) -> None:
+    """Hard rule (AGENTS.md #14): synthetic layers are almost exclusively for
+    sci-fi scenes. Every recipe must declare its genre; non-sci-fi recipes
+    need >=2 live stem events (one inside the climax window) and sci-fi
+    recipes need >=1, so every jingle keeps at least one real recording."""
+    genre = str(recipe.get("genre", "")).strip().lower()
+    if not genre:
+        raise ValueError(
+            "brak pola 'genre' w recepturze — od zasady żywych sampli "
+            "(AGENTS.md #14) każda receptura deklaruje gatunek sceny, "
+            "np. 'sci-fi', 'fantasy', 'nature', 'history'"
+        )
+    events = recipe.get("events", [])
+    stems = [ev for ev in events if ev.get("type") == "stem"]
+    lo, hi = recipe.get("climax_window", [1.5, 3.8])
+    if genre == "sci-fi":
+        if not stems:
+            raise ValueError(
+                "scena sci-fi zwalnia minimum do jednego żywego samplu, ale "
+                "co najmniej jedno zdarzenie musi być nagraniem (stem)"
+            )
+        return
+    if len(stems) < 2:
+        raise ValueError(
+            f"scena nie-SF ('{genre}') wymaga co najmniej dwóch zdarzeń na "
+            f"żywych samplach (stems); znaleziono {len(stems)} — bez żywych "
+            "sampli projekt nie ma sensu (AGENTS.md #14)"
+        )
+    if not any(lo <= float(ev.get("time_sec", -1.0)) <= hi for ev in stems):
+        raise ValueError(
+            f"scena nie-SF ('{genre}') wymaga żywego samplu w oknie "
+            f"kulminacji [{lo}, {hi}] — kulminacja nie może być syntetyczna"
+        )
 
 
 # --------------------------------------------------------------------------
@@ -430,6 +466,11 @@ def main() -> int:
     args = parser.parse_args()
 
     recipe = json.loads(args.recipe.read_text(encoding="utf-8"))
+    try:
+        validate_live_samples(recipe)
+    except ValueError as error:
+        print(f"  ! Receptura odrzucona: {error}", file=sys.stderr)
+        return 1
     mix, events = render(recipe)
     encode_mp3(mix, args.out)
     qa = qa_audit_file(args.out, tuple(recipe.get("climax_window", [1.5, 3.8])))
@@ -449,6 +490,7 @@ def main() -> int:
         return 1
     if args.print_description:
         desc = dict(recipe.get("project_description", {}))
+        desc["genre"] = str(recipe.get("genre", "")).strip().lower()
         desc["events"] = events
         desc["qa"] = {k: qa[k] for k in ("score", "base", "dramaturgy", "status", "details")}
         print(json.dumps(desc, ensure_ascii=False, indent=2))

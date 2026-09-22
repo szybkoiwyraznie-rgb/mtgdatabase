@@ -9,7 +9,7 @@ Nowa sesja może wystartować z czystego klona. Przetrwa tylko to, co zostało z
 - Commituj i pushuj często.
 - Nie polegaj na historii rozmowy ani plikach w `/tmp`.
 - Przed resetem, checkoutem lub zmianą branchu sprawdź `git status` i wykonaj kopię niezacommitowanych zmian.
-- Pracuj wyłącznie na branchu `arena/01a0c595-mtgdatabase`; nie twórz ani nie pushuj innych branchy.
+- Pracuj wyłącznie na branchu roboczym bieżącej sesji Arena (format `arena/<id>-mtgdatabase`, wskazanym w konfiguracji sesji); nie twórz ani nie pushuj innych branchy. Jeśli nie masz pewności, który branch jest Twoim branchem sesji, sprawdź `git branch --show-current` i status sesji w Arena.
 - Nie pushuj bezpośrednio do `main`.
 
 ## 2. Ochrona przed resetem workspace
@@ -19,7 +19,7 @@ Jeśli HEAD niespodziewanie wskazuje bazę albo zniknęły commity:
 ```bash
 git status --porcelain
 git diff > /tmp/arena-recovery.patch
-git fetch origin arena/01a0c595-mtgdatabase
+git fetch origin <branch-sesji>   # np. arena/01a0c8f1-mtgdatabase
 git reset --mixed FETCH_HEAD
 ```
 

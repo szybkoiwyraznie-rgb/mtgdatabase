@@ -1,17 +1,19 @@
-name: Publish Pages preview
+name: Check Pages build
+
+# Build validation for working branches (LESSONS 2026-09-21: deployment runs
+# only from main, so this workflow never deploys — it only proves the Pages
+# site builds). Splitting it out of pages.yml keeps a permanently "skipped"
+# deploy job out of PR checks.
 
 on:
-  workflow_dispatch:
   push:
-    branches: [main]
+    branches: ['arena/**']
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-build
   cancel-in-progress: true
 
 jobs:
@@ -35,18 +37,3 @@ jobs:
           fi
       - name: Build static preview
         run: python scripts/build_site.py --catalog /tmp/catalog.json --output _site --audio-root legacy/source/jingle_output
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-  deploy:
-    # Guard stays for workflow_dispatch launched from a non-main branch.
-    if: ${{ github.ref == 'refs/heads/main' }}
-    needs: build
-    runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    steps:
-      - id: deployment
-        uses: actions/deploy-pages@v4

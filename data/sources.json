@@ -98,6 +98,28 @@
       "allowed_for_offline_zip": true,
       "checked_at": "2026-09-22",
       "notes": "Uwaga ShareAlike: edycja Borisblue jest CC BY-SA 2.5. Przy przyszłym użyciu preferować surowy oryginał FWS (alligatorbellow1.ogg, czysty PD) albo traktować miks jako adaptację CC BY-SA. Dla nowych renderów unikać, dopóki nie przełączymy się na wersję PD."
+    },
+    {
+      "name": "wolf_howl.mp3",
+      "url": "https://www.nps.gov/yell/learn/nature/sound-library.htm (Yellowstone Sound Library, wear „Wolves”)",
+      "author": "U.S. National Park Service (Yellowstone Sound Library); zdjęcie nagrania: NPS / Jacob Frank",
+      "license": "Public Domain (praca rządu USA)",
+      "attribution_required": false,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "Oryginał: publiczna Yellowstone Sound Library (NPS, prace agencji federalnych USA = PD). Pobrano przez mirror github.com/rosuH/YSL (katalog „Wolves/Sound Library - Wolves.mp3”, automatyczny cotygodniowy crawler biblioteki NPS), ponieważ egress sandboxa tnie TLS do nps.gov/Wikimedia, a github.com jest osiągalny. Wycięto fragment 12,5–18,5 s (narastanie + główne wycie), fade 60 ms; licencja niezmieniona. Weryfikacja: energia w paśmie 250–1200 Hz typowa dla wycia."
+    },
+    {
+      "name": "steam_vent.mp3",
+      "url": "https://www.nps.gov/yell/learn/nature/sound-library.htm (Yellowstone Sound Library, wpis „Black Growler Steam Vent”)",
+      "author": "U.S. National Park Service (Yellowstone Sound Library); zdjęcie nagrania: NPS / Neal Herbert",
+      "license": "Public Domain (praca rządu USA)",
+      "attribution_required": false,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "Oryginał: publiczna Yellowstone Sound Library (NPS, PD). Pobrano przez mirror github.com/rosuH/YSL (katalog „Black Growler Steam Vent”), wycięto 7,5–10,2 s (najsilniejszy syk) narzędziem scripts/make_stem.py. Użycie: syk pary/urańca z uszkodzonego przewodu (568 v2)."
     }
   ]
 }

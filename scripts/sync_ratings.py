@@ -101,7 +101,8 @@ def apply_ratings(data: dict, ratings: list[dict]) -> tuple[int, int, list[str]]
         version["rated_at"] = rating["created_at"]
         version["feedback_issue"] = rating["issue_url"]
         reports = version.setdefault("reports", [])
-        if all(report.get("issue_url") != rating["issue_url"] for report in reports):
+        existing = next((report for report in reports if report.get("issue_url") == rating["issue_url"]), None)
+        if existing is None:
             reports.append({
                 "issue_url": rating["issue_url"],
                 "created_at": rating["created_at"],
@@ -111,6 +112,11 @@ def apply_ratings(data: dict, ratings: list[dict]) -> tuple[int, int, list[str]]
                 "comment": rating["comment"],
             })
             reports.sort(key=lambda report: report.get("created_at", ""))
+        else:
+            # Issues get closed by close_served_reports after a newer version
+            # ships; history stays, but the mutable state must refresh so the
+            # remake queue (scripts/remake_queue.py) sees the real status.
+            existing["state"] = rating["state"]
         applied_targets.add((story_id, label))
     return len(applied_targets), len(skipped_notes), sorted(skipped_notes.values())
 

@@ -1,13 +1,13 @@
 # System ocen
 
-Formularz przy najnowszej wersji jingla ma trzy pola liczbowe 1–5 i komentarz:
+Formularz oceny pokazuje się wyłącznie przy wersjach bez oceny i ma trzy pola liczbowe 1–5 oraz komentarz:
 
 - feeling ogólny;
 - zgodność z fabułą;
 - jakość wykorzystanych sampli;
 - komentarz tekstowy.
 
-Wynik jest sumą trzech wartości, od 3 do 15.
+Wynik jest sumą trzech wartości, od 3 do 15. Wersja, która ma już ocenę, pokazuje na swojej karcie wynik z rozbiciem na trzy kryteria zamiast formularza — poprawy wprowadza się jako nową wersję `vN`, a nie przez ponowne ocenienie. Na liście fabuł karta, która ma ocenę i nowszą nieocenioną wersję, dostaje badge „nieoceniona nowa wersja" obok znacznika „najlepiej x/15".
 
 ## Zapis
 
@@ -23,4 +23,4 @@ Workflow `Sync ratings from issues` reaguje na każde nowe lub edytowane issue z
 
 ## Kolejka popraw
 
-Otwarte raporty otrzymują etykietę `needs-review`. Agent sortuje je po sumie rosnąco, rezerwuje najgorsze zadanie, tworzy kolejną wersję i zamyka raport dopiero po udanej publikacji nowego renderu. Ten ostatni krok automatyzuje `scripts/close_served_reports.py` w workflow `Sync ratings from issues` (odpala się też na push `data/versions.json`): raport dotyczący `vN` zamyka się z komentarzem, gdy w metadanych istnieje nowsza wersja `vM`. Raport o najnowszej wersji nigdy nie zamyka się automatycznie — czeka na własną ocenę.
+Otwarte raporty otrzymują etykietę `needs-review`. Kolejkę remaków określa **najlepsza oceniona wersja fabuły** (rosnąco), nie najniższa pojedyncza ocena: nisko oceniony remake przy lepszym oryginale nie podbija fabuły w kolejce, a fabuła, której najnowsza wersja czeka na ocenę, czeka na swoją kolej (`scripts/remake_queue.py`). Agent rezerwuje zadanie, tworzy kolejną wersję na fundamencie najlepiej ocenionej wersji fabuły i zamyka raport dopiero po udanej publikacji nowego renderu. Ten ostatni krok automatyzuje `scripts/close_served_reports.py` w workflow `Sync ratings from issues` (odpala się też na push `data/versions.json`): raport dotyczący `vN` zamyka się z komentarzem, gdy w metadanych istnieje nowsza wersja `vM`. Raport o najnowszej wersji nigdy nie zamyka się automatycznie — czeka na własną ocenę.

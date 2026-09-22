@@ -4,7 +4,7 @@ Prywatny, niekomercyjny pipeline do projektowania, renderowania, oceniania i ite
 
 ## Cel
 
-Agent najpierw audytuje poprzedni PR i stan kodu, naprawia znalezione problemy, następnie w każdej pętli tworzy jingle dla nowych fabuł oraz wykonuje remake najgorzej ocenionego istniejącego jingla. Wyniki publikuje w panelu odsłuchowym GitHub Pages, przyjmuje trzy oceny liczbowe i komentarz, a równolegle rozwija dokumentację, narzędzia i bibliotekę sampli.
+Agent najpierw audytuje poprzedni PR i stan kodu, naprawia znalezione problemy, następnie w każdej pętli tworzy jingle dla nowych fabuł oraz wykonuje remake najsłabszej fabuły — kolejność wyznacza najlepiej oceniona wersja fabuły, nie najgorsza pojedyncza wersja. Wyniki publikuje w panelu odsłuchowym GitHub Pages, przyjmuje trzy oceny liczbowe i komentarz, a równolegle rozwija dokumentację, narzędzia i bibliotekę sampli.
 
 ## Stan projektu
 

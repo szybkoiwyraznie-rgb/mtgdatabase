@@ -1,0 +1,43 @@
+{
+  "story_id": "8",
+  "label": "v1",
+  "genre": "fantasy",
+  "duration_sec": 5.5,
+  "climax_window": [1.5, 3.8],
+  "bed": {
+    "ambience": {"type": "wind", "gain": 0.14, "params": {"seed": 8}}
+  },
+  "events": [
+    {"time_sec": 0.45, "type": "synth", "kind": "crackle", "length_sec": 0.8, "gain": 0.16, "pan": 0.2,
+     "role": "neutralny detal szumowy: trzask żaru na wulkanicznym zboczu",
+     "params": {"bursts": 14}},
+    {"time_sec": 0.9, "type": "stem", "file": "gravel_feet.mp3", "pitch": 1.25, "hp_hz": 110, "gain": 0.5, "pan": -0.1,
+     "role": "szarża trójki goblinów po skalistym zboczu"},
+    {"time_sec": 1.05, "type": "stem", "file": "bear_growl.mp3", "pitch": 0.45, "hp_hz": 90, "gain": 0.32, "pan": -0.35,
+     "role": "odwieczny smok krąży wysoko — żywe łono zamiast dronu syntetycznego"},
+    {"time_sec": 1.6, "type": "stem", "file": "whoosh_flap.mp3", "pitch": 1.15, "hp_hz": 200, "gain": 0.85, "pan": 0.3,
+     "role": "łopot poszarpanego sztandaru czaszki"},
+    {"time_sec": 2.1, "type": "stem", "file": "gravel_feet.mp3", "pitch": 1.15, "hp_hz": 110, "gain": 0.6, "pan": -0.2,
+     "role": "dalszy bieg po wulkanicznych skałach"},
+    {"time_sec": 2.7, "type": "stem", "file": "sword_swipe.mp3", "pitch": 0.9, "hp_hz": 150, "gain": 1.3, "pan": 0.0,
+     "role": "goblin skacze z kamiennego nawisu — świst zardzewiałego topora"},
+    {"time_sec": 2.95, "type": "stem", "file": "impact_smack.mp3", "pitch": 0.85, "gain": 1.5, "pan": 0.0,
+     "role": "kulminacja — topór trafia, jaszczur bojowy wpada w szarżę"},
+    {"time_sec": 3.55, "type": "stem", "file": "gravel_feet.mp3", "pitch": 1.2, "hp_hz": 110, "gain": 0.5, "pan": 0.15,
+     "role": "szarża nie zwalnia ani o krok"},
+    {"time_sec": 4.35, "type": "stem", "file": "bear_growl.mp3", "pitch": 0.5, "hp_hz": 90, "gain": 0.28, "pan": 0.35,
+     "role": "ryk jaszczura bojowego pod jeźdźcem, smok zbliża się z wysokości"},
+    {"time_sec": 4.0, "type": "synth", "kind": "crackle", "length_sec": 0.9, "gain": 0.18, "pan": -0.3,
+     "role": "neutralny detal szumowy: meandry płynnej lawy",
+     "params": {"bursts": 16}}
+  ],
+  "ducking": [2.6, 3.5, 0.35],
+  "post": {"echo_ms": [130, 260], "echo_gains": [0.14, 0.08], "room": 0.4},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Goblin Deathraiders (8ALA). Wulkaniczna Jund: szarża trójki goblinów — kroki po skałach, łopot sztandaru czaszki, skok z nawisu ze świstem topora i uderzenie jako kulminacja. Smok w tle to żywy ryk (bear_growl NPS pitch 0.45), nie syntetyczny dron — zgodnie z zasadą żywych sampli (AGENTS.md #14).",
+    "ambience": "wind (wulkaniczne zbocza Jundu)",
+    "drone": "brak dronu syntetycznego (fantasy) — rolę łona przejmuje żywy ryk smoka (bear_growl 0.45x, NPS PD)",
+    "mix_notes": "Kroki szarży 0.9 s i 2.1 s (pitch 1.15–1.25 — drobne szybkie stwory); smok od 1.05 s lewo (gain 0.32, poza oknem intro dla czystszego kontrastu); sztandar 1.6 s prawo; świst topora 2.7 s centralnie → uderzenie 2.95 s (gain 1.5) z duckingiem tła 0.35 (2.6–3.5 s); szarża trwa 3.55 s; drugi ryk 4.35 s prawo. Trzask żaru jako jedyny neutralny detal szumowy (crackle 0.16–0.18). Echo zbocza 130/260 ms, room 0.4.",
+    "description": "Wiatr na wulkanicznym zboczu • pęd szarży goblinów po skałach • łopot sztandaru czaszki • świst zardzewiałego topora w skoku z nawisu • uderzenie i nieustający bieg • żywy ryk smoka z wysokości"
+  }
+}

@@ -8,6 +8,12 @@ import json
 import shutil
 from pathlib import Path
 
+CRITERIA = [
+    ("feeling", "Feeling ogólny"),
+    ("story_fit", "Zgodność z fabułą"),
+    ("sample_quality", "Jakość sampli"),
+]
+
 
 def project_description_html(version: dict) -> str:
     design = version.get("project_description", {})
@@ -24,6 +30,23 @@ def project_description_html(version: dict) -> str:
         f'{qa_badge}</div>'
         f'<p class="design-summary">{html.escape(str(design.get("description", design.get("summary", ""))) )}</p>'
         '</div>'
+    )
+
+
+def rating_summary_html(version: dict) -> str:
+    """Rated versions display their score instead of the rating form."""
+    score = version.get("score")
+    scores = version.get("scores") or {}
+    breakdown = "".join(
+        f"<li>{title}: {scores.get(name) if scores.get(name) is not None else '–'}/5</li>"
+        for name, title in CRITERIA
+    )
+    rated_at = version.get("rated_at")
+    when = f' · oceniono {html.escape(str(rated_at).split("T")[0])}' if rated_at else ""
+    return (
+        f'<div class="rated"><p class="rated-total">Ocena tej wersji: {score}/15{when}</p>'
+        f'<ul class="rated-breakdown">{breakdown}</ul>'
+        '<p class="rated-note">Ta wersja ma już ocenę — formularz oceny pokazuje się wyłącznie przy wersjach bez oceny.</p></div>'
     )
 
 
@@ -76,12 +99,14 @@ def main() -> None:
             audio = version.get("audio", "").replace("audio/", "../../audio/", 1)
             score = version.get("score")
             label = f"{score}/15" if score is not None else "oczekuje na ocenę"
-            criteria = [("feeling", "Feeling ogólny"), ("story_fit", "Zgodność z fabułą"), ("sample_quality", "Jakość sampli")]
-            fields = []
-            for name, title in criteria:
-                options = "".join(f'<label class="rating-option"><input type="radio" name="{name}" value="{value}" required>{value}</label>' for value in range(1, 6))
-                fields.append(f'<fieldset><legend>{title}</legend><div class="rating-options">{options}</div></fieldset>')
-            form = f'<form class="feedback" data-story="{story["id"]}" data-version="{version["label"]}">' + "".join(fields) + '<textarea name="comment" maxlength="2000" placeholder="Komentarz (opcjonalnie)"></textarea><button>Prześlij ocenę tej wersji</button><output></output></form>'
+            if score is not None:
+                form = rating_summary_html(version)
+            else:
+                fields = []
+                for name, title in CRITERIA:
+                    options = "".join(f'<label class="rating-option"><input type="radio" name="{name}" value="{value}" required>{value}</label>' for value in range(1, 6))
+                    fields.append(f'<fieldset><legend>{title}</legend><div class="rating-options">{options}</div></fieldset>')
+                form = f'<form class="feedback" data-story="{story["id"]}" data-version="{version["label"]}">' + "".join(fields) + '<textarea name="comment" maxlength="2000" placeholder="Komentarz (opcjonalnie)"></textarea><button>Prześlij ocenę tej wersji</button><output></output></form>'
             cards.append(
                 f'<section class="version"><div class="version-head"><strong>{version["label"]}</strong><small>{label}</small></div><div class="player"><audio controls preload="metadata"><source src="{audio}" type="audio/mpeg">Twoja przeglądarka nie obsługuje audio.</audio></div>{project_description_html(version)}{form}</section>'
             )
