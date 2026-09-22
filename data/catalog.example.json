@@ -33,7 +33,20 @@
                 "role": "warstwa foley"
               }
             ],
-            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny."
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Wiatr w wąwozie + sub-dron • szum ognia pochodni • pikujący kruk Yellowstone NPS • orkowa stal z echem",
+            "qa": {
+              "score": 87.4,
+              "base": 70.0,
+              "dramaturgy": 17.4,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 17.4/30"
+              ]
+            }
           }
         }
       ]
@@ -71,7 +84,20 @@
                 "role": "warstwa foley"
               }
             ],
-            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny."
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Ciemna jaskinia + dysonans Eldrazi • tąpnięcie w kamień • bliski ryk Balotha (Yellowstone grizzly + aligator) • fontanna wody",
+            "qa": {
+              "score": 87.3,
+              "base": 70.0,
+              "dramaturgy": 17.3,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 17.3/30"
+              ]
+            }
           }
         }
       ]
@@ -109,7 +135,20 @@
                 "role": "warstwa foley / kulminacja"
               }
             ],
-            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny."
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Gabinet po spisku + niski dron • dopalająca się mapa i stopione figurki • złośliwy chochlik • puls skradzionego kryształu",
+            "qa": {
+              "score": 84.4,
+              "base": 70.0,
+              "dramaturgy": 14.4,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 14.4/30"
+              ]
+            }
           }
         }
       ]
@@ -147,7 +186,20 @@
                 "role": "warstwa foley / kulminacja"
               }
             ],
-            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny."
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Mgliste jezioro Eldraine + spokojny dron • woda przy kamieniu i szelest księgi • świetlisty kryształ • baśniowa kulminacja",
+            "qa": {
+              "score": 100.0,
+              "base": 70.0,
+              "dramaturgy": 30.0,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 30.0/30"
+              ]
+            }
           }
         }
       ]
@@ -185,7 +237,20 @@
                 "role": "warstwa foley"
               }
             ],
-            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny."
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Nocny las + napięciowy sub-dron • chrzęst kroków i świst skrzydeł • nagłe cięcie miecza • krótki, czysty stinger",
+            "qa": {
+              "score": 90.1,
+              "base": 70.0,
+              "dramaturgy": 20.1,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 20.1/30"
+              ]
+            }
           }
         }
       ]

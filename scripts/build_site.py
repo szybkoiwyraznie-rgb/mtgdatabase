@@ -19,16 +19,23 @@ def project_description_html(version: dict) -> str:
         f' <span>{html.escape(str(event.get("role", "")))}</span></li>'
         for event in design.get("events", [])
     )
+    qa = design.get("qa", {})
+    qa_score = qa.get("score")
+    qa_details = "&#10;".join(html.escape(str(item)) for item in qa.get("details", []))
+    qa_badge = (f'<span class="qa-score" title="{qa_details}">QA Score: {qa_score}/100</span>'
+                if qa_score is not None else '')
     return (
-        '<details class="design"><summary>Opis projektowy</summary>'
-        f'<p>{html.escape(str(design.get("summary", "")))}</p>'
+        '<div class="design"><div class="design-heading"><strong>Opis projektowy</strong>'
+        f'{qa_badge}</div>'
+        f'<p class="design-summary">{html.escape(str(design.get("description", design.get("summary", ""))) )}</p>'
+        '<details open><summary>Szczegóły techniczne</summary>'
         '<dl>'
         f'<dt>Ambience</dt><dd>{html.escape(str(design.get("ambience", "—")))}</dd>'
         f'<dt>Drone</dt><dd>{html.escape(str(design.get("drone", "—")))}</dd>'
         '</dl>'
         f'<h4>Sample i timestampy</h4><ul>{events}</ul>'
         f'<p><strong>Uwagi miksu:</strong> {html.escape(str(design.get("mix_notes", "—")))}</p>'
-        '</details>'
+        '</details></div>'
     )
 
 

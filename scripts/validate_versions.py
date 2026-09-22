@@ -4,7 +4,7 @@ from __future__ import annotations
 import argparse, json, sys
 from pathlib import Path
 
-REQUIRED = ("summary", "ambience", "drone", "events", "mix_notes")
+REQUIRED = ("description", "ambience", "drone", "events", "mix_notes", "qa")
 
 def main() -> int:
     parser = argparse.ArgumentParser()
@@ -19,8 +19,8 @@ def main() -> int:
             if not isinstance(design, dict) or any(not design.get(key) for key in REQUIRED):
                 print(f"{story.get('id')} {version.get('label')}: incomplete project_description", file=sys.stderr)
                 return 1
-            if not isinstance(design["events"], list):
-                print(f"{story.get('id')} {version.get('label')}: events must be a list", file=sys.stderr)
+            if not isinstance(design["events"], list) or not isinstance(design["qa"].get("score"), (int, float)):
+                print(f"{story.get('id')} {version.get('label')}: events or qa score invalid", file=sys.stderr)
                 return 1
     print(f"Valid project descriptions: {count} version(s)")
     return 0
