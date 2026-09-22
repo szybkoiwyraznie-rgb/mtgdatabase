@@ -19,5 +19,9 @@ jobs:
         run: python -m compileall -q scripts
       - name: Check required reading budget
         run: python scripts/check_required_reading.py
+      - name: Validate collection CSV
+        run: python scripts/validate_stories.py kolekcja.csv
+      - name: Test collection import
+        run: python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
       - name: Check best ZIP builder help
         run: python scripts/build_best_zip.py --help

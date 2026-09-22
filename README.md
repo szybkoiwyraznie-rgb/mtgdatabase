@@ -8,7 +8,7 @@ Agent najpierw audytuje poprzedni PR i stan kodu, naprawia znalezione problemy, 
 
 ## Stan projektu
 
-Repozytorium zawiera fundament procesu oraz materiały prototypowe przeniesione do `legacy/source/` z dostarczonego archiwum. Docelowy CSV z kolumnami `id,title,story` zostanie podmieniony przed uruchomieniem produkcyjnej kolejki.
+Repozytorium zawiera fundament procesu, aktualną kolekcję `kolekcja.csv` oraz materiały prototypowe przeniesione do `legacy/source/`. Kolekcja ma format TSV `Ilustracja`, `Nazwa Karty`, `Narracja`; z artID, np. `123DOM`, importer wyciąga numer `123`, który jest ID jingla i nazwą pliku `123.mp3`. Sufiks setu jest zachowany w metadanych, ale nie bierze udziału w produkcji.
 
 ## Zasady produktu
 
@@ -26,7 +26,9 @@ Repozytorium zawiera fundament procesu oraz materiały prototypowe przeniesione 
 - [`docs/agent-workflow.md`](docs/agent-workflow.md) — pętla produkcyjna;
 - [`docs/architecture.md`](docs/architecture.md) — architektura repozytorium i publikacji;
 - [`docs/feedback-system.md`](docs/feedback-system.md) — model ocen i komunikacja z GitHubem;
-- [`docs/sources-and-licensing.md`](docs/sources-and-licensing.md) — rejestr źródeł sampli.
+- [`docs/sources-and-licensing.md`](docs/sources-and-licensing.md) — rejestr źródeł sampli;
+- [`ENVIRONMENT.md`](ENVIRONMENT.md) — ograniczenia i pułapki Agent Arena;
+- [`docs/LESSONS.md`](docs/LESSONS.md) oraz [`docs/decisions/`](docs/decisions/) — trwała wiedza i decyzje.
 
 ## Narzędzia
 

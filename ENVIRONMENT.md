@@ -1,168 +1,49 @@
-# Środowisko sesji agentskiej — ograniczenia i pułapki (dokument trwały)
+# Środowisko Agent Arena
 
-> **To NIE jest handoff.** Handoff opisuje jedną sesję i traci aktualność; ten
-> plik zbiera **stałe właściwości środowiska**, które dotyczą każdej sesji.
-> Treści powtarzane w kolejnych `HANDOFF_*.md` („pułapki środowiska") należą
-> tutaj — w handoffie zostaje wyłącznie to, co specyficzne dla danej sesji.
->
-> Decyzja właściciela (2026-08-14): *„Wszystkie pułapki — typu cofanie HEAD itp.
-> — wiedza zapisana w poprzednich handoffach"* ma trafić do reguł trwałych.
+Ten plik jest obowiązkową lekturą dla każdego agenta. Zawiera zasady specyficzne dla pracy w sandboxie Arena; decyzje dotyczące produktu pozostają w `AGENTS.md`, ADR-ach i `docs/LESSONS.md`.
 
-Powiązania: [ADR 0013](../decisions/0013-agent-arena-sessions-and-mandatory-handoff.md)
-(model sesji), [ADR 0007](../decisions/0007-protected-main-and-mandatory-pull-requests.md)
-(chroniony `main`), [docs/LESSONS.md](../LESSONS.md) (lekcje diagnostyczne).
+## 1. Trwałość pracy
 
----
+Nowa sesja może wystartować z czystego klona. Przetrwa tylko to, co zostało zapisane w repozytorium, zacommitowane i wypchnięte na GitHub.
 
-## 1. Izolacja sesji — co NAPRAWDĘ przetrwa do następnej sesji
+- Commituj i pushuj często.
+- Nie polegaj na historii rozmowy ani plikach w `/tmp`.
+- Przed resetem, checkoutem lub zmianą branchu sprawdź `git status` i wykonaj kopię niezacommitowanych zmian.
+- Pracuj wyłącznie na branchu `arena/01a0c595-mtgdatabase`; nie twórz ani nie pushuj innych branchy.
+- Nie pushuj bezpośrednio do `main`.
 
-Najważniejsze ograniczenie całego projektu. Nowa sesja Areny startuje
-z **czystego klona** i ma dostęp wyłącznie do:
+## 2. Ochrona przed resetem workspace
 
-1. **gałęzi `main` na GitHubie** (stan po scaleniu PR poprzedniej sesji),
-2. **tekstu pierwszego promptu** — czyli bloku przekazania wklejonego przez
-   właściciela do czatu.
-
-**Nie przetrwa NIC innego.** W szczególności:
-
-| Co przepada | Dlaczego to ważne |
-|---|---|
-| pliki lokalne poprzedniej sesji (workspace, `/tmp`, artefakty) | fix „gotowy, ale niezacommitowany" = fix nieistniejący |
-| gałąź `arena/…` poprzedniej sesji, jeśli PR nie został scalony | praca zostaje na GitHubie, ale nowa sesja jej nie czyta |
-| historia czatu, ustalenia ustne, kontekst dyskusji | decyzje muszą trafić do repozytorium |
-| zmienne środowiskowe, cache, zainstalowane zależności | `npm i` w `tools/table-tester` trzeba powtórzyć |
-
-**Konsekwencje praktyczne:**
-
-- **Commituj i pushuj często.** Praca istnieje dopiero po `git push`.
-- Wszystko, co ma przetrwać, zapisz **w repozytorium** — kod, testy, ADR,
-  `docs/LESSONS.md`, handoff sesji.
-- Blok przekazania w czacie jest **kopią** wiedzy z repozytorium, nie jej
-  jedynym nośnikiem (ADR 0013 §4). Jeśli coś jest tylko w czacie — przepadnie.
-- Nie zakładaj, że następna sesja „będzie pamiętać" ustalenie z rozmowy.
-  Nie będzie.
-
----
-
-## 2. Sandbox potrafi zresetować workspace w trakcie sesji
-
-**Objaw:** lokalny `HEAD` nagle wskazuje `main`, commity sesji „znikają",
-`git branch -a` nie pokazuje gałęzi sesji, a `git push` odrzuca
-(*non-fast-forward*) albo `origin/<gałąź>` jest nieznane. W `git reflog` widać
-świeży wpis `clone: from …`.
-
-**Przyczyna:** środowisko odtworzyło workspace ze świeżego klona. Zdarzało się
-wielokrotnie (handoffy notują „2×", „3× w tej sesji"), także **w środku pracy**.
-
-**To nie jest utrata pracy — o ile commity były wypchnięte.**
-
-### Procedura odzyskania
+Jeśli HEAD niespodziewanie wskazuje bazę albo zniknęły commity:
 
 ```bash
-git reflog -10                     # potwierdź: wpis „clone: from …"
-git ls-remote --heads origin | grep <slug-sesji>   # praca jest na zdalnej gałęzi?
-git fetch origin <gałąź-sesji>
-git status --porcelain | head      # NAJPIERW: czy drzewo ma niecommitowaną pracę?
-git reset --hard FETCH_HEAD        # odtwórz historię sesji lokalnie
+git status --porcelain
+git diff > /tmp/arena-recovery.patch
+git fetch origin arena/01a0c595-mtgdatabase
+git reset --mixed FETCH_HEAD
 ```
 
-**Wariant groźniejszy (tura 14, 2026-09-03):** rebuild potrafi przywrócić PLIKI z
-ostatniego snapshotu, a cofnąć wyłącznie wskaźnik gałęzi — wtedy cała bieżąca tura siedzi
-niecommitowana w drzewie i `git reset --hard FETCH_HEAD` zjada ją bez śladu. Sygnał:
-`git log -1` pokazuje bazę PR, a `git status` masę zmian z tej tury. Leczenie:
-`git fetch --depth=200 origin <gałąź>`, potem `git reset --mixed FETCH_HEAD` (przenosi ref i
-indeks, zostawia pliki), a `git diff --stat` musi wyjść dokładnie zmianami tej tury. Przed
-każdym resetem: `git diff <baza> > ~/backup.patch`. `--hard` jest dopuszczalne TYLKO przy
-czystym drzewie albo po własnym backupie.
+`--mixed` zachowuje pliki i pozwala odzyskać niezacommitowane zmiany. `git reset --hard` wolno wykonać dopiero po sprawdzeniu, że drzewo robocze jest czyste albo po wykonaniu kopii.
 
-Jeżeli po resecie zdarzyło Ci się zacommitować **na `main`** (bo tam wskazywał
-HEAD po klonie), przenieś commit na gałąź sesji:
+## 3. GitHub i uwierzytelnienie
 
-```bash
-git branch backup-<opis> <sha-commita>   # najpierw zabezpiecz
-git fetch origin <gałąź-sesji>
-git reset --hard FETCH_HEAD
-git cherry-pick <sha-commita>            # konflikty w docs są normalne
-```
+- Do operacji lokalnych używaj `git`, a do PR-ów, issue, workflowów i Releases używaj `gh`.
+- Nigdy nie proś właściciela o hasła, tokeny ani kody 2FA w czacie.
+- Jeśli `git push` lub `gh` zwróci błąd uwierzytelnienia, poproś o reconnect GitHub w Arena.
+- `gh pr edit` może zgłaszać ostrzeżenie dotyczące Projects classic. Wtedy użyj GitHub API, np. `gh api --method PATCH repos/szybkoiwyraznie-rgb/mtgdatabase/pulls/1 -f body="$(cat /tmp/body.md)"`.
+- Po każdym pushu sprawdź commit, status i checks PR-a.
 
-Konflikty w `docs/PROJECT_HISTORY.md` i handoffach przy cherry-picku są typowe
-(commit powstał na starszej bazie): weź wersję z gałęzi
-(`git checkout HEAD -- <plik>`) i **nałóż zmiany ponownie**, zamiast ręcznie
-sklejać znaczniki konfliktu.
+## 4. Pliki i narzędzia
 
-### Profilaktyka
+- Zapisuj tekst jako UTF-8.
+- Przy polskich znakach preferuj `write_file` albo Python z `encoding="utf-8"`.
+- Nie commituj sekretów, PIN-ów, tokenów, plików `.env` ani artefaktów tymczasowych.
+- `artifacts/`, `build/` i `/tmp` nie są źródłem prawdy. Artefakty dystrybucyjne publikuj przez GitHub Releases.
+- Po zmianach uruchom walidatory i `git diff --check`.
 
-- Po każdym commicie sprawdź `git log --oneline -1` i `git status`.
-- Pushuj po każdym samodzielnie zielonym commicie — nie zbieraj pięciu naraz.
-- Przed dłuższą operacją (benchmark, pełne testy) upewnij się, że praca jest
-  wypchnięta.
+## 5. Testowanie i publikacja
 
-- **Odczyt z GitHuba bywa możliwy BEZ ważnego tokenu** (zmierzone 2026-09-20:
-  wygasły `GH_TOKEN` blokował push, a `git ls-remote`/`git fetch` przeszły
-  anonimowo). Po resecie workspace odzyskaj historię fetchem, zanim zaczniesz
-  czekać na odświeżenie połączenia — push nadal wymaga tokenu.
-
----
-
-## 3. Git i GitHub
-
-- **`git checkout <plik>` cofa też Twoje niezacommitowane zmiany.** Klasyczna
-  pułapka przy usuwaniu tymczasowego `console.log`: znika razem z fiksem
-  w tym samym pliku. Zacommituj fix **przed** instrumentowaniem kodu albo
-  usuwaj debug edycją odwrotną. Po każdym `checkout` sprawdź `git diff`.
-- **`GH_TOKEN` potrafi wygasnąć w trakcie sesji** (zdarzało się 2× dziennie).
-  Objaw: `git push` prosi o hasło, `gh auth status` mówi *token no longer
-  valid*. Commity lokalne są bezpieczne — poproś właściciela o reconnect
-  GitHub w Arenie i ponów push. **Nigdy nie proś o token w czacie.**
-- **`gh pr edit` bywa odrzucane** błędem GraphQL o *Projects (classic)*.
-  Obejście: `gh api -X PATCH repos/<owner>/<repo>/pulls/<nr> -f title=… -F body=@plik`.
-- **Komunikaty commitów pisz do pliku poza repozytorium** (np. `/home/user/msg.txt`),
-  nigdy w katalogu repo — inaczej wpadną do commita.
-- Pracuj wyłącznie na gałęzi sesji; nigdy nie pushuj do `main` (ADR 0007).
-
----
-
-## 4. Sieć i narzędzia
-
-- **Arbitralny egress HTTPS jest zablokowany, ale rejestr npm NIE.**
-  Zmierzone 2026-08-24 (M202): `curl ...` → kod 000,
-  `fetch` w Node → `ECONNRESET`, za to `npm i` w `tools/table-tester` przechodzi
-  (63 pakiety, ~1 s) — Żywy Tester działa w sesji bez wcześniejszego
-  `node_modules`. Dane kart z Scryfalla pobieraj `fetch_page` i zapisuj do repo
-  (ADR 0010). `fetch_page` działa też na czystym JSON-ie (zmierzone 2026-09-02:
-  URL-e, które `curl`-owi dają 000, wracają normalnie)
-  (`node tools/fetch-card-rulings.mjs`; w sandboxie ściągnij `fetch_page`em
-  i zapisz przez `python3`).
-- **`write_file` działa tylko w workspace.** Skrypty pomocnicze twórz przez
-  `bash` z heredokiem, jeśli mają wylądować poza repo.
-- **Polskie znaki:** `edit_file` potrafi je uszkodzić — pliki z polskim tekstem
-  edytuj przez `python3` (`encoding='utf-8'`).
-- **Testy UI** mają własny mini-harness DOM (`jsdom` nie jest zależnością repo)
-  — nie importuj go w testach core.
-
----
-
-## 6. Checklista startu sesji
-
-1. `git log --oneline -3` i `git status` — gdzie jestem, czy czysto.
-2. Otwórz PR gałęzi sesji (ADR 0020 A), nawet pusty po pierwszym commicie.
-3. Przeczytaj **w tej kolejności:** `AGENTS.md` (w tym trzy+czwartą regułę
-   nadrzędną), **wszystkie ADR-y** w `docs/decisions/`, `docs/LESSONS.md`,
-   ten plik (pułapki), najnowszy handoff. Handoff jest skrótem, nie
-   źródłem prawdy.
-4. `npm test` i `npm run build` — porównaj z najnowszym handoffem.
-5. Audyt poprzedniego scalonego PR **zanim** nowa praca (ADR 0020 B).
-6. **Nie pytaj „co robimy?”.** Brak nazwanego tematu = ADR 0021 (pętla
-   domyślna). „Pytaj, jeśli nie wiesz” = tylko decyzje blokujące.
-7. **Skonfrontuj treść zlecenia ze stanem repozytorium** (lekcja L7).
-
-## 7. Checklista przed końcem sesji
-
-1. `npm test` i `npm run build` zielone.
-2. Wszystko zacommitowane **i wypchnięte** (`git status` czysty,
-   `git log origin/<gałąź>..HEAD` pusty).
-3. Najnowszy `docs/setup/HANDOFF_*.md` opisuje aktualny stan.
-4. Handoff sesji (`docs/setup/HANDOFF_<data>.md`) — stan, kolejka, decyzje.
-5. Reguły trwałe trafiły do ADR / `docs/LESSONS.md` / `AGENTS.md`, a nie tylko
-   do handoffu.
-6. Opis PR zaktualizowany kumulacyjnie.
+- Build Pages na branchu roboczym może zakończyć się bez deploymentu; deployment Pages wykonuje się dopiero z `main` po konfiguracji GitHub Pages.
+- Publiczny Pages nie jest prywatnym hostingiem. PIN po stronie JavaScript jest tylko wygodą interfejsu.
+- ZIP najlepszych jingli ma być płaski i zawierać wyłącznie `id.mp3`.
+- Przed końcem pracy sprawdź `git status`, historię i wynik GitHub Actions.

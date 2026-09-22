@@ -11,7 +11,8 @@ To jest indeks dokumentów, które agent musi przeczytać przed pracą:
 7. `docs/feedback-system.md`
 8. `docs/sources-and-licensing.md`
 9. `docs/LESSONS.md`
-10. wszystkie pliki `docs/decisions/*.md` oznaczone jako aktywne
+10. `ENVIRONMENT.md`
+11. wszystkie pliki `docs/decisions/*.md` oznaczone jako aktywne
 
 Dokumenty historyczne i szczegółowe raporty nie należą do obowiązkowej lektury. Można je przechowywać w `docs/archive/`, aby nie zwiększać budżetu kontekstu.
 

@@ -22,8 +22,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Validate collection
+        run: python scripts/validate_stories.py kolekcja.csv
+      - name: Import collection
+        run: python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
       - name: Build static preview
-        run: python scripts/build_site.py --catalog data/catalog.example.json --output _site --audio-root legacy/source/jingle_output
+        run: python scripts/build_site.py --catalog /tmp/catalog.json --output _site --audio-root legacy/source/jingle_output
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

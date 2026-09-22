@@ -6,7 +6,7 @@ Ten dokument jest instrukcją dla właściciela repozytorium. Workflow i pliki p
 
 Po scaleniu PR `Settings → Pages → Source: GitHub Actions`, a następnie `Actions → Publish Pages preview → Run workflow`.
 
-Na obecnym etapie strona jest wersją demonstracyjną z pięcioma plikami z materiałów prototypowych.
+Workflow Pages waliduje i importuje aktualny `kolekcja.csv`. Lokalny katalog demonstracyjny może nadal używać `data/catalog.example.json` i pięciu plików z materiałów prototypowych.
 
 ## Raporty ocen
 

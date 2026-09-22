@@ -1,31 +1,35 @@
 #!/usr/bin/env python3
-"""Validate the production CSV contract: id,title,story."""
+"""Validate the collection.csv contract."""
 from __future__ import annotations
-import argparse, csv, sys
+import argparse, csv, re, sys
 from pathlib import Path
 
-REQUIRED = ("id", "title", "story")
+EXPECTED = ("Ilustracja", "Nazwa Karty", "Narracja")
+PATTERN = re.compile(r"^\d+[A-Za-z0-9_-]+$")
 
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("csv_file", type=Path)
     args = parser.parse_args()
     with args.csv_file.open(encoding="utf-8-sig", newline="") as handle:
-        reader = csv.DictReader(handle)
-        if reader.fieldnames != list(REQUIRED):
-            print(f"Expected columns exactly {REQUIRED}; got {reader.fieldnames}", file=sys.stderr)
+        reader = csv.DictReader(handle, delimiter="\t")
+        if reader.fieldnames != list(EXPECTED):
+            print(f"Expected tab-separated columns {EXPECTED}; got {reader.fieldnames}", file=sys.stderr)
             return 1
         seen = set()
         for line, row in enumerate(reader, 2):
-            story_id = (row["id"] or "").strip()
-            if not story_id.isdigit() or int(story_id) < 1:
-                print(f"Line {line}: id must be a positive integer", file=sys.stderr); return 1
-            if story_id in seen:
-                print(f"Line {line}: duplicate id {story_id}", file=sys.stderr); return 1
-            if not (row["title"] or "").strip() or not (row["story"] or "").strip():
-                print(f"Line {line}: title and story are required", file=sys.stderr); return 1
-            seen.add(story_id)
-    print(f"Valid story CSV: {len(seen)} record(s)")
+            if not any((value or "").strip() for value in row.values()):
+                continue
+            art_id = (row["Ilustracja"] or "").strip()
+            numeric = re.match(r"^(\d+)", art_id)
+            if not PATTERN.fullmatch(art_id) or not numeric:
+                print(f"Line {line}: invalid artID {art_id!r}", file=sys.stderr); return 1
+            if numeric.group(1) in seen:
+                print(f"Line {line}: duplicate numeric ID {numeric.group(1)}", file=sys.stderr); return 1
+            if not (row["Nazwa Karty"] or "").strip() or not (row["Narracja"] or "").strip():
+                print(f"Line {line}: title and narration are required", file=sys.stderr); return 1
+            seen.add(numeric.group(1))
+    print(f"Valid collection CSV: {len(seen)} record(s)")
     return 0
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ W każdej pętli agent wykonuje oba zadania produkcyjne: tworzy pierwszą wersj�
 
 ### 0. Audyt poprzedniego PR i kodu
 
-Po przeczytaniu obowiązkowej dokumentacji agent najpierw audytuje poprzednią pracę:
+Po przeczytaniu obowiązkowej dokumentacji, w tym `ENVIRONMENT.md` i aktualnej kolekcji, agent najpierw audytuje poprzednią pracę:
 
 - sprawdź ostatni PR, commity i aktualny diff;
 - przeczytaj zmienione pliki, a nie tylko opis zmian;
@@ -41,7 +41,7 @@ Jeśli audyt wykryje ryzyko utraty danych, sekret w kodzie albo nieodwracalną p
 
 W tej samej pętli wykonaj konkretną pracę rozwojową: dodaj zweryfikowane źródło sampli, popraw narzędzie DSP, test, prompt, dokumentację albo workflow. Sam link bez opisu licencji i zastosowania nie jest wystarczającym rezultatem.
 
-### 3. Publikacja
+### 4. Publikacja
 
 - zwaliduj metadane, MP3 i strukturę wersji;
 - zbuduj stronę Pages;

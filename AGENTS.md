@@ -4,7 +4,7 @@ To repozytorium jest prywatną, niekomercyjną linią produkcyjną krótkich for
 
 ## Zasady nadrzędne
 
-1. Przeczytaj całą obowiązkową lekturę z `docs/required-reading.md`, w tym aktywne ADR-y i `docs/LESSONS.md`.
+1. Przeczytaj całą obowiązkową lekturę z `docs/required-reading.md`, w tym `ENVIRONMENT.md`, aktywne ADR-y, `docs/LESSONS.md` oraz zaktualizowaną kolekcję fabuł.
 2. Pracuj tylko na zadaniu, które wynika z aktualnego stanu kolejki.
 3. Nie nadpisuj istniejących wersji jingla. Nowy render zapisuj jako kolejne `vN`.
 3. Nie usuwaj ocen, komentarzy ani historii wersji.
