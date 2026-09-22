@@ -16,7 +16,7 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 
 - Sytuacja: deployment Pages nie powinien wykonywać się przed scaleniem do `main`.
 - Wniosek: build i deploy trzeba rozdzielić warunkiem gałęzi.
-- Zasada / działanie zapobiegawcze: na branchach roboczych uruchamiaj build i walidację, a deployment wykonuj tylko z `main`.
+- Zasada / działanie zapobiegawcze: na branchach roboczych uruchamiaj build i walidację, a deployment wykonuj tylko z `main`. Realizacja (od 2026-09-22): dwa workflow — `pages.yml` (build+deploy, wyzwalany tylko z `main`) i `pages-build.yml` (sam build, push na `arena/**`). Warunek `if` w jobie deploy zostawia w checkach PR wiecznie „skipped"; rozdzielenie workflow usuwa ten szum, a reguła pozostaje spełniona.
 
 ## 2026-09-22 — QA licz na zdekodowanym artefakcie, rendery w pełni deterministyczne
 
