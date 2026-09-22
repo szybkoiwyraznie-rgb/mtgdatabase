@@ -23,5 +23,10 @@ jobs:
         run: python scripts/validate_stories.py kolekcja.csv
       - name: Test collection import
         run: python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
+      - name: Validate demo project descriptions
+        run: python scripts/validate_versions.py data/catalog.example.json
+      - name: Validate production project descriptions
+        if: ${{ hashFiles('data/versions.json') != '' }}
+        run: python scripts/validate_versions.py data/versions.json
       - name: Check best ZIP builder help
         run: python scripts/build_best_zip.py --help

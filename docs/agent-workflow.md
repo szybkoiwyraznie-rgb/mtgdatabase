@@ -33,7 +33,7 @@ Jeśli audyt wykryje ryzyko utraty danych, sekret w kodzie albo nieodwracalną p
 - znajdź najniżej oceniony, nierozwiązany raport;
 - zarezerwuj zadanie, aby dwóch agentów nie pracowało nad nim równocześnie;
 - przeanalizuj trzy oceny i komentarz;
-- zaprojektuj poprawkę, nie kasując poprzedniej wersji;
+- zaprojektuj poprawkę, zaktualizuj opis projektowy i nie kasuj poprzedniej wersji;
 - wyrenderuj kolejną wersję `vN` i oznacz raport jako obsłużony dopiero po udanej publikacji;
 - jeśli nie ma ocenionego jingla do poprawy, zapisz to w raporcie.
 

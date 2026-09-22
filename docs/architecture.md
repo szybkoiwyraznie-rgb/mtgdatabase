@@ -18,7 +18,7 @@ najlepsze ocenione wersje → płaski ZIP → GitHub Release
 
 ## Repozytorium
 
-Źródłem fabuł jest `kolekcja.csv`, tab-separated z kolumnami `Ilustracja`, `Nazwa Karty`, `Narracja`. Importer wyciąga liczbowy prefiks artID: `123DOM` staje się ID `123`, a set `DOM` pozostaje wyłącznie metadanymi. Każda fabuła otrzymuje stabilny identyfikator, tytuł i tekst `story`; ZIP używa nazwy `123.mp3`. Materiały prototypowe są rozdzielone w `legacy/source/`. Każda wersja ma własną recepturę, MP3, metadane i historię raportów.
+Źródłem fabuł jest `kolekcja.csv`, tab-separated z kolumnami `Ilustracja`, `Nazwa Karty`, `Narracja`. Importer wyciąga liczbowy prefiks artID: `123DOM` staje się ID `123`, a set `DOM` pozostaje wyłącznie metadanymi. Każda fabuła otrzymuje stabilny identyfikator, tytuł i tekst `story`; ZIP używa nazwy `123.mp3`. Materiały prototypowe są rozdzielone w `legacy/source/`. Każda wersja ma własną recepturę, MP3, opis projektowy i historię raportów. Opis projektowy wskazuje użyte sample, timestamp każdego istotnego zdarzenia, ambience, drone oraz uwagi miksu.
 
 ## Prywatność
 

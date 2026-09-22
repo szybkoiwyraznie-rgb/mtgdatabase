@@ -8,7 +8,7 @@ To repozytorium jest prywatną, niekomercyjną linią produkcyjną krótkich for
 2. Pracuj tylko na zadaniu, które wynika z aktualnego stanu kolejki.
 3. Nie nadpisuj istniejących wersji jingla. Nowy render zapisuj jako kolejne `vN`.
 3. Nie usuwaj ocen, komentarzy ani historii wersji.
-4. Każdy jingle musi mieć identyfikator fabuły i wersję.
+4. Każdy jingle musi mieć identyfikator fabuły, wersję i opis projektowy. Opis zapisuje użyte sample, timestampy, warstwy oraz najważniejsze decyzje miksu.
 5. Wynikiem pracy musi być działający MP3, metadane oraz aktualizacja strony.
 6. Przed zakończeniem uruchom walidację i opisz jej wynik.
 7. Nie umieszczaj sekretów, PIN-u ani tokenów w kodzie, danych Pages ani commitach.

@@ -11,7 +11,30 @@
           "label": "v1",
           "score": null,
           "created_at": "2026-09-11T10:00:00Z",
-          "audio": "audio/1.mp3"
+          "audio": "audio/1.mp3",
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Dunland Crebain. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "mountain_wind",
+            "drone": "cinematic_sub (44.0 Hz)",
+            "events": [
+              {
+                "time_sec": 2.0,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 2.45,
+                "sample": "raven_call.mp3",
+                "role": "warstwa foley / kulminacja"
+              },
+              {
+                "time_sec": 3.75,
+                "sample": "sword_draw.mp3",
+                "role": "warstwa foley"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny."
+          }
         }
       ]
     },
@@ -26,7 +49,30 @@
           "label": "v1",
           "score": null,
           "created_at": "2026-09-12T10:00:00Z",
-          "audio": "audio/2.mp3"
+          "audio": "audio/2.mp3",
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Coralhelm Guide. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "cave_flooded",
+            "drone": "eldrazi_alien (66.0 Hz)",
+            "events": [
+              {
+                "time_sec": 0.85,
+                "sample": "beast_step_water",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 1.85,
+                "sample": "beast_roar",
+                "role": "warstwa foley / kulminacja"
+              },
+              {
+                "time_sec": 3.75,
+                "sample": "beast_step_water",
+                "role": "warstwa foley"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny."
+          }
         }
       ]
     },
@@ -41,7 +87,30 @@
           "label": "v1",
           "score": null,
           "created_at": "2026-09-13T10:00:00Z",
-          "audio": "audio/3.mp3"
+          "audio": "audio/3.mp3",
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Nefarious Imp. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "cave_flooded",
+            "drone": "cinematic_sub (38.0 Hz)",
+            "events": [
+              {
+                "time_sec": 1.1,
+                "sample": "gravel_feet.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 2.2,
+                "sample": "gravel_feet.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 3.4,
+                "sample": "sword_draw.mp3",
+                "role": "warstwa foley / kulminacja"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny."
+          }
         }
       ]
     },
@@ -56,7 +125,30 @@
           "label": "v1",
           "score": null,
           "created_at": "2026-09-14T10:00:00Z",
-          "audio": "audio/4.mp3"
+          "audio": "audio/4.mp3",
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Mystic Sanctuary. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "mountain_wind",
+            "drone": "cinematic_sub (52.0 Hz)",
+            "events": [
+              {
+                "time_sec": 0.9,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 1.7,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 2.5,
+                "sample": "beast_roar",
+                "role": "warstwa foley / kulminacja"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny."
+          }
         }
       ]
     },
@@ -71,7 +163,30 @@
           "label": "v1",
           "score": null,
           "created_at": "2026-09-15T10:00:00Z",
-          "audio": "audio/5.mp3"
+          "audio": "audio/5.mp3",
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Academy Journeymage. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "forest_night",
+            "drone": "cinematic_sub (48.0 Hz)",
+            "events": [
+              {
+                "time_sec": 0.9,
+                "sample": "gravel_feet.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 1.6,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 3.4,
+                "sample": "sword_swipe.mp3",
+                "role": "warstwa foley"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny."
+          }
         }
       ]
     }

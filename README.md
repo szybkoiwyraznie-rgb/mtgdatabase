@@ -13,6 +13,7 @@ Repozytorium zawiera fundament procesu, aktualną kolekcję `kolekcja.csv` oraz 
 ## Zasady produktu
 
 - każda fabuła może mieć wiele wersji `v1`, `v2`, `v3`;
+- każda wersja ma opis projektowy z użytymi samplami i timestampami efektów;
 - nowe wersje nie usuwają starszych;
 - ocena to suma: feeling + zgodność z fabułą + jakość sampli, każda 1–5;
 - ZIP zawiera jedną najwyżej ocenioną, już ocenioną wersję każdej fabuły;

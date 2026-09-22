@@ -14,6 +14,8 @@ To jest indeks dokumentów, które agent musi przeczytać przed pracą:
 10. `ENVIRONMENT.md`
 11. wszystkie pliki `docs/decisions/*.md` oznaczone jako aktywne
 
+Opis projektowy wersji jingla jest częścią obowiązkowych metadanych, nie opcjonalnym komentarzem.
+
 Dokumenty historyczne i szczegółowe raporty nie należą do obowiązkowej lektury. Można je przechowywać w `docs/archive/`, aby nie zwiększać budżetu kontekstu.
 
 ## Budżet

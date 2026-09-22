@@ -3,9 +3,33 @@
 from __future__ import annotations
 
 import argparse
+import html
 import json
 import shutil
 from pathlib import Path
+
+
+def project_description_html(version: dict) -> str:
+    design = version.get("project_description", {})
+    if not design:
+        return '<p class="missing-design">Brak opisu projektowego.</p>'
+    events = "".join(
+        f'<li><strong>{html.escape(str(event.get("time_sec", "?")))} s</strong> — '
+        f'{html.escape(str(event.get("sample", "")))}'
+        f' <span>{html.escape(str(event.get("role", "")))}</span></li>'
+        for event in design.get("events", [])
+    )
+    return (
+        '<details class="design"><summary>Opis projektowy</summary>'
+        f'<p>{html.escape(str(design.get("summary", "")))}</p>'
+        '<dl>'
+        f'<dt>Ambience</dt><dd>{html.escape(str(design.get("ambience", "—")))}</dd>'
+        f'<dt>Drone</dt><dd>{html.escape(str(design.get("drone", "—")))}</dd>'
+        '</dl>'
+        f'<h4>Sample i timestampy</h4><ul>{events}</ul>'
+        f'<p><strong>Uwagi miksu:</strong> {html.escape(str(design.get("mix_notes", "—")))}</p>'
+        '</details>'
+    )
 
 
 def main() -> None:
@@ -61,7 +85,7 @@ def main() -> None:
                 fields.append(f'<fieldset><legend>{title}</legend><div class="rating-options">{options}</div></fieldset>')
             form = f'<form class="feedback" data-story="{story["id"]}" data-version="{version["label"]}">' + "".join(fields) + '<textarea name="comment" maxlength="2000" placeholder="Komentarz (opcjonalnie)"></textarea><button>Prześlij ocenę tej wersji</button><output></output></form>'
             cards.append(
-                f'<section class="version"><div class="version-head"><strong>{version["label"]}</strong><small>{label}</small></div><div class="player"><audio controls preload="metadata"><source src="{audio}" type="audio/mpeg">Twoja przeglądarka nie obsługuje audio.</audio><a href="{audio}">Otwórz plik MP3</a></div>{form}</section>'
+                f'<section class="version"><div class="version-head"><strong>{version["label"]}</strong><small>{label}</small></div><div class="player"><audio controls preload="metadata"><source src="{audio}" type="audio/mpeg">Twoja przeglądarka nie obsługuje audio.</audio><a href="{audio}">Otwórz plik MP3</a></div>{project_description_html(version)}{form}</section>'
             )
         latest = versions[-1]["label"] if versions else "v1"
         page = (template.replace("__ID__", str(story["id"]))
