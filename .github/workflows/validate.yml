@@ -1,0 +1,32 @@
+name: Validate project
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile Python files
+        run: python -m compileall -q scripts
+      - name: Check required reading budget
+        run: python scripts/check_required_reading.py
+      - name: Validate collection CSV
+        run: python scripts/validate_stories.py kolekcja.csv
+      - name: Test collection import
+        run: python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
+      - name: Validate demo project descriptions
+        run: python scripts/validate_versions.py data/catalog.example.json
+      - name: Validate production project descriptions
+        if: ${{ hashFiles('data/versions.json') != '' }}
+        run: python scripts/validate_versions.py data/versions.json
+      - name: Check best ZIP builder help
+        run: python scripts/build_best_zip.py --help

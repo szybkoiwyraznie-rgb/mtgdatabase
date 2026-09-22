@@ -1,0 +1,62 @@
+[
+  {
+    "id": "event_001",
+    "title": "Urwisko Dunlandu",
+    "duration_sec": 5.5,
+    "ambiance": { "type": "mountain_wind", "volume": 0.85 },
+    "drone": { "type": "cinematic_sub", "freq": 44.0, "volume": 0.9 },
+    "foley_events": [
+      { "stem": "whoosh_flap.mp3", "time_sec": 2.0, "volume": 1.1, "pan": -0.2, "pitch_factor": 1.0, "duck_ambiance": 0.1, "echo_send": 0.3 },
+      { "stem": "raven_call.mp3", "time_sec": 2.45, "volume": 1.3, "pan": -0.05, "pitch_factor": 0.88, "duck_ambiance": 0.45, "echo_send": 0.45 },
+      { "stem": "sword_draw.mp3", "time_sec": 3.75, "volume": 1.3, "pan": 0.2, "pitch_factor": 1.0, "duck_ambiance": 0.2, "echo_send": 0.5 }
+    ]
+  },
+  {
+    "id": "event_002",
+    "title": "Zalany Kanion Balotha",
+    "duration_sec": 5.5,
+    "ambiance": { "type": "cave_flooded", "volume": 0.8 },
+    "drone": { "type": "eldrazi_alien", "freq": 66.0, "volume": 0.85 },
+    "foley_events": [
+      { "stem": "beast_step_water", "time_sec": 0.85, "volume": 0.85, "pan": -0.25, "duck_ambiance": 0.2, "echo_send": 0.3 },
+      { "stem": "beast_roar", "time_sec": 1.85, "volume": 1.4, "pan": 0.0, "duck_ambiance": 0.6, "echo_send": 0.4 },
+      { "stem": "beast_step_water", "time_sec": 3.75, "volume": 1.2, "pan": 0.25, "duck_ambiance": 0.3, "echo_send": 0.35 }
+    ]
+  },
+  {
+    "id": "event_003",
+    "title": "Katakumby Nieumarłych",
+    "duration_sec": 5.5,
+    "ambiance": { "type": "cave_flooded", "volume": 0.65 },
+    "drone": { "type": "cinematic_sub", "freq": 38.0, "volume": 0.75 },
+    "foley_events": [
+      { "stem": "gravel_feet.mp3", "time_sec": 1.1, "volume": 0.9, "pan": -0.3, "pitch_factor": 1.1, "duck_ambiance": 0.1, "echo_send": 0.4 },
+      { "stem": "gravel_feet.mp3", "time_sec": 2.2, "volume": 1.0, "pan": -0.1, "pitch_factor": 0.95, "duck_ambiance": 0.1, "echo_send": 0.4 },
+      { "stem": "sword_draw.mp3", "time_sec": 3.4, "volume": 1.35, "pan": 0.15, "pitch_factor": 0.85, "duck_ambiance": 0.35, "echo_send": 0.55 }
+    ]
+  },
+  {
+    "id": "event_004",
+    "title": "Grzbiet Żmijowej Góry",
+    "duration_sec": 5.5,
+    "ambiance": { "type": "mountain_wind", "volume": 1.1 },
+    "drone": { "type": "cinematic_sub", "freq": 52.0, "volume": 0.8 },
+    "foley_events": [
+      { "stem": "whoosh_flap.mp3", "time_sec": 0.9, "volume": 1.3, "pan": -0.4, "pitch_factor": 0.75, "duck_ambiance": 0.2, "echo_send": 0.3 },
+      { "stem": "whoosh_flap.mp3", "time_sec": 1.7, "volume": 1.4, "pan": 0.3, "pitch_factor": 0.7, "duck_ambiance": 0.25, "echo_send": 0.3 },
+      { "stem": "beast_roar", "time_sec": 2.5, "volume": 1.5, "pan": 0.0, "duck_ambiance": 0.65, "echo_send": 0.45 }
+    ]
+  },
+  {
+    "id": "event_005",
+    "title": "Zasadzka w Ciemnym Borze",
+    "duration_sec": 5.5,
+    "ambiance": { "type": "forest_night", "volume": 0.9 },
+    "drone": { "type": "cinematic_sub", "freq": 48.0, "volume": 0.6 },
+    "foley_events": [
+      { "stem": "gravel_feet.mp3", "time_sec": 0.9, "volume": 0.85, "pan": -0.2, "pitch_factor": 1.2, "duck_ambiance": 0.1, "echo_send": 0.2 },
+      { "stem": "whoosh_flap.mp3", "time_sec": 1.6, "volume": 1.1, "pan": -0.3, "pitch_factor": 1.15, "duck_ambiance": 0.1, "echo_send": 0.2 },
+      { "stem": "sword_swipe.mp3", "time_sec": 3.4, "volume": 1.4, "pan": 0.25, "pitch_factor": 1.05, "duck_ambiance": 0.3, "echo_send": 0.35 }
+    ]
+  }
+]

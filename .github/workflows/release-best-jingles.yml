@@ -1,0 +1,45 @@
+name: Build best jingles release
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'data/versions.json'
+      - 'scripts/build_best_zip.py'
+      - '.github/workflows/release-best-jingles.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Explain skipped release
+        if: ${{ hashFiles('data/versions.json') == '' }}
+        run: echo "data/versions.json is not present yet; release packaging is skipped."
+      - uses: actions/setup-python@v5
+        if: ${{ hashFiles('data/versions.json') != '' }}
+        with:
+          python-version: '3.12'
+      - name: Build flat ZIP
+        if: ${{ hashFiles('data/versions.json') != '' }}
+        run: python scripts/build_best_zip.py --versions data/versions.json --output best-jingles-latest.zip
+      - name: Encrypt ZIP when password is configured
+        if: ${{ hashFiles('data/versions.json') != '' }}
+        env:
+          ZIP_PASSWORD: ${{ secrets.JINGLE_ZIP_PASSWORD }}
+        run: |
+          if [ -n "$ZIP_PASSWORD" ]; then
+            sudo apt-get update -qq && sudo apt-get install -y -qq p7zip-full
+            7z a -tzip -mem=AES256 -p"$ZIP_PASSWORD" best-jingles-latest-protected.zip best-jingles-latest.zip >/dev/null
+            mv best-jingles-latest-protected.zip best-jingles-latest.zip
+          fi
+      - name: Publish rolling GitHub Release
+        if: ${{ hashFiles('data/versions.json') != '' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view best-jingles-latest >/dev/null 2>&1 || gh release create best-jingles-latest --title "Best jingles (latest)" --notes "Automatically updated best rated jingles."
+          gh release upload best-jingles-latest best-jingles-latest.zip --clobber
