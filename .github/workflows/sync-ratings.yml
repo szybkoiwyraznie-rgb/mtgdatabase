@@ -6,6 +6,7 @@ on:
   # A merged render (new vN in data/versions.json) also runs the close step,
   # so superseded needs-review reports are closed right after publication.
   push:
+    branches: [main]
     paths:
       - 'data/versions.json'
   workflow_dispatch:
@@ -21,7 +22,11 @@ concurrency:
 
 jobs:
   sync:
-    if: ${{ github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'feedback') }}
+    # This job can mutate ratings and close GitHub issues. Never let a PR
+    # branch perform those public side effects before its render is merged.
+    if: >-
+      ${{ github.ref == 'refs/heads/main' &&
+          (github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'feedback')) }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

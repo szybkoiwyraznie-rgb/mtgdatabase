@@ -19,3 +19,7 @@ Worker jest wdrażany przez GitHub Actions. Twój desktop, iPad, laptop ani tele
 Nie uruchamiaj `wrangler login` na desktopie — lokalna instalacja jest opcjonalna i nie jest potrzebna w tym projekcie.
 
 Tokeny nigdy nie mogą być wpisane do JavaScriptu Pages ani commitowane do repozytorium.
+
+## CORS
+
+Worker dopuszcza preflight i odpowiedzi CORS wyłącznie dla originu Pages właściciela repozytorium: `https://<owner>.github.io`, wyliczanego z `GITHUB_REPOSITORY`. Dla tego repozytorium jest to `https://szybkoiwyraznie-rgb.github.io`. Jeśli w przyszłości Pages przejdzie na własną domenę, trzeba świadomie rozszerzyć tę regułę i dodać test dla nowego originu — nie otwieraj endpointu dla wszystkich `*.github.io`.

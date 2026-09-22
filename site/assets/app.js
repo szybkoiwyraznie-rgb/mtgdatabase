@@ -1,4 +1,8 @@
 const LOCAL_KEY = 'jingleRatings';
+const HTML_ESCAPES = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+function escapeHtml(value) {
+  return String(value ?? '').replace(/[&<>"']/g, character => HTML_ESCAPES[character]);
+}
 function loadLocalRatings() {
   try { return JSON.parse(localStorage.getItem(LOCAL_KEY) || '{}'); } catch { return {}; }
 }
@@ -70,7 +74,9 @@ function render() {
     const versionLabel = pluralWersje(versions);
     const status = rating === null ? 'nieocenione' : `najlepiej ${rating}/15${localOnly ? ' · na tym urządzeniu' : ''}`;
     const freshBadge = hasUnratedNewVersion(story) ? '<span class="pill fresh" title="Nowsza wersja tej fabuły czeka na ocenę">nieoceniona nowa wersja</span>' : '';
-    return `<article class="story"><div class="story-head"><h2><a href="stories/${story.id}/"><span class="story-id">#${story.id}</span> ${story.title}</a></h2><div class="badges"><span class="pill ${rating === null ? 'wait' : 'good'}">${status}</span>${freshBadge}</div></div><div class="meta"><span class="pill">${versions} ${versionLabel}</span><span class="pill">${rating === null ? 'oczekuje na ocenę' : localOnly ? 'ocenione lokalnie' : 'ma ocenę'}</span></div></article>`;
+    const storyId = escapeHtml(story.id);
+    const storyTitle = escapeHtml(story.title);
+    return `<article class="story"><div class="story-head"><h2><a href="stories/${encodeURIComponent(String(story.id))}/"><span class="story-id">#${storyId}</span> ${storyTitle}</a></h2><div class="badges"><span class="pill ${rating === null ? 'wait' : 'good'}">${status}</span>${freshBadge}</div></div><div class="meta"><span class="pill">${versions} ${versionLabel}</span><span class="pill">${rating === null ? 'oczekuje na ocenę' : localOnly ? 'ocenione lokalnie' : 'ma ocenę'}</span></div></article>`;
   }).join('') || '<p class="lede">Brak wyników.</p>';
 }
 

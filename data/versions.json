@@ -592,6 +592,61 @@
           },
           "rated_at": "2026-09-22T15:17:01Z",
           "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/18"
+        },
+        {
+          "label": "v4",
+          "created_at": "2026-09-22T15:30:00Z",
+          "audio": "legacy/source/jingle_output/5_v4.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Academy Journeymage. Wersja v4 odpowiada na ocenę partii (~5/15): wszystkie sample w natywnej wysokości (zakaz pitchowania, AGENTS.md #15 — v3 przestrywało 0,55–1,25), 5 czystych zdarzeń zamiast 6, zachowane polubione tło z v1 (wiatr + misa 196 Hz).",
+            "ambience": "wind (taras dominariańskiej akademii)",
+            "drone": "bowl (196.0 Hz) — element zaakceptowany przez właściciela w ocenie v1",
+            "mix_notes": "Fix po ocenie partii: zero pitchowania. Stemy natywne: kroki adeptów 1,4 s (głębia, prawo), wir portalu 1,95 s (lewo, gain 1.2), cięcie odsyłania 2,8 s (centrum, gain 1.45, ducking 0.35 w 2.55–3.6 s), domknięcie glifów 3,35 s, cichnący portal 4,2 s. Zero syntetycznych zdarzeń. Echo kamiennej komnaty 170/310 ms, room 0.5.",
+            "description": "Wiatr na tarasie akademii + misa 196 Hz • kroki adeptów na schodach • wir portalu błękitnej energii • centralne cięcie odsyłania na żywym samplu miecza • domknięcie glifów i cichnący portal",
+            "genre": "fantasy",
+            "events": [
+              {
+                "time_sec": 1.4,
+                "sample": "gravel_feet.mp3",
+                "role": "kroki dwóch adeptów na schodach w głębi sceny (sample natywny)"
+              },
+              {
+                "time_sec": 1.95,
+                "sample": "whoosh_flap.mp3",
+                "role": "wir portalu błękitnej energii rozsuwa się w tunel"
+              },
+              {
+                "time_sec": 2.8,
+                "sample": "sword_swipe.mp3",
+                "role": "kulminacja — cięcie odsyłania: intruz wyrzucony przez portal poza mury akademii"
+              },
+              {
+                "time_sec": 3.35,
+                "sample": "impact_smack.mp3",
+                "role": "domknięcie wiru — błysk dopalających się błękitnych glifów"
+              },
+              {
+                "time_sec": 4.2,
+                "sample": "whoosh_flap.mp3",
+                "role": "portal się zaciera, wir cichnie"
+              }
+            ],
+            "qa": {
+              "score": 88.7,
+              "base": 70.0,
+              "dramaturgy": 18.7,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 18.7/30 (ratio 3.12x)"
+              ]
+            }
+          }
         }
       ]
     },
@@ -696,6 +751,61 @@
           },
           "rated_at": "2026-09-22T15:20:08Z",
           "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/21"
+        },
+        {
+          "label": "v2",
+          "created_at": "2026-09-22T15:30:00Z",
+          "audio": "legacy/source/jingle_output/8_v2.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Goblin Deathraiders. Wersja v2 odpowiada na ocenę partii (~5/15): wszystkie sample natywne (zakaz pitchowania, AGENTS.md #15 — v1 przestrajaliśmy 0,45–1,25 i słuchacz słyszał hałas, nie szarżę), mniej zdarzeń (5 zamiast 10), smok jako żywy ryk w naturalnej wysokości.",
+            "ambience": "wind (wulkaniczne zbocza Jundu)",
+            "drone": "brak (fantasy)",
+            "mix_notes": "Fix po ocenie partii: zero pitchowania i zero syntetycznych detali. Stemy natywne: pęd szarży 0,95 s, sztandar 1,7 s (prawo), świst topora 2,7 s (centrum), uderzenie 3,1 s (gain 1.5, ducking 0.35 w 2.6–3.6 s), ryk smoka 4,3 s (lewo, NPS PD). Echo zbocza 130/260 ms, room 0.4.",
+            "description": "Wiatr na wulkanicznym zboczu Jundu • pęd szarży goblinów • łopot sztandaru czaszki • świst zardzewiałego topora i uderzenie • ryk odwiecznego smoka z wysokości (żywe nagranie NPS)",
+            "genre": "fantasy",
+            "events": [
+              {
+                "time_sec": 0.95,
+                "sample": "gravel_feet.mp3",
+                "role": "szarża trójki goblinów po skalistym zboczu (sample natywny)"
+              },
+              {
+                "time_sec": 1.7,
+                "sample": "whoosh_flap.mp3",
+                "role": "łopot poszarpanego sztandaru czaszki"
+              },
+              {
+                "time_sec": 2.7,
+                "sample": "sword_swipe.mp3",
+                "role": "goblin skacze z kamiennego nawisu — świst zardzewiałego topora"
+              },
+              {
+                "time_sec": 3.1,
+                "sample": "impact_smack.mp3",
+                "role": "kulminacja — topór trafia, jaszczur bojowy wpada w szarżę"
+              },
+              {
+                "time_sec": 4.3,
+                "sample": "bear_growl.mp3",
+                "role": "odwieczny smok krąży wysoko — ryk drapieżnika w natywnej wysokości (Yellowstone NPS)"
+              }
+            ],
+            "qa": {
+              "score": 100.0,
+              "base": 70.0,
+              "dramaturgy": 30.0,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 30.0/30 (ratio 5.63x)"
+              ]
+            }
+          }
         }
       ]
     },
@@ -863,6 +973,61 @@
           },
           "rated_at": "2026-09-22T15:18:20Z",
           "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/19"
+        },
+        {
+          "label": "v3",
+          "created_at": "2026-09-22T15:30:00Z",
+          "audio": "legacy/source/jingle_output/450_v3.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Thornhide Wolves. Wersja v3 odpowiada na ocenę partii (~5/15): wszystkie sample w natywnej wysokości (zakaz pitchowania, AGENTS.md #15) — wycie wilka to prawdziwe wycie z Yellowstone NPS, bez przestrajania; mniej zdarzeń (5), czystsze okna czasowe.",
+            "ambience": "forest_night (nocny las Ulvenwaldu)",
+            "drone": "brak (fantasy) — niskie łono to naturalny huk nocnego lasu",
+            "mix_notes": "Fix po ocenie partii: zero pitchowania (v2 używało 0,5–1,15 — sample stawały się hałasem). Wszystkie stemy natywne: kroki w błocie 1,0 s i 3,6 s, rozsuwane ciernie 1,75 s, wycie wilka 2,6 s (offset 2,4 s = najmocniejszy fragment nagrania NPS, centrum, gain 1.45, ducking 0.35), odpowiedź drugiego watahy 4,35 s. Echo lasu 120/240 ms, room 0.4.",
+            "description": "Nocny las Ulvenwaldu • łapy w błocie i rozsuwane ciernie • kulminacja: prawdziwe wycie wilka (Yellowstone NPS) w kręgu ogniska • odpowiedź drugiego wilka z mroku",
+            "genre": "fantasy",
+            "events": [
+              {
+                "time_sec": 1.0,
+                "sample": "gravel_feet.mp3",
+                "role": "łapy wilka rozpychające błoto przy kolczastej barierze (sample natywny)"
+              },
+              {
+                "time_sec": 1.75,
+                "sample": "whoosh_flap.mp3",
+                "role": "rozsuwanie kolczastych pędów bariery z cierni"
+              },
+              {
+                "time_sec": 2.6,
+                "sample": "wolf_howl.mp3",
+                "role": "kulminacja — wycie olbrzymiego wilka w kręgu dogasającego ogniska (Yellowstone NPS, natywna wysokość)"
+              },
+              {
+                "time_sec": 3.6,
+                "sample": "gravel_feet.mp3",
+                "role": "bestia krąży wokół obozowiska"
+              },
+              {
+                "time_sec": 4.35,
+                "sample": "wolf_howl.mp3",
+                "role": "odpowiedź drugiego wilka z mroku Ulvenwaldu"
+              }
+            ],
+            "qa": {
+              "score": 100.0,
+              "base": 70.0,
+              "dramaturgy": 30.0,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 30.0/30 (ratio 10.03x)"
+              ]
+            }
+          }
         }
       ]
     },
@@ -952,6 +1117,66 @@
           },
           "rated_at": "2026-09-22T15:19:30Z",
           "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/20"
+        },
+        {
+          "label": "v2",
+          "created_at": "2026-09-22T15:30:00Z",
+          "audio": "legacy/source/jingle_output/475_v2.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Ruinous Rampage. Wersja v2 odpowiada na ocenie partii (~5/15): stemy wyłącznie natywne (zakaz pitchowania, AGENTS.md #15), mniej zdarzeń (6 zamiast 7), czystsza dramaturgia — jedno główne uderzenie zamiast trzech rozproszonych.",
+            "ambience": "station_hum (port kosmiczny)",
+            "drone": "cinematic_sub (46.0 Hz) — scena SF",
+            "mix_notes": "Fix po ocenie partii: zero pitchowania (v1 używało 0,62–1,05). Stemy natywne: kroki 1,1 s, wyrwanie ramienia 1,75 s, uderzenie w terminale 2,75 s (gain 1.55, centrum, ducking 0.35), zgrzyt o kolumnę 3,7 s. Syntetyki tylko SF: iskry 2,8 s, deszcz elektroniki 4,5 s. Echo komory 110/230 ms, room 0.45.",
+            "description": "Narastający szum portu kosmicznego + sub 46 Hz • kroki piechura Kav • wyrwane ramię mecha • centralne uderzenie w terminale z błękitnymi iskrami • metaliczny zgrzyt i deszcz elektroniki",
+            "genre": "sci-fi",
+            "events": [
+              {
+                "time_sec": 1.1,
+                "sample": "gravel_feet.mp3",
+                "role": "ciężkie kroki piechura Kav w miedzianym pancerzu (sample natywny)"
+              },
+              {
+                "time_sec": 1.75,
+                "sample": "impact_smack.mp3",
+                "role": "wyrwanie uszkodzonego ramienia obronnego mecha — metalowy zryw"
+              },
+              {
+                "time_sec": 2.75,
+                "sample": "impact_smack.mp3",
+                "role": "kulminacja — uderzenie metalową maczugą w rzędy lśniących terminali"
+              },
+              {
+                "time_sec": 2.8,
+                "sample": "synth:crackle",
+                "role": "eksplozja błękitnych iskier z rozbitych terminali (SF: dopuszczalna syntetyka)"
+              },
+              {
+                "time_sec": 3.7,
+                "sample": "sword_draw.mp3",
+                "role": "metaliczny zgrzyt — obicie maczugą o kolumnę terminali"
+              },
+              {
+                "time_sec": 4.5,
+                "sample": "synth:swarm",
+                "role": "deszcz roztrzaskanej elektroniki opada po zniszczeniu terminali"
+              }
+            ],
+            "qa": {
+              "score": 86.3,
+              "base": 70.0,
+              "dramaturgy": 16.3,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 16.3/30 (ratio 2.71x)"
+              ]
+            }
+          }
         }
       ]
     },
@@ -1114,6 +1339,66 @@
           },
           "rated_at": "2026-09-22T15:15:15Z",
           "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/17"
+        },
+        {
+          "label": "v3",
+          "created_at": "2026-09-22T15:30:00Z",
+          "audio": "legacy/source/jingle_output/568_v3.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Nanoform Sentinel. Wersja v3 odpowiada na ocenę partii (~5/15): stemy wyłącznie natywne (zakaz pitchowania, AGENTS.md #15 — v2 przestrywało impact 0,72/1,2), zachowane polubione elementy v1 (szum stacji, rój nanoformu) bez „melodyjki”.",
+            "ambience": "station_hum (laboratoria orbitalne nad Uthros)",
+            "drone": "cinematic_sub (46.0 Hz) — nietonalny, bez melodyki",
+            "mix_notes": "Fix po ocenie partii: zero pitchowania. Pęknięcie przewodu = natywny impact_smack (1,6 s, gain 1.3) + natywny syk pary steam_vent (od 1,7 s, gain 0.6); rój 1,0 s i 2,7 s (koncentracja na szczelinie); zasklepienie 3,5 s; sweep przywrócenia zasilania 3,7 s. Ducking 0.38 (2.45–3.6 s). Echo komory 110/230 ms.",
+            "description": "Szum orbitalnego laboratorium + sub 46 Hz • rój cząstek nanoformu • słyszalne pęknięcie przewodu i żywy syk pary (NPS) • koncentracja roju i metaliczne zasklepienie • generator wraca do gotowości",
+            "genre": "sci-fi",
+            "events": [
+              {
+                "time_sec": 1.0,
+                "sample": "synth:swarm",
+                "role": "rój mikroskopijnych cząstek nanoformu rozpoczyna inspekcję generatora"
+              },
+              {
+                "time_sec": 1.6,
+                "sample": "impact_smack.mp3",
+                "role": "pęknięcie przewodu zasilającego — wyraźne, natywne uderzenie (sample bez pitchowania)"
+              },
+              {
+                "time_sec": 1.7,
+                "sample": "steam_vent.mp3",
+                "role": "żywy syk pary z pękniętego przewodu — Black Growler Steam Vent (NPS PD, natywnie)"
+              },
+              {
+                "time_sec": 2.7,
+                "sample": "synth:swarm",
+                "role": "rój koncentruje się na szczelinie, materia zasklepia przewód"
+              },
+              {
+                "time_sec": 3.5,
+                "sample": "impact_smack.mp3",
+                "role": "metaliczne zasklepienie przewodu — naprawa domknięta"
+              },
+              {
+                "time_sec": 3.7,
+                "sample": "synth:sweep",
+                "role": "generator wraca do pełnej gotowości operacyjnej"
+              }
+            ],
+            "qa": {
+              "score": 86.0,
+              "base": 70.0,
+              "dramaturgy": 16.0,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 16.0/30 (ratio 2.67x)"
+              ]
+            }
+          }
         }
       ]
     }

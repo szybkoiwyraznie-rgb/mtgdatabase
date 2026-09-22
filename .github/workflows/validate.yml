@@ -21,6 +21,12 @@ jobs:
         run: python -m compileall -q scripts
       - name: Test live-samples rule gates
         run: python scripts/test_rules.py
+      - name: Test Sample Scout connectors
+        run: python scripts/test_sample_scout.py
+      - name: Test static-site HTML escaping
+        run: python scripts/test_site_safety.py
+      - name: Test feedback worker CORS boundary
+        run: node feedback-worker/test-cors.mjs
       - name: Check required reading budget
         run: python scripts/check_required_reading.py
       - name: Validate collection CSV

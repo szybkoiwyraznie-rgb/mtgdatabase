@@ -50,6 +50,7 @@ def test_render_gate() -> None:
 
     record("render: brak genre -> odrzucenie", rejects({"climax_window": [1.5, 3.8], "events": [stem]}))
     record("render: sci-fi z 1 stemem -> akcept", not rejects(recipe("sci-fi", [synth, stem])))
+    record("render: stem z pitch != 1 -> odrzucenie", rejects(recipe("sci-fi", [dict(stem, pitch=0.8)])))
     record("render: sci-fi bez stemów -> odrzucenie", rejects(recipe("sci-fi", [synth])))
     record("render: fantasy z 1 stemem -> odrzucenie", rejects(recipe("fantasy", [synth, stem])))
     record("render: fantasy 2 stemy, kulminacja żywa -> akcept", not rejects(recipe("fantasy", [synth, stem, stem_late])))
@@ -127,10 +128,35 @@ def test_sync_state_refresh() -> None:
            len(reports) == 1 and reports[0]["state"] == "closed" and version["score"] == 9)
 
 
+def test_sync_report_refresh() -> None:
+    import sync_ratings
+
+    data = {"stories": [{"id": "1", "versions": [{"label": "v1", "reports": [], "score": None, "scores": None}]}]}
+    original = {
+        "html_url": "https://example.invalid/issues/1",
+        "created_at": "2026-01-01T00:00:00Z",
+        "state": "open",
+        "body": "<!-- jingle-feedback: 1:v1 -->\n**Feeling:** 2/5\n**Story fit:** 2/5\n**Sample quality:** 2/5\n**Comment:** original",
+    }
+    edited = {
+        **original,
+        "state": "closed",
+        "body": "<!-- jingle-feedback: 1:v1 -->\n**Feeling:** 5/5\n**Story fit:** 4/5\n**Sample quality:** 3/5\n**Comment:** poprawiony komentarz",
+    }
+    sync_ratings.apply_ratings(data, [sync_ratings.parse_issue(original)])
+    sync_ratings.apply_ratings(data, [sync_ratings.parse_issue(edited)])
+    version = data["stories"][0]["versions"][0]
+    report = version["reports"][0]
+    record("sync: edytowany raport odświeża wynik i komentarz w historii",
+           version["score"] == 12 and report["scores"] == {"feeling": 5, "story_fit": 4, "sample_quality": 3}
+           and report["comment"] == "poprawiony komentarz" and report["state"] == "closed")
+
+
 def main() -> int:
     test_render_gate()
     test_validator()
     test_sync_state_refresh()
+    test_sync_report_refresh()
     failures = 0
     for name, status, note in results:
         suffix = f" ({note})" if note else ""

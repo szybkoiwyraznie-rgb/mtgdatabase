@@ -1,0 +1,33 @@
+{
+  "story_id": "5",
+  "label": "v4",
+  "genre": "fantasy",
+  "duration_sec": 5.5,
+  "climax_window": [1.5, 3.8],
+  "bed": {
+    "ambience": {"type": "wind", "gain": 0.15, "params": {"seed": 5}},
+    "drone": {"type": "bowl", "freq": 196.0, "gain": 0.18,
+              "params": {"partials": [196.0, 554.37, 1189.72], "gains": [1.0, 0.42, 0.2], "decays": [6.5, 3.8, 1.9]}}
+  },
+  "events": [
+    {"time_sec": 1.4, "type": "stem", "file": "gravel_feet.mp3", "hp_hz": 120, "gain": 0.4, "pan": 0.45,
+     "role": "kroki dwóch adeptów na schodach w głębi sceny (sample natywny)"},
+    {"time_sec": 1.95, "type": "stem", "file": "whoosh_flap.mp3", "hp_hz": 200, "gain": 1.2, "pan": -0.2,
+     "role": "wir portalu błękitnej energii rozsuwa się w tunel"},
+    {"time_sec": 2.8, "type": "stem", "file": "sword_swipe.mp3", "hp_hz": 150, "gain": 1.45, "pan": 0.0,
+     "role": "kulminacja — cięcie odsyłania: intruz wyrzucony przez portal poza mury akademii"},
+    {"time_sec": 3.35, "type": "stem", "file": "impact_smack.mp3", "gain": 0.8, "pan": 0.25,
+     "role": "domknięcie wiru — błysk dopalających się błękitnych glifów"},
+    {"time_sec": 4.2, "type": "stem", "file": "whoosh_flap.mp3", "hp_hz": 160, "gain": 0.5, "pan": 0.1,
+     "role": "portal się zaciera, wir cichnie"}
+  ],
+  "ducking": [2.55, 3.6, 0.35],
+  "post": {"echo_ms": [170, 310], "echo_gains": [0.17, 0.09], "room": 0.5},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Academy Journeymage. Wersja v4 odpowiada na ocenę partii (~5/15): wszystkie sample w natywnej wysokości (zakaz pitchowania, AGENTS.md #15 — v3 przestrywało 0,55–1,25), 5 czystych zdarzeń zamiast 6, zachowane polubione tło z v1 (wiatr + misa 196 Hz).",
+    "ambience": "wind (taras dominariańskiej akademii)",
+    "drone": "bowl (196.0 Hz) — element zaakceptowany przez właściciela w ocenie v1",
+    "mix_notes": "Fix po ocenie partii: zero pitchowania. Stemy natywne: kroki adeptów 1,4 s (głębia, prawo), wir portalu 1,95 s (lewo, gain 1.2), cięcie odsyłania 2,8 s (centrum, gain 1.45, ducking 0.35 w 2.55–3.6 s), domknięcie glifów 3,35 s, cichnący portal 4,2 s. Zero syntetycznych zdarzeń. Echo kamiennej komnaty 170/310 ms, room 0.5.",
+    "description": "Wiatr na tarasie akademii + misa 196 Hz • kroki adeptów na schodach • wir portalu błękitnej energii • centralne cięcie odsyłania na żywym samplu miecza • domknięcie glifów i cichnący portal"
+  }
+}

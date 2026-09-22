@@ -18,6 +18,12 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Wniosek: build i deploy trzeba rozdzielić warunkiem gałęzi.
 - Zasada / działanie zapobiegawcze: na branchach roboczych uruchamiaj build i walidację, a deployment wykonuj tylko z `main`. Realizacja (od 2026-09-22): dwa workflow — `pages.yml` (build+deploy, wyzwalany tylko z `main`) i `pages-build.yml` (sam build, push na `arena/**`). Warunek `if` w jobie deploy zostawia w checkach PR wiecznie „skipped"; rozdzielenie workflow usuwa ten szum, a reguła pozostaje spełniona.
 
+## 2026-09-22 — Workflow mutujący stan publiczny działa wyłącznie z main
+
+- Sytuacja: workflow synchronizacji ocen uruchomiony po pushu `data/versions.json` na branchu PR zamknął raporty i dopisał komentarze, zanim render znalazł się na `main`.
+- Wniosek: kontrola deploymentu Pages nie wystarcza; każdy workflow mogący zmienić issue albo Release jest publikacją i wymaga tej samej granicy gałęzi.
+- Zasada / działanie zapobiegawcze: `Sync ratings from issues` i `Build best jingles release` reagują na push wyłącznie z `main`, a ich joby mają dodatkowy guard `github.ref == 'refs/heads/main'`. Branch roboczy dostaje tylko walidację i build podglądu.
+
 ## 2026-09-22 — QA licz na zdekodowanym artefakcie, rendery w pełni deterministyczne
 
 - Sytuacja: audyt QA liczył metryki na mixie float przed enkodowaniem, a zdekodowany MP3 dryfował o ~0.4–0.8 pkt (overshoot kodera, zmiana RMS); warstwa `synth_pad` używała nieziarnicowanego RNG, więc render nie był powtarzalny.
@@ -35,6 +41,12 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Sytuacja: Oceny 5 v2 (3/15, „jakaś masakra... nic nie pasuje") i 450 v1 (7/15, „gdzie warczenie wilka? a ten dron? co to SF?") odrzuciły miksy zbudowane głównie na warstwach syntetycznych w scenach fantasy; pochwalone były wyłącznie żywe nagrania (kroki w błocie). Właściciel zlecił wpisanie na sztywno zasady: syntetyki prawie wyłącznie do SF.
 - Wniosek: syntetyczne timbre brzmią obco poza science fiction i zabijają zgodność z fabułą; tożsamość jingla mają nieść realne nagrania ze zweryfikowanego rejestru.
 - Zasada / działanie zapobiegawcze: twarda reguła nr 14 w `AGENTS.md` oraz pkt 4 złotych reguł w `legacy/source/INSTRUKCJA_PRODUKCJI_JINGLI.md`; egzekwowana automatycznie przez bramkę żywych sampli w `scripts/render_jingle.py` (pole `genre` w recepturze) i kontrolę `genre`-aware w `scripts/validate_versions.py`.
+
+## 2026-09-22 — Pitchowanie niszczy rozpoznawalność sampla (decyzja właściciela)
+
+- Sytuacja: partia jingli z pitchem 0,45–1,35 była oceniona około 5/15 mimo dobrych metryk technicznych; słuchacz słyszał hałas, nie opisywane zdarzenia.
+- Wniosek: słyszalność nie oznacza rozpoznawalności. Tożsamość zdarzenia niesie naturalny timbr nagrania, który zmiana wysokości/tempa niszczy.
+- Zasada / działanie zapobiegawcze: dla nowych receptur żywe sample są natywne (`pitch` nieobecny lub `1.0`); inny charakter = inny sample. Bramka `render_jingle.py` i testy odrzucają `pitch != 1`.
 
 ## 2026-09-22 — Jak pobierać sample w sandboxie: GitHub, nie Wikimedia
 
