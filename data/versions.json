@@ -964,9 +964,26 @@
           "label": "v2",
           "created_at": "2026-09-22T14:05:00Z",
           "audio": "legacy/source/jingle_output/568_v2.mp3",
-          "score": null,
-          "scores": null,
-          "reports": [],
+          "score": 15,
+          "scores": {
+            "feeling": 5,
+            "story_fit": 5,
+            "sample_quality": 5
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/17",
+              "created_at": "2026-09-22T15:15:15Z",
+              "state": "open",
+              "scores": {
+                "feeling": 5,
+                "story_fit": 5,
+                "sample_quality": 5
+              },
+              "total": 15,
+              "comment": "super"
+            }
+          ],
           "project_description": {
             "summary": "Krótka forma audio dla sceny: Nanoform Sentinel. Wersja v2 odpowiada na ocenę 11/15 (issue #14): usuwa „melodyjkę” (syntetyczne chime z v1), a pęknięcie przewodu wydobywa do roli słyszalnej kulminacji — żywe uderzenie + nowy zweryfikowany sample syku pary (Black Growler Steam Vent, NPS PD) zamiast niesłyszalnego trzasku. Zachowuje polubiony przemysłowy szum stacji i sygnaturowy rój nanoformu.",
             "ambience": "station_hum (laboratoria orbitalne nad Uthros)",
@@ -1018,7 +1035,9 @@
                 "Kontrast dramaturgiczny: 16.6/30 (ratio 2.77x)"
               ]
             }
-          }
+          },
+          "rated_at": "2026-09-22T15:15:15Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/17"
         }
       ]
     }
