@@ -3,12 +3,18 @@ name: Deploy feedback worker
 on:
   workflow_dispatch:
   push:
+    branches:
+      - main
     paths:
       - 'feedback-worker/**'
       - '.github/workflows/deploy-feedback-worker.yml'
 
 permissions:
   contents: read
+
+concurrency:
+  group: deploy-feedback-worker
+  cancel-in-progress: false
 
 jobs:
   deploy:
