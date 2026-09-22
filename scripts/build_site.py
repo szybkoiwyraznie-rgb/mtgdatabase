@@ -24,6 +24,8 @@ def main() -> None:
     for private_file in (args.output / "story-template.html", args.output / "data/config.example.json"):
         if private_file.exists(): private_file.unlink()
     data = json.loads(args.catalog.read_text(encoding="utf-8"))
+    # Pages is a showcase of finished work, not a list of empty production slots.
+    data["stories"] = [story for story in data.get("stories", []) if story.get("versions")]
     (args.output / "data").mkdir(exist_ok=True)
     config = Path("site/data/config.example.json")
     if config.is_file():

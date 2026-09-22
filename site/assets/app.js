@@ -18,8 +18,9 @@ function render() {
   $('#catalog').innerHTML = stories.map(story => {
     const rating = best(story);
     const versions = story.versions?.length || 0;
+    const versionLabel = versions === 1 ? 'wersja' : 'wersji';
     const status = rating === null ? 'nieocenione' : `najlepiej ${rating}/15`;
-    return `<article class="story"><div class="story-head"><h2><a href="stories/${story.id}/"><span class="story-id">#${story.id}</span> ${story.title}</a></h2><span class="pill ${rating === null ? 'wait' : 'good'}">${status}</span></div><div class="meta"><span class="pill">${versions} ${versions === 1 ? 'wersja' : 'wersje'}</span><span class="pill">${rating === null ? 'oczekuje na ocenę' : 'ma ocenę'}</span><a class="story-link" href="stories/${story.id}/">Otwórz fabułę →</a></div></article>`;
+    return `<article class="story"><div class="story-head"><h2><a href="stories/${story.id}/"><span class="story-id">#${story.id}</span> ${story.title}</a></h2><span class="pill ${rating === null ? 'wait' : 'good'}">${status}</span></div><div class="meta"><span class="pill">${versions} ${versionLabel}</span><span class="pill">${rating === null ? 'oczekuje na ocenę' : 'ma ocenę'}</span><a class="story-link" href="stories/${story.id}/">Otwórz fabułę →</a></div></article>`;
   }).join('') || '<p class="lede">Brak wyników.</p>';
 }
 
