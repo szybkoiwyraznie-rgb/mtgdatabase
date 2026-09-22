@@ -23,21 +23,29 @@ FIELD_LABELS = {"feeling": "Feeling", "story_fit": "Story fit", "sample_quality"
 MARKER = re.compile(r"<!-- jingle-feedback: (?P<story>[A-Za-z0-9_-]{1,64}):(?P<version>v[0-9]+) -->")
 
 
+def decode_issue_stream(text: str) -> list[dict]:
+    # `gh api --paginate` prints one JSON array per page, back to back; plain
+    # json.loads rejects such a stream once feedback grows past the first page.
+    issues: list[dict] = []
+    decoder = json.JSONDecoder()
+    index = 0
+    length = len(text)
+    while index < length:
+        while index < length and text[index] in " \r\n\t":
+            index += 1
+        if index >= length:
+            break
+        page, index = decoder.raw_decode(text, index)
+        issues.extend(item for item in page if "pull_request" not in item)
+    return issues
+
+
 def fetch_issues() -> list[dict]:
     if not os.environ.get("GH_TOKEN"):
         sys.exit("GH_TOKEN is required unless --issues-file is used")
     cmd = ["gh", "api", "repos/{owner}/{repo}/issues?labels=feedback&state=all&per_page=100", "--paginate"]
     out = subprocess.run(cmd, check=True, capture_output=True, text=True).stdout
-    issues: list[dict] = []
-    decoder = json.JSONDecoder()
-    index = 0
-    while index < len(out.strip()):
-        page, end = decoder.raw_decode(out, index)
-        issues.extend(item for item in page if "pull_request" not in item)
-        index = end
-        while index < len(out) and out[index] in " \r\n":
-            index += 1
-    return issues
+    return decode_issue_stream(out)
 
 
 def parse_issue(issue: dict) -> dict | None:
@@ -115,8 +123,7 @@ def main() -> int:
 
     data = json.loads(args.versions.read_text(encoding="utf-8"))
     if args.issues_file:
-        raw = json.loads(args.issues_file.read_text(encoding="utf-8"))
-        issues = [item for item in raw if "pull_request" not in item]
+        issues = decode_issue_stream(args.issues_file.read_text(encoding="utf-8"))
     else:
         issues = fetch_issues()
 
