@@ -1,0 +1,172 @@
+{
+  "story_id": "2",
+  "label": "v2",
+  "duration_sec": 5.5,
+  "climax_window": [
+    1.5,
+    3.8
+  ],
+  "bed": {
+    "ambience": {
+      "type": "cave_water",
+      "gain": 0.3,
+      "params": {
+        "seed": 22
+      }
+    },
+    "drone": {
+      "type": "eldrazi_alien",
+      "freq": 66.0,
+      "gain": 0.55,
+      "params": {}
+    }
+  },
+  "events": [
+    {
+      "time_sec": 0.55,
+      "type": "synth",
+      "kind": "drip",
+      "length_sec": 0.12,
+      "gain": 0.5,
+      "pan": -0.4,
+      "role": "kapanie kropel w zalanym przejściu",
+      "params": {}
+    },
+    {
+      "time_sec": 1.05,
+      "type": "synth",
+      "kind": "thump",
+      "length_sec": 0.42,
+      "gain": 1.15,
+      "pan": -0.15,
+      "role": "tąpnięcie Balotha w kamień — tylna łapa (sub)",
+      "params": {
+        "f1": 88.0,
+        "f2": 26.0
+      }
+    },
+    {
+      "time_sec": 1.06,
+      "type": "stem",
+      "file": "gravel_feet.mp3",
+      "pitch": 0.9,
+      "hp_hz": 100,
+      "gain": 1.2,
+      "pan": -0.15,
+      "role": "chrzęst kamieni pod ciężarem łapy"
+    },
+    {
+      "time_sec": 1.13,
+      "type": "stem",
+      "file": "water_splash.mp3",
+      "pitch": 1.1,
+      "hp_hz": 200,
+      "gain": 1.15,
+      "pan": -0.2,
+      "role": "rozbryzg wody pod stopą"
+    },
+    {
+      "time_sec": 1.78,
+      "type": "stem",
+      "file": "bear_growl.mp3",
+      "pitch": 0.75,
+      "gain": 1.45,
+      "pan": 0.0,
+      "role": "kulminacja — bliski gardłowy ryk Balotha (grizzly NPS obniżony 0.75x)"
+    },
+    {
+      "time_sec": 2.0,
+      "type": "synth",
+      "kind": "drip",
+      "length_sec": 0.1,
+      "gain": 0.4,
+      "pan": 0.3,
+      "role": "kapanie po rykach",
+      "params": {
+        "f1": 2400.0
+      }
+    },
+    {
+      "time_sec": 2.95,
+      "type": "synth",
+      "kind": "thump",
+      "length_sec": 0.46,
+      "gain": 1.3,
+      "pan": 0.12,
+      "role": "tąpnięcie Balotha — drugi krok (cięższy sub)",
+      "params": {
+        "f1": 82.0,
+        "f2": 24.0
+      }
+    },
+    {
+      "time_sec": 2.96,
+      "type": "stem",
+      "file": "gravel_feet.mp3",
+      "pitch": 0.9,
+      "offset_sec": 1.2,
+      "hp_hz": 100,
+      "gain": 1.25,
+      "pan": 0.12,
+      "role": "chrzęst kamieni przy drugim kroku"
+    },
+    {
+      "time_sec": 3.03,
+      "type": "stem",
+      "file": "water_splash.mp3",
+      "pitch": 1.05,
+      "offset_sec": 1.5,
+      "hp_hz": 200,
+      "gain": 1.25,
+      "pan": 0.15,
+      "role": "rozbryzg wody przy drugim kroku"
+    },
+    {
+      "time_sec": 3.75,
+      "type": "synth",
+      "kind": "drip",
+      "length_sec": 0.1,
+      "gain": 0.45,
+      "pan": -0.2,
+      "role": "kanion opada po przejściu bestii",
+      "params": {
+        "f1": 2150.0
+      }
+    },
+    {
+      "time_sec": 4.4,
+      "type": "synth",
+      "kind": "drip",
+      "length_sec": 0.09,
+      "gain": 0.35,
+      "pan": 0.45,
+      "role": "oddalone kapanie w outro",
+      "params": {
+        "f1": 2500.0
+      }
+    }
+  ],
+  "ducking": [
+    1.6,
+    3.45,
+    0.45
+  ],
+  "post": {
+    "echo_ms": [
+      160,
+      300
+    ],
+    "echo_gains": [
+      0.18,
+      0.1
+    ],
+    "room": 0.5
+  },
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Coralhelm Guide. Wersja v2 odpowiada na ocenę v1 (issue #8): zachowuje polubiony bliski ryk Balotha, a niesłyszalne dotąd tąpnięcia wbudowuje jako warstwowy event (sub + chrzęst żwiru + rozbryzg) z wyraźną separacją czasową od ryków. Fontanna z v1 zastąpiona detaliczną pracą wody.",
+    "ambience": "cave_water (zalane przejście, kapanie ze stem)",
+    "drone": "eldrazi_alien (66.0 Hz)",
+    "mix_notes": "Poprawka po issue #8: tąpnięcia są teraz słyszalne — warstwa sub-thump + chrzęst żwiru + plusk w jednym punkcie czasu (1.05 s i 2.95 s), z dala od ryków; ryk 1.78 s centralnie z duckingiem tła −7 dB (1.6–3.45 s); kapiące krople niosą przestrzeń kanionu zamiast generycznego szumu fontanny.",
+    "description": "Zalany kanion + dysonans Eldrazi 66 Hz • kapanie kropel • dwa wyraźne, ciężkie tąpnięcia przez wodę (sub + żwir + rozbryzg) • bliski gardłowy ryk Balotha w centrum • pogłos ścian kanionu"
+  }
+}

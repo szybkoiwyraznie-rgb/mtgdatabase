@@ -20,12 +20,22 @@ Po przeczytaniu obowiązkowej dokumentacji, w tym `ENVIRONMENT.md` i aktualnej k
 
 Jeśli audyt wykryje ryzyko utraty danych, sekret w kodzie albo nieodwracalną publikację, zatrzymaj się i opisz problem zamiast go omijać.
 
+### 0.5 Synchronizacja ocen
+
+Przed nową produkcją zsynchronizuj oceny z issues z etykietą `feedback`:
+
+```bash
+python scripts/sync_ratings.py --versions data/versions.json
+```
+
+Najnowszy raport dla pary (fabuła, wersja) ustawia aktualną ocenę, a każdy raport trafia do historii `reports` wersji. Pominięte wpisy (np. ocena bez wyrenderowanej wersji) wypisz w raporcie. Workflow `Sync ratings from issues` wykonuje to samo automatycznie po każdym nowym issue i przebudowuje Pages oraz paczkę ZIP, ale agent nie zwaliduje pętli bez sprawdzenia, że wszystkie oceny są w `data/versions.json`.
+
 ### 1. Nowa fabuła
 
 - sprawdź status repozytorium i kolejki;
 - zarezerwuj losową fabułę ze statusem `new`;
 - zaprojektuj recepturę audio na podstawie tytułu i fabuły;
-- wyrenderuj pierwsze MP3 i zapisz metadane jako `v1`;
+- wyrenderuj pierwsze MP3 i zapisz metadane jako `v1`; render musi przejść audyt QA ≥85/100 — poniżej progu poprawiasz recepturę i liczysz ponownie, zanim zapiszesz metadane;
 - jeśli nie ma nowych fabuł, zapisz to w raporcie i przejdź dalej.
 
 ### 2. Remake najgorszego jingla
@@ -34,7 +44,7 @@ Jeśli audyt wykryje ryzyko utraty danych, sekret w kodzie albo nieodwracalną p
 - zarezerwuj zadanie, aby dwóch agentów nie pracowało nad nim równocześnie;
 - przeanalizuj trzy oceny i komentarz;
 - zaprojektuj poprawkę, zaktualizuj opis projektowy i nie kasuj poprzedniej wersji;
-- wyrenderuj kolejną wersję `vN` i oznacz raport jako obsłużony dopiero po udanej publikacji;
+- wyrenderuj kolejną wersję `vN` (audyt QA ≥85/100) i oznacz raport jako obsłużony dopiero po udanej publikacji; po merge'u `data/versions.json` z nowszą wersją workflow `Sync ratings from issues` zamyka raport automatycznie, ale agent weryfikuje to na wypadek awarii automatu;
 - jeśli nie ma ocenionego jingla do poprawy, zapisz to w raporcie.
 
 ### 3. Rozwój warsztatu

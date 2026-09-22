@@ -1,0 +1,103 @@
+{
+  "sources": [
+    {
+      "name": "whoosh_flap.mp3",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Swipe_%28Gravity_Sound%29.mp3",
+      "author": "Gravity Sound",
+      "license": "CC BY 4.0",
+      "attribution_required": true,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "Na Commons jako File:Swipe (Gravity Sound).mp3; atrybucja: „Gravity Sound, CC BY 4.0, via Wikimedia Commons”. Uwaga: fetch_stems.py opisuje cały zestaw jako CC0/PD — to było nieścisłe dla pozycji Gravity Sound."
+    },
+    {
+      "name": "sword_draw.mp3",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Sword_12_%28Gravity_Sound%29.mp3",
+      "author": "Gravity Sound",
+      "license": "CC BY 4.0",
+      "attribution_required": true,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "File:Sword 12 (Gravity Sound).mp3, zweryfikowane CC BY 4.0 (szablon licencji na stronie pliku)."
+    },
+    {
+      "name": "sword_swipe.mp3",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/1/19/Sword_Swipe_%28Gravity_Sound%29.mp3",
+      "author": "Gravity Sound",
+      "license": "CC BY 4.0",
+      "attribution_required": true,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "File:Sword Swipe (Gravity Sound).mp3; ten sam pakiet co Sword 12, CC BY 4.0."
+    },
+    {
+      "name": "gravel_feet.mp3",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Feet_shuffling_in_gravel_%28Gravity_Sound%29.mp3",
+      "author": "Gravity Sound",
+      "license": "CC BY 4.0",
+      "attribution_required": true,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "File:Feet shuffling in gravel (Gravity Sound).mp3; CC BY 4.0."
+    },
+    {
+      "name": "impact_smack.mp3",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Smack_%28Gravity_Sound%29.mp3",
+      "author": "Gravity Sound",
+      "license": "CC BY 4.0",
+      "attribution_required": true,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "File:Smack (Gravity Sound).mp3; CC BY 4.0. Użyty m.in. w 568 v1 (pęknięcie przewodu)."
+    },
+    {
+      "name": "raven_call.mp3",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Yellowstone_sound_library_-_Common_Raven_-_001.mp3",
+      "author": "U.S. National Park Service (Yellowstone Sound Library)",
+      "license": "Public Domain (praca rządu USA)",
+      "attribution_required": false,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "Yellowstone Sound Library, NPS — prace agencji federalnych USA są domeną publiczną."
+    },
+    {
+      "name": "bear_growl.mp3",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/3/30/Yellowstone_sound_library_-_Grizzly_Bears_Roar_-_001.mp3",
+      "author": "U.S. National Park Service (Yellowstone Sound Library)",
+      "license": "Public Domain (praca rządu USA)",
+      "attribution_required": false,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "Grizzly z Yellowstone Sound Library; w mikście zaniżany do roli Balotha."
+    },
+    {
+      "name": "water_splash.mp3",
+      "url": "https://commons.wikimedia.org/wiki/File:Bathtub_water_splashes.ogg",
+      "author": "gradha (Grzegorz Adam Hankiewicz) / pdsounds.org",
+      "license": "Public Domain",
+      "attribution_required": false,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "Autor wydał nagranie do domeny publicznej przez pdsounds.org; lokalna kopia jest transkodowaniem OGG→MP3."
+    },
+    {
+      "name": "alligator_bellow.mp3",
+      "url": "https://commons.wikimedia.org/wiki/File:Alligatorbellowedit.ogg",
+      "author": "U.S. Fish and Wildlife Service (oryginał); Borisblue (edycja)",
+      "license": "CC BY-SA 2.5 (edycja); oryginał Public Domain (FWS)",
+      "attribution_required": true,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-22",
+      "notes": "Uwaga ShareAlike: edycja Borisblue jest CC BY-SA 2.5. Przy przyszłym użyciu preferować surowy oryginał FWS (alligatorbellow1.ogg, czysty PD) albo traktować miks jako adaptację CC BY-SA. Dla nowych renderów unikać, dopóki nie przełączymy się na wersję PD."
+    }
+  ]
+}

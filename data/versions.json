@@ -1,0 +1,615 @@
+{
+  "stories": [
+    {
+      "id": "1",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-11T10:00:00Z",
+          "audio": "legacy/source/jingle_output/1.mp3",
+          "score": 12,
+          "scores": {
+            "feeling": 4,
+            "story_fit": 4,
+            "sample_quality": 4
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/9",
+              "created_at": "2026-09-22T09:12:56Z",
+              "state": "open",
+              "scores": {
+                "feeling": 4,
+                "story_fit": 4,
+                "sample_quality": 4
+              },
+              "total": 12,
+              "comment": "super kruki, wiatr też, pochodnia ujdzie, ta stal zupełnie nie zabrzmiała"
+            }
+          ],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Dunland Crebain. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "mountain_wind",
+            "drone": "cinematic_sub (44.0 Hz)",
+            "events": [
+              {
+                "time_sec": 2.0,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 2.45,
+                "sample": "raven_call.mp3",
+                "role": "warstwa foley / kulminacja"
+              },
+              {
+                "time_sec": 3.75,
+                "sample": "sword_draw.mp3",
+                "role": "warstwa foley"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Wiatr w wąwozie + sub-dron • szum ognia pochodni • pikujący kruk Yellowstone NPS • orkowa stal z echem",
+            "qa": {
+              "score": 87.4,
+              "base": 70.0,
+              "dramaturgy": 17.4,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 17.4/30"
+              ]
+            }
+          },
+          "rated_at": "2026-09-22T09:12:56Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/9"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-12T10:00:00Z",
+          "audio": "legacy/source/jingle_output/2.mp3",
+          "score": 11,
+          "scores": {
+            "feeling": 3,
+            "story_fit": 4,
+            "sample_quality": 4
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/8",
+              "created_at": "2026-09-22T09:12:05Z",
+              "state": "open",
+              "scores": {
+                "feeling": 3,
+                "story_fit": 4,
+                "sample_quality": 4
+              },
+              "total": 11,
+              "comment": "ta fontanna wody w miarę, ale bez szału, tąpnięcie w kamień to w ogóle nie słychać, ryk fajny"
+            }
+          ],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Coralhelm Guide. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "cave_flooded",
+            "drone": "eldrazi_alien (66.0 Hz)",
+            "events": [
+              {
+                "time_sec": 0.85,
+                "sample": "beast_step_water",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 1.85,
+                "sample": "beast_roar",
+                "role": "warstwa foley / kulminacja"
+              },
+              {
+                "time_sec": 3.75,
+                "sample": "beast_step_water",
+                "role": "warstwa foley"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Ciemna jaskinia + dysonans Eldrazi • tąpnięcie w kamień • bliski ryk Balotha (Yellowstone grizzly + aligator) • fontanna wody",
+            "qa": {
+              "score": 87.3,
+              "base": 70.0,
+              "dramaturgy": 17.3,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 17.3/30"
+              ]
+            }
+          },
+          "rated_at": "2026-09-22T09:12:05Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/8"
+        },
+        {
+          "label": "v2",
+          "created_at": "2026-09-22T11:23:15Z",
+          "audio": "legacy/source/jingle_output/2_v2.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Coralhelm Guide. Wersja v2 odpowiada na ocenę v1 (issue #8): zachowuje polubiony bliski ryk Balotha, a niesłyszalne dotąd tąpnięcia wbudowuje jako warstwowy event (sub + chrzęst żwiru + rozbryzg) z wyraźną separacją czasową od ryków. Fontanna z v1 zastąpiona detaliczną pracą wody.",
+            "ambience": "cave_water (zalane przejście, kapanie ze stem)",
+            "drone": "eldrazi_alien (66.0 Hz)",
+            "mix_notes": "Poprawka po issue #8: tąpnięcia są teraz słyszalne — warstwa sub-thump + chrzęst żwiru + plusk w jednym punkcie czasu (1.05 s i 2.95 s), z dala od ryków; ryk 1.78 s centralnie z duckingiem tła −7 dB (1.6–3.45 s); kapiące krople niosą przestrzeń kanionu zamiast generycznego szumu fontanny.",
+            "description": "Zalany kanion + dysonans Eldrazi 66 Hz • kapanie kropel • dwa wyraźne, ciężkie tąpnięcia przez wodę (sub + żwir + rozbryzg) • bliski gardłowy ryk Balotha w centrum • pogłos ścian kanionu",
+            "events": [
+              {
+                "time_sec": 0.55,
+                "sample": "synth:drip",
+                "role": "kapanie kropel w zalanym przejściu"
+              },
+              {
+                "time_sec": 1.05,
+                "sample": "synth:thump",
+                "role": "tąpnięcie Balotha w kamień — tylna łapa (sub)"
+              },
+              {
+                "time_sec": 1.06,
+                "sample": "gravel_feet.mp3",
+                "role": "chrzęst kamieni pod ciężarem łapy"
+              },
+              {
+                "time_sec": 1.13,
+                "sample": "water_splash.mp3",
+                "role": "rozbryzg wody pod stopą"
+              },
+              {
+                "time_sec": 1.78,
+                "sample": "bear_growl.mp3",
+                "role": "kulminacja — bliski gardłowy ryk Balotha (grizzly NPS obniżony 0.75x)"
+              },
+              {
+                "time_sec": 2.0,
+                "sample": "synth:drip",
+                "role": "kapanie po rykach"
+              },
+              {
+                "time_sec": 2.95,
+                "sample": "synth:thump",
+                "role": "tąpnięcie Balotha — drugi krok (cięższy sub)"
+              },
+              {
+                "time_sec": 2.96,
+                "sample": "gravel_feet.mp3",
+                "role": "chrzęst kamieni przy drugim kroku"
+              },
+              {
+                "time_sec": 3.03,
+                "sample": "water_splash.mp3",
+                "role": "rozbryzg wody przy drugim kroku"
+              },
+              {
+                "time_sec": 3.75,
+                "sample": "synth:drip",
+                "role": "kanion opada po przejściu bestii"
+              },
+              {
+                "time_sec": 4.4,
+                "sample": "synth:drip",
+                "role": "oddalone kapanie w outro"
+              }
+            ],
+            "qa": {
+              "score": 85.6,
+              "base": 70.0,
+              "dramaturgy": 15.6,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 15.6/30 (ratio 2.60x)"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-13T10:00:00Z",
+          "audio": "legacy/source/jingle_output/3.mp3",
+          "score": 12,
+          "scores": {
+            "feeling": 4,
+            "story_fit": 4,
+            "sample_quality": 4
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/7",
+              "created_at": "2026-09-22T09:10:22Z",
+              "state": "open",
+              "scores": {
+                "feeling": 4,
+                "story_fit": 4,
+                "sample_quality": 4
+              },
+              "total": 12,
+              "comment": "nieźle, śmiech fajny, ten dźwięk palenia taki mało przekonujący trochę"
+            }
+          ],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Nefarious Imp. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "cave_flooded",
+            "drone": "cinematic_sub (38.0 Hz)",
+            "events": [
+              {
+                "time_sec": 1.1,
+                "sample": "gravel_feet.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 2.2,
+                "sample": "gravel_feet.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 3.4,
+                "sample": "sword_draw.mp3",
+                "role": "warstwa foley / kulminacja"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Gabinet po spisku + niski dron • dopalająca się mapa i stopione figurki • złośliwy chochlik • puls skradzionego kryształu",
+            "qa": {
+              "score": 84.4,
+              "base": 70.0,
+              "dramaturgy": 14.4,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 14.4/30"
+              ]
+            }
+          },
+          "rated_at": "2026-09-22T09:10:22Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/7"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-14T10:00:00Z",
+          "audio": "legacy/source/jingle_output/4.mp3",
+          "score": 15,
+          "scores": {
+            "feeling": 5,
+            "story_fit": 5,
+            "sample_quality": 5
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/6",
+              "created_at": "2026-09-22T09:09:26Z",
+              "state": "open",
+              "scores": {
+                "feeling": 5,
+                "story_fit": 5,
+                "sample_quality": 5
+              },
+              "total": 15,
+              "comment": "super"
+            }
+          ],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Mystic Sanctuary. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "mountain_wind",
+            "drone": "cinematic_sub (52.0 Hz)",
+            "events": [
+              {
+                "time_sec": 0.9,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 1.7,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 2.5,
+                "sample": "beast_roar",
+                "role": "warstwa foley / kulminacja"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Mgliste jezioro Eldraine + spokojny dron • woda przy kamieniu i szelest księgi • świetlisty kryształ • baśniowa kulminacja",
+            "qa": {
+              "score": 100.0,
+              "base": 70.0,
+              "dramaturgy": 30.0,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 30.0/30"
+              ]
+            }
+          },
+          "rated_at": "2026-09-22T09:09:26Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/6"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-15T10:00:00Z",
+          "audio": "legacy/source/jingle_output/5.mp3",
+          "score": 10,
+          "scores": {
+            "feeling": 3,
+            "story_fit": 3,
+            "sample_quality": 4
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/5",
+              "created_at": "2026-09-22T09:07:34Z",
+              "state": "open",
+              "scores": {
+                "feeling": 3,
+                "story_fit": 3,
+                "sample_quality": 4
+              },
+              "total": 10,
+              "comment": "szum wiatru i ta misa są ok, ale ta część: \"chrzęst kroków i świst skrzydeł • nagłe cięcie miecza\" jest kompletnie inna - ja tam nie słyszę ani kroków, ani skrzydeł ani tym bardziej miecza"
+            }
+          ],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Academy Journeymage. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
+            "ambience": "forest_night",
+            "drone": "cinematic_sub (48.0 Hz)",
+            "events": [
+              {
+                "time_sec": 0.9,
+                "sample": "gravel_feet.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 1.6,
+                "sample": "whoosh_flap.mp3",
+                "role": "warstwa foley"
+              },
+              {
+                "time_sec": 3.4,
+                "sample": "sword_swipe.mp3",
+                "role": "warstwa foley"
+              }
+            ],
+            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
+            "description": "Nocny las + napięciowy sub-dron • chrzęst kroków i świst skrzydeł • nagłe cięcie miecza • krótki, czysty stinger",
+            "qa": {
+              "score": 90.1,
+              "base": 70.0,
+              "dramaturgy": 20.1,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 20.1/30"
+              ]
+            }
+          },
+          "rated_at": "2026-09-22T09:07:34Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/5"
+        },
+        {
+          "label": "v2",
+          "created_at": "2026-09-22T10:26:17Z",
+          "audio": "legacy/source/jingle_output/5_v2.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Academy Journeymage. Wersja v2 odpowiada na ocenę v1 (issue #5): zachowuje polubione tło wiatru i „misę” jako dron, a niesłyszalne i niepasujące kroki/skrzydła/miecz zastępuje słyszalną, fabularnie trafną akcją portalu odsyłającego.",
+            "ambience": "wind (taras akademii)",
+            "drone": "bowl (196.0 Hz)",
+            "mix_notes": "Poprawka po issue #5: foley jest teraz wyraźnie słyszalny — szelest papieru 0.8 s (lewy), wir portalu 1.6 s (prawy, +2 dB ponad dotychczas), centralne pęknięcie próżni 2.7 s z duckingiem tła o −8 dB (2.4–3.8 s) i separacją dry/wet (centrum suche, ściany 170/310 ms mokre).",
+            "description": "Wiatr na tarasie dominariańskiej akademii + dźwięk misy 196 Hz • szelest rozwiewanych notatek • wyraźny wir wirującego portalu (Gravity Sound swipe zwolniony 0.62x) • centralne pęknięcie próżni odsyłania i dopalające się błękitne glify",
+            "events": [
+              {
+                "time_sec": 0.8,
+                "sample": "synth:flutter",
+                "role": "notatki rozwiewane po kamiennej posadzce"
+              },
+              {
+                "time_sec": 1.6,
+                "sample": "whoosh_flap.mp3",
+                "role": "wirujący świst portalu błękitnej energii"
+              },
+              {
+                "time_sec": 2.7,
+                "sample": "synth:banish",
+                "role": "kulminacja — pęknięcie próżni, zaklęcie odsyłania wyrzuca intruza"
+              },
+              {
+                "time_sec": 3.15,
+                "sample": "synth:chime",
+                "role": "błękitne glify dopalają się po aktywacji zaklęcia"
+              },
+              {
+                "time_sec": 4.15,
+                "sample": "synth:thump",
+                "role": "ciche domknięcie portalu"
+              }
+            ],
+            "qa": {
+              "score": 87.3,
+              "base": 70.0,
+              "dramaturgy": 17.3,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 17.3/30 (ratio 2.89x)"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "568",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-22T10:26:17Z",
+          "audio": "legacy/source/jingle_output/568.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Nanoform Sentinel. Trójwarstwowa konstrukcja: zimne tło stacji orbitalnej, syntetyczny pad i wydarzenia technologiczne z kulminacją gotowości maszyny.",
+            "ambience": "station_hum",
+            "drone": "synth_pad (55.0 Hz)",
+            "mix_notes": "Tło (wentylacja orbitalnego laboratorium + pad 55 Hz) wycofywane przez ducking w oknie 1.9–3.7 s, kulminacja power-up + akord gotowości zostaje centralnie; lekki metaliczny pogłos pomieszczenia (140/300 ms).",
+            "description": "Szum wentylacji orbitalnego laboratorium + zimny pad syntetyczny 55 Hz • emisja roju nanocząstek (granularny shimmer) • pęknięcie przewodu i elektryczny łuk naprawczy • narastający power-up generatora z kryształowym akordem gotowości operacyjnej",
+            "events": [
+              {
+                "time_sec": 0.9,
+                "sample": "synth:swarm",
+                "role": "rój nanocząstek emitowany przez strażnika"
+              },
+              {
+                "time_sec": 1.75,
+                "sample": "impact_smack.mp3",
+                "role": "pęknięcie przewodu zasilającego / zaczęcie naprawy"
+              },
+              {
+                "time_sec": 1.88,
+                "sample": "synth:crackle",
+                "role": "elektryczny łuk zasklepiający przewody"
+              },
+              {
+                "time_sec": 2.35,
+                "sample": "synth:sweep",
+                "role": "narastanie mocy generatora"
+              },
+              {
+                "time_sec": 2.55,
+                "sample": "synth:chime",
+                "role": "kulminacja — powrót pełnej gotowości operacyjnej"
+              },
+              {
+                "time_sec": 3.7,
+                "sample": "synth:chime",
+                "role": "ostatnie potwierdzenie stanu (tag)"
+              }
+            ],
+            "qa": {
+              "score": 90.7,
+              "base": 70.0,
+              "dramaturgy": 20.7,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 20.7/30 (ratio 3.46x)"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "450",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-22T11:23:15Z",
+          "audio": "legacy/source/jingle_output/450.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Thornhide Wolves. Nocny Ulvenwald z proceduralnymi świerszczami i napięciowym sub-dronem; bestia przeciska się przez ciernistą barierę, wchodzi w krąg ogniska z gardłowym oddechem, po czym brzęk srebrnych wnyków domyka dramat łowczyń.",
+            "ambience": "forest_night (nocny las Ulvenwaldu, proceduralne świerszcze)",
+            "drone": "cinematic_sub (48.0 Hz)",
+            "mix_notes": "Tło (nocne powietrze + świerszcze + sub 48 Hz) wycofywane duckingiem w oknie 2.0–3.5 s; krok łapy i gardłowy oddech dużego wilka w centrum, ogień tylko na prawo; echo lasu 150/290 ms ograniczone do 0.35 wilgoci, by zachować bliskość obozu.",
+            "description": "Nocny las Ulvenwaldu + sub-dron napięcia 48 Hz • trzask rozsuwanego ciernistego muru • ciężkie łapy w błocie • gardłowy warczący oddech dużego wilka nad dogasającym ogniskiem • dzwonek srebrnych wnyków upuszczonych w błoto",
+            "events": [
+              {
+                "time_sec": 0.75,
+                "sample": "synth:crackle",
+                "role": "ciernisty mur Halany rozsuwany przez bestię"
+              },
+              {
+                "time_sec": 1.35,
+                "sample": "gravel_feet.mp3",
+                "role": "ciężkie łapy wilka w błocie (gęstwa)"
+              },
+              {
+                "time_sec": 1.35,
+                "sample": "synth:thump",
+                "role": "sub-ciężar pierwszego kroku do ogniska"
+              },
+              {
+                "time_sec": 2.25,
+                "sample": "bear_growl.mp3",
+                "role": "kulminacja — niski gardłowy warczący oddech dużego wilka nad obozem"
+              },
+              {
+                "time_sec": 2.75,
+                "sample": "synth:crackle",
+                "role": "dogasające ognisko — strzały żaru"
+              },
+              {
+                "time_sec": 3.35,
+                "sample": "synth:chime",
+                "role": "srebrne wnyki Aleny upuszczone w błoto — metaliczny dzwonek"
+              },
+              {
+                "time_sec": 4.3,
+                "sample": "synth:crackle",
+                "role": "ostatnie strzały dogasającego ogniska"
+              }
+            ],
+            "qa": {
+              "score": 85.4,
+              "base": 70.0,
+              "dramaturgy": 15.4,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 15.4/30 (ratio 2.57x)"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

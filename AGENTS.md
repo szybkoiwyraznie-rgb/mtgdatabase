@@ -15,6 +15,9 @@ To repozytorium jest prywatną, niekomercyjną linią produkcyjną krótkich for
 8. Przy nowych samplach zapisz źródło, licencję, autora i zakres dozwolonego użycia w rejestrze źródeł.
 9. Nie traktuj ekranu PIN w JavaScripcie jako silnego zabezpieczenia. Pages może być dostępne publicznie.
 10. Jeśli zadanie jest jednoznaczne, działaj bez dodatkowych pytań. Pytaj tylko przy ryzyku utraty danych, błędnym wyborze architektury lub nieodwracalnej publikacji.
+11. Pięć jingli z `legacy/source/jingle_output/` (fabuły 1–5) to produkcyjne wersje `v1`, nie demo. Nigdy ich nie usuwaj ani nie oznaczaj jako prototyp; lepszą wersję tworzysz jako kolejne `vN`.
+12. W każdej pętli zsynchronizuj oceny: uruchom `python scripts/sync_ratings.py --versions data/versions.json` i dopilnuj, by każda ocena z issues z etykietą `feedback` trafiła do `data/versions.json` przed publikacją. Workflow `Sync ratings from issues` robi to automatycznie, ale agent weryfikuje wynik i domyka braki.
+13. Render publikujesz dopiero po audycie QA ≥85/100: bramki techniczne (DC offset, headroom, ciągłość tła, kontrast kulminacji — `scripts/qa_score.py`) oraz próg `--min-score 85` w `scripts/render_jingle.py`. Poniżej progu poprawiasz recepturę i renderujesz ponownie, zanim wersję zapiszesz w metadanych; to pętla samokontroli z `legacy/source/INSTRUKCJA_PRODUKCJI_JINGLI.md`.
 
 ## Pętla pracy
 

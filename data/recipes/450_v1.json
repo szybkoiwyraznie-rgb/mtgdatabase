@@ -1,0 +1,139 @@
+{
+  "story_id": "450",
+  "label": "v1",
+  "duration_sec": 5.5,
+  "climax_window": [
+    1.5,
+    3.8
+  ],
+  "bed": {
+    "ambience": {
+      "type": "forest_night",
+      "gain": 0.38,
+      "params": {
+        "seed": 45019,
+        "crickets": 7
+      }
+    },
+    "drone": {
+      "type": "cinematic_sub",
+      "freq": 48.0,
+      "gain": 0.5,
+      "params": {}
+    }
+  },
+  "events": [
+    {
+      "time_sec": 0.75,
+      "type": "synth",
+      "kind": "crackle",
+      "length_sec": 0.55,
+      "gain": 0.6,
+      "pan": -0.3,
+      "role": "ciernisty mur Halany rozsuwany przez bestię",
+      "params": {
+        "bursts": 14
+      }
+    },
+    {
+      "time_sec": 1.35,
+      "type": "stem",
+      "file": "gravel_feet.mp3",
+      "pitch": 0.8,
+      "hp_hz": 80,
+      "gain": 1.15,
+      "pan": -0.1,
+      "role": "ciężkie łapy wilka w błocie (gęstwa)"
+    },
+    {
+      "time_sec": 1.35,
+      "type": "synth",
+      "kind": "thump",
+      "length_sec": 0.4,
+      "gain": 0.95,
+      "pan": -0.1,
+      "role": "sub-ciężar pierwszego kroku do ogniska",
+      "params": {
+        "f1": 65.0,
+        "f2": 26.0
+      }
+    },
+    {
+      "time_sec": 2.25,
+      "type": "stem",
+      "file": "bear_growl.mp3",
+      "pitch": 1.12,
+      "gain": 1.4,
+      "pan": 0.0,
+      "role": "kulminacja — niski gardłowy warczący oddech dużego wilka nad obozem"
+    },
+    {
+      "time_sec": 2.75,
+      "type": "synth",
+      "kind": "crackle",
+      "length_sec": 0.5,
+      "gain": 0.45,
+      "pan": 0.25,
+      "role": "dogasające ognisko — strzały żaru",
+      "params": {
+        "bursts": 10
+      }
+    },
+    {
+      "time_sec": 3.35,
+      "type": "synth",
+      "kind": "chime",
+      "length_sec": 1.1,
+      "gain": 0.8,
+      "pan": -0.15,
+      "role": "srebrne wnyki Aleny upuszczone w błoto — metaliczny dzwonek",
+      "params": {
+        "partials": [
+          1879.0,
+          2960.0,
+          4153.0
+        ],
+        "decays": [
+          0.9,
+          0.7,
+          0.5
+        ]
+      }
+    },
+    {
+      "time_sec": 4.3,
+      "type": "synth",
+      "kind": "crackle",
+      "length_sec": 0.35,
+      "gain": 0.3,
+      "pan": 0.3,
+      "role": "ostatnie strzały dogasającego ogniska",
+      "params": {
+        "bursts": 6
+      }
+    }
+  ],
+  "ducking": [
+    2.0,
+    3.5,
+    0.5
+  ],
+  "post": {
+    "echo_ms": [
+      150,
+      290
+    ],
+    "echo_gains": [
+      0.12,
+      0.07
+    ],
+    "room": 0.35
+  },
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Thornhide Wolves. Nocny Ulvenwald z proceduralnymi świerszczami i napięciowym sub-dronem; bestia przeciska się przez ciernistą barierę, wchodzi w krąg ogniska z gardłowym oddechem, po czym brzęk srebrnych wnyków domyka dramat łowczyń.",
+    "ambience": "forest_night (nocny las Ulvenwaldu, proceduralne świerszcze)",
+    "drone": "cinematic_sub (48.0 Hz)",
+    "mix_notes": "Tło (nocne powietrze + świerszcze + sub 48 Hz) wycofywane duckingiem w oknie 2.0–3.5 s; krok łapy i gardłowy oddech dużego wilka w centrum, ogień tylko na prawo; echo lasu 150/290 ms ograniczone do 0.35 wilgoci, by zachować bliskość obozu.",
+    "description": "Nocny las Ulvenwaldu + sub-dron napięcia 48 Hz • trzask rozsuwanego ciernistego muru • ciężkie łapy w błocie • gardłowy warczący oddech dużego wilka nad dogasającym ogniskiem • dzwonek srebrnych wnyków upuszczonych w błoto"
+  }
+}

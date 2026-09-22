@@ -17,3 +17,15 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Sytuacja: deployment Pages nie powinien wykonywać się przed scaleniem do `main`.
 - Wniosek: build i deploy trzeba rozdzielić warunkiem gałęzi.
 - Zasada / działanie zapobiegawcze: na branchach roboczych uruchamiaj build i walidację, a deployment wykonuj tylko z `main`.
+
+## 2026-09-22 — QA licz na zdekodowanym artefakcie, rendery w pełni deterministyczne
+
+- Sytuacja: audyt QA liczył metryki na mixie float przed enkodowaniem, a zdekodowany MP3 dryfował o ~0.4–0.8 pkt (overshoot kodera, zmiana RMS); warstwa `synth_pad` używała nieziarnicowanego RNG, więc render nie był powtarzalny.
+- Wniosek: metryki w `versions.json` mają opisywać plik, który faktycznie publikujemy, a receptura musi dawać ten sam artefakt przy każdym przebiegu.
+- Zasada / działanie zapobiegawcze: `render_jingle.py` audytuje zapisany MP3 przez `scripts/audit_audio.py`, wszystkie warstwy są ziarnicowane, a `audit_audio.py --versions data/versions.json` służy w pętli do kontroli dryftu metadata↔plik (cel 0.0).
+
+## 2026-09-22 — ID fabuły to liczbowy prefiks artID, nie sklejenie wszystkich cyfr
+
+- Sytuacja: losowanie fabuły własnym parserem „wszystkie cyfry z kolumny Ilustracja" dało ID `45019` zamiast `450` (artID `450M19`: prefiks 450 + set `M19`); `merge_catalog` po cichu usunął fabułę ze strony, bo ID nie istniało w katalogu.
+- Wniosek: kanoniczne ID wyznacza wyłącznie regex `^(\d+)([A-Za-z0-9_-]+)$` z `scripts/import_collection.py`; sufiks to metadane setu.
+- Zasada / działanie zapobiegawcze: agent losuje i sprawdza fabuły na podstawie WYJŚCIA `import_collection.py` (katalog), nigdy własnym parsowaniem CSV; po merge'u katalog liczba fabuł musi się zgadzać z `versions.json` (kontrola w pętli).

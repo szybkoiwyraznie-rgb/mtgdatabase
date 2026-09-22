@@ -1,0 +1,34 @@
+{
+  "story_id": "5",
+  "label": "v2",
+  "duration_sec": 5.5,
+  "climax_window": [1.5, 3.8],
+  "bed": {
+    "ambience": {"type": "wind", "gain": 0.3, "params": {"seed": 5}},
+    "drone": {"type": "bowl", "freq": 196.0, "gain": 0.55,
+              "params": {"partials": [196.0, 554.37, 1189.72], "gains": [1.0, 0.42, 0.2], "decays": [6.5, 3.8, 1.9]}}
+  },
+  "events": [
+    {"time_sec": 0.8, "type": "synth", "kind": "flutter", "length_sec": 0.95, "gain": 0.85, "pan": -0.2,
+     "role": "notatki rozwiewane po kamiennej posadzce", "params": {"bursts": 7}},
+    {"time_sec": 1.6, "type": "stem", "file": "whoosh_flap.mp3", "pitch": 0.62, "hp_hz": 220, "gain": 1.25, "pan": 0.1,
+     "role": "wirujący świst portalu błękitnej energii"},
+    {"time_sec": 2.7, "type": "synth", "kind": "banish", "length_sec": 1.3, "gain": 1.25, "pan": 0.0,
+     "role": "kulminacja — pęknięcie próżni, zaklęcie odsyłania wyrzuca intruza",
+     "params": {"f1": 980.0, "f2": 80.0}},
+    {"time_sec": 3.15, "type": "synth", "kind": "chime", "length_sec": 1.2, "gain": 0.75, "pan": -0.1,
+     "role": "błękitne glify dopalają się po aktywacji zaklęcia",
+     "params": {"partials": [1174.66, 1760.0, 2349.32], "decays": [1.0, 0.7, 0.5]}},
+    {"time_sec": 4.15, "type": "synth", "kind": "thump", "length_sec": 0.5, "gain": 0.5, "pan": 0.15,
+     "role": "ciche domknięcie portalu", "params": {"f1": 70.0, "f2": 30.0}}
+  ],
+  "ducking": [2.4, 3.8, 0.42],
+  "post": {"echo_ms": [170, 310], "echo_gains": [0.17, 0.09], "room": 0.5},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Academy Journeymage. Wersja v2 odpowiada na ocenę v1 (issue #5): zachowuje polubione tło wiatru i „misę” jako dron, a niesłyszalne i niepasujące kroki/skrzydła/miecz zastępuje słyszalną, fabularnie trafną akcją portalu odsyłającego.",
+    "ambience": "wind (taras akademii)",
+    "drone": "bowl (196.0 Hz)",
+    "mix_notes": "Poprawka po issue #5: foley jest teraz wyraźnie słyszalny — szelest papieru 0.8 s (lewy), wir portalu 1.6 s (prawy, +2 dB ponad dotychczas), centralne pęknięcie próżni 2.7 s z duckingiem tła o −8 dB (2.4–3.8 s) i separacją dry/wet (centrum suche, ściany 170/310 ms mokre).",
+    "description": "Wiatr na tarasie dominariańskiej akademii + dźwięk misy 196 Hz • szelest rozwiewanych notatek • wyraźny wir wirującego portalu (Gravity Sound swipe zwolniony 0.62x) • centralne pęknięcie próżni odsyłania i dopalające się błękitne glify"
+  }
+}
