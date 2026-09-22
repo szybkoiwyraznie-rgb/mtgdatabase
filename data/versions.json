@@ -854,9 +854,26 @@
           "label": "v1",
           "created_at": "2026-09-22T12:40:00Z",
           "audio": "legacy/source/jingle_output/475.mp3",
-          "score": null,
-          "scores": null,
-          "reports": [],
+          "score": 4,
+          "scores": {
+            "feeling": 1,
+            "story_fit": 1,
+            "sample_quality": 2
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/20",
+              "created_at": "2026-09-22T15:19:30Z",
+              "state": "open",
+              "scores": {
+                "feeling": 1,
+                "story_fit": 1,
+                "sample_quality": 2
+              },
+              "total": 4,
+              "comment": "nie wiem gdzie ty słyszysz to uderzenie, zgrzyt, wyrwane ramię, ja tutaj słyszę tylko kroki i na koniec elektronikę"
+            }
+          ],
           "project_description": {
             "summary": "Krótka forma audio dla sceny: Ruinous Rampage (475EOE). Szturm Kav na port kosmiczny — scena science fiction, więc dopuszczalny jest syntetyczny stacje-dron, ale cała przemoc fizyczna (kroki, wyrwanie ramienia mecha, uderzenia w terminale) stoi na żywych nagraniach, zgodnie z AGENTS.md #14.",
             "ambience": "station_hum (port kosmiczny)",
@@ -913,7 +930,9 @@
                 "Kontrast dramaturgiczny: 17.3/30 (ratio 2.88x)"
               ]
             }
-          }
+          },
+          "rated_at": "2026-09-22T15:19:30Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/20"
         }
       ]
     },
