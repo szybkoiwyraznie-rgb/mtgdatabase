@@ -67,7 +67,7 @@ def main() -> None:
     )
     template = Path("site/story-template.html").read_text(encoding="utf-8")
     for story in data.get("stories", []):
-        versions = story.get("versions", [])
+        versions = sorted(story.get("versions", []), key=lambda item: int(str(item.get("label", "v0")).lstrip("v")), reverse=True)
         cards = []
         for version in versions:
             audio = version.get("audio", "").replace("audio/", "../../audio/", 1)
