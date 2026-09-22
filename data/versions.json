@@ -1160,9 +1160,26 @@
           "label": "v2",
           "created_at": "2026-09-22T15:30:00Z",
           "audio": "legacy/source/jingle_output/475_v2.mp3",
-          "score": null,
-          "scores": null,
-          "reports": [],
+          "score": 3,
+          "scores": {
+            "feeling": 1,
+            "story_fit": 1,
+            "sample_quality": 1
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/25",
+              "created_at": "2026-09-22T18:10:02Z",
+              "state": "open",
+              "scores": {
+                "feeling": 1,
+                "story_fit": 1,
+                "sample_quality": 1
+              },
+              "total": 3,
+              "comment": "ten tak samo jak poprzedni niczym się nie różni od poprzedniej mega słabej wersji - weź od początku go zrób jakoś sensownie"
+            }
+          ],
           "project_description": {
             "summary": "Krótka forma audio dla sceny: Ruinous Rampage. Wersja v2 odpowiada na ocenie partii (~5/15): stemy wyłącznie natywne (zakaz pitchowania, AGENTS.md #15), mniej zdarzeń (6 zamiast 7), czystsza dramaturgia — jedno główne uderzenie zamiast trzech rozproszonych.",
             "ambience": "station_hum (port kosmiczny)",
@@ -1214,7 +1231,9 @@
                 "Kontrast dramaturgiczny: 16.3/30 (ratio 2.71x)"
               ]
             }
-          }
+          },
+          "rated_at": "2026-09-22T18:10:02Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/25"
         }
       ]
     },
