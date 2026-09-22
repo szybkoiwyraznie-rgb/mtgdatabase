@@ -133,6 +133,90 @@
           },
           "rated_at": "2026-09-22T09:12:05Z",
           "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/8"
+        },
+        {
+          "label": "v2",
+          "created_at": "2026-09-22T11:23:15Z",
+          "audio": "legacy/source/jingle_output/2_v2.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Coralhelm Guide. Wersja v2 odpowiada na ocenę v1 (issue #8): zachowuje polubiony bliski ryk Balotha, a niesłyszalne dotąd tąpnięcia wbudowuje jako warstwowy event (sub + chrzęst żwiru + rozbryzg) z wyraźną separacją czasową od ryków. Fontanna z v1 zastąpiona detaliczną pracą wody.",
+            "ambience": "cave_water (zalane przejście, kapanie ze stem)",
+            "drone": "eldrazi_alien (66.0 Hz)",
+            "mix_notes": "Poprawka po issue #8: tąpnięcia są teraz słyszalne — warstwa sub-thump + chrzęst żwiru + plusk w jednym punkcie czasu (1.05 s i 2.95 s), z dala od ryków; ryk 1.78 s centralnie z duckingiem tła −7 dB (1.6–3.45 s); kapiące krople niosą przestrzeń kanionu zamiast generycznego szumu fontanny.",
+            "description": "Zalany kanion + dysonans Eldrazi 66 Hz • kapanie kropel • dwa wyraźne, ciężkie tąpnięcia przez wodę (sub + żwir + rozbryzg) • bliski gardłowy ryk Balotha w centrum • pogłos ścian kanionu",
+            "events": [
+              {
+                "time_sec": 0.55,
+                "sample": "synth:drip",
+                "role": "kapanie kropel w zalanym przejściu"
+              },
+              {
+                "time_sec": 1.05,
+                "sample": "synth:thump",
+                "role": "tąpnięcie Balotha w kamień — tylna łapa (sub)"
+              },
+              {
+                "time_sec": 1.06,
+                "sample": "gravel_feet.mp3",
+                "role": "chrzęst kamieni pod ciężarem łapy"
+              },
+              {
+                "time_sec": 1.13,
+                "sample": "water_splash.mp3",
+                "role": "rozbryzg wody pod stopą"
+              },
+              {
+                "time_sec": 1.78,
+                "sample": "bear_growl.mp3",
+                "role": "kulminacja — bliski gardłowy ryk Balotha (grizzly NPS obniżony 0.75x)"
+              },
+              {
+                "time_sec": 2.0,
+                "sample": "synth:drip",
+                "role": "kapanie po rykach"
+              },
+              {
+                "time_sec": 2.95,
+                "sample": "synth:thump",
+                "role": "tąpnięcie Balotha — drugi krok (cięższy sub)"
+              },
+              {
+                "time_sec": 2.96,
+                "sample": "gravel_feet.mp3",
+                "role": "chrzęst kamieni przy drugim kroku"
+              },
+              {
+                "time_sec": 3.03,
+                "sample": "water_splash.mp3",
+                "role": "rozbryzg wody przy drugim kroku"
+              },
+              {
+                "time_sec": 3.75,
+                "sample": "synth:drip",
+                "role": "kanion opada po przejściu bestii"
+              },
+              {
+                "time_sec": 4.4,
+                "sample": "synth:drip",
+                "role": "oddalone kapanie w outro"
+              }
+            ],
+            "qa": {
+              "score": 85.6,
+              "base": 70.0,
+              "dramaturgy": 15.6,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 15.6/30 (ratio 2.60x)"
+              ]
+            }
+          }
         }
       ]
     },
@@ -379,15 +463,15 @@
               }
             ],
             "qa": {
-              "score": 86.5,
+              "score": 87.3,
               "base": 70.0,
-              "dramaturgy": 16.5,
+              "dramaturgy": 17.3,
               "status": "pass",
               "details": [
                 "DC offset: OK",
                 "Peak/headroom: OK",
                 "Ciągłość tła: OK",
-                "Kontrast dramaturgiczny: 16.5/30 (ratio 2.75x)"
+                "Kontrast dramaturgiczny: 17.3/30 (ratio 2.89x)"
               ]
             }
           }
@@ -443,15 +527,84 @@
               }
             ],
             "qa": {
-              "score": 90.3,
+              "score": 90.7,
               "base": 70.0,
-              "dramaturgy": 20.3,
+              "dramaturgy": 20.7,
               "status": "pass",
               "details": [
                 "DC offset: OK",
                 "Peak/headroom: OK",
                 "Ciągłość tła: OK",
-                "Kontrast dramaturgiczny: 20.3/30 (ratio 3.38x)"
+                "Kontrast dramaturgiczny: 20.7/30 (ratio 3.46x)"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "450",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-22T11:23:15Z",
+          "audio": "legacy/source/jingle_output/450.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Thornhide Wolves. Nocny Ulvenwald z proceduralnymi świerszczami i napięciowym sub-dronem; bestia przeciska się przez ciernistą barierę, wchodzi w krąg ogniska z gardłowym oddechem, po czym brzęk srebrnych wnyków domyka dramat łowczyń.",
+            "ambience": "forest_night (nocny las Ulvenwaldu, proceduralne świerszcze)",
+            "drone": "cinematic_sub (48.0 Hz)",
+            "mix_notes": "Tło (nocne powietrze + świerszcze + sub 48 Hz) wycofywane duckingiem w oknie 2.0–3.5 s; krok łapy i gardłowy oddech dużego wilka w centrum, ogień tylko na prawo; echo lasu 150/290 ms ograniczone do 0.35 wilgoci, by zachować bliskość obozu.",
+            "description": "Nocny las Ulvenwaldu + sub-dron napięcia 48 Hz • trzask rozsuwanego ciernistego muru • ciężkie łapy w błocie • gardłowy warczący oddech dużego wilka nad dogasającym ogniskiem • dzwonek srebrnych wnyków upuszczonych w błoto",
+            "events": [
+              {
+                "time_sec": 0.75,
+                "sample": "synth:crackle",
+                "role": "ciernisty mur Halany rozsuwany przez bestię"
+              },
+              {
+                "time_sec": 1.35,
+                "sample": "gravel_feet.mp3",
+                "role": "ciężkie łapy wilka w błocie (gęstwa)"
+              },
+              {
+                "time_sec": 1.35,
+                "sample": "synth:thump",
+                "role": "sub-ciężar pierwszego kroku do ogniska"
+              },
+              {
+                "time_sec": 2.25,
+                "sample": "bear_growl.mp3",
+                "role": "kulminacja — niski gardłowy warczący oddech dużego wilka nad obozem"
+              },
+              {
+                "time_sec": 2.75,
+                "sample": "synth:crackle",
+                "role": "dogasające ognisko — strzały żaru"
+              },
+              {
+                "time_sec": 3.35,
+                "sample": "synth:chime",
+                "role": "srebrne wnyki Aleny upuszczone w błoto — metaliczny dzwonek"
+              },
+              {
+                "time_sec": 4.3,
+                "sample": "synth:crackle",
+                "role": "ostatnie strzały dogasającego ogniska"
+              }
+            ],
+            "qa": {
+              "score": 85.4,
+              "base": 70.0,
+              "dramaturgy": 15.4,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 15.4/30 (ratio 2.57x)"
               ]
             }
           }
