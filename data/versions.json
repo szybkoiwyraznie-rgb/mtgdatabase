@@ -426,9 +426,26 @@
           "label": "v2",
           "created_at": "2026-09-22T10:26:17Z",
           "audio": "legacy/source/jingle_output/5_v2.mp3",
-          "score": null,
-          "scores": null,
-          "reports": [],
+          "score": 3,
+          "scores": {
+            "feeling": 1,
+            "story_fit": 1,
+            "sample_quality": 1
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/13",
+              "created_at": "2026-09-22T12:14:43Z",
+              "state": "open",
+              "scores": {
+                "feeling": 1,
+                "story_fit": 1,
+                "sample_quality": 1
+              },
+              "total": 3,
+              "comment": "jakaś masakra - v1 była o niebo lepsza - tutaj nic nie pasuje"
+            }
+          ],
           "project_description": {
             "summary": "Krótka forma audio dla sceny: Academy Journeymage. Wersja v2 odpowiada na ocenę v1 (issue #5): zachowuje polubione tło wiatru i „misę” jako dron, a niesłyszalne i niepasujące kroki/skrzydła/miecz zastępuje słyszalną, fabularnie trafną akcją portalu odsyłającego.",
             "ambience": "wind (taras akademii)",
@@ -474,68 +491,66 @@
                 "Kontrast dramaturgiczny: 17.3/30 (ratio 2.89x)"
               ]
             }
-          }
-        }
-      ]
-    },
-    {
-      "id": "568",
-      "versions": [
+          },
+          "rated_at": "2026-09-22T12:14:43Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/13"
+        },
         {
-          "label": "v1",
-          "created_at": "2026-09-22T10:26:17Z",
-          "audio": "legacy/source/jingle_output/568.mp3",
+          "label": "v3",
+          "created_at": "2026-09-22T12:40:00Z",
+          "audio": "legacy/source/jingle_output/5_v3.mp3",
           "score": null,
           "scores": null,
           "reports": [],
           "project_description": {
-            "summary": "Krótka forma audio dla sceny: Nanoform Sentinel. Trójwarstwowa konstrukcja: zimne tło stacji orbitalnej, syntetyczny pad i wydarzenia technologiczne z kulminacją gotowości maszyny.",
-            "ambience": "station_hum",
-            "drone": "synth_pad (55.0 Hz)",
-            "mix_notes": "Tło (wentylacja orbitalnego laboratorium + pad 55 Hz) wycofywane przez ducking w oknie 1.9–3.7 s, kulminacja power-up + akord gotowości zostaje centralnie; lekki metaliczny pogłos pomieszczenia (140/300 ms).",
-            "description": "Szum wentylacji orbitalnego laboratorium + zimny pad syntetyczny 55 Hz • emisja roju nanocząstek (granularny shimmer) • pęknięcie przewodu i elektryczny łuk naprawczy • narastający power-up generatora z kryształowym akordem gotowości operacyjnej",
+            "summary": "Krótka forma audio dla sceny: Academy Journeymage. Wersja v3 odpowiada na ocenę 3/15 dla v2 (issue #13, »nic nie pasuje — v1 lepsza«): zachowuje polubione tło (wiatr + misa 196 Hz z komentarza do v1), ale całą warstwę zdarzeń buduje na żywych nagraniach — wir portalu, cięcie odsyłania jako kulminacja na samplu miecza i domknięcie glifów. Syntetyk został tylko jako neutralny szelest notatek.",
+            "ambience": "wind (taras dominariańskiej akademii)",
+            "drone": "bowl (196.0 Hz) — element zaakceptowany przez właściciela w ocenie v1",
+            "mix_notes": "Odpowiedź na issue #13: kulminacją jest ŻYWY sample (sword_swipe 1.15x, 2.8 s, centrum, gain 1.35) z duckingiem tła 0.4 (2.6–3.5 s); wir portalu 1.85 s lewo (gain 1.2); kroki adeptów 1.35 s w głębi prawo; domknięcie glifów impact_smack 1.3x 3.3 s; portal cichnie 4.15 s. Echo kamiennej komnaty 170/310 ms, room 0.5. Rozkład dramaturgii: 0.75 szelest notatek → 1.35/1.85 tło ruchu → 2.8 kulminacja → 3.3/4.15 wygaśnięcie.",
+            "description": "Wiatr na tarasie akademii + misa 196 Hz • szelest notatek • wir portalu błękitnej energii (Gravity Sound) • centralne cięcie odsyłania na żywym samplu miecza • domknięcie glifów i cichnący portal",
+            "genre": "fantasy",
             "events": [
               {
-                "time_sec": 0.9,
-                "sample": "synth:swarm",
-                "role": "rój nanocząstek emitowany przez strażnika"
+                "time_sec": 1.1,
+                "sample": "synth:flutter",
+                "role": "notatki rozwiewane wiatrem po kamiennej posadzce (neutralny detal szumowy)"
               },
               {
-                "time_sec": 1.75,
+                "time_sec": 1.5,
+                "sample": "gravel_feet.mp3",
+                "role": "kroki dwóch adeptów na schodach w głębi sceny"
+              },
+              {
+                "time_sec": 1.95,
+                "sample": "whoosh_flap.mp3",
+                "role": "wir portalu błękitnej energii rozsuwa się w tunel"
+              },
+              {
+                "time_sec": 2.8,
+                "sample": "sword_swipe.mp3",
+                "role": "kulminacja — cięcie odsyłania: intruz wyrzucony przez portal poza mury akademii"
+              },
+              {
+                "time_sec": 3.3,
                 "sample": "impact_smack.mp3",
-                "role": "pęknięcie przewodu zasilającego / zaczęcie naprawy"
+                "role": "domknięcie wiru — błysk dopalających się błękitnych glifów"
               },
               {
-                "time_sec": 1.88,
-                "sample": "synth:crackle",
-                "role": "elektryczny łuk zasklepiający przewody"
-              },
-              {
-                "time_sec": 2.35,
-                "sample": "synth:sweep",
-                "role": "narastanie mocy generatora"
-              },
-              {
-                "time_sec": 2.55,
-                "sample": "synth:chime",
-                "role": "kulminacja — powrót pełnej gotowości operacyjnej"
-              },
-              {
-                "time_sec": 3.7,
-                "sample": "synth:chime",
-                "role": "ostatnie potwierdzenie stanu (tag)"
+                "time_sec": 4.15,
+                "sample": "whoosh_flap.mp3",
+                "role": "portal się zaciera, wir cichnie"
               }
             ],
             "qa": {
-              "score": 90.7,
+              "score": 89.2,
               "base": 70.0,
-              "dramaturgy": 20.7,
+              "dramaturgy": 19.2,
               "status": "pass",
               "details": [
                 "DC offset: OK",
                 "Peak/headroom: OK",
                 "Ciągłość tła: OK",
-                "Kontrast dramaturgiczny: 20.7/30 (ratio 3.46x)"
+                "Kontrast dramaturgiczny: 19.2/30 (ratio 3.20x)"
               ]
             }
           }
@@ -549,9 +564,26 @@
           "label": "v1",
           "created_at": "2026-09-22T11:23:15Z",
           "audio": "legacy/source/jingle_output/450.mp3",
-          "score": null,
-          "scores": null,
-          "reports": [],
+          "score": 7,
+          "scores": {
+            "feeling": 3,
+            "story_fit": 2,
+            "sample_quality": 2
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/15",
+              "created_at": "2026-09-22T12:17:38Z",
+              "state": "open",
+              "scores": {
+                "feeling": 3,
+                "story_fit": 2,
+                "sample_quality": 2
+              },
+              "total": 7,
+              "comment": "słabe - gdzie warczenie wilka? a ten dron? co to SF? te kroki w błocie tylko dają radę"
+            }
+          ],
           "project_description": {
             "summary": "Krótka forma audio dla sceny: Thornhide Wolves. Nocny Ulvenwald z proceduralnymi świerszczami i napięciowym sub-dronem; bestia przeciska się przez ciernistą barierę, wchodzi w krąg ogniska z gardłowym oddechem, po czym brzęk srebrnych wnyków domyka dramat łowczyń.",
             "ambience": "forest_night (nocny las Ulvenwaldu, proceduralne świerszcze)",
@@ -607,7 +639,162 @@
                 "Kontrast dramaturgiczny: 15.4/30 (ratio 2.57x)"
               ]
             }
+          },
+          "rated_at": "2026-09-22T12:17:38Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/15"
+        }
+      ]
+    },
+    {
+      "id": "475",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-22T12:40:00Z",
+          "audio": "legacy/source/jingle_output/475.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Ruinous Rampage (475EOE). Szturm Kav na port kosmiczny — scena science fiction, więc dopuszczalny jest syntetyczny stacje-dron, ale cała przemoc fizyczna (kroki, wyrwanie ramienia mecha, uderzenia w terminale) stoi na żywych nagraniach, zgodnie z AGENTS.md #14.",
+            "ambience": "station_hum (port kosmiczny)",
+            "drone": "cinematic_sub (46.0 Hz)",
+            "mix_notes": "Kroki 0.55 s lewo; wyrwanie ramienia 1.25 s; zgrzyt maczugi 1.95 s prawo; kulminacja 2.55 s centralnie z duckingiem tła 0.42 (2.35–3.3 s); iskry i deszcz elektroniki jako syntetyczne akcenty SF poza centroidem; ostatnie uderzenie 4.3 s. Echo komorowe 110/230 ms, room 0.45.",
+            "description": "Narastający szum portu kosmicznego + sub-dron 46 Hz • ciężkie kroki piechura Kav • wyrwane ramię mecha i zgrzyt kompozytu • centralne uderzenie w terminale z błękitnymi iskrami • deszcz roztrzaskanej elektroniki",
+            "genre": "sci-fi",
+            "events": [
+              {
+                "time_sec": 1.05,
+                "sample": "gravel_feet.mp3",
+                "role": "ciężkie kroki piechura Kav w miedzianym pancerzu na posadzce portu"
+              },
+              {
+                "time_sec": 1.6,
+                "sample": "impact_smack.mp3",
+                "role": "wyrwanie uszkodzonego ramienia obronnego mecha — metalowy zryw"
+              },
+              {
+                "time_sec": 2.2,
+                "sample": "sword_draw.mp3",
+                "role": "uniesienie metalowej kończyny niczym maczugi — zgrzyt kompozytu"
+              },
+              {
+                "time_sec": 2.7,
+                "sample": "impact_smack.mp3",
+                "role": "kulminacja — uderzenie metalową maczugą w rzędy lśniących terminali"
+              },
+              {
+                "time_sec": 2.72,
+                "sample": "synth:crackle",
+                "role": "eksplozja błękitnych iskier z rozbitych terminali (SF: dopuszczalna syntetyka)"
+              },
+              {
+                "time_sec": 3.25,
+                "sample": "impact_smack.mp3",
+                "role": "drugi cios — zdeptywane drony zwiadowcze wroga"
+              },
+              {
+                "time_sec": 4.05,
+                "sample": "synth:swarm",
+                "role": "deszcz roztrzaskanej elektroniki opada po zniszczeniu terminali"
+              }
+            ],
+            "qa": {
+              "score": 87.3,
+              "base": 70.0,
+              "dramaturgy": 17.3,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 17.3/30 (ratio 2.88x)"
+              ]
+            }
           }
+        }
+      ]
+    },
+    {
+      "id": "568",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-22T10:26:17Z",
+          "audio": "legacy/source/jingle_output/568.mp3",
+          "score": 11,
+          "scores": {
+            "feeling": 4,
+            "story_fit": 4,
+            "sample_quality": 3
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/14",
+              "created_at": "2026-09-22T12:16:06Z",
+              "state": "open",
+              "scores": {
+                "feeling": 4,
+                "story_fit": 4,
+                "sample_quality": 3
+              },
+              "total": 11,
+              "comment": "Niezłe, chociaż ten dźwięk to brzmi jak melodyjka, pęknięcia przewodu też nie słychać"
+            }
+          ],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Nanoform Sentinel. Trójwarstwowa konstrukcja: zimne tło stacji orbitalnej, syntetyczny pad i wydarzenia technologiczne z kulminacją gotowości maszyny.",
+            "ambience": "station_hum",
+            "drone": "synth_pad (55.0 Hz)",
+            "mix_notes": "Tło (wentylacja orbitalnego laboratorium + pad 55 Hz) wycofywane przez ducking w oknie 1.9–3.7 s, kulminacja power-up + akord gotowości zostaje centralnie; lekki metaliczny pogłos pomieszczenia (140/300 ms).",
+            "description": "Szum wentylacji orbitalnego laboratorium + zimny pad syntetyczny 55 Hz • emisja roju nanocząstek (granularny shimmer) • pęknięcie przewodu i elektryczny łuk naprawczy • narastający power-up generatora z kryształowym akordem gotowości operacyjnej",
+            "events": [
+              {
+                "time_sec": 0.9,
+                "sample": "synth:swarm",
+                "role": "rój nanocząstek emitowany przez strażnika"
+              },
+              {
+                "time_sec": 1.75,
+                "sample": "impact_smack.mp3",
+                "role": "pęknięcie przewodu zasilającego / zaczęcie naprawy"
+              },
+              {
+                "time_sec": 1.88,
+                "sample": "synth:crackle",
+                "role": "elektryczny łuk zasklepiający przewody"
+              },
+              {
+                "time_sec": 2.35,
+                "sample": "synth:sweep",
+                "role": "narastanie mocy generatora"
+              },
+              {
+                "time_sec": 2.55,
+                "sample": "synth:chime",
+                "role": "kulminacja — powrót pełnej gotowości operacyjnej"
+              },
+              {
+                "time_sec": 3.7,
+                "sample": "synth:chime",
+                "role": "ostatnie potwierdzenie stanu (tag)"
+              }
+            ],
+            "qa": {
+              "score": 90.7,
+              "base": 70.0,
+              "dramaturgy": 20.7,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 20.7/30 (ratio 3.46x)"
+              ]
+            }
+          },
+          "rated_at": "2026-09-22T12:16:06Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/14"
         }
       ]
     }

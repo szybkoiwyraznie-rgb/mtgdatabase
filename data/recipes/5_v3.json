@@ -1,0 +1,36 @@
+{
+  "story_id": "5",
+  "label": "v3",
+  "genre": "fantasy",
+  "duration_sec": 5.5,
+  "climax_window": [1.5, 3.8],
+  "bed": {
+    "ambience": {"type": "wind", "gain": 0.15, "params": {"seed": 5}},
+    "drone": {"type": "bowl", "freq": 196.0, "gain": 0.18,
+              "params": {"partials": [196.0, 554.37, 1189.72], "gains": [1.0, 0.42, 0.2], "decays": [6.5, 3.8, 1.9]}}
+  },
+  "events": [
+    {"time_sec": 1.1, "type": "synth", "kind": "flutter", "length_sec": 0.9, "gain": 0.35, "pan": -0.25,
+     "role": "notatki rozwiewane wiatrem po kamiennej posadzce (neutralny detal szumowy)",
+     "params": {"bursts": 7}},
+    {"time_sec": 1.5, "type": "stem", "file": "gravel_feet.mp3", "pitch": 1.0, "hp_hz": 120, "gain": 0.4, "pan": 0.45,
+     "role": "kroki dwóch adeptów na schodach w głębi sceny"},
+    {"time_sec": 1.95, "type": "stem", "file": "whoosh_flap.mp3", "pitch": 0.85, "hp_hz": 200, "gain": 1.25, "pan": -0.2,
+     "role": "wir portalu błękitnej energii rozsuwa się w tunel"},
+    {"time_sec": 2.8, "type": "stem", "file": "sword_swipe.mp3", "pitch": 1.15, "hp_hz": 150, "gain": 1.5, "pan": 0.0,
+     "role": "kulminacja — cięcie odsyłania: intruz wyrzucony przez portal poza mury akademii"},
+    {"time_sec": 3.3, "type": "stem", "file": "impact_smack.mp3", "pitch": 1.25, "hp_hz": 140, "gain": 0.85, "pan": 0.25,
+     "role": "domknięcie wiru — błysk dopalających się błękitnych glifów"},
+    {"time_sec": 4.15, "type": "stem", "file": "whoosh_flap.mp3", "pitch": 0.55, "hp_hz": 160, "gain": 0.5, "pan": 0.1,
+     "role": "portal się zaciera, wir cichnie"}
+  ],
+  "ducking": [2.55, 3.6, 0.35],
+  "post": {"echo_ms": [170, 310], "echo_gains": [0.17, 0.09], "room": 0.5},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Academy Journeymage. Wersja v3 odpowiada na ocenę 3/15 dla v2 (issue #13, »nic nie pasuje — v1 lepsza«): zachowuje polubione tło (wiatr + misa 196 Hz z komentarza do v1), ale całą warstwę zdarzeń buduje na żywych nagraniach — wir portalu, cięcie odsyłania jako kulminacja na samplu miecza i domknięcie glifów. Syntetyk został tylko jako neutralny szelest notatek.",
+    "ambience": "wind (taras dominariańskiej akademii)",
+    "drone": "bowl (196.0 Hz) — element zaakceptowany przez właściciela w ocenie v1",
+    "mix_notes": "Odpowiedź na issue #13: kulminacją jest ŻYWY sample (sword_swipe 1.15x, 2.8 s, centrum, gain 1.35) z duckingiem tła 0.4 (2.6–3.5 s); wir portalu 1.85 s lewo (gain 1.2); kroki adeptów 1.35 s w głębi prawo; domknięcie glifów impact_smack 1.3x 3.3 s; portal cichnie 4.15 s. Echo kamiennej komnaty 170/310 ms, room 0.5. Rozkład dramaturgii: 0.75 szelest notatek → 1.35/1.85 tło ruchu → 2.8 kulminacja → 3.3/4.15 wygaśnięcie.",
+    "description": "Wiatr na tarasie akademii + misa 196 Hz • szelest notatek • wir portalu błękitnej energii (Gravity Sound) • centralne cięcie odsyłania na żywym samplu miecza • domknięcie glifów i cichnący portal"
+  }
+}

@@ -29,3 +29,9 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Sytuacja: losowanie fabuły własnym parserem „wszystkie cyfry z kolumny Ilustracja" dało ID `45019` zamiast `450` (artID `450M19`: prefiks 450 + set `M19`); `merge_catalog` po cichu usunął fabułę ze strony, bo ID nie istniało w katalogu.
 - Wniosek: kanoniczne ID wyznacza wyłącznie regex `^(\d+)([A-Za-z0-9_-]+)$` z `scripts/import_collection.py`; sufiks to metadane setu.
 - Zasada / działanie zapobiegawcze: agent losuje i sprawdza fabuły na podstawie WYJŚCIA `import_collection.py` (katalog), nigdy własnym parsowaniem CSV; po merge'u katalog liczba fabuł musi się zgadzać z `versions.json` (kontrola w pętli).
+
+## 2026-09-22 — Bez żywych sampli projekt nie ma sensu (decyzja właściciela)
+
+- Sytuacja: Oceny 5 v2 (3/15, „jakaś masakra... nic nie pasuje") i 450 v1 (7/15, „gdzie warczenie wilka? a ten dron? co to SF?") odrzuciły miksy zbudowane głównie na warstwach syntetycznych w scenach fantasy; pochwalone były wyłącznie żywe nagrania (kroki w błocie). Właściciel zlecił wpisanie na sztywno zasady: syntetyki prawie wyłącznie do SF.
+- Wniosek: syntetyczne timbre brzmią obco poza science fiction i zabijają zgodność z fabułą; tożsamość jingla mają nieść realne nagrania ze zweryfikowanego rejestru.
+- Zasada / działanie zapobiegawcze: twarda reguła nr 14 w `AGENTS.md` oraz pkt 4 złotych reguł w `legacy/source/INSTRUKCJA_PRODUKCJI_JINGLI.md`; egzekwowana automatycznie przez bramkę żywych sampli w `scripts/render_jingle.py` (pole `genre` w recepturze) i kontrolę `genre`-aware w `scripts/validate_versions.py`.

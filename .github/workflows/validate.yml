@@ -15,8 +15,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install test dependencies
+        run: pip install numpy
       - name: Compile Python files
         run: python -m compileall -q scripts
+      - name: Test live-samples rule gates
+        run: python scripts/test_rules.py
       - name: Check required reading budget
         run: python scripts/check_required_reading.py
       - name: Validate collection CSV

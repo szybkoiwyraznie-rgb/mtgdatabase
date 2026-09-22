@@ -33,6 +33,11 @@ Dźwięk nie może być prostym, syntetycznym „pikaniem” ani monofonicznym s
 3. **Pasma częstotliwości (Prezencja):**
    * Dla wokaliz potworów i zwierząt: podbijaj pasmo **1000–3500 Hz** (ludzkie ucho słyszy tam chrypę i agresję paszczy) oraz stosuj miękkie nasycenie (`np.tanh`).
    * Zawsze filtruj skrajny dół (`high-pass 80–120 Hz`), by usunąć niechciany szum z nagrań terenowych.
+4. **Żywe sample przed syntetykami (zasada twarda, AGENTS.md pkt 14):**
+   * Syntetyczne dźwięki (drony, pady, dzwonki, sweep-y) nadają się **prawie wyłącznie do scen science fiction**. Oceny 5 v2 (3/15) i 450 v1 (7/15, „co to SF?") odrzuciły miksy syntetyczne w scenach fantasy — bez żywych sampli projekt nie ma sensu.
+   * Scena nie-SF: minimum **dwa wyraźne zdarzenia na żywych samplach** (stems z rejestru `data/sources.json`), a **kulminacja zawsze na samplu**. Scena SF: minimum jeden żywy sample.
+   * Neutralne proceduralne tło (wiatr, woda) jest dozwolone wszędzie; dron syntetyczny w scenie nie-SF tylko, gdy właściciel ocenił go pozytywnie we wcześniejszej wersji tej fabuły.
+   * `scripts/render_jingle.py` odrzuca receptury łamiące tę zasadę (pole `genre` w recepturze: `sci-fi` vs reszta).
 
 ---
 
