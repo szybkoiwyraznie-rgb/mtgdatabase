@@ -10,7 +10,7 @@ Workflow Pages waliduje i importuje aktualny `kolekcja.csv`. Lokalny katalog dem
 
 ## Raporty ocen
 
-Raporty wymagają wdrożenia workera z katalogu `feedback-worker/`. Instrukcja znajduje się w jego README. Po wdrożeniu adres workera trzeba wpisać do pliku konfiguracyjnego Pages. Token GitHub zapisuje się wyłącznie jako sekret workera.
+Raporty wymagają wdrożenia workera z katalogu `feedback-worker/`. Deployment odbywa się zdalnie przez `Actions → Deploy feedback worker → Run workflow`; nie trzeba instalować niczego na desktopie. Przed uruchomieniem dodaj sekrety `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` i `WORKER_GITHUB_TOKEN`. Po wdrożeniu adres workera trzeba wpisać do pliku konfiguracyjnego Pages. Token GitHub jest przekazywany wyłącznie jako sekret Cloudflare.
 
 ## Paczka ZIP
 

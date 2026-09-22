@@ -1,0 +1,37 @@
+name: Deploy feedback worker
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'feedback-worker/**'
+      - '.github/workflows/deploy-feedback-worker.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-feedback-worker
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Deploy worker to Cloudflare
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          workingDirectory: feedback-worker
+          command: deploy
+      - name: Store GitHub issue token in Cloudflare
+        working-directory: feedback-worker
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          WORKER_GITHUB_TOKEN: ${{ secrets.WORKER_GITHUB_TOKEN }}
+        run: printf '%s' "$WORKER_GITHUB_TOKEN" | npx wrangler@latest secret put GITHUB_TOKEN
