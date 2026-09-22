@@ -1,9 +1,79 @@
 {
   "stories": [
-    {"id":"1","title":"Urwisko Dunlandu","story":"Przykładowa scena napięcia na urwisku, zaczerpnięta z materiałów prototypowych.","latest_at":"2026-09-18T10:00:00Z","versions":[{"label":"v1","score":null,"created_at":"2026-09-18T10:00:00Z","audio":"audio/1.mp3"}]},
-    {"id":"2","title":"Zalany Kanion Balotha","story":"Przykładowa scena w zalanym kanionie z ukrytym ruchem potężnej bestii.","latest_at":"2026-09-19T10:00:00Z","versions":[{"label":"v1","score":null,"created_at":"2026-09-19T10:00:00Z","audio":"audio/2.mp3"}]},
-    {"id":"3","title":"Katakumby Nieumarłych","story":"Przykładowa scena z wilgotnych podziemi i odgłosem wyciąganej stali.","latest_at":"2026-09-17T10:00:00Z","versions":[{"label":"v1","score":12,"created_at":"2026-09-17T10:00:00Z","audio":"audio/3.mp3"}]},
-    {"id":"4","title":"Grzbiet Żmijowej Góry","story":"Przykładowa scena śnieżnej grani, skrzydeł i basowego ryku.","latest_at":"2026-09-16T10:00:00Z","versions":[{"label":"v1","score":15,"created_at":"2026-09-16T10:00:00Z","audio":"audio/4.mp3"}]},
-    {"id":"5","title":"Zasadzka w Ciemnym Borze","story":"Przykładowa scena leśnej zasadzki i nagłego świstu ostrza.","latest_at":"2026-09-15T10:00:00Z","versions":[{"label":"v1","score":12,"created_at":"2026-09-15T10:00:00Z","audio":"audio/5.mp3"}]}
+    {
+      "id": "1",
+      "art_id": "1LTR",
+      "title": "Dunland Crebain",
+      "story": "Na skraju dunlandzkiego urwiska dwaj Uruk-hai Białej Ręki zastygają w napięciu, wypatrując znaku od swoich skrzydlatych zwiadowców. W wąwozie pod nimi formuje się cicha armia Sarumana, a kolejne pochodnie rozpalają się w miarę, jak oddziały odnajdują swoje miejsca. Nad sceną krąży stado crebainów — tych samych kruków, które z rozkazu Isengardu przeczesują ziemie na zachód od Gór Mglistych. Jeden z nich pikuje w dół, a jego krzyk zdaje się ostatnim sygnałem, na który czeka każde ostrze w mroku.",
+      "latest_at": "2026-09-11T10:00:00Z",
+      "versions": [
+        {
+          "label": "v1",
+          "score": null,
+          "created_at": "2026-09-11T10:00:00Z",
+          "audio": "audio/1.mp3"
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "art_id": "2BFZ",
+      "title": "Coralhelm Guide",
+      "story": "Przez wąski, zalany wodą kanion merfolka z Coralhelm prowadzi potężnego Balotha tajnym przejściem wśród lewitujących skał Zendikaru. Jej hełm, wykuty z bladego koralu i muszli, zdradza pochodzenie z nadmorskiego klanu, który od pokoleń mapuje każdą szczelinę wybrzeża. Na klifach powyżej patrole Eldrazi stoją odwrócone plecami, nieświadome, że sojusznicy wymykają im się tuż pod ich stopami. Bestia z trudem toruje sobie drogę przez skalną szczelinę, a fontanny wody wzbijane jej cielskiem są jedynym dźwiękiem, który mógłby ich zdradzić.",
+      "latest_at": "2026-09-12T10:00:00Z",
+      "versions": [
+        {
+          "label": "v1",
+          "score": null,
+          "created_at": "2026-09-12T10:00:00Z",
+          "audio": "audio/2.mp3"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "art_id": "3CLB",
+      "title": "Nefarious Imp",
+      "story": "W mrocznym gabinecie strategicznym, gdzieś na Wybrzeżu Mieczy, nad dębowym stołem unosi się szkarłatny chochlik, a jego złośliwy uśmiech odsłania skutki właśnie dokonanego dzieła. Pod nim dopala się misterna mapa taktyczna, a miniaturowe figurki żołnierzy leżą poprzewracane i stopione. W szponie bestia ściska skradziony kryształ, który pulsuje słabym światłem i zasila to, co dzieje się nad mapą. Tam, z kłębów czarnego dymu, formuje się widmowy obraz potężnego artefaktu — wizja, po którą chochlik przybył i dla której spalił cudze plany.",
+      "latest_at": "2026-09-13T10:00:00Z",
+      "versions": [
+        {
+          "label": "v1",
+          "score": null,
+          "created_at": "2026-09-13T10:00:00Z",
+          "audio": "audio/3.mp3"
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "art_id": "4ELD",
+      "title": "Mystic Sanctuary",
+      "story": "Na środku mglistego jeziora w głębi Eldraine wyrasta zrujnowana kamienna wieża ze świecącym błękitnym kryształem, a wokół niej tańczą na powierzchni wody drobne ogniki. Na kamieniu przy brzegu otwarta księga zaklęć wypuszcza ze swoich stron cienkie nici światła, które niczym żyłki pamięci ciągną się ku sanktuarium. W oddali, we mgle, zarysowują się kolejne wyspy łańcucha — rodzeństwo tej, na której stoi wieża. Woda wokół niej pulsuje koncentrycznymi falami, jakby samo istnienie sanktuarium poruszało tę śpiącą krainę arturiańskich mitów.",
+      "latest_at": "2026-09-14T10:00:00Z",
+      "versions": [
+        {
+          "label": "v1",
+          "score": null,
+          "created_at": "2026-09-14T10:00:00Z",
+          "audio": "audio/4.mp3"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "art_id": "5DOM",
+      "title": "Academy Journeymage",
+      "story": "Na tarasie dominariańskiej akademii stoi młoda wędrowna czarodziejka, jedną dłoń uniesioną ku wirującemu portalowi błękitnej energii, który rozsuwa się przed nią jak tunel. Po drugiej stronie tego wiru mały intruz rozpływa się w rozmytą smugę, wyrzucany poza mury akademii tak spokojnie, jakby to był normalny element porannej pracy. Na kamiennej posadzce wiatr rozwiewa jej notatki, a drobne błękitne glify świadczą o niedawnej aktywacji zaklęcia. Na schodach w głębi dwaj inni adepci obserwują bez zdziwienia — w kolegiach magów Dominarii sztuka odsyłania jest codziennym egzaminem.",
+      "latest_at": "2026-09-15T10:00:00Z",
+      "versions": [
+        {
+          "label": "v1",
+          "score": null,
+          "created_at": "2026-09-15T10:00:00Z",
+          "audio": "audio/5.mp3"
+        }
+      ]
+    }
   ]
 }
