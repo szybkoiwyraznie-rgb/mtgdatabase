@@ -3,6 +3,7 @@ name: Build best jingles release
 on:
   workflow_dispatch:
   push:
+    branches: [main]
     paths:
       - 'data/versions.json'
       - 'scripts/build_best_zip.py'
@@ -13,6 +14,9 @@ permissions:
 
 jobs:
   release:
+    # A release is public distribution; a manual dispatch from a feature
+    # branch must not replace the rolling asset.
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4

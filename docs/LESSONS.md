@@ -18,6 +18,12 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Wniosek: build i deploy trzeba rozdzielić warunkiem gałęzi.
 - Zasada / działanie zapobiegawcze: na branchach roboczych uruchamiaj build i walidację, a deployment wykonuj tylko z `main`. Realizacja (od 2026-09-22): dwa workflow — `pages.yml` (build+deploy, wyzwalany tylko z `main`) i `pages-build.yml` (sam build, push na `arena/**`). Warunek `if` w jobie deploy zostawia w checkach PR wiecznie „skipped"; rozdzielenie workflow usuwa ten szum, a reguła pozostaje spełniona.
 
+## 2026-09-22 — Workflow mutujący stan publiczny działa wyłącznie z main
+
+- Sytuacja: workflow synchronizacji ocen uruchomiony po pushu `data/versions.json` na branchu PR zamknął raporty i dopisał komentarze, zanim render znalazł się na `main`.
+- Wniosek: kontrola deploymentu Pages nie wystarcza; każdy workflow mogący zmienić issue albo Release jest publikacją i wymaga tej samej granicy gałęzi.
+- Zasada / działanie zapobiegawcze: `Sync ratings from issues` i `Build best jingles release` reagują na push wyłącznie z `main`, a ich joby mają dodatkowy guard `github.ref == 'refs/heads/main'`. Branch roboczy dostaje tylko walidację i build podglądu.
+
 ## 2026-09-22 — QA licz na zdekodowanym artefakcie, rendery w pełni deterministyczne
 
 - Sytuacja: audyt QA liczył metryki na mixie float przed enkodowaniem, a zdekodowany MP3 dryfował o ~0.4–0.8 pkt (overshoot kodera, zmiana RMS); warstwa `synth_pad` używała nieziarnicowanego RNG, więc render nie był powtarzalny.
