@@ -337,6 +337,124 @@
           },
           "rated_at": "2026-09-22T09:07:34Z",
           "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/5"
+        },
+        {
+          "label": "v2",
+          "created_at": "2026-09-22T10:26:17Z",
+          "audio": "legacy/source/jingle_output/5_v2.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Academy Journeymage. Wersja v2 odpowiada na ocenę v1 (issue #5): zachowuje polubione tło wiatru i „misę” jako dron, a niesłyszalne i niepasujące kroki/skrzydła/miecz zastępuje słyszalną, fabularnie trafną akcją portalu odsyłającego.",
+            "ambience": "wind (taras akademii)",
+            "drone": "bowl (196.0 Hz)",
+            "mix_notes": "Poprawka po issue #5: foley jest teraz wyraźnie słyszalny — szelest papieru 0.8 s (lewy), wir portalu 1.6 s (prawy, +2 dB ponad dotychczas), centralne pęknięcie próżni 2.7 s z duckingiem tła o −8 dB (2.4–3.8 s) i separacją dry/wet (centrum suche, ściany 170/310 ms mokre).",
+            "description": "Wiatr na tarasie dominariańskiej akademii + dźwięk misy 196 Hz • szelest rozwiewanych notatek • wyraźny wir wirującego portalu (Gravity Sound swipe zwolniony 0.62x) • centralne pęknięcie próżni odsyłania i dopalające się błękitne glify",
+            "events": [
+              {
+                "time_sec": 0.8,
+                "sample": "synth:flutter",
+                "role": "notatki rozwiewane po kamiennej posadzce"
+              },
+              {
+                "time_sec": 1.6,
+                "sample": "whoosh_flap.mp3",
+                "role": "wirujący świst portalu błękitnej energii"
+              },
+              {
+                "time_sec": 2.7,
+                "sample": "synth:banish",
+                "role": "kulminacja — pęknięcie próżni, zaklęcie odsyłania wyrzuca intruza"
+              },
+              {
+                "time_sec": 3.15,
+                "sample": "synth:chime",
+                "role": "błękitne glify dopalają się po aktywacji zaklęcia"
+              },
+              {
+                "time_sec": 4.15,
+                "sample": "synth:thump",
+                "role": "ciche domknięcie portalu"
+              }
+            ],
+            "qa": {
+              "score": 86.5,
+              "base": 70.0,
+              "dramaturgy": 16.5,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 16.5/30 (ratio 2.75x)"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "568",
+      "versions": [
+        {
+          "label": "v1",
+          "created_at": "2026-09-22T10:26:17Z",
+          "audio": "legacy/source/jingle_output/568.mp3",
+          "score": null,
+          "scores": null,
+          "reports": [],
+          "project_description": {
+            "summary": "Krótka forma audio dla sceny: Nanoform Sentinel. Trójwarstwowa konstrukcja: zimne tło stacji orbitalnej, syntetyczny pad i wydarzenia technologiczne z kulminacją gotowości maszyny.",
+            "ambience": "station_hum",
+            "drone": "synth_pad (55.0 Hz)",
+            "mix_notes": "Tło (wentylacja orbitalnego laboratorium + pad 55 Hz) wycofywane przez ducking w oknie 1.9–3.7 s, kulminacja power-up + akord gotowości zostaje centralnie; lekki metaliczny pogłos pomieszczenia (140/300 ms).",
+            "description": "Szum wentylacji orbitalnego laboratorium + zimny pad syntetyczny 55 Hz • emisja roju nanocząstek (granularny shimmer) • pęknięcie przewodu i elektryczny łuk naprawczy • narastający power-up generatora z kryształowym akordem gotowości operacyjnej",
+            "events": [
+              {
+                "time_sec": 0.9,
+                "sample": "synth:swarm",
+                "role": "rój nanocząstek emitowany przez strażnika"
+              },
+              {
+                "time_sec": 1.75,
+                "sample": "impact_smack.mp3",
+                "role": "pęknięcie przewodu zasilającego / zaczęcie naprawy"
+              },
+              {
+                "time_sec": 1.88,
+                "sample": "synth:crackle",
+                "role": "elektryczny łuk zasklepiający przewody"
+              },
+              {
+                "time_sec": 2.35,
+                "sample": "synth:sweep",
+                "role": "narastanie mocy generatora"
+              },
+              {
+                "time_sec": 2.55,
+                "sample": "synth:chime",
+                "role": "kulminacja — powrót pełnej gotowości operacyjnej"
+              },
+              {
+                "time_sec": 3.7,
+                "sample": "synth:chime",
+                "role": "ostatnie potwierdzenie stanu (tag)"
+              }
+            ],
+            "qa": {
+              "score": 90.3,
+              "base": 70.0,
+              "dramaturgy": 20.3,
+              "status": "pass",
+              "details": [
+                "DC offset: OK",
+                "Peak/headroom: OK",
+                "Ciągłość tła: OK",
+                "Kontrast dramaturgiczny: 20.3/30 (ratio 3.38x)"
+              ]
+            }
+          }
         }
       ]
     }
