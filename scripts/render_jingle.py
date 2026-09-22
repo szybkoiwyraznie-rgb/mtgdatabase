@@ -62,6 +62,14 @@ def validate_live_samples(recipe: dict) -> None:
         )
     events = recipe.get("events", [])
     stems = [ev for ev in events if ev.get("type") == "stem"]
+    for event in stems:
+        pitch = event.get("pitch", 1.0)
+        if pitch is not None and abs(float(pitch) - 1.0) > 1e-6:
+            raise ValueError(
+                f"stem '{event.get('file')}' ma pitch={pitch} — żywe sample wolno "
+                "używać wyłącznie w natywnej wysokości (AGENTS.md #15). "
+                "Wybierz inny sample z biblioteki zamiast go przestrajać."
+            )
     lo, hi = recipe.get("climax_window", [1.5, 3.8])
     if genre == "sci-fi":
         if not stems:

@@ -1,0 +1,37 @@
+{
+  "story_id": "568",
+  "label": "v3",
+  "genre": "sci-fi",
+  "duration_sec": 5.5,
+  "climax_window": [1.5, 3.8],
+  "bed": {
+    "ambience": {"type": "station_hum", "gain": 0.18, "params": {"seed": 568}},
+    "drone": {"type": "cinematic_sub", "freq": 46.0, "gain": 0.2}
+  },
+  "events": [
+    {"time_sec": 1.0, "type": "synth", "kind": "swarm", "length_sec": 1.2, "gain": 0.45, "pan": 0.15,
+     "role": "rój mikroskopijnych cząstek nanoformu rozpoczyna inspekcję generatora",
+     "params": {"grains": 150, "bloom": 0.25}},
+    {"time_sec": 1.6, "type": "stem", "file": "impact_smack.mp3", "gain": 1.3, "pan": 0.0,
+     "role": "pęknięcie przewodu zasilającego — wyraźne, natywne uderzenie (sample bez pitchowania)"},
+    {"time_sec": 1.7, "type": "stem", "file": "steam_vent.mp3", "hp_hz": 120, "gain": 0.6, "pan": 0.05,
+     "role": "żywy syk pary z pękniętego przewodu — Black Growler Steam Vent (NPS PD, natywnie)"},
+    {"time_sec": 2.7, "type": "synth", "kind": "swarm", "length_sec": 1.5, "gain": 0.7, "pan": -0.1,
+     "role": "rój koncentruje się na szczelinie, materia zasklepia przewód",
+     "params": {"grains": 260, "bloom": 0.35}},
+    {"time_sec": 3.5, "type": "stem", "file": "impact_smack.mp3", "gain": 1.1, "pan": 0.0,
+     "role": "metaliczne zasklepienie przewodu — naprawa domknięta"},
+    {"time_sec": 3.7, "type": "synth", "kind": "sweep", "length_sec": 1.3, "gain": 0.5, "pan": 0.0,
+     "role": "generator wraca do pełnej gotowości operacyjnej",
+     "params": {"f1": 180.0, "f2": 760.0}}
+  ],
+  "ducking": [2.45, 3.6, 0.38],
+  "post": {"echo_ms": [110, 230], "echo_gains": [0.13, 0.07], "room": 0.42},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Nanoform Sentinel. Wersja v3 odpowiada na ocenę partii (~5/15): stemy wyłącznie natywne (zakaz pitchowania, AGENTS.md #15 — v2 przestrywało impact 0,72/1,2), zachowane polubione elementy v1 (szum stacji, rój nanoformu) bez „melodyjki”.",
+    "ambience": "station_hum (laboratoria orbitalne nad Uthros)",
+    "drone": "cinematic_sub (46.0 Hz) — nietonalny, bez melodyki",
+    "mix_notes": "Fix po ocenie partii: zero pitchowania. Pęknięcie przewodu = natywny impact_smack (1,6 s, gain 1.3) + natywny syk pary steam_vent (od 1,7 s, gain 0.6); rój 1,0 s i 2,7 s (koncentracja na szczelinie); zasklepienie 3,5 s; sweep przywrócenia zasilania 3,7 s. Ducking 0.38 (2.45–3.6 s). Echo komory 110/230 ms.",
+    "description": "Szum orbitalnego laboratorium + sub 46 Hz • rój cząstek nanoformu • słyszalne pęknięcie przewodu i żywy syk pary (NPS) • koncentracja roju i metaliczne zasklepienie • generator wraca do gotowości"
+  }
+}

@@ -50,6 +50,7 @@ def test_render_gate() -> None:
 
     record("render: brak genre -> odrzucenie", rejects({"climax_window": [1.5, 3.8], "events": [stem]}))
     record("render: sci-fi z 1 stemem -> akcept", not rejects(recipe("sci-fi", [synth, stem])))
+    record("render: stem z pitch != 1 -> odrzucenie", rejects(recipe("sci-fi", [dict(stem, pitch=0.8)])))
     record("render: sci-fi bez stemów -> odrzucenie", rejects(recipe("sci-fi", [synth])))
     record("render: fantasy z 1 stemem -> odrzucenie", rejects(recipe("fantasy", [synth, stem])))
     record("render: fantasy 2 stemy, kulminacja żywa -> akcept", not rejects(recipe("fantasy", [synth, stem, stem_late])))

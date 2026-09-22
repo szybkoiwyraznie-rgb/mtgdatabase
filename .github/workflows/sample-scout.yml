@@ -1,0 +1,81 @@
+name: Sample scout
+
+# The GitHub runner has ordinary internet access while the Arena sandbox is
+# intentionally restricted. This workflow retrieves a small CC0 candidate
+# batch, commits it on main, and lets an agent inspect it after git fetch.
+# Candidates are never automatically registered as production sources.
+
+on:
+  workflow_dispatch:
+    inputs:
+      source:
+        description: "Źródło kandydatów"
+        type: choice
+        options: [freesound, archive.org]
+        default: freesound
+        required: true
+      query:
+        description: 'Zapytanie, np. "wolf howl" albo "steam vent"'
+        type: string
+        required: true
+      count:
+        description: "Liczba kandydatów (maks. 5)"
+        type: choice
+        options: ["1", "2", "3", "4", "5"]
+        default: "5"
+        required: true
+      sort:
+        description: "Ranking Freesound (Archive zawsze wg pobrań)"
+        type: choice
+        options: [rating_desc, downloads_desc, score]
+        default: rating_desc
+        required: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sample-scout
+  cancel-in-progress: false
+
+jobs:
+  scout:
+    # Candidate files are committed for the next Arena session. Do not permit
+    # a workflow dispatched from an arbitrary PR branch to write there.
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Clear the previous bounded candidate batch
+        run: rm -rf legacy/source/sample_scout
+      - name: Fetch community-ranked CC0 candidates
+        env:
+          FREESOUND_TOKEN: ${{ secrets.FREESOUND_TOKEN }}
+          SCOUT_SOURCE: ${{ inputs.source }}
+          SCOUT_QUERY: ${{ inputs.query }}
+          SCOUT_COUNT: ${{ inputs.count }}
+          SCOUT_SORT: ${{ inputs.sort }}
+        run: |
+          python scripts/sample_scout.py \
+            --source "$SCOUT_SOURCE" \
+            --query "$SCOUT_QUERY" \
+            --count "$SCOUT_COUNT" \
+            --sort "$SCOUT_SORT" \
+            --out legacy/source/sample_scout
+      - name: Commit candidate batch
+        env:
+          SCOUT_SOURCE: ${{ inputs.source }}
+          SCOUT_COUNT: ${{ inputs.count }}
+        run: |
+          git config user.name "sample-scout-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add --all legacy/source/sample_scout
+          if git diff --cached --quiet; then
+            echo "Brak zmian w paczce kandydatów."
+          else
+            git commit -m "Sample scout: ${SCOUT_SOURCE} (${SCOUT_COUNT} candidates) [skip ci]"
+            git push
+          fi

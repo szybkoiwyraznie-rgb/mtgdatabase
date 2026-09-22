@@ -38,6 +38,9 @@ Dźwięk nie może być prostym, syntetycznym „pikaniem” ani monofonicznym s
    * Scena nie-SF: minimum **dwa wyraźne zdarzenia na żywych samplach** (stems z rejestru `data/sources.json`), a **kulminacja zawsze na samplu**. Scena SF: minimum jeden żywy sample.
    * Neutralne proceduralne tło (wiatr, woda) jest dozwolone wszędzie; dron syntetyczny w scenie nie-SF tylko, gdy właściciel ocenił go pozytywnie we wcześniejszej wersji tej fabuły.
    * `scripts/render_jingle.py` odrzuca receptury łamiące tę zasadę (pole `genre` w recepturze: `sci-fi` vs reszta).
+5. **Natywna wysokość sampli (AGENTS.md pkt 15):**
+   * W nowej recepturze żywy stem ma zachować naturalną wysokość i tempo: nie wpisuj `pitch`, a jeśli pole jest konieczne, ustaw `1.0`.
+   * Inny charakter bestii, ruchu lub materiału = inny sample z biblioteki; dozwolone są `offset_sec`, łagodny high-pass, gain i panorama.
 
 ---
 

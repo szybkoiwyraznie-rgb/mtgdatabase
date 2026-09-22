@@ -1,0 +1,31 @@
+{
+  "story_id": "8",
+  "label": "v2",
+  "genre": "fantasy",
+  "duration_sec": 5.5,
+  "climax_window": [1.5, 3.8],
+  "bed": {
+    "ambience": {"type": "wind", "gain": 0.14, "params": {"seed": 8}}
+  },
+  "events": [
+    {"time_sec": 0.95, "type": "stem", "file": "gravel_feet.mp3", "hp_hz": 110, "gain": 0.55, "pan": -0.1,
+     "role": "szarża trójki goblinów po skalistym zboczu (sample natywny)"},
+    {"time_sec": 1.7, "type": "stem", "file": "whoosh_flap.mp3", "hp_hz": 180, "gain": 0.9, "pan": 0.3,
+     "role": "łopot poszarpanego sztandaru czaszki"},
+    {"time_sec": 2.7, "type": "stem", "file": "sword_swipe.mp3", "hp_hz": 150, "gain": 1.35, "pan": 0.0,
+     "role": "goblin skacze z kamiennego nawisu — świst zardzewiałego topora"},
+    {"time_sec": 3.1, "type": "stem", "file": "impact_smack.mp3", "gain": 1.5, "pan": 0.0,
+     "role": "kulminacja — topór trafia, jaszczur bojowy wpada w szarżę"},
+    {"time_sec": 4.3, "type": "stem", "file": "bear_growl.mp3", "hp_hz": 90, "gain": 0.4, "pan": -0.3,
+     "role": "odwieczny smok krąży wysoko — ryk drapieżnika w natywnej wysokości (Yellowstone NPS)"}
+  ],
+  "ducking": [2.6, 3.6, 0.35],
+  "post": {"echo_ms": [130, 260], "echo_gains": [0.14, 0.08], "room": 0.4},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Goblin Deathraiders. Wersja v2 odpowiada na ocenę partii (~5/15): wszystkie sample natywne (zakaz pitchowania, AGENTS.md #15 — v1 przestrajaliśmy 0,45–1,25 i słuchacz słyszał hałas, nie szarżę), mniej zdarzeń (5 zamiast 10), smok jako żywy ryk w naturalnej wysokości.",
+    "ambience": "wind (wulkaniczne zbocza Jundu)",
+    "drone": "brak (fantasy)",
+    "mix_notes": "Fix po ocenie partii: zero pitchowania i zero syntetycznych detali. Stemy natywne: pęd szarży 0,95 s, sztandar 1,7 s (prawo), świst topora 2,7 s (centrum), uderzenie 3,1 s (gain 1.5, ducking 0.35 w 2.6–3.6 s), ryk smoka 4,3 s (lewo, NPS PD). Echo zbocza 130/260 ms, room 0.4.",
+    "description": "Wiatr na wulkanicznym zboczu Jundu • pęd szarży goblinów • łopot sztandaru czaszki • świst zardzewiałego topora i uderzenie • ryk odwiecznego smoka z wysokości (żywe nagranie NPS)"
+  }
+}

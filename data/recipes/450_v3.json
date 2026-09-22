@@ -1,0 +1,31 @@
+{
+  "story_id": "450",
+  "label": "v3",
+  "genre": "fantasy",
+  "duration_sec": 5.5,
+  "climax_window": [1.5, 3.8],
+  "bed": {
+    "ambience": {"type": "forest_night", "gain": 0.14, "params": {"seed": 450, "crickets": 5}}
+  },
+  "events": [
+    {"time_sec": 1.0, "type": "stem", "file": "gravel_feet.mp3", "hp_hz": 110, "gain": 0.55, "pan": -0.1,
+     "role": "łapy wilka rozpychające błoto przy kolczastej barierze (sample natywny)"},
+    {"time_sec": 1.75, "type": "stem", "file": "whoosh_flap.mp3", "hp_hz": 180, "gain": 0.9, "pan": 0.25,
+     "role": "rozsuwanie kolczastych pędów bariery z cierni"},
+    {"time_sec": 2.6, "type": "stem", "file": "wolf_howl.mp3", "offset_sec": 2.4, "hp_hz": 90, "gain": 1.45, "pan": 0.0,
+     "role": "kulminacja — wycie olbrzymiego wilka w kręgu dogasającego ogniska (Yellowstone NPS, natywna wysokość)"},
+    {"time_sec": 3.6, "type": "stem", "file": "gravel_feet.mp3", "hp_hz": 110, "gain": 0.45, "pan": 0.2,
+     "role": "bestia krąży wokół obozowiska"},
+    {"time_sec": 4.35, "type": "stem", "file": "wolf_howl.mp3", "offset_sec": 0.3, "hp_hz": 100, "gain": 0.5, "pan": 0.4,
+     "role": "odpowiedź drugiego wilka z mroku Ulvenwaldu"}
+  ],
+  "ducking": [2.45, 3.5, 0.35],
+  "post": {"echo_ms": [120, 240], "echo_gains": [0.14, 0.08], "room": 0.4},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Thornhide Wolves. Wersja v3 odpowiada na ocenę partii (~5/15): wszystkie sample w natywnej wysokości (zakaz pitchowania, AGENTS.md #15) — wycie wilka to prawdziwe wycie z Yellowstone NPS, bez przestrajania; mniej zdarzeń (5), czystsze okna czasowe.",
+    "ambience": "forest_night (nocny las Ulvenwaldu)",
+    "drone": "brak (fantasy) — niskie łono to naturalny huk nocnego lasu",
+    "mix_notes": "Fix po ocenie partii: zero pitchowania (v2 używało 0,5–1,15 — sample stawały się hałasem). Wszystkie stemy natywne: kroki w błocie 1,0 s i 3,6 s, rozsuwane ciernie 1,75 s, wycie wilka 2,6 s (offset 2,4 s = najmocniejszy fragment nagrania NPS, centrum, gain 1.45, ducking 0.35), odpowiedź drugiego watahy 4,35 s. Echo lasu 120/240 ms, room 0.4.",
+    "description": "Nocny las Ulvenwaldu • łapy w błocie i rozsuwane ciernie • kulminacja: prawdziwe wycie wilka (Yellowstone NPS) w kręgu ogniska • odpowiedź drugiego wilka z mroku"
+  }
+}

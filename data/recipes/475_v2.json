@@ -1,0 +1,36 @@
+{
+  "story_id": "475",
+  "label": "v2",
+  "genre": "sci-fi",
+  "duration_sec": 5.5,
+  "climax_window": [1.5, 3.8],
+  "bed": {
+    "ambience": {"type": "station_hum", "gain": 0.1, "params": {"seed": 475}},
+    "drone": {"type": "cinematic_sub", "freq": 46.0, "gain": 0.13}
+  },
+  "events": [
+    {"time_sec": 1.1, "type": "stem", "file": "gravel_feet.mp3", "hp_hz": 100, "gain": 0.55, "pan": -0.15,
+     "role": "ciężkie kroki piechura Kav w miedzianym pancerzu (sample natywny)"},
+    {"time_sec": 1.75, "type": "stem", "file": "impact_smack.mp3", "gain": 0.9, "pan": -0.1,
+     "role": "wyrwanie uszkodzonego ramienia obronnego mecha — metalowy zryw"},
+    {"time_sec": 2.75, "type": "stem", "file": "impact_smack.mp3", "gain": 1.55, "pan": 0.05,
+     "role": "kulminacja — uderzenie metalową maczugą w rzędy lśniących terminali"},
+    {"time_sec": 2.8, "type": "synth", "kind": "crackle", "length_sec": 1.1, "gain": 0.8, "pan": 0.1,
+     "role": "eksplozja błękitnych iskier z rozbitych terminali (SF: dopuszczalna syntetyka)",
+     "params": {"bursts": 26}},
+    {"time_sec": 3.7, "type": "stem", "file": "sword_draw.mp3", "hp_hz": 110, "gain": 0.85, "pan": 0.2,
+     "role": "metaliczny zgrzyt — obicie maczugą o kolumnę terminali"},
+    {"time_sec": 4.5, "type": "synth", "kind": "swarm", "length_sec": 1.0, "gain": 0.35, "pan": -0.35,
+     "role": "deszcz roztrzaskanej elektroniki opada po zniszczeniu terminali",
+     "params": {"grains": 120, "bloom": 0.2}}
+  ],
+  "ducking": [2.6, 3.7, 0.35],
+  "post": {"echo_ms": [110, 230], "echo_gains": [0.15, 0.08], "room": 0.45},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Ruinous Rampage. Wersja v2 odpowiada na ocenie partii (~5/15): stemy wyłącznie natywne (zakaz pitchowania, AGENTS.md #15), mniej zdarzeń (6 zamiast 7), czystsza dramaturgia — jedno główne uderzenie zamiast trzech rozproszonych.",
+    "ambience": "station_hum (port kosmiczny)",
+    "drone": "cinematic_sub (46.0 Hz) — scena SF",
+    "mix_notes": "Fix po ocenie partii: zero pitchowania (v1 używało 0,62–1,05). Stemy natywne: kroki 1,1 s, wyrwanie ramienia 1,75 s, uderzenie w terminale 2,75 s (gain 1.55, centrum, ducking 0.35), zgrzyt o kolumnę 3,7 s. Syntetyki tylko SF: iskry 2,8 s, deszcz elektroniki 4,5 s. Echo komory 110/230 ms, room 0.45.",
+    "description": "Narastający szum portu kosmicznego + sub 46 Hz • kroki piechura Kav • wyrwane ramię mecha • centralne uderzenie w terminale z błękitnymi iskrami • metaliczny zgrzyt i deszcz elektroniki"
+  }
+}

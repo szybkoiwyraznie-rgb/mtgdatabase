@@ -36,6 +36,12 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Wniosek: syntetyczne timbre brzmią obco poza science fiction i zabijają zgodność z fabułą; tożsamość jingla mają nieść realne nagrania ze zweryfikowanego rejestru.
 - Zasada / działanie zapobiegawcze: twarda reguła nr 14 w `AGENTS.md` oraz pkt 4 złotych reguł w `legacy/source/INSTRUKCJA_PRODUKCJI_JINGLI.md`; egzekwowana automatycznie przez bramkę żywych sampli w `scripts/render_jingle.py` (pole `genre` w recepturze) i kontrolę `genre`-aware w `scripts/validate_versions.py`.
 
+## 2026-09-22 — Pitchowanie niszczy rozpoznawalność sampla (decyzja właściciela)
+
+- Sytuacja: partia jingli z pitchem 0,45–1,35 była oceniona około 5/15 mimo dobrych metryk technicznych; słuchacz słyszał hałas, nie opisywane zdarzenia.
+- Wniosek: słyszalność nie oznacza rozpoznawalności. Tożsamość zdarzenia niesie naturalny timbr nagrania, który zmiana wysokości/tempa niszczy.
+- Zasada / działanie zapobiegawcze: dla nowych receptur żywe sample są natywne (`pitch` nieobecny lub `1.0`); inny charakter = inny sample. Bramka `render_jingle.py` i testy odrzucają `pitch != 1`.
+
 ## 2026-09-22 — Jak pobierać sample w sandboxie: GitHub, nie Wikimedia
 
 - Sytuacja: poprzedni agent pobierał stems z Wikimedia Commons techniką User-Agent „NazwaAplikacji/Wersja (kontakt)" (bez tego Wikimedia zwraca 403). W sandboxie tej sesji ta technika nie wystarcza: egress tnie połączenie TLS (SSL EOF, kod 000) do upload.wikimedia.org, commons.wikimedia.org, nps.gov, raw.githubusercontent.com i huggingface.co, zanim padnie jakiekolwiek zapytanie HTTP; osiągalne są m.in. github.com, api.github.com i pypi.org.
