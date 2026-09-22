@@ -148,7 +148,7 @@
             {
               "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/16",
               "created_at": "2026-09-22T15:14:33Z",
-              "state": "open",
+              "state": "closed",
               "scores": {
                 "feeling": 4,
                 "story_fit": 3,
@@ -597,9 +597,26 @@
           "label": "v4",
           "created_at": "2026-09-22T15:30:00Z",
           "audio": "legacy/source/jingle_output/5_v4.mp3",
-          "score": null,
-          "scores": null,
-          "reports": [],
+          "score": 9,
+          "scores": {
+            "feeling": 3,
+            "story_fit": 3,
+            "sample_quality": 3
+          },
+          "reports": [
+            {
+              "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/23",
+              "created_at": "2026-09-22T18:07:26Z",
+              "state": "open",
+              "scores": {
+                "feeling": 3,
+                "story_fit": 3,
+                "sample_quality": 3
+              },
+              "total": 9,
+              "comment": "cięcie miecza już bardziej, ale v1 jest cały czas najlepsze. nie możesz użyć dokładnie tego samego dźwięku który jest w v1 - to brzmi jak cymbałki trochę... poza tym brakuje akcentu wciągania potwietrza do wiru"
+            }
+          ],
           "project_description": {
             "summary": "Krótka forma audio dla sceny: Academy Journeymage. Wersja v4 odpowiada na ocenę partii (~5/15): wszystkie sample w natywnej wysokości (zakaz pitchowania, AGENTS.md #15 — v3 przestrywało 0,55–1,25), 5 czystych zdarzeń zamiast 6, zachowane polubione tło z v1 (wiatr + misa 196 Hz).",
             "ambience": "wind (taras dominariańskiej akademii)",
@@ -646,7 +663,9 @@
                 "Kontrast dramaturgiczny: 18.7/30 (ratio 3.12x)"
               ]
             }
-          }
+          },
+          "rated_at": "2026-09-22T18:07:26Z",
+          "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/23"
         }
       ]
     },
