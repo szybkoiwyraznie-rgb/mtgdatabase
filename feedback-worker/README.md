@@ -1,24 +1,21 @@
 # Feedback Worker
 
-To jest bezpieczny pośrednik między publicznym JavaScriptem Pages a GitHub Issues. Token GitHub nie trafia do strony.
+To jest bezpieczny, zdalny pośrednik między publicznym JavaScriptem Pages a GitHub Issues. Token GitHub nie trafia do strony.
 
-## Jednorazowa konfiguracja
+## Deployment zdalny — bez instalacji na komputerze
 
-1. Utwórz konto Cloudflare i zainstaluj Wrangler.
-2. W tym katalogu uruchom `wrangler login`.
-3. Utwórz token GitHub Fine-grained z dostępem tylko do tego repozytorium i uprawnieniem `Issues: Read and write`.
-4. Ustaw sekret:
+Worker jest wdrażany przez GitHub Actions. Twój desktop, iPad, laptop ani telefon nie muszą być włączone. Wystarczy jednorazowo utworzyć konto Cloudflare, token Cloudflare i sekrety repozytorium.
 
-```bash
-wrangler secret put GITHUB_TOKEN
-```
+1. Utwórz konto Cloudflare Workers.
+2. W Cloudflare utwórz API Token z uprawnieniem do edycji Workers dla właściwego konta.
+3. W GitHubie dodaj sekrety Actions:
+   - `CLOUDFLARE_API_TOKEN` — token Cloudflare;
+   - `CLOUDFLARE_ACCOUNT_ID` — Account ID z panelu Cloudflare;
+   - `WORKER_GITHUB_TOKEN` — Fine-grained token GitHub z dostępem tylko do tego repozytorium i `Issues: Read and write`.
+4. Wejdź w `Actions → Deploy feedback worker → Run workflow`.
+5. Workflow wdroży workera i zapisze token GitHub jako sekret Cloudflare.
+6. Adres workera skopiuj do `site/data/config.example.json` jako `feedbackEndpoint`.
 
-5. Wdróż worker:
+Nie uruchamiaj `wrangler login` na desktopie — lokalna instalacja jest opcjonalna i nie jest potrzebna w tym projekcie.
 
-```bash
-wrangler deploy
-```
-
-6. Skopiuj adres workera do `site/data/config.json` jako `feedbackEndpoint`.
-
-Token nigdy nie może być wpisany do JavaScriptu Pages ani commitowany do repozytorium.
+Tokeny nigdy nie mogą być wpisane do JavaScriptu Pages ani commitowane do repozytorium.
