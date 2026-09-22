@@ -24,23 +24,33 @@ Dźwięk nie może być prostym, syntetycznym „pikaniem” ani monofonicznym s
 ```
 
 ### Złote reguły miksu:
-1. **Unikanie maskowania (Separacja czasowa):**
+1. **Audycja i offset obowiązkowe (reguła nr 1 od 2026-09-22 — przyczyna porażek partii 3-5/15):**
+   * Nagrania terenowe to długie pliki z cichą głową i głośnym środkiem (raven_call: pierwsze 4 s na -71..-55 dB, najgłośniejsze okno @ 8,5 s; bear_growl startuje od -62 dB).
+   * Przed użyciem sampla sprawdź profil: `python scripts/stem_probe.py <plik>`; w recepturze ustaw `offset_sec` na głośny fragment i `length_sec` na to, co ma być słyszalne.
+   * Silnik (`render_jingle.py`) odrzuca segment cichszy o ponad 12 dB od najgłośniejszego okna nagrania — z podaniem sugestii offsetu.
+2. **Unikanie maskowania (Separacja czasowa):**
    * Nigdy nie nakładaj najgłośniejszego rozbryzgu wody lub uderzenia w tej samej milisekundzie, w której ryczy bestia lub wybrzmiewa dobycie miecza.
    * Daj kluczowemu zdarzeniu (wokaliza, sygnał, portal) czyste okno (zwykle w przedziale 1.8s – 3.6s).
-2. **Separacja planów (Dry / Wet):**
+3. **Separacja planów (Dry / Wet):**
    * **Błąd V1:** Nałożenie globalnego echa jaskini na całą ścieżkę zepchnęło ryk w odległe tło.
    * **Standard V2:** Główny obiekt (paszcza potwora, orkowe ostrze) uderza jako bezpośredni, czysty i głośny sygnał w centrum panoramy (`pan=0.0`), a pogłos jaskini/kanionu jest dodawany jako odbicie na ścianach (`delay ~120-180 ms`).
-3. **Pasma częstotliwości (Prezencja):**
+4. **Pasma częstotliwości (Prezencja) i kontrola góry:**
    * Dla wokaliz potworów i zwierząt: podbijaj pasmo **1000–3500 Hz** (ludzkie ucho słyszy tam chrypę i agresję paszczy) oraz stosuj miękkie nasycenie (`np.tanh`).
    * Zawsze filtruj skrajny dół (`high-pass 80–120 Hz`), by usunąć niechciany szum z nagrań terenowych.
-4. **Żywe sample przed syntetykami (zasada twarda, AGENTS.md pkt 14):**
+   * Kontroluj górę: udział energii >6 kHz w całym miksie ≤ 12% (papierowy charakter `gravel_feet` = 36% >6 kHz; właściciel: „darcie papieru").
+5. **Żywe sample przed syntetykami (zasada twarda, AGENTS.md pkt 14):**
    * Syntetyczne dźwięki (drony, pady, dzwonki, sweep-y) nadają się **prawie wyłącznie do scen science fiction**. Oceny 5 v2 (3/15) i 450 v1 (7/15, „co to SF?") odrzuciły miksy syntetyczne w scenach fantasy — bez żywych sampli projekt nie ma sensu.
    * Scena nie-SF: minimum **dwa wyraźne zdarzenia na żywych samplach** (stems z rejestru `data/sources.json`), a **kulminacja zawsze na samplu**. Scena SF: minimum jeden żywy sample.
-   * Neutralne proceduralne tło (wiatr, woda) jest dozwolone wszędzie; dron syntetyczny w scenie nie-SF tylko, gdy właściciel ocenił go pozytywnie we wcześniejszej wersji tej fabuły.
+   * Neutralne proceduralne tło (wiatr, woda) jest dozwolone wszędzie; dron syntetyczny w scenie nie-SF tylko, gdy właściciel ocenił go pozytywnie we wcześniejszej wersji tej fabuły. Wyjątek: krótki sub-impakt wzmacniający żywe zdarzenie (precedens: pochwalone kroki Balotha w 2 v2).
    * `scripts/render_jingle.py` odrzuca receptury łamiące tę zasadę (pole `genre` w recepturze: `sci-fi` vs reszta).
-5. **Natywna wysokość sampli (AGENTS.md pkt 15):**
-   * W nowej recepturze żywy stem ma zachować naturalną wysokość i tempo: nie wpisuj `pitch`, a jeśli pole jest konieczne, ustaw `1.0`.
-   * Inny charakter bestii, ruchu lub materiału = inny sample z biblioteki; dozwolone są `offset_sec`, łagodny high-pass, gain i panorama.
+6. **Wysokość sampli (AGENTS.md pkt 15, decyzja właściciela 2026-09-22):**
+   * Domyślnie natywna wysokość; dozwolone umiarkowane **obniżanie** `pitch` 0,7–1,0 (kruk -12% i grizzly -25% w chwalonych v1; impact 0,72 w 568 v2 = 15/15). Zakazane podbicie w górę (`pitch > 1`) — ono niszczyło rozpoznawalność.
+   * Inny charakter bestii, ruchu lub materiału = najpierw inny sample z biblioteki; pitch w dół tylko jako doprawienie.
+7. **Głośność zdarzeń, nie peak × gain (silnik v2):**
+   * Każde zdarzenie ma cel głośności RMS: kulminacja ok. -16 dB, support -21 dB, detal -26 dB (pole `target_db`); tło -27..-30 dB. „Zdarzenie opisane, ale niesłyszalne" odrzuca QA v2 (wymóg +6 dB nad tłem dla żywych sampli).
+   * Zdarzenia złożone: kilka warstw na tym samym znaczniku czasu = jeden beat (krok bestii = sub-thump + chrzęst + plusk; cios = ciężar + metaliczny zgrzyt + okrzyk).
+8. **Klejenie i master (wzorzec z chwalonych v1):**
+   * Echo przestrzeni (2 tpiki 90-260 ms) + kompresor (-16 dB, ratio 3,5) + master 0,9 pk / RMS ok. -17..-20 dB. Chwalone oryginały są gęste i głośne; odrzucona partia była cicha i rzadka.
 
 ---
 

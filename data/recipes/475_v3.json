@@ -1,0 +1,42 @@
+{
+  "story_id": "475",
+  "label": "v3",
+  "genre": "sci-fi",
+  "duration_sec": 5.5,
+  "climax_window": [2.8, 3.9],
+  "bed": {
+    "ambience": {"type": "station_hum", "target_db": -28.0, "gain": 0.3, "params": {"seed": 475}},
+    "drone": {"type": "cinematic_sub", "freq": 44.0, "target_db": -27.0, "gain": 0.4}
+  },
+  "events": [
+    {"time_sec": 0.85, "type": "stem", "file": "armor_step.mp3", "target_db": -21.0, "pan": -0.2,
+     "role": "ciężkie kroki piechura Kav w miedzianym pancerzu (OGA HaelDB, krok metalowy 1/2)"},
+    {"time_sec": 1.15, "type": "stem", "file": "armor_step.mp3", "target_db": -19.0, "pan": -0.05,
+     "role": "krok 2/2 — piechur zbliża się do wraku mecha"},
+    {"time_sec": 1.7, "type": "stem", "file": "mech_tear.mp3", "target_db": -16.0, "pan": -0.15, "hp_hz": 120,
+     "role": "WYRwanie uszkodzonego ramienia obronnego mecha — rozdarcie blachy (OGA rubberduck, najgłośniejszy fragment)"},
+    {"time_sec": 2.5, "type": "stem", "file": "plate_impact.mp3", "target_db": -20.0, "pan": 0.1,
+     "role": "uniesienie metalowej kończyny niczym maczugi — ciężkie obicie o kolumnę (Kenney plate-heavy)"},
+    {"time_sec": 2.95, "type": "stem", "file": "smash_thump.mp3", "target_db": -13.0, "pan": 0.0,
+     "role": "KULMINACJA (złożone 1/3): cios metalową maczugą w rzędy terminali — sub-ciężar (Kenney metal-heavy)"},
+    {"time_sec": 2.95, "type": "stem", "file": "glass_shard.mp3", "target_db": -16.0, "pan": 0.08,
+     "role": "KULMINACJA (złożone 2/3): roztrzaskane ekrany terminali — szklane odpryski (Kenney glass-light)"},
+    {"time_sec": 3.0, "type": "synth", "kind": "crackle", "length_sec": 1.0, "gain": 0.8, "pan": 0.0,
+     "target_db": -22.0, "params": {"bursts": 24},
+     "role": "KULMINACJA (złożone 3/3): eksplozja błękitnych iskier z rozbitych terminali (SF: syntetyka dozwolona)"},
+    {"time_sec": 3.6, "type": "stem", "file": "debris_rain.mp3", "target_db": -19.0, "pan": 0.2,
+     "role": "deszcz roztrzaskanej elektroniki i dronów zwiadowczych opada po ciosie (OGA bfh1-falling, 12 on setów)"},
+    {"time_sec": 4.55, "type": "stem", "file": "metal_knock.mp3", "target_db": -18.0, "pan": -0.1,
+     "role": "ostatni cios — maczuga obija się o wrywane drony (OGA rubberduck)"}
+  ],
+  "ducking": [2.75, 3.75, 0.35],
+  "post": {"echo_ms": [90, 200], "echo_gains": [0.12, 0.07], "room": 0.35,
+           "compressor": {"threshold_db": -16.0, "ratio": 3.5, "attack_ms": 12.0, "release_ms": 180.0}},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Ruinous Rampage. v3 to remake od zera (właściciel o v1/v2: „ja tutaj słyszę tylko kroki i na koniec elektronikę” / „niczym się nie różni”). Nowa receptura: prawdziwe rozdarcie blachy jako wyrwane ramię mecha, złożona kulminacja ciosu w terminale (sub-ciężar Kenney + szkło + iskry) i deszcz gruzów z 12 on setów — każde zdarzenie z audytowanego, głośnego fragmentu nagrania.",
+    "ambience": "station_hum (hangar portu kosmicznego, -28 dB) + cinematic_sub 44 Hz (-27 dB, scena SF)",
+    "drone": "cinematic_sub (44.0 Hz)",
+    "mix_notes": "Kroki w zbroi 0.85/1.15s (OGA HaelDB, stackowane), rozdarcie mecha 1.7s (-16 dB, hp 120), obicie płyty 2.5s, KULMINACJA 2.95s = cios złożony (smash_thump -13 + glass_shard -16 + iskry crackle -22, centrum), deszcz elektroniki 3.6s (prawo), ostatni cios 4.55s. Ducking 0.35 w 2.75-3.75s; echo hangaru 90/200ms; kompresor -16dB/3.5; master 0.9 pk.",
+    "description": "Szum hangaru portu kosmicznego + sub 44 Hz • ciężkie kroki piechura Kav w miedzianym pancerzu • wyrwane ramię mecha — rozdarcie blachy • kulminacja: cios w terminale, szklane odpryski i eksplozja błękitnych iskier • deszcz roztrzaskanej elektroniki i ostatni cios"
+  }
+}

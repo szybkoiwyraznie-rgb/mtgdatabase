@@ -55,8 +55,10 @@ def main() -> int:
     print("Kolejka remake'ów — fabuły uszeregowane po NAJLEPSZEJ ocenionej wersji (rosnąco):")
     if queue:
         for position, (sid, label, score, reports) in enumerate(queue, 1):
+            plan = ("OD ZERA (próg właściciela <12/15)" if score < 12
+                    else f"na fundamencie {label}")
             print(f"  {position}. fabuła {sid}: najlepsza {label} = {score:.0f}/15, otwartych raportów: {reports}"
-                  f" → remakuj kolejną wersję na fundamencie {label}")
+                  f" → remakuj kolejną wersję {plan}")
     else:
         print("  (pusta — brak fabuł spełniających warunki remaku)")
     print("Pominięte:")

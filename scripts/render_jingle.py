@@ -11,17 +11,18 @@ Recipe format (see data/recipes/*.json):
   "genre": "sci-fi",
   "climax_window": [1.5, 3.8],
   "bed": {
-    "ambience": {"type": "wind|station_hum|cave_water|terrace", "gain": 0.3, "params": {...}},
-    "drone":    {"type": "cinematic_sub|synth_pad|bowl", "freq": 44.0, "gain": 0.4, "params": {...}}
+    "ambience": {"type": "wind|station_hum|cave_water|terrace", "target_db": -30.0, "params": {...}},
+    "drone":    {"type": "cinematic_sub|synth_pad|bowl", "freq": 44.0, "target_db": -27.0, "params": {...}}
   },
   "events": [
-    {"time_sec": 2.0, "type": "synth", "kind": "swarm|crackle|sweep|chime|flutter|banish|thump",
-     "gain": 1.0, "pan": 0.0, "role": "warstwa foley / kulminacja", "params": {...}},
-    {"time_sec": 1.7, "type": "stem", "file": "impact_smack.mp3", "pitch": 1.3, "offset_sec": 0.0,
-     "hp_hz": 150, "gain": 1.1, "pan": -0.2, "role": "warstwa foley"}
+    {"time_sec": 2.0, "type": "synth", "kind": "swarm|crackle|sweep|chime|flutter|banish|thump|drip",
+     "length_sec": 1.0, "gain": 1.0, "pan": 0.0, "role": "warstwa foley / kulminacja", "params": {...}},
+    {"time_sec": 1.7, "type": "stem", "file": "impact_smack.mp3", "pitch": 1.0, "offset_sec": 0.0,
+     "length_sec": 0.9, "hp_hz": 150, "target_db": -16.0, "pan": -0.2, "role": "warstwa foley"}
   ],
   "ducking": [1.8, 3.6, 0.45],
-  "post": {"echo_ms": [140, 280], "echo_gains": [0.16, 0.09], "room": 0.5},
+  "post": {"echo_ms": [140, 280], "echo_gains": [0.16, 0.09], "room": 0.5,
+           "compressor": {"threshold_db": -16.0, "ratio": 3.5, "attack_ms": 12.0, "release_ms": 180.0}},
   "project_description": {"summary": "...", "ambience": "...", "drone": "...",
     "mix_notes": "...", "description": "..."}
 }
@@ -31,6 +32,31 @@ foley events, center-panned stinger inside the climax window with ducking)
 and emits QA metadata compatible with scripts/qa_score.py +
 scripts/validate_versions.py. Used stems are read from
 legacy/source/game-audio-pipeline/stems/.
+
+v2 engine (2026-09-22, after the quality audit of the 3-5/15 batch):
+- EVENTS MIX BY LOUDNESS, NOT BLIND PEAK*GAIN. Every event carries a target
+  RMS (defaults: climax -16 dB, support -21 dB, detail -26 dB). The old
+  peak-normalize-then-gain scheme rendered long field recordings at their
+  silent heads (raven: first 4 s at -71..-55 dB), so "events" existed only
+  in the description. Root cause of "nic z tego co opisujesz nie jest
+  słyszalne" (issues for 8, 450, 475).
+- SILENT-HEAD GATE: the used segment of a stem must sit within 12 dB of the
+  stem's loudest 0.5 s window, otherwise the render is rejected with the
+  suggested offset. Long stems (>3 s) additionally require an explicit
+  offset_sec/length_sec plan.
+- MODERATE PITCH-DOWN ALLOWED (owner decision 2026-09-22): 0.7 <= pitch
+  <= 1.0. The owner-praised jingles pitched real recordings down (raven
+  -12%, grizzly -25%, 568 v2 impact at 0.72) - pitch UP is what failed.
+- COMPOUND EVENTS: several events may share a timestamp (the original
+  agent's beast step = sub thump + gravel crunch + water splash at once).
+- GLUE CHAIN mirroring the original ffmpeg post (aecho + acompressor +
+  normalize 0.92): two-tap echo, feed-forward compressor, peak 0.90.
+- HF TAMING: if the >6 kHz energy share exceeds 12% (paper/hiss character
+  of the rejected batch - gravel_feet alone carries 36%), the top band is
+  attenuated before mastering.
+- QA v2 (scripts/qa_score.py): technical gates + per-event audibility
+  (every described event >= +6 dB over the bed) + loudness + spectral
+  balance. The old climax-ratio-only score rated the 3/15 renders 100/100.
 """
 from __future__ import annotations
 
@@ -47,12 +73,27 @@ STEMS = ROOT / "legacy/source/game-audio-pipeline/stems"
 SR = 44_100
 STORY_SECONDS_DEFAULT = 5.5
 
+# Loudness doctrine (dBFS RMS over a segment's active part), calibrated on
+# the owner-praised catalog (2.mp3 total RMS -15 dB, 4.mp3 -22 dB).
+TARGET_CLIMAX_DB = -16.0
+TARGET_SUPPORT_DB = -21.0
+TARGET_DETAIL_DB = -26.0
+TARGET_AMBIENCE_DB = -30.0
+TARGET_DRONE_DB = -27.0
+
+PITCH_MIN, PITCH_MAX = 0.7, 1.0  # down-only, owner decision 2026-09-22
+HF_LIMIT = 0.12                  # max share of energy above 6 kHz
+SILENT_HEAD_TOLERANCE_DB = 12.0  # used segment vs stem's loudest window
+
 
 def validate_live_samples(recipe: dict) -> None:
-    """Hard rule (AGENTS.md #14): synthetic layers are almost exclusively for
-    sci-fi scenes. Every recipe must declare its genre; non-sci-fi recipes
-    need >=2 live stem events (one inside the climax window) and sci-fi
-    recipes need >=1, so every jingle keeps at least one real recording."""
+    """Hard rules (AGENTS.md #14/#15 as amended 2026-09-22).
+
+    Structural checks only (no audio deps -> CI-safe): genre declared,
+    non-SF needs >=2 live stems with one in the climax window, SF needs >=1,
+    pitch restricted to the down-only moderate range. Segment audibility
+    (silent-head gate) is enforced at render time, when stems are loaded.
+    """
     genre = str(recipe.get("genre", "")).strip().lower()
     if not genre:
         raise ValueError(
@@ -61,14 +102,14 @@ def validate_live_samples(recipe: dict) -> None:
             "np. 'sci-fi', 'fantasy', 'nature', 'history'"
         )
     events = recipe.get("events", [])
-    stems = [ev for ev in events if ev.get("type") == "stem"]
+    stems = [ev for ev in events if ev.get("type") == "stem" and str(ev.get("level", "")) != "bed"]
     for event in stems:
         pitch = event.get("pitch", 1.0)
-        if pitch is not None and abs(float(pitch) - 1.0) > 1e-6:
+        if pitch is not None and (float(pitch) < PITCH_MIN - 1e-6 or float(pitch) > PITCH_MAX + 1e-6):
             raise ValueError(
-                f"stem '{event.get('file')}' ma pitch={pitch} — żywe sample wolno "
-                "używać wyłącznie w natywnej wysokości (AGENTS.md #15). "
-                "Wybierz inny sample z biblioteki zamiast go przestrajać."
+                f"stem '{event.get('file')}' ma pitch={pitch} — dozwolone jest wyłącznie "
+                f"umiarkowane obniżanie {PITCH_MIN}-{PITCH_MAX} (decyzja właściciela; podbicie "
+                "w górę niszczyło rozpoznawalność). Wybierz inny sample z biblioteki."
             )
     lo, hi = recipe.get("climax_window", [1.5, 3.8])
     if genre == "sci-fi":
@@ -92,36 +133,31 @@ def validate_live_samples(recipe: dict) -> None:
 
 
 # --------------------------------------------------------------------------
-# Filters: windowed-sinc FIR (no scipy needed), 2*half+1 taps, zero-phase-ish
+# Filters: windowed-sinc FIR (no scipy needed), 2*half+1 taps, soft edges
 # --------------------------------------------------------------------------
-def fir_response(freqs: np.ndarray, kind: str, f_lo: float, f_hi: float) -> np.ndarray:
-    resp = np.zeros_like(freqs)
-    if kind == "low":
-        resp[freqs <= f_hi] = 1.0
-    elif kind == "high":
-        resp[freqs >= f_lo] = 1.0
-    elif kind == "band":
-        resp[(freqs >= f_lo) & (freqs <= f_hi)] = 1.0
-    return resp
-
-
 def apply_fir(x: np.ndarray, kind: str, f_lo: float, f_hi: float | None = None,
               half: int = 400, sr: int = SR) -> np.ndarray:
     n_fft = 1 << (len(x) + 2 * half - 1).bit_length()
     spec = np.fft.rfft(x, n_fft)
     freqs = np.fft.rfftfreq(n_fft, 1.0 / sr)
-    resp = fir_response(freqs, kind, f_lo, f_hi if f_hi is not None else f_lo)
-    # cosine soft edges to avoid ringing around the cutoff
     edge = 60.0
-    soft = 0.5 * (np.tanh((freqs - (f_lo - edge)) / edge) + 1.0) if kind != "low" else 0.5 * (1.0 - np.tanh((freqs - (f_hi + 0)) / edge - edge / edge)) + 0.5
     if kind == "low":
         soft = np.clip(1.0 - (freqs - f_hi) / (2 * edge), 0.0, 1.0)
     elif kind == "high":
         soft = np.clip((freqs - f_lo) / (2 * edge) + 0.5, 0.0, 1.0)
+    else:  # band
+        center, width = (f_lo + f_hi) / 2, max((f_hi - f_lo) / 2, 1.0)
+        soft = np.clip(1.0 - (np.abs(freqs - center) - width) / (2 * edge), 0.0, 1.0)
+    if kind == "low":
+        resp = np.zeros_like(freqs)
+        resp[freqs <= f_hi] = 1.0
+    elif kind == "high":
+        resp = np.zeros_like(freqs)
+        resp[freqs >= f_lo] = 1.0
     else:
-        soft = np.clip(1.0 - np.abs(freqs - (f_lo + f_hi) / 2) / (max((f_hi - f_lo) / 2, 1.0) + 2 * edge), 0.0, 1.0)
-        soft = np.clip(soft * 4.0, 0.0, 1.0)
-    spec *= resp * soft if np.any(resp) else resp
+        resp = np.zeros_like(freqs)
+        resp[(freqs >= f_lo) & (freqs <= f_hi)] = 1.0
+    spec *= resp * soft
     y = np.fft.irfft(spec, n_fft)[: len(x)]
     return y
 
@@ -130,8 +166,7 @@ def filter_signal(x: np.ndarray, kind: str, f_lo: float, f_hi: float | None = No
     if kind == "low" and (f_hi or f_lo) >= SR / 2 - 1:
         return x
     y = apply_fir(x, kind, f_lo, f_hi)
-    peak = np.max(np.abs(y)) + 1e-9
-    return y / peak * min(1.0, np.max(np.abs(x)) / peak if np.max(np.abs(x)) > 0 else 1.0)
+    return y
 
 
 def resample_linear(x: np.ndarray, new_len: int) -> np.ndarray:
@@ -142,7 +177,22 @@ def resample_linear(x: np.ndarray, new_len: int) -> np.ndarray:
     return np.interp(new_t, old_t, x).astype(np.float64)
 
 
-def load_stem(name: str, pitch: float = 1.0, offset_sec: float = 0.0) -> np.ndarray:
+# --------------------------------------------------------------------------
+# Stem loading + audition (the fix for the silent-head failures)
+# --------------------------------------------------------------------------
+_STEM_CACHE: dict[str, dict] = {}
+
+
+def stem_profile(name: str) -> dict:
+    """Loudness profile of a stem: loudest 0.5 s window + per-0.5 s RMS.
+
+    The rejected 3-5/15 batch played long field recordings from their silent
+    heads (raven_call: -71 dB for the first 4 s). The renderer now refuses
+    segments that sit more than SILENT_HEAD_TOLERANCE_DB under the stem's
+    loudest window.
+    """
+    if name in _STEM_CACHE:
+        return _STEM_CACHE[name]
     import soundfile as sf  # authoring-only dependency
 
     path = STEMS / name
@@ -153,11 +203,59 @@ def load_stem(name: str, pitch: float = 1.0, offset_sec: float = 0.0) -> np.ndar
         data = data.mean(axis=1)
     if sr != SR:
         data = resample_linear(data, int(round(len(data) * SR / sr)))
+    data = data.astype(np.float64)
+    win = int(0.5 * SR)
+    if len(data) <= win:
+        windows = [float(np.sqrt(np.mean(data ** 2)) + 1e-12)]
+    else:
+        windows = [float(np.sqrt(np.mean(data[i:i + win] ** 2)) + 1e-12)
+                   for i in range(0, len(data) - win + 1, win // 2)]
+    loudest_idx = int(np.argmax(windows))
+    profile = {
+        "data": data,
+        "dur": len(data) / SR,
+        "windows": windows,
+        "loudest_t": loudest_idx * 0.25,  # hop = 0.25 s
+        "loudest_rms": max(windows),
+    }
+    _STEM_CACHE[name] = profile
+    return profile
+
+
+def load_stem(name: str, pitch: float = 1.0, offset_sec: float = 0.0) -> np.ndarray:
+    data = stem_profile(name)["data"]
     if offset_sec > 0:
         data = data[int(offset_sec * SR):]
     if pitch != 1.0:
         data = resample_linear(data, max(8, int(len(data) / pitch)))
     return data
+
+
+def active_rms(sig: np.ndarray) -> float:
+    """RMS of the loudest 0.3 s window - the part the listener hears."""
+    win = min(len(sig), int(0.3 * SR))
+    if win <= 0:
+        return 1e-12
+    hop = max(1, win // 3)
+    best = 0.0
+    for i in range(0, max(1, len(sig) - win + 1), hop):
+        best = max(best, float(np.mean(sig[i:i + win] ** 2)))
+    return float(np.sqrt(best) + 1e-12)
+
+
+def gate_silent_segment(name: str, seg: np.ndarray) -> None:
+    """Reject a stem segment that plays a quiet head instead of the event."""
+    profile = stem_profile(name)
+    seg_rms = active_rms(seg)
+    limit = profile["loudest_rms"] * (10 ** (-SILENT_HEAD_TOLERANCE_DB / 20.0))
+    if seg_rms < limit:
+        raise ValueError(
+            f"stem '{name}': użyty fragment ma RMS {20 * np.log10(seg_rms):.1f} dB, "
+            f"ponad {SILENT_HEAD_TOLERANCE_DB} dB pod najgłośniejszym okiem nagrania "
+            f"({20 * np.log10(profile['loudest_rms']):.1f} dB @ ~{profile['loudest_t']:.1f} s) — "
+            "to była przyczyna niewysłyszalnych zdarzeń z partii 3-5/15. "
+            f"Ustaw offset_sec ~{profile['loudest_t']:.1f} (patrz scripts/stem_probe.py)."
+        )
 
 
 # --------------------------------------------------------------------------
@@ -350,9 +448,85 @@ def pan_gains(pan: float) -> tuple[float, float]:
     return (0.95 - 0.25 * pan), (0.95 + 0.25 * pan)
 
 
+def db_to_amp(db: float) -> float:
+    return float(10.0 ** (db / 20.0))
+
+
+def normalize_rms(sig: np.ndarray, target_db: float, floor_db: float = -70.0) -> np.ndarray:
+    rms = active_rms(sig)
+    if 20 * np.log10(rms) < floor_db:
+        raise ValueError(f"segment zbyt cichy ({20 * np.log10(rms):.1f} dB) do normalizacji")
+    return sig * (db_to_amp(target_db) / rms)
+
+
+def event_target_db(ev: dict, climax_window: tuple[float, float]) -> float:
+    if "target_db" in ev:
+        return float(ev["target_db"])
+    lo, hi = climax_window
+    in_climax = lo <= float(ev.get("time_sec", -1)) <= hi
+    if in_climax and ev.get("type") == "stem":
+        return TARGET_CLIMAX_DB
+    if ev.get("type") == "stem":
+        return TARGET_SUPPORT_DB
+    return TARGET_DETAIL_DB
+
+
+def fade_edges(sig: np.ndarray, ms: float = 6.0) -> np.ndarray:
+    n = min(len(sig), int(ms / 1000.0 * SR))
+    if n > 0 and len(sig) > 2 * n:
+        ramp = np.linspace(0.0, 1.0, n)
+        sig[:n] *= ramp
+        sig[-n:] *= ramp[::-1]
+    return sig
+
+
+def hf_share(mix: np.ndarray) -> float:
+    mono = mix.mean(axis=1) if mix.ndim > 1 else mix
+    spec = np.abs(np.fft.rfft(mono)) ** 2
+    freqs = np.fft.rfftfreq(len(mono), 1.0 / SR)
+    return float(spec[freqs >= 6000].sum() / (spec.sum() + 1e-12))
+
+
+def tame_hf(mix: np.ndarray) -> np.ndarray:
+    """Attenuate the >6.5 kHz band when the mix turns papery/hissy.
+
+    Applies the same zero-phase spectral scale to both channels via a
+    per-sample gain derived from the mono signal (stable, no image smear).
+    """
+    mono = mix.mean(axis=1) if mix.ndim > 1 else mix
+    spec = np.abs(np.fft.rfft(mono))
+    freqs = np.fft.rfftfreq(len(mono), 1.0 / SR)
+    spec[freqs >= 6500] *= 10 ** (-9.0 / 20.0)  # -9 dB on the top band
+    shaped = np.fft.irfft(spec, len(mono))
+    gain = shaped / (mono + 1e-9)
+    gain = np.clip(gain, 0.0, 1.0)
+    if mix.ndim > 1:
+        return mix * gain[:, None]
+    return mix * gain
+
+
+def compress(mix: np.ndarray, threshold_db: float = -16.0, ratio: float = 3.5,
+             attack_ms: float = 12.0, release_ms: float = 180.0) -> np.ndarray:
+    """Feed-forward compressor (glue), mirroring the legacy acompressor
+    chain that made the original v1-v5 catalog dense and loud."""
+    mono = mix.max(axis=1) if mix.ndim > 1 else mix
+    win = max(1, int(0.02 * SR))
+    kernel = np.ones(win) / win
+    env = np.sqrt(np.convolve(mono ** 2, kernel, mode="same") + 1e-12)
+    env_db = 20 * np.log10(env + 1e-12)
+    over = np.clip(env_db - threshold_db, 0.0, None)
+    gain_db = -(1.0 - 1.0 / ratio) * over
+    # smooth gain movement (attack/release averaged)
+    sm = max(1, int(release_ms / 1000.0 * SR / 4))
+    gain = 10 ** (np.convolve(gain_db, np.ones(sm) / sm, mode="same") / 20.0)
+    makeup = db_to_amp((1.0 - 1.0 / ratio) * 6.0)  # modest auto-makeup
+    return mix * gain[:, None] * makeup if mix.ndim > 1 else mix * gain * makeup
+
+
 def render(recipe: dict) -> tuple[np.ndarray, dict]:
     dur = float(recipe.get("duration_sec", STORY_SECONDS_DEFAULT))
     n = int(dur * SR)
+    climax_window = tuple(recipe.get("climax_window", [1.5, 3.8]))
     L = np.zeros(n)
     R = np.zeros(n)
 
@@ -362,13 +536,19 @@ def render(recipe: dict) -> tuple[np.ndarray, dict]:
     if bed.get("ambience"):
         amb = bed["ambience"]
         aL, aR = ambience_layer(amb["type"], dur, float(amb.get("gain", 0.3)), amb.get("params", {}))
-        bedL += aL
-        bedR += aR
+        target = float(amb.get("target_db", TARGET_AMBIENCE_DB))
+        ref = np.sqrt(np.mean((aL + aR) ** 2) / 2) + 1e-12
+        scale = db_to_amp(target) / ref
+        bedL += aL * scale
+        bedR += aR * scale
     if bed.get("drone"):
         dr = bed["drone"]
         dL, dR = drone_layer(dr["type"], float(dr.get("freq", 44.0)), dur, float(dr.get("gain", 0.4)), dr.get("params", {}))
-        bedL += dL
-        bedR += dR
+        target = float(dr.get("target_db", TARGET_DRONE_DB))
+        ref = np.sqrt(np.mean((dL + dR) ** 2) / 2) + 1e-12
+        scale = db_to_amp(target) / ref
+        bedL += dL * scale
+        bedR += dR * scale
 
     # ducking mask for the bed during the stinger window
     duck = np.ones(n)
@@ -384,30 +564,36 @@ def render(recipe: dict) -> tuple[np.ndarray, dict]:
 
     qa_events = []
     for idx, ev in enumerate(recipe.get("events", [])):
-        gain = float(ev.get("gain", 1.0))
         pan = float(ev.get("pan", 0.0))
         gL, gR = pan_gains(pan)
         if ev["type"] == "stem":
             sig = load_stem(ev["file"], pitch=float(ev.get("pitch", 1.0)), offset_sec=float(ev.get("offset_sec", 0.0)))
+            if ev.get("length_sec"):
+                sig = sig[: int(float(ev["length_sec"]) * SR)]
+            else:
+                sig = sig[: int(1.6 * SR)]  # never let a long tail bury the scene
+            gate_silent_segment(ev["file"], sig)
+            sig = fade_edges(sig)
             if ev.get("hp_hz"):
                 sig = filter_signal(sig, "high", float(ev["hp_hz"]), None)
-            peak = np.max(np.abs(sig)) + 1e-9
-            sig = sig / peak * 0.95
+            sig = normalize_rms(sig, event_target_db(ev, climax_window))
         elif ev["type"] == "synth":
             sig = synth_event(ev["kind"], float(ev.get("length_sec", 1.0)), ev.get("params", {}), seed=1000 + idx)
+            sig = normalize_rms(sig, event_target_db(ev, climax_window))
         else:
             raise ValueError(f"unknown event type: {ev['type']}")
         start = int(float(ev["time_sec"]) * SR)
         end = min(n, start + len(sig))
         if end <= start:
             continue
-        seg = sig[: end - start] * gain
+        seg = sig[: end - start]
         L[start:end] += seg * gL
         R[start:end] += seg * gR
         qa_events.append({
             "time_sec": float(ev["time_sec"]),
             "sample": ev.get("file") or f"synth:{ev.get('kind')}",
             "role": ev.get("role", "warstwa foley"),
+            "level": str(ev.get("level", "event")),
         })
 
     mix = np.column_stack([L, R])
@@ -424,31 +610,38 @@ def render(recipe: dict) -> tuple[np.ndarray, dict]:
                 wet[shift:] += mix[:-shift] * g
         mix = mix + wet * room
 
-    # soft limiter + normalize (QA gates: peak in [0.25, 0.99), |DC| < 0.015)
-    # Target 0.55 pre-encode: matches the legacy v1-v5 catalog loudness
-    # (decoded peak ~0.48-0.60) and leaves headroom for MP3 overshoot, which
-    # can add ~15% on transient-dense stingers.
+    # spectral taming (paper/hiss guard), glue compressor, master normalize
+    if hf_share(mix) > HF_LIMIT:
+        mix = tame_hf(mix)
+    comp = post.get("compressor", {})
+    if comp is not None:
+        mix = compress(mix,
+                       threshold_db=float(comp.get("threshold_db", -16.0)),
+                       ratio=float(comp.get("ratio", 3.5)),
+                       attack_ms=float(comp.get("attack_ms", 12.0)),
+                       release_ms=float(comp.get("release_ms", 180.0)))
     mix = np.tanh(mix * 1.05)
     dc = mix.mean(axis=0)
     mix = mix - dc  # kill any DC component before encoding
     peak = np.max(np.abs(mix)) + 1e-9
-    mix = mix / peak * 0.55
-    return mix, qa_events
+    mix = mix / peak * 0.90  # legacy catalog loudness (0.92 ffmpeg master)
+    return mix, {"events": qa_events, "climax_window": climax_window}
 
 
-def qa_audit_file(out_path: Path, climax_window: tuple[float, float]) -> dict:
+def qa_audit_file(out_path: Path, climax_window: tuple[float, float],
+                  events: list | None = None) -> dict:
     """Audit the actual encoded MP3 (post-encode), not the pre-encode mix.
 
-    Decoded files measure slightly differently (encoder overshoot, RMS drift),
-    and metadata must describe the artifact we ship. Gates: DC 0.015, peak
-    0.25-0.999 (decoded may overshoot), <=1 dead 0.35 s window, Climax Ratio
-    via scripts/qa_score.py — identical to scripts/audit_audio.py.
+    QA v2: technical gates (DC, peak, continuity) + loudness + spectral
+    balance + per-event audibility (every described event >= +6 dB over the
+    bed; the old score rated the 3/15 batch 100/100 because a lone click
+    over silence maxed the climax ratio).
     """
     sys.path.insert(0, str(ROOT / "scripts"))
     from audit_audio import analyze
 
-    report = analyze(out_path, climax_window)
-    return {k: report[k] for k in ("score", "base", "dramaturgy", "status", "details", "climax_ratio")}
+    report = analyze(out_path, climax_window, events=events)
+    return report
 
 
 def encode_mp3(mix: np.ndarray, out_path: Path, bitrate: int = 128) -> None:
@@ -479,11 +672,15 @@ def main() -> int:
     except ValueError as error:
         print(f"  ! Receptura odrzucona: {error}", file=sys.stderr)
         return 1
-    mix, events = render(recipe)
+    try:
+        mix, qa_meta = render(recipe)
+    except ValueError as error:
+        print(f"  ! Render przerwany: {error}", file=sys.stderr)
+        return 1
     encode_mp3(mix, args.out)
-    qa = qa_audit_file(args.out, tuple(recipe.get("climax_window", [1.5, 3.8])))
+    qa = qa_audit_file(args.out, qa_meta["climax_window"], events=qa_meta["events"])
     print(f"Rendered {args.out} ({args.out.stat().st_size} B); QA {qa['score']}/100 [{qa['status']}], "
-          f"climax ratio {qa['climax_ratio']}x", file=sys.stderr)
+          f"climax ratio {qa.get('climax_ratio', 0)}x", file=sys.stderr)
     # Self-correction gate (legacy quality doctrine): a render below the
     # minimum score must not be registered as metadata; fix the recipe and
     # re-render instead of shipping it.
@@ -499,8 +696,8 @@ def main() -> int:
     if args.print_description:
         desc = dict(recipe.get("project_description", {}))
         desc["genre"] = str(recipe.get("genre", "")).strip().lower()
-        desc["events"] = events
-        desc["qa"] = {k: qa[k] for k in ("score", "base", "dramaturgy", "status", "details")}
+        desc["events"] = qa_meta["events"]
+        desc["qa"] = {k: qa[k] for k in ("score", "base", "dramaturgy", "status", "details") if k in qa}
         print(json.dumps(desc, ensure_ascii=False, indent=2))
     return 0
 

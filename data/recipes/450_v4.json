@@ -1,0 +1,142 @@
+{
+  "story_id": "450",
+  "label": "v4",
+  "genre": "fantasy",
+  "duration_sec": 5.5,
+  "climax_window": [
+    2.5,
+    4.0
+  ],
+  "bed": {
+    "ambience": {
+      "type": "forest_night",
+      "target_db": -30.0,
+      "gain": 0.3,
+      "params": {
+        "seed": 450,
+        "crickets": 5
+      }
+    },
+    "drone": null
+  },
+  "events": [
+    {
+      "time_sec": 0.5,
+      "type": "stem",
+      "file": "campfire.mp3",
+      "target_db": -29.0,
+      "pan": 0.15,
+      "role": "ŻYWE tło: trzask dogasającego ogniska w nocnym obozowisku (NPS Fire, 6-9s nagrania, wybrzmiewa naturalnie)",
+      "level": "bed"
+    },
+    {
+      "time_sec": 0.9,
+      "type": "stem",
+      "file": "thorn_brush.mp3",
+      "target_db": -22.0,
+      "pan": 0.3,
+      "role": "pierwszy ruch w zaroślach — bestia przeciska się przez barierę cierni Halany (daleki plan)"
+    },
+    {
+      "time_sec": 1.45,
+      "type": "stem",
+      "file": "mud_paws.mp3",
+      "target_db": -20.0,
+      "pan": -0.2,
+      "role": "ciężkie łapy wilka rozpychają błoto przy kolczastej barierze (OGA rubberduck, mlaskające kroki)"
+    },
+    {
+      "time_sec": 2.05,
+      "type": "stem",
+      "file": "thorn_brush.mp3",
+      "offset_sec": 0.15,
+      "length_sec": 0.84,
+      "target_db": -19.0,
+      "pan": 0.15,
+      "role": "gigantyczna bestia płynnym ruchem rozsuwa kolczaste pędy — ciernie świszczą blisko (bliższy plan, głośniej)"
+    },
+    {
+      "time_sec": 2.55,
+      "type": "synth",
+      "kind": "thump",
+      "length_sec": 0.4,
+      "gain": 0.9,
+      "pan": 0.0,
+      "target_db": -24.0,
+      "params": {
+        "f1": 70.0,
+        "f2": 30.0
+      },
+      "role": "sub-ciężar wejścia bestii (wzmacnia żywą kulminację; precedens: pochwalone kroki z subem w 2 v2)"
+    },
+    {
+      "time_sec": 2.6,
+      "type": "stem",
+      "file": "wolf_howl.mp3",
+      "offset_sec": 2.4,
+      "length_sec": 2.6,
+      "pitch": 1.0,
+      "hp_hz": 220,
+      "target_db": -14.0,
+      "pan": 0.0,
+      "role": "KULMINACJA: wycie gigantycznego wilka o sierści z korady wkraczającego w krąg ogniska — natywna wysokość, hp 220 usuwa warkot wiatru z nagrania, słychać czyste wycie 250-1200 Hz (Yellowstone NPS, najgłośniejszy fragment nagrania)"
+    },
+    {
+      "time_sec": 3.85,
+      "type": "stem",
+      "file": "mud_squelch.mp3",
+      "target_db": -20.0,
+      "pan": 0.0,
+      "role": "upuszczone w błoto srebrne wnyki Aleny — mlaśnięcie (złożone 1/2)"
+    },
+    {
+      "time_sec": 3.88,
+      "type": "stem",
+      "file": "trap_clink.mp3",
+      "target_db": -20.0,
+      "pan": 0.35,
+      "role": "srebrne wnyki upadają w błoto — brzęk metalu (złożone 2/2, OGA rubberduck)"
+    },
+    {
+      "time_sec": 4.45,
+      "type": "stem",
+      "file": "wolf_howl.mp3",
+      "offset_sec": 0.3,
+      "length_sec": 2.2,
+      "pitch": 0.85,
+      "hp_hz": 220,
+      "target_db": -17.5,
+      "pan": 0.4,
+      "role": "odpowiedź drugiego wilka z mroku Ulvenwaldu — niższy głos (pitch 0.85, dozwolone obniżenie), prawy plan"
+    }
+  ],
+  "ducking": [
+    2.5,
+    4.0,
+    0.38
+  ],
+  "post": {
+    "echo_ms": [
+      110,
+      230
+    ],
+    "echo_gains": [
+      0.12,
+      0.07
+    ],
+    "room": 0.35,
+    "compressor": {
+      "threshold_db": -16.0,
+      "ratio": 3.5,
+      "attack_ms": 12.0,
+      "release_ms": 180.0
+    }
+  },
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Thornhide Wolves. v4 to remake od zera (właściciel o v1-v3: „gdzie warczenie wilka?”, „to teraz do niczego się nie nadaje — od początku wybrać dobre sample i zmontować całość jeszcze raz”). Nowa receptura: żywe tło ogniska (NPS), mlaskające łapy w błocie i rozsuwane ciernie (OGA), kulminacja = czyste wycie wilka z Yellowstone z odfiltrowanym warkotem wiatru (hp 220), upuszczone srebrne wnyki i odpowiedź drugiego wilka z mroku.",
+    "ambience": "forest_night (nocny las Ulvenwaldu, świerszcze, -30 dB) + campfire (żywe nagranie NPS, -29 dB)",
+    "drone": "brak — łono nocy niesie żywe nagranie ogniska i lasu",
+    "mix_notes": "Napinanie: ciernie 0.9s (daleko, prawo, -22 dB) → łapy w błocie 1.45s (lewo, -20) → rozsuwane pędy 2.05s (głośniej, -19). KULMINACJA 2.6s: wycie wilka natywne (pitch 1.0), hp 220 (usuwa pomruk wiatru nagrania — to on brzmiał jak syntetyczne fale), -14 dB, centrum, ducking 0.38; sub-thump -24 pod wejściem bestii. Domknięcie: wnyki w błocie 3.85s (mlask -20 + brzęk srebra -20, prawo) i odpowiedź drugiego wilka 4.45s (pitch 0.85, -17.5, prawo). Żywe tło: ognisko NPS -29 dB (level=bed) + forest_night -30. Echo lasu 110/230ms; kompresor -16dB/3.5; master 0.9 pk.",
+    "description": "Nocny las Ulvenwaldu i dogasające ognisko • łapy w błocie i rozsuwane kolczaste pędy • kulminacja: czyste wycie gigantycznego wilka (Yellowstone NPS) w kręgu ogniska • upuszczone w błoto srebrne wnyki • odpowiedź drugiego wilka z mroku"
+  }
+}

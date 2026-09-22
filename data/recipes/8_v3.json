@@ -1,0 +1,136 @@
+{
+  "story_id": "8",
+  "label": "v3",
+  "genre": "fantasy",
+  "duration_sec": 5.5,
+  "climax_window": [
+    2.4,
+    3.6
+  ],
+  "bed": {
+    "ambience": {
+      "type": "wind",
+      "target_db": -33.0,
+      "gain": 0.3,
+      "params": {
+        "seed": 8
+      }
+    },
+    "drone": null
+  },
+  "events": [
+    {
+      "time_sec": 0.0,
+      "type": "stem",
+      "file": "lava_rumble.mp3",
+      "target_db": -30.0,
+      "pan": 0.1,
+      "role": "ŻYWE tło: pomruk rzek płynnej lawy i trzaski żaru na wulkanicznym zboczu Jundu (NPS Fire, 6-11.5s nagrania)",
+      "level": "bed"
+    },
+    {
+      "time_sec": 0.85,
+      "type": "stem",
+      "file": "run_gravel_steps.mp3",
+      "target_db": -20.0,
+      "pan": -0.25,
+      "role": "początek szarży — pęd trójki goblinów po skalistym zboczu (5 kroków w jednym nagraniu)"
+    },
+    {
+      "time_sec": 1.18,
+      "type": "stem",
+      "file": "step_stone.mp3",
+      "target_db": -22.0,
+      "pan": 0.3,
+      "role": "drugi goblin wbija pazury w kamienie nawisu"
+    },
+    {
+      "time_sec": 1.5,
+      "type": "stem",
+      "file": "goblin_cry_a.mp3",
+      "target_db": -17.0,
+      "pan": -0.05,
+      "role": "okrzyk bojowy pierwszego goblina — jaszczur bojowy wpada w galop"
+    },
+    {
+      "time_sec": 1.9,
+      "type": "stem",
+      "file": "goblin_cry_b.mp3",
+      "target_db": -20.0,
+      "pan": 0.35,
+      "role": "odpowiedź drugiego goblina z poszarpanym sztandarem czaszki"
+    },
+    {
+      "time_sec": 2.55,
+      "type": "stem",
+      "file": "sword_swipe.mp3",
+      "target_db": -22.0,
+      "pan": 0.1,
+      "role": "trzeci goblin odbija się od kamiennego nawisu — świst zardzewiałego topora w powietrzu"
+    },
+    {
+      "time_sec": 2.9,
+      "type": "stem",
+      "file": "axe_thump.mp3",
+      "target_db": -13.0,
+      "pan": 0.0,
+      "role": "KULMINACJA (zdarzenie złożone 1/3): topór trafia — ciężkie ciało uderzenia (Kenney impact-metal-heavy)"
+    },
+    {
+      "time_sec": 2.9,
+      "type": "stem",
+      "file": "metal_knock.mp3",
+      "target_db": -16.0,
+      "pan": 0.05,
+      "role": "KULMINACJA (złożone 2/3): metaliczny zgrzyt ostrza o pancerz jaszczura"
+    },
+    {
+      "time_sec": 2.93,
+      "type": "stem",
+      "file": "goblin_cry_long.mp3",
+      "target_db": -16.0,
+      "pan": -0.1,
+      "role": "KULMINACJA (złożone 3/3): tryumfalny wrzask goblina w skoku"
+    },
+    {
+      "time_sec": 4.35,
+      "type": "stem",
+      "file": "raven_call.mp3",
+      "offset_sec": 8.0,
+      "length_sec": 1.3,
+      "pitch": 0.78,
+      "target_db": -21.0,
+      "pan": -0.4,
+      "role": "odwieczny smok krąży wysoko — niski, ciemny kruk Yellowstone obniżony o 22% (decyzja właściciela: pitch w dół dozwolony); najgłośniejszy fragment nagrania @ 8.5s"
+    }
+  ],
+  "ducking": [
+    2.6,
+    3.6,
+    0.35
+  ],
+  "post": {
+    "echo_ms": [
+      130,
+      260
+    ],
+    "echo_gains": [
+      0.14,
+      0.08
+    ],
+    "room": 0.4,
+    "compressor": {
+      "threshold_db": -16.0,
+      "ratio": 3.5,
+      "attack_ms": 12.0,
+      "release_ms": 180.0
+    }
+  },
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Goblin Deathraiders. v3 to remake od zera (właściciel: „masakra, nic nie słyszalne” — v1 i v2 zbudowane były na cichych głowach nagrań i martwych gainach). Nowa receptura: żywe tło lawy (NPS), prawdziwy bieg po skałach, okrzyki bojowe goblinów (OGA artisticdude), złożona kulminacja skoku z toporem (ciężar Kenney + metaliczny zgrzyt OGA + wrzask) i smok wysoko jako obniżony kruk z Yellowstone.",
+    "ambience": "lava_rumble (żywe nagranie ognia NPS, -30 dB) + proceduralny wiatr (-33 dB)",
+    "drone": "brak — niskie łono niesie żywe nagranie lawy",
+    "mix_notes": "Wszystkie zdarzenia na żywych samplach z audytowanymi fragmentami: bieg 0.85s (lewo), krok na kamieniu 1.18s, okrzyki 1.5/1.9s, świst topora 2.55s, KULMINACJA 2.9s = trójskładnikowe uderzenie (thump -14 + knock -17 + wrzask -17, centrum), smok 4.35s (kruk pitch 0.78, prawo, offset 8.0s = najgłośniejsze okno). Ducking tła 0.35 w 2.6-3.6s; echo zbocza 130/260ms; kompresor -16dB/3.5 glue; master 0.9 pk.",
+    "description": "Pomruk lawy i wiatr na zboczu Jundu • pęd szarży goblinów i okrzyki bojowe • skok z nawisu: świst topora, cios i tryumfalny wrzask • odwieczny smok krąży wysoko (żywe nagranie NPS)"
+  }
+}

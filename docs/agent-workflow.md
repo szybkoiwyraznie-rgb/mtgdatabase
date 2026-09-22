@@ -41,11 +41,12 @@ Najnowszy raport dla pary (fabuła, wersja) ustawia aktualną ocenę, a każdy r
 ### 2. Remake najsłabszej fabuły (ranking wg najlepszej wersji)
 
 - uszereguj fabuły po **najlepiej ocenionej wersji** rosnąco: `python scripts/remake_queue.py --versions data/versions.json`; nisko oceniony remake (np. v2 = 3/15 przy v1 = 10/15) nie podnosi priorytetu fabuły ponad jej najlepszą wersję;
+- **próg właściciela (2026-09-22): fabuła z najlepszą wersją poniżej 12/15 wymaga remake'u; poniżej progu nowa wersja powstaje OD ZERA** (nowa dramaturgia, nowe sample, audytowane offsety) — iterowanie na odrzuconej recepturze dało 475 v2 „niczym się nie różni od poprzedniej";
 - pomiń fabuły, których najnowsza wersja czeka jeszcze na ocenę (nie stackuj wersji), oraz fabuły bez otwartych raportów;
 - zarezerwuj zadanie, aby dwóch agentów nie pracowało nad nim równocześnie;
-- przeanalizuj trzy oceny i komentarz; nowa wersja `vN` buduje na mocnych stronach **najlepiej ocenionej wersji** tej fabuły — raporty wskazują, co poprawić, nie wymuszają kontynuacji po porażce;
+- przeanalizuj trzy oceny i komentarz; przy najlepszej wersji ≥12/15 nowa wersja `vN` buduje na jej mocnych stronach — raporty wskazują, co poprawić, nie wymuszają kontynuacji po porażce;
 - zaprojektuj poprawkę, zaktualizuj opis projektowy i nie kasuj poprzedniej wersji;
-- wyrenderuj kolejną wersję `vN` (audyt QA ≥85/100) i oznacz raport jako obsłużony dopiero po udanej publikacji; po merge'u `data/versions.json` z nowszą wersją workflow `Sync ratings from issues` zamyka raport automatycznie, ale agent weryfikuje to na wypadek awarii automatu;
+- wyrenderuj kolejną wersję `vN` (audyt QA v2 ≥85/100: słyszalność żywych zdarzeń +6 dB nad tłem, RMS ≥ -26 dB, >6 kHz ≤ 12%) i oznacz raport jako obsłużony dopiero po udanej publikacji; po merge'u `data/versions.json` z nowszą wersją workflow `Sync ratings from issues` zamyka raport automatycznie, ale agent weryfikuje to na wypadek awarii automatu;
 - jeśli nie ma ocenionej fabuły do poprawy, zapisz to w raporcie.
 
 ### 3. Rozwój warsztatu
