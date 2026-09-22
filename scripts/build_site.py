@@ -56,8 +56,7 @@ def main() -> None:
             label = f"{score}/15" if score is not None else "oczekuje na ocenę"
             cards.append(
                 f'<div class="version"><div><strong>{version["label"]}</strong>'
-                f'<br><small>{label}</small></div><audio controls preload="none" '
-                f'src="{audio}"></audio></div>'
+                f'<br><small>{label}</small></div><div class="player"><audio controls preload="metadata"><source src="{audio}" type="audio/mpeg">Twoja przeglądarka nie obsługuje audio.</audio><a href="{audio}">Otwórz plik MP3</a></div></div>'
             )
         latest = versions[-1]["label"] if versions else "v1"
         page = (template.replace("__ID__", str(story["id"]))
