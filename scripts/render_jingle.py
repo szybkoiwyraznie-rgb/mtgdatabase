@@ -400,6 +400,8 @@ def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("recipe", type=Path)
     parser.add_argument("--out", type=Path, required=True)
+    parser.add_argument("--min-score", type=float, default=85.0,
+                        help="minimum QA score to accept the render (default 85)")
     parser.add_argument("--print-description", action="store_true",
                         help="print project_description JSON for data/versions.json")
     args = parser.parse_args()
@@ -410,9 +412,14 @@ def main() -> int:
     qa = meta["qa"]
     print(f"Rendered {args.out} ({args.out.stat().st_size} B); QA {qa['score']}/100 [{qa['status']}], "
           f"climax ratio {qa['climax_ratio']}x", file=sys.stderr)
-    if qa["score"] < 70 or not str(qa["status"]).startswith("pass"):
+    # Self-correction gate (legacy quality doctrine): a render below the
+    # minimum score must not be registered as metadata; fix the recipe and
+    # re-render instead of shipping it.
+    passed = str(qa["status"]).startswith("pass") and qa["score"] >= args.min_score
+    if not passed:
         for line in qa["details"]:
-            print(f"  ! {line}")
+            print(f"  ! {line}", file=sys.stderr)
+        print(f"  ! QA {qa['score']} poniżej progu {args.min_score} — popraw recepturę i renderuj ponownie.", file=sys.stderr)
         return 1
     if args.print_description:
         desc = dict(recipe.get("project_description", {}))

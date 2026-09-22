@@ -23,4 +23,4 @@ Workflow `Sync ratings from issues` reaguje na każde nowe lub edytowane issue z
 
 ## Kolejka popraw
 
-Otwarte raporty otrzymują etykietę `needs-review`. Agent sortuje je po sumie rosnąco, rezerwuje najgorsze zadanie, tworzy kolejną wersję i zamyka raport dopiero po udanej publikacji nowego renderu.
+Otwarte raporty otrzymują etykietę `needs-review`. Agent sortuje je po sumie rosnąco, rezerwuje najgorsze zadanie, tworzy kolejną wersję i zamyka raport dopiero po udanej publikacji nowego renderu. Ten ostatni krok automatyzuje `scripts/close_served_reports.py` w workflow `Sync ratings from issues` (odpala się też na push `data/versions.json`): raport dotyczący `vN` zamyka się z komentarzem, gdy w metadanych istnieje nowsza wersja `vM`. Raport o najnowszej wersji nigdy nie zamyka się automatycznie — czeka na własną ocenę.

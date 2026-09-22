@@ -35,7 +35,7 @@ Najnowszy raport dla pary (fabuła, wersja) ustawia aktualną ocenę, a każdy r
 - sprawdź status repozytorium i kolejki;
 - zarezerwuj losową fabułę ze statusem `new`;
 - zaprojektuj recepturę audio na podstawie tytułu i fabuły;
-- wyrenderuj pierwsze MP3 i zapisz metadane jako `v1`;
+- wyrenderuj pierwsze MP3 i zapisz metadane jako `v1`; render musi przejść audyt QA ≥85/100 — poniżej progu poprawiasz recepturę i liczysz ponownie, zanim zapiszesz metadane;
 - jeśli nie ma nowych fabuł, zapisz to w raporcie i przejdź dalej.
 
 ### 2. Remake najgorszego jingla
@@ -44,7 +44,7 @@ Najnowszy raport dla pary (fabuła, wersja) ustawia aktualną ocenę, a każdy r
 - zarezerwuj zadanie, aby dwóch agentów nie pracowało nad nim równocześnie;
 - przeanalizuj trzy oceny i komentarz;
 - zaprojektuj poprawkę, zaktualizuj opis projektowy i nie kasuj poprzedniej wersji;
-- wyrenderuj kolejną wersję `vN` i oznacz raport jako obsłużony dopiero po udanej publikacji;
+- wyrenderuj kolejną wersję `vN` (audyt QA ≥85/100) i oznacz raport jako obsłużony dopiero po udanej publikacji; po merge'u `data/versions.json` z nowszą wersją workflow `Sync ratings from issues` zamyka raport automatycznie, ale agent weryfikuje to na wypadek awarii automatu;
 - jeśli nie ma ocenionego jingla do poprawy, zapisz to w raporcie.
 
 ### 3. Rozwój warsztatu

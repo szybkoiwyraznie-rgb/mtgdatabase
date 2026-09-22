@@ -3,11 +3,16 @@ name: Sync ratings from issues
 on:
   issues:
     types: [opened, edited, reopened]
+  # A merged render (new vN in data/versions.json) also runs the close step,
+  # so superseded needs-review reports are closed right after publication.
+  push:
+    paths:
+      - 'data/versions.json'
   workflow_dispatch:
 
 permissions:
   contents: write
-  issues: read
+  issues: write
   actions: write
 
 concurrency:
@@ -16,7 +21,7 @@ concurrency:
 
 jobs:
   sync:
-    if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'feedback') }}
+    if: ${{ github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'feedback') }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -48,3 +53,8 @@ jobs:
           git push
           gh workflow run pages.yml
           gh workflow run release-best-jingles.yml
+      - name: Close reports served by newer versions
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: python scripts/close_served_reports.py --versions data/versions.json
