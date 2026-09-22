@@ -1,0 +1,887 @@
+From 938363f0b36b6d6a595ef5fe6f1da7ed59fb02fb Mon Sep 17 00:00:00 2001
+From: szybkoiwyraznie-rgb
+ <321798940+szybkoiwyraznie-rgb@users.noreply.github.com>
+Date: Tue, 22 Sep 2026 09:38:47 +0000
+Subject: [PATCH] Ratings sync, instant display, production v1 for legacy
+ jingles, immediate ZIP
+
+Product decisions from the owner (ADR 0002):
+a. best-jingles ZIP must exist immediately (unencrypted without the
+   JINGLE_ZIP_PASSWORD secret): build_best_zip.py now uses the unified
+   versions schema and skips unrated versions instead of crashing, so the
+   release workflow succeeds from the first synced rating
+b. the five legacy jingles (stories 1-5) are production v1 versions:
+   data/versions.json now seeds them with full project descriptions
+c. ratings display instantly on the device (localStorage in story.js and
+   app.js) and permanently everywhere after the automatic sync
+d. every feedback issue rating must be written into data/versions.json:
+   new scripts/sync_ratings.py plus the Sync ratings workflow that runs on
+   every feedback issue and republishes Pages and the ZIP; agents verify
+   sync in every loop (AGENTS.md rule 12, workflow step 0.5)
+
+Co-authored-by: arena-agent <297053741+arena-agent@users.noreply.github.com>
+---
+ .github/workflows/sync-ratings.yml            |  50 ++++
+ AGENTS.md                                     |   2 +
+ README.md                                     |   5 +-
+ data/versions.example.json                    |  50 +++-
+ data/versions.json                            | 249 ++++++++++++++++++
+ docs/agent-workflow.md                        |  10 +
+ .../decisions/0002-instant-ratings-and-zip.md |  19 ++
+ docs/feedback-system.md                       |   8 +
+ docs/github-setup.md                          |   6 +-
+ scripts/build_best_zip.py                     |  51 ++--
+ scripts/sync_ratings.py                       | 131 +++++++++
+ site/assets/app.js                            |  35 ++-
+ site/assets/story.js                          |  34 ++-
+ 13 files changed, 611 insertions(+), 39 deletions(-)
+ create mode 100644 .github/workflows/sync-ratings.yml
+ create mode 100644 data/versions.json
+ create mode 100644 docs/decisions/0002-instant-ratings-and-zip.md
+ create mode 100644 scripts/sync_ratings.py
+
+diff --git a/.github/workflows/sync-ratings.yml b/.github/workflows/sync-ratings.yml
+new file mode 100644
+index 0000000..cff63b8
+--- /dev/null
++++ b/.github/workflows/sync-ratings.yml
+@@ -0,0 +1,50 @@
++name: Sync ratings from issues
++
++on:
++  issues:
++    types: [opened, edited, reopened]
++  workflow_dispatch:
++
++permissions:
++  contents: write
++  issues: read
++  actions: write
++
++concurrency:
++  group: sync-ratings
++  cancel-in-progress: false
++
++jobs:
++  sync:
++    if: ${{ github.event_name == 'workflow_dispatch' || contains(github.event.issue.labels.*.name, 'feedback') }}
++    runs-on: ubuntu-latest
++    steps:
++      - uses: actions/checkout@v4
++      - uses: actions/setup-python@v5
++        with:
++          python-version: '3.12'
++      - name: Export feedback issues
++        env:
++          GH_TOKEN: ${{ github.token }}
++        run: gh api "repos/${{ github.repository }}/issues?labels=feedback&state=all&per_page=100" --paginate > /tmp/issues.json
++      - name: Sync ratings into data/versions.json
++        run: python scripts/sync_ratings.py --versions data/versions.json --issues-file /tmp/issues.json
++      - name: Validate synced versions and ZIP
++        run: |
++          python scripts/validate_versions.py data/versions.json
++          python scripts/build_best_zip.py --versions data/versions.json --output /tmp/best-jingles-test.zip
++      - name: Commit ratings and trigger rebuilds
++        env:
++          GH_TOKEN: ${{ github.token }}
++        run: |
++          if git diff --quiet data/versions.json; then
++            echo "No rating changes."
++            exit 0
++          fi
++          git config user.name "github-actions[bot]"
++          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
++          git add data/versions.json
++          git commit -m "Sync ratings from feedback issues"
++          git push
++          gh workflow run pages.yml
++          gh workflow run release-best-jingles.yml
+diff --git a/AGENTS.md b/AGENTS.md
+index 4d95228..5e07499 100644
+--- a/AGENTS.md
++++ b/AGENTS.md
+@@ -15,6 +15,8 @@ To repozytorium jest prywatną, niekomercyjną linią produkcyjną krótkich for
+ 8. Przy nowych samplach zapisz źródło, licencję, autora i zakres dozwolonego użycia w rejestrze źródeł.
+ 9. Nie traktuj ekranu PIN w JavaScripcie jako silnego zabezpieczenia. Pages może być dostępne publicznie.
+ 10. Jeśli zadanie jest jednoznaczne, działaj bez dodatkowych pytań. Pytaj tylko przy ryzyku utraty danych, błędnym wyborze architektury lub nieodwracalnej publikacji.
++11. Pięć jingli z `legacy/source/jingle_output/` (fabuły 1–5) to produkcyjne wersje `v1`, nie demo. Nigdy ich nie usuwaj ani nie oznaczaj jako prototyp; lepszą wersję tworzysz jako kolejne `vN`.
++12. W każdej pętli zsynchronizuj oceny: uruchom `python scripts/sync_ratings.py --versions data/versions.json` i dopilnuj, by każda ocena z issues z etykietą `feedback` trafiła do `data/versions.json` przed publikacją. Workflow `Sync ratings from issues` robi to automatycznie, ale agent weryfikuje wynik i domyka braki.
+ 
+ ## Pętla pracy
+ 
+diff --git a/README.md b/README.md
+index bb5ba58..92533fd 100644
+--- a/README.md
++++ b/README.md
+@@ -8,7 +8,7 @@ Agent najpierw audytuje poprzedni PR i stan kodu, naprawia znalezione problemy,
+ 
+ ## Stan projektu
+ 
+-Repozytorium zawiera fundament procesu, aktualną kolekcję `kolekcja.csv` oraz materiały prototypowe przeniesione do `legacy/source/`. Kolekcja ma format TSV `Ilustracja`, `Nazwa Karty`, `Narracja`; z artID, np. `123DOM`, importer wyciąga numer `123`, który jest ID jingla i nazwą pliku `123.mp3`. Sufiks setu jest zachowany w metadanych, ale nie bierze udziału w produkcji.
++Repozytorium zawiera fundament procesu, aktualną kolekcję `kolekcja.csv` oraz pięć produkcyjnych jingli `v1` (fabuły 1–5; audio w `legacy/source/jingle_output/`, stan ocen w `data/versions.json`). Kolekcja ma format TSV `Ilustracja`, `Nazwa Karty`, `Narracja`; z artID, np. `123DOM`, importer wyciąga numer `123`, który jest ID jingla i nazwą pliku `123.mp3`. Sufiks setu jest zachowany w metadanych, ale nie bierze udziału w produkcji.
+ 
+ ## Zasady produktu
+ 
+@@ -16,9 +16,10 @@ Repozytorium zawiera fundament procesu, aktualną kolekcję `kolekcja.csv` oraz
+ - każda wersja ma opis projektowy z użytymi samplami i timestampami efektów;
+ - nowe wersje nie usuwają starszych;
+ - ocena to suma: feeling + zgodność z fabułą + jakość sampli, każda 1–5;
++- ocena pokazuje się od razu na urządzeniu oceniającego, a po automatycznej synchronizacji z issues trafia do `data/versions.json` i na wszystkie urządzenia;
+ - ZIP zawiera jedną najwyżej ocenioną, już ocenioną wersję każdej fabuły;
+ - ZIP jest płaski i zawiera wyłącznie `id.mp3`;
+-- paczka będzie publikowana jako asset GitHub Release, opcjonalnie jako szyfrowany ZIP;
++- paczka jest publikowana jako asset GitHub Release i pojawia się automatycznie po pierwszych ocenach; bez sekretu `JINGLE_ZIP_PASSWORD` ZIP jest nieszyfrowany;
+ - Pages służy do odsłuchu i wysyłania raportów.
+ 
+ ## Dokumentacja
+diff --git a/data/versions.example.json b/data/versions.example.json
+index cda8915..3dcc8d1 100644
+--- a/data/versions.example.json
++++ b/data/versions.example.json
+@@ -2,24 +2,48 @@
+   "stories": [
+     {
+       "id": "67",
+-      "title": "Przykładowa fabuła",
+-      "ratings": [
++      "versions": [
+         {
+-          "version": "v1",
+-          "audio": "content/stories/67/v1/67_v1.mp3",
++          "label": "v1",
++          "created_at": "2026-09-11T10:00:00Z",
++          "audio": "legacy/source/jingle_output/67.mp3",
++          "score": 12,
+           "scores": {
+             "feeling": 4,
+             "story_fit": 5,
+             "sample_quality": 3
+-          }
+-        },
+-        {
+-          "version": "v2",
+-          "audio": "content/stories/67/v2/67_v2.mp3",
+-          "scores": {
+-            "feeling": 3,
+-            "story_fit": 4,
+-            "sample_quality": 4
++          },
++          "rated_at": "2026-09-20T18:30:00Z",
++          "feedback_issue": "https://github.com/example/repo/issues/1",
++          "reports": [
++            {
++              "issue_url": "https://github.com/example/repo/issues/1",
++              "created_at": "2026-09-20T18:30:00Z",
++              "state": "open",
++              "scores": {
++                "feeling": 4,
++                "story_fit": 5,
++                "sample_quality": 3
++              },
++              "total": 12,
++              "comment": ""
++            }
++          ],
++          "project_description": {
++            "description": "Ambience + dron • zdarzenia foley z timestampami • uwagi miksu",
++            "ambience": "example_ambience",
++            "drone": "example_drone (44.0 Hz)",
++            "events": [
++              {
++                "time_sec": 1.0,
++                "sample": "example.mp3",
++                "role": "warstwa foley"
++              }
++            ],
++            "mix_notes": "Przykładowe uwagi miksu.",
++            "qa": {
++              "score": 90.0
++            }
+           }
+         }
+       ]
+diff --git a/data/versions.json b/data/versions.json
+new file mode 100644
+index 0000000..1754c87
+--- /dev/null
++++ b/data/versions.json
+@@ -0,0 +1,249 @@
++{
++  "stories": [
++    {
++      "id": "1",
++      "versions": [
++        {
++          "label": "v1",
++          "created_at": "2026-09-11T10:00:00Z",
++          "audio": "legacy/source/jingle_output/1.mp3",
++          "score": null,
++          "scores": null,
++          "reports": [],
++          "project_description": {
++            "summary": "Krótka forma audio dla sceny: Dunland Crebain. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
++            "ambience": "mountain_wind",
++            "drone": "cinematic_sub (44.0 Hz)",
++            "events": [
++              {
++                "time_sec": 2.0,
++                "sample": "whoosh_flap.mp3",
++                "role": "warstwa foley"
++              },
++              {
++                "time_sec": 2.45,
++                "sample": "raven_call.mp3",
++                "role": "warstwa foley / kulminacja"
++              },
++              {
++                "time_sec": 3.75,
++                "sample": "sword_draw.mp3",
++                "role": "warstwa foley"
++              }
++            ],
++            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
++            "description": "Wiatr w wąwozie + sub-dron • szum ognia pochodni • pikujący kruk Yellowstone NPS • orkowa stal z echem",
++            "qa": {
++              "score": 87.4,
++              "base": 70.0,
++              "dramaturgy": 17.4,
++              "status": "pass",
++              "details": [
++                "DC offset: OK",
++                "Peak/headroom: OK",
++                "Ciągłość tła: OK",
++                "Kontrast dramaturgiczny: 17.4/30"
++              ]
++            }
++          }
++        }
++      ]
++    },
++    {
++      "id": "2",
++      "versions": [
++        {
++          "label": "v1",
++          "created_at": "2026-09-12T10:00:00Z",
++          "audio": "legacy/source/jingle_output/2.mp3",
++          "score": null,
++          "scores": null,
++          "reports": [],
++          "project_description": {
++            "summary": "Krótka forma audio dla sceny: Coralhelm Guide. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
++            "ambience": "cave_flooded",
++            "drone": "eldrazi_alien (66.0 Hz)",
++            "events": [
++              {
++                "time_sec": 0.85,
++                "sample": "beast_step_water",
++                "role": "warstwa foley"
++              },
++              {
++                "time_sec": 1.85,
++                "sample": "beast_roar",
++                "role": "warstwa foley / kulminacja"
++              },
++              {
++                "time_sec": 3.75,
++                "sample": "beast_step_water",
++                "role": "warstwa foley"
++              }
++            ],
++            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
++            "description": "Ciemna jaskinia + dysonans Eldrazi • tąpnięcie w kamień • bliski ryk Balotha (Yellowstone grizzly + aligator) • fontanna wody",
++            "qa": {
++              "score": 87.3,
++              "base": 70.0,
++              "dramaturgy": 17.3,
++              "status": "pass",
++              "details": [
++                "DC offset: OK",
++                "Peak/headroom: OK",
++                "Ciągłość tła: OK",
++                "Kontrast dramaturgiczny: 17.3/30"
++              ]
++            }
++          }
++        }
++      ]
++    },
++    {
++      "id": "3",
++      "versions": [
++        {
++          "label": "v1",
++          "created_at": "2026-09-13T10:00:00Z",
++          "audio": "legacy/source/jingle_output/3.mp3",
++          "score": null,
++          "scores": null,
++          "reports": [],
++          "project_description": {
++            "summary": "Krótka forma audio dla sceny: Nefarious Imp. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
++            "ambience": "cave_flooded",
++            "drone": "cinematic_sub (38.0 Hz)",
++            "events": [
++              {
++                "time_sec": 1.1,
++                "sample": "gravel_feet.mp3",
++                "role": "warstwa foley"
++              },
++              {
++                "time_sec": 2.2,
++                "sample": "gravel_feet.mp3",
++                "role": "warstwa foley"
++              },
++              {
++                "time_sec": 3.4,
++                "sample": "sword_draw.mp3",
++                "role": "warstwa foley / kulminacja"
++              }
++            ],
++            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
++            "description": "Gabinet po spisku + niski dron • dopalająca się mapa i stopione figurki • złośliwy chochlik • puls skradzionego kryształu",
++            "qa": {
++              "score": 84.4,
++              "base": 70.0,
++              "dramaturgy": 14.4,
++              "status": "pass",
++              "details": [
++                "DC offset: OK",
++                "Peak/headroom: OK",
++                "Ciągłość tła: OK",
++                "Kontrast dramaturgiczny: 14.4/30"
++              ]
++            }
++          }
++        }
++      ]
++    },
++    {
++      "id": "4",
++      "versions": [
++        {
++          "label": "v1",
++          "created_at": "2026-09-14T10:00:00Z",
++          "audio": "legacy/source/jingle_output/4.mp3",
++          "score": null,
++          "scores": null,
++          "reports": [],
++          "project_description": {
++            "summary": "Krótka forma audio dla sceny: Mystic Sanctuary. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
++            "ambience": "mountain_wind",
++            "drone": "cinematic_sub (52.0 Hz)",
++            "events": [
++              {
++                "time_sec": 0.9,
++                "sample": "whoosh_flap.mp3",
++                "role": "warstwa foley"
++              },
++              {
++                "time_sec": 1.7,
++                "sample": "whoosh_flap.mp3",
++                "role": "warstwa foley"
++              },
++              {
++                "time_sec": 2.5,
++                "sample": "beast_roar",
++                "role": "warstwa foley / kulminacja"
++              }
++            ],
++            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
++            "description": "Mgliste jezioro Eldraine + spokojny dron • woda przy kamieniu i szelest księgi • świetlisty kryształ • baśniowa kulminacja",
++            "qa": {
++              "score": 100.0,
++              "base": 70.0,
++              "dramaturgy": 30.0,
++              "status": "pass",
++              "details": [
++                "DC offset: OK",
++                "Peak/headroom: OK",
++                "Ciągłość tła: OK",
++                "Kontrast dramaturgiczny: 30.0/30"
++              ]
++            }
++          }
++        }
++      ]
++    },
++    {
++      "id": "5",
++      "versions": [
++        {
++          "label": "v1",
++          "created_at": "2026-09-15T10:00:00Z",
++          "audio": "legacy/source/jingle_output/5.mp3",
++          "score": null,
++          "scores": null,
++          "reports": [],
++          "project_description": {
++            "summary": "Krótka forma audio dla sceny: Academy Journeymage. Trójwarstwowa konstrukcja z tłem, dronem i punktami foley.",
++            "ambience": "forest_night",
++            "drone": "cinematic_sub (48.0 Hz)",
++            "events": [
++              {
++                "time_sec": 0.9,
++                "sample": "gravel_feet.mp3",
++                "role": "warstwa foley"
++              },
++              {
++                "time_sec": 1.6,
++                "sample": "whoosh_flap.mp3",
++                "role": "warstwa foley"
++              },
++              {
++                "time_sec": 3.4,
++                "sample": "sword_swipe.mp3",
++                "role": "warstwa foley"
++              }
++            ],
++            "mix_notes": "Główna kulminacja pozostaje w centrum; tło jest wycofywane przez ducking i otrzymuje pogłos zgodnie z przestrzenią sceny.",
++            "description": "Nocny las + napięciowy sub-dron • chrzęst kroków i świst skrzydeł • nagłe cięcie miecza • krótki, czysty stinger",
++            "qa": {
++              "score": 90.1,
++              "base": 70.0,
++              "dramaturgy": 20.1,
++              "status": "pass",
++              "details": [
++                "DC offset: OK",
++                "Peak/headroom: OK",
++                "Ciągłość tła: OK",
++                "Kontrast dramaturgiczny: 20.1/30"
++              ]
++            }
++          }
++        }
++      ]
++    }
++  ]
++}
+diff --git a/docs/agent-workflow.md b/docs/agent-workflow.md
+index 216b42d..8dc4848 100644
+--- a/docs/agent-workflow.md
++++ b/docs/agent-workflow.md
+@@ -20,6 +20,16 @@ Po przeczytaniu obowiązkowej dokumentacji, w tym `ENVIRONMENT.md` i aktualnej k
+ 
+ Jeśli audyt wykryje ryzyko utraty danych, sekret w kodzie albo nieodwracalną publikację, zatrzymaj się i opisz problem zamiast go omijać.
+ 
++### 0.5 Synchronizacja ocen
++
++Przed nową produkcją zsynchronizuj oceny z issues z etykietą `feedback`:
++
++```bash
++python scripts/sync_ratings.py --versions data/versions.json
++```
++
++Najnowszy raport dla pary (fabuła, wersja) ustawia aktualną ocenę, a każdy raport trafia do historii `reports` wersji. Pominięte wpisy (np. ocena bez wyrenderowanej wersji) wypisz w raporcie. Workflow `Sync ratings from issues` wykonuje to samo automatycznie po każdym nowym issue i przebudowuje Pages oraz paczkę ZIP, ale agent nie zwaliduje pętli bez sprawdzenia, że wszystkie oceny są w `data/versions.json`.
++
+ ### 1. Nowa fabuła
+ 
+ - sprawdź status repozytorium i kolejki;
+diff --git a/docs/decisions/0002-instant-ratings-and-zip.md b/docs/decisions/0002-instant-ratings-and-zip.md
+new file mode 100644
+index 0000000..8335201
+--- /dev/null
++++ b/docs/decisions/0002-instant-ratings-and-zip.md
+@@ -0,0 +1,19 @@
++# ADR 0002: Oceny od razu na stronie i natychmiastowa paczka ZIP
++
++- Status: accepted
++- Data: 2026-09-22
++
++## Decyzja
++
++1. Pięć jingli z `legacy/source/jingle_output/` (fabuły 1–5) to produkcyjne wersje `v1` objęte pełnymi zasadami wersjonowania, nie materiał demonstracyjny.
++2. Każda ocena z issue z etykietą `feedback` musi trafiać do `data/versions.json` — automatycznie (workflow `Sync ratings from issues`) i weryfikowane w każdej pętli agenta.
++3. Strona pokazuje świeżą ocenę natychmiast po wysłaniu (warstwa `localStorage` na danym urządzeniu), a po synchronizacji na wszystkich urządzeniach.
++4. Paczka `best-jingles-latest.zip` w Releases ma istnieć od razu po pierwszych ocenach; bez sekretu `JINGLE_ZIP_PASSWORD` jest nieszyfrowana. Do paczki nadal trafiają wyłącznie ocenione wersje.
++
++## Uzasadnienie
++
++Właściciel ocenia jingle w panelu i oczekuje natychmiastowego, widocznego efektu oraz możliwości pobrania paczki bez czekania na przyszłe pętle. Stan „demo" był nieporozumieniem — te pięć jingli jest normalnymi wersjami.
++
++## Konsekwencje
++
++`scripts/sync_ratings.py` oraz workflow `Sync ratings from issues` są krytycznymi elementami potoku; ich awaria wstrzymuje publikację ocen. `build_best_zip.py` toleruje nieocenione wersje (pomija je), więc release nie pada pomiędzy ocenami. Warstwa `localStorage` znika przy wyczyszczeniu danych przeglądarki i nie przenosi się między urządzeniami — wtedy ratuje ją tylko synchronizacja z issues.
+\ No newline at end of file
+diff --git a/docs/feedback-system.md b/docs/feedback-system.md
+index d9a74f9..5ab1c4d 100644
+--- a/docs/feedback-system.md
++++ b/docs/feedback-system.md
+@@ -13,6 +13,14 @@ Wynik jest sumą trzech wartości, od 3 do 15.
+ 
+ Docelowy przycisk `Prześlij raport` wysyła dane do jednorazowo skonfigurowanego endpointu, który tworzy lub aktualizuje GitHub Issue. Token GitHub nie może znajdować się w kodzie Pages. Issue musi zawierać `story_id`, `version`, trzy oceny, sumę, komentarz i timestamp.
+ 
++## Natychmiastowe wyświetlanie
++
++Po udanym wysłaniu strona od razu zapisuje ocenę w `localStorage` przeglądarki i pokazuje ją jako „X/15 · na tym urządzeniu" — na karcie wersji oraz na liście katalogu. To warstwa tymczasowa na danym urządzeniu, nie substytut zapisu.
++
++## Automatyczny zapis ocen
++
++Workflow `Sync ratings from issues` reaguje na każde nowe lub edytowane issue z etykietą `feedback`: uruchamia `scripts/sync_ratings.py`, zapisuje oceny w `data/versions.json` w commicie bota i odpala przebudowę Pages oraz paczki ZIP. Efekt: ocena jest trwale widoczna na wszystkich urządzeniach w ciągu kilku minut, a `best-jingles-latest.zip` w Releases aktualizuje się sam. Agent w każdej pętli weryfikuje synchroniczność ręcznie (patrz `docs/agent-workflow.md`).
++
+ ## Kolejka popraw
+ 
+ Otwarte raporty otrzymują etykietę `needs-review`. Agent sortuje je po sumie rosnąco, rezerwuje najgorsze zadanie, tworzy kolejną wersję i zamyka raport dopiero po udanej publikacji nowego renderu.
+diff --git a/docs/github-setup.md b/docs/github-setup.md
+index 244e5ac..cf51166 100644
+--- a/docs/github-setup.md
++++ b/docs/github-setup.md
+@@ -12,9 +12,13 @@ Workflow Pages waliduje i importuje aktualny `kolekcja.csv`. Lokalny katalog dem
+ 
+ Raporty wymagają wdrożenia workera z katalogu `feedback-worker/`. Deployment odbywa się zdalnie przez `Actions → Deploy feedback worker → Run workflow`; nie trzeba instalować niczego na desktopie. Przed uruchomieniem dodaj sekrety `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` i `WORKER_GITHUB_TOKEN`. Po wdrożeniu adres workera trzeba wpisać do pliku konfiguracyjnego Pages. Token GitHub jest przekazywany wyłącznie jako sekret Cloudflare.
+ 
++## Synchronizacja ocen
++
++Workflow `Sync ratings from issues` nie wymaga żadnych sekretów — działa na wbudowanym tokenie Actions. Odpala się przy każdym nowym/edytowanym issue z etykietą `feedback`, dopisuje oceny do `data/versions.json`, a potem automatycznie przebudowuje Pages i paczkę ZIP.
++
+ ## Paczka ZIP
+ 
+-Po pojawieniu się `data/versions.json` workflow `Build best jingles release` zbuduje `best-jingles-latest.zip` i opublikuje go jako GitHub Release. Opcjonalne szyfrowanie:
++Po pojawieniu się `data/versions.json` z ocenionymi wersjami workflow `Build best jingles release` zbuduje `best-jingles-latest.zip` i opublikuje go jako GitHub Release (link w kolumnie Releases na stronie repo). Bez sekretu szyfrowania ZIP jest nieszyfrowany. Opcjonalne szyfrowanie:
+ 
+ 1. Wejdź w `Settings → Secrets and variables → Actions`.
+ 2. Utwórz sekret `JINGLE_ZIP_PASSWORD`.
+diff --git a/scripts/build_best_zip.py b/scripts/build_best_zip.py
+index 705127c..cdce164 100644
+--- a/scripts/build_best_zip.py
++++ b/scripts/build_best_zip.py
+@@ -1,12 +1,17 @@
+ #!/usr/bin/env python3
+ """Build a flat ZIP containing the best rated MP3 for each story.
+ 
+-Input JSON format:
++Input JSON format (data/versions.json):
+ {
+   "stories": [
+-    {"id": "67", "ratings": [{"version": "v1", "audio": "...", "scores": {"feeling": 4, "story_fit": 5, "sample_quality": 3}}]}
++    {"id": "67", "versions": [{"label": "v1", "audio": "path/to/67.mp3",
++      "scores": {"feeling": 4, "story_fit": 5, "sample_quality": 3}}]}
+   ]
+ }
++
++Only versions with a complete, valid 1-5 user rating are considered; unrated
++versions are skipped (never crash the release). The legacy "ratings" key with
++"version" labels is still accepted as a fallback.
+ """
+ from __future__ import annotations
+ 
+@@ -20,25 +25,35 @@ from pathlib import Path
+ FIELDS = ("feeling", "story_fit", "sample_quality")
+ 
+ 
+-def score(rating: dict) -> int:
+-    scores = rating.get("scores", {})
++def entries_of(story: dict) -> list[dict]:
++    return story.get("versions", story.get("ratings", []))
++
++
++def label_of(entry: dict) -> str:
++    return str(entry.get("version", entry.get("label", "v0")))
++
++
++def valid_scores(entry: dict) -> bool:
++    scores = entry.get("scores") or {}
+     values = [scores.get(field) for field in FIELDS]
+-    if any(not isinstance(value, int) or not 1 <= value <= 5 for value in values):
+-        raise ValueError(f"Invalid scores in rating: {rating!r}")
+-    return sum(values)
++    return all(isinstance(value, int) and 1 <= value <= 5 for value in values)
++
++
++def score(entry: dict) -> int:
++    return sum(int(entry["scores"][field]) for field in FIELDS)
+ 
+ 
+-def best_rating(story: dict) -> dict | None:
+-    rated = [item for item in story.get("ratings", []) if item.get("audio")]
+-    if not rated:
++def best_entry(story: dict) -> dict | None:
++    candidates = [entry for entry in entries_of(story) if entry.get("audio") and valid_scores(entry)]
++    if not candidates:
+         return None
+     # Stable tie-breakers: feeling, story fit, sample quality, then older version.
+     return max(
+-        rated,
+-        key=lambda item: (score(item), item["scores"]["feeling"],
+-                          item["scores"]["story_fit"],
+-                          item["scores"]["sample_quality"],
+-                          -int(str(item.get("version", "v0")).lstrip("v"))),
++        candidates,
++        key=lambda entry: (score(entry), entry["scores"]["feeling"],
++                           entry["scores"]["story_fit"],
++                           entry["scores"]["sample_quality"],
++                           -int(label_of(entry).lstrip("v"))),
+     )
+ 
+ 
+@@ -51,12 +66,14 @@ def main() -> None:
+     data = json.loads(args.versions.read_text(encoding="utf-8"))
+     args.output.parent.mkdir(parents=True, exist_ok=True)
+     included = 0
++    skipped = 0
+ 
+     with tempfile.TemporaryDirectory() as temp:
+         staging = Path(temp)
+         for story in data.get("stories", []):
+-            chosen = best_rating(story)
++            chosen = best_entry(story)
+             if not chosen:
++                skipped += 1
+                 continue
+             source = Path(chosen["audio"])
+             if not source.is_file() or source.suffix.lower() != ".mp3":
+@@ -67,7 +84,7 @@ def main() -> None:
+             for path in sorted(staging.glob("*.mp3"), key=lambda item: int(item.stem) if item.stem.isdigit() else item.stem):
+                 archive.write(path, arcname=path.name)
+ 
+-    print(f"Created {args.output} with {included} MP3 file(s)")
++    print(f"Created {args.output} with {included} MP3 file(s); {skipped} stor(y/ies) without ratings skipped")
+ 
+ 
+ if __name__ == "__main__":
+diff --git a/scripts/sync_ratings.py b/scripts/sync_ratings.py
+new file mode 100644
+index 0000000..732f95d
+--- /dev/null
++++ b/scripts/sync_ratings.py
+@@ -0,0 +1,131 @@
++#!/usr/bin/env python3
++"""Sync feedback issue ratings into data/versions.json.
++
++Feedback issues are created by the Cloudflare worker from the Pages form
++(labels: feedback, needs-review, story:<id>). The newest issue per
++(story_id, version) defines the current score, while every issue is kept in
++the per-version "reports" history. Ratings apply only to stories/versions
++that already exist in --versions (rendered jingles); unknown targets are
++reported and skipped so the file always passes validate_versions.py.
++"""
++from __future__ import annotations
++
++import argparse
++import json
++import os
++import re
++import subprocess
++import sys
++from pathlib import Path
++
++FIELDS = ("feeling", "story_fit", "sample_quality")
++FIELD_LABELS = {"feeling": "Feeling", "story_fit": "Story fit", "sample_quality": "Sample quality"}
++MARKER = re.compile(r"<!-- jingle-feedback: (?P<story>[A-Za-z0-9_-]{1,64}):(?P<version>v[0-9]+) -->")
++
++
++def fetch_issues() -> list[dict]:
++    if not os.environ.get("GH_TOKEN"):
++        sys.exit("GH_TOKEN is required unless --issues-file is used")
++    cmd = ["gh", "api", "repos/{owner}/{repo}/issues?labels=feedback&state=all&per_page=100", "--paginate"]
++    out = subprocess.run(cmd, check=True, capture_output=True, text=True).stdout
++    issues: list[dict] = []
++    decoder = json.JSONDecoder()
++    index = 0
++    while index < len(out.strip()):
++        page, end = decoder.raw_decode(out, index)
++        issues.extend(item for item in page if "pull_request" not in item)
++        index = end
++        while index < len(out) and out[index] in " \r\n":
++            index += 1
++    return issues
++
++
++def parse_issue(issue: dict) -> dict | None:
++    body = issue.get("body") or ""
++    marker = MARKER.search(body)
++    if not marker:
++        return None
++    scores: dict[str, int] = {}
++    for field, label in FIELD_LABELS.items():
++        found = re.search(rf"\*\*{re.escape(label)}:\*\*\s*([0-9]+)/5", body)
++        if not found:
++            return None
++        scores[field] = int(found.group(1))
++    if not all(1 <= value <= 5 for value in scores.values()):
++        return None
++    comment = ""
++    comment_match = re.search(r"\*\*Comment:\*\*\s*(.+)", body, re.S)
++    if comment_match:
++        comment = comment_match.group(1).strip()
++        if comment == "_No comment._":
++            comment = ""
++    return {
++        "story_id": marker.group("story"),
++        "version": marker.group("version"),
++        "scores": scores,
++        "total": sum(scores.values()),
++        "comment": comment,
++        "issue_url": issue.get("html_url", ""),
++        "created_at": issue.get("created_at", ""),
++        "state": issue.get("state", "open"),
++    }
++
++
++def apply_ratings(data: dict, ratings: list[dict]) -> tuple[int, int, list[str]]:
++    stories = {str(story.get("id")): story for story in data.get("stories", [])}
++    applied_targets: set[tuple[str, str]] = set()
++    skipped_notes: dict[tuple[str, str], str] = {}
++
++    # Chronological pass: every report lands in history, the newest one wins
++    # the current score. Re-runs are idempotent via issue_url dedupe.
++    for rating in sorted(ratings, key=lambda item: item.get("created_at", "")):
++        story_id, label = rating["story_id"], rating["version"]
++        story = stories.get(story_id)
++        version = next((v for v in (story or {}).get("versions", []) if v.get("label") == label), None)
++        if version is None:
++            note = f"{story_id} {label}: brak wyrenderowanej wersji w pliku wersji (issue {rating['issue_url']})"
++            if (story_id, label) not in skipped_notes:
++                skipped_notes[(story_id, label)] = note
++                print(f"skip: {note}")
++            continue
++        version["scores"] = rating["scores"]
++        version["score"] = rating["total"]
++        version["rated_at"] = rating["created_at"]
++        version["feedback_issue"] = rating["issue_url"]
++        reports = version.setdefault("reports", [])
++        if all(report.get("issue_url") != rating["issue_url"] for report in reports):
++            reports.append({
++                "issue_url": rating["issue_url"],
++                "created_at": rating["created_at"],
++                "state": rating["state"],
++                "scores": rating["scores"],
++                "total": rating["total"],
++                "comment": rating["comment"],
++            })
++            reports.sort(key=lambda report: report.get("created_at", ""))
++        applied_targets.add((story_id, label))
++    return len(applied_targets), len(skipped_notes), sorted(skipped_notes.values())
++
++
++def main() -> int:
++    parser = argparse.ArgumentParser()
++    parser.add_argument("--versions", type=Path, required=True)
++    parser.add_argument("--issues-file", type=Path, help="Offline issues JSON instead of gh api (tests).")
++    args = parser.parse_args()
++
++    data = json.loads(args.versions.read_text(encoding="utf-8"))
++    if args.issues_file:
++        raw = json.loads(args.issues_file.read_text(encoding="utf-8"))
++        issues = [item for item in raw if "pull_request" not in item]
++    else:
++        issues = fetch_issues()
++
++    ratings = [parsed for parsed in (parse_issue(issue) for issue in issues) if parsed]
++    applied, skipped, _notes = apply_ratings(data, ratings)
++    args.versions.write_text(json.dumps(data, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
++    print(f"Parsed {len(ratings)} feedback issue(s); applied {applied} rating(s), skipped {skipped}.")
++    return 0
++
++
++if __name__ == "__main__":
++    raise SystemExit(main())
+diff --git a/site/assets/app.js b/site/assets/app.js
+index 323a538..46072d4 100644
+--- a/site/assets/app.js
++++ b/site/assets/app.js
+@@ -1,26 +1,51 @@
++const LOCAL_KEY = 'jingleRatings';
++function loadLocalRatings() {
++  try { return JSON.parse(localStorage.getItem(LOCAL_KEY) || '{}'); } catch { return {}; }
++}
++const localStore = loadLocalRatings();
++// Device-local ratings bridge the gap until the sync workflow republishes
++// data/versions.json: the homepage must reflect freshly submitted scores.
++function localBest(id) {
++  let bestLocal = null;
++  for (const [key, entry] of Object.entries(localStore)) {
++    if (!key.startsWith(`${id}:`) || !Number.isFinite(entry && entry.total)) continue;
++    if (bestLocal === null || entry.total > bestLocal) bestLocal = entry.total;
++  }
++  return bestLocal;
++}
++
+ const state = { stories: [], config: { feedbackEndpoint: '' } };
+ const $ = selector => document.querySelector(selector);
+ 
+ function latest(story) { return story.latest_at || story.versions?.at(-1)?.created_at || ''; }
+ function best(story) { const scores = (story.versions || []).map(v => v.score).filter(Number.isFinite); return scores.length ? Math.max(...scores) : null; }
+ function hasRating(story) { return (story.versions || []).some(v => Number.isFinite(v.score)); }
++function combinedBest(story) {
++  const remote = best(story); const local = localBest(story.id);
++  if (remote === null) return local;
++  if (local === null) return remote;
++  return Math.max(remote, local);
++}
++function hasAnyRating(story) { return hasRating(story) || localBest(story.id) !== null; }
+ 
+ function render() {
+   const query = ($('#search').value || '').toLowerCase().trim();
+   const filtered = state.stories.filter(story => !query || [story.id, story.title].join(' ').toLowerCase().includes(query));
+   const stories = filtered.sort((a, b) => {
+-    const unrated = Number(!hasRating(a)) - Number(!hasRating(b));
++    const unrated = Number(!hasAnyRating(a)) - Number(!hasAnyRating(b));
+     if (unrated) return -unrated;
+-    const scoreDifference = (best(a) ?? -1) - (best(b) ?? -1);
++    const scoreDifference = (combinedBest(a) ?? -1) - (combinedBest(b) ?? -1);
+     return scoreDifference || latest(b).localeCompare(latest(a));
+   });
+   $('#summary').textContent = `${stories.length} z ${state.stories.length} fabuł · nieocenione są na górze`;
+   $('#catalog').innerHTML = stories.map(story => {
+-    const rating = best(story);
++    const remote = best(story);
++    const rating = combinedBest(story);
++    const localOnly = rating !== null && remote === null;
+     const versions = story.versions?.length || 0;
+     const versionLabel = versions === 1 ? 'wersja' : 'wersji';
+-    const status = rating === null ? 'nieocenione' : `najlepiej ${rating}/15`;
+-    return `<article class="story"><div class="story-head"><h2><a href="stories/${story.id}/"><span class="story-id">#${story.id}</span> ${story.title}</a></h2><span class="pill ${rating === null ? 'wait' : 'good'}">${status}</span></div><div class="meta"><span class="pill">${versions} ${versionLabel}</span><span class="pill">${rating === null ? 'oczekuje na ocenę' : 'ma ocenę'}</span></div></article>`;
++    const status = rating === null ? 'nieocenione' : `najlepiej ${rating}/15${localOnly ? ' · na tym urządzeniu' : ''}`;
++    return `<article class="story"><div class="story-head"><h2><a href="stories/${story.id}/"><span class="story-id">#${story.id}</span> ${story.title}</a></h2><span class="pill ${rating === null ? 'wait' : 'good'}">${status}</span></div><div class="meta"><span class="pill">${versions} ${versionLabel}</span><span class="pill">${rating === null ? 'oczekuje na ocenę' : localOnly ? 'ocenione lokalnie' : 'ma ocenę'}</span></div></article>`;
+   }).join('') || '<p class="lede">Brak wyników.</p>';
+ }
+ 
+diff --git a/site/assets/story.js b/site/assets/story.js
+index b4d4f0d..19e4222 100644
+--- a/site/assets/story.js
++++ b/site/assets/story.js
+@@ -1,3 +1,22 @@
++const LOCAL_KEY = 'jingleRatings';
++const loadLocal = () => { try { return JSON.parse(localStorage.getItem(LOCAL_KEY) || '{}'); } catch { return {}; } };
++const saveLocal = data => localStorage.setItem(LOCAL_KEY, JSON.stringify(data));
++
++function applyBadge(form, total, note) {
++  const card = form.closest('section.version');
++  const badge = card && card.querySelector('.version-head small');
++  if (badge) badge.textContent = `${total}/15${note ? ' · ' + note : ''}`;
++}
++
++// Ratings are shown instantly from this device's cache; the automatic sync
++// (feedback issue -> workflow -> data/versions.json -> Pages rebuild) makes
++// them permanent for everyone within a couple of minutes.
++const stored = loadLocal();
++document.querySelectorAll('.feedback').forEach(form => {
++  const entry = stored[`${form.dataset.story}:${form.dataset.version}`];
++  if (entry && Number.isFinite(entry.total)) applyBadge(form, entry.total, 'na tym urządzeniu');
++});
++
+ const endpoint = (await fetch('../../data/config.json').then(r => r.json()).catch(() => ({}))).feedbackEndpoint || '';
+ document.querySelectorAll('.feedback').forEach(form => form.addEventListener('submit', async event => {
+   event.preventDefault();
+@@ -6,5 +25,18 @@ document.querySelectorAll('.feedback').forEach(form => form.addEventListener('su
+   const payload = { story_id: form.dataset.story, version: form.dataset.version, comment: values.comment || '', scores: { feeling: Number(values.feeling), story_fit: Number(values.story_fit), sample_quality: Number(values.sample_quality) } };
+   if (!endpoint) { output.textContent = 'Endpoint raportów nie jest jeszcze skonfigurowany.'; return; }
+   output.textContent = 'Wysyłanie…';
+-  try { const response = await fetch(endpoint, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)}); const result = await response.json(); output.textContent = response.ok ? `Raport wysłany: ${result.issue_url}` : `Błąd: ${result.error || 'nieznany'}`; } catch { output.textContent = 'Nie udało się wysłać raportu.'; }
++  try {
++    const response = await fetch(endpoint, {method:'POST', headers:{'Content-Type':'application/json'}, body:JSON.stringify(payload)});
++    const result = await response.json();
++    if (response.ok) {
++      const total = payload.scores.feeling + payload.scores.story_fit + payload.scores.sample_quality;
++      const data = loadLocal();
++      data[`${payload.story_id}:${payload.version}`] = { ...payload.scores, total, comment: String(payload.comment || ''), at: new Date().toISOString() };
++      saveLocal(data);
++      applyBadge(form, total, 'na tym urządzeniu');
++      output.textContent = `Raport wysłany (${total}/15): ${result.issue_url} — synchronizacja zaktualizuje stronę w ciągu kilku minut.`;
++    } else {
++      output.textContent = `Błąd: ${result.error || 'nieznany'}`;
++    }
++  } catch { output.textContent = 'Nie udało się wysłać raportu.'; }
+ }));
+-- 
+2.39.5
