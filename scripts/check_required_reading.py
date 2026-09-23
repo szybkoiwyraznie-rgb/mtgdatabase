@@ -5,7 +5,7 @@ import argparse
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-BASE = ["AGENTS.md", "README.md", "CONTRIBUTING.md", "ENVIRONMENT.md", "docs/required-reading.md", "docs/signature-system.md", "docs/gate-protocol.md", "docs/architecture.md", "docs/sources-and-licensing.md", "docs/LESSONS.md"]
+BASE = ["AGENTS.md", "docs/STATE.md", "README.md", "CONTRIBUTING.md", "ENVIRONMENT.md", "docs/required-reading.md", "docs/signature-system.md", "docs/gate-protocol.md", "docs/architecture.md", "docs/sources-and-licensing.md", "docs/LESSONS.md"]
 
 def estimate_tokens(text: str) -> int:
     # Conservative, dependency-free estimate; real tokenizer counts may differ.
