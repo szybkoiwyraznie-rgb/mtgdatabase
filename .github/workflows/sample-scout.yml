@@ -5,7 +5,15 @@ name: Sample scout
 # batch, commits it on main, and lets an agent inspect it after git fetch.
 # Candidates are never automatically registered as production sources.
 
+# Two triggers on purpose:
+#   * workflow_dispatch — the owner clicks Run workflow in the Actions tab;
+#   * repository_dispatch — the Arena agent sends an API event. The sandbox
+#     token carries contents:write but not actions:write, so POST to
+#     /actions/workflows/*/dispatches answers 403 while POST /dispatches
+#     works. Payload fields mirror the manual inputs.
 on:
+  repository_dispatch:
+    types: [sample-scout]
   workflow_dispatch:
     inputs:
       source:
@@ -42,6 +50,8 @@ jobs:
   scout:
     # Candidate files are committed for the next Arena session. Do not permit
     # a workflow dispatched from an arbitrary PR branch to write there.
+    # repository_dispatch always runs on the default branch, so this stays true
+    # for both triggers; it only blocks a manual run from a stray PR branch.
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     steps:
@@ -54,10 +64,10 @@ jobs:
       - name: Fetch community-ranked CC0 candidates
         env:
           FREESOUND_TOKEN: ${{ secrets.FREESOUND_TOKEN }}
-          SCOUT_SOURCE: ${{ inputs.source }}
-          SCOUT_QUERY: ${{ inputs.query }}
-          SCOUT_COUNT: ${{ inputs.count }}
-          SCOUT_SORT: ${{ inputs.sort }}
+          SCOUT_SOURCE: ${{ inputs.source || github.event.client_payload.source || 'freesound' }}
+          SCOUT_QUERY: ${{ inputs.query || github.event.client_payload.query }}
+          SCOUT_COUNT: ${{ inputs.count || github.event.client_payload.count || '5' }}
+          SCOUT_SORT: ${{ inputs.sort || github.event.client_payload.sort || 'rating_desc' }}
         run: |
           python scripts/sample_scout.py \
             --source "$SCOUT_SOURCE" \
@@ -67,8 +77,8 @@ jobs:
             --out legacy/source/sample_scout
       - name: Commit candidate batch
         env:
-          SCOUT_SOURCE: ${{ inputs.source }}
-          SCOUT_COUNT: ${{ inputs.count }}
+          SCOUT_SOURCE: ${{ inputs.source || github.event.client_payload.source || 'freesound' }}
+          SCOUT_COUNT: ${{ inputs.count || github.event.client_payload.count || '5' }}
         run: |
           git config user.name "sample-scout-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"

@@ -17,6 +17,7 @@ Usage: python scripts/build_site.py --out site/generated
 from __future__ import annotations
 
 import argparse
+import hashlib
 import html
 import json
 from pathlib import Path
@@ -94,8 +95,27 @@ def approved_line(ap: dict | None) -> str:
     return f'<p class="ok">✓ zatwierdzone: {esc(ap.get("gate", ""))} ({esc(ap.get("date", ""))}), wybór {esc(ap.get("choice", ""))}</p>'
 
 
+# katalog wyjściowy bieżącego builda — potrzebny do odcisku pliku audio
+_OUT: Path | None = None
+
+
+def cache_bust(src_rel: str) -> str:
+    """Dokleja ?v=<odcisk treści>, żeby przeglądarka nie grała starej wersji.
+
+    Bez tego player trzyma w cache plik o tej samej nazwie (np. audio/5.mp3)
+    nawet po przemontowaniu fabuły — właściciel słyszał starą sygnaturę.
+    """
+    if _OUT is None:
+        return src_rel
+    f = _OUT / src_rel
+    if not f.exists():
+        return src_rel
+    digest = hashlib.md5(f.read_bytes()).hexdigest()[:10]
+    return f"{src_rel}?v={digest}"
+
+
 def player(src_rel: str) -> str:
-    return f'<audio controls preload="none" src="{esc(src_rel)}"></audio>'
+    return f'<audio controls preload="none" src="{esc(cache_bust(src_rel))}"></audio>'
 
 
 def usage_line(uses: list[str], link: bool = True) -> str:
@@ -120,6 +140,8 @@ def main() -> None:
     if out.exists():
         shutil.rmtree(out)
     lib_out.mkdir(parents=True, exist_ok=True)
+    global _OUT
+    _OUT = out
 
     catalog = load(REPO / "data" / "catalog.json", {"stories": []})["stories"]
     regs = {k: load(LIB / f"{k}.json", {"entries": []})["entries"] for k in
