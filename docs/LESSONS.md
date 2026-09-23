@@ -297,3 +297,21 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   Sample Scout (archive.org/Freesound przez GitHub Actions) po prawdziwy
   field recording. Trzy rundy przepalone na materiale zastępczym są
   droższe niż jedno uruchomienie workflow.
+
+## 2026-09-23 — Pusty wynik Scouta to zwykle błąd filtra, nie brak nagrań
+
+- Sytuacja: ręczne uruchomienie Sample scout dla „creek stream flowing water
+  field recording” zakończyło się `brak kandydatów CC0` i kodem wyjścia 1.
+  Nagrania strumieni w Internet Archive są pospolite, więc wynik był
+  nieprawdopodobny.
+- Wniosek: konektor pobierał 40 najpopularniejszych pozycji audio i dopiero
+  potem sprawdzał licencję. Popularne audio w Archive to muzyka i podcasty —
+  praktycznie nigdy CC0, więc po filtrze zostawała pusta lista niezależnie od
+  zapytania. Drugi, ukryty filtr: pliki powyżej 12 MB były odrzucane, a każde
+  sensowne nagranie terenowe jest dłuższe.
+- Zasada / działanie zapobiegawcze: (1) warunek licencji wstawiaj do
+  zapytania wyszukiwarki, nie do pętli po wynikach; (2) dla materiału
+  długiego pobieraj początek pliku zamiast odrzucać całość (`truncated`
+  w manifeście); (3) gdy workflow zwraca pustkę dla pospolitego dźwięku,
+  podejrzewaj własny filtr — zanim uznasz, że źródła nie ma. Test regresyjny:
+  `test_archiveorg_finds_cc0_behind_popular_non_cc0_rows`.

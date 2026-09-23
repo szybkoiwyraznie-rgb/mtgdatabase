@@ -46,7 +46,7 @@ def http_get(url: str, token: str | None = None, timeout: int = 30) -> bytes:
     if token:
         headers["Authorization"] = f"Token {token}"
     with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=timeout) as response:
-        return response.read(MAX_SAMPLE_BYTES + 1)
+        return response.read(MAX_SAMPLE_BYTES)
 
 
 def slugify(text: str) -> str:
@@ -126,57 +126,97 @@ def fetch_freesound(query: str, count: int, sort: str, token: str) -> list[dict]
 # Connector: Internet Archive (community metric: downloads)
 # --------------------------------------------------------------------------
 def fetch_archiveorg(query: str, count: int) -> list[dict]:
-    params = urllib.parse.urlencode({
-        "q": f"({query}) AND mediatype:(audio)",
-        "fl[]": ["identifier", "title", "creator", "downloads", "licenseurl"],
-        "rows": count * 8,
-        "sort[]": "downloads desc",
-        "output": "json",
-    }, doseq=True)
-    payload = json.loads(http_get(f"https://archive.org/advancedsearch.php?{params}"))
+    """Search Internet Archive for CC0 audio.
+
+    Two lessons are baked in (2026-09-23, empty result for a stream query):
+
+    * the CC0 filter belongs in the Lucene query, not in a local pass over
+      the most-downloaded rows — popular Archive audio is almost never CC0,
+      so filtering afterwards returned nothing for perfectly common sounds;
+    * field recordings are long. Accept large files and cut a window later
+      instead of demanding a whole file under the download cap.
+    """
+    licence_clause = (
+        'licenseurl:("*publicdomain/zero*" OR "*creativecommons.org/licenses/publicdomain*")'
+    )
+    queries = [
+        f"({query}) AND mediatype:(audio) AND {licence_clause}",
+        # Fallback: Archive also flags public-domain items without a CC0 URL.
+        f"({query}) AND mediatype:(audio) AND (rights:(public domain) OR licenseurl:(*publicdomain*))",
+    ]
+    seen: set[str] = set()
     candidates: list[dict] = []
-    for doc in (payload.get("response") or {}).get("docs", []):
-        if not is_cc0(doc.get("licenseurl")) or len(candidates) >= count:
-            continue
-        identifier = str(doc.get("identifier", ""))
-        if not identifier:
-            continue
+    for lucene in queries:
+        if len(candidates) >= count:
+            break
+        params = urllib.parse.urlencode({
+            "q": lucene,
+            "fl[]": ["identifier", "title", "creator", "downloads", "licenseurl"],
+            "rows": max(count * 8, 40),
+            "sort[]": "downloads desc",
+            "output": "json",
+        }, doseq=True)
         try:
-            metadata = json.loads(http_get(f"https://archive.org/metadata/{identifier}"))
+            payload = json.loads(http_get(f"https://archive.org/advancedsearch.php?{params}"))
         except Exception as error:
-            print(f"skip {identifier}: metadata ({error})", file=sys.stderr)
+            print(f"archive.org: zapytanie nie powiodło się ({error})", file=sys.stderr)
             continue
-        metadata_license = (metadata.get("metadata") or {}).get("licenseurl", doc.get("licenseurl"))
-        if not is_cc0(metadata_license):
-            print(f"skip {identifier}: metadata nie potwierdza CC0", file=sys.stderr)
-            continue
-        files = [
-            item for item in metadata.get("files", [])
-            if "mp3" in str(item.get("format", "")).lower() and str(item.get("name", "")).lower().endswith(".mp3")
-        ]
-        files.sort(key=lambda item: float(item.get("size", MAX_SAMPLE_BYTES + 1) or MAX_SAMPLE_BYTES + 1))
-        picked = next(
-            (item for item in files if MIN_SAMPLE_BYTES <= float(item.get("size") or 0) <= MAX_SAMPLE_BYTES),
-            None,
-        )
-        if not picked:
-            continue
-        filename = str(picked["name"])
-        candidates.append({
-            "source": "archive.org",
-            "source_id": identifier,
-            "download_url": f"https://archive.org/download/{identifier}/{urllib.parse.quote(filename, safe='/')}",
-            "name": f"{doc.get('title', identifier)} — {Path(filename).name}",
-            "author": doc.get("creator") or "unknown",
-            "license": str(doc["licenseurl"]),
-            "source_url": f"https://archive.org/details/{identifier}",
-            "duration_sec": None,
-            "avg_rating": None,
-            "num_ratings": None,
-            "downloads": doc.get("downloads"),
-            "archive_file": filename,
-            "note": "Internet Archive nie publikuje porównywalnej oceny gwiazdkowej; ranking wg liczby pobrań.",
-        })
+        docs = (payload.get("response") or {}).get("docs", [])
+        print(f"archive.org: {len(docs)} pozycji dla filtra licencyjnego", file=sys.stderr)
+        for doc in docs:
+            if len(candidates) >= count:
+                break
+            identifier = str(doc.get("identifier", ""))
+            if not identifier or identifier in seen:
+                continue
+            seen.add(identifier)
+            try:
+                metadata = json.loads(http_get(f"https://archive.org/metadata/{identifier}"))
+            except Exception as error:
+                print(f"skip {identifier}: metadata ({error})", file=sys.stderr)
+                continue
+            meta = metadata.get("metadata") or {}
+            licence = meta.get("licenseurl") or doc.get("licenseurl") or meta.get("rights") or ""
+            if not (is_cc0(licence) or "publicdomain" in str(licence).lower()
+                    or "public domain" in str(licence).lower()):
+                print(f"skip {identifier}: licencja {licence!r}", file=sys.stderr)
+                continue
+            files = [
+                item for item in metadata.get("files", [])
+                if "mp3" in str(item.get("format", "")).lower()
+                and str(item.get("name", "")).lower().endswith(".mp3")
+                and float(item.get("size") or 0) >= MIN_SAMPLE_BYTES
+            ]
+            if not files:
+                continue
+            # Prefer a file we can fetch whole; otherwise take the smallest and
+            # download a capped prefix (enough to cut an 8 s window from).
+            files.sort(key=lambda item: float(item.get("size") or 0))
+            picked = next(
+                (item for item in files if float(item.get("size") or 0) <= MAX_SAMPLE_BYTES),
+                files[0],
+            )
+            filename = str(picked["name"])
+            size = int(float(picked.get("size") or 0))
+            candidates.append({
+                "source": "archive.org",
+                "source_id": identifier,
+                "download_url": f"https://archive.org/download/{identifier}/{urllib.parse.quote(filename, safe='/')}",
+                "name": f"{doc.get('title', identifier)} — {Path(filename).name}",
+                "author": doc.get("creator") or meta.get("creator") or "unknown",
+                "license": str(licence),
+                "source_url": f"https://archive.org/details/{identifier}",
+                "duration_sec": None,
+                "avg_rating": None,
+                "num_ratings": None,
+                "downloads": doc.get("downloads"),
+                "archive_file": filename,
+                "archive_file_bytes": size,
+                "truncated": size > MAX_SAMPLE_BYTES,
+                "note": ("Internet Archive nie publikuje oceny gwiazdkowej; ranking wg pobrań."
+                         + (" Pobrano początek pliku (nagranie dłuższe niż limit)."
+                            if size > MAX_SAMPLE_BYTES else "")),
+            })
     candidates.sort(key=lambda item: int(item.get("downloads") or 0), reverse=True)
     return candidates[:count]
 
@@ -192,7 +232,11 @@ def save_candidates(candidates: list[dict], out_dir: Path, token: str | None = N
         target = out_dir / filename
         try:
             blob = http_get(candidate["download_url"], token=token)
-            if not MIN_SAMPLE_BYTES <= len(blob) <= MAX_SAMPLE_BYTES:
+            if len(blob) > MAX_SAMPLE_BYTES:
+                # Field recordings bywają wielominutowe; bierzemy początek pliku,
+                # z którego i tak wycinamy okno kilku sekund.
+                blob = blob[:MAX_SAMPLE_BYTES]
+            if len(blob) < MIN_SAMPLE_BYTES:
                 raise ValueError(f"nieprawidłowy rozmiar ({len(blob)} B)")
             if not is_mp3(blob):
                 raise ValueError("odpowiedź nie ma nagłówka MP3")

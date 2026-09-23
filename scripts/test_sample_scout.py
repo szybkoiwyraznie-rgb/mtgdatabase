@@ -83,3 +83,37 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def test_archiveorg_finds_cc0_behind_popular_non_cc0_rows(monkeypatch):
+    """Regresja 2026-09-23: puste wyniki dla 'creek stream flowing water'.
+
+    Stara wersja pobierała najpopularniejsze audio i dopiero lokalnie
+    filtrowała CC0 — popularne pozycje Archive praktycznie nigdy nie są CC0,
+    więc lista wychodziła pusta. Filtr licencyjny musi być w zapytaniu.
+    """
+    seen_queries = []
+
+    def fake_get(url, token=None, timeout=30):
+        if "advancedsearch" in url:
+            seen_queries.append(url)
+            return json.dumps({"response": {"docs": [{
+                "identifier": "creek01", "title": "Mountain Creek",
+                "creator": "fieldrec", "downloads": 900,
+                "licenseurl": "http://creativecommons.org/publicdomain/zero/1.0/",
+            }]}}).encode()
+        if "metadata" in url:
+            return json.dumps({
+                "metadata": {"licenseurl": "http://creativecommons.org/publicdomain/zero/1.0/"},
+                "files": [{"name": "creek.mp3", "format": "VBR MP3", "size": "48000000"}],
+            }).encode()
+        return b"\xff\xfb" + b"\x00" * 5000
+
+    monkeypatch.setattr(scout, "http_get", fake_get)
+    found = scout.fetch_archiveorg("creek stream flowing water", 3)
+
+    assert found, "kandydat CC0 musi zostać znaleziony"
+    assert "publicdomain" in seen_queries[0], "filtr licencyjny należy do zapytania"
+    # długie nagranie terenowe nie może być odrzucone przez limit rozmiaru
+    assert found[0]["truncated"] is True
+    assert found[0]["archive_file"] == "creek.mp3"

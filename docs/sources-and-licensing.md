@@ -82,7 +82,13 @@ do rejestru. Odrzuty nie wchodzą do gita.
 Gdy potrzebnego zdarzenia nie ma w zweryfikowanych bibliotekach, użyj workflow **Sample scout**. Runner GitHub Actions ma dostęp do Freesound i Internet Archive, którego nie ma sandbox Arena. Workflow pobiera najwyżej pięć kandydatów CC0 do ograniczonego katalogu `legacy/source/sample_scout/`, zapisuje manifest z URL-em oryginału, autorem, licencją, metryką społecznościową, rozmiarem i SHA-256, a następnie commit bota udostępnia pliki kolejnemu agentowi przez `git fetch`.
 
 - `freesound`: wymaga sekretu Actions `FREESOUND_TOKEN`; ranking: średnia ocena, liczba ocen, pobrania;
-- `archive.org`: bez sekretu; ranking: liczba pobrań, wyłącznie po potwierdzeniu CC0 w metadanych;
+- `archive.org`: bez sekretu; ranking: liczba pobrań, po potwierdzeniu CC0 w metadanych.
+  **Filtr licencyjny jest częścią zapytania Lucene** (`licenseurl:(*publicdomain/zero*)`) —
+  wersja filtrująca dopiero lokalnie zwracała zero wyników nawet dla pospolitych
+  dźwięków, bo popularne audio w Archive prawie nigdy nie jest CC0 (błąd naprawiony
+  2026-09-23, test regresyjny w `scripts/test_sample_scout.py`). Nagrania terenowe
+  bywają wielominutowe: pliki większe niż limit pobierane są w części początkowej
+  (pole `truncated` w manifeście) zamiast być odrzucane;
 - **Uruchomienie z sesji agenta:** token sandboksa (GitHub App) nie ma
   uprawnienia `actions:write`, więc `gh workflow run` zwraca `HTTP 403:
   Resource not accessible by integration`. Obejście wbudowane w workflow —
