@@ -1,9 +1,0 @@
-{
-  "story_id": "5",
-  "length_sec": 6.0,
-  "background": {"id": "energy_steam_roar_01", "offset_sec": 0.0, "target_db": -32},
-  "hero": {"id": "loon_wail_01", "at_sec": 0.7, "target_db": -15},
-  "coda": {"gesture": "g5a_shimmer_up", "instrument": "b_piano_steinway", "at_sec": 3.6, "target_db": -21},
-  "seed": 7,
-  "gate": "g002"
-}

@@ -91,5 +91,11 @@
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "ryk-bestii": "żaden",
+    "notes": {
+      "ryk-bestii": "właściciel: burczenie bizona to nie jest ryk bestii — przypięcie się do wygodnego źródła zamiast szukać właściwego. Koncept (bison pitch-down) odrzucony w całości; następna bramka: prawdziwe potworne ryki (OGA CC0 monster packs)."
+    }
+  }
 }

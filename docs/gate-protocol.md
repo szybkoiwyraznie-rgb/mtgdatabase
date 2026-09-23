@@ -45,8 +45,18 @@ Format werdyktu (jeden na wpis):
 
 1. Agent czyta fabułę i definiuje **role** d / c / a / b (zakres: „tajemnicze
    jezioro", „krzyk dużego ptaka zwiadowczego", „koda groza", „grandpiano").
+   Rola wynika z **narracji tej konkretnej fabuły** — nigdy „co jest wolne
+   w bazie".
 2. Jeśli rola jest obsadzona wpisem baz — używa go; jeśli nie, to faza A
-   dla brakującej roli (rola przed plikiem).
+   dla brakującej roli (rola przed plikiem). „Obsadzona" znaczy **pasująca
+   do narracji**: wpis o ogólnej roli („ptak"), który nie pasuje do
+   fabuły („gobliny Jundu" ≠ „kruk"), NIE jest obsadą — to brak → bramka
+   (korekta po fabułach 5/8: nur z fabuły 4 do fabuły o portalu i kruk
+   z fabuły 1 do goblinów = podstawianie inwentarza, wycofane).
+2a. **Hero = tożsamość fabuły (1:1)**: nie używaj hero, który jest już
+   hero innej fabuły — efekt to kopia tamtej fabuły („fabuła 8 = fabuła 1
+   z innym tłem"). Tło/gest/instrument mogą się powtarzać świadomie
+   (ekonomia wariacji), hero — nigdy domyślnie.
 3. Agent układa recepturę `data/recipes/<id>.json` i renderuje:
    `python scripts/render_signature.py data/recipes/<id>.json --audit`.
    Twardy render (patrz `docs/signature-system.md` § Render i QA) gwarantuje:

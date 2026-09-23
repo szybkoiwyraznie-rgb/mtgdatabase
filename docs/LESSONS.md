@@ -145,3 +145,19 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   `normalize_rms(...)` + `peak_ceiling(0.92)` ścisza materiał o ~6 dB
   (skala globalna). Rozwiązanie: iteracyjny limiter tanh (drive 2.0, do crest
   ≤12 dB) PRZED normalizacją RMS — r.1 zachowuję −15,3 dB przy peaku 0,60.
+
+- **2026-09-23 (obsada inwentarzem = nieważność montażu):** zamontowałem
+  fabuły 5 i 8 „tym, co leżało" (nur z fabuły 4 do wiru portalu; kruk z
+  fabuły 1 do goblinów Jundu) — właściciel słusznie odrzucił obie jako
+  bez związku z narracją („kopia fabuły 1"). Lekcja kosztem dwóch renderów:
+  faza B punkt 2/2a wzmocniona — rola z narracji, „obsada" = pasuje do
+  fabuły; hero = tożsamość 1:1 (zakaz powtórek hero między fabułami).
+  Równolegle: ryk bestii ≠ wygodny bison „pod ręką"; YSL nie ma niedźwiedzia
+  (fałszywy inwentarz w sources-and-licensing skorygowany; `git ls-tree`
+  na HEAD zawsze przed planowaniem).
+- **2026-09-23 (atomcut jako odpowiedź na role fabuł):** pakiety OGA CC0
+  z mirroru `novincode/atomcut-library` (potwory ogrebane ×3 paczki,
+  goblins artisticdude, magic jaggedstone, creature rubberduck) dekodować
+  PyAV (m4a 48k); krótkie hity 0.2–2.4 s, `pack.json` per pack z licencją
+  i autorem. Do kandydatów-uderzeń: tanh 1.35 (jądro) → soft_limit crest 12 →
+  normalize RMS −15 → fade 5 ms/180 ms — peaki ~0.4–0.6 bez klipu.
