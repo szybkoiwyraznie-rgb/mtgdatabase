@@ -15,9 +15,15 @@ decyzji; fuzja PR zamyka sesję).
    bazę (d/c/a/b).
 2. Dla KAŻDEGO wpisu: co najmniej **3 kandydaci dopasowani do tej roli**
    (3 jeziora, 3 nury, 3 pianina — NIE „kotły vs kieliszki vs harfa" jako
-   konkurenci jednego wpisu); audycja `stem_probe.py` obowiązkowa; kody (a)
+   konkurenci jednego wpisu; dla głosów: 3 RYKI tej samej bestii = rekordy/
+   przeróbki jednego rodzaju źródła, NIE 3 różne gatunki — korekta g002);
+   audycja `stem_probe.py` obowiązkowa i **sonda słyszalności każdego
+   kandydata** (RMS/peak w oknie — żadnego „pustego dźwięku"); kody (a)
    renderuj na neutralnym instrumencie, instrumenty (b) na frazie
    demonstracyjnej W ICH REALNYM ZAKRESIE.
+2a. **Etykiety kandydatów unikalne w skali CAŁEJ bramki** (np. p.*, b.*,
+   r.*, o.*, w.*, a.* — nie „d.* dla dwóch różnych wpisów"; kolizja w g002
+   zmusiła właściciela do zgadywania kontekstu).
 3. Bramka w `data/gates/gNNN/`: manifest (`entries` = wpisy z kandydatami)
    + kandydaci + opisy + licencje, **commitowana od razu** (ochrona przed
    resetami sandboksa).

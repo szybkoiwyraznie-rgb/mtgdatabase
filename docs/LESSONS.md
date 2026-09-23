@@ -126,3 +126,22 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   zamieniła się w skoki C4↔D#5 zanim to zauważyłem).
 - Sparse-checkout wielu plików: `git sparse-checkout set --no-cone --stdin <
   plik.txt`; podawanie listy jako argv z cudzysłowami i spacjami NIE działa.
+
+- **2026-09-23 (werdykt g002 — korekty):** właściciel przyjął 5 wpisów
+  (Steinway, bassdrum, ogień mały, wir pary, światło-koda) i ODRZUCIŁ ryk-bestii:
+  założyłem „3 kandydatów = 3 gatunki" (łoś/kojot/żubr zamiast 3 RYKÓW tej
+  samej bestii), a c.2 okazał się „pustym dźwiękiem" (brak sondy słyszalności
+  przed wystawieniem). Też: dwa wpisy z tym samym prefixem etykiet (d.*) —
+  właściciel sam rozróżnił po kontekście, ale to pułapka. Wnioski wdrożone:
+  protokół faza A punkt 2/2a (warianty = jeden rodzaj źródła; sonda RMS/peak;
+  etykiety unikalne bramkowo), g003 naprawcza = 3 ryki żubra (warianty
+  ciężki/krótki/masywny) z zwolnieniem tempa (resample_poly −3…−5 półtonów).
+
+- **2026-09-23 (technikalia przeróbki na ryk):** polifazowy
+  `scipy.signal.resample_poly` ze współczynnikiem `Fraction(ratio).limit_denominator(96)`
+  daje pitch+tempo down bez artefaktów „chipmunk rewards"; po zwolnieniu
+  filtry HP 45 Hz / LP 2,8 kHz (sosfiltfilt) czyszczą szum taśmy.
+  KLUCZOWE: przejściowy klik po resamplingu daje crest >15 dB — wtedy
+  `normalize_rms(...)` + `peak_ceiling(0.92)` ścisza materiał o ~6 dB
+  (skala globalna). Rozwiązanie: iteracyjny limiter tanh (drive 2.0, do crest
+  ≤12 dB) PRZED normalizacją RMS — r.1 zachowuję −15,3 dB przy peaku 0,60.
