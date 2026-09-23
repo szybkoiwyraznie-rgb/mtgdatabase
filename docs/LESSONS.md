@@ -161,3 +161,15 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   PyAV (m4a 48k); krótkie hity 0.2–2.4 s, `pack.json` per pack z licencją
   i autorem. Do kandydatów-uderzeń: tanh 1.35 (jądro) → soft_limit crest 12 →
   normalize RMS −15 → fade 5 ms/180 ms — peaki ~0.4–0.6 bez klipu.
+
+- **2026-09-23 (gobliny z kreskówki = pitch-down):** właściciel odrzucił
+  goblinowe warcry jako „kreskówkowe, za wysokie" (g.1 najlepszy, ale piskły).
+  Reguła: głosy „muppetów" stają się groźne przy −4…−6 półtonach (resample,
+  czas rośnie ×1.26–1.41 — z 0,5 s robi się czytelny hero 0,97–1,28 s;
+  centroid z 2300→1450–1900 Hz, pik z 1764→846–1323 Hz). Rundę 2 robić z TEJ
+  SAMEJ paczki (doktryna wariantów), nie ze skoku na inne źródło.
+- **2026-09-23 (hero vs koda — zderzenie semantyk):** przy wykonaniu fabuły 5
+  właściciel uprzedził: „czar-błysk sam brzmi jak koda". Reguła obsady:
+  jeśli hero ma charakter muzyczny/błysk, koda idzie wyraźnie później
+  (≥1,3 s przerwy po hero) i barwo-odbiciem (tu: syntetyczny błysk vs struna
+  fortepianu), nie drugim „zapem". Zapisane w recepcie 5 (pole notes).
