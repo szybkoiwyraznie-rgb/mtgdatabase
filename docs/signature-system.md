@@ -37,7 +37,7 @@ i pieczątkę akceptacji `approved` (bramka, wybór, data).
 - Zasada „rola przed plikiem": agent najpierw definiuje rolę semantyczną
   („krzyk dużego ptaka zwiadowczego"), sprawdza stan bazy i użycie wpisów,
   i dopiero wtedy pozyskuje kandydatów.
-- **Tryb wzrostu (ADR 0005):** do 50 wpisów w każdej kategorii każda nowa
+- **Tryb wzrostu (ADR 0005):** do 10 wpisów w każdej kategorii każda nowa
   fabuła dostaje cztery nowe klocki. Potem reuse jest dozwolony do 10%
   produkcji na klocek. Polityka: `data/usage-policy.json`; walidacja i raport:
   `library_tool.py check|report`.

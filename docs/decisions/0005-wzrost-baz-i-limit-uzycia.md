@@ -1,6 +1,7 @@
 # ADR 0005: Najpierw wzrost baz, potem kontrolowany reuse
 
-- Status: accepted
+- Status: accepted (próg wzrostu skorygowany przez właściciela z 50 do 10
+  wpisów na kategorię tego samego dnia)
 - Data: 2026-09-23
 
 ## Kontekst
@@ -17,11 +18,11 @@ nie powinien przechodzić przez przewidywalne potrzeby tej samej fabuły ratami.
 
 ## Decyzja
 
-1. **Tryb wzrostu:** dopóki każda z czterech baz nie ma co najmniej 50
+1. **Tryb wzrostu:** dopóki każda z czterech baz nie ma co najmniej 10
    wpisów, każda nowa fabuła dostaje nowe tło, hero, kodę i instrument.
    Nawet semantycznie pasujący istniejący klocek nie jest wtedy automatycznym
    wyborem — priorytetem jest poszerzanie bazy.
-2. **Tryb dojrzały:** po osiągnięciu 50 wpisów w każdej kategorii reuse jest
+2. **Tryb dojrzały:** po osiągnięciu 10 wpisów w każdej kategorii reuse jest
    dozwolony, ale żaden klocek nie może występować w ponad 10% produkcji.
    Limit dyskretny to `max(1, floor(0.10 × liczba_receptur))`.
 3. Zamrożonych sygnatur 1, 2, 3, 4, 5 i 8 nie przebudowujemy retroaktywnie.
@@ -34,8 +35,9 @@ nie powinien przechodzić przez przewidywalne potrzeby tej samej fabuły ratami.
 
 ## Konsekwencje
 
-- Najbliższe produkcje będą zwykle wymagać czterech werdyktów w jednej
-  bramce i będą droższe źródłowo, ale baza będzie rosła równomiernie.
+- Najbliższe produkcje — do osiągnięcia 10 wpisów w każdej kategorii — będą
+  zwykle wymagać czterech werdyktów w jednej bramce i będą droższe źródłowo,
+  ale baza będzie rosła równomiernie.
 - Matematyczna różnorodność staje się twardym QA, nie deklaracją w raporcie.
 - Dopiero dojrzała baza zacznie realizować korzyść kombinatoryczną a×b×c×d;
   wcześniej ważniejsza jest szerokość słownika brzmień.

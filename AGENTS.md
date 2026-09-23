@@ -15,12 +15,12 @@ i `docs/gate-protocol.md`.
    nie są commitowane (`work/` jest poza gitem).
 4. **Rola przed plikiem**: najpierw rola semantyczna, potem sprawdzenie bazy
    i statystyk użycia, dopiero potem pozyskiwanie. W trybie wzrostu świadomie
-   budujemy nowy wariant roli dla konkretnej fabuły; po progu 50 wpisów nie
+   budujemy nowy wariant roli dla konkretnej fabuły; po progu 10 wpisów nie
    dublujemy roli, jeśli pasujący klocek mieści się w limicie użycia.
 5. **Różnorodność przed reużyciem**: `data/usage-policy.json` jest wiążące.
-   Dopóki KAŻDA z czterech baz nie ma co najmniej 50 wpisów, każda nowa
+   Dopóki KAŻDA z czterech baz nie ma co najmniej 10 wpisów, każda nowa
    fabuła dostaje cztery nowe klocki — istniejący pasujący wpis nie zwalnia
-   z bramki. Po osiągnięciu 50 wpisów w każdej bazie wolno reużywać, ale
+   z bramki. Po osiągnięciu 10 wpisów w każdej bazie wolno reużywać, ale
    żaden klocek nie może wystąpić w ponad 10% produkcji. Zamrożone fabuły
    legacy nie są przerabiane, lecz ich użycia liczą się do limitu. Weryfikuje
    `library_tool.py check`; statystyki pokazuje `library_tool.py report`.

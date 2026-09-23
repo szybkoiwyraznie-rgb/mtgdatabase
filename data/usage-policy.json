@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "growth_until_entries_per_category": 50,
+  "growth_until_entries_per_category": 10,
   "max_usage_share": 0.1,
   "legacy_story_ids": ["1", "2", "3", "4", "5", "8"],
-  "note": "Decyzja właściciela 2026-09-23: podczas wzrostu baz każda nowa fabuła dostaje cztery nowe klocki. Po osiągnięciu co najmniej 50 wpisów w każdej kategorii można reużywać, ale żaden klocek nie może występować w ponad 10% produkcji. Legacy zachowuje zamrożone sygnatury, lecz jego użycia liczą się do przyszłego limitu."
+  "note": "Decyzja właściciela 2026-09-23: podczas wzrostu baz każda nowa fabuła dostaje cztery nowe klocki. Po osiągnięciu co najmniej 10 wpisów w każdej kategorii można reużywać, ale żaden klocek nie może występować w ponad 10% produkcji. Legacy zachowuje zamrożone sygnatury, lecz jego użycia liczą się do przyszłego limitu."
 }

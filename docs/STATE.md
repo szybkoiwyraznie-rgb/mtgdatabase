@@ -32,7 +32,7 @@ odbitych przez świeżo utworzoną magiczną tarczę; koda = jasne domknięcie
 ochronnej aury; instrument = metaliczny glockenspiel. Po decyzji właściciela
 o wzroście baz g014 została rozszerzona: wystawia **jednocześnie wszystkie
 cztery wpisy**, po trzy warianty, i czeka na komplet werdyktów. Obowiązuje
-ADR 0005: do 50 wpisów w każdej kategorii każda nowa fabuła dostaje cztery
+ADR 0005: do 10 wpisów w każdej kategorii każda nowa fabuła dostaje cztery
 nowe klocki; później limit użycia jednego klocka wynosi 10%.
 
 ## Co dalej (propozycja agenta, nie wymaga pytania właściciela)
