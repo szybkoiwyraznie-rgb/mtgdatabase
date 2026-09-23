@@ -88,6 +88,27 @@ def cut(x: np.ndarray, start_sec: float, end_sec: float) -> np.ndarray:
     return x[:, s:e]
 
 
+def loop_to_length(wave: np.ndarray, n_samples: int, crossfade_ms: float = 80.0) -> np.ndarray:
+    """Zapętl falę do n_samples, krzyżując szew między powtórkami (bez klików).
+
+    Na każdym połączeniu następuje liniowy crossfade; przy stacjonarnych
+    teksturach (teła) jest niesłyszalny, a brak skoku fazy eliminuje kliki.
+    """
+    if wave.shape[1] == 0 or n_samples <= wave.shape[1]:
+        return wave[:, : max(n_samples, 0)]
+    out = wave
+    while out.shape[1] < n_samples:
+        x = int(SR * crossfade_ms / 1000)
+        x = min(x, wave.shape[1] // 2, out.shape[1] // 2)
+        if x <= 0:
+            out = np.concatenate([out, wave], axis=1)
+            continue
+        t = np.linspace(0.0, 1.0, x)
+        seam = out[:, -x:] * (1.0 - t) + wave[:, :x] * t
+        out = np.concatenate([out[:, :-x], seam, wave[:, x:]], axis=1)
+    return out[:, :n_samples]
+
+
 def place(timeline: np.ndarray, seg: np.ndarray, at_sec: float) -> np.ndarray:
     """Umieść seg na timeline (dopisując próbki). Zwraca timeline."""
     at = int(at_sec * SR)

@@ -1,0 +1,9 @@
+{
+  "story_id": "4",
+  "length_sec": 8.0,
+  "background": {"id": "frogs_night_01", "offset_sec": 0.0, "target_db": -32},
+  "hero": {"id": "loon_wail_01", "at_sec": 1.3, "target_db": -15},
+  "coda": {"gesture": "g4b_mystery_tritone", "instrument": "b_wine_glasses", "at_sec": 4.6, "target_db": -21},
+  "seed": 7,
+  "gate": "g001"
+}

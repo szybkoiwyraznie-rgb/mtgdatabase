@@ -1,5 +1,83 @@
 {
   "schema": 1,
-  "description": "Baza gestures systemu sygnat\u00F3r (docs/signature-system.md). Wpisy trafiają tu wyłącznie przez akceptację w bramce odsłuchowej.",
-  "entries": []
+  "description": "Baza gestures systemu sygnatór (docs/signature-system.md). Wpisy trafiają tu wyłącznie przez akceptację w bramce odsłuchowej.",
+  "entries": [
+    {
+      "id": "g1b_march_pulse",
+      "semantic": "marsz zagrożenia — dwa impulsy i cień kwinty",
+      "desc": "dwa krótkie uderzenia jak kroki formującej się armii, potem długi niski cień zagrożenia",
+      "notes": [
+        {
+          "midi": 33,
+          "on": 0.0,
+          "off": 0.32,
+          "vel": 0.85
+        },
+        {
+          "midi": 33,
+          "on": 0.42,
+          "off": 0.75,
+          "vel": 0.82
+        },
+        {
+          "midi": 38,
+          "on": 0.95,
+          "off": 2.5,
+          "vel": 0.9
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 20,
+          "vel": 0.05
+        }
+      },
+      "instrument_tags": [
+        "timpani",
+        "low_strings",
+        "percussion_low"
+      ],
+      "approved": {
+        "gate": "g001",
+        "choice": "a.2",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "g4b_mystery_tritone",
+      "semantic": "tajemnica — wysoka nuta nad nierozwiązanym niskim dźwiękiem",
+      "desc": "niski szmer i wiszącą nad nim bardzo wysoka nuta; nic się nie domyka, jak pytanie bez odpowiedzi",
+      "notes": [
+        {
+          "midi": 54,
+          "on": 0.0,
+          "off": 2.7,
+          "vel": 0.55
+        },
+        {
+          "midi": 72,
+          "on": 0.7,
+          "off": 2.7,
+          "vel": 0.5
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 20,
+          "vel": 0.05
+        }
+      },
+      "instrument_tags": [
+        "strings",
+        "glass",
+        "bells",
+        "flute"
+      ],
+      "approved": {
+        "gate": "g001",
+        "choice": "a.2",
+        "date": "2026-09-23"
+      }
+    }
+  ]
 }

@@ -68,6 +68,28 @@ i pieczątkę akceptacji `approved` (bramka, wybór, data).
 Mix jest deterministyczny: poziomy `target_db`, okna `at_sec` z receptury,
 humanizacja ziarnicowana seedem. Bramki twarde:
 
+### Adaptacja rejestru kody (scripts/coda_synth.py)
+
+Gesty w bazie a zapisujemy w rejestrze muzycznym (nuty MIDI), a instrumenty
+bazy b mają wąski, nieciągły zakres sampli. Koda NIE może cicho „gubić" nut —
+stosuje deterministyczną drabinę (każdy krok loguje `!` w renderze i audycie):
+
+1. dokładne midi albo najbliższa w ±3 półtony;
+2. nuty spoza zakresu przenoszone o oktawę (±12, ±24), jeśli wpadną w bank w ±3;
+3. jeśli nadal brakuje nut — CAŁY gest transponowany jednolicie (t ∈ ±24),
+   wybierając przesunięcie o maks. liczbie dopasowanych nut (rytm i kontur bez
+   zmian), potem min. korekta i min. |t|;
+4. dopiero co się nie zmieściło — pominięte z jawnego ostrzeżeniem.
+
+Wynik adaptacji zawsze słyszalnie odsłuchujemy na koniec sesji; gdy adaptacja
+psuje zamiar gestu (np. trójtona), remedium NIE jest „ładniejszy maper",
+tylko nowe sampla / wariant gestu przez bramkę.
+
+Tło krótsze niż sygnatura zapętlamy crossfade'em (`sig_audio.loop_to_length`),
+żeby szew pętli nie klikał.
+
+Bramki twarde:
+
 - długość ≤ 10 s;
 - hero czytelny: RMS(okno hero) ≥ RMS(1 s przed hero) + 6 dB;
 - całość RMS ≥ -26 dBFS;

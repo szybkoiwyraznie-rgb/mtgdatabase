@@ -96,6 +96,39 @@ def test_qa_gates() -> None:
     check("QA łapie >10 s", any("10" in e for e in errors))
 
 
+def test_coda_register_adapt() -> None:
+    # oktawa: bank wine_glasses {63,66,68,74}; F#3 (54) -> F#4 (66), C5 (72) -> D5 (74)
+    inst = {"samples": {"63": "a.wav", "66": "b.wav", "68": "c.wav", "74": "d.wav"}}
+    resolved, warn = coda_synth.resolve_samples(inst, [54, 72])
+    check("adaptacja oktawą F#3->F#4", resolved.get(54) == Path("b.wav"), str(warn))
+    check("C5->D5 w ±3", resolved.get(72) == Path("d.wav"), str(warn))
+    check("log adaptacji oktawą", any("oktawy" in w for w in warn))
+    # jednolita transpozycja: bank timpani {38,39,41}; gest {33,38} -> 33->38, 38->41
+    inst2 = {"samples": {"38": "x.wav", "39": "y.wav", "41": "z.wav"}}
+    resolved2, warn2 = coda_synth.resolve_samples(inst2, [33, 38])
+    check("transpozycja gestu: 33->38", resolved2.get(33) == Path("x.wav"), str(warn2))
+    check("transpozycja gestu: 38->41", resolved2.get(38) == Path("z.wav"), str(warn2))
+    check("log transpozycji", any("transponowany" in w for w in warn2))
+    # niedopasowalne nuty dalej są pomijane z ostrzeżeniem
+    resolved3, warn3 = coda_synth.resolve_samples({"samples": {"60": "q.wav"}}, [30, 90])
+    check("niedopasowane pominięte", 30 not in resolved3 and 90 not in resolved3)
+    check("log pominięć", any("pominięta" in w for w in warn3))
+
+
+def test_loop_seam() -> None:
+    sr = dsp.SR
+    t = np.linspace(0, 0.5, int(sr * 0.5), endpoint=False)
+    wave = np.stack([np.sin(2 * np.pi * 220 * t) * 0.5] * 2)
+    looped = dsp.loop_to_length(wave, int(sr * 1.4))
+    check("loop: docelowa długość", looped.shape[1] == int(sr * 1.4))
+    diffs = np.abs(np.diff(looped[0]))
+    seam = int(sr * 0.5)
+    win = diffs[max(seam - 220, 0): seam + 220]
+    base = float(np.median(diffs[:2000]))
+    check("loop: szew bez kliku", float(win.max()) < 6 * max(base, 1e-9),
+          f"max={win.max():.6f} base={base:.6f}")
+
+
 def test_registries_and_reading() -> None:
     result = subprocess.run([sys.executable, str(REPO / "scripts" / "library_tool.py"), "check"],
                             capture_output=True, text=True, cwd=REPO)
@@ -111,6 +144,8 @@ def main() -> None:
         test_pack_rule(Path(td))
     with tempfile.TemporaryDirectory() as td:
         test_coda_render(Path(td))
+    test_coda_register_adapt()
+    test_loop_seam()
     test_qa_gates()
     test_registries_and_reading()
     print(f"\n{len(FAILURES)} niepowodzeń" if FAILURES else "\nwszystkie testy OK")

@@ -454,14 +454,14 @@
               "label": "d.3",
               "title": "nocne żaby nad wodą",
               "file": "candidates/s4_d3.mp3",
-              "desc": "chór żab po zmroku — żywa, ale spokojna okolica",
+              "desc": "cichy chór żab po zmroku (werdykt: wybrany cichy fragment od ~6. s źródła; głośna cześć wycięta)",
               "source": "Yellowstone Sound Library (NPS) — Boreal Chorus Frogs; Public Domain (utwór rządu USA)",
               "entry": {
                 "id": "frogs_night_01",
                 "setting": "jezioro / noc",
-                "desc": "chór żab nad wodą nocą",
+                "desc": "cichy chór żab nad wodą nocą",
                 "file": "audio/library/backgrounds/frogs_night_01.mp3",
-                "duration_sec": 8.05,
+                "duration_sec": 5.9,
                 "level_ref_db": -34,
                 "loopable": true,
                 "source": {
@@ -470,7 +470,7 @@
                   "license": "Public Domain (utwór rządu USA)",
                   "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
                   "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
-                  "notes": "Chorus Frogs 100.5-108.5 s"
+                  "notes": "Chorus Frogs 106.0-111.9 s (cichy fragment; okno wybrane po werdykcie bramki g001)"
                 }
               }
             }
@@ -799,5 +799,29 @@
         }
       }
     }
-  ]
+  ],
+  "amendments": [
+    {
+      "date": "2026-09-23",
+      "gate_decision": "fabuła 4 d.3",
+      "change": "stem s4_d3.mp3 przecięty z 100.5-108.5 s na cichy fragment 106.0-111.9 s; głośna wersja (100.5-108.5 s) zachowana w historii gita"
+    }
+  ],
+  "verdicts": {
+    "1": {
+      "d": "d.2",
+      "c": "c.3",
+      "a": "a.2",
+      "b": "b.1"
+    },
+    "4": {
+      "d": "d.3",
+      "c": "c.1",
+      "a": "a.2",
+      "b": "b.3"
+    },
+    "notes": {
+      "4.d": "właściciel: żaby za głośne w pierwszej części kandydata; wzięty cichy fragment od ~6. s (przecięcie wykonane 2026-09-23)"
+    }
+  }
 }

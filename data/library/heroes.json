@@ -1,5 +1,67 @@
 {
   "schema": 1,
-  "description": "Baza heroes systemu sygnat\u00F3r (docs/signature-system.md). Wpisy trafiają tu wyłącznie przez akceptację w bramce odsłuchowej.",
-  "entries": []
+  "description": "Baza heroes systemu sygnatór (docs/signature-system.md). Wpisy trafiają tu wyłącznie przez akceptację w bramce odsłuchowej.",
+  "entries": [
+    {
+      "id": "raven_yell_long_01",
+      "role": "krzyk dużego ptaka zwiadowczego",
+      "desc": "długi agresywny wrzask kruka",
+      "file": "audio/library/heroes/raven_yell_long_01.mp3",
+      "duration_sec": 1.83,
+      "character": "agresywny, przeciągany",
+      "distance": "bliski",
+      "energy": "bardzo wysoka",
+      "good_for": [
+        "atak",
+        "alarm"
+      ],
+      "bad_for": [
+        "subtelność"
+      ],
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Common Raven 6.0-7.8 s"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "c.3",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "loon_wail_01",
+      "role": "zew tajemniczego ptaka wodnego",
+      "desc": "wysoki nawiedzony zew nura nad jeziorem",
+      "file": "audio/library/heroes/loon_wail_01.mp3",
+      "duration_sec": 2.64,
+      "character": "nawiedzony, melodyjny",
+      "distance": "daleki",
+      "energy": "średnia",
+      "good_for": [
+        "tajemnica",
+        "samotność",
+        "magia miejsca"
+      ],
+      "bad_for": [
+        "walka"
+      ],
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Common Loon 64.0-66.6 s"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "c.1",
+        "date": "2026-09-23"
+      }
+    }
+  ]
 }

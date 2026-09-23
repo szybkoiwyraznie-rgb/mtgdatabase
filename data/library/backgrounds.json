@@ -1,5 +1,50 @@
 {
   "schema": 1,
-  "description": "Baza backgrounds systemu sygnat\u00F3r (docs/signature-system.md). Wpisy trafiają tu wyłącznie przez akceptację w bramce odsłuchowej.",
-  "entries": []
+  "description": "Baza backgrounds systemu sygnatór (docs/signature-system.md). Wpisy trafiają tu wyłącznie przez akceptację w bramce odsłuchowej.",
+  "entries": [
+    {
+      "id": "thunder_far_01",
+      "setting": "wąwóz / burza w oddali",
+      "desc": "niski toczący się grzmot, złowieszcza pogoda",
+      "file": "audio/library/backgrounds/thunder_far_01.mp3",
+      "duration_sec": 8.05,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Thunder 24.0-32.0 s"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "d.2",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "frogs_night_01",
+      "setting": "jezioro / noc",
+      "desc": "cichy chór żab nad wodą nocą",
+      "file": "audio/library/backgrounds/frogs_night_01.mp3",
+      "duration_sec": 5.9,
+      "level_ref_db": -34,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Chorus Frogs 106.0-111.9 s (cichy fragment; okno wybrane po werdykcie bramki g001)"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "d.3",
+        "date": "2026-09-23"
+      }
+    }
+  ]
 }

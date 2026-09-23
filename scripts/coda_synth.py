@@ -49,19 +49,61 @@ def resolve_samples(instrument: dict, midis: list[int]) -> tuple[dict[int, Path]
             chosen[m] = Path(art[vel_bucket][0] if isinstance(art[vel_bucket], list) else art[vel_bucket])
         return chosen, warnings
     have = {int(k): v for k, v in samples.items() if str(k).isdigit()}
-    missing = [m for m in midis if m not in have]
-    resolved: dict[int, Path] = {}
+    bank = sorted(have)
+
+    def nearest(m: int) -> int | None:
+        cand = [c for c in bank if abs(c - m) <= MAX_SEMITONE_DISTANCE]
+        return min(cand, key=lambda c: abs(c - m)) if cand else None
+
+    # Drabina adaptacji rejestru (deterministyczna, wszystko ląduje w warnings):
+    # 1) dokładne midi albo najbliższe w ±3 półtony;
+    resolved: dict[int, int] = {}
     for m in midis:
-        if m in have:
-            resolved[m] = Path(have[m])
+        n = nearest(m)
+        if n is not None:
+            resolved[m] = n
+    # 2) niedopasowane nuty przenosimy o oktawę (±12, ±24), jeśli po przeniesieniu
+    #    wpadają w bank w ±3 półtony;
+    octave_fixed: set[int] = set()
+    for m in midis:
+        if m in resolved:
             continue
-        near = min((c for c in have if abs(c - m) <= MAX_SEMITONE_DISTANCE), key=lambda c: abs(c - m), default=None)
-        if near is None:
-            warnings.append(f"brak nuty {dsp.midi_to_name(m)} ({m}) w ±{MAX_SEMITONE_DISTANCE} półtony — nuta pominięta")
+        choices: list[tuple[int, int, int, int]] = []
+        for octs in (12, -12, 24, -24):
+            n = nearest(m + octs)
+            if n is not None:
+                choices.append((abs(n - (m + octs)), abs(octs), -octs, n))
+        if choices:
+            choices.sort()
+            d, _, _, n = choices[0]
+            resolved[m] = n
+            octave_fixed.add(m)
+            warnings.append(f"nuta {dsp.midi_to_name(m)} ({m}) przeniesiona do najbliższej oktawy: {dsp.midi_to_name(n)}")
+    # 3) gdy nadal brakuje nut: transponujemy CAŁY gest jednolicie, tak żeby jak
+    #    najwięcej nut weszło w bank (rachunek: max skuteczności, potem min korekta,
+    #    potem min |t|); kontur i rytm gestu zostają nietknięte.
+    if any(m not in resolved for m in midis):
+        best: tuple[tuple[int, int, int], int, dict[int, int | None]] | None = None
+        for t in range(-24, 25):
+            mapped = {m: nearest(m + t) for m in midis}
+            cnt = sum(1 for v in mapped.values() if v is not None)
+            dist = sum(abs(v - (m + t)) for m, v in mapped.items() if v is not None)
+            key = (cnt, -dist, -abs(t))
+            if best is None or key > best[0]:
+                best = (key, t, mapped)
+        assert best is not None
+        (cnt, _, _), t, mapped = best
+        if cnt > len(resolved):
+            warnings.append(f"gest transponowany {t:+d} półtonów do zakresu instrumentu (dopasowane {cnt}/{len(midis)})")
+            resolved = {m: v for m, v in mapped.items() if v is not None}
+            octave_fixed = set()
+    for m in midis:
+        if m in resolved:
+            if resolved[m] != m and m not in octave_fixed:
+                warnings.append(f"nuta {dsp.midi_to_name(m)} zastąpiona najbliższą {dsp.midi_to_name(resolved[m])}")
         else:
-            warnings.append(f"nuta {dsp.midi_to_name(m)} zastąpiona najbliższą {dsp.midi_to_name(near)}")
-            resolved[m] = Path(have[near])
-    return resolved, warnings
+            warnings.append(f"brak nuty {dsp.midi_to_name(m)} ({m}) po adaptacji rejestru — nuta pominięta")
+    return {m: Path(have[n]) for m, n in resolved.items()}, warnings
 
 
 def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: float = -20.0) -> RenderedCoda:
@@ -87,6 +129,7 @@ def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: fl
         cache[m] = dsp.normalize_rms(wave, level_ref_db)
     end_sec = max((float(n["off"]) + timing_jitter * 3) for n in gesture["notes"]) + 1.0
     out = np.zeros((2, int(end_sec * dsp.SR)))
+    placed = 0
     for note in sorted(gesture["notes"], key=lambda n: float(n["on"])):
         m = int(note["midi"])
         if m not in cache:
@@ -103,7 +146,8 @@ def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: fl
         if vel_jitter:
             vel = float(np.clip(vel * (1.0 + rng.uniform(-vel_jitter, vel_jitter)), 0.05, 1.0))
         out = dsp.place(out, seg * vel, max(on, 0.0))
-    return RenderedCoda(out, warnings, len(gesture["notes"]))
+        placed += 1
+    return RenderedCoda(out, warnings, placed)
 
 
 def main() -> None:  # szybkie demo: python coda_synth.py gesture.json instrument.json out.mp3

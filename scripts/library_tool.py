@@ -60,7 +60,7 @@ def check() -> int:
             missing_src = [k for k in SOURCE_KEYS if k not in source]
             if missing_src and kind != "gestures":
                 errors.append(f"{kind}/{entry['id']}: source bez pól {missing_src}")
-            if kind in KIND_DIR and not (REPO / entry["file"]).exists():
+            if kind in KIND_DIR and entry.get("file") and not (REPO / entry["file"]).exists():
                 errors.append(f"{kind}/{entry['id']}: brak pliku {entry['file']}")
             if kind == "instruments":
                 samples = entry["samples"]
@@ -129,7 +129,7 @@ def accept(gate_id: str) -> int:
                 reg["entries"] = [entry if e["id"] == entry["id"] else e for e in reg["entries"]]
             else:
                 reg["entries"].append(entry)
-            if kind in KIND_DIR:
+            if kind in KIND_DIR and entry.get("file"):
                 dst = REPO / entry["file"]
                 dst.parent.mkdir(parents=True, exist_ok=True)
                 if not dst.exists():

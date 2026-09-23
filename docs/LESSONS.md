@@ -83,3 +83,12 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Sytuacja: po ~10 utworach i wielu rundach ocen właściciel stwierdził, że efekt nie jest nastrojowy, a koszt linowy od liczby fabuł czyni cel nieosiągalnym; podjął decyzję o zastąpieniu fabryki systemem czterech baz klocków z bramką odsłuchową (kasacja starych jingli, nazwa produktu zawsze `<id>.mp3`).
 - Wniosek: wąskim gardłem była ewaluacja audio zepchnięta na jedną parę uszu przy każdym utworze; właściwe miejsce ucha człowieka to obsadzanie klocków (raz), nie ocena miksu (500 razy). Unikalność kombinacji a·b·c·d wystarcza jako ochrona różnorodności — nie trzeba 500 unikalnych miksu.
 - Zasada / działanie zapobiegawcze: obowiązuje ADR 0003; jakość ma wynikać z konstrukcji (zatwierdzone składniki + bramki montażu), nie z iterowanej oceny. Od pierwszej bramki: nagrania terenowe ptactwa o bardzo niskim profilu (Bald Eagle, 98 % < 250 Hz) nie nadają się na hero — sprawdzać pasmo charakterystyczne; biblioteka Kawai VCSL ma luki w skali (brak A3, F2) — wybór nut gestu po sprawdzeniu mapy sampli, nie „na papierze".
+
+- **2026-09-23 (adaptacja rejestru kody):** gesty nutowe i banki sampli żyją w
+  różnych zakresach (A1 marczego pulsu vs kotły D2–F2, F#3 trytonu vs kieliszki
+  D#4–D5). „Pomiń nutę" cicho psuło utwór — wdrożono deterministyczną drabinę:
+  ±3 półtony → oktawa → jednolita transpozycja gestu → jawne pominięcie. Każda
+  adaptacja ląduje w ostrzeżeniach renderu. Pętle tła: crossfade na szwie
+  (zwykły `np.tile` klikał). Przy bramce demo instrumentu zawsze prezentować
+  fragment w JEGO zakresie — i tak się dzieje (fraza demonstracyjna), trzymać
+  tę zasadę.

@@ -56,8 +56,7 @@ def render(recipe: dict) -> tuple[np.ndarray, dict, list[str]]:
     bed, _ = dsp.load_any(REPO / bed_entry["file"])
     seg = dsp.cut(bed, float(bed_ref.get("offset_sec", 0.0)), float(bed_ref.get("offset_sec", 0.0)) + length)
     if seg.shape[1] < int(length * dsp.SR):
-        reps = int(np.ceil(int(length * dsp.SR) / max(seg.shape[1], 1)))
-        seg = np.tile(seg, (1, reps))[:, : int(length * dsp.SR)]
+        seg = dsp.loop_to_length(seg, int(length * dsp.SR))
         warnings.append("tło zapętlone (krótsze niż sygnatura)")
     seg = dsp.fade(seg, 0.8, 2.0)
     seg = dsp.normalize_rms(seg, float(bed_ref.get("target_db", -32.0)))
