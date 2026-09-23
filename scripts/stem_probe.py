@@ -13,7 +13,9 @@ energy <250 / 250-2k / 2-6k / >6 kHz - gravel_feet carries 36% above 6 kHz
 = the "paper tearing" character), the RMS profile per 0.5 s window, and
 the suggested offset_sec / length_sec for the recipe.
 
-Requires the authoring venv: `pip install numpy soundfile`.
+Requires the authoring venv: `pip install numpy soundfile av`. MP3/WAV/M4A
+are decoded through the shared `sig_audio.load_any` path, so source packs can
+be audited before conversion.
 
 Usage:
   python scripts/stem_probe.py                      # all stems
@@ -32,18 +34,21 @@ STEMS = ROOT / "audio/library"  # domyślny katalog odniesienia dla ścieżek wz
 SR = 44_100
 
 
-def load(name: str) -> np.ndarray:
-    import soundfile as sf
+def stem_path(name: str) -> Path:
+    """Przyjmij ścieżkę roboczą/absolutną albo nazwę z audio/library."""
+    supplied = Path(name).expanduser()
+    if supplied.is_file():
+        return supplied
+    return STEMS / supplied
 
-    path = STEMS / name
-    data, sr = sf.read(str(path))
-    if data.ndim > 1:
-        data = data.mean(axis=1)
-    if sr != SR:
-        old = np.linspace(0.0, 1.0, len(data), endpoint=False)
-        new = np.linspace(0.0, 1.0, int(len(data) * SR / sr), endpoint=False)
-        data = np.interp(new, old, data)
-    return data.astype(np.float64)
+
+def load(name: str) -> np.ndarray:
+    # Jeden dekoder dla całego warsztatu: soundfile sam nie czyta M4A/AAC,
+    # które stanowią większość zweryfikowanego mirrora atomcut.
+    import sig_audio as dsp
+
+    data, _ = dsp.load_any(stem_path(name))
+    return data.mean(axis=0).astype(np.float64)
 
 
 def windows_rms(data: np.ndarray, win_sec: float = 0.5, hop_sec: float = 0.25) -> list[tuple[float, float]]:
@@ -105,8 +110,9 @@ def main() -> int:
     else:
         names = sorted(p.name for p in STEMS.glob("*.mp3"))
     for name in names:
-        if not (STEMS / name).is_file():
-            print(f"nie znaleziono: {STEMS / name}", file=sys.stderr)
+        path = stem_path(name)
+        if not path.is_file():
+            print(f"nie znaleziono: {path}", file=sys.stderr)
             return 1
         describe(name)
     return 0
