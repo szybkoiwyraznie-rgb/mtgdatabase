@@ -2,6 +2,14 @@
 
 Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każdy wpis powinien odpowiadać na pytanie: co się wydarzyło, czego się nauczyliśmy i jak zapobiec powtórce.
 
+> **Jak czytać ten plik:** wpisy są chronologiczne i **nowszy wpis może
+> uchylić starszy** (np. progi widmowe dla teł zostały obalone przez wpis
+> o nagraniach terenowych). Przy sprzeczności obowiązuje wpis późniejszy;
+> uchylone miejsca są oznaczone. Skrypty wymieniane we wpisach sprzed
+> pivotu (`render_jingle.py`, `sync_ratings.py`, `remake_queue.py`,
+> `audit_audio.py`, `validate_versions.py`, `docs/agent-workflow.md`) już
+> nie istnieją — opisują dawną fabrykę i zostają jako wiedza procesowa.
+>
 > **Uwaga (2026-09-23):** wpisy sprzed tej daty opisują zakończoną „fabrykę jingli”
 > (oceny z issues, wersje vN, remake’i, `versions.json`). Zachowujemy je dla
 > wiedzy procesowej (audycja sampli, determinizm renderu, kanały pobierania),
@@ -248,6 +256,10 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Zasada / działanie zapobiegawcze: dla teł żywiołów licz dwie rzeczy —
   (1) udział energii poniżej 1 kHz, (2) liczbę skoków energii > 4 dB na
   sekundę (okna 100 ms). Woda: 67–81% i ≥1,5 zdarzenia/s (bulgot, bąble).
+  **UWAGA — próg „>65% poniżej 1 kHz” został później OBALONY** (wpis
+  z 2026-09-23 o nagraniach terenowych): przyjęty strumień ma 15–27% i
+  centroid ~3 kHz. Zostawiam wpis, bo diagnoza „syk pary ≠ woda” była
+  trafna, ale nie stroj do tych liczb — patrz ostatni wpis pliku.
   Odrzucone jako „wiatr”: Dragon's Mouth ~20% i ~0 zdarzeń, a także
   `loop-water-*` rubberducka (13–36%, centroid 3200–4300 Hz — mimo nazwy
   „water” to szum). Dodatkowo tnij pasmo > 5–6 kHz, które nadaje charakter
@@ -356,3 +368,20 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   zastępczej — polecenie właściciela: „nie bój się korzystać ze scouta”;
   (3) obróbka nagrania terenowego: tylko okno, filtr rumble, łagodne
   przymknięcie góry i poziom. Żadnego pitchowania.
+
+## 2026-09-23 — Licencje: prywatny użytek, nie audyt prawny
+
+- Sytuacja: po tym, jak Scout przyniósł nagranie z notą „Copyright status
+  unknown”, usunąłem plik i zaostrzyłem filtr do jawnego CC0/PD. Właściciel
+  skorygował: „projekt jest prywatny, pliki trafią na mój dysk lokalny,
+  jak nie ma podanej licencji to przyjmujemy że jest ok, do prywatnego,
+  niekomercyjnego wykorzystania też może być”.
+- Wniosek: nadmiarowa ostrożność kosztowała kandydatów i rundy poszukiwań
+  bez korzyści dla właściciela. Rygor CC0 miał sens dla materiału
+  publikowanego, a nie dla wszystkiego, co przechodzi przez warsztat.
+- Zasada / działanie zapobiegawcze: brak licencji **nie** blokuje przyjęcia
+  (`"license": "brak informacji"`); materiał jawnie wolny ma pierwszeństwo
+  w rankingu; jawne zastrzeżenia komercyjne oznaczamy statusem
+  `restricted`, bo dotyczą wyłącznie publicznej gablotki Pages i ZIP-a
+  w Releases. Scout: `license_status` w manifeście, `--free-only` gdy
+  materiał ma iść do publikacji. Polityka w `docs/sources-and-licensing.md`.

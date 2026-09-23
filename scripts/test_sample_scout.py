@@ -119,6 +119,22 @@ def test_archiveorg_finds_cc0_behind_popular_non_cc0_rows(monkeypatch):
     assert found[0]["archive_file"] == "creek.mp3"
 
 
+def test_licence_status_classifies_free_unknown_and_restricted():
+    """Polityka właściciela: prywatny użytek dopuszcza nieznaną licencję.
+
+    Wolne (CC0/PD Mark) ma pierwszeństwo w rankingu, brak informacji jest
+    dopuszczony i oznaczony, a jawne zastrzeżenia komercyjne wyróżnione,
+    żeby nie trafiły do publicznej gablotki.
+    """
+    assert scout.licence_status("https://creativecommons.org/publicdomain/zero/1.0/") == "free"
+    assert scout.licence_status("http://creativecommons.org/publicdomain/mark/1.0/") == "free"
+    assert scout.licence_status("") == "unknown"
+    assert scout.licence_status(None) == "unknown"
+    assert scout.licence_status("Copyright status unknown. This work may be protected "
+                                "by the U.S. Copyright Law.") == "restricted"
+    assert scout.licence_status("http://creativecommons.org/licenses/by-nc/4.0/") == "restricted"
+
+
 def test_licence_prose_with_public_domain_words_is_rejected():
     """Regresja 2026-09-23: nota „Copyright status unknown” przeszła jako wolna.
 

@@ -55,6 +55,13 @@ gh api repos/szybkoiwyraznie-rgb/mtgdatabase/dispatches \
 
 Pełna instrukcja pól i pułapki: `docs/sources-and-licensing.md`.
 
+## Licencje — nie komplikuj
+
+Projekt prywatny, niekomercyjny, pliki na dysk właściciela: **brak licencji
+jest OK**, wolne ma pierwszeństwo, status zapisujemy w rejestrze. Ostrożność
+dotyczy wyłącznie publicznej gablotki Pages i ZIP-a. Pełna polityka:
+`docs/sources-and-licensing.md` (sekcja na górze).
+
 ## Rzeczy, które łatwo przeoczyć
 
 - Bramka i gablotka to **dwa różne serwery** (:8080 i :3000);

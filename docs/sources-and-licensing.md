@@ -1,6 +1,26 @@
 # Źródła sampli i warsztat
 
-Projekt jest niekomercyjny i przeznaczony do prywatnego użycia offline, ale status licencji każdego źródła musi być zapisany. Prywatność nie zastępuje warunków licencji.
+## Polityka licencyjna (decyzja właściciela, 2026-09-23)
+
+Projekt jest **prywatny i niekomercyjny**, a gotowe pliki trafiają na dysk
+lokalny właściciela. Dlatego:
+
+- materiał **bez podanej licencji jest dopuszczony** — przyjmujemy, że do
+  prywatnego, niekomercyjnego użytku może być. Brak licencji nie jest
+  powodem do odrzucenia kandydata ani do dodatkowej rundy poszukiwań;
+- materiał **jawnie wolny** (CC0, Public Domain Mark, PD) ma **pierwszeństwo**
+  — przy równej jakości wybieramy go i tak oznaczamy w rejestrze;
+- **status zapisujemy zawsze** (`source.license`, a dla kandydatów Scouta
+  pole `license_status`: `free` / `unknown` / `restricted`). Nie po to, by
+  blokować pracę, tylko żeby było wiadomo, co jest czym;
+- ostrożność zostaje w jednym miejscu: **publiczna gablotka Pages i ZIP
+  w Releases**. Tam trafiają gotowe sygnatury; materiał oznaczony jako
+  `restricted` (jawne „all rights reserved”, licencje NC) nie powinien
+  w nich lądować bez decyzji właściciela.
+
+Nie wydłużaj pracy weryfikacją licencji ponad powyższe. Wcześniejsza wersja
+tego dokumentu kazała odrzucać wszystko, co nie jest jawnie CC0 — to
+kosztowało rundy poszukiwań i zostało uchylone.
 
 Rejestr powinien zawierać co najmniej:
 
@@ -16,7 +36,9 @@ checked_at
 notes
 ```
 
-Agent może badać nowe biblioteki i narzędzia, ale nie powinien automatycznie dołączać materiału o nieznanej licencji do paczki dystrybucyjnej. Materiał eksperymentalny można oznaczyć jako roboczy i trzymać poza publicznym buildem Pages.
+Agent może badać nowe biblioteki i narzędzia. Materiał o nieznanej licencji
+jest dopuszczony do produkcji na dysk właściciela (patrz polityka wyżej);
+przy publikacji na Pages/Release kierujemy się statusem zapisanym w rejestrze.
 
 Formalny rejestr sampli produkcyjnych to pola `source` we wpisach czterech baz
 (`data/library/*.json`); każdy klocek (`hero`, `tło`, `instrument`, nuta
@@ -82,7 +104,10 @@ do rejestru. Odrzuty nie wchodzą do gita.
 Gdy potrzebnego zdarzenia nie ma w zweryfikowanych bibliotekach, użyj workflow **Sample scout**. Runner GitHub Actions ma dostęp do Freesound i Internet Archive, którego nie ma sandbox Arena. Workflow pobiera najwyżej pięć kandydatów CC0 do ograniczonego katalogu `legacy/source/sample_scout/`, zapisuje manifest z URL-em oryginału, autorem, licencją, metryką społecznościową, rozmiarem i SHA-256, a następnie commit bota udostępnia pliki kolejnemu agentowi przez `git fetch`.
 
 - `freesound`: wymaga sekretu Actions `FREESOUND_TOKEN`; ranking: średnia ocena, liczba ocen, pobrania;
-- `archive.org`: bez sekretu; ranking: liczba pobrań, po potwierdzeniu CC0 w metadanych.
+- `archive.org`: bez sekretu; ranking: **najpierw materiał jawnie wolny, potem
+  wg liczby pobrań**. Kandydaci bez podanej licencji też są pobierani
+  (`license_status: unknown`) — flaga `--free-only` zawęża wynik do CC0/PD,
+  gdy materiał ma iść do publicznej publikacji.
   **Filtr licencyjny jest częścią zapytania Lucene** (`licenseurl:(*publicdomain/zero*)`) —
   wersja filtrująca dopiero lokalnie zwracała zero wyników nawet dla pospolitych
   dźwięków, bo popularne audio w Archive prawie nigdy nie jest CC0 (błąd naprawiony

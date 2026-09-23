@@ -63,6 +63,27 @@ LICENCE_RED_FLAGS = (
 )
 
 
+def licence_status(license_field: object) -> str:
+    """Zwraca 'free' | 'unknown' | 'restricted'.
+
+    Polityka właściciela (2026-09-23): projekt jest prywatny i niekomercyjny,
+    pliki lądują na dysku lokalnym, więc brak podanej licencji NIE dyskwalifikuje
+    kandydata — zapisujemy status i lecimy dalej. Materiał jawnie wolny ma
+    pierwszeństwo w rankingu; jawne zastrzeżenia komercyjne oznaczamy, żeby
+    nie trafiły przypadkiem do publicznej gablotki Pages.
+    """
+    value = str(license_field or "").lower()
+    if not value.strip():
+        return "unknown"
+    if any(marker in value for marker in PD_URL_MARKERS):
+        return "free"
+    if len(value) <= 80 and ("creative commons 0" in value or "cc0" in value):
+        return "free"
+    if any(flag in value for flag in LICENCE_RED_FLAGS):
+        return "restricted"
+    return "unknown"
+
+
 def is_cc0(license_field: object) -> bool:
     """Czy pole licencji oznacza materiał wolny (CC0 / Public Domain Mark).
 
@@ -147,7 +168,7 @@ def fetch_freesound(query: str, count: int, sort: str, token: str) -> list[dict]
 # --------------------------------------------------------------------------
 # Connector: Internet Archive (community metric: downloads)
 # --------------------------------------------------------------------------
-def fetch_archiveorg(query: str, count: int) -> list[dict]:
+def fetch_archiveorg(query: str, count: int, allow_unknown: bool = True) -> list[dict]:
     """Search Internet Archive for CC0 audio.
 
     Two lessons are baked in (2026-09-23, empty result for a stream query):
@@ -166,6 +187,10 @@ def fetch_archiveorg(query: str, count: int) -> list[dict]:
         # Fallback: Archive also flags public-domain items without a CC0 URL.
         f"({query}) AND mediatype:(audio) AND (rights:(public domain) OR licenseurl:(*publicdomain*))",
     ]
+    if allow_unknown:
+        # Prywatny, niekomercyjny użytek: materiał bez podanej licencji też jest
+        # dopuszczony (decyzja właściciela), ale dopiero po wyczerpaniu wolnego.
+        queries.append(f"({query}) AND mediatype:(audio)")
     seen: set[str] = set()
     candidates: list[dict] = []
     for lucene in queries:
@@ -199,8 +224,9 @@ def fetch_archiveorg(query: str, count: int) -> list[dict]:
                 continue
             meta = metadata.get("metadata") or {}
             licence = meta.get("licenseurl") or doc.get("licenseurl") or meta.get("rights") or ""
-            if not is_cc0(licence):
-                print(f"skip {identifier}: licencja nie jest wolna "
+            status = licence_status(licence)
+            if status == "restricted" and not allow_unknown:
+                print(f"skip {identifier}: licencja zastrzeżona "
                       f"({str(licence)[:70]!r})", file=sys.stderr)
                 continue
             files = [
@@ -226,7 +252,8 @@ def fetch_archiveorg(query: str, count: int) -> list[dict]:
                 "download_url": f"https://archive.org/download/{identifier}/{urllib.parse.quote(filename, safe='/')}",
                 "name": f"{doc.get('title', identifier)} — {Path(filename).name}",
                 "author": doc.get("creator") or meta.get("creator") or "unknown",
-                "license": str(licence),
+                "license": str(licence) or "brak informacji",
+                "license_status": status,
                 "source_url": f"https://archive.org/details/{identifier}",
                 "duration_sec": None,
                 "avg_rating": None,
@@ -239,7 +266,8 @@ def fetch_archiveorg(query: str, count: int) -> list[dict]:
                          + (" Pobrano początek pliku (nagranie dłuższe niż limit)."
                             if size > MAX_SAMPLE_BYTES else "")),
             })
-    candidates.sort(key=lambda item: int(item.get("downloads") or 0), reverse=True)
+    candidates.sort(key=lambda item: (item.get("license_status") == "free",
+                                      int(item.get("downloads") or 0)), reverse=True)
     return candidates[:count]
 
 
@@ -289,6 +317,9 @@ def main() -> int:
     parser.add_argument("--query", required=True, help='np. "wolf howl" / "steam vent"')
     parser.add_argument("--count", type=int, default=5, help=f"1–{MAX_CANDIDATES} kandydatów")
     parser.add_argument("--sort", choices=SORTS, default="rating_desc", help="sortowanie Freesound")
+    parser.add_argument("--free-only", action="store_true",
+                        help="tylko materiał jawnie wolny (CC0/PD Mark); domyślnie "
+                             "dopuszczamy też nieznaną licencję — użytek prywatny")
     parser.add_argument("--out", type=Path, default=Path("legacy/source/sample_scout"))
     args = parser.parse_args()
     try:
@@ -305,7 +336,8 @@ def main() -> int:
         candidates = fetch_freesound(args.query, args.count, args.sort, token)
     else:
         token = None
-        candidates = fetch_archiveorg(args.query, args.count)
+        candidates = fetch_archiveorg(args.query, args.count,
+                                      allow_unknown=not args.free_only)
     if not candidates:
         print(f"{args.source}: brak kandydatów CC0 dla {args.query!r}.", file=sys.stderr)
         return 1

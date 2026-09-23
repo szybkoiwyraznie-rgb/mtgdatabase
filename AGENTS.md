@@ -25,7 +25,11 @@ i `docs/gate-protocol.md`.
    **Audycja obowiązkowa** (`stem_probe.py`) — ustawiaj offset na głośny
    fragment, patrz LESSONS 2026-09-22 (ciche głowy nagrań).
 8. Każdy wpis bazy ma proweniencję: źródło, autor, licencja, url, kanał
-   pobrania (kiszonka w polu `source`).
+   pobrania (w polu `source`). **Licencja nieznana nie blokuje przyjęcia** —
+   projekt jest prywatny i niekomercyjny (decyzja właściciela 2026-09-23);
+   zapisz `"license": "brak informacji"` i pracuj dalej. Materiał jawnie
+   wolny ma pierwszeństwo; jawne zastrzeżenia komercyjne oznacz, bo dotyczą
+   publikacji na Pages/Release. Szczegóły: `docs/sources-and-licensing.md`.
 9. Nie umieszczaj sekretów w kodzie/danych. Pages jest publiczny.
 10. Decyzje jednoznaczne wykonuj bez pytań; pytaj przy ryzyku utraty danych
     lub nieodwracalnej publikacji.
