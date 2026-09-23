@@ -225,7 +225,8 @@ def convert_notes() -> dict[str, dict[str, str]]:
             src = VCSL / spec["vcsl_dir"] / fname
             assert src.exists(), f"brak {src} — dołóż do sparse-checkout /tmp/vcsl"
             w, _ = load_src(src)
-            out = G / "instr_notes" / f"{iid}_{fname.replace('.wav', '.mp3')}"
+            safe = fname.replace("#", "s").replace(".wav", ".mp3")  # „#” psuje URL-e
+            out = G / "instr_notes" / f"{iid}_{safe}"
             encode128(out, w)
             gate_sources[iid][midi] = f"instr_notes/{out.name}"
         print(f"  {iid}: {len(spec['notes'])} nut")
