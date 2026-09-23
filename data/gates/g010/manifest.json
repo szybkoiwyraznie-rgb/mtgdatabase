@@ -1,0 +1,86 @@
+{
+  "id": "g010",
+  "created": "2026-09-23",
+  "note": "Runda 3 tła do fabuły 2. g008 brzmiała jak wiatr (syk pary), g009 jak gotująca się woda (bulgot = woda stojąca). Tu nurt budowany foleyem: ciągła płynąca masa + rozsiane chlupnięcia, bez bąbli. Etykiety s.*.",
+  "entries": [
+    {
+      "slug": "zalany-kanion",
+      "kind": "backgrounds",
+      "role": "tło fabuły 2: płynąca woda w skalnym kanionie — nurt, ciurkanie i chlupot o kamienie",
+      "candidates": [
+        {
+          "label": "s.1",
+          "title": "strumień po kamieniach",
+          "file": "candidates/s_stream_stones.mp3",
+          "desc": "równy nurt płynący po kamieniach z gęstym, drobnym chlupotem — woda cały czas się przelewa, nic nie bulgocze",
+          "source": "100 CC0 SFX #2 + 40 water/splash/slime + 25 mud SFX (rubberduck) + fantasy tiny SFX — CC0",
+          "entry": {
+            "id": "flooded_canyon_01",
+            "setting": "zalany kanion / strumień po kamieniach",
+            "desc": "równy nurt płynący po kamieniach z gęstym, drobnym chlupotem — woda cały czas się przelewa, nic nie bulgocze",
+            "file": "audio/library/backgrounds/flooded_canyon_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "100 CC0 SFX #2 (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/100-cc0-sfx-2",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "nurt: sfx100v2-loop-water-02 obniżony o 8 półtonów, filtr 3,2 kHz; chlupot: splash-04/09/12/14 + water-drop-01..03 rozsiane ~3,1/s (ziarno 11, deterministycznie)"
+            }
+          }
+        },
+        {
+          "label": "s.2",
+          "title": "nurt w ciasnym kanionie",
+          "file": "candidates/s_canyon_run.mp3",
+          "desc": "cięższa, głębsza woda w wąskim gardle kanionu: nurt niżej i ciemniej, chlupnięcia rzadsze i bardziej odległe",
+          "source": "100 CC0 SFX #2 + 40 water/splash/slime + 25 mud SFX (rubberduck) + fantasy tiny SFX — CC0",
+          "entry": {
+            "id": "flooded_canyon_02",
+            "setting": "zalany kanion / ciasne gardło",
+            "desc": "cięższa, głębsza woda w wąskim gardle kanionu: nurt niżej i ciemniej, chlupnięcia rzadsze i bardziej odległe",
+            "file": "audio/library/backgrounds/flooded_canyon_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "100 CC0 SFX #2 (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/100-cc0-sfx-2",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "nurt: sfx100v2-loop-water-02 obniżony o 9 półtonów, filtr 2,8 kHz; chlupot: splash + krople ~2,2/s (ziarno 23)"
+            }
+          }
+        },
+        {
+          "label": "s.3",
+          "title": "brodzenie w nurcie",
+          "file": "candidates/s_wading_steps.mp3",
+          "desc": "nurt plus cięższe, regularniejsze plaśnięcia — ktoś brodzi przez płynącą wodę; między krokami drobne krople",
+          "source": "100 CC0 SFX #2 + 40 water/splash/slime + 25 mud SFX (rubberduck) + fantasy tiny SFX — CC0",
+          "entry": {
+            "id": "flooded_canyon_03",
+            "setting": "zalany kanion / brodzenie w nurcie",
+            "desc": "nurt plus cięższe, regularniejsze plaśnięcia — ktoś brodzi przez płynącą wodę; między krokami drobne krople",
+            "file": "audio/library/backgrounds/flooded_canyon_03.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "100 CC0 SFX #2 (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/100-cc0-sfx-2",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "nurt: sfx100v2-loop-water-02 −8 półtonów, filtr 3 kHz; kroki: mud-01/05/09 + splash ~1,5/s (ziarno 37); krople: water-drop ~1,8/s (ziarno 53)"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

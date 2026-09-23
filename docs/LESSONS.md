@@ -253,3 +253,26 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   „water” to szum). Dodatkowo tnij pasmo > 5–6 kHz, które nadaje charakter
   syku. Sprawdzone rodziny chlupotu: `bubbling-*` z lokif „Swamp
   Environment Audio” i `loop-bubbles-*` z rubberduck „40 water/splash/slime”.
+
+## 2026-09-23 — Woda stojąca ≠ woda płynąca; brakujący żywioł składa się foleyem
+
+- Sytuacja: po odrzuceniu syku pary (g008) tło zbudowano z bulgotu i bąbli
+  (g009). Werdykt: „wszystko brzmi jak gotująca się woda, a woda w kanionie
+  płynie i ciurka, a nie puszcza bąbelki — ma być jak kroki w wodzie,
+  płynąca rzeka, woda po kamieniach”.
+- Wniosek: „woda” to nie jedna rola. Bulgot/bąble = ciecz STOJĄCA (gaz
+  wypływa na powierzchnię). Nurt = ciągła płynąca masa + nieregularne
+  chlupnięcia o przeszkody. Sito z poprzedniej rundy (energia < 1 kHz,
+  liczba zdarzeń) obie rzeczy przepuszcza jednakowo, więc nie wystarcza —
+  trzeba rozróżnić CHARAKTER zdarzeń, nie tylko ich liczbę.
+- Zasada / działanie zapobiegawcze: (1) rolę tła nazywaj czasownikiem ze
+  sceny („woda płynie po kamieniach”), nie rzeczownikiem („woda”);
+  (2) gdy żadna biblioteka nie ma nagrania danego zjawiska (tu: rzeki —
+  YSL ma wyłącznie gejzery, źródła i jezioro, a OGA `water-flowing` to syk
+  o centroidzie 5160 Hz), **złóż je foleyem** zamiast naciągać najbliższy
+  plik: warstwa ciągła (szum wody obniżony o 8–9 półtonów, filtr ~3 kHz =
+  płynąca masa) + warstwa zdarzeń (`scatter()`: chlupnięcia rozsiane
+  nierównomiernie z ziarnem, obniżone o 5–6 półtonów, bo biblioteczne
+  plusknięcia są jasne „pod grę”); (3) warstwy strojemy liczbami do celu
+  roli — tu centroid 1069–1332 Hz, > 6 kHz poniżej 2%, 2,4–3,0 zdarzenia/s.
+  Funkcje wielokrotnego użytku: `build_gate_g010.flow_layer()` i `scatter()`.
