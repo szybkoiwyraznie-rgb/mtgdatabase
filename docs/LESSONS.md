@@ -173,3 +173,14 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   jeśli hero ma charakter muzyczny/błysk, koda idzie wyraźnie później
   (≥1,3 s przerwy po hero) i barwo-odbiciem (tu: syntetyczny błysk vs struna
   fortepianu), nie drugim „zapem". Zapisane w recepcie 5 (pole notes).
+
+- **2026-09-23 (rodzina źródła ≠ pitch):** gobliny artisticdude obniżone
+  o −6 półtonów to dalej Smerfy — wada była w stylu wokalizacji źródła,
+  nie w wysokości. Reguła: jeśli werdykt mówi „zły CHARAKTER", zmieniaj
+  rodzinę; jeśli „za wysoki", zostaw rodzinę, schodź w dół. Rubberduck
+  80-creature: grep pasma głosu (udział 200–900 Hz > ~60%) dobrym sitom na
+  „poważny głos stwora" (grunt-02 78%, troll-01 79% vs hurt-01 11%).
+- **2026-09-23 (Sample Scout uprawnienia):** dispatch workflow z sandboksa
+  przez gh = HTTP 403 (integracja bez actions:write). Agent może przygotować
+  komendę, ale RUN klika właściciel (Actions → Sample scout → Run workflow,
+  ref main) — artefakty przychodzą commitem bota na legacy/source/sample_scout/.
