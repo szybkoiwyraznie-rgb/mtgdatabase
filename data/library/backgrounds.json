@@ -45,6 +45,50 @@
         "choice": "d.3",
         "date": "2026-09-23"
       }
+    },
+    {
+      "id": "fire_hearth_small_01",
+      "setting": "ogień / palenisko",
+      "desc": "małe ognisko — oszczędne trzaski",
+      "file": "audio/library/backgrounds/fire_hearth_small_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Fire 5.0-13.0 s"
+      },
+      "approved": {
+        "gate": "g002",
+        "choice": "ogien-palenisko.1",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "energy_steam_roar_01",
+      "setting": "energia / rozdarcie",
+      "desc": "groźny ryk pary ze szczeliny — ciągły",
+      "file": "audio/library/backgrounds/energy_steam_roar_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Black Growler Steam Vent 4.0-12.0 s"
+      },
+      "approved": {
+        "gate": "g002",
+        "choice": "wir-energia.1",
+        "date": "2026-09-23"
+      }
     }
   ]
 }

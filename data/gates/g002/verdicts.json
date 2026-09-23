@@ -1,0 +1,17 @@
+{
+  "grandpiano": "p.2",
+  "beben-wojenny": "b.2",
+  "ryk-bestii": "żaden",
+  "ogien-palenisko": "d.1",
+  "wir-energia": "d.1",
+  "koda-swiatlo": "a.1",
+  "notes": {
+    "ryk-bestii": "właściciel: żaden — c.1 to jakaś melodia na flecie i do tego kwik; c.2 pusty dźwięk poniżej pasma słyszalnego; c.3 jedyny czytelny pomruk, ale nie nadaje się na ryk bestii. DOKTRYNA: 3 kandydatów na wpis = 3 RYKI (warianty/rekordy tej samej roli), NIE 3 różne zwierzęta.",
+    "ogien-palenisko": "właściciel: d.1 i d.3 brzmią identycznie, tylko d.3 głośniejsze; d.2 słabe, w ogóle nie przypomina ognia. Lekcja: kandydaci na ogień muszą być różnymi wariantami ognia (intensywnością), ale wykazalnie ogniem.",
+    "wir-energia": "właściciel: d.1 to jedyna energia/wir; d.2 bulgotanie w kotle; d.3 nic, z czymś się kojarzące — delikatne szuranie.",
+    "etykiety": "kolizja liter: ogien-palenisko i wir-energia dostały oba prefix „d” — w następnych bramkach litery unikalne w skali całej bramki.",
+    "grandpiano": "p.2 (Steinway); właściciel bez uwag.",
+    "beben-wojenny": "b.2 (b_bassdrum); właściciel bez uwag.",
+    "koda-swiatlo": "a.1 (g5a_shimmer_up); właściciel bez uwag."
+  }
+}

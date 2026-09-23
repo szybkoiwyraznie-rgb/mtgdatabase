@@ -132,7 +132,7 @@ def accept(gate_id: str, rest: bool = False) -> int:
     slot_kind = {"c": "heroes", "d": "backgrounds", "a": "gestures", "b": "instruments"}
     added: list[str] = []
     stamped: set[str] = set()  # id wpisów przyjętych z werdyktów fabuł
-    for story in manifest["stories"]:
+    for story in manifest.get("stories", []):
         sid = str(story["story_id"])
         if sid not in verdicts:
             print(f"! fabuła {sid}: brak werdyktu — pomijam")
