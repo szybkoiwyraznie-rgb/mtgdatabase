@@ -42,6 +42,22 @@ Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatab
    `docs/sources-and-licensing.md`): miecze, zombie, głosy wysiłku,
    metal/drewno, bagna, woda/plusk.
 
+## Sample scout — uruchomienie
+
+Workflow **Sample scout** ściąga nagrania spoza sandboksa (runner ma internet).
+Job działa tylko z `main` i z gałęzi `arena/**`; z innych jest „skipped”.
+Agent uruchamia go sam po merge do `main`:
+
+```bash
+gh api repos/szybkoiwyraznie-rgb/mtgdatabase/dispatches \
+  -f event_type=sample-scout \
+  -F 'client_payload[source]=archive.org' \
+  -F 'client_payload[query]=creek stream water' \
+  -F 'client_payload[count]=5'
+```
+
+Pełna instrukcja pól i pułapki: `docs/sources-and-licensing.md`.
+
 ## Rzeczy, które łatwo przeoczyć
 
 - Bramka i gablotka to **dwa różne serwery** (:8080 i :3000);

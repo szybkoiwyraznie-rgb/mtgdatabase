@@ -104,7 +104,21 @@ Gdy potrzebnego zdarzenia nie ma w zweryfikowanych bibliotekach, użyj workflow 
 
   Działa dopiero, gdy wersja workflow z tym wyzwalaczem jest w `main`
   (GitHub czyta `repository_dispatch` wyłącznie z domyślnej gałęzi).
-  Alternatywa ręczna: **Actions → Sample scout → Run workflow** z `main`.
+  Alternatywa ręczna: **Actions → Sample scout → Run workflow**.
+
+  **Instrukcja dla właściciela (pola formularza):**
+
+  | Pole | Co wybrać |
+  |---|---|
+  | *Use workflow from* | `main`, albo gałąź sesji `arena/**`, gdy testujemy poprawkę Scouta przed merge. Job jest **pomijany** („skipped”) dla każdej innej gałęzi — to celowe zabezpieczenie przed zapisem z przypadkowego PR-a. |
+  | `source` | `archive.org` (bez sekretu) lub `freesound` (wymaga sekretu `FREESOUND_TOKEN`) |
+  | `query` | krótka fraza, 2–3 słowa: `creek stream water`, `babbling brook`. Długie zdania zawężają wynik prawie do zera |
+  | `count` | `5` |
+  | `sort` | dotyczy **wyłącznie** Freesound; przy `archive.org` ustawienie jest ignorowane (ranking zawsze wg pobrań) |
+
+  Kandydaci lądują commitem bota na **tej gałęzi, z której uruchomiono**
+  workflow (`legacy/source/sample_scout/`), więc agent pobiera je przez
+  `git pull`.
   Nie proś właściciela o token ani o rozszerzanie uprawnień aplikacji;
   kandydaci zastępują poprzednią paczkę, aby repozytorium nie rosło bez limitu;
 - workflow zapisuje **kandydatów**, nie źródła produkcyjne. Agent weryfikuje

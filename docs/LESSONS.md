@@ -315,3 +315,22 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   w manifeście); (3) gdy workflow zwraca pustkę dla pospolitego dźwięku,
   podejrzewaj własny filtr — zanim uznasz, że źródła nie ma. Test regresyjny:
   `test_archiveorg_finds_cc0_behind_popular_non_cc0_rows`.
+
+## 2026-09-23 — „Skipped” to warunek `if`, nie awaria; instrukcję podaj z góry
+
+- Sytuacja: właściciel uruchomił Sample scout z gałęzi sesji, żeby
+  przetestować moją poprawkę. Job wypadał jako `skipped (This job was
+  skipped)` — kilka razy z rzędu. Przyczyną był warunek
+  `if: github.ref == 'refs/heads/main'`, o którym go nie uprzedziłem;
+  dodatkowo sam musiał zgadywać, co wpisać w pole `sort`.
+- Wniosek: status „skipped” bez ani jednego wykonanego kroku prawie zawsze
+  oznacza niespełniony warunek `if` na poziomie joba, a nie błąd narzędzi.
+  Guard na gałąź był słuszny, ale zbyt wąski: blokował także gałęzie sesji,
+  czyli jedyne miejsce, gdzie można przetestować poprawkę przed merge.
+- Zasada / działanie zapobiegawcze: (1) guard rozszerzony do
+  `main` lub `arena/**`, a push idzie na `HEAD:${GITHUB_REF_NAME}`, więc
+  kandydaci trafiają na tę samą gałąź, z której uruchomiono workflow;
+  (2) gdy prosisz właściciela o ręczną akcję w UI, **wypisz wszystkie pola
+  formularza wraz z gałęzią** — brak jednego pola kosztował kilka pustych
+  przebiegów; (3) pola nieistotne dla wybranej ścieżki opisz jako
+  ignorowane (tu: `sort` działa tylko dla Freesound).
