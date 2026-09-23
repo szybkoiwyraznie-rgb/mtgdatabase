@@ -50,3 +50,9 @@ python scripts/render_jingle.py data/recipes/<id>_<vN>.json \
 ```
 
 Przed uruchomieniem produkcji należy skonfigurować publikację Pages, endpoint raportów oraz sekret szyfrowania ZIP-a. Instrukcja konfiguracji zostanie uzupełniona w kolejnym etapie wraz z pierwszym działającym panelem.
+
+Audycja sampli przed użyciem w recepturze (wymagana od 2026-09-22 — ciche głowy nagrań zniszczyły partię 3-5/15):
+
+```bash
+python scripts/stem_probe.py wolf_howl.mp3   # profil RMS, charakter widma, sugestia offset_sec
+```

@@ -1,0 +1,45 @@
+{
+  "story_id": "8",
+  "label": "v4",
+  "genre": "fantasy",
+  "duration_sec": 7.0,
+  "climax_window": [3.4, 4.3],
+  "bed": {
+    "ambience": {"type": "wind", "target_db": -33.0, "gain": 0.3, "params": {"seed": 8}},
+    "drone": null
+  },
+  "events": [
+    {"time_sec": 0.0, "type": "stem", "file": "lava_rumble.mp3", "level": "bed", "target_db": -28.0, "pan": 0.1,
+     "role": "POCHWALONE w v3: żywy pomruk rzek płynnej lawy (NPS Fire) — teraz głośniejsze i z dłuższym oddechem (jingle wydłużony do 7 s na życzenie właściciela)"},
+    {"time_sec": 1.2, "type": "stem", "file": "run_gravel_steps.mp3", "target_db": -20.0, "pan": -0.25,
+     "role": "początek szarży — pęd trójki goblinów po skalistym zboczu"},
+    {"time_sec": 1.55, "type": "stem", "file": "step_stone.mp3", "target_db": -22.0, "pan": 0.3,
+     "role": "drugi goblin wbija pazury w kamienie nawisu"},
+    {"time_sec": 2.0, "type": "stem", "file": "goblin_cry_a.mp3", "pitch": 0.82, "target_db": -18.0, "pan": -0.05,
+     "role": "okrzyk bojowy pierwszego goblina — obniżony o 18% (właściciel o v3: za wysoko)"},
+    {"time_sec": 2.35, "type": "stem", "file": "goblin_cry_b.mp3", "pitch": 0.82, "target_db": -20.0, "pan": 0.35,
+     "role": "odpowiedź drugiego goblina z sztandarem czaszki — obniżona"},
+    {"time_sec": 3.15, "type": "stem", "file": "jump_whoosh.mp3", "target_db": -19.0, "pan": 0.1,
+     "role": "NOWY WHOOSH (zamiast nierozpoznawalnego świstu z v3): trzeci goblin odbija się od kamiennego nawisu — powietrze pod skokiem"},
+    {"time_sec": 3.55, "type": "stem", "file": "axe_whoosh.mp3", "target_db": -18.0, "pan": 0.15,
+     "role": "NOWY ŚWIST TOPORA: szybkie cięcie powietrza zaraz przed uderzeniem"},
+    {"time_sec": 3.75, "type": "stem", "file": "axe_thump.mp3", "target_db": -13.0, "pan": 0.0,
+     "role": "KULMINACJA (złożone 1/3): topór trafia — ciężar uderzenia"},
+    {"time_sec": 3.75, "type": "stem", "file": "metal_knock.mp3", "target_db": -16.0, "pan": 0.05,
+     "role": "KULMINACJA (złożone 2/3): metaliczny zgrzyt ostrza o pancerz jaszczura"},
+    {"time_sec": 3.78, "type": "stem", "file": "goblin_cry_long.mp3", "pitch": 0.82, "target_db": -16.0, "pan": -0.1,
+     "role": "KULMINACJA (złożone 3/3): tryumfalny wrzask goblina w skoku — obniżony"},
+    {"time_sec": 5.35, "type": "stem", "file": "bear_growl.mp3", "offset_sec": 2.2, "length_sec": 1.6, "pitch": 0.72, "hp_hz": 80, "target_db": -19.0, "pan": -0.35,
+     "role": "ODWIECZNY SMOK (zamiast kruka z v3, który brzmiał jak wrona): daleki, głęboki ryk drapieżniki krążącej wysoko — sprawdzone nagranie NPS grizzly z pochwalonego ryku Balotha (fabuła 2), obniżone o 28%, dużo przestrzeni"}
+  ],
+  "ducking": [3.55, 4.4, 0.35],
+  "post": {"echo_ms": [150, 300], "echo_gains": [0.16, 0.1], "room": 0.5,
+           "compressor": {"threshold_db": -16.0, "ratio": 3.5, "attack_ms": 12.0, "release_ms": 200.0}},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Goblin Deathraiders. v4 odpowiada na ocenę v3 (10/15): zachowuje pochwalone wiatr i lawę (wydłużone do 7 s — szkoda, że tak krótko), obniża okrzyki goblinów o 18% (za wysoko), zamienia kruka-wronę na głęboki ryk NPS grizzly (sprawdzony w pochwalonym ryku Balotha z fabuły 2) i przebudowuje skok: prawdziwe whooshe (powietrze skoku + świst topora) przed trójskładnikowym uderzeniem.",
+    "ambience": "lava_rumble (żywe NPS, -28 dB, level=bed) + wiatr -33 dB — oba pochwalone w v3",
+    "drone": "brak — niskie łono niesie żywa lawa",
+    "mix_notes": "Dłuższy oddech tła na starcie (1.2 s). Szarża 1.2 s, okrzyki 2.0/2.35 s (pitch 0.82). SKOK 3.15 s: jump_whoosh -19; ŚWIST TOPORA 3.55 s: axe_whoosh -18; KULMINACJA 3.75 s: axe_thump -13 + metal_knock -16 + goblin_cry_long pitch 0.82 -16. SMOK 5.35 s: bear_growl offset 2.2 (głośny fragment), pitch 0.72, hp 80, -19 dB, lewo, pogłębiające echo 150/300 ms. Ducking 0.35; kompresor -16/3.5; master 0.9 pk.",
+    "description": "Pomruk lawy i wiatr na zboczu Jundu (dłużej) • pęd szarży i okrzyki bojowe goblinów • skok z nawisu: powietrze, świst topora, cios i wrzask • daleki ryk odwiecznego smoka wysoko nad zboczem"
+  }
+}

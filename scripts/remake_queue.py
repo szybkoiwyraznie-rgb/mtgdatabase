@@ -9,6 +9,16 @@ A story whose latest version is still waiting for a rating is skipped:
 never stack versions while one is being evaluated. Stories without an open
 report have nothing to serve.
 
+Pinned samples rule (owner decision 2026-09-23): any version rated above
+10/15 pins the samples its comments explicitly praise — the remake must
+reuse those exact stem files with the same mastering. A from-scratch
+concept is allowed only when no version of the story exceeded 10/15.
+
+Thresholds (owner clarification 2026-09-23): the queue covers every story
+with an open report, worst first — there is NO ban on remaking jingles
+rated 12/15 or higher; anything below 15/15 can be improved. Only 15/15
+has no sensible remake task (skip unless the owner explicitly asks).
+
 Usage:
   python scripts/remake_queue.py --versions data/versions.json
 """
@@ -49,14 +59,31 @@ def main() -> int:
         if not open_reports:
             skipped.append((str(story["id"]), f"brak otwartych raportów (najlepsza: {best['label']} = {best['score']}/15)"))
             continue
-        queue.append((str(story["id"]), best["label"], float(best["score"]), len(open_reports)))
+        # Owner rule (2026-09-23): every version rated ABOVE 10/15 pins the
+        # samples its comments explicitly praise — a remake must reuse those
+        # exact stem files with the same mastering, not "similar" sounds.
+        pinned = [
+            (v["label"], float(v["score"]), [str(r.get("comment", "")).strip() for r in v.get("reports", []) if str(r.get("comment", "")).strip()])
+            for v in rated if float(v["score"]) > 10 and any(str(r.get("comment", "")).strip() for r in v.get("reports", []))
+        ]
+        queue.append((str(story["id"]), best["label"], float(best["score"]), len(open_reports), pinned))
 
     queue.sort(key=lambda item: item[2])
     print("Kolejka remake'ów — fabuły uszeregowane po NAJLEPSZEJ ocenionej wersji (rosnąco):")
     if queue:
-        for position, (sid, label, score, reports) in enumerate(queue, 1):
+        for position, (sid, label, score, reports, pinned) in enumerate(queue, 1):
+            if score <= 10:
+                plan = f"remakuj: nowa wersja, od zera dozwolone (żadna wersja fabuły nie przekroczyła 10/15 — nic nie jest przypięte)"
+            elif score < 15:
+                plan = f"remakuj: nowa wersja na fundamencie {label} — obowiązkowo te same pochwalone sample, nie od zera (decyzja właściciela 2026-09-23)"
+            else:
+                plan = "POMIŃ: 15/15 — brak sensownego zadania remake'u (chyba że właściciel wyraźnie poprosi)"
             print(f"  {position}. fabuła {sid}: najlepsza {label} = {score:.0f}/15, otwartych raportów: {reports}"
-                  f" → remakuj kolejną wersję na fundamencie {label}")
+                  f" → {plan}")
+            for pinned_label, pinned_score, comments in pinned:
+                print(f"     OBOWIĄZEK ({pinned_label}, {pinned_score:.0f}/15 > 10/15): przeanalizuj komentarze i zachowaj WPROST pochwalone sample — te same pliki i to samo masterowanie ('podobne' nie wystarczy):")
+                for comment in comments:
+                    print(f"       „{comment}”")
     else:
         print("  (pusta — brak fabuł spełniających warunki remaku)")
     print("Pominięte:")

@@ -1,0 +1,41 @@
+{
+  "story_id": "475",
+  "label": "v4",
+  "genre": "sci-fi",
+  "duration_sec": 5.5,
+  "climax_window": [2.7, 3.9],
+  "bed": {
+    "ambience": {"type": "station_hum", "target_db": -28.0, "gain": 0.3, "params": {"seed": 475}},
+    "drone": {"type": "cinematic_sub", "freq": 44.0, "target_db": -27.0, "gain": 0.4}
+  },
+  "events": [
+    {"time_sec": 0.9, "type": "stem", "file": "armor_step.mp3", "target_db": -21.0, "pan": -0.2,
+     "role": "ciężkie kroki piechura Kav w miedzianym pancerzu (1/2)"},
+    {"time_sec": 1.2, "type": "stem", "file": "armor_step.mp3", "target_db": -19.0, "pan": -0.05,
+     "role": "krok 2/2 — piechur przy wraku mecha"},
+    {"time_sec": 1.65, "type": "stem", "file": "mech_tear.mp3", "pitch": 0.78, "hp_hz": 100, "target_db": -15.0, "pan": -0.15,
+     "role": "WYRwanie uszkodzonego ramienia mecha — rozdarcie blachy obniżone o 22% (większa, ciemniejsza maszyna)"},
+    {"time_sec": 2.85, "type": "stem", "file": "deep_impact.mp3", "target_db": -12.0, "pan": 0.0,
+     "role": "KULMINACJA (złożone 1/3): cios metalową maczugą w terminale — ciężar sub (impact-deep)"},
+    {"time_sec": 2.85, "type": "stem", "file": "impact_smack.mp3", "target_db": -16.0, "pan": 0.06,
+     "role": "KULMINACJA (złożone 2/3): środkowy ugryz ciosu (impact_smack — wraca z v1, teraz na słyszalnym poziomie)"},
+    {"time_sec": 2.9, "type": "synth", "kind": "crackle", "length_sec": 1.0, "gain": 0.8, "pan": 0.0,
+     "target_db": -17.0, "params": {"bursts": 26},
+     "role": "KULMINACJA (złożone 3/3): eksplozja błękitnych iskier z rozbitych terminali"},
+    {"time_sec": 3.75, "type": "synth", "kind": "swarm", "length_sec": 1.6, "gain": 0.9, "pan": 0.15,
+     "target_db": -17.0, "params": {"grains": 240, "bloom": 0.3},
+     "role": "POWRÓT z v1 (właściciel: jedyny wart sample): deszcz roztrzaskanej elektroniki opada po ciosie — teraz wyraźnie słyszalny"},
+    {"time_sec": 4.6, "type": "stem", "file": "impact_smack.mp3", "target_db": -20.0, "pan": -0.1,
+     "role": "ostatnie przydepnięcie zniszczonych dronów zwiadowczych"}
+  ],
+  "ducking": [2.7, 3.7, 0.35],
+  "post": {"echo_ms": [90, 200], "echo_gains": [0.12, 0.07], "room": 0.35,
+           "compressor": {"threshold_db": -16.0, "ratio": 3.5, "attack_ms": 12.0, "release_ms": 180.0}},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Ruinous Rampage. v4 odpowiada na ocenę v3 (5/15, właściciel: ktoś uderza w miedzianą misę i rzuca kostkami do gry): usuwa kuchenne blachy i gruz (plate/glass/debris — stąd misa i kostki), przywraca pochwalony z v1 DESZCZ ELEKTRONIKI na koniec (syntetyczny swarm — teraz wyraźnie słyszalny) i buduje cios na ciężarze sub + ugryzie + iskrach. Zachowuje pochwany szum hangaru.",
+    "ambience": "station_hum (hangar portu kosmicznego, -28 dB) + cinematic_sub 44 Hz (-27 dB)",
+    "drone": "cinematic_sub (44.0 Hz)",
+    "mix_notes": "Kroki w zbroi 0.9/1.2 s; rozdarcie ramienia 1.65 s (mech_tear pitch 0.78 — większa maszyna, -15 dB). KULMINACJA 2.85 s: deep_impact -12 (sub) + impact_smack -16 (ugryz, powrót z v1) + crackle -17 (iskry). 3.75 s: swarm deszcz elektroniki -17 przez 1.6 s (POWRÓT pochwalonego elementu z v1). Ostatnie przydepnięcie 4.6 s. Ducking 0.35; echo hangaru 90/200 ms; kompresor -16/3.5; master 0.9 pk.",
+    "description": "Szum hangaru + sub 44 Hz • kroki piechura Kav • wyrwane ramię mecha — ciemne rozdarcie blachy • kulminacja: cios w terminale z ciężarem sub i eksplozją iskier • deszcz roztrzaskanej elektroniki (wraca z v1) • ostatnie przydepnięcie dronów"
+  }
+}
