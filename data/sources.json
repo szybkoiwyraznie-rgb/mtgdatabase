@@ -329,6 +329,61 @@
       "allowed_for_offline_zip": true,
       "checked_at": "2026-09-22",
       "notes": "100 CC0 metal and wood SFX, keys-03.m4a (0-0.48 s, brzęk metalu — srebrne wnyki Aleny). Pobrano przez mirror github.com/novincode/atomcut-library (sparse-checkout, M4A→WAV przez PyAV w make_stem.py); licencja dotyczy oryginału z OpenGameArt."
+    },
+    {
+      "name": "wolf_howl_clear.mp3",
+      "url": "https://opengameart.org/content/80-cc0-creature-sfx",
+      "author": "autor packu 80 CC0 creature SFX (OpenGameArt)",
+      "license": "CC0 1.0",
+      "attribution_required": false,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-23",
+      "notes": "howl.m4a w całości (0,72 s). Wyraźne tonalne wycie w paśmie 250-2000 Hz — zastępuje nagranie NPS Wolves (82% energii <250 Hz = pomruk wiatru; właściciel: brzmi jak darcie papieru). Strona oryginału nieosiągalna z sandboxa; pack CC0 wg filtru mirrora. Pobrano przez mirror github.com/novincode/atomcut-library (sparse-checkout); licencja wg pack.json/deklaracji mirrora."
+    },
+    {
+      "name": "beast_roar_low.mp3",
+      "url": "https://opengameart.org/content/80-cc0-creature-sfx",
+      "author": "autor packu 80 CC0 creature SFX (OpenGameArt)",
+      "license": "CC0 1.0",
+      "attribution_required": false,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-23",
+      "notes": "roar-02.m4a w całości (0,91 s). Niskie warczenie (96% energii <250 Hz) — warstwa wielkości bestii pod wycie. Pobrano przez mirror github.com/novincode/atomcut-library (sparse-checkout); licencja wg pack.json/deklaracji mirrora."
+    },
+    {
+      "name": "jump_whoosh.mp3",
+      "url": "pack Impacts & Risers w mirrorze github.com/novincode/atomcut-library",
+      "author": "AtomCut",
+      "license": "CC0 1.0 (pack.json)",
+      "attribution_required": false,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-23",
+      "notes": "whoosh-low.wav (0,65 s) — powietrze pod wolnym ruchem (skok z nawisu); zbalansowane widmo bez dominującego >6 kHz."
+    },
+    {
+      "name": "axe_whoosh.mp3",
+      "url": "pack Impacts & Risers w mirrorze github.com/novincode/atomcut-library",
+      "author": "AtomCut",
+      "license": "CC0 1.0 (pack.json)",
+      "attribution_required": false,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-23",
+      "notes": "whoosh-high.wav (0,36 s) — szybki świst (cios toporem)."
+    },
+    {
+      "name": "deep_impact.mp3",
+      "url": "pack Impacts & Risers w mirrorze github.com/novincode/atomcut-library",
+      "author": "AtomCut",
+      "license": "CC0 1.0 (pack.json)",
+      "attribution_required": false,
+      "allowed_for_pages_preview": true,
+      "allowed_for_offline_zip": true,
+      "checked_at": "2026-09-23",
+      "notes": "impact-deep.wav (0,75 s) — niski, ciężki impact (100% energii <250 Hz); ciało sub ciosu w terminale."
     }
   ]
 }

@@ -934,6 +934,125 @@
         "Kontrast dramaturgiczny: 2.94x (11.7/15)"
        ]
       }
+     },
+     "scores": {
+      "feeling": 3,
+      "story_fit": 3,
+      "sample_quality": 4
+     },
+     "score": 10,
+     "rated_at": "2026-09-23T09:43:16Z",
+     "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/32",
+     "reports": [
+      {
+       "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/32",
+       "created_at": "2026-09-23T09:43:16Z",
+       "state": "OPEN",
+       "scores": {
+        "feeling": 3,
+        "story_fit": 3,
+        "sample_quality": 4
+       },
+       "total": 10,
+       "comment": "świetny wiatr i lawa, szkoda, że tak krótko, gobliny znośne, ale za wysoko trochę, a na koniec kracze wrona (???) - ten skok i świst topora kompletnie nie rozpoznawalne"
+      }
+     ]
+    },
+    {
+     "label": "v4",
+     "created_at": "2026-09-23T09:50:49Z",
+     "audio": "legacy/source/jingle_output/8_v4.mp3",
+     "project_description": {
+      "summary": "Krótka forma audio dla sceny: Goblin Deathraiders. v4 odpowiada na ocenę v3 (10/15): zachowuje pochwalone wiatr i lawę (wydłużone do 7 s — szkoda, że tak krótko), obniża okrzyki goblinów o 18% (za wysoko), zamienia kruka-wronę na głęboki ryk NPS grizzly (sprawdzony w pochwalonym ryku Balotha z fabuły 2) i przebudowuje skok: prawdziwe whooshe (powietrze skoku + świst topora) przed trójskładnikowym uderzeniem.",
+      "ambience": "lava_rumble (żywe NPS, -28 dB, level=bed) + wiatr -33 dB — oba pochwalone w v3",
+      "drone": "brak — niskie łono niesie żywa lawa",
+      "mix_notes": "Dłuższy oddech tła na starcie (1.2 s). Szarża 1.2 s, okrzyki 2.0/2.35 s (pitch 0.82). SKOK 3.15 s: jump_whoosh -19; ŚWIST TOPORA 3.55 s: axe_whoosh -18; KULMINACJA 3.75 s: axe_thump -13 + metal_knock -16 + goblin_cry_long pitch 0.82 -16. SMOK 5.35 s: bear_growl offset 2.2 (głośny fragment), pitch 0.72, hp 80, -19 dB, lewo, pogłębiające echo 150/300 ms. Ducking 0.35; kompresor -16/3.5; master 0.9 pk.",
+      "description": "Pomruk lawy i wiatr na zboczu Jundu (dłużej) • pęd szarży i okrzyki bojowe goblinów • skok z nawisu: powietrze, świst topora, cios i wrzask • daleki ryk odwiecznego smoka wysoko nad zboczem",
+      "genre": "fantasy",
+      "events": [
+       {
+        "time_sec": 0.0,
+        "sample": "lava_rumble.mp3",
+        "role": "POCHWALONE w v3: żywy pomruk rzek płynnej lawy (NPS Fire) — teraz głośniejsze i z dłuższym oddechem (jingle wydłużony do 7 s na życzenie właściciela)",
+        "level": "bed"
+       },
+       {
+        "time_sec": 1.2,
+        "sample": "run_gravel_steps.mp3",
+        "role": "początek szarży — pęd trójki goblinów po skalistym zboczu",
+        "level": "event"
+       },
+       {
+        "time_sec": 1.55,
+        "sample": "step_stone.mp3",
+        "role": "drugi goblin wbija pazury w kamienie nawisu",
+        "level": "event"
+       },
+       {
+        "time_sec": 2.0,
+        "sample": "goblin_cry_a.mp3",
+        "role": "okrzyk bojowy pierwszego goblina — obniżony o 18% (właściciel o v3: za wysoko)",
+        "level": "event"
+       },
+       {
+        "time_sec": 2.35,
+        "sample": "goblin_cry_b.mp3",
+        "role": "odpowiedź drugiego goblina z sztandarem czaszki — obniżona",
+        "level": "event"
+       },
+       {
+        "time_sec": 3.15,
+        "sample": "jump_whoosh.mp3",
+        "role": "NOWY WHOOSH (zamiast nierozpoznawalnego świstu z v3): trzeci goblin odbija się od kamiennego nawisu — powietrze pod skokiem",
+        "level": "event"
+       },
+       {
+        "time_sec": 3.55,
+        "sample": "axe_whoosh.mp3",
+        "role": "NOWY ŚWIST TOPORA: szybkie cięcie powietrza zaraz przed uderzeniem",
+        "level": "event"
+       },
+       {
+        "time_sec": 3.75,
+        "sample": "axe_thump.mp3",
+        "role": "KULMINACJA (złożone 1/3): topór trafia — ciężar uderzenia",
+        "level": "event"
+       },
+       {
+        "time_sec": 3.75,
+        "sample": "metal_knock.mp3",
+        "role": "KULMINACJA (złożone 2/3): metaliczny zgrzyt ostrza o pancerz jaszczura",
+        "level": "event"
+       },
+       {
+        "time_sec": 3.78,
+        "sample": "goblin_cry_long.mp3",
+        "role": "KULMINACJA (złożone 3/3): tryumfalny wrzask goblina w skoku — obniżony",
+        "level": "event"
+       },
+       {
+        "time_sec": 5.35,
+        "sample": "bear_growl.mp3",
+        "role": "ODWIECZNY SMOK (zamiast kruka z v3, który brzmiał jak wrona): daleki, głęboki ryk drapieżniki krążącej wysoko — sprawdzone nagranie NPS grizzly z pochwalonego ryku Balotha (fabuła 2), obniżone o 28%, dużo przestrzeni",
+        "level": "event"
+       }
+      ],
+      "qa": {
+       "score": 96.8,
+       "base": 55.0,
+       "dramaturgy": 15.0,
+       "status": "pass",
+       "details": [
+        "DC offset: OK",
+        "Peak/headroom: OK",
+        "Ciągłość tła: OK",
+        "Głośność: -18.4 dB RMS (min -26.0)",
+        "Balans widma: 4% energii >6 kHz (limit 12%)",
+        "Słyszalność zdarzeń żywych: 10/10 ≥ +6 dB nad tłem",
+        "Warstwy tła (level=bed, poza bramką): lava_rumble.mp3 @ 0.0s",
+        "Kontrast dramaturgiczny: 4.15x (15.0/15)"
+       ]
+      }
      }
     }
    ]
@@ -1260,6 +1379,113 @@
         "Kontrast dramaturgiczny: 5.91x (15.0/15)"
        ]
       }
+     },
+     "scores": {
+      "feeling": 3,
+      "story_fit": 2,
+      "sample_quality": 1
+     },
+     "score": 6,
+     "rated_at": "2026-09-23T09:43:04Z",
+     "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/30",
+     "reports": [
+      {
+       "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/30",
+       "created_at": "2026-09-23T09:43:04Z",
+       "state": "OPEN",
+       "scores": {
+        "feeling": 3,
+        "story_fit": 2,
+        "sample_quality": 1
+       },
+       "total": 6,
+       "comment": "niestety te sample dla wilka są bardzo słabe - to ten sam co w v3, brzmi jak darcie papieru, kompletnie nie slychać ani wnyków ani drugiego wilka ani żadnego wycia, marne - jedyne co brzmi ok to tło lasu, kroki i cykady"
+      }
+     ]
+    },
+    {
+     "label": "v5",
+     "created_at": "2026-09-23T09:50:49Z",
+     "audio": "legacy/source/jingle_output/450_v5.mp3",
+     "project_description": {
+      "summary": "Krótka forma audio dla sceny: Thornhide Wolves. v5 odpowiada na ocenę v4 (6/15, właściciel: sample dla wilka bardzo słabe — darcie papieru, nie słychać wnyków ani drugiego wilka): nowe WYCIE z pakietu creature SFX (tonalne, czytelne — nagranie NPS okazało się pomrukiem wiatru z 82% energii pod 250 Hz), wnyki i drugi wilk dostają własne czyste okna czasowe i głośność -17 dB. Zachowane pochwalone elementy v4: tło lasu ze świerszczami, kroki w błocie, ognisko.",
+      "ambience": "forest_night (nocny las, świerszcze — pochwalone) + campfire (żywe NPS, level=bed)",
+      "drone": "brak",
+      "mix_notes": "Napinanie: ciernie 0.95 s → łapy w błocie 1.5 s → rozsuwane pędy 2.1 s. KULMINACJA 2.75 s: wolf_howl_clear pitch 0.9 (-15 dB, centrum; czyste, tonalne wycie) + beast_roar_low (-19 dB, warczenie skali pod spodem). WNYKI 4.1 s: mud_squelch -17 + trap_clink -17 (własne okno po wyciu — w v4 ginęły pod ogonem wycia). DRUGI WILK 4.95 s: wolf_howl_clear pitch 0.82, -17 dB, prawo. Ducking 0.38; echo lasu 110/230 ms; kompresor -16/3.5; master 0.9 pk.",
+      "description": "Nocny las ze świerszczami i dogasające ognisko • łapy w błocie i rozsuwane ciernie • kulminacja: wyraźne, tonalne wycie wielkiej bestii z niskim warczeniem • upuszczone w błoto srebrne wnyki • odpowiedź drugiego wilka z mroku",
+      "genre": "fantasy",
+      "events": [
+       {
+        "time_sec": 0.4,
+        "sample": "campfire.mp3",
+        "role": "ŻYWE tło pochwalone w v4: trzask dogasającego ogniska (NPS Fire)",
+        "level": "bed"
+       },
+       {
+        "time_sec": 0.95,
+        "sample": "thorn_brush.mp3",
+        "role": "pierwszy ruch — bestia przeciska się przez barierę cierni (daleki plan)",
+        "level": "event"
+       },
+       {
+        "time_sec": 1.5,
+        "sample": "mud_paws.mp3",
+        "role": "POCHWALONE w v4: ciężkie łapy wilka rozpychają błoto przy barierze",
+        "level": "event"
+       },
+       {
+        "time_sec": 2.1,
+        "sample": "thorn_brush.mp3",
+        "role": "gigantyczna bestia rozsuwa kolczaste pędy (bliższy plan, głośniej)",
+        "level": "event"
+       },
+       {
+        "time_sec": 2.75,
+        "sample": "wolf_howl_clear.mp3",
+        "role": "KULMINACJA (1/2): NOWE WYCIE — wyraźne, tonalne wycie w paśmie mowy (OGA creature howl; nagranie NPS z v3/v4 brzmiało jak darcie papieru — 82% jego energii to pomruk wiatru)",
+        "level": "event"
+       },
+       {
+        "time_sec": 2.8,
+        "sample": "beast_roar_low.mp3",
+        "role": "KULMINACJA (2/2): niskie warczenie pod wyciem — gigantyczna skala bestii o sierści z korady",
+        "level": "event"
+       },
+       {
+        "time_sec": 4.1,
+        "sample": "mud_squelch.mp3",
+        "role": "upuszczone w błoto srebrne wnyki Aleny — mlaśnięcie (CZYTELNE OKNO po wyciu)",
+        "level": "event"
+       },
+       {
+        "time_sec": 4.13,
+        "sample": "trap_clink.mp3",
+        "role": "srebrne wnyki upadają — brzęk metalu (głośniej niż w v4, własne czyste okno)",
+        "level": "event"
+       },
+       {
+        "time_sec": 4.95,
+        "sample": "wolf_howl_clear.mp3",
+        "role": "odpowiedź drugiego wilka z mroku Ulvenwaldu — niższy głos, prawy plan, czyste okno na końcu",
+        "level": "event"
+       }
+      ],
+      "qa": {
+       "score": 96.2,
+       "base": 55.0,
+       "dramaturgy": 11.2,
+       "status": "pass",
+       "details": [
+        "DC offset: OK",
+        "Peak/headroom: OK",
+        "Ciągłość tła: OK",
+        "Głośność: -19.7 dB RMS (min -26.0)",
+        "Balans widma: 9% energii >6 kHz (limit 12%)",
+        "Słyszalność zdarzeń żywych: 8/8 ≥ +6 dB nad tłem",
+        "Warstwy tła (level=bed, poza bramką): campfire.mp3 @ 0.4s",
+        "Kontrast dramaturgiczny: 2.79x (11.2/15)"
+       ]
+      }
      }
     }
    ]
@@ -1510,6 +1736,106 @@
         "Balans widma: 6% energii >6 kHz (limit 12%)",
         "Słyszalność zdarzeń żywych: 8/8 ≥ +6 dB nad tłem",
         "Kontrast dramaturgiczny: 2.33x (9.3/15)"
+       ]
+      }
+     },
+     "scores": {
+      "feeling": 3,
+      "story_fit": 1,
+      "sample_quality": 1
+     },
+     "score": 5,
+     "rated_at": "2026-09-23T09:43:14Z",
+     "feedback_issue": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/31",
+     "reports": [
+      {
+       "issue_url": "https://github.com/szybkoiwyraznie-rgb/mtgdatabase/issues/31",
+       "created_at": "2026-09-23T09:43:14Z",
+       "state": "OPEN",
+       "scores": {
+        "feeling": 3,
+        "story_fit": 1,
+        "sample_quality": 1
+       },
+       "total": 5,
+       "comment": "znów fajne tło (szum hangaru), ale reszta bardzo marna - jedyny sample który był coś wart - ta elektronika na koniec v1 wywaliłeś - resztą sława na maksa - ktoś uderza w miedzianą misę i rzuca kostkami do gry."
+      }
+     ]
+    },
+    {
+     "label": "v4",
+     "created_at": "2026-09-23T09:50:49Z",
+     "audio": "legacy/source/jingle_output/475_v4.mp3",
+     "project_description": {
+      "summary": "Krótka forma audio dla sceny: Ruinous Rampage. v4 odpowiada na ocenę v3 (5/15, właściciel: ktoś uderza w miedzianą misę i rzuca kostkami do gry): usuwa kuchenne blachy i gruz (plate/glass/debris — stąd misa i kostki), przywraca pochwalony z v1 DESZCZ ELEKTRONIKI na koniec (syntetyczny swarm — teraz wyraźnie słyszalny) i buduje cios na ciężarze sub + ugryzie + iskrach. Zachowuje pochwany szum hangaru.",
+      "ambience": "station_hum (hangar portu kosmicznego, -28 dB) + cinematic_sub 44 Hz (-27 dB)",
+      "drone": "cinematic_sub (44.0 Hz)",
+      "mix_notes": "Kroki w zbroi 0.9/1.2 s; rozdarcie ramienia 1.65 s (mech_tear pitch 0.78 — większa maszyna, -15 dB). KULMINACJA 2.85 s: deep_impact -12 (sub) + impact_smack -16 (ugryz, powrót z v1) + crackle -17 (iskry). 3.75 s: swarm deszcz elektroniki -17 przez 1.6 s (POWRÓT pochwalonego elementu z v1). Ostatnie przydepnięcie 4.6 s. Ducking 0.35; echo hangaru 90/200 ms; kompresor -16/3.5; master 0.9 pk.",
+      "description": "Szum hangaru + sub 44 Hz • kroki piechura Kav • wyrwane ramię mecha — ciemne rozdarcie blachy • kulminacja: cios w terminale z ciężarem sub i eksplozją iskier • deszcz roztrzaskanej elektroniki (wraca z v1) • ostatnie przydepnięcie dronów",
+      "genre": "sci-fi",
+      "events": [
+       {
+        "time_sec": 0.9,
+        "sample": "armor_step.mp3",
+        "role": "ciężkie kroki piechura Kav w miedzianym pancerzu (1/2)",
+        "level": "event"
+       },
+       {
+        "time_sec": 1.2,
+        "sample": "armor_step.mp3",
+        "role": "krok 2/2 — piechur przy wraku mecha",
+        "level": "event"
+       },
+       {
+        "time_sec": 1.65,
+        "sample": "mech_tear.mp3",
+        "role": "WYRwanie uszkodzonego ramienia mecha — rozdarcie blachy obniżone o 22% (większa, ciemniejsza maszyna)",
+        "level": "event"
+       },
+       {
+        "time_sec": 2.85,
+        "sample": "deep_impact.mp3",
+        "role": "KULMINACJA (złożone 1/3): cios metalową maczugą w terminale — ciężar sub (impact-deep)",
+        "level": "event"
+       },
+       {
+        "time_sec": 2.85,
+        "sample": "impact_smack.mp3",
+        "role": "KULMINACJA (złożone 2/3): środkowy ugryz ciosu (impact_smack — wraca z v1, teraz na słyszalnym poziomie)",
+        "level": "event"
+       },
+       {
+        "time_sec": 2.9,
+        "sample": "synth:crackle",
+        "role": "KULMINACJA (złożone 3/3): eksplozja błękitnych iskier z rozbitych terminali",
+        "level": "event"
+       },
+       {
+        "time_sec": 3.75,
+        "sample": "synth:swarm",
+        "role": "POWRÓT z v1 (właściciel: jedyny wart sample): deszcz roztrzaskanej elektroniki opada po ciosie — teraz wyraźnie słyszalny",
+        "level": "event"
+       },
+       {
+        "time_sec": 4.6,
+        "sample": "impact_smack.mp3",
+        "role": "ostatnie przydepnięcie zniszczonych dronów zwiadowczych",
+        "level": "event"
+       }
+      ],
+      "qa": {
+       "score": 94.5,
+       "base": 55.0,
+       "dramaturgy": 12.3,
+       "status": "pass",
+       "details": [
+        "DC offset: OK",
+        "Peak/headroom: OK",
+        "Ciągłość tła: OK",
+        "Głośność: -17.6 dB RMS (min -26.0)",
+        "Balans widma: 4% energii >6 kHz (limit 12%)",
+        "Słyszalność zdarzeń żywych: 6/6 ≥ +6 dB nad tłem",
+        "Kontrast dramaturgiczny: 3.07x (12.3/15)"
        ]
       }
      }

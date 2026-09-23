@@ -1,0 +1,41 @@
+{
+  "story_id": "450",
+  "label": "v5",
+  "genre": "fantasy",
+  "duration_sec": 6.0,
+  "climax_window": [2.6, 4.1],
+  "bed": {
+    "ambience": {"type": "forest_night", "target_db": -30.0, "gain": 0.3, "params": {"seed": 450, "crickets": 6}},
+    "drone": null
+  },
+  "events": [
+    {"time_sec": 0.4, "type": "stem", "file": "campfire.mp3", "level": "bed", "target_db": -29.0, "pan": 0.15,
+     "role": "ŻYWE tło pochwalone w v4: trzask dogasającego ogniska (NPS Fire)"},
+    {"time_sec": 0.95, "type": "stem", "file": "thorn_brush.mp3", "target_db": -22.0, "pan": 0.3,
+     "role": "pierwszy ruch — bestia przeciska się przez barierę cierni (daleki plan)"},
+    {"time_sec": 1.5, "type": "stem", "file": "mud_paws.mp3", "target_db": -19.0, "pan": -0.2,
+     "role": "POCHWALONE w v4: ciężkie łapy wilka rozpychają błoto przy barierze"},
+    {"time_sec": 2.1, "type": "stem", "file": "thorn_brush.mp3", "offset_sec": 0.15, "length_sec": 0.84, "target_db": -19.0, "pan": 0.15,
+     "role": "gigantyczna bestia rozsuwa kolczaste pędy (bliższy plan, głośniej)"},
+    {"time_sec": 2.75, "type": "stem", "file": "wolf_howl_clear.mp3", "pitch": 0.9, "target_db": -15.0, "pan": 0.0,
+     "role": "KULMINACJA (1/2): NOWE WYCIE — wyraźne, tonalne wycie w paśmie mowy (OGA creature howl; nagranie NPS z v3/v4 brzmiało jak darcie papieru — 82% jego energii to pomruk wiatru)"},
+    {"time_sec": 2.8, "type": "stem", "file": "beast_roar_low.mp3", "target_db": -19.0, "pan": 0.0,
+     "role": "KULMINACJA (2/2): niskie warczenie pod wyciem — gigantyczna skala bestii o sierści z korady"},
+    {"time_sec": 4.1, "type": "stem", "file": "mud_squelch.mp3", "target_db": -17.0, "pan": 0.05,
+     "role": "upuszczone w błoto srebrne wnyki Aleny — mlaśnięcie (CZYTELNE OKNO po wyciu)"},
+    {"time_sec": 4.13, "type": "stem", "file": "trap_clink.mp3", "target_db": -17.0, "pan": 0.35,
+     "role": "srebrne wnyki upadają — brzęk metalu (głośniej niż w v4, własne czyste okno)"},
+    {"time_sec": 4.95, "type": "stem", "file": "wolf_howl_clear.mp3", "pitch": 0.82, "target_db": -17.0, "pan": 0.4,
+     "role": "odpowiedź drugiego wilka z mroku Ulvenwaldu — niższy głos, prawy plan, czyste okno na końcu"}
+  ],
+  "ducking": [2.6, 4.1, 0.38],
+  "post": {"echo_ms": [110, 230], "echo_gains": [0.12, 0.07], "room": 0.35,
+           "compressor": {"threshold_db": -16.0, "ratio": 3.5, "attack_ms": 12.0, "release_ms": 180.0}},
+  "project_description": {
+    "summary": "Krótka forma audio dla sceny: Thornhide Wolves. v5 odpowiada na ocenę v4 (6/15, właściciel: sample dla wilka bardzo słabe — darcie papieru, nie słychać wnyków ani drugiego wilka): nowe WYCIE z pakietu creature SFX (tonalne, czytelne — nagranie NPS okazało się pomrukiem wiatru z 82% energii pod 250 Hz), wnyki i drugi wilk dostają własne czyste okna czasowe i głośność -17 dB. Zachowane pochwalone elementy v4: tło lasu ze świerszczami, kroki w błocie, ognisko.",
+    "ambience": "forest_night (nocny las, świerszcze — pochwalone) + campfire (żywe NPS, level=bed)",
+    "drone": "brak",
+    "mix_notes": "Napinanie: ciernie 0.95 s → łapy w błocie 1.5 s → rozsuwane pędy 2.1 s. KULMINACJA 2.75 s: wolf_howl_clear pitch 0.9 (-15 dB, centrum; czyste, tonalne wycie) + beast_roar_low (-19 dB, warczenie skali pod spodem). WNYKI 4.1 s: mud_squelch -17 + trap_clink -17 (własne okno po wyciu — w v4 ginęły pod ogonem wycia). DRUGI WILK 4.95 s: wolf_howl_clear pitch 0.82, -17 dB, prawo. Ducking 0.38; echo lasu 110/230 ms; kompresor -16/3.5; master 0.9 pk.",
+    "description": "Nocny las ze świerszczami i dogasające ognisko • łapy w błocie i rozsuwane ciernie • kulminacja: wyraźne, tonalne wycie wielkiej bestii z niskim warczeniem • upuszczone w błoto srebrne wnyki • odpowiedź drugiego wilka z mroku"
+  }
+}
