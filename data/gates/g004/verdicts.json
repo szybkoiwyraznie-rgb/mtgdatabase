@@ -1,0 +1,10 @@
+{
+  "ryk-bestii": "r.1",
+  "rzut-czaru": "m.2",
+  "wrzask-wojenny-goblinów": "żaden",
+  "notes": {
+    "ryk-bestii": "przyjęty r.1 (beast_roar_long_01) — prawdziwy potworkowy ryk z paczki ogrebane.",
+    "rzut-czaru": "przyjęty m.2 (spell_cast_bolt_01) — UWAGA właściciela: dźwięk czaru sam brzmi jak koda — w foluła 5 koda ma być wyraźnie oddzielona czasowo i barwowo od błysku czaru.",
+    "wrzask-wojenny-goblinów": "żaden — kandydaci brzmią jak kreskówka; g.1 najlepszy, ale ZA WYSOKI. Remedium: ta sama rodzina (Goblins Sound Pack) obniżona półtonowo 4–6 — z kreskówki robi się ogrowata horda."
+  }
+}
