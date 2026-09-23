@@ -112,6 +112,31 @@
         "choice": "rzut-czaru.2",
         "date": "2026-09-23"
       }
+    },
+    {
+      "id": "warband_cry_03",
+      "role": "wrzask bojowy bandy jako hero fabuły plemiennej",
+      "character": "tłum, narastający, groźny",
+      "distance": "bliski",
+      "energy": "wysoka",
+      "duration_sec": 1.3,
+      "desc": "cztery głosy rozjechane co ~0,13 s i rozstrojone — nie chórek, tylko banda, która podchwytuje krzyk wodza; ogon ucięty w minimum energii (1,30 s), bo ostatni głos podjeżdżał tonem do góry",
+      "good_for": "warcry Jundu/Hordy, otwarcie starcia, banda przy ognisku",
+      "bad_for": "kameralność, elegancja, samotny strzelec",
+      "file": "audio/library/heroes/warband_cry_03.mp3",
+      "source": {
+        "title": "Male Grunt/Yelling sounds (OpenGameArt)",
+        "author": "haeldb",
+        "license": "CC0 1.0 (public domain)",
+        "url": "https://opengameart.org/content/male-gruntyelling-sounds",
+        "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+        "notes": "packs/opengameart-male-gruntyelling-sounds; 3grunt1 + yell7 @ +0.12 s (+2 st) + 2yell8 @ +0.26 s + 3yell5 @ +0.4 s (-2 st); zbiorcze obniżenie 4 półtonów, saturacja 1.6; mirror pack.json potwierdza CC0 1.0"
+      },
+      "approved": {
+        "gate": "g007",
+        "choice": "wrzask-wojenny-goblinów.3",
+        "date": "2026-09-23"
+      }
     }
   ]
 }

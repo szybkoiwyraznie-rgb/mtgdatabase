@@ -35,14 +35,13 @@ sys.path.insert(0, str(REPO / "scripts"))
 import build_gate_g003 as g003  # noqa: E402
 
 KIT = Path("/tmp/atomcut/packs/opengameart-male-gruntyelling-sounds/audio")
+# Pola zgodne ze schematem rejestru (library_tool check wymaga url i channel).
 SOURCE = {
-    "kind": "oga-pack",
-    "title": "Male Grunt/Yelling sounds",
+    "title": "Male Grunt/Yelling sounds (OpenGameArt)",
     "author": "haeldb",
-    "license": "CC0-1.0",
-    "homepage": "https://opengameart.org/content/male-gruntyelling-sounds",
-    "mirror": "github.com/novincode/atomcut-library",
-    "path": "packs/opengameart-male-gruntyelling-sounds",
+    "license": "CC0 1.0 (public domain)",
+    "url": "https://opengameart.org/content/male-gruntyelling-sounds",
+    "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
 }
 
 
@@ -60,7 +59,7 @@ def trim_silence(wave: np.ndarray, thresh_db: float = -42.0) -> np.ndarray:
 
 def make_warcry(name: str, label: str, title: str, entry_id: str,
                 layers: list[dict], semitones: float, drive: float,
-                desc: str, character: str) -> dict:
+                desc: str, character: str, end_sec: float | None = None) -> dict:
     sr = dsp.SR
     cache: dict[str, np.ndarray] = {}
     for b in layers:
@@ -79,8 +78,13 @@ def make_warcry(name: str, label: str, title: str, entry_id: str,
         comp[:, at:at + w.shape[1]] += w
     out_wave = g003.to_roar(comp, semitones, hp_hz=55.0, lp_hz=5200.0, drive=drive)
     out_wave = g003.soft_limit(out_wave, crest_db=12.0)
+    if end_sec is not None:
+        # werdykt właściciela: ostatni głos podjeżdża tonem do góry i brzmi
+        # nienaturalnie — ucinamy w minimum energii przed tym podjazdem
+        out_wave = out_wave[:, :int(end_sec * sr)]
     out_wave = dsp.normalize_rms(out_wave, -15.0)
-    out_wave = dsp.fade(out_wave, 0.004, min(0.22, out_wave.shape[1] / sr * 0.2))
+    tail = 0.16 if end_sec is not None else min(0.22, out_wave.shape[1] / sr * 0.2)
+    out_wave = dsp.fade(out_wave, 0.004, tail)
     out = CAND / f"{name}.mp3"
     dsp.encode_mp3(out, out_wave)
     files_txt = " + ".join(
@@ -101,7 +105,9 @@ def make_warcry(name: str, label: str, title: str, entry_id: str,
             "bad_for": "kameralność, elegancja, samotny strzelec",
             "file": f"audio/library/heroes/{entry_id}.mp3",
             "source": {**SOURCE,
-                       "notes": f"{files_txt}; zbiorcze obniżenie {semitones:.0f} półtonów, drive {drive}"},
+                       "notes": ("packs/opengameart-male-gruntyelling-sounds; "
+                                 f"{files_txt}; zbiorcze obniżenie {semitones:.0f} półtonów, "
+                                 f"saturacja {drive}; mirror pack.json potwierdza CC0 1.0")},
         },
     }
 
@@ -122,8 +128,8 @@ def main() -> None:
                             dict(file="yell7.m4a", at=0.12, gain=0.8, extra_semitones=2.0),
                             dict(file="2yell8.m4a", at=0.26, gain=0.7),
                             dict(file="3yell5.m4a", at=0.40, gain=0.6, extra_semitones=-2.0)],
-                    semitones=4.0, drive=1.6,
-                    desc="cztery głosy rozjechane co ~0,13 s i rozstrojone — nie chórek, tylko banda, która podchwytuje krzyk wodza",
+                    semitones=4.0, drive=1.6, end_sec=1.30,
+                    desc="cztery głosy rozjechane co ~0,13 s i rozstrojone — nie chórek, tylko banda, która podchwytuje krzyk wodza; ogon ucięty w minimum energii (1,30 s), bo ostatni głos podjeżdżał tonem do góry",
                     character="tłum, narastający, groźny"),
     ]
     manifest = {

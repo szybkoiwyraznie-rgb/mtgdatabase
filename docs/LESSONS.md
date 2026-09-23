@@ -200,3 +200,12 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   `actions:write` → `workflow_dispatch` po API odpada. Działa
   `repository_dispatch` (potrzebuje tylko `contents:write`), więc workflow
   dostał drugi wyzwalacz `types: [sample-scout]` i czyta client_payload.
+- **2026-09-23 (poprawka wykonawcza po werdykcie):** przy „dobre, ale utnij
+  koniec" nie zgaduj miejsca cięcia — zrób profil energii co 50 ms i tnij
+  w MINIMUM przed artefaktem (tu: −25 dB @ 1,25 s, potem głos wracał na
+  −16 dB pnąc się 558→733 Hz). Parametr `end_sec` w budowniczym bramki, nie
+  ręczna edycja pliku, żeby kandydat dał się odtworzyć z kodu.
+- **2026-09-23 (schemat source):** własny słownik `SOURCE` w nowym skrypcie
+  bramki rozjechał się z rejestrem (`homepage/mirror/path` zamiast
+  `url/channel`) — `library_tool check` złapał to dopiero po accept.
+  Nowe bramki kopiować pola źródła z istniejącego wpisu, nie wymyślać.
