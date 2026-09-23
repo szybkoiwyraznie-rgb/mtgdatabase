@@ -1,0 +1,11 @@
+{
+ "id": "b_wine_glasses",
+ "semantic": "eteryczny, nieziemski",
+ "family": "idiophone-friction",
+ "samples": {
+  "63": "instr_notes/glass_Ds4.mp3",
+  "66": "instr_notes/glass_Fs4.mp3",
+  "68": "instr_notes/glass_As4.mp3",
+  "74": "instr_notes/glass_D5.mp3"
+ }
+}

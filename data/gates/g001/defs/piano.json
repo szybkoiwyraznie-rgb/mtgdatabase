@@ -1,0 +1,16 @@
+{
+ "id": "piano_kawai_gate",
+ "semantic": "neutralny referencyjny (tylko bramka)",
+ "family": "zither",
+ "samples": {
+  "33": "instr_notes/piano_A1.mp3",
+  "36": "instr_notes/piano_C2.mp3",
+  "38": "instr_notes/piano_D2.mp3",
+  "40": "instr_notes/piano_E2.mp3",
+  "54": "instr_notes/piano_Fs3.mp3",
+  "60": "instr_notes/piano_C4.mp3",
+  "62": "instr_notes/piano_D4.mp3",
+  "64": "instr_notes/piano_E4.mp3",
+  "72": "instr_notes/piano_C5.mp3"
+ }
+}

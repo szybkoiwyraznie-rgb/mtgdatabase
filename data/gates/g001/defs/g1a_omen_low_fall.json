@@ -1,0 +1,31 @@
+{
+ "id": "g1a_omen_low_fall",
+ "semantic": "złowieszczy sygnał — niski opadający gest",
+ "desc": "długa niska nuta opada o ton i nie znajduje rozwiązania; odpowiedź świata na znak dany przez kruki",
+ "notes": [
+  {
+   "midi": 38,
+   "on": 0.0,
+   "off": 1.5,
+   "vel": 0.9
+  },
+  {
+   "midi": 36,
+   "on": 1.42,
+   "off": 2.4,
+   "vel": 0.78
+  }
+ ],
+ "delivery": {
+  "humanize": {
+   "timing_ms": 20,
+   "vel": 0.05
+  }
+ },
+ "instrument_tags": [
+  "low_brass",
+  "low_strings",
+  "timpani",
+  "oboe_low"
+ ]
+}

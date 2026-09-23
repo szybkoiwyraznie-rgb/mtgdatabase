@@ -1,0 +1,803 @@
+{
+  "id": "g001",
+  "created": "2026-09-23",
+  "note": "Bramka pilotażowa systemu sygnatur: dwie fabuły, cztery bazy od zera. Kody (a) renderowane na neutralnym fortepianie; instrumenty (b) grają własną frazę demonstracyjną, niezależną od fabuły.",
+  "stories": [
+    {
+      "story_id": 1,
+      "title": "Dunland Crebain",
+      "story": "Na skraju dunlandzkiego urwiska dwaj Uruk-hai Białej Ręki zastygają w napięciu, wypatrując znaku od swoich skrzydlatych zwiadowców. W wąwozie pod nimi formuje się cicha armia Sarumana, a kolejne pochodnie rozpalają się w miarę, jak oddziały odnajdują swoje miejsca. Nad sceną krąży stado crebainów — tych samych kruków, które z rozkazu Isengardu przeczesują ziemie na zachód od Gór Mglistych. Jeden z nich pikuje w dół, a jego krzyk zdaje się ostatnim sygnałem, na który czeka każde ostrze w mroku.",
+      "slots": {
+        "d": {
+          "role": "wąwóz nad urwiskiem, gdzie zbiera się armia — zimna, niska przestrzeń napięcia",
+          "candidates": [
+            {
+              "label": "d.1",
+              "title": "wiatr w urwisku",
+              "file": "candidates/s1_d1.mp3",
+              "desc": "susz wiatru między skałami",
+              "source": "Yellowstone Sound Library (NPS) — Hurricane Vent; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "wind_canyon_01",
+                "setting": "wąwóz / urwisko",
+                "desc": "szum wiatru między skałami, równy niski podmuch",
+                "file": "audio/library/backgrounds/wind_canyon_01.mp3",
+                "duration_sec": 8.05,
+                "level_ref_db": -32,
+                "loopable": true,
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Hurricane Vent 5.0-13.0 s"
+                }
+              }
+            },
+            {
+              "label": "d.2",
+              "title": "oddalony grzmot nad wąwozem",
+              "file": "candidates/s1_d2.mp3",
+              "desc": "głęboki pomruk zbierającej się burzy",
+              "source": "Yellowstone Sound Library (NPS) — Thunder; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "thunder_far_01",
+                "setting": "wąwóz / burza w oddali",
+                "desc": "niski toczący się grzmot, złowieszcza pogoda",
+                "file": "audio/library/backgrounds/thunder_far_01.mp3",
+                "duration_sec": 8.05,
+                "level_ref_db": -33,
+                "loopable": true,
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Thunder 24.0-32.0 s"
+                }
+              }
+            },
+            {
+              "label": "d.3",
+              "title": "podziemny pomruk",
+              "file": "candidates/s1_d3.mp3",
+              "desc": "echo i bulgot — jakby ziemia oddychała pod stopami",
+              "source": "Yellowstone Sound Library (NPS) — The Dragon's Mouth; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "cavern_rumble_01",
+                "setting": "wąwóz / podziemia",
+                "desc": "niskie bulgoczące echo jaskini, niepokój od spodu",
+                "file": "audio/library/backgrounds/cavern_rumble_01.mp3",
+                "duration_sec": 8.05,
+                "level_ref_db": -33,
+                "loopable": true,
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "The Dragon's Mouth 52.0-60.0 s"
+                }
+              }
+            }
+          ]
+        },
+        "c": {
+          "role": "krzyk crebaina — skrzydlaci zwiadowcy dają znak armii",
+          "candidates": [
+            {
+              "label": "c.1",
+              "title": "pojedynczy krzyk kruka",
+              "file": "candidates/s1_c1.mp3",
+              "desc": "jedno ostre, bliskie wołanie",
+              "source": "Yellowstone Sound Library (NPS) — Common Raven; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "raven_cry_single_01",
+                "role": "krzyk dużego ptaka zwiadowczego",
+                "desc": "pojedynczy ostry krzyk kruka, bliski",
+                "file": "audio/library/heroes/raven_cry_single_01.mp3",
+                "duration_sec": 1.33,
+                "character": "ostry, gardłowy",
+                "distance": "bliski",
+                "energy": "wysoka",
+                "good_for": [
+                  "sygnał",
+                  "ostateczna zapowiedź"
+                ],
+                "bad_for": [
+                  "tło",
+                  "smutek"
+                ],
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Common Raven 3.4-4.7 s"
+                }
+              }
+            },
+            {
+              "label": "c.2",
+              "title": "podwójny krzyk kruka",
+              "file": "candidates/s1_c2.mp3",
+              "desc": "dwa krzyki — jakby ptaki odpowiadały sobie",
+              "source": "Yellowstone Sound Library (NPS) — Common Raven; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "raven_cry_double_01",
+                "role": "krzyk dużego ptaka zwiadowczego",
+                "desc": "dwa krzyki krucze w krótkim odstępie",
+                "file": "audio/library/heroes/raven_cry_double_01.mp3",
+                "duration_sec": 1.75,
+                "character": "ostry, wielokrotny",
+                "distance": "bliski",
+                "energy": "wysoka",
+                "good_for": [
+                  "sygnał",
+                  "porozumienie stada"
+                ],
+                "bad_for": [
+                  "tło"
+                ],
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Common Raven 4.6-6.3 s"
+                }
+              }
+            },
+            {
+              "label": "c.3",
+              "title": "wrzask kruka (długi)",
+              "file": "candidates/s1_c3.mp3",
+              "desc": "wydłużony, agresywny wrzask",
+              "source": "Yellowstone Sound Library (NPS) — Common Raven; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "raven_yell_long_01",
+                "role": "krzyk dużego ptaka zwiadowczego",
+                "desc": "długi agresywny wrzask kruka",
+                "file": "audio/library/heroes/raven_yell_long_01.mp3",
+                "duration_sec": 1.83,
+                "character": "agresywny, przeciągany",
+                "distance": "bliski",
+                "energy": "bardzo wysoka",
+                "good_for": [
+                  "atak",
+                  "alarm"
+                ],
+                "bad_for": [
+                  "subtelność"
+                ],
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Common Raven 6.0-7.8 s"
+                }
+              }
+            }
+          ]
+        },
+        "a": {
+          "role": "muzyczna odpowiedź na sygnał crebainów (render neutralny: fortepian)",
+          "candidates": [
+            {
+              "label": "a.1",
+              "title": "złowieszczy sygnał",
+              "file": "candidates/g1a_omen_low_fall.mp3",
+              "desc": "długa niska nuta opada o ton i nie znajduje rozwiązania",
+              "source": "definicja nutowa — render bramkowy na neutralnym fortepianie",
+              "entry": {
+                "id": "g1a_omen_low_fall",
+                "semantic": "złowieszczy sygnał — niski opadający gest",
+                "desc": "długa niska nuta opada o ton i nie znajduje rozwiązania; odpowiedź świata na znak dany przez kruki",
+                "notes": [
+                  {
+                    "midi": 38,
+                    "on": 0.0,
+                    "off": 1.5,
+                    "vel": 0.9
+                  },
+                  {
+                    "midi": 36,
+                    "on": 1.42,
+                    "off": 2.4,
+                    "vel": 0.78
+                  }
+                ],
+                "delivery": {
+                  "humanize": {
+                    "timing_ms": 20,
+                    "vel": 0.05
+                  }
+                },
+                "instrument_tags": [
+                  "low_brass",
+                  "low_strings",
+                  "timpani",
+                  "oboe_low"
+                ]
+              }
+            },
+            {
+              "label": "a.2",
+              "title": "marsz zagrożenia",
+              "file": "candidates/g1b_march_pulse.mp3",
+              "desc": "dwa krótkie impulsy jak kroki armii, potem długi cień",
+              "source": "definicja nutowa — render bramkowy na neutralnym fortepianie",
+              "entry": {
+                "id": "g1b_march_pulse",
+                "semantic": "marsz zagrożenia — dwa impulsy i cień kwinty",
+                "desc": "dwa krótkie uderzenia jak kroki formującej się armii, potem długi niski cień zagrożenia",
+                "notes": [
+                  {
+                    "midi": 33,
+                    "on": 0.0,
+                    "off": 0.32,
+                    "vel": 0.85
+                  },
+                  {
+                    "midi": 33,
+                    "on": 0.42,
+                    "off": 0.75,
+                    "vel": 0.82
+                  },
+                  {
+                    "midi": 38,
+                    "on": 0.95,
+                    "off": 2.5,
+                    "vel": 0.9
+                  }
+                ],
+                "delivery": {
+                  "humanize": {
+                    "timing_ms": 20,
+                    "vel": 0.05
+                  }
+                },
+                "instrument_tags": [
+                  "timpani",
+                  "low_strings",
+                  "percussion_low"
+                ]
+              }
+            },
+            {
+              "label": "a.3",
+              "title": "pustka po sygnale",
+              "file": "candidates/g1c_void_tone.mp3",
+              "desc": "jeden cichy długi ton — wąwóz zamiera w oczekiwaniu",
+              "source": "definicja nutowa — render bramkowy na neutralnym fortepianie",
+              "entry": {
+                "id": "g1c_void_tone",
+                "semantic": "pustka po sygnale — pojedynczy odległy ton",
+                "desc": "jeden cichy, długi dźwięk: wąwóz zamiera i czeka na to, co nadejdzie",
+                "notes": [
+                  {
+                    "midi": 33,
+                    "on": 0.0,
+                    "off": 2.8,
+                    "vel": 0.6
+                  }
+                ],
+                "delivery": {
+                  "humanize": {}
+                },
+                "instrument_tags": [
+                  "low_strings",
+                  "wind_low",
+                  "organ_low"
+                ]
+              }
+            }
+          ]
+        },
+        "b": {
+          "role": "brzmienie kody dla mrocznej sceny",
+          "candidates": [
+            {
+              "label": "b.1",
+              "title": "kotły (timpani)",
+              "file": "candidates/b_timpani.mp3",
+              "desc": "ciężkie, miękkie uderzenia — groza i marsz",
+              "source": "Versilian Community Sample Library — Timpani 1; CC0 1.0",
+              "entry": {
+                "id": "b_timpani",
+                "semantic": "złowieszczy, ciężki",
+                "family": "membranophone",
+                "samples": {
+                  "38": "audio/library/instruments/timpani/hit_soft.mp3",
+                  "39": "audio/library/instruments/timpani/hit_mid.mp3",
+                  "41": "audio/library/instruments/timpani/hit_hard.mp3"
+                },
+                "gate_sources": {
+                  "38": "instr_notes/timp_s1.mp3",
+                  "39": "instr_notes/timp_s2.mp3",
+                  "41": "instr_notes/timp_t2.mp3"
+                },
+                "source": {
+                  "title": "Versilian Community Sample Library",
+                  "author": "Versilian Studios + społeczność",
+                  "license": "CC0 1.0",
+                  "url": "https://vis.versilstudios.com/vcsl.html",
+                  "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+                  "notes": "Timpani1 Hit v2 rr1 + v3 rr3, Timpani2 Hit v2 rr1"
+                }
+              }
+            },
+            {
+              "label": "b.2",
+              "title": "flet basowy barokowy",
+              "file": "candidates/b_bass_recorder.mp3",
+              "desc": "drewniany, skryty, archaiczny — intryga i stara wojna",
+              "source": "Versilian Community Sample Library — Baroque Bass Recorder; CC0 1.0",
+              "entry": {
+                "id": "b_bass_recorder",
+                "semantic": "skryty, archaiczny",
+                "family": "aerophone",
+                "samples": {
+                  "41": "audio/library/instruments/bass_recorder/F2_stac.mp3",
+                  "48": "audio/library/instruments/bass_recorder/C3_susvib.mp3"
+                },
+                "gate_sources": {
+                  "41": "instr_notes/rec_F2.mp3",
+                  "48": "instr_notes/rec_C3.mp3"
+                },
+                "source": {
+                  "title": "Versilian Community Sample Library",
+                  "author": "Versilian Studios + społeczność",
+                  "license": "CC0 1.0",
+                  "url": "https://vis.versilstudios.com/vcsl.html",
+                  "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+                  "notes": "BassRecorder Stac F2 rr1 + SusVib C3 rr1"
+                }
+              }
+            },
+            {
+              "label": "b.3",
+              "title": "dzwony rurowe",
+              "file": "candidates/b_chimes.mp3",
+              "desc": "zimne uderzenia z pogłosem — uroczystość, fatum",
+              "source": "Versilian Community Sample Library — Tubular Bells; CC0 1.0",
+              "entry": {
+                "id": "b_chimes",
+                "semantic": "zimny, uroczysty",
+                "family": "idiophone",
+                "samples": {
+                  "52": "audio/library/instruments/chimes/E3_ff.mp3",
+                  "58": "audio/library/instruments/chimes/As3_ff.mp3"
+                },
+                "gate_sources": {
+                  "52": "instr_notes/chim_E3.mp3",
+                  "58": "instr_notes/chim_As3.mp3"
+                },
+                "source": {
+                  "title": "Versilian Community Sample Library",
+                  "author": "Versilian Studios + społeczność",
+                  "license": "CC0 1.0",
+                  "url": "https://vis.versilstudios.com/vcsl.html",
+                  "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+                  "notes": "chimes E3 ff rr2 + A#3 ff rr1"
+                }
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "story_id": 4,
+      "title": "Mystic Sanctuary",
+      "story": "Na środku mglistego jeziora w głębi Eldraine wyrasta zrujnowana kamienna wieża ze świecącym błękitnym kryształem, a wokół niej tańczą na powierzchni wody drobne ogniki. Na kamieniu przy brzegu otwarta księga zaklęć wypuszcza ze swoich stron cienkie nici światła, które niczym żyłki pamięci ciągną się ku sanktuarium. W oddali, we mgle, zarysowują się kolejne wyspy łańcucha — rodzeństwo tej, na której stoi wieża. Woda wokół niej pulsuje koncentrycznymi falami, jakby samo istnienie sanktuarium poruszało tę śpiącą krainę arturiańskich mitów.",
+      "slots": {
+        "d": {
+          "role": "mgliste jezioro z ruinami — spokojna, tajemnicza przestrzeń wody",
+          "candidates": [
+            {
+              "label": "d.1",
+              "title": "śpiewające jezioro",
+              "file": "candidates/s4_d1.mp3",
+              "desc": "dziwne ciche «pieśni» wody — zjawisko singing lake",
+              "source": "Yellowstone Sound Library (NPS) — Singing Lake; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "lake_singing_01",
+                "setting": "jezioro / mgła",
+                "desc": "eteryczne ciche pieśni wody na jeziorze",
+                "file": "audio/library/backgrounds/lake_singing_01.mp3",
+                "duration_sec": 8.05,
+                "level_ref_db": -33,
+                "loopable": true,
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Singing Lake 60.0-68.0 s"
+                }
+              }
+            },
+            {
+              "label": "d.2",
+              "title": "bulgoczące źródło",
+              "file": "candidates/s4_d2.mp3",
+              "desc": "delikatne perlenie wody przy brzegu",
+              "source": "Yellowstone Sound Library (NPS) — Black Sand Pool; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "lake_bubbles_01",
+                "setting": "jezioro / brzeg",
+                "desc": "ciche bulgotanie wody w płytkim zbiorniku",
+                "file": "audio/library/backgrounds/lake_bubbles_01.mp3",
+                "duration_sec": 8.05,
+                "level_ref_db": -33,
+                "loopable": true,
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Black Sand Pool 12.0-20.0 s"
+                }
+              }
+            },
+            {
+              "label": "d.3",
+              "title": "nocne żaby nad wodą",
+              "file": "candidates/s4_d3.mp3",
+              "desc": "chór żab po zmroku — żywa, ale spokojna okolica",
+              "source": "Yellowstone Sound Library (NPS) — Boreal Chorus Frogs; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "frogs_night_01",
+                "setting": "jezioro / noc",
+                "desc": "chór żab nad wodą nocą",
+                "file": "audio/library/backgrounds/frogs_night_01.mp3",
+                "duration_sec": 8.05,
+                "level_ref_db": -34,
+                "loopable": true,
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Chorus Frogs 100.5-108.5 s"
+                }
+              }
+            }
+          ]
+        },
+        "c": {
+          "role": "jeden tajemniczy głos w mgle — zew miejsca, nie akcja",
+          "candidates": [
+            {
+              "label": "c.1",
+              "title": "zew nura (loon)",
+              "file": "candidates/s4_c1.mp3",
+              "desc": "nawiedzony, wysoki zew ptaka wodnego",
+              "source": "Yellowstone Sound Library (NPS) — Common Loon; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "loon_wail_01",
+                "role": "zew tajemniczego ptaka wodnego",
+                "desc": "wysoki nawiedzony zew nura nad jeziorem",
+                "file": "audio/library/heroes/loon_wail_01.mp3",
+                "duration_sec": 2.64,
+                "character": "nawiedzony, melodyjny",
+                "distance": "daleki",
+                "energy": "średnia",
+                "good_for": [
+                  "tajemnica",
+                  "samotność",
+                  "magia miejsca"
+                ],
+                "bad_for": [
+                  "walka"
+                ],
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Common Loon 64.0-66.6 s"
+                }
+              }
+            },
+            {
+              "label": "c.2",
+              "title": "drżący okrzyk nura (yodel)",
+              "file": "candidates/s4_c2.mp3",
+              "desc": "drżące opadające wołanie — jak echo pytania",
+              "source": "Yellowstone Sound Library (NPS) — Common Loon; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "loon_yodel_01",
+                "role": "zew tajemniczego ptaka wodnego",
+                "desc": "drżący opadający okrzyk nura (yodel)",
+                "file": "audio/library/heroes/loon_yodel_01.mp3",
+                "duration_sec": 3.24,
+                "character": "drżący, opadający",
+                "distance": "daleki",
+                "energy": "średnia",
+                "good_for": [
+                  "tajemnica",
+                  "groteska natury"
+                ],
+                "bad_for": [
+                  "walka"
+                ],
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Common Loon 95.4-98.6 s"
+                }
+              }
+            },
+            {
+              "label": "c.3",
+              "title": "śpiew jeziora",
+              "file": "candidates/s4_c3.mp3",
+              "desc": "samo jezioro odpowiada — narastający ton wody",
+              "source": "Yellowstone Sound Library (NPS) — Singing Lake; Public Domain (utwór rządu USA)",
+              "entry": {
+                "id": "lake_song_swell_01",
+                "role": "głos żywiołu wody",
+                "desc": "narastający śpiew jeziora z miękkim pluskiem",
+                "file": "audio/library/heroes/lake_song_swell_01.mp3",
+                "duration_sec": 3.45,
+                "character": "organiczny, narastający",
+                "distance": "bliski",
+                "energy": "średnio-wysoka",
+                "good_for": [
+                  "manifestacja magii",
+                  "odpowiedź miejsca"
+                ],
+                "bad_for": [
+                  "cisza absolutna"
+                ],
+                "source": {
+                  "title": "Yellowstone Sound Library (NPS)",
+                  "author": "National Park Service",
+                  "license": "Public Domain (utwór rządu USA)",
+                  "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+                  "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+                  "notes": "Singing Lake 1.0-4.4 s"
+                }
+              }
+            }
+          ]
+        },
+        "a": {
+          "role": "muzyczna odpowiedź na mgły sanktuarium (render neutralny: fortepian)",
+          "candidates": [
+            {
+              "label": "a.1",
+              "title": "cud / odkrycie",
+              "file": "candidates/g4a_discovery_open.mp3",
+              "desc": "dwie jasne nuty otwierające światło nad ruinami",
+              "source": "definicja nutowa — render bramkowy na neutralnym fortepianie",
+              "entry": {
+                "id": "g4a_discovery_open",
+                "semantic": "cud / odkrycie — jasna tercja otwierająca",
+                "desc": "dwie jasne nuty wystrzeliwujące w górę; mgła rozstępuje się nad świątynią",
+                "notes": [
+                  {
+                    "midi": 60,
+                    "on": 0.0,
+                    "off": 1.0,
+                    "vel": 0.7
+                  },
+                  {
+                    "midi": 64,
+                    "on": 0.55,
+                    "off": 2.0,
+                    "vel": 0.75
+                  }
+                ],
+                "delivery": {
+                  "humanize": {
+                    "timing_ms": 20,
+                    "vel": 0.05
+                  }
+                },
+                "instrument_tags": [
+                  "harp",
+                  "bells",
+                  "strings_high"
+                ]
+              }
+            },
+            {
+              "label": "a.2",
+              "title": "tajemnica",
+              "file": "candidates/g4b_mystery_tritone.mp3",
+              "desc": "wysoka nuta wisząca nad niskim szmerem — pytanie bez odpowiedzi",
+              "source": "definicja nutowa — render bramkowy na neutralnym fortepianie",
+              "entry": {
+                "id": "g4b_mystery_tritone",
+                "semantic": "tajemnica — wysoka nuta nad nierozwiązanym niskim dźwiękiem",
+                "desc": "niski szmer i wiszącą nad nim bardzo wysoka nuta; nic się nie domyka, jak pytanie bez odpowiedzi",
+                "notes": [
+                  {
+                    "midi": 54,
+                    "on": 0.0,
+                    "off": 2.7,
+                    "vel": 0.55
+                  },
+                  {
+                    "midi": 72,
+                    "on": 0.7,
+                    "off": 2.7,
+                    "vel": 0.5
+                  }
+                ],
+                "delivery": {
+                  "humanize": {
+                    "timing_ms": 20,
+                    "vel": 0.05
+                  }
+                },
+                "instrument_tags": [
+                  "strings",
+                  "glass",
+                  "bells",
+                  "flute"
+                ]
+              }
+            },
+            {
+              "label": "a.3",
+              "title": "spokój / ulga",
+              "file": "candidates/g4c_relief_descent.mp3",
+              "desc": "trzy łagodne nuty opadają jak liście na wodę",
+              "source": "definicja nutowa — render bramkowy na neutralnym fortepianie",
+              "entry": {
+                "id": "g4c_relief_descent",
+                "semantic": "spokój / ulga — miękkie rozwiązanie w dół",
+                "desc": "trzy łagodne nuty opadające kaskadą jak liście na wodę; napięcie się rozwiązuje",
+                "notes": [
+                  {
+                    "midi": 64,
+                    "on": 0.0,
+                    "off": 0.85,
+                    "vel": 0.7
+                  },
+                  {
+                    "midi": 62,
+                    "on": 0.6,
+                    "off": 1.45,
+                    "vel": 0.66
+                  },
+                  {
+                    "midi": 60,
+                    "on": 1.2,
+                    "off": 2.6,
+                    "vel": 0.7
+                  }
+                ],
+                "delivery": {
+                  "humanize": {
+                    "timing_ms": 20,
+                    "vel": 0.05
+                  }
+                },
+                "instrument_tags": [
+                  "harp",
+                  "bells",
+                  "flute",
+                  "strings_high"
+                ]
+              }
+            }
+          ]
+        },
+        "b": {
+          "role": "brzmienie kody dla magicznej sceny",
+          "candidates": [
+            {
+              "label": "b.1",
+              "title": "harfa koncertowa",
+              "file": "candidates/b_harp.mp3",
+              "desc": "świetliste krople — magia czysta, jasna",
+              "source": "Versilian Community Sample Library — Concert Harp; CC0 1.0",
+              "entry": {
+                "id": "b_harp",
+                "semantic": "świetlisty, magiczny",
+                "family": "chordophone",
+                "samples": {
+                  "45": "audio/library/instruments/harp/A2_mf.mp3",
+                  "52": "audio/library/instruments/harp/E3_mf.mp3",
+                  "62": "audio/library/instruments/harp/D4_mf.mp3"
+                },
+                "gate_sources": {
+                  "45": "instr_notes/harp_A2.mp3",
+                  "52": "instr_notes/harp_E3.mp3",
+                  "62": "instr_notes/harp_D4.mp3"
+                },
+                "source": {
+                  "title": "Versilian Community Sample Library",
+                  "author": "Versilian Studios + społeczność",
+                  "license": "CC0 1.0",
+                  "url": "https://vis.versilstudios.com/vcsl.html",
+                  "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+                  "notes": "KSHarp A2/E3/D4 mf1"
+                }
+              }
+            },
+            {
+              "label": "b.2",
+              "title": "dzwony rurowe",
+              "file": "candidates/b_chimes.mp3",
+              "desc": "uroczysty odległy dzwon — rytuał, świątynia",
+              "source": "Versilian Community Sample Library — Tubular Bells; CC0 1.0",
+              "entry": {
+                "id": "b_chimes",
+                "semantic": "zimny, uroczysty",
+                "family": "idiophone",
+                "samples": {
+                  "52": "audio/library/instruments/chimes/E3_ff.mp3",
+                  "58": "audio/library/instruments/chimes/As3_ff.mp3"
+                },
+                "gate_sources": {
+                  "52": "instr_notes/chim_E3.mp3",
+                  "58": "instr_notes/chim_As3.mp3"
+                },
+                "source": {
+                  "title": "Versilian Community Sample Library",
+                  "author": "Versilian Studios + społeczność",
+                  "license": "CC0 1.0",
+                  "url": "https://vis.versilstudios.com/vcsl.html",
+                  "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+                  "notes": "chimes E3 ff rr2 + A#3 ff rr1"
+                }
+              }
+            },
+            {
+              "label": "b.3",
+              "title": "szkło (wine glasses)",
+              "file": "candidates/b_wine_glasses.mp3",
+              "desc": "eteryczny śpiew szkła — nieziemsko, senno",
+              "source": "Versilian Community Sample Library — Wine Glasses; CC0 1.0",
+              "entry": {
+                "id": "b_wine_glasses",
+                "semantic": "eteryczny, nieziemski",
+                "family": "idiophone-friction",
+                "samples": {
+                  "63": "audio/library/instruments/wine_glasses/Ds4.mp3",
+                  "66": "audio/library/instruments/wine_glasses/Fs4.mp3",
+                  "68": "audio/library/instruments/wine_glasses/As4.mp3",
+                  "74": "audio/library/instruments/wine_glasses/D5.mp3"
+                },
+                "gate_sources": {
+                  "63": "instr_notes/glass_Ds4.mp3",
+                  "66": "instr_notes/glass_Fs4.mp3",
+                  "68": "instr_notes/glass_As4.mp3",
+                  "74": "instr_notes/glass_D5.mp3"
+                },
+                "source": {
+                  "title": "Versilian Community Sample Library",
+                  "author": "Versilian Studios + społeczność",
+                  "license": "CC0 1.0",
+                  "url": "https://vis.versilstudios.com/vcsl.html",
+                  "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+                  "notes": "glass 1-4 Sustains Fast"
+                }
+              }
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

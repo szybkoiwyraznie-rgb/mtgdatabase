@@ -4,10 +4,17 @@ Ten plik jest obowiązkową lekturą dla każdego agenta. Zawiera zasady specyfi
 
 ## 1. Trwałość pracy
 
-Nowa sesja może wystartować z czystego klona. Przetrwa tylko to, co zostało zapisane w repozytorium, zacommitowane i wypchnięte na GitHub.
+Nowa sesja może wystartować z czystego klona. Przetrwa tylko to, co zostało
+zapisane w repozytorium, zacommitowane i wypchnięte na GitHub.
 
-- Commituj i pushuj często.
+- Commituj i pushuj często — także materiał roboczy bramek (`data/gates/`).
+  Snapshot workspace wyłącza z zapisu m.in. `.venv/`, `work/`, `build/`, `/tmp`
+  (biblioteki źródeł klonujemy ponownie) i **może cofnąć lokalny stan gita**.
 - Nie polegaj na historii rozmowy ani plikach w `/tmp`.
+- Po restarcie sandboxa odtwórz środowisko: `python3 -m venv .venv &&
+  .venv/bin/pip install numpy soundfile lameenc av`.
+- Otwieraj pull request na swój branch od razu po pierwszym pushu sesji —
+  praca jest wtedy widoczna także poza sandboxem.
 - Przed resetem, checkoutem lub zmianą branchu sprawdź `git status` i wykonaj kopię niezacommitowanych zmian.
 - Pracuj wyłącznie na branchu roboczym bieżącej sesji Arena (format `arena/<id>-mtgdatabase`, wskazanym w konfiguracji sesji); nie twórz ani nie pushuj innych branchy. Jeśli nie masz pewności, który branch jest Twoim branchem sesji, sprawdź `git branch --show-current` i status sesji w Arena.
 - Nie pushuj bezpośrednio do `main`.

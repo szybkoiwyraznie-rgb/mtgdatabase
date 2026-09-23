@@ -101,11 +101,14 @@ def main() -> None:
         return
 
     class Handler(SimpleHTTPRequestHandler):
+        protocol_version = "HTTP/1.1"
+
         def __init__(self, *a, **kw):
             super().__init__(*a, directory=str(gate_dir), **kw)
 
         def end_headers(self):
             self.send_header("Cache-Control", "no-store")
+            self.send_header("Access-Control-Allow-Origin", "*")
             super().end_headers()
 
         def log_message(self, fmt, *a):

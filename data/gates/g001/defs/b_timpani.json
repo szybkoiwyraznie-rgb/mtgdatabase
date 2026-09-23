@@ -1,0 +1,10 @@
+{
+ "id": "b_timpani",
+ "semantic": "złowieszczy, ciężki",
+ "family": "membranophone",
+ "samples": {
+  "38": "instr_notes/timp_s1.mp3",
+  "39": "instr_notes/timp_s2.mp3",
+  "41": "instr_notes/timp_t2.mp3"
+ }
+}

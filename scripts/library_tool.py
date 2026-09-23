@@ -100,7 +100,7 @@ def report() -> None:
 
 
 def accept(gate_id: str) -> int:
-    gate_dir = REPO / "work" / "gates" / gate_id
+    gate_dir = REPO / "data" / "gates" / gate_id
     manifest = json.loads((gate_dir / "manifest.json").read_text(encoding="utf-8"))
     verdicts = json.loads((gate_dir / "verdicts.json").read_text(encoding="utf-8"))
     today = date.today().isoformat()
@@ -113,7 +113,7 @@ def accept(gate_id: str) -> int:
             continue
         for slot, label in verdicts[sid].items():
             if label in ("żaden", "żadna", "none", None):
-                print(f"  fabuła {sid} [{slot}]: odrzucone — poza bazą")
+                print(f"  fabuła {sid} [{slot}]: odrzucone — kandydaci zostają w archiwum bramki")
                 continue
             cands = {c["label"]: c for c in story["slots"][slot]["candidates"]}
             if label not in cands:
@@ -123,7 +123,6 @@ def accept(gate_id: str) -> int:
             kind = slot_kind[slot]
             reg = load(kind)
             entry = dict(cand["entry"])
-            entry.setdefault("approved", {})
             entry["approved"] = {"gate": gate_id, "choice": f"{slot}.{label.split('.')[-1]}", "date": today}
             if any(e["id"] == entry["id"] for e in reg["entries"]):
                 print(f"  {entry['id']}: już w bazie — aktualizuję approved")
@@ -135,13 +134,16 @@ def accept(gate_id: str) -> int:
                 dst.parent.mkdir(parents=True, exist_ok=True)
                 if not dst.exists():
                     shutil.copy2(gate_dir / cand["file"], dst)
+            if kind == "instruments":
+                for midi, src_rel in entry.pop("gate_sources", {}).items():
+                    dst = REPO / entry["samples"][midi]
+                    dst.parent.mkdir(parents=True, exist_ok=True)
+                    if not dst.exists():
+                        shutil.copy2(gate_dir / src_rel, dst)
             save(kind, reg)
             added.append(f"{kind}/{entry['id']}")
     manifest["verdicts"] = verdicts
     (gate_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    gates_log = REPO / "data" / "gates"
-    gates_log.mkdir(parents=True, exist_ok=True)
-    shutil.copy2(gate_dir / "manifest.json", gates_log / f"{gate_id}.json")
     print(f"przyjęto: {', '.join(added) if added else 'nic'}")
     return 0
 

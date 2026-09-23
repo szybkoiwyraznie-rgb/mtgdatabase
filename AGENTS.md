@@ -42,7 +42,10 @@ i `docs/gate-protocol.md`.
    po werdykcie: `library_tool.py accept`, receptura, render z `--audit`, commit.
 3. **Warsztat**: co najmniej jedna poprawka narzędzi/dokumentacji/bazy w sesji.
 4. **Publikacja**: `python scripts/build_pack.py` (test ZIP),
-   `python scripts/build_site.py` (test gablotki), `git status`, push.
+   `python scripts/build_site.py` (test gablotki), `git status`, commit, push.
+   **Commituj wcześnie i często** (bramkę od razu po zbudowaniu); po pierwszym
+   pushu sesji otwórz pull request. Sandbox potrafi resetować stan lokalny —
+   patrz ENVIRONMENT.md §1-2.
 
 ## Stary system
 

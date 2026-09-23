@@ -1,0 +1,10 @@
+{
+ "id": "b_harp",
+ "semantic": "świetlisty, magiczny",
+ "family": "chordophone",
+ "samples": {
+  "45": "instr_notes/harp_A2.mp3",
+  "52": "instr_notes/harp_E3.mp3",
+  "62": "instr_notes/harp_D4.mp3"
+ }
+}

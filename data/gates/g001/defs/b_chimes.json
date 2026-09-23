@@ -1,0 +1,9 @@
+{
+ "id": "b_chimes",
+ "semantic": "zimny, uroczysty",
+ "family": "idiophone",
+ "samples": {
+  "52": "instr_notes/chim_E3.mp3",
+  "58": "instr_notes/chim_As3.mp3"
+ }
+}

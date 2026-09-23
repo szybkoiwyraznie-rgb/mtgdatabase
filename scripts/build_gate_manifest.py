@@ -13,7 +13,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parent))
 import sig_audio as dsp  # noqa: E402
 
-G = Path("work/gates/g001")
+G = Path("data/gates/g001")
 
 cat = {s["id"]: s for s in json.loads(Path("data/catalog.json").read_text(encoding="utf-8"))["stories"]}
 
@@ -67,7 +67,9 @@ def hero(eid, role, desc, gatefile, character, distance, energy, good, bad, sour
 
 def inst(deffile, samples, source_note):
     entry = json.loads((G / "defs" / deffile).read_text(encoding="utf-8"))
+    gate_sources = dict(entry["samples"])  # midi -> instr_notes/*.mp3 w katalogu bramki
     entry["samples"] = samples
+    entry["gate_sources"] = gate_sources
     entry["source"] = {**VCSL, "notes": source_note}
     return {"entry": entry}
 

@@ -22,3 +22,6 @@ work/
 .vscode/
 .idea/
 workspace-*.zip
+
+# Bramki: manifest+kandydaci są commitowane (trwałość), strona podglądu jest generowana
+data/gates/*/index.html
