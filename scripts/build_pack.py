@@ -20,7 +20,7 @@ NAME_RULE = re.compile(r"^\d+\.mp3$")
 def zip_pack(src: Path, out: Path) -> list[str]:
     if not src.is_dir():
         raise SystemExit(f"brak katalogu {src}")
-    bad = [p.name for p in src.iterdir() if p.is_file() and not NAME_RULE.match(p.name)]
+    bad = [p.name for p in src.iterdir() if p.is_file() and not p.name.startswith(".") and not NAME_RULE.match(p.name)]
     if bad:
         raise SystemExit(f"niedozwolone nazwy w {src} (reguła <id>.mp3): {bad}")
     files = sorted((p for p in src.glob("*.mp3")), key=lambda p: int(p.stem))
