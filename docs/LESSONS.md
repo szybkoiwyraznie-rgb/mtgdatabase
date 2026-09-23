@@ -385,3 +385,19 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   `restricted`, bo dotyczą wyłącznie publicznej gablotki Pages i ZIP-a
   w Releases. Scout: `license_status` w manifeście, `--free-only` gdy
   materiał ma iść do publikacji. Polityka w `docs/sources-and-licensing.md`.
+
+## 2026-09-23 — Metryki głosu nie odróżniają aktora od kreskówkowego stworka
+
+- Sytuacja: g012 miała obsadzić „złośliwy chichot małego demona”. Złożyłem
+  krótkie sylaby z kitu `80 creature SFX`; wszystkie były głośne, niepuste,
+  miały czytelne pasmo głosu i równe poziomy. Właściciel odrzucił całą rundę:
+  „to nie żaden imp tylko postać z kreskówki — ma być prawdziwy diabelski
+  chichot”.
+- Wniosek: techniczna sonda słyszalności potwierdza tylko, że sygnał istnieje.
+  Nie potwierdza źródła wykonania ani wiarygodności aktorskiej. Nazwanie kilku
+  zaprojektowanych odgłosów `cute-*` „chichotem” było nadinterpretacją opisu.
+- Zasada / działanie zapobiegawcze: role oparte na ludzkiej ekspresji
+  (śmiech, płacz, krzyk, szept) zaczynaj od **prawdziwego nagrania człowieka
+  wykonującego tę ekspresję**. Creature-SFX nie wolno przemianować na emocję
+  tylko dlatego, że zgadza się długość i pasmo. Obróbka może wzmacniać rolę,
+  ale nie zastępuje wiarygodnego wykonania źródłowego.
