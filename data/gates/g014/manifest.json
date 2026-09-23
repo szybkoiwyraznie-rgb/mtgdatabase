@@ -1,0 +1,95 @@
+{
+  "id": "g014",
+  "created": "2026-09-23",
+  "note": "Hero do wylosowanej fabuły 18 (Lotusguard Disciple): odłamki odbijają się od magicznej tarczy chroniącej pilota. Trzy warianty jednej roli z prawdziwych nagrań metalowych uderzeń. Etykiety s.*.",
+  "entries": [
+    {
+      "slug": "odlamki-odbite-przez-tarcze",
+      "kind": "heroes",
+      "role": "seria odłamków odbitych przez świeżo utworzoną magiczną tarczę",
+      "candidates": [
+        {
+          "label": "s.1",
+          "title": "twarde odbicie",
+          "file": "candidates/s_solid_deflection.mp3",
+          "desc": "trzy zwarte uderzenia z czytelnym metalowym korpusem — bariera przyjmuje cięższe odłamki",
+          "source": "prawdziwe metalowe uderzenia — rubberduck / OpenGameArt, CC0",
+          "entry": {
+            "id": "shield_deflect_01",
+            "role": "seria odłamków odbitych przez świeżo utworzoną magiczną tarczę",
+            "character": "twardy, zwarty, ochronny",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 0.88,
+            "desc": "trzy zwarte uderzenia z czytelnym metalowym korpusem — bariera przyjmuje cięższe odłamki",
+            "good_for": "magiczna bariera, odbicie pocisków, ochrona w ostatniej chwili",
+            "bad_for": "atak przebijający cel, ciężka brama, komediowy pancerz",
+            "file": "audio/library/heroes/shield_deflect_01.mp3",
+            "source": {
+              "title": "100 metal and wood SFX (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-100-cc0-metal-and-wood-sfx; metal-hit-03 @ 0.00s + metal-hit-01 @ 0.22s + metal-hit-03 @ 0.47s; bez pitchowania i syntezy; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        },
+        {
+          "label": "s.2",
+          "title": "dźwięczna bariera",
+          "file": "candidates/s_ringing_barrier.mp3",
+          "desc": "trzy dźwięczne odbicia o dłuższym metalowym ogonie — bariera odpowiada rezonansem",
+          "source": "prawdziwe metalowe uderzenia — rubberduck / OpenGameArt, CC0",
+          "entry": {
+            "id": "shield_deflect_02",
+            "role": "seria odłamków odbitych przez świeżo utworzoną magiczną tarczę",
+            "character": "dźwięczny, jasny, rezonujący",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 1.0,
+            "desc": "trzy dźwięczne odbicia o dłuższym metalowym ogonie — bariera odpowiada rezonansem",
+            "good_for": "magiczna bariera, odbicie pocisków, ochrona w ostatniej chwili",
+            "bad_for": "atak przebijający cel, ciężka brama, komediowy pancerz",
+            "file": "audio/library/heroes/shield_deflect_02.mp3",
+            "source": {
+              "title": "100 metal and wood SFX (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-100-cc0-metal-and-wood-sfx; metal-sheet-05 @ 0.00s + metal-sheet-03 @ 0.17s + metal-sheet-06 @ 0.38s; bez pitchowania i syntezy; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        },
+        {
+          "label": "s.3",
+          "title": "narastający rykoszet",
+          "file": "candidates/s_rising_ricochet.mp3",
+          "desc": "kolejne odbicia rosną i kończą się najwyraźniejszym pingiem — tarcza domyka się w ruchu",
+          "source": "prawdziwe metalowe uderzenia — rubberduck / OpenGameArt, CC0",
+          "entry": {
+            "id": "shield_deflect_03",
+            "role": "seria odłamków odbitych przez świeżo utworzoną magiczną tarczę",
+            "character": "narastający, sprężysty, triumfalny",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 0.76,
+            "desc": "kolejne odbicia rosną i kończą się najwyraźniejszym pingiem — tarcza domyka się w ruchu",
+            "good_for": "magiczna bariera, odbicie pocisków, ochrona w ostatniej chwili",
+            "bad_for": "atak przebijający cel, ciężka brama, komediowy pancerz",
+            "file": "audio/library/heroes/shield_deflect_03.mp3",
+            "source": {
+              "title": "100 metal and wood SFX (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-100-cc0-metal-and-wood-sfx; metal-hit-01 @ 0.00s + metal-hit-03 @ 0.19s + metal-hit-05 @ 0.42s; bez pitchowania i syntezy; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

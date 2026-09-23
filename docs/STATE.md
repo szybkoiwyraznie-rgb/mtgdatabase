@@ -26,11 +26,12 @@ Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatab
 
 ## W toku
 
-Nic nie czeka na werdykt właściciela. Fabuła 3 (Nefarious Imp) domknięta:
-trzy istniejące wpisy pasowały semantycznie (ogień dopalającej się mapy,
-tajemnica widmowego artefaktu, eteryczne szkło dla kryształu); brakował
-wyłącznie hero 1:1. G012 z creature-SFX odrzucona jako kreskówkowa, g013
-z prawdziwym ludzkim śmiechem przyjęta w wariancie h.2.
+Fabuła **18 (Lotusguard Disciple)** została wylosowana spośród niegotowych.
+Role z narracji: tło = pęd powietrza nad torem i rydwan-glider; hero = seria
+odłamków odbitych przez świeżo utworzoną magiczną tarczę; koda = jasne
+wznoszenie ochronnej aury; instrument = eteryczne szkło. Brakuje tła i hero.
+Bramka **g014** wystawia trzy warianty hero z prawdziwych metalowych uderzeń
+i czeka na werdykt właściciela. Po jej domknięciu potrzebna będzie bramka tła.
 
 ## Co dalej (propozycja agenta, nie wymaga pytania właściciela)
 
