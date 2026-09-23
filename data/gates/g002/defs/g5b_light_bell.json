@@ -1,0 +1,29 @@
+{
+  "semantic": "jasny dzwon odpowiedzi",
+  "desc": "wysoki sygnał zamieniający się w cichsze echo — znak z drugiej strony",
+  "notes": [
+    {
+      "midi": 84,
+      "on": 0.0,
+      "off": 1.05,
+      "vel": 0.6
+    },
+    {
+      "midi": 78,
+      "on": 0.6,
+      "off": 1.9,
+      "vel": 0.5
+    },
+    {
+      "midi": 72,
+      "on": 1.5,
+      "off": 2.5,
+      "vel": 0.42
+    }
+  ],
+  "instrument_tags": [
+    "struck-light",
+    "zither",
+    "piano"
+  ]
+}

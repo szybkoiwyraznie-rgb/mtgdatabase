@@ -1,0 +1,31 @@
+{
+ "id": "g4b_mystery_tritone",
+ "semantic": "tajemnica — wysoka nuta nad nierozwiązanym niskim dźwiękiem",
+ "desc": "niski szmer i wiszącą nad nim bardzo wysoka nuta; nic się nie domyka, jak pytanie bez odpowiedzi",
+ "notes": [
+  {
+   "midi": 54,
+   "on": 0.0,
+   "off": 2.7,
+   "vel": 0.55
+  },
+  {
+   "midi": 72,
+   "on": 0.7,
+   "off": 2.7,
+   "vel": 0.5
+  }
+ ],
+ "delivery": {
+  "humanize": {
+   "timing_ms": 20,
+   "vel": 0.05
+  }
+ },
+ "instrument_tags": [
+  "strings",
+  "glass",
+  "bells",
+  "flute"
+ ]
+}

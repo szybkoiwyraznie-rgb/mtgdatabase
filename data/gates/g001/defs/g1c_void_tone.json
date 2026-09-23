@@ -1,0 +1,21 @@
+{
+ "id": "g1c_void_tone",
+ "semantic": "pustka po sygnale — pojedynczy odległy ton",
+ "desc": "jeden cichy, długi dźwięk: wąwóz zamiera i czeka na to, co nadejdzie",
+ "notes": [
+  {
+   "midi": 33,
+   "on": 0.0,
+   "off": 2.8,
+   "vel": 0.6
+  }
+ ],
+ "delivery": {
+  "humanize": {}
+ },
+ "instrument_tags": [
+  "low_strings",
+  "wind_low",
+  "organ_low"
+ ]
+}

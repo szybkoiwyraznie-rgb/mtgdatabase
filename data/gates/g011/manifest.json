@@ -1,0 +1,92 @@
+{
+  "id": "g011",
+  "created": "2026-09-23",
+  "note": "Runda 4 tła do fabuły 2, pierwsza z PRAWDZIWYCH nagrań terenowych (Internet Archive przez Sample scout). Obróbka: tylko okno, filtr rumble, łagodne przymknięcie góry i poziom — żadnego pitchowania, które właściciel słyszał w g010. Etykiety r.*.",
+  "entries": [
+    {
+      "slug": "zalany-kanion",
+      "kind": "backgrounds",
+      "role": "tło fabuły 2: płynąca woda w skalnym kanionie — nurt i ciurkanie",
+      "candidates": [
+        {
+          "label": "r.1",
+          "title": "strumień tuż obok",
+          "file": "candidates/r_creek_close.mp3",
+          "desc": "bliskie, gęste ciurkanie wody po kamieniach — mikrofon stoi przy samym nurcie; nagranie terenowe, bez obróbki wysokości",
+          "source": "GOLD TAPE 53/54 Water — Water Stream (Internet Archive) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "flooded_canyon_01",
+            "setting": "zalany kanion / strumień tuż obok",
+            "desc": "bliskie, gęste ciurkanie wody po kamieniach — mikrofon stoi przy samym nurcie; nagranie terenowe, bez obróbki wysokości",
+            "file": "audio/library/backgrounds/flooded_canyon_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "GOLD TAPE 53/54 Water — Water Stream (Internet Archive)",
+              "author": "nieznany (taśma biblioteczna, wydana jako CC0)",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://archive.org/details/GOLD_TAPE_53_54_Water",
+              "channel": "workflow Sample scout (GitHub Actions) → legacy/source/sample_scout",
+              "notes": "GOLD TAPE 53/54 Water, okno 4,0–12,0 s; filtr rumble 70 Hz, łagodne przymknięcie góry 9 kHz (szum taśmy), poziom −33 dB"
+            }
+          }
+        },
+        {
+          "label": "r.2",
+          "title": "strumień w skalnym korycie",
+          "file": "candidates/r_creek_tape.mp3",
+          "desc": "dalszy fragment tej samej taśmy: woda spokojniejsza, bardziej „w korycie”, ciemniejsza góra — czytelne pojedyncze przelewy",
+          "source": "GOLD TAPE 53/54 Water — Water Stream (Internet Archive) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "flooded_canyon_02",
+            "setting": "zalany kanion / woda w korycie",
+            "desc": "dalszy fragment tej samej taśmy: woda spokojniejsza, bardziej „w korycie”, ciemniejsza góra — czytelne pojedyncze przelewy",
+            "file": "audio/library/backgrounds/flooded_canyon_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "GOLD TAPE 53/54 Water — Water Stream (Internet Archive)",
+              "author": "nieznany (taśma biblioteczna, wydana jako CC0)",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://archive.org/details/GOLD_TAPE_53_54_Water",
+              "channel": "workflow Sample scout (GitHub Actions) → legacy/source/sample_scout",
+              "notes": "GOLD TAPE 53/54 Water, okno 12,5–20,5 s; filtr rumble 70 Hz, przymknięcie góry 7,5 kHz, poziom −33 dB"
+            }
+          }
+        },
+        {
+          "label": "r.3",
+          "title": "szeroki potok",
+          "file": "candidates/r_park_brook.mp3",
+          "desc": "nagranie parkowego potoku: szerszy, równy nurt z drobnym pluskiem — najspokojniejszy wariant, dobry pod dialog sceny",
+          "source": "Cedar Creek Park, Allentown PA — nagranie terenowe (aporee / Internet Archive) — Public Domain Mark 1.0",
+          "entry": {
+            "id": "flooded_canyon_03",
+            "setting": "zalany kanion / szeroki nurt",
+            "desc": "nagranie parkowego potoku: szerszy, równy nurt z drobnym pluskiem — najspokojniejszy wariant, dobry pod dialog sceny",
+            "file": "audio/library/backgrounds/flooded_canyon_03.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Cedar Creek Park, Allentown PA — nagranie terenowe (aporee / Internet Archive)",
+              "author": "aporee maps (Jl.purposedart)",
+              "license": "Public Domain Mark 1.0",
+              "url": "https://archive.org/details/aporee_26411_30501",
+              "channel": "workflow Sample scout (GitHub Actions) → legacy/source/sample_scout",
+              "notes": "Cedar Creek Park (aporee), okno 16,0–24,0 s — najstabilniejszy fragment (wahanie 0,6 dB); filtr rumble 70 Hz, przymknięcie góry 6,5 kHz, poziom −33 dB"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "zalany-kanion": "r.3",
+    "notes": {
+      "zalany-kanion": "właściciel: wszystkie trzy ZAJEBISTE, o kilka klas lepsze niż wcześniejsze propozycje; najlepsza r.3 (szeroki potok, Cedar Creek Park). Polecenie na przyszłość: śmiało korzystać ze Sample Scout — efekt lepszy niż oczekiwany. Wniosek procesowy: tła żywiołów TYLKO z nagrań terenowych, bez foleyu i pitchowania."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "story_id": "5",
+  "length_sec": 6.0,
+  "background": {"id": "energy_steam_roar_01", "offset_sec": 0.0, "target_db": -32},
+  "hero": {"id": "spell_cast_bolt_01", "at_sec": 0.7, "target_db": -15},
+  "coda": {"gesture": "g5a_shimmer_up", "instrument": "b_piano_steinway", "at_sec": 3.6, "target_db": -20},
+  "seed": 7,
+  "gate": "g004",
+  "notes": "uwaga właściciela (g004): czar-błysk sam brzmi jak koda — koda mocno oddzielona: błysk 0,7–2,3 s, koda dopiero 3,6 s, oktawa na jasnym Steinwayu"
+}

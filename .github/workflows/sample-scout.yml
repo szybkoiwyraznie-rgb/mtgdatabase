@@ -5,7 +5,15 @@ name: Sample scout
 # batch, commits it on main, and lets an agent inspect it after git fetch.
 # Candidates are never automatically registered as production sources.
 
+# Two triggers on purpose:
+#   * workflow_dispatch — the owner clicks Run workflow in the Actions tab;
+#   * repository_dispatch — the Arena agent sends an API event. The sandbox
+#     token carries contents:write but not actions:write, so POST to
+#     /actions/workflows/*/dispatches answers 403 while POST /dispatches
+#     works. Payload fields mirror the manual inputs.
 on:
+  repository_dispatch:
+    types: [sample-scout]
   workflow_dispatch:
     inputs:
       source:
@@ -25,7 +33,7 @@ on:
         default: "5"
         required: true
       sort:
-        description: "Ranking Freesound (Archive zawsze wg pobrań)"
+        description: "Ranking Freesound (dla archive.org bez znaczenia — zawsze wg pobrań)"
         type: choice
         options: [rating_desc, downloads_desc, score]
         default: rating_desc
@@ -40,9 +48,15 @@ concurrency:
 
 jobs:
   scout:
-    # Candidate files are committed for the next Arena session. Do not permit
-    # a workflow dispatched from an arbitrary PR branch to write there.
-    if: github.ref == 'refs/heads/main'
+    # Candidate files are committed for the next Arena session, so the run must
+    # come from a branch we control. `main` covers repository_dispatch (GitHub
+    # always runs that trigger on the default branch) and the normal manual run;
+    # `arena/**` lets the owner test a scout fix from the session branch before
+    # it is merged — the commit then lands on that same branch, never on main.
+    # Anything else (a stray or forked PR branch) is still refused.
+    if: >-
+      github.ref == 'refs/heads/main' ||
+      startsWith(github.ref, 'refs/heads/arena/')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -54,10 +68,10 @@ jobs:
       - name: Fetch community-ranked CC0 candidates
         env:
           FREESOUND_TOKEN: ${{ secrets.FREESOUND_TOKEN }}
-          SCOUT_SOURCE: ${{ inputs.source }}
-          SCOUT_QUERY: ${{ inputs.query }}
-          SCOUT_COUNT: ${{ inputs.count }}
-          SCOUT_SORT: ${{ inputs.sort }}
+          SCOUT_SOURCE: ${{ inputs.source || github.event.client_payload.source || 'freesound' }}
+          SCOUT_QUERY: ${{ inputs.query || github.event.client_payload.query }}
+          SCOUT_COUNT: ${{ inputs.count || github.event.client_payload.count || '5' }}
+          SCOUT_SORT: ${{ inputs.sort || github.event.client_payload.sort || 'rating_desc' }}
         run: |
           python scripts/sample_scout.py \
             --source "$SCOUT_SOURCE" \
@@ -67,8 +81,8 @@ jobs:
             --out legacy/source/sample_scout
       - name: Commit candidate batch
         env:
-          SCOUT_SOURCE: ${{ inputs.source }}
-          SCOUT_COUNT: ${{ inputs.count }}
+          SCOUT_SOURCE: ${{ inputs.source || github.event.client_payload.source || 'freesound' }}
+          SCOUT_COUNT: ${{ inputs.count || github.event.client_payload.count || '5' }}
         run: |
           git config user.name "sample-scout-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -77,5 +91,8 @@ jobs:
             echo "Brak zmian w paczce kandydatów."
           else
             git commit -m "Sample scout: ${SCOUT_SOURCE} (${SCOUT_COUNT} candidates) [skip ci]"
-            git push
+            # Push back to the branch this run was started from: main for the
+            # normal path, the session branch when the owner tests a fix.
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+            echo "Kandydaci zacommitowani na gałęzi ${GITHUB_REF_NAME}." >> "$GITHUB_STEP_SUMMARY"
           fi

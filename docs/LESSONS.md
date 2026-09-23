@@ -2,6 +2,19 @@
 
 Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każdy wpis powinien odpowiadać na pytanie: co się wydarzyło, czego się nauczyliśmy i jak zapobiec powtórce.
 
+> **Jak czytać ten plik:** wpisy są chronologiczne i **nowszy wpis może
+> uchylić starszy** (np. progi widmowe dla teł zostały obalone przez wpis
+> o nagraniach terenowych). Przy sprzeczności obowiązuje wpis późniejszy;
+> uchylone miejsca są oznaczone. Skrypty wymieniane we wpisach sprzed
+> pivotu (`render_jingle.py`, `sync_ratings.py`, `remake_queue.py`,
+> `audit_audio.py`, `validate_versions.py`, `docs/agent-workflow.md`) już
+> nie istnieją — opisują dawną fabrykę i zostają jako wiedza procesowa.
+>
+> **Uwaga (2026-09-23):** wpisy sprzed tej daty opisują zakończoną „fabrykę jingli”
+> (oceny z issues, wersje vN, remake’i, `versions.json`). Zachowujemy je dla
+> wiedzy procesowej (audycja sampli, determinizm renderu, kanały pobierania),
+> ale reguły produktu wynikają dziś z ADR 0003 i `docs/signature-system.md`.
+
 ## Format wpisu
 
 ```markdown
@@ -73,3 +86,302 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Sytuacja: partia kontrolna po naprawie silnika v2 przeszła wszystkie bramki QA (każde zdarzenie +8..+16 dB nad tłem), a oceny właściciela: 450 v4 = 6/15, 475 v3 = 5/15, 8 v3 = 10/15. Komentarze wskazały nową jakość problemu: zdarzenia były słyszalne, ale NIECZYTELNE — wycie wilka NPS brzmiało jak darcie papieru (nagranie ma 82% energii <250 Hz = pomruk wiatru, nie wokal), kruk obniżony do smoka nadal brzmiał jak wrona, deszcz „prawdziwych" gruzów jak kostki do gry, a pochwalona z v1 „elektronika na końcu" — syntetyczny swarm — została usunięta na rzecz foley.
 - Wniosek: bramki głośności są warunkiem koniecznym, ale niewystarczającym. Rozpoznawalność wymaga (1) sampli o właściwej CHARAKTERYSTYCE widmowej dla danego zdarzenia (wokal = dominanta 250-2000 Hz; whoosh = zbalansowane pasmo z ruchem powietrza; ciężar = sub), (2) czytelnych okien czasowych (wnyki zginęły pod ogonem wycia), (3) w scenach SF syntetycznych tekstur dla zjawisk ENERGETYCZNYCH (iskry, deszcz elektroniki) — foley zastępczy brzmi jak kuchnia („miedziana misa", „kostki do gry"). Po raz trzeci pochwalono żywe tło (lawa/wiatr/hangar/suw) — to najpewniejszy element warsztatu.
 - Zasada / działanie zapobiegawcze: dobór sampli pod charakter widmowy zdarzenia przed renderem (audycja profilem z stem_probe.py — patrz kolumna charakteru); wokale bestii: pakiet creature SFX (howl.m4a = 100% energii 250-2 kHz) zamiast nagrań terenowych NPS jako lead; zjawiska energetyczne SF = warstwy syntetyczne (dopuszczalne w SF), fizyka = żywe sample; każde zdarzenie fabularne w osobnym oknie czasowym; kolejka remake'ów wypisuje obowiązki zachowania sampli pochwalonych (AGENTS.md pkt 3). Nowe wersje: 475 v4 (QA 94,5 — powrót deszczu elektroniki), 450 v5 (96,2 — tonalne wycie + czytelne wnyki i drugi wilk), 8 v4 (96,8 — 7 s, gobliny pitch 0,82, smok = ryk grizzly, whooshe skoku).
+## 2026-09-23 — Fabryka jingli zakończona: system sygnatur (zwrot koncepcji)
+
+- Sytuacja: po ~10 utworach i wielu rundach ocen właściciel stwierdził, że efekt nie jest nastrojowy, a koszt linowy od liczby fabuł czyni cel nieosiągalnym; podjął decyzję o zastąpieniu fabryki systemem czterech baz klocków z bramką odsłuchową (kasacja starych jingli, nazwa produktu zawsze `<id>.mp3`).
+- Wniosek: wąskim gardłem była ewaluacja audio zepchnięta na jedną parę uszu przy każdym utworze; właściwe miejsce ucha człowieka to obsadzanie klocków (raz), nie ocena miksu (500 razy). Unikalność kombinacji a·b·c·d wystarcza jako ochrona różnorodności — nie trzeba 500 unikalnych miksu.
+- Zasada / działanie zapobiegawcze: obowiązuje ADR 0003; jakość ma wynikać z konstrukcji (zatwierdzone składniki + bramki montażu), nie z iterowanej oceny. Od pierwszej bramki: nagrania terenowe ptactwa o bardzo niskim profilu (Bald Eagle, 98 % < 250 Hz) nie nadają się na hero — sprawdzać pasmo charakterystyczne; biblioteka Kawai VCSL ma luki w skali (brak A3, F2) — wybór nut gestu po sprawdzeniu mapy sampli, nie „na papierze".
+
+- **2026-09-23 (adaptacja rejestru kody):** gesty nutowe i banki sampli żyją w
+  różnych zakresach (A1 marczego pulsu vs kotły D2–F2, F#3 trytonu vs kieliszki
+  D#4–D5). „Pomiń nutę" cicho psuło utwór — wdrożono deterministyczną drabinę:
+  ±3 półtony → oktawa → jednolita transpozycja gestu → jawne pominięcie. Każda
+  adaptacja ląduje w ostrzeżeniach renderu. Pętle tła: crossfade na szwie
+  (zwykły `np.tile` klikał). Przy bramce demo instrumentu zawsze prezentować
+  fragment w JEGO zakresie — i tak się dzieje (fraza demonstracyjna), trzymać
+  tę zasadę.
+
+- **2026-09-23 (koda ma grać, nie klepnąć):** ucięcie jednostrzałowca do długości
+  nuty (0,32 s) pod niskim tłem = jedno „bum" zamiast trzech uderzeń. Reguła
+  MIN_NOTE_AUDIBLE_SEC=1,2 (logowana w renderze). Długość pliku = `length_sec`
+  receptury — wcześniej ogon kody ciszej przekraczał deklarację (8,41 s przy
+  8,0 s), teraz twardy master-fade. Użytkownik: długość referencyjna sygnatur
+  to **6 s** — receptury używają 6,0 s jako bazy.
+
+- **2026-09-23 (model pracy: dozór bazy ≠ montaż):** właściciel akceptuje jakość
+  wpisów do bazy — **uwaga: pierwotnie opisałem to błędnie jako
+  wielowariantowo („doktryna-jakości"); właściciel sprostował: na wpis bazy
+  3 kandydatów, wybiera DOKŁADNIE JEDNEGO, tylko on trafia do bazy**; agent obsadza fabułę
+  i montuje — bez odsłuchu końcowego. Konsekwencja kodowa: twarda bramka ataku
+  każdej nuty kodu (+2,5 dB nad kontekst, okno 0,3 s), licznik zagranych nut,
+  AUTOKALIBRACJA poziomów nut w renderze (sufit 8 dB, log `coda_boosts_db`).
+  Pułapka: pomiar pokazał, że „naprawione na okoł" wersje nadal zawodziły
+  (atak +0,8 dB kotła, −3,3/−4,6 dB kieliszków) — poziom bloku nie leczy
+  nakładającego się ringtonu; leki zadziałały: minimum brzmienia, semantyka
+  DB per nuta, autokalibracja, geometria czasowa (fabuła 4: hero na 0,7 s i
+  koda na 3,6 s zamiast przez wail). Kieliszki pod zewem nura — parowanie na
+  granicy; na przyszłość bramki demo kodu prezentować też na instrumencie
+  z PODGŁOSEM finalnego typu tła (kontekstowa odsłuchówka), nie na pusto.
+
+- **2026-09-23 (przy budowie g002):** banki sampli w VCSL bywają rzadkie — nie
+  sprawdzać „na czuja": Kawai/Steinway nie mają pełnej chromatyki per velocitiy
+  (Kawai: luki F/G/natural; Steinway: tylko A#/C/D/E/F#/G#), Yamaha Upright
+  tylko tony C i G, Knight prawie nic. Zanim obiecasz listę nut instrumentu —
+  `git ls-tree` na katalogu. Konsekwencja produktowa: banki gęste (≤4 półtony
+  odstępu) dają demo bez przestrajania; bank rzadki = cecha opisowa wpisu
+  (caveat w kandydacie). Demo gestów projektować w siatce nut, która NAPRAWDĘ
+  jest w banku referencyjnym — inaczej drabina oktaw psuje gesty (kaskada
+  zamieniła się w skoki C4↔D#5 zanim to zauważyłem).
+- Sparse-checkout wielu plików: `git sparse-checkout set --no-cone --stdin <
+  plik.txt`; podawanie listy jako argv z cudzysłowami i spacjami NIE działa.
+
+- **2026-09-23 (werdykt g002 — korekty):** właściciel przyjął 5 wpisów
+  (Steinway, bassdrum, ogień mały, wir pary, światło-koda) i ODRZUCIŁ ryk-bestii:
+  założyłem „3 kandydatów = 3 gatunki" (łoś/kojot/żubr zamiast 3 RYKÓW tej
+  samej bestii), a c.2 okazał się „pustym dźwiękiem" (brak sondy słyszalności
+  przed wystawieniem). Też: dwa wpisy z tym samym prefixem etykiet (d.*) —
+  właściciel sam rozróżnił po kontekście, ale to pułapka. Wnioski wdrożone:
+  protokół faza A punkt 2/2a (warianty = jeden rodzaj źródła; sonda RMS/peak;
+  etykiety unikalne bramkowo), g003 naprawcza = 3 ryki żubra (warianty
+  ciężki/krótki/masywny) z zwolnieniem tempa (resample_poly −3…−5 półtonów).
+
+- **2026-09-23 (technikalia przeróbki na ryk):** polifazowy
+  `scipy.signal.resample_poly` ze współczynnikiem `Fraction(ratio).limit_denominator(96)`
+  daje pitch+tempo down bez artefaktów „chipmunk rewards"; po zwolnieniu
+  filtry HP 45 Hz / LP 2,8 kHz (sosfiltfilt) czyszczą szum taśmy.
+  KLUCZOWE: przejściowy klik po resamplingu daje crest >15 dB — wtedy
+  `normalize_rms(...)` + `peak_ceiling(0.92)` ścisza materiał o ~6 dB
+  (skala globalna). Rozwiązanie: iteracyjny limiter tanh (drive 2.0, do crest
+  ≤12 dB) PRZED normalizacją RMS — r.1 zachowuję −15,3 dB przy peaku 0,60.
+
+- **2026-09-23 (obsada inwentarzem = nieważność montażu):** zamontowałem
+  fabuły 5 i 8 „tym, co leżało" (nur z fabuły 4 do wiru portalu; kruk z
+  fabuły 1 do goblinów Jundu) — właściciel słusznie odrzucił obie jako
+  bez związku z narracją („kopia fabuły 1"). Lekcja kosztem dwóch renderów:
+  faza B punkt 2/2a wzmocniona — rola z narracji, „obsada" = pasuje do
+  fabuły; hero = tożsamość 1:1 (zakaz powtórek hero między fabułami).
+  Równolegle: ryk bestii ≠ wygodny bison „pod ręką"; YSL nie ma niedźwiedzia
+  (fałszywy inwentarz w sources-and-licensing skorygowany; `git ls-tree`
+  na HEAD zawsze przed planowaniem).
+- **2026-09-23 (atomcut jako odpowiedź na role fabuł):** pakiety OGA CC0
+  z mirroru `novincode/atomcut-library` (potwory ogrebane ×3 paczki,
+  goblins artisticdude, magic jaggedstone, creature rubberduck) dekodować
+  PyAV (m4a 48k); krótkie hity 0.2–2.4 s, `pack.json` per pack z licencją
+  i autorem. Do kandydatów-uderzeń: tanh 1.35 (jądro) → soft_limit crest 12 →
+  normalize RMS −15 → fade 5 ms/180 ms — peaki ~0.4–0.6 bez klipu.
+
+- **2026-09-23 (gobliny z kreskówki = pitch-down):** właściciel odrzucił
+  goblinowe warcry jako „kreskówkowe, za wysokie" (g.1 najlepszy, ale piskły).
+  Reguła: głosy „muppetów" stają się groźne przy −4…−6 półtonach (resample,
+  czas rośnie ×1.26–1.41 — z 0,5 s robi się czytelny hero 0,97–1,28 s;
+  centroid z 2300→1450–1900 Hz, pik z 1764→846–1323 Hz). Rundę 2 robić z TEJ
+  SAMEJ paczki (doktryna wariantów), nie ze skoku na inne źródło.
+- **2026-09-23 (hero vs koda — zderzenie semantyk):** przy wykonaniu fabuły 5
+  właściciel uprzedził: „czar-błysk sam brzmi jak koda". Reguła obsady:
+  jeśli hero ma charakter muzyczny/błysk, koda idzie wyraźnie później
+  (≥1,3 s przerwy po hero) i barwo-odbiciem (tu: syntetyczny błysk vs struna
+  fortepianu), nie drugim „zapem". Zapisane w recepcie 5 (pole notes).
+
+- **2026-09-23 (rodzina źródła ≠ pitch):** gobliny artisticdude obniżone
+  o −6 półtonów to dalej Smerfy — wada była w stylu wokalizacji źródła,
+  nie w wysokości. Reguła: jeśli werdykt mówi „zły CHARAKTER", zmieniaj
+  rodzinę; jeśli „za wysoki", zostaw rodzinę, schodź w dół. Rubberduck
+  80-creature: grep pasma głosu (udział 200–900 Hz > ~60%) dobrym sitom na
+  „poważny głos stwora" (grunt-02 78%, troll-01 79% vs hurt-01 11%).
+- **2026-09-23 (technika orków > dobór paczki):** trzy rundy wrzasku padły,
+  bo wszystkie źródła były wokalizacjami UDAWANYMI pod stwora (artisticdude,
+  rubberduck) — takie nagrania robi się z uśmiechem, słychać kabaret.
+  Filmowe fantasy idzie odwrotnie: PRAWDZIWY ludzki wrzask + pitch-down +
+  saturacja. Sito liczbowe: udział pasma gardła 150–800 Hz — prawdziwy głos
+  41–66%, „głosik stwora" 4–22%.
+- **2026-09-23 (stare audio w playerze):** site serwowany przez
+  `http.server` odpowiadał 304 na niezmienioną nazwę pliku, więc właściciel
+  słyszał poprzedni montaż fabuły. Dwa zabezpieczenia: `build_site.py`
+  dokleja `?v=<md5[:10]>` do każdego <audio>, a `scripts/serve_site.py`
+  wysyła `Cache-Control: no-store`. Przy każdej reklamacji „gra stara
+  wersja" najpierw md5 pliku na dysku vs to, co zwraca serwer.
+- **2026-09-23 (403 na dispatch):** token sandboksa to GitHub App bez
+  `actions:write` → `workflow_dispatch` po API odpada. Działa
+  `repository_dispatch` (potrzebuje tylko `contents:write`), więc workflow
+  dostał drugi wyzwalacz `types: [sample-scout]` i czyta client_payload.
+- **2026-09-23 (poprawka wykonawcza po werdykcie):** przy „dobre, ale utnij
+  koniec" nie zgaduj miejsca cięcia — zrób profil energii co 50 ms i tnij
+  w MINIMUM przed artefaktem (tu: −25 dB @ 1,25 s, potem głos wracał na
+  −16 dB pnąc się 558→733 Hz). Parametr `end_sec` w budowniczym bramki, nie
+  ręczna edycja pliku, żeby kandydat dał się odtworzyć z kodu.
+- **2026-09-23 (schemat source):** własny słownik `SOURCE` w nowym skrypcie
+  bramki rozjechał się z rejestrem (`homepage/mirror/path` zamiast
+  `url/channel`) — `library_tool check` złapał to dopiero po accept.
+  Nowe bramki kopiować pola źródła z istniejącego wpisu, nie wymyślać.
+
+## 2026-09-23 — Stan flow po sesji bramek g003–g008 (czytaj to najpierw)
+
+- Sytuacja: w jednej sesji przeszliśmy cztery rundy jednego wpisu, dwie
+  wycofane fabuły i fałszywą reklamację „gra stary plik". Poniżej skrót,
+  żeby następny agent nie odtwarzał tych pomyłek od zera.
+- Wniosek: proces jest stabilny, kosztowne są tylko trzy rzeczy — obsada
+  z magazynu zamiast z narracji, dobór źródła „na najbliższe wygodne"
+  i diagnozowanie na ucho zamiast liczbami.
+- Zasada / działanie zapobiegawcze:
+  1. **Podział ról**: właściciel ocenia WYŁĄCZNIE jakość wpisów w bramce.
+     Fabuły montuje agent i sam wybiera, co idzie do następnej bramki.
+     Nie pytaj „co teraz?" — pokaż gotową bramkę i raport z liczbami.
+  2. **Rola z narracji fabuły, hero 1:1.** Wpis pasujący nazwą, lecz nie
+     sceną, to brak → bramka (kruk ≠ gobliny Jundu). Hero użyty w innej
+     fabule robi z nowej „kopię tamtej".
+  3. **Werdykt „żaden" czytaj jako diagnozę** (tabela w
+     `docs/gate-protocol.md`): parametr → ta sama rodzina; charakter →
+     inna rodzina lub inna technika; detal → parametr w skrypcie bramki.
+  4. **Mierz, nie zgaduj**: pasmo gardła 150–800 Hz (głos prawdziwy 41–66%
+     vs kreskówka 4–22%), wahanie RMS w podoknach 0,5 s i udział > 4 kHz
+     (tła), profil energii co 50 ms (miejsce cięcia).
+  5. **Reklamację odsłuchową weryfikuj technicznie** przed zmianą czegokolwiek
+     (md5 dysk vs serwer, pik widma hero) — raz winna była wyłącznie
+     pamięć podręczna przeglądarki.
+  6. **Ograniczenia narzędzi omijaj, nie eskaluj do właściciela**: brak
+     `actions:write` → `repository_dispatch`; brak egressu → mirrory GitHub;
+     m4a → PyAV.
+
+## 2026-09-23 — „Szum wiatru zamiast wody”: żywioł poznaje się po tranzjentach
+
+- Sytuacja: tło „zalany kanion” (g008) wycięto z nagrania NPS „The Dragon's
+  Mouth” — gorącego źródła w jaskini. Wybór opierał się na opisie źródła
+  („woda bijąca o ściany”) i na stabilności RMS. Właściciel: „to nie brzmi
+  jak woda tylko jak szum wiatru — woda gdzieś tam jest, ale zagłuszona”.
+- Wniosek: gorące źródła to głównie syk pary. Miary, których użyłem
+  (stabilność, udział > 4 kHz), mówiły o gładkości łoża, ale żadna nie
+  sprawdzała, czy w materiale są **zdarzenia** charakterystyczne dla
+  żywiołu. Szerokopasmowy szum bez tranzjentów ucho zawsze przeczyta jako
+  wiatr, niezależnie od tego, co było przed mikrofonem.
+- Zasada / działanie zapobiegawcze: dla teł żywiołów licz dwie rzeczy —
+  (1) udział energii poniżej 1 kHz, (2) liczbę skoków energii > 4 dB na
+  sekundę (okna 100 ms). Woda: 67–81% i ≥1,5 zdarzenia/s (bulgot, bąble).
+  **UWAGA — próg „>65% poniżej 1 kHz” został później OBALONY** (wpis
+  z 2026-09-23 o nagraniach terenowych): przyjęty strumień ma 15–27% i
+  centroid ~3 kHz. Zostawiam wpis, bo diagnoza „syk pary ≠ woda” była
+  trafna, ale nie stroj do tych liczb — patrz ostatni wpis pliku.
+  Odrzucone jako „wiatr”: Dragon's Mouth ~20% i ~0 zdarzeń, a także
+  `loop-water-*` rubberducka (13–36%, centroid 3200–4300 Hz — mimo nazwy
+  „water” to szum). Dodatkowo tnij pasmo > 5–6 kHz, które nadaje charakter
+  syku. Sprawdzone rodziny chlupotu: `bubbling-*` z lokif „Swamp
+  Environment Audio” i `loop-bubbles-*` z rubberduck „40 water/splash/slime”.
+
+## 2026-09-23 — Woda stojąca ≠ woda płynąca; brakujący żywioł składa się foleyem
+
+- Sytuacja: po odrzuceniu syku pary (g008) tło zbudowano z bulgotu i bąbli
+  (g009). Werdykt: „wszystko brzmi jak gotująca się woda, a woda w kanionie
+  płynie i ciurka, a nie puszcza bąbelki — ma być jak kroki w wodzie,
+  płynąca rzeka, woda po kamieniach”.
+- Wniosek: „woda” to nie jedna rola. Bulgot/bąble = ciecz STOJĄCA (gaz
+  wypływa na powierzchnię). Nurt = ciągła płynąca masa + nieregularne
+  chlupnięcia o przeszkody. Sito z poprzedniej rundy (energia < 1 kHz,
+  liczba zdarzeń) obie rzeczy przepuszcza jednakowo, więc nie wystarcza —
+  trzeba rozróżnić CHARAKTER zdarzeń, nie tylko ich liczbę.
+- Zasada / działanie zapobiegawcze: (1) rolę tła nazywaj czasownikiem ze
+  sceny („woda płynie po kamieniach”), nie rzeczownikiem („woda”);
+  (2) gdy żadna biblioteka nie ma nagrania danego zjawiska (tu: rzeki —
+  YSL ma wyłącznie gejzery, źródła i jezioro, a OGA `water-flowing` to syk
+  o centroidzie 5160 Hz), **złóż je foleyem** zamiast naciągać najbliższy
+  plik: warstwa ciągła (szum wody obniżony o 8–9 półtonów, filtr ~3 kHz =
+  płynąca masa) + warstwa zdarzeń (`scatter()`: chlupnięcia rozsiane
+  nierównomiernie z ziarnem, obniżone o 5–6 półtonów, bo biblioteczne
+  plusknięcia są jasne „pod grę”); (3) warstwy strojemy liczbami do celu
+  roli — tu centroid 1069–1332 Hz, > 6 kHz poniżej 2%, 2,4–3,0 zdarzenia/s.
+  Funkcje wielokrotnego użytku: `build_gate_g010.flow_layer()` i `scatter()`.
+
+## 2026-09-23 — Pitch-down słychać: foley nie zastąpi nagrania terenowego
+
+- Sytuacja: po trzech odrzuconych rundach tła („wiatr”, „gotująca się woda”)
+  spróbowałem złożyć nurt foleyem — obniżony szum wody plus rozsiane,
+  również obniżone chlupnięcia. Werdykt: „wszystko strasznie nienaturalnie
+  nisko, jakby ktoś spitchował dźwięki; chlupotanie brzmi nienaturalnie”.
+- Wniosek: pitch-down działa na GŁOSY (g007: prawdziwy krzyk → orkowy
+  warcry — ucho nie zna „prawdziwego” tembru orka, więc akceptuje
+  przesunięcie). Nie działa na ŻYWIOŁY, których brzmienie każdy zna z
+  natury: spowolniona woda natychmiast zdradza obróbkę, bo znika
+  mikrostruktura (pojedyncze krople, przypadkowe rytmy, szerokie pasmo
+  tuż nad nurtem). Metryki mogą być idealne, a materiał i tak brzmi
+  sztucznie — sito liczbowe sprawdza pasmo i zdarzenia, nie naturalność.
+- Zasada / działanie zapobiegawcze: dla teł żywiołów (woda, deszcz, wiatr,
+  las) używaj WYŁĄCZNIE nagrań terenowych; dozwolone są tylko cięcie,
+  filtr łagodny, poziom i pętla. Jeśli w zweryfikowanych bibliotekach nie
+  ma danego zjawiska — nie składaj go i nie naciągaj podobnego: uruchom
+  Sample Scout (archive.org/Freesound przez GitHub Actions) po prawdziwy
+  field recording. Trzy rundy przepalone na materiale zastępczym są
+  droższe niż jedno uruchomienie workflow.
+
+## 2026-09-23 — Pusty wynik Scouta to zwykle błąd filtra, nie brak nagrań
+
+- Sytuacja: ręczne uruchomienie Sample scout dla „creek stream flowing water
+  field recording” zakończyło się `brak kandydatów CC0` i kodem wyjścia 1.
+  Nagrania strumieni w Internet Archive są pospolite, więc wynik był
+  nieprawdopodobny.
+- Wniosek: konektor pobierał 40 najpopularniejszych pozycji audio i dopiero
+  potem sprawdzał licencję. Popularne audio w Archive to muzyka i podcasty —
+  praktycznie nigdy CC0, więc po filtrze zostawała pusta lista niezależnie od
+  zapytania. Drugi, ukryty filtr: pliki powyżej 12 MB były odrzucane, a każde
+  sensowne nagranie terenowe jest dłuższe.
+- Zasada / działanie zapobiegawcze: (1) warunek licencji wstawiaj do
+  zapytania wyszukiwarki, nie do pętli po wynikach; (2) dla materiału
+  długiego pobieraj początek pliku zamiast odrzucać całość (`truncated`
+  w manifeście); (3) gdy workflow zwraca pustkę dla pospolitego dźwięku,
+  podejrzewaj własny filtr — zanim uznasz, że źródła nie ma. Test regresyjny:
+  `test_archiveorg_finds_cc0_behind_popular_non_cc0_rows`.
+
+## 2026-09-23 — „Skipped” to warunek `if`, nie awaria; instrukcję podaj z góry
+
+- Sytuacja: właściciel uruchomił Sample scout z gałęzi sesji, żeby
+  przetestować moją poprawkę. Job wypadał jako `skipped (This job was
+  skipped)` — kilka razy z rzędu. Przyczyną był warunek
+  `if: github.ref == 'refs/heads/main'`, o którym go nie uprzedziłem;
+  dodatkowo sam musiał zgadywać, co wpisać w pole `sort`.
+- Wniosek: status „skipped” bez ani jednego wykonanego kroku prawie zawsze
+  oznacza niespełniony warunek `if` na poziomie joba, a nie błąd narzędzi.
+  Guard na gałąź był słuszny, ale zbyt wąski: blokował także gałęzie sesji,
+  czyli jedyne miejsce, gdzie można przetestować poprawkę przed merge.
+- Zasada / działanie zapobiegawcze: (1) guard rozszerzony do
+  `main` lub `arena/**`, a push idzie na `HEAD:${GITHUB_REF_NAME}`, więc
+  kandydaci trafiają na tę samą gałąź, z której uruchomiono workflow;
+  (2) gdy prosisz właściciela o ręczną akcję w UI, **wypisz wszystkie pola
+  formularza wraz z gałęzią** — brak jednego pola kosztował kilka pustych
+  przebiegów; (3) pola nieistotne dla wybranej ścieżki opisz jako
+  ignorowane (tu: `sort` działa tylko dla Freesound).
+
+## 2026-09-23 — Nagranie terenowe bije każdą składankę; moje sito „wody” było błędne
+
+- Sytuacja: cztery rundy tła do fabuły 2. Trzy własne (syk źródła, bulgot,
+  foley z pitch-downu) odrzucone. Czwarta — dwa prawdziwe nagrania
+  strumienia z Internet Archive przez Sample scout — werdykt: „wszystkie
+  trzy ZAJEBISTE, o kilka klas lepsze niż wcześniejsze propozycje”.
+- Wniosek, najważniejszy z całej sesji: **progi, którymi strojłem tła, były
+  fałszywe**. Zakładałem „im więcej energii poniżej 1 kHz, tym bardziej
+  woda” i dociskałem materiał do > 65%. Przyjęte nagranie ma **15–27%
+  poniżej 1 kHz i centroid ~3 kHz** — czyli dokładnie profil, który moje
+  sito odrzucało jako „wiatr”. Naturalność bierze się z mikrostruktury
+  (tysiące drobnych, nieregularnych zdarzeń), a tej żadna z moich liczb nie
+  mierzyła. Im dłużej stroiłem metryki, tym dalej byłem od celu.
+- Zasada / działanie zapobiegawcze: (1) dla teł żywiołów metryki służą
+  WYŁĄCZNIE do odsiewania wad technicznych — rumble < 8%, brak mowy
+  (modulacja obwiedni < 0,25), stabilność okna; oceny „czy brzmi jak woda”
+  nie da się zautomatyzować, robi ją ucho w bramce; (2) brak zjawiska
+  w lokalnych bibliotekach = **od razu Sample scout**, bez rundy
+  zastępczej — polecenie właściciela: „nie bój się korzystać ze scouta”;
+  (3) obróbka nagrania terenowego: tylko okno, filtr rumble, łagodne
+  przymknięcie góry i poziom. Żadnego pitchowania.
+
+## 2026-09-23 — Licencje: prywatny użytek, nie audyt prawny
+
+- Sytuacja: po tym, jak Scout przyniósł nagranie z notą „Copyright status
+  unknown”, usunąłem plik i zaostrzyłem filtr do jawnego CC0/PD. Właściciel
+  skorygował: „projekt jest prywatny, pliki trafią na mój dysk lokalny,
+  jak nie ma podanej licencji to przyjmujemy że jest ok, do prywatnego,
+  niekomercyjnego wykorzystania też może być”.
+- Wniosek: nadmiarowa ostrożność kosztowała kandydatów i rundy poszukiwań
+  bez korzyści dla właściciela. Rygor CC0 miał sens dla materiału
+  publikowanego, a nie dla wszystkiego, co przechodzi przez warsztat.
+- Zasada / działanie zapobiegawcze: brak licencji **nie** blokuje przyjęcia
+  (`"license": "brak informacji"`); materiał jawnie wolny ma pierwszeństwo
+  w rankingu; jawne zastrzeżenia komercyjne oznaczamy statusem
+  `restricted`, bo dotyczą wyłącznie publicznej gablotki Pages i ZIP-a
+  w Releases. Scout: `license_status` w manifeście, `--free-only` gdy
+  materiał ma iść do publikacji. Polityka w `docs/sources-and-licensing.md`.

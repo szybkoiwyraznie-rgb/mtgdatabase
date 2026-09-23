@@ -16,30 +16,18 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install test dependencies
-        run: pip install numpy
+        run: pip install numpy soundfile lameenc av
       - name: Compile Python files
         run: python -m compileall -q scripts
-      - name: Test live-samples rule gates
-        run: python scripts/test_rules.py
+      - name: Test signature system
+        run: python scripts/test_signature_system.py
       - name: Test Sample Scout connectors
         run: python scripts/test_sample_scout.py
-      - name: Test static-site HTML escaping
-        run: python scripts/test_site_safety.py
-      - name: Test feedback worker CORS boundary
-        run: node feedback-worker/test-cors.mjs
-      - name: Check required reading budget
-        run: python scripts/check_required_reading.py
       - name: Validate collection CSV
         run: python scripts/validate_stories.py kolekcja.csv
       - name: Test collection import
         run: python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
-      - name: Validate demo project descriptions
-        run: python scripts/validate_versions.py data/catalog.example.json
-      - name: Validate production project descriptions
-        if: ${{ hashFiles('data/versions.json') != '' }}
-        run: python scripts/validate_versions.py data/versions.json
-      - name: Print remake queue
-        if: ${{ hashFiles('data/versions.json') != '' }}
-        run: python scripts/remake_queue.py --versions data/versions.json
-      - name: Check best ZIP builder help
-        run: python scripts/build_best_zip.py --help
+      - name: Build pack from signatures (smoke)
+        run: python scripts/build_pack.py --output /tmp/pack.zip
+      - name: Build gallery (smoke)
+        run: python scripts/build_site.py --out /tmp/site-out

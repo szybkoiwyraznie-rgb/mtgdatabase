@@ -1,0 +1,92 @@
+{
+  "id": "g009",
+  "created": "2026-09-23",
+  "note": "Runda 2 tła do fabuły 2 po werdykcie g008 („szum wiatru, nie woda”). Zmiana rodziny: bulgot/bąble zamiast gorących źródeł. Kryterium liczbowe: >65% energii poniżej 1 kHz i policzalne zdarzenia chlupotu; syk powyżej 5–6 kHz ścięty filtrem. Etykiety w.*.",
+  "entries": [
+    {
+      "slug": "zalany-kanion",
+      "kind": "backgrounds",
+      "role": "tło fabuły 2: woda w skalnej szczelinie — chlupot i ciurkanie, przez które przeciska się bestia",
+      "candidates": [
+        {
+          "label": "w.1",
+          "title": "chlupot w kamiennej misie",
+          "file": "candidates/w_trickle_pool.mp3",
+          "desc": "równy chlupot i bulgotanie wody stojącej w kamiennej misie (69% energii poniżej 1 kHz, ~2,7 zdarzenia na sekundę) — słychać pojedyncze bąble, nie szum",
+          "source": "40 water / splash / slime SFX (OpenGameArt) — rubberduck, CC0",
+          "entry": {
+            "id": "flooded_canyon_01",
+            "setting": "zalany kanion / woda w kamiennej misie",
+            "desc": "równy chlupot i bulgotanie wody stojącej w kamiennej misie (69% energii poniżej 1 kHz, ~2,7 zdarzenia na sekundę) — słychać pojedyncze bąble, nie szum",
+            "file": "audio/library/backgrounds/flooded_canyon_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "40 water / splash / slime SFX (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/40-cc0-water-splash-slime-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "loop-bubbles-02, filtr dolnoprzepustowy 5,5 kHz (ścięty syk), pętla 8 s z przenikaniem 0,25 s"
+            }
+          }
+        },
+        {
+          "label": "w.2",
+          "title": "głęboki bulgot w szczelinie",
+          "file": "candidates/w_deep_gurgle.mp3",
+          "desc": "najniższy materiał (73% poniżej 1 kHz): ciężka woda bulgocze w wąskiej szczelinie, dużo rezonansu wnęki, prawie brak syku",
+          "source": "Swamp Environment Audio (OpenGameArt) — lokif, CC0",
+          "entry": {
+            "id": "flooded_canyon_02",
+            "setting": "zalany kanion / bulgot w szczelinie",
+            "desc": "najniższy materiał (73% poniżej 1 kHz): ciężka woda bulgocze w wąskiej szczelinie, dużo rezonansu wnęki, prawie brak syku",
+            "file": "audio/library/backgrounds/flooded_canyon_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Swamp Environment Audio (OpenGameArt)",
+              "author": "lokif",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/swamp-environment-audio",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "bubbling-2 (Swamp Environment Audio), filtr dolnoprzepustowy 6 kHz, pętla 8 s z przenikaniem 0,25 s"
+            }
+          }
+        },
+        {
+          "label": "w.3",
+          "title": "ciurkanie i krople w jaskini",
+          "file": "candidates/w_drip_cave.mp3",
+          "desc": "bulgot w tle plus bliższe, rzadsze krople — woda ciurka po kamieniu i kapie ze sklepienia; najbardziej „jaskiniowy” wariant",
+          "source": "Swamp Environment Audio (OpenGameArt) — lokif, CC0",
+          "entry": {
+            "id": "flooded_canyon_03",
+            "setting": "zalany kanion / ciurkanie i krople",
+            "desc": "bulgot w tle plus bliższe, rzadsze krople — woda ciurka po kamieniu i kapie ze sklepienia; najbardziej „jaskiniowy” wariant",
+            "file": "audio/library/backgrounds/flooded_canyon_03.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Swamp Environment Audio (OpenGameArt)",
+              "author": "lokif",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/swamp-environment-audio",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "bubbling-2 (lokif, CC0) + loop-bubbles-1 (rubberduck, 40 water/splash/slime SFX, CC0) od 0,4 s, ×0,55; oba filtrowane dolnoprzepustowo, pętla 8 s"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "zalany-kanion": "żaden",
+    "notes": {
+      "zalany-kanion": "właściciel: bardziej ciurkanie, mniej bulgotanie — wszystko brzmi jak gotująca się woda; woda w kanionie płynie i ciurka, a nie puszcza bąbelki. Ma być jak kroki w wodzie, płynąca rzeka, woda po kamieniach. Diagnoza: bulgot = woda STOJĄCA (bąble wypływające na powierzchnię), potrzebny NURT. W bibliotekach brak nagrania rzeki (YSL: tylko gejzery/źródła/jezioro; OGA water-flowing to syk 5160 Hz). Remedium w g010: nurt składany foleyem — obniżony szum wody jako płynąca masa + rozsiane, przyciemnione chlupnięcia."
+    }
+  }
+}

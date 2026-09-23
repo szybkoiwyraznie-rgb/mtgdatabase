@@ -28,7 +28,7 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-STEMS = ROOT / "legacy/source/game-audio-pipeline/stems"
+STEMS = ROOT / "audio/library"  # domyślny katalog odniesienia dla ścieżek względnych
 SR = 44_100
 
 

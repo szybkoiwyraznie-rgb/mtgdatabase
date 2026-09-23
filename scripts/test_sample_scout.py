@@ -83,3 +83,70 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def test_archiveorg_finds_cc0_behind_popular_non_cc0_rows(monkeypatch):
+    """Regresja 2026-09-23: puste wyniki dla 'creek stream flowing water'.
+
+    Stara wersja pobierała najpopularniejsze audio i dopiero lokalnie
+    filtrowała CC0 — popularne pozycje Archive praktycznie nigdy nie są CC0,
+    więc lista wychodziła pusta. Filtr licencyjny musi być w zapytaniu.
+    """
+    seen_queries = []
+
+    def fake_get(url, token=None, timeout=30):
+        if "advancedsearch" in url:
+            seen_queries.append(url)
+            return json.dumps({"response": {"docs": [{
+                "identifier": "creek01", "title": "Mountain Creek",
+                "creator": "fieldrec", "downloads": 900,
+                "licenseurl": "http://creativecommons.org/publicdomain/zero/1.0/",
+            }]}}).encode()
+        if "metadata" in url:
+            return json.dumps({
+                "metadata": {"licenseurl": "http://creativecommons.org/publicdomain/zero/1.0/"},
+                "files": [{"name": "creek.mp3", "format": "VBR MP3", "size": "48000000"}],
+            }).encode()
+        return b"\xff\xfb" + b"\x00" * 5000
+
+    monkeypatch.setattr(scout, "http_get", fake_get)
+    found = scout.fetch_archiveorg("creek stream flowing water", 3)
+
+    assert found, "kandydat CC0 musi zostać znaleziony"
+    assert "publicdomain" in seen_queries[0], "filtr licencyjny należy do zapytania"
+    # długie nagranie terenowe nie może być odrzucone przez limit rozmiaru
+    assert found[0]["truncated"] is True
+    assert found[0]["archive_file"] == "creek.mp3"
+
+
+def test_licence_status_classifies_free_unknown_and_restricted():
+    """Polityka właściciela: prywatny użytek dopuszcza nieznaną licencję.
+
+    Wolne (CC0/PD Mark) ma pierwszeństwo w rankingu, brak informacji jest
+    dopuszczony i oznaczony, a jawne zastrzeżenia komercyjne wyróżnione,
+    żeby nie trafiły do publicznej gablotki.
+    """
+    assert scout.licence_status("https://creativecommons.org/publicdomain/zero/1.0/") == "free"
+    assert scout.licence_status("http://creativecommons.org/publicdomain/mark/1.0/") == "free"
+    assert scout.licence_status("") == "unknown"
+    assert scout.licence_status(None) == "unknown"
+    assert scout.licence_status("Copyright status unknown. This work may be protected "
+                                "by the U.S. Copyright Law.") == "restricted"
+    assert scout.licence_status("http://creativecommons.org/licenses/by-nc/4.0/") == "restricted"
+
+
+def test_licence_prose_with_public_domain_words_is_rejected():
+    """Regresja 2026-09-23: nota „Copyright status unknown” przeszła jako wolna.
+
+    Archiwa opisują status prozą, w której zwrot „public domain” pojawia się
+    w zdaniu o tym, czego NIE wolno. Wolny materiał rozpoznajemy po URL-u
+    licencji, a frazy ostrzegawcze odrzucamy twardo.
+    """
+    unknown = ("Copyright status unknown. This work may be protected by the U.S. "
+               "Copyright Law (Title 17, U.S.C.). Works not in the public domain "
+               "cannot be commercially exploited without permission.")
+    assert scout.is_cc0(unknown) is False
+    assert scout.is_cc0("https://creativecommons.org/publicdomain/zero/1.0/") is True
+    assert scout.is_cc0("http://creativecommons.org/publicdomain/mark/1.0/") is True
+    assert scout.is_cc0("Creative Commons 0") is True
+    assert scout.is_cc0("http://creativecommons.org/licenses/by-nc/4.0/") is False

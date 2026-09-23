@@ -1,0 +1,9 @@
+{
+ "id": "b_bass_recorder",
+ "semantic": "skryty, archaiczny",
+ "family": "aerophone",
+ "samples": {
+  "41": "instr_notes/rec_F2.mp3",
+  "48": "instr_notes/rec_C3.mp3"
+ }
+}

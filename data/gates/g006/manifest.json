@@ -1,0 +1,101 @@
+{
+  "id": "g006",
+  "created": "2026-09-23",
+  "note": "Runda 3 wrzasku wojennego po g004 (kreskówka) i g005 (pitch nie leczy rodziny): nowa rodzina — rubberduck creature kit (paso głosowe), cel: gobliny pokroju „Władcy Pierścieni”. Etykiety h.*.",
+  "entries": [
+    {
+      "slug": "wrzask-wojenny-goblinów",
+      "kind": "heroes",
+      "role": "poważny okrzyk wojenny drobnej bandy jako hero fabuły plemiennej",
+      "candidates": [
+        {
+          "label": "h.1",
+          "title": "warchant wojownika",
+          "file": "candidates/h_grunt_war.mp3",
+          "desc": "najgłębszy głos kitu (78% energii w paśmie głosu, pik 213 Hz) obniżony o 2 półtony — pojedynczy, ciężki okrzyk",
+          "source": "80 creature SFX (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "orc_wargrunt_01",
+            "role": "poważny okrzyk wojenny drobnej bandy jako hero fabuły plemiennej",
+            "character": "głuchy, krótki, groźny",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 0.62,
+            "desc": "najgłębszy głos kitu (78% energii w paśmie głosu, pik 213 Hz) obniżony o 2 półtony — pojedynczy, ciężki okrzyk",
+            "good_for": "warcry Jundu/Hordy, otwarcie starcia, klan przy ogniu",
+            "bad_for": "kameralność, elegancja, samotny strzelec",
+            "file": "audio/library/heroes/orc_wargrunt_01.mp3",
+            "source": {
+              "title": "80 creature SFX (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/80-cc0-creature-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-80-cc0-creature-sfx; mirror pack.json potwierdza CC0 1.0; grunt-02; obniżenie 2 półtonów"
+            }
+          }
+        },
+        {
+          "label": "h.2",
+          "title": "ochrypły rozkaz",
+          "file": "candidates/h_bark_order.mp3",
+          "desc": "trollowy głos (0,81 s) pełne 3 półtony niżej — brzmi jak rozkaz nadawanego przez gardło zwierzę",
+          "source": "80 creature SFX (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "orc_order_01",
+            "role": "poważny okrzyk wojenny drobnej bandy jako hero fabuły plemiennej",
+            "character": "gardłowy, rozkazowy",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 0.96,
+            "desc": "trollowy głos (0,81 s) pełne 3 półtony niżej — brzmi jak rozkaz nadawanego przez gardło zwierzę",
+            "good_for": "warcry Jundu/Hordy, otwarcie starcia, klan przy ogniu",
+            "bad_for": "kameralność, elegancja, samotny strzelec",
+            "file": "audio/library/heroes/orc_order_01.mp3",
+            "source": {
+              "title": "80 creature SFX (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/80-cc0-creature-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-80-cc0-creature-sfx; mirror pack.json potwierdza CC0 1.0; troll-02; obniżenie 3 półtonów"
+            }
+          }
+        },
+        {
+          "label": "h.3",
+          "title": "chant klanu (duet)",
+          "file": "candidates/h_chant_duo.mp3",
+          "desc": "grunt + trollowy głos 0,30 s później, razem 3 półtony niżej — plemienna odpowiedź za wodzem",
+          "source": "80 creature SFX (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "orc_chant_duo_01",
+            "role": "poważny okrzyk wojenny drobnej bandy jako hero fabuły plemiennej",
+            "character": "wielogłos, plemienny",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 1.04,
+            "desc": "grunt + trollowy głos 0,30 s później, razem 3 półtony niżej — plemienna odpowiedź za wodzem",
+            "good_for": "warcry Jundu/Hordy, otwarcie starcia, klan przy ogniu",
+            "bad_for": "kameralność, elegancja, samotny strzelec",
+            "file": "audio/library/heroes/orc_chant_duo_01.mp3",
+            "source": {
+              "title": "80 creature SFX (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/80-cc0-creature-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-80-cc0-creature-sfx; mirror pack.json potwierdza CC0 1.0; grunt-02 + troll-01 @ +0.3 s; obniżenie 3 półtonów"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "wrzask-wojenny-goblinów": "żaden",
+    "notes": {
+      "wrzask-wojenny-goblinów": "właściciel: wrzaski dalej słabe, żaden nie pasuje. Kit stworów (rubberduck) to wciąż wokalizacja udawana pod potwora. Wniosek na g007: zmienić TECHNIKĘ — prawdziwy męski krzyk obniżony i zaszorstkowany, jak w filmowym fantasy."
+    }
+  }
+}

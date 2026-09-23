@@ -1,0 +1,281 @@
+{
+  "id": "g004",
+  "created": "2026-09-23",
+  "note": "Wpisy hero zfabrykowane z fabuł 2/5/8 (role z narracji, nie z inwentarza). ryk-bestii: powtórka po g003 (bison odrzucony) — tym razem prawdziwe potworne ryki z paczki OGA (jedna rodzina). Etykiety unikalne: r.*/m.*/g.*.",
+  "entries": [
+    {
+      "slug": "ryk-bestii",
+      "kind": "heroes",
+      "role": "pojedynczy, czytelny ryk dużej dzikiej bestii jako hero fabuły",
+      "candidates": [
+        {
+          "label": "r.1",
+          "title": "ryk długi, niski",
+          "file": "candidates/r_beast_long.mp3",
+          "desc": "najdłuższy ryk z zestawu potwora (0,94 s) — niski, pełny; zostawia ogon grozy",
+          "source": "Monster Sound Effects Pack (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "beast_roar_long_01",
+            "role": "ryk długi, niski",
+            "character": "niski, pełny, rozwlekły",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 0.94,
+            "desc": "najdłuższy ryk z zestawu potwora (0,94 s) — niski, pełny; zostawia ogon grozy",
+            "good_for": "zapowiedź bestii, przecięcie sceny, powolny horror",
+            "bad_for": "ultra-krótkie sygnatury interfejsowe",
+            "file": "audio/library/heroes/beast_roar_long_01.mp3",
+            "source": {
+              "title": "Monster Sound Effects Pack (OpenGameArt)",
+              "author": "ogrebane",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/monster-sound-effects-pack",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-monster-sound-effects-pack; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        },
+        {
+          "label": "r.2",
+          "title": "ryk rzucany, agresywny",
+          "file": "candidates/r_beast_snap.mp3",
+          "desc": "krótki, ostry zarzut (0,66 s) — atak bestii w miejscu",
+          "source": "Monster Sound Effects Pack (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "beast_roar_snap_01",
+            "role": "ryk rzucany, agresywny",
+            "character": "agresywny, zasadzkowy",
+            "distance": "bliski",
+            "energy": "bardzo wysoka",
+            "duration_sec": 0.66,
+            "desc": "krótki, ostry zarzut (0,66 s) — atak bestii w miejscu",
+            "good_for": "atak, niespodzianka, agresywna karta",
+            "bad_for": "delikatne, medytacyjne fabuły",
+            "file": "audio/library/heroes/beast_roar_snap_01.mp3",
+            "source": {
+              "title": "Monster Sound Effects Pack (OpenGameArt)",
+              "author": "ogrebane",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/monster-sound-effects-pack",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-monster-sound-effects-pack; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        },
+        {
+          "label": "r.3",
+          "title": "ryk szeroki, warstwowy",
+          "file": "candidates/r_beast_wide.mp3",
+          "desc": "najdłuższy z szerokim pasmem (1,0 s, pik 510 Hz) + lekka saturacja — brzmi jak pełne gardło",
+          "source": "Monster Sound Effects Pack (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "beast_roar_wide_01",
+            "role": "ryk szeroki, warstwowy",
+            "character": "szeroki, gardłowy",
+            "distance": "bliski",
+            "energy": "bardzo wysoka",
+            "duration_sec": 1.0,
+            "desc": "najdłuższy z szerokim pasmem (1,0 s, pik 510 Hz) + lekka saturacja — brzmi jak pełne gardło",
+            "good_for": "duża bestia planu, dominujący hero",
+            "bad_for": "kameralność, kamienie runiczne",
+            "file": "audio/library/heroes/beast_roar_wide_01.mp3",
+            "source": {
+              "title": "Monster Sound Effects Pack (OpenGameArt)",
+              "author": "ogrebane",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/monster-sound-effects-pack",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-monster-sound-effects-pack; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "rzut-czaru",
+      "kind": "heroes",
+      "role": "moment rzucenia czaru / rozdarciem portalu jako hero fabuły magicznej",
+      "candidates": [
+        {
+          "label": "m.1",
+          "title": "uderzenie czaru",
+          "file": "candidates/m_spell_impact.mp3",
+          "desc": "najmocniejszy z paczki (1,83 s, pik 1327 Hz) — zapłon i rozładowanie energii",
+          "source": "Magic Spell SFX (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "spell_cast_impact_01",
+            "role": "uderzenie czaru",
+            "character": "mocny, rozładowujący",
+            "distance": "średni",
+            "energy": "wysoka",
+            "duration_sec": 1.83,
+            "desc": "najmocniejszy z paczki (1,83 s, pik 1327 Hz) — zapłon i rozładowanie energii",
+            "good_for": "rzucenie czaru, otwarcie portalu, epicki rozruch magii",
+            "bad_for": "bełkotliwe, ciche scenerie",
+            "file": "audio/library/heroes/spell_cast_impact_01.mp3",
+            "source": {
+              "title": "Magic Spell SFX (OpenGameArt)",
+              "author": "jaggedstone",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/magic-spell-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-magic-spell-sfx; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        },
+        {
+          "label": "m.2",
+          "title": "pocisk magiczny",
+          "file": "candidates/m_spell_bolt.mp3",
+          "desc": "klasyczny błysk zaklęcia (1,62 s, pik 1615 Hz) — czysty strzał energii",
+          "source": "Magic Spell SFX (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "spell_cast_bolt_01",
+            "role": "pocisk magiczny",
+            "character": "czysty, skupiony",
+            "distance": "średni",
+            "energy": "wysoka",
+            "duration_sec": 1.62,
+            "desc": "klasyczny błysk zaklęcia (1,62 s, pik 1615 Hz) — czysty strzał energii",
+            "good_for": "celowany czar, pojedynek magów, akademicki talent",
+            "bad_for": "chaos hordy, naturalistyczne scenerie",
+            "file": "audio/library/heroes/spell_cast_bolt_01.mp3",
+            "source": {
+              "title": "Magic Spell SFX (OpenGameArt)",
+              "author": "jaggedstone",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/magic-spell-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-magic-spell-sfx; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        },
+        {
+          "label": "m.3",
+          "title": "tkanie zaklęcia",
+          "file": "candidates/m_spell_weave.mp3",
+          "desc": "najdłuższy (2,43 s, narastanie) — czar wiązany warstwami aż do wybuchu",
+          "source": "Magic Spell SFX (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "spell_cast_weave_01",
+            "role": "tkanie zaklęcia",
+            "character": "narastający, warstwowy",
+            "distance": "średni",
+            "energy": "średnia",
+            "duration_sec": 2.43,
+            "desc": "najdłuższy (2,43 s, narastanie) — czar wiązany warstwami aż do wybuchu",
+            "good_for": "długi rytuał, przywołanie, tajemna akademia",
+            "bad_for": "błyskawiczna akcja, gobliny",
+            "file": "audio/library/heroes/spell_cast_weave_01.mp3",
+            "source": {
+              "title": "Magic Spell SFX (OpenGameArt)",
+              "author": "jaggedstone",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/magic-spell-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-magic-spell-sfx; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "wrzask-wojenny-goblinów",
+      "kind": "heroes",
+      "role": "szaleńczy okrzyk wojenny drobnej bandy jako hero fabuły plemiennej",
+      "candidates": [
+        {
+          "label": "g.1",
+          "title": "długi skowyt wodza",
+          "file": "candidates/g_warcry_long.mp3",
+          "desc": "najdłuższy gobliński krzyk z paczki (0,96 s) — prowokujący, jazgotliwy",
+          "source": "Goblins Sound Pack (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "goblin_warcry_01",
+            "role": "długi skowyt wodza",
+            "character": "jazgotliwy, prowokujący",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 0.96,
+            "desc": "najdłuższy gobliński krzyk z paczki (0,96 s) — prowokujący, jazgotliwy",
+            "good_for": "szef bandy goblinów, drwina, wojenne hasło",
+            "bad_for": "groźna cisza, epicka powaga",
+            "file": "audio/library/heroes/goblin_warcry_01.mp3",
+            "source": {
+              "title": "Goblins Sound Pack (OpenGameArt)",
+              "author": "artisticdude",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/goblins-sound-pack",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-goblins-sound-pack; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        },
+        {
+          "label": "g.2",
+          "title": "ostry wrzask szarży",
+          "file": "candidates/g_warcry_sharp.mp3",
+          "desc": "najgłośniejszy i najkrótszy atak (0,47 s) — pisk szarżującego goblina",
+          "source": "Goblins Sound Pack (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "goblin_shriek_01",
+            "role": "ostry wrzask szarży",
+            "character": "piskliwy, napastliwy",
+            "distance": "bliski",
+            "energy": "bardzo wysoka",
+            "duration_sec": 0.47,
+            "desc": "najgłośniejszy i najkrótszy atak (0,47 s) — pisk szarżującego goblina",
+            "good_for": "nagły atak, rozpoczęcie starcia, chaos",
+            "bad_for": "długie hero, medytacja",
+            "file": "audio/library/heroes/goblin_shriek_01.mp3",
+            "source": {
+              "title": "Goblins Sound Pack (OpenGameArt)",
+              "author": "artisticdude",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/goblins-sound-pack",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-goblins-sound-pack; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        },
+        {
+          "label": "g.3",
+          "title": "wrzask ze zwolennikiem",
+          "file": "candidates/g_warcry_duo.mp3",
+          "desc": "ochrypły krzyk (0,68 s) + drugi goblin 0,25 s później z paczki — mini-horda szamana (dwiema ciosy z jednej rodziny)",
+          "source": "Goblins Sound Pack (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "goblin_warcry_duo_01",
+            "role": "wrzask ze zwolennikiem",
+            "character": "ochrypły, plemienny",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 0.93,
+            "desc": "ochrypły krzyk (0,68 s) + drugi goblin 0,25 s później z paczki — mini-horda szamana (dwiema ciosy z jednej rodziny)",
+            "good_for": "banda przy wulkanicznym ogniu, chant wojny, Jund",
+            "bad_for": "samotny łowca, eleganckie karty",
+            "file": "audio/library/heroes/goblin_warcry_duo_01.mp3",
+            "source": {
+              "title": "Goblins Sound Pack (OpenGameArt)",
+              "author": "artisticdude",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/goblins-sound-pack",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-goblins-sound-pack; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "ryk-bestii": "r.1",
+    "rzut-czaru": "m.2",
+    "wrzask-wojenny-goblinów": "żaden",
+    "notes": {
+      "ryk-bestii": "przyjęty r.1 (beast_roar_long_01) — prawdziwy potworkowy ryk z paczki ogrebane.",
+      "rzut-czaru": "przyjęty m.2 (spell_cast_bolt_01) — UWAGA właściciela: dźwięk czaru sam brzmi jak koda — w foluła 5 koda ma być wyraźnie oddzielona czasowo i barwowo od błysku czaru.",
+      "wrzask-wojenny-goblinów": "żaden — kandydaci brzmią jak kreskówka; g.1 najlepszy, ale ZA WYSOKI. Remedium: ta sama rodzina (Goblins Sound Pack) obniżona półtonowo 4–6 — z kreskówki robi się ogrowata horda."
+    }
+  }
+}

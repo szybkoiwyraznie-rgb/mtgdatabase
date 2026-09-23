@@ -1,16 +1,22 @@
 # Współpraca
 
-Przeczytaj `AGENTS.md` przed każdą zmianą. Zmiany powinny być małe, możliwe do zweryfikowania i opisane w pull request.
+Przeczytaj `AGENTS.md` przed każdą zmianą. Zmiany małe, weryfikowalne,
+opisane w pull request.
 
 ## Przed rozpoczęciem
 
-Najpierw wykonaj audyt poprzedniego PR lub commita: przeczytaj diff, uruchom walidację, sprawdź regresje i napraw znalezione problemy. Nie rozpoczynaj nowego zadania na niezweryfikowanym fundamencie.
+Audyt ostatniego PR/diffu + walidacje (poniżej). Nie zaczynaj produkcji na
+niezweryfikowanym fundamencie.
 
 ## Przed zakończeniem
 
 ```
 python -m compileall -q scripts
-python scripts/build_best_zip.py --help
+python scripts/test_signature_system.py
+python scripts/library_tool.py check
+python scripts/build_pack.py --output /tmp/pack.zip
 ```
 
-Nie commituj sekretów, PIN-u, tokenów ani nieprzetworzonych plików tymczasowych. Duże artefakty produkcyjne publikujemy przez GitHub Releases, nie jako zwykłe pliki w historii Git.
+Nie commituj: sekretów/PIN/tokenów, plików `.env`, kandydatów bramkowych
+(`work/`), niezatwierdzonych sampli. Produkty idą na Release, nie do
+historycznych artefaktów.

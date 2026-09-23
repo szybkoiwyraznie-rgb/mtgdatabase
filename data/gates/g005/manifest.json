@@ -1,0 +1,101 @@
+{
+  "id": "g005",
+  "created": "2026-09-23",
+  "note": "Runda 2 wpisu wrzasku wojennego po werdykcie g004 (kreskówka/za wysoki): TA SAMA paczka CC0 obniżona 4–6 półtonów — warianty jednej rodziny, zgodnie z doktryną. Etykiety w.*.",
+  "entries": [
+    {
+      "slug": "wrzask-wojenny-goblinów",
+      "kind": "heroes",
+      "role": "szaleńczy okrzyk wojenny drobnej bandy jako hero fabuły plemiennej",
+      "candidates": [
+        {
+          "label": "w.1",
+          "title": "dowódca bandy (obniżony g.1)",
+          "file": "candidates/w_horde_chief.mp3",
+          "desc": "ten sam krzyk, który był „najlepszy” w g004 (goblin-3), ale o 5 półtonów niżej — bez kreskówkowości",
+          "source": "Goblins Sound Pack (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "horde_warcry_01",
+            "role": "szaleńczy okrzyk wojenny drobnej bandy jako hero fabuły plemiennej",
+            "character": "niski, rozkazowy, ogrowaty",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 1.28,
+            "desc": "ten sam krzyk, który był „najlepszy” w g004 (goblin-3), ale o 5 półtonów niżej — bez kreskówkowości",
+            "good_for": "warcry hordy, Jund, wojna plemion, otwarcie starcia",
+            "bad_for": "kameralne scenerie, samotny łowca, eleganckie karty",
+            "file": "audio/library/heroes/horde_warcry_01.mp3",
+            "source": {
+              "title": "Goblins Sound Pack (OpenGameArt)",
+              "author": "artisticdude",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/goblins-sound-pack",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-goblins-sound-pack; mirror pack.json potwierdza CC0 1.0; goblin-3; obniżenie 5 półtonów (tempo x1.33)"
+            }
+          }
+        },
+        {
+          "label": "w.2",
+          "title": "ochrypłe warknięcie",
+          "file": "candidates/w_horde_growl.mp3",
+          "desc": "ochrypły goblin-12 pełne 6 półtonów w dół — już „ogr” niż „goblin”, zacięte gardło",
+          "source": "Goblins Sound Pack (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "horde_warcry_02",
+            "role": "szaleńczy okrzyk wojenny drobnej bandy jako hero fabuły plemiennej",
+            "character": "ochrypły, zacięty, nisko",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 0.97,
+            "desc": "ochrypły goblin-12 pełne 6 półtonów w dół — już „ogr” niż „goblin”, zacięte gardło",
+            "good_for": "warcry hordy, Jund, wojna plemion, otwarcie starcia",
+            "bad_for": "kameralne scenerie, samotny łowca, eleganckie karty",
+            "file": "audio/library/heroes/horde_warcry_02.mp3",
+            "source": {
+              "title": "Goblins Sound Pack (OpenGameArt)",
+              "author": "artisticdude",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/goblins-sound-pack",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-goblins-sound-pack; mirror pack.json potwierdza CC0 1.0; goblin-12; obniżenie 6 półtonów (tempo x1.41)"
+            }
+          }
+        },
+        {
+          "label": "w.3",
+          "title": "chant ze zwolennikiem",
+          "file": "candidates/w_horde_duo.mp3",
+          "desc": "dowódca z g004 + drugi głos paczki 0,35 s później, razem 4 półtony niżej — mini-horda",
+          "source": "Goblins Sound Pack (OpenGameArt) — CC0 1.0 (public domain)",
+          "entry": {
+            "id": "horde_warcry_03",
+            "role": "szaleńczy okrzyk wojenny drobnej bandy jako hero fabuły plemiennej",
+            "character": "wielogłos, plemienny chant",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 1.21,
+            "desc": "dowódca z g004 + drugi głos paczki 0,35 s później, razem 4 półtony niżej — mini-horda",
+            "good_for": "warcry hordy, Jund, wojna plemion, otwarcie starcia",
+            "bad_for": "kameralne scenerie, samotny łowca, eleganckie karty",
+            "file": "audio/library/heroes/horde_warcry_03.mp3",
+            "source": {
+              "title": "Goblins Sound Pack (OpenGameArt)",
+              "author": "artisticdude",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/goblins-sound-pack",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-goblins-sound-pack; mirror pack.json potwierdza CC0 1.0; goblin-3 + goblin-9 @ +0.35 s; obniżenie 4 półtonów (tempo x1.26)"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "wrzask-wojenny-goblinów": "żaden",
+    "notes": {
+      "wrzask-wojenny-goblinów": "właściciel: strasznie kreskówkowe; w.1 dalej najlepszy, ale dalej zbyt kreskówkowy. Potrzebne poważne gobliny pokroju Władcy Pierścieni, nie Smerfów. Wniosek: wada RODZINY ŹRÓDŁA (artisticdude = celowo kreskówkowe głosy), pitch tego nie leczy — zmiana rodziny na następną rundę (rubberduck creature kit + Sample Scout archive.org)."
+    }
+  }
+}

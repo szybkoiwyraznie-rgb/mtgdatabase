@@ -1,0 +1,108 @@
+{
+  "schema": 1,
+  "description": "Baza instruments systemu sygnatór (docs/signature-system.md). Wpisy trafiają tu wyłącznie przez akceptację w bramce odsłuchowej.",
+  "entries": [
+    {
+      "id": "b_timpani",
+      "semantic": "złowieszczy, ciężki",
+      "family": "membranophone",
+      "samples": {
+        "38": "audio/library/instruments/timpani/hit_soft.mp3",
+        "39": "audio/library/instruments/timpani/hit_mid.mp3",
+        "41": "audio/library/instruments/timpani/hit_hard.mp3"
+      },
+      "source": {
+        "title": "Versilian Community Sample Library",
+        "author": "Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://vis.versilstudios.com/vcsl.html",
+        "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+        "notes": "Timpani1 Hit v2 rr1 + v3 rr3, Timpani2 Hit v2 rr1"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "b.1",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "b_wine_glasses",
+      "semantic": "eteryczny, nieziemski",
+      "family": "idiophone-friction",
+      "samples": {
+        "63": "audio/library/instruments/wine_glasses/Ds4.mp3",
+        "66": "audio/library/instruments/wine_glasses/Fs4.mp3",
+        "68": "audio/library/instruments/wine_glasses/As4.mp3",
+        "74": "audio/library/instruments/wine_glasses/D5.mp3"
+      },
+      "source": {
+        "title": "Versilian Community Sample Library",
+        "author": "Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://vis.versilstudios.com/vcsl.html",
+        "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+        "notes": "glass 1-4 Sustains Fast"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "b.3",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "b_piano_steinway",
+      "semantic": "jasne, koncertowe",
+      "family": "zither-struck",
+      "samples": {
+        "48": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_C3_vl3_rr1.mp3",
+        "50": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_D3_vl3_rr1.mp3",
+        "54": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_Fs3_vl3_rr1.mp3",
+        "56": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_Gs3_vl3_rr1.mp3",
+        "60": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_C4_vl3_rr1.mp3",
+        "64": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_E4_vl3_rr1.mp3",
+        "68": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_Gs4_vl3_rr1.mp3",
+        "72": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_C5_vl3_rr1.mp3",
+        "74": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_D5_vl3_rr1.mp3",
+        "76": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_E5_vl3_rr1.mp3",
+        "80": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_Gs5_vl3_rr1.mp3",
+        "84": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_C6_vl3_rr1.mp3"
+      },
+      "source": {
+        "title": "Versilian Studios Chamber Orchestra (VCSL)",
+        "author": "Sam Gossner / Versilian Studios",
+        "license": "CC0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "żądana nuta per plik; okno demo seed 7"
+      },
+      "approved": {
+        "gate": "g002",
+        "choice": "grandpiano.2",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "b_bassdrum",
+      "semantic": "teatralny, z wybrzmieniem",
+      "family": "membranophone",
+      "samples": {
+        "38": "audio/library/instruments/bassdrum/b_bassdrum_bassdrum_hit_mf1.mp3",
+        "39": "audio/library/instruments/bassdrum/b_bassdrum_bassdrum_hit_f.mp3",
+        "41": "audio/library/instruments/bassdrum/b_bassdrum_bassdrum_hit_ff.mp3"
+      },
+      "source": {
+        "title": "Versilian Studios Chamber Orchestra (VCSL)",
+        "author": "Sam Gossner / Versilian Studios",
+        "license": "CC0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "żądana nuta per plik; okno demo seed 7"
+      },
+      "approved": {
+        "gate": "g002",
+        "choice": "beben-wojenny.2",
+        "date": "2026-09-23"
+      }
+    }
+  ]
+}

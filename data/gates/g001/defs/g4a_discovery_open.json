@@ -1,0 +1,30 @@
+{
+ "id": "g4a_discovery_open",
+ "semantic": "cud / odkrycie — jasna tercja otwierająca",
+ "desc": "dwie jasne nuty wystrzeliwujące w górę; mgła rozstępuje się nad świątynią",
+ "notes": [
+  {
+   "midi": 60,
+   "on": 0.0,
+   "off": 1.0,
+   "vel": 0.7
+  },
+  {
+   "midi": 64,
+   "on": 0.55,
+   "off": 2.0,
+   "vel": 0.75
+  }
+ ],
+ "delivery": {
+  "humanize": {
+   "timing_ms": 20,
+   "vel": 0.05
+  }
+ },
+ "instrument_tags": [
+  "harp",
+  "bells",
+  "strings_high"
+ ]
+}
