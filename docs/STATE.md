@@ -8,9 +8,9 @@ Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatab
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **5**.
-- Baza klocków: **17 wpisów** (`library_tool.py check`).
-- Bramki rozegrane: **g001–g011**, wszystkie z werdyktami
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **6**.
+- Baza klocków: **18 wpisów** (`library_tool.py check`).
+- Bramki rozegrane: **g001–g013**, wszystkie z werdyktami
   (`data/gates/*/verdicts.json`). Żadna nie czeka na właściciela.
 
 ## Gotowe fabuły
@@ -22,13 +22,15 @@ Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatab
 | 5 | Academy Journeymage | energy_steam_roar_01 | spell_cast_bolt_01 | g5a_shimmer_up × piano_steinway | v2 po uwadze „czar brzmi jak koda”; przyjęta jako „akceptowalna jakość” |
 | 8 | Goblin Deathraiders | fire_hearth_small_01 | warband_cry_03 | g1b_march_pulse × bassdrum | „fajna” |
 | 2 | Coralhelm Guide | flooded_canyon_03 | beast_roar_long_01 | g4b_mystery_tritone × timpani→steinway | tło r.3 „najzajebistsza z zajebistych” |
+| 3 | Nefarious Imp | fire_hearth_small_01 | demonic_laugh_02 | g4b_mystery_tritone × wine_glasses | g012 odrzucona jako kreskówkowa; g013 h.2 z prawdziwego wykonania |
 
 ## W toku
 
-Nic nie czeka na werdykt właściciela. Fabuła 2 (Coralhelm Guide) domknięta
-w tej sesji: tło z prawdziwego nagrania terenowego (g011 r.3), hero
-`beast_roar_long_01`, koda tryton na Steinwayu (kotły odpadły — mają tylko
-3 nuty 38/39/41, więc QA zgłosiło pominiętą nutę trytonu 54+72).
+Nic nie czeka na werdykt właściciela. Fabuła 3 (Nefarious Imp) domknięta:
+trzy istniejące wpisy pasowały semantycznie (ogień dopalającej się mapy,
+tajemnica widmowego artefaktu, eteryczne szkło dla kryształu); brakował
+wyłącznie hero 1:1. G012 z creature-SFX odrzucona jako kreskówkowa, g013
+z prawdziwym ludzkim śmiechem przyjęta w wariancie h.2.
 
 ## Co dalej (propozycja agenta, nie wymaga pytania właściciela)
 

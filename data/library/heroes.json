@@ -137,6 +137,31 @@
         "choice": "wrzask-wojenny-goblinów.3",
         "date": "2026-09-23"
       }
+    },
+    {
+      "id": "demonic_laugh_02",
+      "role": "prawdziwy diabelski chichot małego demona po udanym sabotażu",
+      "character": "dwufalowy, maniakalny, nieprzewidywalny",
+      "distance": "bliski",
+      "energy": "wysoka",
+      "duration_sec": 2.8,
+      "desc": "dwie fale śmiechu w jednym oddechu — druga wraca po krótkim zawahaniu",
+      "good_for": "imp, demon, złodziej artefaktu, maniakalna satysfakcja",
+      "bad_for": "komedia, sympatyczne stworzenie, naturalistyczna fauna",
+      "file": "audio/library/heroes/demonic_laugh_02.mp3",
+      "source": {
+        "title": "Maniac kid laugh (1) (Freesound)",
+        "author": "Huminaatio",
+        "license": "CC0 1.0 (public domain)",
+        "url": "https://freesound.org/people/Huminaatio/sounds/189278/",
+        "channel": "git clone sparse z github.com/lihop/barrel-of-laughs (mirror z rejestrem licencji)",
+        "notes": "okno 15.55–18.35 s z nieprzerwanej sesji aktorskiej; tylko filtr rumble 70 Hz, poziom i fade; bez pitchowania i warstwowania; licencja potwierdzona w objects/hiding_spots/barrel/assets/work/sounds/licenses.txt"
+      },
+      "approved": {
+        "gate": "g013",
+        "choice": "chichot-chochlika.2",
+        "date": "2026-09-23"
+      }
     }
   ]
 }
