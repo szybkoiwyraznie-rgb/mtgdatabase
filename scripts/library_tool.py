@@ -99,13 +99,39 @@ def report() -> None:
         print(f"{kind}: {len(entries)} wpisów, {len(unused)} nieużytych{': ' + ', '.join(unused) if unused else ''}")
 
 
-def accept(gate_id: str) -> int:
+def _ingest_candidate(gate_dir: Path, kind: str, cand: dict, stamp: dict) -> str:
+    """Wprowadź kandydata z bramki do właściwej bazy (pieczątka + pliki)."""
+    reg = load(kind)
+    entry = dict(cand["entry"])
+    entry["approved"] = stamp
+    if any(e["id"] == entry["id"] for e in reg["entries"]):
+        reg["entries"] = [entry if e["id"] == entry["id"] else e for e in reg["entries"]]
+        print(f"  {entry['id']}: już w bazie — aktualizuję approved")
+    else:
+        reg["entries"].append(entry)
+    if kind in KIND_DIR and entry.get("file"):
+        dst = REPO / entry["file"]
+        dst.parent.mkdir(parents=True, exist_ok=True)
+        if not dst.exists():
+            shutil.copy2(gate_dir / cand["file"], dst)
+    if kind == "instruments":
+        for midi, src_rel in entry.pop("gate_sources", {}).items():
+            dst = REPO / entry["samples"][midi]
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            if not dst.exists():
+                shutil.copy2(gate_dir / src_rel, dst)
+    save(kind, reg)
+    return f"{kind}/{entry['id']}"
+
+
+def accept(gate_id: str, rest: bool = False) -> int:
     gate_dir = REPO / "data" / "gates" / gate_id
     manifest = json.loads((gate_dir / "manifest.json").read_text(encoding="utf-8"))
     verdicts = json.loads((gate_dir / "verdicts.json").read_text(encoding="utf-8"))
     today = date.today().isoformat()
     slot_kind = {"c": "heroes", "d": "backgrounds", "a": "gestures", "b": "instruments"}
     added: list[str] = []
+    stamped: set[str] = set()  # id wpisów przyjętych z werdyktów fabuł
     for story in manifest["stories"]:
         sid = str(story["story_id"])
         if sid not in verdicts:
@@ -121,28 +147,28 @@ def accept(gate_id: str) -> int:
                 return 1
             cand = cands[label]
             kind = slot_kind[slot]
-            reg = load(kind)
-            entry = dict(cand["entry"])
-            entry["approved"] = {"gate": gate_id, "choice": f"{slot}.{label.split('.')[-1]}", "date": today}
-            if any(e["id"] == entry["id"] for e in reg["entries"]):
-                print(f"  {entry['id']}: już w bazie — aktualizuję approved")
-                reg["entries"] = [entry if e["id"] == entry["id"] else e for e in reg["entries"]]
-            else:
-                reg["entries"].append(entry)
-            if kind in KIND_DIR and entry.get("file"):
-                dst = REPO / entry["file"]
-                dst.parent.mkdir(parents=True, exist_ok=True)
-                if not dst.exists():
-                    shutil.copy2(gate_dir / cand["file"], dst)
-            if kind == "instruments":
-                for midi, src_rel in entry.pop("gate_sources", {}).items():
-                    dst = REPO / entry["samples"][midi]
-                    dst.parent.mkdir(parents=True, exist_ok=True)
-                    if not dst.exists():
-                        shutil.copy2(gate_dir / src_rel, dst)
-            save(kind, reg)
-            added.append(f"{kind}/{entry['id']}")
+            stamp = {"gate": gate_id, "choice": f"{slot}.{label.split('.')[-1]}", "date": today}
+            added.append(_ingest_candidate(gate_dir, kind, cand, stamp))
+            stamped.add(cand["entry"]["id"])
+    if rest:
+        # ADR 0004: kandydaci nie odrzuceni przez właściciela + przeszli szycie
+        # jakościowe — trafiają do bazy jako warianty (użytek w przyszłych rolach).
+        count = 0
+        for story in manifest["stories"]:
+            for slot, block in story["slots"].items():
+                kind = slot_kind[slot]
+                for cand in block["candidates"]:
+                    eid = cand["entry"]["id"]
+                    if eid in stamped:
+                        continue
+                    stamp = {"gate": gate_id, "choice": "doktryna-jakości", "date": today}
+                    added.append(_ingest_candidate(gate_dir, kind, cand, stamp))
+                    stamped.add(eid)
+                    count += 1
+        print(f"  doktryna-jakości: +{count} wpisów (pozostali kandydaci bramki)")
     manifest["verdicts"] = verdicts
+    if rest:
+        manifest["rest_accepted_as_doctrine"] = today
     (gate_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"przyjęto: {', '.join(added) if added else 'nic'}")
     return 0
@@ -155,8 +181,10 @@ def main() -> None:
     sub.add_parser("report")
     p_accept = sub.add_parser("accept")
     p_accept.add_argument("--gate", required=True)
+    p_accept.add_argument("--rest", action="store_true",
+                          help="przyjmij też pozostałych kandydatów (doktryna-jakości, ADR 0004)")
     args = parser.parse_args()
-    sys.exit({"check": check, "report": report, "accept": lambda: accept(args.gate)}[args.cmd]())
+    sys.exit({"check": check, "report": report, "accept": lambda: accept(args.gate, rest=args.rest)}[args.cmd]())
 
 
 if __name__ == "__main__":

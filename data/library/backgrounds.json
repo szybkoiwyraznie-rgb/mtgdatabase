@@ -45,6 +45,94 @@
         "choice": "d.3",
         "date": "2026-09-23"
       }
+    },
+    {
+      "id": "wind_canyon_01",
+      "setting": "wąwóz / urwisko",
+      "desc": "szum wiatru między skałami, równy niski podmuch",
+      "file": "audio/library/backgrounds/wind_canyon_01.mp3",
+      "duration_sec": 8.05,
+      "level_ref_db": -32,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Hurricane Vent 5.0-13.0 s"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "doktryna-jakości",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "cavern_rumble_01",
+      "setting": "wąwóz / podziemia",
+      "desc": "niskie bulgoczące echo jaskini, niepokój od spodu",
+      "file": "audio/library/backgrounds/cavern_rumble_01.mp3",
+      "duration_sec": 8.05,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "The Dragon's Mouth 52.0-60.0 s"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "doktryna-jakości",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "lake_singing_01",
+      "setting": "jezioro / mgła",
+      "desc": "eteryczne ciche pieśni wody na jeziorze",
+      "file": "audio/library/backgrounds/lake_singing_01.mp3",
+      "duration_sec": 8.05,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Singing Lake 60.0-68.0 s"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "doktryna-jakości",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "lake_bubbles_01",
+      "setting": "jezioro / brzeg",
+      "desc": "ciche bulgotanie wody w płytkim zbiorniku",
+      "file": "audio/library/backgrounds/lake_bubbles_01.mp3",
+      "duration_sec": 8.05,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Black Sand Pool 12.0-20.0 s"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "doktryna-jakości",
+        "date": "2026-09-23"
+      }
     }
   ]
 }

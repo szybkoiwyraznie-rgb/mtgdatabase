@@ -1,6 +1,6 @@
 # ADR 0003: System sygnatur z bramką klockową zamiast fabryki jingli
 
-- Status: accepted
+- Status: accepted (punkty 2 i 5 zmienione przez <a href="0004-wlasciciel-dozoruja-baze-agent-montuje.md">ADR 0004</a>: bramka = dozór przyjęć do bazy, agent obsadza i montuje, kandydaci bramek commitowani)
 - Data: 2026-09-23
 
 ## Decyzja

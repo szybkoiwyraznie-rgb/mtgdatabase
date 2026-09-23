@@ -69,6 +69,24 @@ i pieczątkę akceptacji `approved` (bramka, wybór, data).
 Mix jest deterministyczny: poziomy `target_db`, okna `at_sec` z receptury,
 humanizacja ziarnicowana seedem. Bramki twarde:
 
+### Gwarancja słyszalności kodu (ADR 0004)
+
+Montaż nie przechodzi odsłuchu właściciela — jego poprawność gwarantują
+bramki maszynowe nad FINALNYM mixem:
+
+- **atak każdej nuty** w oknie 0,3 s musi przewyższać kontekst tuż przed o
+  co najmniej 2,5 dB (`note_attack_margin_db`); nuty ucięte przez
+  master-fade są poza bramką;
+- **licznik nut**: zagrane == liczba nut gestu (adaptacja rejestru nie wolno
+  zgubić nuty — twardy błąd);
+- **autokalibracja**: zanim bramka krzyknie, render w pętli (≤6 iteracji)
+  dobija maskowane nuty o brakujący margin +0,5 dB zapasu (sufit 8 dB).
+  Boosty lądują w warnings i audycie (`coda_boosts_db`). Sufit nasycił się?
+  → geometria układu hero/kody lub parowanie gest×instrument jest
+  niewykonalne — agent poprawia układ czasowy, nie podbija „na okoł";
+- `coda.target_db` receptury znaczy teraz **poziom RMS pojedynczej nuty
+  (przed velocity)**, nie całego bloku kodów.
+
 ### Adaptacja rejestru kody (scripts/coda_synth.py)
 
 Gesty w bazie a zapisujemy w rejestrze muzycznym (nuty MIDI), a instrumenty
@@ -88,14 +106,14 @@ i stapiały się w jedno „bum". Miks nigdy nie wykracza poza `length_sec`:
 ogon kody wychodzi w wspólnym master-fade, więc plik ma równo tyle sekund,
 ile każe receptura.
 
-Wynik adaptacji zawsze słyszalnie odsłuchujemy na koniec sesji; gdy adaptacja
-psuje zamiar gestu (np. trójtona), remedium NIE jest „ładniejszy maper",
-tylko nowe sampla / wariant gestu przez bramkę.
+Wynik adaptacji odsłuchuje agent (nie właściciel); gdy adaptacja psuje zamiar
+gestu (np. zjadł trójton), remedium nie jest „ładniejszy maper", tylko nowe
+sampla / wariant gestu przez bramkę — patrz ADR 0004.
 
 Tło krótsze niż sygnatura zapętlamy crossfade'em (`sig_audio.loop_to_length`),
 żeby szew pętli nie klikał.
 
-Bramki twarde:
+Bramki twarde (całość):
 
 - długość ≤ 10 s;
 - hero czytelny: RMS(okno hero) ≥ RMS(1 s przed hero) + 6 dB;

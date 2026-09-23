@@ -145,6 +145,29 @@ def test_coda_min_sustain() -> None:
         check("nuta: log minimum brzmienia", any("minimum" in w for w in r.warnings), str(r.warnings))
 
 
+def test_note_attack_gate() -> None:
+    import render_signature
+    sr = dsp.SR
+    t = np.linspace(0, 2.0, int(sr * 2.0), endpoint=False)
+    base = {"length_sec": 2.0, "hero_over_context_db": 9.0, "hero_rms": -16.0}
+    # nuta słabsza od kontekstu -> bramka odrzuca
+    mix = np.stack([np.sin(2 * np.pi * 220 * t) * 0.06] * 2)
+    audit = dict(base, coda_notes=1, coda_notes_total=1, coda_note_ons=[1.0])
+    errors = render_signature.check_gates(mix, {}, audit)
+    check("QA łapie pochowaną nutę", any("atak" in e for e in errors), str(errors))
+    # nuta z gestu zagubiona przez adaptację -> błąd liczby nut
+    audit2 = dict(base, coda_notes=1, coda_notes_total=2, coda_note_ons=[1.0])
+    errors2 = render_signature.check_gates(mix, {}, audit2)
+    check("QA łapie zgubioną nutę gestu", any("niezagranych" in e for e in errors2), str(errors2))
+    # wyraźny atak -> brak błędu o ataku
+    mix3 = np.stack([np.sin(2 * np.pi * 220 * t) * 0.01] * 2)
+    a, b = int(sr * 1.0), int(sr * 1.3)
+    mix3[:, a:b] += np.stack([np.sin(2 * np.pi * 330 * t) * 0.2] * 2)[:, a:b]
+    audit3 = dict(base, coda_notes=1, coda_notes_total=1, coda_note_ons=[1.0])
+    errors3 = render_signature.check_gates(mix3, {}, audit3)
+    check("QA przepuszcza słyszalną nutę", not any("atak" in e for e in errors3), str(errors3))
+
+
 def test_registries_and_reading() -> None:
     result = subprocess.run([sys.executable, str(REPO / "scripts" / "library_tool.py"), "check"],
                             capture_output=True, text=True, cwd=REPO)
@@ -163,6 +186,7 @@ def main() -> None:
     test_coda_register_adapt()
     test_loop_seam()
     test_coda_min_sustain()
+    test_note_attack_gate()
     test_qa_gates()
     test_registries_and_reading()
     print(f"\n{len(FAILURES)} niepowodzeń" if FAILURES else "\nwszystkie testy OK")

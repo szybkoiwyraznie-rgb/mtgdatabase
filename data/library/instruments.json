@@ -48,6 +48,73 @@
         "choice": "b.3",
         "date": "2026-09-23"
       }
+    },
+    {
+      "id": "b_bass_recorder",
+      "semantic": "skryty, archaiczny",
+      "family": "aerophone",
+      "samples": {
+        "41": "audio/library/instruments/bass_recorder/F2_stac.mp3",
+        "48": "audio/library/instruments/bass_recorder/C3_susvib.mp3"
+      },
+      "source": {
+        "title": "Versilian Community Sample Library",
+        "author": "Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://vis.versilstudios.com/vcsl.html",
+        "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+        "notes": "BassRecorder Stac F2 rr1 + SusVib C3 rr1"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "doktryna-jakości",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "b_chimes",
+      "semantic": "zimny, uroczysty",
+      "family": "idiophone",
+      "samples": {
+        "52": "audio/library/instruments/chimes/E3_ff.mp3",
+        "58": "audio/library/instruments/chimes/As3_ff.mp3"
+      },
+      "source": {
+        "title": "Versilian Community Sample Library",
+        "author": "Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://vis.versilstudios.com/vcsl.html",
+        "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+        "notes": "chimes E3 ff rr2 + A#3 ff rr1"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "doktryna-jakości",
+        "date": "2026-09-23"
+      }
+    },
+    {
+      "id": "b_harp",
+      "semantic": "świetlisty, magiczny",
+      "family": "chordophone",
+      "samples": {
+        "45": "audio/library/instruments/harp/A2_mf.mp3",
+        "52": "audio/library/instruments/harp/E3_mf.mp3",
+        "62": "audio/library/instruments/harp/D4_mf.mp3"
+      },
+      "source": {
+        "title": "Versilian Community Sample Library",
+        "author": "Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://vis.versilstudios.com/vcsl.html",
+        "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+        "notes": "KSHarp A2/E3/D4 mf1"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "doktryna-jakości",
+        "date": "2026-09-23"
+      }
     }
   ]
 }

@@ -1,58 +1,65 @@
-# Protokół bramki odsłuchowej
+# Protokół bramki odsłuchowej (model z ADR 0004)
 
-Jedyny moment, w którym potrzebne jest ludzkie ucho. Odbywa się **wewnątrz
-sesji agenta**, w sandboxie — nie na Pages (Pages to gablotka, nie narzędzie
-decyzji; fuzja PR zamyka sesję, więc bramka musi mieć się przed nią).
+Jedyny moment z ludzkim uchem. Jednak **nie jest to casting fabuły** —
+właściciel dozoruje JAKOŚĆ wpisów przechodzących do bazy, a obsadę fabuł
+i montaż bierze na siebie agent z twardymi bramkami QA. Odbywa się
+**wewnątrz sesji agenta**, w sandboxie — nie na Pages (gablota, nie narzędzie
+decyzji; fuzja PR zamyka sesję).
 
-## Przebieg dla agenta
+## Dwie fazy pracy agenta
 
-1. Wybierz fabułę (losowo albo zleconą). Przeczytaj ją i zdefiniuj **role
-   semantyczne** każdego klocka: miejsce (d), jedno główne zdarzenie (c),
-   emocję muzycznej odpowiedzi (a) i charakter brzmienia (b).
-2. **Sprawdź bazy** (`data/library/*.json`): jeśli rola jest obsadzona —
-   użyj wpisu. Bramka dotyczy tylko braków.
-3. Dla każdego braku zgromadź **co najmniej 3 kandydatów** (audycja
-   `stem_probe.py` obowiązkowa; kody (a) renderuj na neutralnym instrumencie
-   referencyjnym, instrumenty (b) pokaż na krótkiej frazie demonstracyjnej).
-4. Zbuduj manifest bramki w `data/gates/gNNN/` (numeracja rosnąca): kandydaci
-   (w `candidates/`), opisy, licencje, propozycje wpisów `entry` do baz.
-   **Bramkę commitujemy od razu** (manifest + kandydaci = kilka MB) — pracę
-   sprintu chronimy przed resetami sandboksa; wygenerowany `index.html`
-   jest w gitignore, bo da się go odtworzyć z manifestu.
-5. Wygeneruj stronę: `python scripts/gate_preview.py data/gates/gNNN --port 8080`
-   (preview sandboxa) i podaj użytkownikowi link w czacie.
-6. Odpowiedź właściciela zapisz jako `data/gates/gNNN/verdicts.json` i wykonaj
+### Faza A: bramka = przyjęcia do bazy (raz na kandydaturę roli)
+
+1. Właściciel lub agent definiuje brak semantyczny („brakuje nam jeziora"),
+   ale kandydaci to **warianty JEDNEJ roli**, nigdy „kotły vs kieliszki vs
+   harfa" jako konkurenci jednego slotu.
+2. Co najmniej 3 warianty na rolę; audycja `stem_probe.py` obowiązkowa;
+   kody (a) renderuj na neutralnym instrumencie, instrumenty (b) na frazie
+   demonstracyjnej W ICH REALNYM ZAKRESIE.
+3. Bramka w `data/gates/gNNN/`: manifest + kandydaci + opisy + licencje,
+   **commitowana od razu** (ochrona przed resetami sandboksa).
+4. Strona: `python scripts/gate_preview.py data/gates/gNNN --port 8080`,
+   link w czacie.
+5. Werdykt właściciela = **lista akceptacji**, może być „wszystkie dobre";
+   po odrzucie jedno słowo („za cichy", „zły klimat"). Zapisz jako
+   `verdicts.json`, wykonaj:
    `python scripts/library_tool.py accept --gate gNNN` — skrypt przenosi
-   zaakceptowane pliki do `audio/library/`, dopisuje wpisy z pieczątką
-   `approved` i dopisuje werdykty do manifestu. Niezaakceptowani kandydaci
-   zostają w archiwum bramki (to też dokumentacja procesu doboru).
-7. Ułóż recepturę `data/recipes/<id>.json` z zatwierdzonych klocków,
-   wyrenderuj `python scripts/render_signature.py data/recipes/<id>.json --audit`,
-   dołóż wynik QA do raportu i commituj.
+   pliki do `audio/library/` i dopisuje wpisy z pieczątką `approved`.
+   Niezaakceptowane warianty zostają tylko w archiwum bramki.
 
-## Format odpowiedzi właściciela (w czacie)
-
-```text
-fabuła 1: d.1 c.2 a.1 b.2  ·  fabuła 4: d.1 c.1 a.2 b.3
-```
-
-`d.żaden` odrzuca wszystkich kandydatów slotu; po „żaden" warto dopisać jedno
-słowo dlaczego (`za cichy`, `zły klimat`) — druga runda kandydatów będzie trafniejsza.
-Werdykt `verdicts.json`:
+Format werdyktu (listowy):
 
 ```json
-{"1": {"d": "d.1", "c": "c.2", "a": "a.1", "b": "b.2"}, "4": {"d": "d.żaden"}}
+{"jezioro": ["j.1", "j.3"], "krzyki-nurka": "wszystkie", "groza-koda": ["g.1"], "grandpiano": "żaden — za sztuczny"}
 ```
+
+### Faza B: obsada fabuły + montaż (bez odsłuchu właściciela)
+
+1. Agent czyta fabułę i definiuje **role** d / c / a / b (zakres: „tajemnicze
+   jezioro", „krzyk dużego ptaka zwiadowczego", „koda groza", „grandpiano").
+2. Jeśli rola jest obsadzona wpisem baz — używa go; jeśli nie, to faza A
+   dla brakującej roli (rola przed plikiem).
+3. Agent układa recepturę `data/recipes/<id>.json` i renderuje:
+   `python scripts/render_signature.py data/recipes/<id>.json --audit`.
+   Twardy render (patrz `docs/signature-system.md` § Render i QA) gwarantuje:
+   - każda nuta kodu słyszalna: atak ≥ kontekst + **2,5 dB** (okno 0,3 s),
+   - żadna nuta nie ginie przy adaptacji rejestru (zagrane == w gescie),
+   - **autokalibracja**: maskowane nuty dobijane automatycznie (+0,5 dB
+     zapasu, sufit 8 dB); nasycone boosty = geometria niewykonalna →
+     agent zmienia układ hero/kody (jak fabuła 4: hero na 0,7 s, koda na 3,6 s),
+   - długość pliku równa `length_sec` receptury (referencja: **6,0 s**).
+4. Raport w czacie = liczby z audytu (wszystkie `!` z renderu), nie prośba
+   o odsłuch.
 
 ## Zasady
 
-- Bramkę zawsze podajemy **zbiorczo** (wszystkie fabuły sesji na jednej stronie),
-  minimalizując rundy odsłuchu.
-- Bramkę (manifest + kandydaci) commitujemy natychmiast po zbudowaniu;
-  generowany `index.html` nie jest commitowany (odtwarzalny).
-- Nie dopisujemy nowej roli do bazy, jeśli istniejąca rola pokrywa potrzebę
-  (rola przed plikiem — patrz `docs/signature-system.md`).
+- Bramkę podajemy **zbiorczo** (wszystkie role sesji na jednej stronie),
+  minimalizując rundy.
 - Zatwierdzony klocek jest zatwierdzony na zawsze; „usunięcie z bazy" tylko
   na wyraźne żądanie właściciela i z adnotacją w LESSONS.
-- Zaakceptowane gesty i instrumenty można używać w dowolnej fabule —
-  unikalność dotyczy kombinacji a·b·c·d całej receptury, nie pojedynczych klocków.
+- Zaakceptowane klocki można używać w dowolnej fabule — unikalność dotyczy
+  kombinacji a·b·c·d całej receptury, nie pojedynczych klocków.
+- Fabuł sygnaturowych właściciel nie pilotuje; szczegółowy werdykt odsłuchowy
+  montażu jest NIE pożądany — błędy montażu łapią bramki maszynowe, a ewentualne
+  uwagi estetyczne idą w reguły (nowe gesty/instrumenty przez bramkę), nie w
+  remiksy na życzenie.

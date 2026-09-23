@@ -26,7 +26,12 @@ import coda_synth
 import sig_audio as dsp
 
 REPO = Path(__file__).resolve().parent.parent
-LIMITS = {"length_sec": 10.0, "hero_margin_db": 6.0, "rms_min_db": -26.0, "hf_share_max": 0.20}
+LIMITS = {"length_sec": 10.0, "hero_margin_db": 6.0, "rms_min_db": -26.0, "hf_share_max": 0.20,
+          "note_attack_margin_db": 2.5, "note_attack_window_sec": 0.30}
+# note_attack_*: twarde „słychać wszystkie klocki" — każda nuta kodu musi dawać mierzalny
+# atak w finalnym mixie: RMS w oknie ataku ≥ RMS kontekstu tuż przed +2,5 dB.
+# AUTOKALIBRACJA: render sam podbija maskowane nuty o brakujący margin (+0,5 dB zapasu,
+# sufit 8 dB, ≤6 iteracji). Wszystkie podbicia lądują w warnings i audycie.
 
 
 def load_json(path: Path) -> dict:
@@ -48,20 +53,20 @@ def find_entry(kind: str, entry_id: str) -> dict:
 def render(recipe: dict) -> tuple[np.ndarray, dict, list[str]]:
     warnings: list[str] = []
     length = float(recipe["length_sec"])
-    mix = np.zeros((2, int(length * dsp.SR)))
+    mix_len = int(length * dsp.SR)
     audit: dict = {"story_id": recipe["story_id"], "length_sec": length}
 
     bed_ref = recipe["background"]
     bed_entry = find_entry("backgrounds", bed_ref["id"])
     bed, _ = dsp.load_any(REPO / bed_entry["file"])
     seg = dsp.cut(bed, float(bed_ref.get("offset_sec", 0.0)), float(bed_ref.get("offset_sec", 0.0)) + length)
-    if seg.shape[1] < int(length * dsp.SR):
-        seg = dsp.loop_to_length(seg, int(length * dsp.SR))
+    if seg.shape[1] < mix_len:
+        seg = dsp.loop_to_length(seg, mix_len)
         warnings.append("tło zapętlone (krótsze niż sygnatura)")
     seg = dsp.fade(seg, 0.8, 2.0)
     seg = dsp.normalize_rms(seg, float(bed_ref.get("target_db", -32.0)))
-    mix = dsp.place(mix, seg, 0.0)
-    audit["bed_rms"] = round(dsp.rms_db(seg), 1)
+    base_chunk = seg[:, :mix_len]
+    audit["bed_rms"] = round(dsp.rms_db(base_chunk), 1)
 
     hero_ref = recipe["hero"]
     hero_entry = find_entry("heroes", hero_ref["id"])
@@ -72,11 +77,15 @@ def render(recipe: dict) -> tuple[np.ndarray, dict, list[str]]:
     hero_seg = dsp.fade(hero_seg, 0.02, min(0.4, hero_seg.shape[1] / (2 * dsp.SR)))
     hero_seg = dsp.normalize_rms(hero_seg, float(hero_ref.get("target_db", -15.0)))
     hero_at = float(hero_ref.get("at_sec", 1.0))
-    mix = dsp.place(mix, hero_seg, hero_at)
     audit["hero_at_sec"] = hero_at
     audit["hero_rms"] = round(dsp.rms_db(hero_seg), 1)
-    pre_bed = dsp.rms_db(dsp.cut(mix, max(hero_at - 1.0, 0.0), hero_at)) - audit["bed_rms"]  # bed+nic więcej
-    audit["hero_over_context_db"] = round(audit["hero_rms"] - dsp.rms_db(dsp.cut(mix, max(hero_at - 1.0, 0.0), hero_at)), 1)
+    audit["hero_over_context_db"] = round(
+        audit["hero_rms"] - dsp.rms_db(dsp.cut(base_chunk, max(hero_at - 1.0, 0.0), hero_at)), 1)
+
+    # tło + hero = kanwa, na której autokalibracja sprawdza ataki nut kodu
+    base_mix = dsp.place(np.zeros((2, mix_len)), base_chunk, 0.0)
+    base_mix = dsp.place(base_mix, hero_seg, hero_at)
+    mix = base_mix.copy()
 
     coda_ref = recipe.get("coda")
     if coda_ref:
@@ -85,21 +94,66 @@ def render(recipe: dict) -> tuple[np.ndarray, dict, list[str]]:
         instrument = {**instrument, "samples": {k: str(REPO / v) for k, v in instrument["samples"].items()}
                       if "articulations" not in instrument.get("samples", {})
                       else {"articulations": {a: [str(REPO / f) for f in fs] for a, fs in instrument["samples"]["articulations"].items()}}}
-        result = coda_synth.render_coda(gesture, instrument, seed=int(recipe.get("seed", 0)))
-        warnings.extend(result.warnings)
-        coda_wave = dsp.normalize_rms(result.wave, float(coda_ref.get("target_db", -21.0)))
         coda_at = float(coda_ref.get("at_sec", 4.0))
-        mix = dsp.place(mix, coda_wave, coda_at)
+        target = float(coda_ref.get("target_db", -21.0))
+        seed = int(recipe.get("seed", 0))
+        n_notes = len(gesture.get("notes", []))
+        # target_db receptury = poziom RMS POJEDYNCZEJ nuty (przed velocity), nie całej
+        # kody. AUTOKALIBRACJA: tę samą bramkę ataków, którą pilnuje check_gates,
+        # render mierzy w locie i podbija maskowane nuty do +2,5 dB (+0,5 dB zapasu).
+        plan = [0.0] * n_notes
+        want_mix_len = int(length * dsp.SR)
+        mix = None
+        result = None
+        for _iteration in range(6):
+            result = coda_synth.render_coda(gesture, instrument, seed=seed,
+                                            level_ref_db=target, gain_plan=plan)
+            candidate = dsp.place(base_mix.copy(), result.wave, coda_at)
+            if candidate.shape[1] > want_mix_len:
+                candidate = dsp.fade(candidate[:, :want_mix_len].copy(), 0.0, min(1.6, length * 0.3))
+            width = float(LIMITS["note_attack_window_sec"])
+            need = float(LIMITS["note_attack_margin_db"]) + 0.5
+            ok = True
+            for event in result.events:
+                t = coda_at + event["on_sec"]
+                seg_on = dsp.cut(candidate, t, t + width)
+                if seg_on.shape[1] < int(0.1 * dsp.SR):
+                    continue
+                seg_ctx = dsp.cut(candidate, max(t - width, 0.0), t)
+                ctx = dsp.rms_db(seg_ctx) if seg_ctx.shape[1] else -80.0
+                margin = dsp.rms_db(seg_on) - ctx
+                if margin < need:
+                    gain = min(need - margin + 0.5, 8.0 - plan[event["index"]])
+                    if gain <= 0:
+                        continue
+                    plan[event["index"]] += gain
+                    ok = False
+            if ok:
+                break
+        warnings.extend(result.warnings)
+        for idx, boost in enumerate(plan):
+            if boost:
+                warnings.append(f"autokalibracja nuty {idx} kody: +{boost:.1f} dB (maskowanie kontekstu)")
+        mix = dsp.place(base_mix.copy(), result.wave, coda_at)
+        want_mix_len = mix_len
+        if mix.shape[1] > want_mix_len:
+            over = (mix.shape[1] - want_mix_len) / dsp.SR
+            mix = dsp.fade(mix[:, :want_mix_len].copy(), 0.0, min(1.6, length * 0.3))
+            warnings.append(f"ogon kody ucięty o {over:.2f} s w master-fade do {length:.2f} s")
         audit["coda_at_sec"] = coda_at
         audit["coda_notes"] = result.note_count
-    # twarde dopasowanie długości produktu: ogon kody wykraczający poza
-    # length_sec znika w wspólnym master-fade (bez kliku, bez nadmiarowych sekund)
-    want = int(length * dsp.SR)
-    if mix.shape[1] > want:
-        over = (mix.shape[1] - want) / dsp.SR
-        mix = mix[:, :want].copy()
-        mix = dsp.fade(mix, 0.0, min(1.6, length * 0.3))
-        warnings.append(f"ogon kody ucięty o {over:.2f} s w master-fade do {length:.2f} s")
+        audit["coda_notes_total"] = n_notes
+        audit["coda_note_ons"] = sorted(round(coda_at + ev["on_sec"], 3) for ev in result.events)
+        audit["coda_boosts_db"] = [round(b, 1) for b in plan if b]
+        audit["coda_rms"] = round(dsp.rms_db(result.wave), 1)
+    else:
+        # twarde dopasowanie długości produktu (jak wyżej, dla śladu bez kodu)
+        want = int(length * dsp.SR)
+        if mix.shape[1] > want:
+            over = (mix.shape[1] - want) / dsp.SR
+            mix = mix[:, :want].copy()
+            mix = dsp.fade(mix, 0.0, min(1.6, length * 0.3))
+            warnings.append(f"ogon kody ucięty o {over:.2f} s w master-fade do {length:.2f} s")
     return mix, audit, warnings
 
 
@@ -119,6 +173,28 @@ def check_gates(mix: np.ndarray, recipe: dict, audit: dict) -> list[str]:
     audit["hf_share"] = round(share, 3)
     if share > LIMITS["hf_share_max"]:
         errors.append(f"udział >6 kHz {share:.1%} > {LIMITS['hf_share_max']:.0%}")
+    # bramka słyszalności kodu: żadna nuta z gestu nie może zniknąć w mixie
+    ons = audit.get("coda_note_ons") or []
+    if ons:
+        total = audit.get("coda_notes_total")
+        placed = audit.get("coda_notes")
+        if total is not None and placed is not None and placed < total:
+            errors.append(f"koda: {total - placed} z {total} nut gestu niezagranych (adaptacja rejestru)")
+        width = float(LIMITS["note_attack_window_sec"])
+        margins: list[float] = []
+        for t in sorted(set(round(float(t), 3) for t in ons)):
+            seg_on = dsp.cut(mix, t, t + width)
+            if seg_on.shape[1] < int(0.1 * dsp.SR):
+                continue  # nuta ucięta w master-fade: niedostateczna na bramkę
+            seg_ctx = dsp.cut(mix, max(t - width, 0.0), t)
+            ctx = dsp.rms_db(seg_ctx) if seg_ctx.shape[1] else -80.0
+            margin_note = dsp.rms_db(seg_on) - ctx
+            margins.append(round(margin_note, 1))
+            if margin_note < LIMITS["note_attack_margin_db"]:
+                errors.append(f"nuta kody o {t:.2f} s: atak {margin_note:+.1f} dB ponad kontekst "
+                              f"(< {LIMITS['note_attack_margin_db']} dB)")
+        if margins:
+            audit["note_attack_margins_db"] = margins
     return errors
 
 

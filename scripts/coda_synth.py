@@ -27,6 +27,7 @@ class RenderedCoda:
     wave: np.ndarray  # stereo, zaczyna się w 0.0 s
     warnings: list[str]
     note_count: int
+    events: list[dict] = None  # [{index, midi, on_sec, vel}] — faktyczne po humanizacji
 
 
 def _collect_used_midis(gesture: dict) -> list[int]:
@@ -108,16 +109,18 @@ def resolve_samples(instrument: dict, midis: list[int]) -> tuple[dict[int, Path]
     return {m: Path(have[n]) for m, n in resolved.items()}, warnings
 
 
-def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: float = -20.0) -> RenderedCoda:
+def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: float = -20.0,
+                gain_plan: list[float] | None = None) -> RenderedCoda:
     """Wyrenderuj gest na instrumencie. Zwraca waveform od 0.0 s.
 
     level_ref_db: docelowy RMS pojedynczej nuty przed skalowaniem velocity —
-    względne proporcje velocity w gest zachowane.
+    względne proporcje velocity w gest zachowane. gain_plan: dodatkowe dB na
+    kolejne nuty (w kolejności czasowej) — gałka autokalibracji z render_signature.
     """
     warnings: list[str] = []
     midis = _collect_used_midis(gesture)
     if not midis:
-        return RenderedCoda(np.zeros((2, 1)), ["gest nie ma nut"], 0)
+        return RenderedCoda(np.zeros((2, 1)), ["gest nie ma nut"], 0, [])
     resolved, warn = resolve_samples(instrument, midis)
     warnings.extend(warn)
     delivery = gesture.get("delivery", {})
@@ -132,7 +135,8 @@ def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: fl
     end_sec = max((float(n["off"]) + timing_jitter * 3) for n in gesture["notes"]) + 1.0
     out = np.zeros((2, int(end_sec * dsp.SR)))
     placed = 0
-    for note in sorted(gesture["notes"], key=lambda n: float(n["on"])):
+    events: list[dict] = []
+    for idx, note in enumerate(sorted(gesture["notes"], key=lambda n: float(n["on"]))):
         m = int(note["midi"])
         if m not in cache:
             continue
@@ -145,14 +149,18 @@ def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: fl
         # ucięcie nuty w połowie sustainu: łagodny zanik, żeby nie klikało
         seg = dsp.fade(seg, 0.005, min(0.35, seg.shape[1] / (2 * dsp.SR)))
         on = float(note["on"]) + (rng.uniform(-1, 1) * timing_jitter if timing_jitter else 0.0)
+        if slice_len > int((float(note["off"]) - float(note["on"])) * dsp.SR) + 512:
+            warnings.append(f"nuta {dsp.midi_to_name(m)}: brzmienie przedłużone do minimum {MIN_NOTE_AUDIBLE_SEC} s")
         vel = float(note.get("vel", 0.8))
         if vel_jitter:
             vel = float(np.clip(vel * (1.0 + rng.uniform(-vel_jitter, vel_jitter)), 0.05, 1.0))
+        if gain_plan and idx < len(gain_plan) and gain_plan[idx]:
+            vel *= float(dsp.db_to_gain(gain_plan[idx]))
         out = dsp.place(out, seg * vel, max(on, 0.0))
-        if slice_len > int((float(note["off"]) - float(note["on"])) * dsp.SR) + 512:
-            warnings.append(f"nuta {dsp.midi_to_name(m)}: brzmienie przedłużone do minimum {MIN_NOTE_AUDIBLE_SEC} s")
+        events.append({"index": idx, "midi": m, "on_sec": round(max(on, 0.0), 3),
+                       "vel": round(vel, 3)})
         placed += 1
-    return RenderedCoda(out, warnings, placed)
+    return RenderedCoda(out, warnings, placed, events)
 
 
 def main() -> None:  # szybkie demo: python coda_synth.py gesture.json instrument.json out.mp3

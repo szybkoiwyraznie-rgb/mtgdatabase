@@ -99,3 +99,16 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   receptury — wcześniej ogon kody ciszej przekraczał deklarację (8,41 s przy
   8,0 s), teraz twardy master-fade. Użytkownik: długość referencyjna sygnatur
   to **6 s** — receptury używają 6,0 s jako bazy.
+
+- **2026-09-23 (model pracy: dozór bazy ≠ montaż):** właściciel akceptuje jakość
+  wpisów do bazy (warianty jednej roli, wielowariantowo), agent obsadza fabułę
+  i montuje — bez odsłuchu końcowego. Konsekwencja kodowa: twarda bramka ataku
+  każdej nuty kodu (+2,5 dB nad kontekst, okno 0,3 s), licznik zagranych nut,
+  AUTOKALIBRACJA poziomów nut w renderze (sufit 8 dB, log `coda_boosts_db`).
+  Pułapka: pomiar pokazał, że „naprawione na okoł" wersje nadal zawodziły
+  (atak +0,8 dB kotła, −3,3/−4,6 dB kieliszków) — poziom bloku nie leczy
+  nakładającego się ringtonu; leki zadziałały: minimum brzmienia, semantyka
+  DB per nuta, autokalibracja, geometria czasowa (fabuła 4: hero na 0,7 s i
+  koda na 3,6 s zamiast przez wail). Kieliszki pod zewem nura — parowanie na
+  granicy; na przyszłość bramki demo kodu prezentować też na instrumencie
+  z PODGŁOSEM finalnego typu tła (kontekstowa odsłuchówka), nie na pusto.
