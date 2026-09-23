@@ -18,6 +18,8 @@ import numpy as np
 import sig_audio as dsp
 
 MAX_SEMITONE_DISTANCE = 3  # instrument tonowany: najbliższa dostępna nuta w zasięgu ±3 półtony
+MIN_NOTE_AUDIBLE_SEC = 1.2  # minimalny czas brzmienia nuty: krótsze wycinki (dł. percypowane
+# jako „klik" pod tłem) są przedłużane do 1,2 s z łagodnym zanikiem — deterministycznie
 
 
 @dataclass
@@ -135,7 +137,8 @@ def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: fl
         if m not in cache:
             continue
         wav = cache[m]
-        slice_len = max(int((float(note["off"]) - float(note["on"])) * dsp.SR), 512)
+        slice_len = max(int((float(note["off"]) - float(note["on"])) * dsp.SR),
+                        int(MIN_NOTE_AUDIBLE_SEC * dsp.SR))
         seg = wav[:, :slice_len] if wav.shape[1] > slice_len else wav
         if seg.shape[1] < slice_len:
             seg = np.hstack([seg, np.zeros((2, slice_len - seg.shape[1]))])
@@ -146,6 +149,8 @@ def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: fl
         if vel_jitter:
             vel = float(np.clip(vel * (1.0 + rng.uniform(-vel_jitter, vel_jitter)), 0.05, 1.0))
         out = dsp.place(out, seg * vel, max(on, 0.0))
+        if slice_len > int((float(note["off"]) - float(note["on"])) * dsp.SR) + 512:
+            warnings.append(f"nuta {dsp.midi_to_name(m)}: brzmienie przedłużone do minimum {MIN_NOTE_AUDIBLE_SEC} s")
         placed += 1
     return RenderedCoda(out, warnings, placed)
 

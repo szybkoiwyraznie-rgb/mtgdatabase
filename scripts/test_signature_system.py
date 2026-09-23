@@ -129,6 +129,22 @@ def test_loop_seam() -> None:
           f"max={win.max():.6f} base={base:.6f}")
 
 
+def test_coda_min_sustain() -> None:
+    # krótka nuta (0.1 s) nie może zniknąć: render dźwięczy co najmniej ~MIN_NOTE_AUDIBLE_SEC
+    import soundfile as sf
+    sr = dsp.SR
+    with tempfile.TemporaryDirectory() as td:
+        tmp = Path(td)
+        t = np.linspace(0, 2.2, int(sr * 2.2), endpoint=False)
+        sf.write(tmp / "n48.wav", np.stack([np.sin(2 * np.pi * 300 * t) * 0.3] * 2).T, sr)
+        inst = {"samples": {"48": str(tmp / "n48.wav")}}
+        r = coda_synth.render_coda({"notes": [{"midi": 48, "on": 0.0, "off": 0.1, "vel": 0.9}]},
+                                   inst, seed=3)
+        late = r.wave.mean(axis=0)[int(sr * 0.9):int(sr * 1.1)]
+        check("nuta: minimum brzmienia", float(late.std()) > 0.01, f"late rms={late.std():.5f}")
+        check("nuta: log minimum brzmienia", any("minimum" in w for w in r.warnings), str(r.warnings))
+
+
 def test_registries_and_reading() -> None:
     result = subprocess.run([sys.executable, str(REPO / "scripts" / "library_tool.py"), "check"],
                             capture_output=True, text=True, cwd=REPO)
@@ -146,6 +162,7 @@ def main() -> None:
         test_coda_render(Path(td))
     test_coda_register_adapt()
     test_loop_seam()
+    test_coda_min_sustain()
     test_qa_gates()
     test_registries_and_reading()
     print(f"\n{len(FAILURES)} niepowodzeń" if FAILURES else "\nwszystkie testy OK")

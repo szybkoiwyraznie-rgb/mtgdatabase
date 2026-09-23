@@ -1,9 +1,9 @@
 {
   "story_id": "1",
-  "length_sec": 8.0,
+  "length_sec": 6.0,
   "background": {"id": "thunder_far_01", "offset_sec": 0.0, "target_db": -32},
-  "hero": {"id": "raven_yell_long_01", "at_sec": 1.3, "target_db": -15},
-  "coda": {"gesture": "g1b_march_pulse", "instrument": "b_timpani", "at_sec": 4.6, "target_db": -21},
+  "hero": {"id": "raven_yell_long_01", "at_sec": 1.2, "target_db": -15},
+  "coda": {"gesture": "g1b_march_pulse", "instrument": "b_timpani", "at_sec": 3.2, "target_db": -21},
   "seed": 7,
   "gate": "g001"
 }

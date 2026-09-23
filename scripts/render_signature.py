@@ -92,6 +92,14 @@ def render(recipe: dict) -> tuple[np.ndarray, dict, list[str]]:
         mix = dsp.place(mix, coda_wave, coda_at)
         audit["coda_at_sec"] = coda_at
         audit["coda_notes"] = result.note_count
+    # twarde dopasowanie długości produktu: ogon kody wykraczający poza
+    # length_sec znika w wspólnym master-fade (bez kliku, bez nadmiarowych sekund)
+    want = int(length * dsp.SR)
+    if mix.shape[1] > want:
+        over = (mix.shape[1] - want) / dsp.SR
+        mix = mix[:, :want].copy()
+        mix = dsp.fade(mix, 0.0, min(1.6, length * 0.3))
+        warnings.append(f"ogon kody ucięty o {over:.2f} s w master-fade do {length:.2f} s")
     return mix, audit, warnings
 
 

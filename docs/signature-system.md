@@ -37,8 +37,9 @@ i pieczątkę akceptacji `approved` (bramka, wybór, data).
 - Zasada „rola przed plikiem": agent najpierw definiuje rolę semantyczną
   („krzyk dużego ptaka zwiadowczego"), sprawdza, czy rola jest obsadzona,
   i dopiero wtedy pozyskuje kandydatów.
-- Odrzuceni kandydaci **nigdy nie wchodzą do repozytorium** (żyją w `work/`,
-  które jest gitignore).
+- Odrzuceni kandydaci **nigdy nie wchodzą do baz** — ale cała bramka
+  (`data/gates/gNNN/`) jest commitowana, jako trwała dokumentacja procesu
+  doboru (odporna na resety sandboksa).
 
 ## Receptury i produkty
 
@@ -80,6 +81,12 @@ stosuje deterministyczną drabinę (każdy krok loguje `!` w renderze i audycie)
    wybierając przesunięcie o maks. liczbie dopasowanych nut (rytm i kontur bez
    zmian), potem min. korekta i min. |t|;
 4. dopiero co się nie zmieściło — pominięte z jawnego ostrzeżeniem.
+
+Dodatkowo każda nuta brzmi co najmniej `MIN_NOTE_AUDIBLE_SEC` (1,2 s) —
+krótkie wycinki jednostrzałowców (udarzenia kotłów 0,3 s) zanikały pod tłem
+i stapiały się w jedno „bum". Miks nigdy nie wykracza poza `length_sec`:
+ogon kody wychodzi w wspólnym master-fade, więc plik ma równo tyle sekund,
+ile każe receptura.
 
 Wynik adaptacji zawsze słyszalnie odsłuchujemy na koniec sesji; gdy adaptacja
 psuje zamiar gestu (np. trójtona), remedium NIE jest „ładniejszy maper",

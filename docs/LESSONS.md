@@ -92,3 +92,10 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   (zwykły `np.tile` klikał). Przy bramce demo instrumentu zawsze prezentować
   fragment w JEGO zakresie — i tak się dzieje (fraza demonstracyjna), trzymać
   tę zasadę.
+
+- **2026-09-23 (koda ma grać, nie klepnąć):** ucięcie jednostrzałowca do długości
+  nuty (0,32 s) pod niskim tłem = jedno „bum" zamiast trzech uderzeń. Reguła
+  MIN_NOTE_AUDIBLE_SEC=1,2 (logowana w renderze). Długość pliku = `length_sec`
+  receptury — wcześniej ogon kody ciszej przekraczał deklarację (8,41 s przy
+  8,0 s), teraz twardy master-fade. Użytkownik: długość referencyjna sygnatur
+  to **6 s** — receptury używają 6,0 s jako bazy.
