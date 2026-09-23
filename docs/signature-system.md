@@ -134,6 +134,27 @@ nie z oceny po fakcie — bramki pilnują tylko poprawności montażu.
 - **kody (a):** definicje nutowe pisane przez agenta w PLC (patrz protokół
   bramki) — render kandydacki na neutralnym instrumencie referencyjnym.
 
+### Obróbka kandydata: skrypt, nie ręczna edycja
+
+Każda bramka ma własny `scripts/build_gate_gNNN.py`, który z surowego
+źródła robi kandydatów **deterministycznie** i drukuje metryki. Dzięki temu
+poprawka po werdykcie („utnij koniec”) jest zmianą parametru, a nie nowym
+plikiem znikąd. Gotowe cegiełki do ponownego użycia:
+
+- `build_gate_g003.to_roar(wave, semitones, hp_hz, lp_hz, drive)` —
+  pitch-down z filtrem i saturacją (podstawa „poważnych” głosów);
+- `build_gate_g003.soft_limit(wave, crest_db)` — tanh **przed**
+  `normalize_rms`; odwrotna kolejność gasi RMS (crest 21 dB → −22 dB);
+- `build_gate_g004.oga_source(...)` — proweniencja paczek OGA;
+- `build_gate_g007.trim_silence(wave)` — obcięcie cichych brzegów;
+  nagrania terenowe miewają sekundę zapasu przed zdarzeniem;
+- `build_gate_g007.make_warcry(..., end_sec=)` — warstwowanie kilku głosów
+  z rozjazdem czasowym i rozstrojeniem (efekt „tłumu”, nie chórku).
+
+Poziom kandydatów wyrównuj do **−15 dB RMS** (głosy/hero) albo do
+`level_ref_db` wpisu (tła, zwykle −33 dB), żeby porównanie w bramce dotyczyło
+charakteru, a nie głośności.
+
 ## Folder audio/library/
 
 Przyjęte klocki: `heroes/`, `backgrounds/`, `instruments/<instrument>/`.

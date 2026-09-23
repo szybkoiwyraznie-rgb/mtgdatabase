@@ -1,0 +1,86 @@
+{
+  "id": "g008",
+  "created": "2026-09-23",
+  "note": "Tło do fabuły 2 (Coralhelm Guide): wąski zalany kanion Zendikaru. Trzy okna jednego nagrania NPS „The Dragon's Mouth” — woda w kamieniu z naturalnym pogłosem jaskini. Etykiety k.*.",
+  "entries": [
+    {
+      "slug": "zalany-kanion",
+      "kind": "backgrounds",
+      "role": "tło fabuły 2: woda uwięziona w skalnej szczelinie, przez którą przeciska się bestia",
+      "candidates": [
+        {
+          "label": "k.1",
+          "title": "woda chlupie o kamień",
+          "file": "candidates/k_cave_lap.mp3",
+          "desc": "najspokojniejsze okno nagrania: równomierny chlupot w kamiennej misie, mało rozprysku (15% energii powyżej 4 kHz) — przejście, którym da się iść cicho",
+          "source": "Yellowstone Sound Library (NPS) — domena publiczna",
+          "entry": {
+            "id": "flooded_canyon_01",
+            "setting": "zalany kanion / woda w skale",
+            "desc": "najspokojniejsze okno nagrania: równomierny chlupot w kamiennej misie, mało rozprysku (15% energii powyżej 4 kHz) — przejście, którym da się iść cicho",
+            "file": "audio/library/backgrounds/flooded_canyon_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "The Dragon's Mouth 21.0-29.0 s (woda bijąca o ściany jaskini — pogłos skalny jest w nagraniu, nie doklejony)"
+            }
+          }
+        },
+        {
+          "label": "k.2",
+          "title": "woda napiera na skałę",
+          "file": "candidates/k_surge_rock.mp3",
+          "desc": "okno o 4 dB głośniejsze, wyraźne uderzenia fali o ścianę (22% powyżej 4 kHz) — ciaśniejsza szczelina, woda pod naporem",
+          "source": "Yellowstone Sound Library (NPS) — domena publiczna",
+          "entry": {
+            "id": "flooded_canyon_02",
+            "setting": "zalany kanion / woda pod naporem",
+            "desc": "okno o 4 dB głośniejsze, wyraźne uderzenia fali o ścianę (22% powyżej 4 kHz) — ciaśniejsza szczelina, woda pod naporem",
+            "file": "audio/library/backgrounds/flooded_canyon_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "The Dragon's Mouth 39.0-47.0 s (woda bijąca o ściany jaskini — pogłos skalny jest w nagraniu, nie doklejony)"
+            }
+          }
+        },
+        {
+          "label": "k.3",
+          "title": "echo w głębi jaskini",
+          "file": "candidates/k_deep_echo.mp3",
+          "desc": "najgłębsze okno: chlupot słyszany z dystansu przez kamienny korytarz, najwięcej pogłosu — jakby kanion ciągnął się dalej niż widać",
+          "source": "Yellowstone Sound Library (NPS) — domena publiczna",
+          "entry": {
+            "id": "flooded_canyon_03",
+            "setting": "zalany kanion / głęboka szczelina",
+            "desc": "najgłębsze okno: chlupot słyszany z dystansu przez kamienny korytarz, najwięcej pogłosu — jakby kanion ciągnął się dalej niż widać",
+            "file": "audio/library/backgrounds/flooded_canyon_03.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "The Dragon's Mouth 60.0-68.0 s (woda bijąca o ściany jaskini — pogłos skalny jest w nagraniu, nie doklejony)"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

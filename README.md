@@ -8,12 +8,15 @@ z czterech zatwierdzonych klocków — **tło + hero + koda muzyczna + instrumen
 
 1. Agent analizuje fabułę semantycznie i dobiera klocki z czterech baz
    (`data/library/*.json`). Bazy **rosną organicznie** — zaczęły się puste.
-2. Brakujące klocki idą przez **bramkę odsłuchową**: minimum 3 kandydatów
-   na slot, właściciel wybiera jednego (albo odrzuca wszystkich) w czacie,
-   wybrany trafia do bazy na stałe.
-3. Z zatwierdzonych klocków agent składa recepturę i renderuje
-   `audio/signatures/<id>.mp3` — deterministycznie, z bramkami QA (montaż,
-   nie „ocena gustu").
+2. Brakujące klocki idą przez **bramkę odsłuchową**: 3 kandydaci będący
+   wariantami JEDNEJ roli (nie trzy różne pomysły), właściciel wybiera
+   jednego albo odrzuca wszystkich jednym słowem uzasadnienia, wybrany
+   trafia do bazy na stałe. To jedyny moment, w którym właściciel ocenia —
+   **jakość wpisów do bazy, nie fabuły**.
+3. Z zatwierdzonych klocków agent **samodzielnie** składa recepturę
+   i renderuje `audio/signatures/<id>.mp3` — deterministycznie, z bramkami
+   QA (montaż, nie „ocena gustu"). Obsada ról wynika z narracji danej
+   fabuły, a hero nie powtarza się między fabułami.
 4. Pages to gablotka gotowych sygnatur; ZIP w Releases to płaski pakiet
    `<id>.mp3` budowany z `audio/signatures/`.
 
@@ -25,14 +28,15 @@ bramki, [`AGENTS.md`](AGENTS.md) — kontrakt pracy. Dawna „fabryka jingli"
 ## Narzędzia
 
 ```bash
-pip install numpy soundfile lameenc av   # venv pod audio
+pip install numpy soundfile lameenc av scipy pytest   # venv pod audio
 
 python scripts/render_signature.py data/recipes/<id>.json --audit   # render sygnatury
-python scripts/gate_preview.py work/gates/gNNN --port 8080          # bramka odsłuchowa
+python scripts/gate_preview.py data/gates/gNNN --port 8080          # bramka odsłuchowa
 python scripts/library_tool.py check                                # walidacja baz + unikalność
 python scripts/library_tool.py accept --gate gNNN                   # po werdykcie właściciela
 python scripts/build_pack.py                                        # ZIP <id>.mp3
 python scripts/build_site.py                                        # gablotka Pages
+python scripts/serve_site.py --port 3000                            # podgląd gablotki (no-store)
 python scripts/stem_probe.py <nagranie>                             # audycja przed cięciem
 python scripts/make_stem.py <nagranie> --start S --end E --out ...  # stem kandydata
 ```

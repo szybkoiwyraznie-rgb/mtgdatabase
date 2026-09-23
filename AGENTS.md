@@ -42,7 +42,13 @@ i `docs/gate-protocol.md`.
    trafia do bazy (`library_tool.py accept`). Agent sam obsadza fabułę z bazy
    (role d/c/a/b), układa recepturę i renderuje z `--audit`; twardy render
    autokalibruje słyszalność nut kody — pełne liczby w raporcie, odsłuch
-   fabuły przez właściciela nie jest częścią pętli.
+   fabuły przez właściciela nie jest częścią pętli. **Agent sam decyduje,
+   który wpis idzie do następnej bramki** i sam dobiera kandydatów — nie
+   pytaj właściciela „co teraz?”, przedstaw gotową bramkę.
+2a. **Rola wynika z narracji konkretnej fabuły**, nigdy z tego, co leży
+   w bazie. Wpis o pasującej nazwie, ale nie pasujący do sceny, to BRAK →
+   bramka. Hero jest tożsamością fabuły **1:1** — nie obsadzaj nim drugiej.
+   Złamanie tych reguł kosztowało wycofanie dwóch gotowych fabuł.
 3. **Warsztat**: co najmniej jedna poprawka narzędzi/dokumentacji/bazy w sesji.
 4. **Publikacja**: `python scripts/build_pack.py` (test ZIP),
    `python scripts/build_site.py` (test gablotki), `git status`, commit, push.

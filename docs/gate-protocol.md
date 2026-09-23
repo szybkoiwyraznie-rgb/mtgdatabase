@@ -41,6 +41,44 @@ Format werdyktu (jeden na wpis):
 {"jezioro": "j.2", "nurek-wail": "n.1", "groza-koda": "g.żaden — za słaby", "grandpiano": "p.3"}
 ```
 
+Pole `notes` w `verdicts.json` jest obowiązkowe przy „żaden” i przy wyborze
+z zastrzeżeniem — przechowuje słowa właściciela, bo to jedyny zapis kierunku
+naprawy dla następnej rundy (i dla następnej sesji).
+
+### Runda naprawcza: czytaj, CO właściciel skrytykował
+
+Werdykt „żaden” niesie diagnozę; dobierz remedium do jej rodzaju, zamiast
+powtarzać tę samą robotę z innym plikiem:
+
+| Słowa właściciela | Co jest zepsute | Remedium |
+|---|---|---|
+| „za wysoki”, „za cichy”, „za krótki” | parametr | **ta sama rodzina**, zmiana parametru (pitch-down, inne okno, dłuższy wycinek) |
+| „brzmi jak kreskówka”, „to nie jest ryk”, „za czysty” | charakter źródła | **inna rodzina albo inna TECHNIKA** — patrz niżej |
+| „dobre, ale utnij koniec/początek” | detal wykonania | popraw parametrem w skrypcie bramki (np. `end_sec`), nigdy ręczną edycją pliku |
+
+**Technika bywa ważniejsza niż paczka.** Wrzask goblinów padł trzy razy
+(g004 surowe gobliny, g005 te same o −6 półtonów, g006 inny kit stworów),
+bo wszystkie źródła były wokalizacjami UDAWANYMI pod stwora — takie nagrania
+robi się z uśmiechem i to słychać. Zadziałało dopiero odwrócenie metody, tak
+jak robi to filmowe fantasy: **prawdziwy ludzki wrzask + pitch-down +
+saturacja** (g007, przyjęty). Zanim otworzysz czwartą rundę z kolejną paczką,
+zapytaj: czy zepsuty jest plik, czy sposób jego wytworzenia?
+
+**Sito liczbowe zamiast zgadywania.** Dla głosów licz udział pasma gardła
+150–800 Hz: prawdziwy ludzki głos ma tam 41–66% energii, „głosik stwora”
+4–22%. Dla teł licz wahanie RMS w podoknach 0,5 s (stabilność) oraz udział
+powyżej 4 kHz (ilość rozprysku). Metryki drukuj w skrypcie bramki — trafiają
+wtedy do raportu w czacie i ułatwiają właścicielowi werdykt.
+
+### Poprawka wykonawcza po akceptacji
+
+Właściciel może przyjąć kandydata z uwagą („dobry, ale utnij koniec”).
+Wtedy: (1) znajdź miejsce liczbowo — profil energii co 50 ms, tnij w
+MINIMUM przed artefaktem (g007: −25 dB przy 1,25 s, po czym głos wracał na
+−16 dB pnąc się 558→733 Hz); (2) wprowadź cięcie jako **parametr skryptu
+bramki**, żeby kandydat dawał się odtworzyć z kodu; (3) przebuduj bramkę,
+zapisz uwagę w `verdicts.json::notes` i dopiero wtedy `accept`.
+
 ### Faza B: obsada fabuły + montaż (bez odsłuchu właściciela)
 
 1. Agent czyta fabułę i definiuje **role** d / c / a / b (zakres: „tajemnicze
@@ -77,7 +115,13 @@ Format werdyktu (jeden na wpis):
   na wyraźne żądanie właściciela i z adnotacją w LESSONS.
 - Zaakceptowane klocki można używać w dowolnej fabule — unikalność dotyczy
   kombinacji a·b·c·d całej receptury, nie pojedynczych klocków.
-- Fabuł sygnaturowych właściciel nie pilotuje; szczegółowy werdykt odsłuchowy
-  montażu jest NIE pożądany — błędy montażu łapią bramki maszynowe, a ewentualne
-  uwagi estetyczne idą w reguły (nowe gesty/instrumenty przez bramkę), nie w
-  remiksy na życzenie.
+- Fabuł sygnaturowych właściciel nie pilotuje: nie prosimy o odsłuch ani
+  o casting, błędy montażu łapią bramki maszynowe. Właściciel **może** rzucić
+  krótką uwagę po fakcie („fabuła 8 fajna”, „czar brzmi jak koda”) — wtedy
+  zamień ją w REGUŁĘ (zapis w `recipes/<id>.json::notes` + LESSONS), a nie
+  w rundę remiksów na życzenie. Uwaga o brakującym charakterze roli
+  („co mają kruki do Jundu”) oznacza nową bramkę, nie podmianę pliku.
+- **Weryfikuj reklamację, zanim coś zmienisz.** Przy „gra stara wersja”
+  najpierw `md5sum` pliku na dysku kontra to, co zwraca serwer, i analiza
+  treści (np. pik widma hero) — raz przyczyną był wyłącznie cache
+  przeglądarki, a montaż był poprawny. Patrz LESSONS 2026-09-23.

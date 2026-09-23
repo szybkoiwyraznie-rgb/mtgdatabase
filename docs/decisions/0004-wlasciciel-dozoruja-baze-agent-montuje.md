@@ -56,3 +56,20 @@ Po pierwszej bramce (g001) i dwóch sygnaturach właściciel skorygował proces:
   0,7 s, koda na 3,6 s).
 - Demo gestu na fortepianie nie pokazuje ryzyka parowania z instrumentem o
   wolnym ataku (kieliszki) — potwierdzono produkcyjnie.
+
+## Uzupełnienie po sesji bramek g003–g008 (2026-09-23, wieczór)
+
+Praktyka potwierdziła decyzję, ale ujawniła trzy luki. Wiążące doprecyzowania:
+
+6. **Rola wynika z narracji konkretnej fabuły, nie z zawartości bazy.**
+   Dwie gotowe fabuły wycofano, bo obsadzono je tym, co akurat leżało
+   w bazie („co mają kruki do Jundu"). Wpis niepasujący do sceny = brak → bramka.
+7. **Hero jest tożsamością fabuły 1:1** — nie obsadza się nim drugiej fabuły.
+   Tło, gest i instrument mogą się powtarzać świadomie.
+8. **Werdykt „żaden" to diagnoza, nie tylko odmowa.** Remedium dobiera się
+   do rodzaju krytyki (parametr / charakter źródła / detal wykonania);
+   tabela w `docs/gate-protocol.md`. Cztery rundy na jeden wpis są
+   dopuszczalne, jeśli każda zmienia HIPOTEZĘ, a nie tylko plik.
+9. **Właściciel może rzucić krótką uwagę o gotowej fabule** („czar brzmi jak
+   koda"). Nie otwiera to rundy remiksów: uwaga idzie w regułę montażu
+   (`recipes/<id>.json::notes` + LESSONS) i obowiązuje w kolejnych fabułach.

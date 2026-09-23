@@ -180,10 +180,6 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   rodzinę; jeśli „za wysoki", zostaw rodzinę, schodź w dół. Rubberduck
   80-creature: grep pasma głosu (udział 200–900 Hz > ~60%) dobrym sitom na
   „poważny głos stwora" (grunt-02 78%, troll-01 79% vs hurt-01 11%).
-- **2026-09-23 (Sample Scout uprawnienia):** dispatch workflow z sandboksa
-  przez gh = HTTP 403 (integracja bez actions:write). Agent może przygotować
-  komendę, ale RUN klika właściciel (Actions → Sample scout → Run workflow,
-  ref main) — artefakty przychodzą commitem bota na legacy/source/sample_scout/.
 - **2026-09-23 (technika orków > dobór paczki):** trzy rundy wrzasku padły,
   bo wszystkie źródła były wokalizacjami UDAWANYMI pod stwora (artisticdude,
   rubberduck) — takie nagrania robi się z uśmiechem, słychać kabaret.
@@ -209,3 +205,31 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   bramki rozjechał się z rejestrem (`homepage/mirror/path` zamiast
   `url/channel`) — `library_tool check` złapał to dopiero po accept.
   Nowe bramki kopiować pola źródła z istniejącego wpisu, nie wymyślać.
+
+## 2026-09-23 — Stan flow po sesji bramek g003–g008 (czytaj to najpierw)
+
+- Sytuacja: w jednej sesji przeszliśmy cztery rundy jednego wpisu, dwie
+  wycofane fabuły i fałszywą reklamację „gra stary plik". Poniżej skrót,
+  żeby następny agent nie odtwarzał tych pomyłek od zera.
+- Wniosek: proces jest stabilny, kosztowne są tylko trzy rzeczy — obsada
+  z magazynu zamiast z narracji, dobór źródła „na najbliższe wygodne"
+  i diagnozowanie na ucho zamiast liczbami.
+- Zasada / działanie zapobiegawcze:
+  1. **Podział ról**: właściciel ocenia WYŁĄCZNIE jakość wpisów w bramce.
+     Fabuły montuje agent i sam wybiera, co idzie do następnej bramki.
+     Nie pytaj „co teraz?" — pokaż gotową bramkę i raport z liczbami.
+  2. **Rola z narracji fabuły, hero 1:1.** Wpis pasujący nazwą, lecz nie
+     sceną, to brak → bramka (kruk ≠ gobliny Jundu). Hero użyty w innej
+     fabule robi z nowej „kopię tamtej".
+  3. **Werdykt „żaden" czytaj jako diagnozę** (tabela w
+     `docs/gate-protocol.md`): parametr → ta sama rodzina; charakter →
+     inna rodzina lub inna technika; detal → parametr w skrypcie bramki.
+  4. **Mierz, nie zgaduj**: pasmo gardła 150–800 Hz (głos prawdziwy 41–66%
+     vs kreskówka 4–22%), wahanie RMS w podoknach 0,5 s i udział > 4 kHz
+     (tła), profil energii co 50 ms (miejsce cięcia).
+  5. **Reklamację odsłuchową weryfikuj technicznie** przed zmianą czegokolwiek
+     (md5 dysk vs serwer, pik widma hero) — raz winna była wyłącznie
+     pamięć podręczna przeglądarki.
+  6. **Ograniczenia narzędzi omijaj, nie eskaluj do właściciela**: brak
+     `actions:write` → `repository_dispatch`; brak egressu → mirrory GitHub;
+     m4a → PyAV.
