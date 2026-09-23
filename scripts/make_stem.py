@@ -3,15 +3,15 @@
 
 Automates the verified sample procedure from docs/sources-and-licensing.md:
 decode (PyAV for M4A/AAC, soundfile otherwise), trim to a window, apply short
-fades, resample to the engine rate and encode a stem for
-legacy/source/game-audio-pipeline/stems/. Register the result in
-data/sources.json before using it in a recipe (AGENTS.md #8).
+fades, resample to 44,1 kHz and encode an MP3 stem. Gate candidates go to
+work/gates/<id>/candidates/ (never committed); accepted blocks enter
+audio/library/ with provenance in data/library/*.json (AGENTS.md #8).
 
 Authoring tool (not CI): `pip install numpy soundfile lameenc av` in the venv.
 
 Usage:
   python scripts/make_stem.py "<source file>" --start 12.5 --end 18.5 \
-      --out legacy/source/game-audio-pipeline/stems/wolf_howl.mp3 \
+      --out work/gates/gNNN/candidates/wolf_howl.mp3 \
       [--gain-db -3] [--fade-ms 60] [--mono]
 """
 from __future__ import annotations
@@ -100,7 +100,7 @@ def main() -> int:
     rms = float(np.sqrt(np.mean(seg ** 2)))
     print(f"Stem zapisany: {args.out} ({args.out.stat().st_size} B, "
           f"{len(seg)/SR:.2f}s, {seg.shape[1]} kanały, peak {np.max(np.abs(seg)):.3f}, RMS {rms:.4f})")
-    print("Przypomnienie: zarejestruj sample w data/sources.json (AGENTS.md #8).")
+    print("Kandydat? work/gates/ (poza gitem). Przyjęty blok? audio/library/ + wpis w data/library/ (AGENTS.md #8).")
     return 0
 
 

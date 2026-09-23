@@ -18,7 +18,11 @@ notes
 
 Agent może badać nowe biblioteki i narzędzia, ale nie powinien automatycznie dołączać materiału o nieznanej licencji do paczki dystrybucyjnej. Materiał eksperymentalny można oznaczyć jako roboczy i trzymać poza publicznym buildem Pages.
 
-Formalny rejestr istniejących sampli znajduje się w `data/sources.json`; każdy nowy sample dopisujemy tam przed użyciem w produkcji. Uwaga: edycja `alligator_bellow` jest CC BY-SA 2.5 (ShareAlike) — do nowych renderów używaj surowego oryginału FWS (PD).
+Formalny rejestr sampli produkcyjnych to pola `source` we wpisach czterech baz
+(`data/library/*.json`); każdy klocek (`hero`, `tło`, `instrument`, nuta
+instrumentu) ma źródło, autora, licencję, url i kanał pobrania. Kandydaci na
+bramki dokumentują proweniencję już w manifeście bramki. Historyczny rejestr
+dawnej fabryki: `legacy/old-factory/data/sources.json`.
 
 ## Katalog zweryfikowanych bibliotek dźwięków (osiągalnych z sandboxa Arena)
 
@@ -34,7 +38,13 @@ Egress sandboxa tnie TLS do Wikimedia/NPS/Freesound/raw.githubusercontent (patrz
 
 Pomocnicze: `Cy4nWare/sfx-api` (Kenney CC0, duplikat sparkstream przez jsdelivr), `stargatedaw/stargate-sample-pack` (PD, sample instrumentów do DAW — marginalne dla jingli). Odrzucone: repozytoria „SFX generowane z kodu" (blip8, free-sfx-bgm — sprzeczne z zasadą żywych sampli), scraper BBC Sound Effects (host blokowany + licencja RemArc niekomercyjna).
 
-Procedura pobierania: (1) potwierdź licencję packu na stronie źródłowej; (2) sparse-clone do `/tmp`; (3) wytnij fragment i zapisz stem narzędziem `python scripts/make_stem.py <źródło> --start S --end E --out legacy/source/game-audio-pipeline/stems/<nazwa>.mp3` (obsługuje MP3/WAV/M4A — dekodowanie PyAV automatycznie, fade wliczony); (4) zarejestruj w `data/sources.json` z url oryginału i kanałem pobrania w `notes`.
+Procedura pobierania: (1) potwierdź licencję packu na stronie źródłowej;
+(2) sparse-clone do `/tmp`; (3) obowiązkowa audycja `python scripts/stem_probe.py <nagranie>`;
+(4) wytnij kandydata `python scripts/make_stem.py <źródło> --start S --end E --out work/gates/<bramka>/candidates/<nazwa>.mp3`
+(MP3/WAV/M4A — dekodowanie PyAV automatycznie, fade wliczony); (5) manifest
+bramki z wpisem `entry` zawierającym proweniencję; (6) po akceptacji
+`library_tool.py accept` przenosi plik do `audio/library/` i dopisuje wpis
+do rejestru. Odrzuty nie wchodzą do gita.
 
 ## Sample Scout — pobieranie przez GitHub Actions
 
@@ -43,6 +53,8 @@ Gdy potrzebnego zdarzenia nie ma w zweryfikowanych bibliotekach, użyj workflow 
 - `freesound`: wymaga sekretu Actions `FREESOUND_TOKEN`; ranking: średnia ocena, liczba ocen, pobrania;
 - `archive.org`: bez sekretu; ranking: liczba pobrań, wyłącznie po potwierdzeniu CC0 w metadanych;
 - uruchamiaj tylko z `main` przez **Actions → Sample scout → Run workflow**; kandydaci zastępują poprzednią paczkę, aby repozytorium nie rosło bez limitu;
-- workflow zapisuje **kandydatów**, nie źródła produkcyjne. Przed użyciem agent odsłuchuje plik, sprawdza oryginalną stronę/licencję i dopiero wtedy wpisuje wybrany stem do `data/sources.json` zgodnie z regułą 8 z `AGENTS.md`.
+- workflow zapisuje **kandydatów**, nie źródła produkcyjne. Agent weryfikuje
+  proweniencję, wystawia kandydata w bramce odsłuchowej i dopiero po
+  akceptacji właściciela wpis trafia do `data/library/*.json` (AGENTS.md #8).
 
 Nie umieszczaj tokenu Freesound w workflow, kodzie ani pliku konfiguracyjnym — wyłącznie w sekretach GitHub Actions.

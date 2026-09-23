@@ -1,9 +1,8 @@
-name: Check Pages build
+name: Check gallery build
 
-# Build validation for working branches (LESSONS 2026-09-21: deployment runs
-# only from main, so this workflow never deploys — it only proves the Pages
-# site builds). Splitting it out of pages.yml keeps a permanently "skipped"
-# deploy job out of PR checks.
+# Gałęzie robocze: budujemy bez deploymentu (deployment wyłącznie z main,
+# LESSONS 2026-09-21/22). Osobny workflow, żeby checki PR nie miały wiecznie
+# „skipped" joba deploy.
 
 on:
   push:
@@ -24,16 +23,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Validate collection
-        run: python scripts/validate_stories.py kolekcja.csv
-      - name: Import collection
-        run: python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
-      - name: Select catalog with finished jingles
-        run: |
-          if [ -f data/versions.json ]; then
-            python scripts/merge_catalog.py --collection kolekcja.csv --versions data/versions.json --output /tmp/catalog.json
-          else
-            cp data/catalog.example.json /tmp/catalog.json
-          fi
-      - name: Build static preview
-        run: python scripts/build_site.py --catalog /tmp/catalog.json --output _site --audio-root legacy/source/jingle_output
+      - name: Refresh catalog
+        run: python scripts/import_collection.py kolekcja.csv --output data/catalog.json
+      - name: Build gallery
+        run: python scripts/build_site.py --out site/generated
+      - name: Build pack
+        run: python scripts/build_pack.py --output /tmp/pack.zip

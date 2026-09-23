@@ -1,58 +1,41 @@
-# Fabryka jingli fabularnych
+# Sygnatury fabularne
 
-Prywatny, niekomercyjny pipeline do projektowania, renderowania, oceniania i iteracyjnego poprawiania krótkich form dźwiękowych na podstawie fabuł z CSV.
+Prywatny, niekomercyjny system warstwy dźwiękowej do gry fabularnej: każda
+fabuła z `kolekcja.csv` dostaje jedno „okno dźwiękowe" (do 10 s) złożone
+z czterech zatwierdzonych klocków — **tło + hero + koda muzyczna + instrument**.
 
-## Cel
+## Jak to działa
 
-Agent najpierw audytuje poprzedni PR i stan kodu, naprawia znalezione problemy, następnie w każdej pętli tworzy jingle dla nowych fabuł oraz wykonuje remake najsłabszej fabuły — kolejność wyznacza najlepiej oceniona wersja fabuły, nie najgorsza pojedyncza wersja. Wyniki publikuje w panelu odsłuchowym GitHub Pages, przyjmuje trzy oceny liczbowe i komentarz, a równolegle rozwija dokumentację, narzędzia i bibliotekę sampli.
+1. Agent analizuje fabułę semantycznie i dobiera klocki z czterech baz
+   (`data/library/*.json`). Bazy **rosną organicznie** — zaczęły się puste.
+2. Brakujące klocki idą przez **bramkę odsłuchową**: minimum 3 kandydatów
+   na slot, właściciel wybiera jednego (albo odrzuca wszystkich) w czacie,
+   wybrany trafia do bazy na stałe.
+3. Z zatwierdzonych klocków agent składa recepturę i renderuje
+   `audio/signatures/<id>.mp3` — deterministycznie, z bramkami QA (montaż,
+   nie „ocena gustu").
+4. Pages to gablotka gotowych sygnatur; ZIP w Releases to płaski pakiet
+   `<id>.mp3` budowany z `audio/signatures/`.
 
-## Stan projektu
-
-Repozytorium zawiera fundament procesu, aktualną kolekcję `kolekcja.csv` oraz pięć produkcyjnych jingli `v1` (fabuły 1–5; audio w `legacy/source/jingle_output/`, stan ocen w `data/versions.json`). Kolekcja ma format TSV `Ilustracja`, `Nazwa Karty`, `Narracja`; z artID, np. `123DOM`, importer wyciąga numer `123`, który jest ID jingla i nazwą pliku `123.mp3`. Sufiks setu jest zachowany w metadanych, ale nie bierze udziału w produkcji.
-
-## Zasady produktu
-
-- każda fabuła może mieć wiele wersji `v1`, `v2`, `v3`;
-- każda wersja ma opis projektowy z użytymi samplami i timestampami efektów;
-- nowe wersje nie usuwają starszych;
-- ocena to suma: feeling + zgodność z fabułą + jakość sampli, każda 1–5;
-- ocena pokazuje się od razu na urządzeniu oceniającego, a po automatycznej synchronizacji z issues trafia do `data/versions.json` i na wszystkie urządzenia;
-- ZIP zawiera jedną najwyżej ocenioną, już ocenioną wersję każdej fabuły;
-- ZIP jest płaski i zawiera wyłącznie `id.mp3`;
-- paczka jest publikowana jako asset GitHub Release i pojawia się automatycznie po pierwszych ocenach; bez sekretu `JINGLE_ZIP_PASSWORD` ZIP jest nieszyfrowany;
-- Pages służy do odsłuchu i wysyłania raportów.
-
-## Dokumentacja
-
-- [`AGENTS.md`](AGENTS.md) — obowiązkowy kontrakt dla agentów;
-- [`docs/agent-workflow.md`](docs/agent-workflow.md) — pętla produkcyjna;
-- [`docs/architecture.md`](docs/architecture.md) — architektura repozytorium i publikacji;
-- [`docs/feedback-system.md`](docs/feedback-system.md) — model ocen i komunikacja z GitHubem;
-- [`docs/sources-and-licensing.md`](docs/sources-and-licensing.md) — rejestr źródeł sampli;
-- [`ENVIRONMENT.md`](ENVIRONMENT.md) — ograniczenia i pułapki Agent Arena;
-- [`docs/LESSONS.md`](docs/LESSONS.md) oraz [`docs/decisions/`](docs/decisions/) — trwała wiedza i decyzje.
+Dokumenty: [`docs/signature-system.md`](docs/signature-system.md) —
+architektura, [`docs/gate-protocol.md`](docs/gate-protocol.md) — protokół
+bramki, [`AGENTS.md`](AGENTS.md) — kontrakt pracy. Dawna „fabryka jingli"
+(zamieniona 2026-09-23) leży w `legacy/old-factory/`.
 
 ## Narzędzia
 
-Wstępny skrypt paczki najlepszych jingli:
-
 ```bash
-python scripts/build_best_zip.py \
-  --versions data/versions.json \
-  --output build/best-jingles-latest.zip
+pip install numpy soundfile lameenc av   # venv pod audio
+
+python scripts/render_signature.py data/recipes/<id>.json --audit   # render sygnatury
+python scripts/gate_preview.py work/gates/gNNN --port 8080          # bramka odsłuchowa
+python scripts/library_tool.py check                                # walidacja baz + unikalność
+python scripts/library_tool.py accept --gate gNNN                   # po werdykcie właściciela
+python scripts/build_pack.py                                        # ZIP <id>.mp3
+python scripts/build_site.py                                        # gablotka Pages
+python scripts/stem_probe.py <nagranie>                             # audycja przed cięciem
+python scripts/make_stem.py <nagranie> --start S --end E --out ...  # stem kandydata
 ```
 
-Render nowej wersji z receptury (`pip install numpy soundfile lameenc` w venv; narzędzie autorskie poza CI):
-
-```bash
-python scripts/render_jingle.py data/recipes/<id>_<vN>.json \
-  --out legacy/source/jingle_output/<id>[_<vN>].mp3 --print-description
-```
-
-Przed uruchomieniem produkcji należy skonfigurować publikację Pages, endpoint raportów oraz sekret szyfrowania ZIP-a. Instrukcja konfiguracji zostanie uzupełniona w kolejnym etapie wraz z pierwszym działającym panelem.
-
-Audycja sampli przed użyciem w recepturze (wymagana od 2026-09-22 — ciche głowy nagrań zniszczyły partię 3-5/15):
-
-```bash
-python scripts/stem_probe.py wolf_howl.mp3   # profil RMS, charakter widma, sugestia offset_sec
-```
+Źródła sampli i licencje: `docs/sources-and-licensing.md`. Zweryfikowane
+pobieranie: `git clone` (sparse) z github.com; fallback: workflow Sample scout.

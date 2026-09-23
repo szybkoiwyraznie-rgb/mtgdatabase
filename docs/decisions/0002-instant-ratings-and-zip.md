@@ -1,6 +1,6 @@
 # ADR 0002: Oceny od razu na stronie i natychmiastowa paczka ZIP
 
-- Status: accepted
+- Status: superseded (zastąpiony przez ADR 0003, 2026-09-23) — opisuje zakończony system ocen z issues
 - Data: 2026-09-22
 
 ## Decyzja

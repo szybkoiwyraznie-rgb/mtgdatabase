@@ -4,8 +4,8 @@
 The Arena sandbox cannot reach Freesound or Internet Archive directly. This
 script is deliberately run by `.github/workflows/sample-scout.yml`, where the
 GitHub Actions runner has normal network access. It downloads *candidates*,
-not production stems: an agent still verifies the source and registers a
-chosen sound in data/sources.json before a render may use it.
+not production stems: an agent still verifies the source and, only after owner
+approval at a listening gate, registers the chosen sound in data/library/*.json.
 
 Freesound candidates are ordered by community rating, rating count and
 downloads. Internet Archive does not expose an equivalent rating, so its CC0
@@ -252,8 +252,8 @@ def main() -> int:
     manifest_path = destination / "manifest.json"
     manifest_path.write_text(json.dumps(saved, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"\nManifest: {manifest_path} ({len(saved)} kandydatów).")
-    print("Kandydat nie jest jeszcze samplem produkcyjnym: agent weryfikuje go, wpisuje do "
-          "data/sources.json i dopiero wtedy może użyć go w jednej recepturze.")
+    print("Kandydat nie jest jeszcze samplem produkcyjnym: agent weryfikuje go, wystawia w "
+          "bramce odsłuchowej i dopiero po akceptacji właściciela wpisuje do data/library/*.json.")
     return 0
 
 

@@ -1,4 +1,4 @@
-name: Publish Pages preview
+name: Publish signature gallery
 
 on:
   workflow_dispatch:
@@ -24,23 +24,16 @@ jobs:
           python-version: '3.12'
       - name: Validate collection
         run: python scripts/validate_stories.py kolekcja.csv
-      - name: Import collection
-        run: python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
-      - name: Select catalog with finished jingles
-        run: |
-          if [ -f data/versions.json ]; then
-            python scripts/merge_catalog.py --collection kolekcja.csv --versions data/versions.json --output /tmp/catalog.json
-          else
-            cp data/catalog.example.json /tmp/catalog.json
-          fi
-      - name: Build static preview
-        run: python scripts/build_site.py --catalog /tmp/catalog.json --output _site --audio-root legacy/source/jingle_output
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - name: Refresh catalog
+        run: python scripts/import_collection.py kolekcja.csv --output data/catalog.json
+      - name: Build gallery
+        run: python scripts/build_site.py --out site/generated
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: site/generated
+
   deploy:
-    # Guard stays for workflow_dispatch launched from a non-main branch.
     if: ${{ github.ref == 'refs/heads/main' }}
     needs: build
     runs-on: ubuntu-latest
@@ -48,5 +41,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - id: deployment
+      - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4

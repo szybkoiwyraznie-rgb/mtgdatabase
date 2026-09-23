@@ -2,6 +2,11 @@
 
 Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każdy wpis powinien odpowiadać na pytanie: co się wydarzyło, czego się nauczyliśmy i jak zapobiec powtórce.
 
+> **Uwaga (2026-09-23):** wpisy sprzed tej daty opisują zakończoną „fabrykę jingli”
+> (oceny z issues, wersje vN, remake’i, `versions.json`). Zachowujemy je dla
+> wiedzy procesowej (audycja sampli, determinizm renderu, kanały pobierania),
+> ale reguły produktu wynikają dziś z ADR 0003 i `docs/signature-system.md`.
+
 ## Format wpisu
 
 ```markdown
@@ -73,3 +78,8 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Sytuacja: partia kontrolna po naprawie silnika v2 przeszła wszystkie bramki QA (każde zdarzenie +8..+16 dB nad tłem), a oceny właściciela: 450 v4 = 6/15, 475 v3 = 5/15, 8 v3 = 10/15. Komentarze wskazały nową jakość problemu: zdarzenia były słyszalne, ale NIECZYTELNE — wycie wilka NPS brzmiało jak darcie papieru (nagranie ma 82% energii <250 Hz = pomruk wiatru, nie wokal), kruk obniżony do smoka nadal brzmiał jak wrona, deszcz „prawdziwych" gruzów jak kostki do gry, a pochwalona z v1 „elektronika na końcu" — syntetyczny swarm — została usunięta na rzecz foley.
 - Wniosek: bramki głośności są warunkiem koniecznym, ale niewystarczającym. Rozpoznawalność wymaga (1) sampli o właściwej CHARAKTERYSTYCE widmowej dla danego zdarzenia (wokal = dominanta 250-2000 Hz; whoosh = zbalansowane pasmo z ruchem powietrza; ciężar = sub), (2) czytelnych okien czasowych (wnyki zginęły pod ogonem wycia), (3) w scenach SF syntetycznych tekstur dla zjawisk ENERGETYCZNYCH (iskry, deszcz elektroniki) — foley zastępczy brzmi jak kuchnia („miedziana misa", „kostki do gry"). Po raz trzeci pochwalono żywe tło (lawa/wiatr/hangar/suw) — to najpewniejszy element warsztatu.
 - Zasada / działanie zapobiegawcze: dobór sampli pod charakter widmowy zdarzenia przed renderem (audycja profilem z stem_probe.py — patrz kolumna charakteru); wokale bestii: pakiet creature SFX (howl.m4a = 100% energii 250-2 kHz) zamiast nagrań terenowych NPS jako lead; zjawiska energetyczne SF = warstwy syntetyczne (dopuszczalne w SF), fizyka = żywe sample; każde zdarzenie fabularne w osobnym oknie czasowym; kolejka remake'ów wypisuje obowiązki zachowania sampli pochwalonych (AGENTS.md pkt 3). Nowe wersje: 475 v4 (QA 94,5 — powrót deszczu elektroniki), 450 v5 (96,2 — tonalne wycie + czytelne wnyki i drugi wilk), 8 v4 (96,8 — 7 s, gobliny pitch 0,82, smok = ryk grizzly, whooshe skoku).
+## 2026-09-23 — Fabryka jingli zakończona: system sygnatur (zwrot koncepcji)
+
+- Sytuacja: po ~10 utworach i wielu rundach ocen właściciel stwierdził, że efekt nie jest nastrojowy, a koszt linowy od liczby fabuł czyni cel nieosiągalnym; podjął decyzję o zastąpieniu fabryki systemem czterech baz klocków z bramką odsłuchową (kasacja starych jingli, nazwa produktu zawsze `<id>.mp3`).
+- Wniosek: wąskim gardłem była ewaluacja audio zepchnięta na jedną parę uszu przy każdym utworze; właściwe miejsce ucha człowieka to obsadzanie klocków (raz), nie ocena miksu (500 razy). Unikalność kombinacji a·b·c·d wystarcza jako ochrona różnorodności — nie trzeba 500 unikalnych miksu.
+- Zasada / działanie zapobiegawcze: obowiązuje ADR 0003; jakość ma wynikać z konstrukcji (zatwierdzone składniki + bramki montażu), nie z iterowanej oceny. Od pierwszej bramki: nagrania terenowe ptactwa o bardzo niskim profilu (Bald Eagle, 98 % < 250 Hz) nie nadają się na hero — sprawdzać pasmo charakterystyczne; biblioteka Kawai VCSL ma luki w skali (brak A3, F2) — wybór nut gestu po sprawdzeniu mapy sampli, nie „na papierze".
