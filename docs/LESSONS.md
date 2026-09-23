@@ -114,3 +114,15 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   koda na 3,6 s zamiast przez wail). Kieliszki pod zewem nura — parowanie na
   granicy; na przyszłość bramki demo kodu prezentować też na instrumencie
   z PODGŁOSEM finalnego typu tła (kontekstowa odsłuchówka), nie na pusto.
+
+- **2026-09-23 (przy budowie g002):** banki sampli w VCSL bywają rzadkie — nie
+  sprawdzać „na czuja": Kawai/Steinway nie mają pełnej chromatyki per velocitiy
+  (Kawai: luki F/G/natural; Steinway: tylko A#/C/D/E/F#/G#), Yamaha Upright
+  tylko tony C i G, Knight prawie nic. Zanim obiecasz listę nut instrumentu —
+  `git ls-tree` na katalogu. Konsekwencja produktowa: banki gęste (≤4 półtony
+  odstępu) dają demo bez przestrajania; bank rzadki = cecha opisowa wpisu
+  (caveat w kandydacie). Demo gestów projektować w siatce nut, która NAPRAWDĘ
+  jest w banku referencyjnym — inaczej drabina oktaw psuje gesty (kaskada
+  zamieniła się w skoki C4↔D#5 zanim to zauważyłem).
+- Sparse-checkout wielu plików: `git sparse-checkout set --no-cone --stdin <
+  plik.txt`; podawanie listy jako argv z cudzysłowami i spacjami NIE działa.

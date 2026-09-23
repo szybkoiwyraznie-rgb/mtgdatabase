@@ -1,0 +1,621 @@
+{
+  "id": "g002",
+  "created": "2026-09-23",
+  "note": "Tryb wpisowy (ADR 0004): dla każdego wpisu 3 kandydaci; wybór właściciela = dokładnie 1 na wpis.",
+  "entries": [
+    {
+      "slug": "grandpiano",
+      "kind": "instruments",
+      "role": "pianino koncertowe — instrument referencyjny gestów i jasny głos kodu",
+      "candidates": [
+        {
+          "label": "p.1",
+          "title": "Kawai Grand",
+          "file": "candidates/b_kawai__kawaidemo.mp3",
+          "desc": "czyste, referencyjne (12 próbek w banku)",
+          "source": "VCSL (CC0) — Kawai Grand",
+          "entry": {
+            "id": "b_piano_kawai",
+            "semantic": "czyste, referencyjne",
+            "family": "zither-struck",
+            "samples": {
+              "48": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_C3_v1_rr1_Player.mp3",
+              "50": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_D3_v1_rr1_Player.mp3",
+              "54": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_F#3_v1_rr1_Player.mp3",
+              "58": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_A#3_v1_rr1_Player.mp3",
+              "62": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_D4_v1_rr1_Player.mp3",
+              "66": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_F#4_v1_rr1_Player.mp3",
+              "70": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_A#4_v1_rr1_Player.mp3",
+              "72": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_C5_v1_rr1_Player.mp3",
+              "75": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_D#5_v1_rr1_Player.mp3",
+              "78": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_F#5_v1_rr1_Player.mp3",
+              "81": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_A5_v1_rr1_Player.mp3",
+              "84": "audio/library/instruments/piano_kawai/b_piano_kawai_GPiano_sus_C6_v1_rr1_Player.mp3"
+            },
+            "gate_sources": {
+              "48": "instr_notes/b_piano_kawai_GPiano_sus_C3_v1_rr1_Player.mp3",
+              "50": "instr_notes/b_piano_kawai_GPiano_sus_D3_v1_rr1_Player.mp3",
+              "54": "instr_notes/b_piano_kawai_GPiano_sus_F#3_v1_rr1_Player.mp3",
+              "58": "instr_notes/b_piano_kawai_GPiano_sus_A#3_v1_rr1_Player.mp3",
+              "62": "instr_notes/b_piano_kawai_GPiano_sus_D4_v1_rr1_Player.mp3",
+              "66": "instr_notes/b_piano_kawai_GPiano_sus_F#4_v1_rr1_Player.mp3",
+              "70": "instr_notes/b_piano_kawai_GPiano_sus_A#4_v1_rr1_Player.mp3",
+              "72": "instr_notes/b_piano_kawai_GPiano_sus_C5_v1_rr1_Player.mp3",
+              "75": "instr_notes/b_piano_kawai_GPiano_sus_D#5_v1_rr1_Player.mp3",
+              "78": "instr_notes/b_piano_kawai_GPiano_sus_F#5_v1_rr1_Player.mp3",
+              "81": "instr_notes/b_piano_kawai_GPiano_sus_A5_v1_rr1_Player.mp3",
+              "84": "instr_notes/b_piano_kawai_GPiano_sus_C6_v1_rr1_Player.mp3"
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra (VCSL)",
+              "author": "Sam Gossner / Versilian Studios",
+              "license": "CC0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "żądana nuta per plik; okno demo seed 7"
+            }
+          }
+        },
+        {
+          "label": "p.2",
+          "title": "Steinway B",
+          "file": "candidates/b_steinway_einwaydemo.mp3",
+          "desc": "jasne, koncertowe; odbiór bliski (NoSus Close) (12 próbek w banku)",
+          "source": "VCSL (CC0) — Steinway B",
+          "entry": {
+            "id": "b_piano_steinway",
+            "semantic": "jasne, koncertowe",
+            "family": "zither-struck",
+            "samples": {
+              "48": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_C3_vl3_rr1.mp3",
+              "50": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_D3_vl3_rr1.mp3",
+              "54": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_F#3_vl3_rr1.mp3",
+              "56": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_G#3_vl3_rr1.mp3",
+              "60": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_C4_vl3_rr1.mp3",
+              "64": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_E4_vl3_rr1.mp3",
+              "68": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_G#4_vl3_rr1.mp3",
+              "72": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_C5_vl3_rr1.mp3",
+              "74": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_D5_vl3_rr1.mp3",
+              "76": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_E5_vl3_rr1.mp3",
+              "80": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_G#5_vl3_rr1.mp3",
+              "84": "audio/library/instruments/piano_steinway/b_piano_steinway_JHPiano_NoSus_Close_C6_vl3_rr1.mp3"
+            },
+            "gate_sources": {
+              "48": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_C3_vl3_rr1.mp3",
+              "50": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_D3_vl3_rr1.mp3",
+              "54": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_F#3_vl3_rr1.mp3",
+              "56": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_G#3_vl3_rr1.mp3",
+              "60": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_C4_vl3_rr1.mp3",
+              "64": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_E4_vl3_rr1.mp3",
+              "68": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_G#4_vl3_rr1.mp3",
+              "72": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_C5_vl3_rr1.mp3",
+              "74": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_D5_vl3_rr1.mp3",
+              "76": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_E5_vl3_rr1.mp3",
+              "80": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_G#5_vl3_rr1.mp3",
+              "84": "instr_notes/b_piano_steinway_JHPiano_NoSus_Close_C6_vl3_rr1.mp3"
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra (VCSL)",
+              "author": "Sam Gossner / Versilian Studios",
+              "license": "CC0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "żądana nuta per plik; okno demo seed 7"
+            }
+          }
+        },
+        {
+          "label": "p.3",
+          "title": "Yamaha Upright",
+          "file": "candidates/b_yamaha_yamahademo.mp3",
+          "desc": "intymne, pokojowe; UWAGA: bank rzadki (tylko tony C i G) — demo z adaptacją skali; gesty spoza tych tonów będą przestrajane (7 próbek w banku)",
+          "source": "VCSL (CC0) — Yamaha Upright",
+          "entry": {
+            "id": "b_piano_yamaha",
+            "semantic": "intymne, pokojowe",
+            "family": "zither-struck",
+            "samples": {
+              "36": "audio/library/instruments/piano_yamaha/b_piano_yamaha_Upright1_Sus_C2_vl3_rr1.mp3",
+              "43": "audio/library/instruments/piano_yamaha/b_piano_yamaha_Upright1_Sus_G2_vl3_rr1.mp3",
+              "48": "audio/library/instruments/piano_yamaha/b_piano_yamaha_Upright1_Sus_C3_vl3_rr1.mp3",
+              "55": "audio/library/instruments/piano_yamaha/b_piano_yamaha_Upright1_Sus_G3_vl3_rr1.mp3",
+              "60": "audio/library/instruments/piano_yamaha/b_piano_yamaha_Upright1_Sus_C4_vl3_rr1.mp3",
+              "67": "audio/library/instruments/piano_yamaha/b_piano_yamaha_Upright1_Sus_G4_vl3_rr1.mp3",
+              "72": "audio/library/instruments/piano_yamaha/b_piano_yamaha_Upright1_Sus_C5_vl3_rr1.mp3"
+            },
+            "gate_sources": {
+              "36": "instr_notes/b_piano_yamaha_Upright1_Sus_C2_vl3_rr1.mp3",
+              "43": "instr_notes/b_piano_yamaha_Upright1_Sus_G2_vl3_rr1.mp3",
+              "48": "instr_notes/b_piano_yamaha_Upright1_Sus_C3_vl3_rr1.mp3",
+              "55": "instr_notes/b_piano_yamaha_Upright1_Sus_G3_vl3_rr1.mp3",
+              "60": "instr_notes/b_piano_yamaha_Upright1_Sus_C4_vl3_rr1.mp3",
+              "67": "instr_notes/b_piano_yamaha_Upright1_Sus_G4_vl3_rr1.mp3",
+              "72": "instr_notes/b_piano_yamaha_Upright1_Sus_C5_vl3_rr1.mp3"
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra (VCSL)",
+              "author": "Sam Gossner / Versilian Studios",
+              "license": "CC0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "żądana nuta per plik; okno demo seed 7"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "beben-wojenny",
+      "kind": "instruments",
+      "role": "niski bęben marszowo-bojowy — puls armii, szarży, ryku startu",
+      "candidates": [
+        {
+          "label": "b.1",
+          "title": "Bass Drum 1 (soft/mid/hard)",
+          "file": "candidates/b_bass_um_newdemo.mp3",
+          "desc": "suchy, uderzeniowy (3 dynamiki)",
+          "source": "VCSL (CC0) — Bass Drum 1 (soft/mid/hard)",
+          "entry": {
+            "id": "b_bassdrum_new",
+            "semantic": "suchy, uderzeniowy",
+            "family": "membranophone",
+            "samples": {
+              "38": "audio/library/instruments/bassdrum_new/b_bassdrum_new_BDrumNew_hit_v2_rr1_Sum.mp3",
+              "39": "audio/library/instruments/bassdrum_new/b_bassdrum_new_BDrumNew_hit_v3_rr1_Sum.mp3",
+              "41": "audio/library/instruments/bassdrum_new/b_bassdrum_new_BDrumNew_hit_v5_rr1_Sum.mp3"
+            },
+            "gate_sources": {
+              "38": "instr_notes/b_bassdrum_new_BDrumNew_hit_v2_rr1_Sum.mp3",
+              "39": "instr_notes/b_bassdrum_new_BDrumNew_hit_v3_rr1_Sum.mp3",
+              "41": "instr_notes/b_bassdrum_new_BDrumNew_hit_v5_rr1_Sum.mp3"
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra (VCSL)",
+              "author": "Sam Gossner / Versilian Studios",
+              "license": "CC0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "żądana nuta per plik; okno demo seed 7"
+            }
+          }
+        },
+        {
+          "label": "b.2",
+          "title": "Bass Drum 2 (mf/f/ff)",
+          "file": "candidates/b_bass_ssdrumdemo.mp3",
+          "desc": "teatralny, z wybrzmieniem (3 dynamiki)",
+          "source": "VCSL (CC0) — Bass Drum 2 (mf/f/ff)",
+          "entry": {
+            "id": "b_bassdrum",
+            "semantic": "teatralny, z wybrzmieniem",
+            "family": "membranophone",
+            "samples": {
+              "38": "audio/library/instruments/bassdrum/b_bassdrum_bassdrum_hit_mf1.mp3",
+              "39": "audio/library/instruments/bassdrum/b_bassdrum_bassdrum_hit_f.mp3",
+              "41": "audio/library/instruments/bassdrum/b_bassdrum_bassdrum_hit_ff.mp3"
+            },
+            "gate_sources": {
+              "38": "instr_notes/b_bassdrum_bassdrum_hit_mf1.mp3",
+              "39": "instr_notes/b_bassdrum_bassdrum_hit_f.mp3",
+              "41": "instr_notes/b_bassdrum_bassdrum_hit_ff.mp3"
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra (VCSL)",
+              "author": "Sam Gossner / Versilian Studios",
+              "license": "CC0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "żądana nuta per plik; okno demo seed 7"
+            }
+          }
+        },
+        {
+          "label": "b.3",
+          "title": "Frame Drum (muted/hit/hand)",
+          "file": "candidates/b_frame_e_drumdemo.mp3",
+          "desc": "pierwotny, plemienny (3 dynamiki)",
+          "source": "VCSL (CC0) — Frame Drum (muted/hit/hand)",
+          "entry": {
+            "id": "b_frame_drum",
+            "semantic": "pierwotny, plemienny",
+            "family": "membranophone",
+            "samples": {
+              "38": "audio/library/instruments/frame_drum/b_frame_drum_HDrumL_HitMuted_v2_rr1_Sum.mp3",
+              "39": "audio/library/instruments/frame_drum/b_frame_drum_HDrumL_Hit_v2_rr1_Sum.mp3",
+              "41": "audio/library/instruments/frame_drum/b_frame_drum_HDrumL_Hand_rr1_Sum.mp3"
+            },
+            "gate_sources": {
+              "38": "instr_notes/b_frame_drum_HDrumL_HitMuted_v2_rr1_Sum.mp3",
+              "39": "instr_notes/b_frame_drum_HDrumL_Hit_v2_rr1_Sum.mp3",
+              "41": "instr_notes/b_frame_drum_HDrumL_Hand_rr1_Sum.mp3"
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra (VCSL)",
+              "author": "Sam Gossner / Versilian Studios",
+              "license": "CC0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "żądana nuta per plik; okno demo seed 7"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "ryk-bestii",
+      "kind": "heroes",
+      "role": "pojedynczy, czytelny okrzyk dużej dzikiej bestii jako hero fabuły",
+      "candidates": [
+        {
+          "label": "c.1",
+          "title": "kwik łosia",
+          "file": "candidates/c_bugle_01.mp3",
+          "desc": "kwik łosia w rui — długi, metaliczny, przenikliwy",
+          "source": "Yellowstone Sound Library (NPS) — Elk; Public Domain (utwór rządu USA)",
+          "entry": {
+            "id": "beast_elk_bugle_01",
+            "role": "okrzyk dużej dzikiej bestii",
+            "character": "ostry, przenikliwy",
+            "distance": "średni",
+            "energy": "wysoka",
+            "duration_sec": 4.0,
+            "desc": "kwik łosia w rui — długi, metaliczny, przenikliwy",
+            "good_for": "najeźdźczą dzicz, baloth, fanfara bestii",
+            "bad_for": "kameralne, magiczne fabuły",
+            "file": "audio/library/heroes/beast_elk_bugle_01.mp3",
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Elk 73.0-77.0 s"
+            }
+          }
+        },
+        {
+          "label": "c.2",
+          "title": "skomlenie kojotów",
+          "file": "candidates/c_yip_01.mp3",
+          "desc": "zbiorowe skomlenie-wyje kojotów — rójne, dzikie",
+          "source": "Yellowstone Sound Library (NPS) — Coyotes; Public Domain (utwór rządu USA)",
+          "entry": {
+            "id": "beast_coyote_yip_01",
+            "role": "okrzyk dużej dzikiej bestii",
+            "character": "rójny, histeryczny",
+            "distance": "średni",
+            "energy": "wysoka",
+            "duration_sec": 2.4,
+            "desc": "zbiorowe skomlenie-wyje kojotów — rójne, dzikie",
+            "good_for": "pogranicze, sfora, opuszczone ziemie",
+            "bad_for": "heroiczne, uroczyste fabuły",
+            "file": "audio/library/heroes/beast_coyote_yip_01.mp3",
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Coyotes 3.2-5.6 s"
+            }
+          }
+        },
+        {
+          "label": "c.3",
+          "title": "pomruk bizona",
+          "file": "candidates/c_llow_01.mp3",
+          "desc": "niski pomruk bizona — ciężki, z gruntu",
+          "source": "Yellowstone Sound Library (NPS) — Bison (rut); Public Domain (utwór rządu USA)",
+          "entry": {
+            "id": "beast_bison_bellow_01",
+            "role": "okrzyk dużej dzikiej bestii",
+            "character": "ciężki, ziemisty",
+            "distance": "średni",
+            "energy": "wysoka",
+            "duration_sec": 2.0,
+            "desc": "niski pomruk bizona — ciężki, z gruntu",
+            "good_for": "gigant, rozpęd, potęga ziemi",
+            "bad_for": "zręczne, przestronne fabuły",
+            "file": "audio/library/heroes/beast_bison_bellow_01.mp3",
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Bison (rut) 82.8-84.8 s"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "ogien-palenisko",
+      "kind": "backgrounds",
+      "role": "trzaskający ogień jako tło obozu / komnaty / pożogi",
+      "candidates": [
+        {
+          "label": "d.1",
+          "title": "małe ognisko",
+          "file": "candidates/d_fire_hearth_sm.mp3",
+          "desc": "małe ognisko — oszczędne trzaski",
+          "source": "Yellowstone Sound Library (NPS) — Fire; Public Domain (utwór rządu USA)",
+          "entry": {
+            "id": "fire_hearth_small_01",
+            "setting": "ogień / palenisko",
+            "desc": "małe ognisko — oszczędne trzaski",
+            "file": "audio/library/backgrounds/fire_hearth_small_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Fire 5.0-13.0 s"
+            }
+          }
+        },
+        {
+          "label": "d.2",
+          "title": "rozłożony ogień",
+          "file": "candidates/d_fire_hearth_fu.mp3",
+          "desc": "rozłożony ogień — pełne palenisko",
+          "source": "Yellowstone Sound Library (NPS) — Fire; Public Domain (utwór rządu USA)",
+          "entry": {
+            "id": "fire_hearth_full_01",
+            "setting": "ogień / palenisko",
+            "desc": "rozłożony ogień — pełne palenisko",
+            "file": "audio/library/backgrounds/fire_hearth_full_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Fire 14.0-22.0 s"
+            }
+          }
+        },
+        {
+          "label": "d.3",
+          "title": "dogorywający",
+          "file": "candidates/d_fire_hearth_di.mp3",
+          "desc": "przygaszony dogorywający ogień",
+          "source": "Yellowstone Sound Library (NPS) — Fire; Public Domain (utwór rządu USA)",
+          "entry": {
+            "id": "fire_hearth_dim_01",
+            "setting": "ogień / palenisko",
+            "desc": "przygaszony dogorywający ogień",
+            "file": "audio/library/backgrounds/fire_hearth_dim_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Fire 38.0-46.0 s"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "wir-energia",
+      "kind": "backgrounds",
+      "role": "fasada-dźwiękowa rozdarcia/portalu: ciągły syk, drganie, bulgot",
+      "candidates": [
+        {
+          "label": "d.1",
+          "title": "ryczenie pary",
+          "file": "candidates/d_energy_steam_r.mp3",
+          "desc": "groźny ryk pary ze szczeliny — ciągły",
+          "source": "Yellowstone Sound Library (NPS) — Black Growler Steam Vent; Public Domain (utwór rządu USA)",
+          "entry": {
+            "id": "energy_steam_roar_01",
+            "setting": "energia / rozdarcie",
+            "desc": "groźny ryk pary ze szczeliny — ciągły",
+            "file": "audio/library/backgrounds/energy_steam_roar_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Black Growler Steam Vent 4.0-12.0 s"
+            }
+          }
+        },
+        {
+          "label": "d.2",
+          "title": "lekki szum pary",
+          "file": "candidates/d_energy_steam_l.mp3",
+          "desc": "lekki szum fumaroli — zawiesista mgła dźwiękowa",
+          "source": "Yellowstone Sound Library (NPS) — Fumaroles; Public Domain (utwór rządu USA)",
+          "entry": {
+            "id": "energy_steam_light_01",
+            "setting": "energia / rozdarcie",
+            "desc": "lekki szum fumaroli — zawiesista mgła dźwiękowa",
+            "file": "audio/library/backgrounds/energy_steam_light_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Fumaroles 6.0-14.0 s"
+            }
+          }
+        },
+        {
+          "label": "d.3",
+          "title": "bulgot gorącej gliny",
+          "file": "candidates/d_energy_mud_bub.mp3",
+          "desc": "bulgotanie gorącej gliny — organiczna magia",
+          "source": "Yellowstone Sound Library (NPS) — Artist Paint Pots; Public Domain (utwór rządu USA)",
+          "entry": {
+            "id": "energy_mud_bubble_01",
+            "setting": "energia / rozdarcie",
+            "desc": "bulgotanie gorącej gliny — organiczna magia",
+            "file": "audio/library/backgrounds/energy_mud_bubble_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Artist Paint Pots 18.0-26.0 s"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-swiatlo",
+      "kind": "gestures",
+      "role": "jasny muzyczny znak (magia, runa, uzdrowienie, otwarcie portalu)",
+      "candidates": [
+        {
+          "label": "a.1",
+          "title": "kaskada wznosząca",
+          "file": "candidates/a_g5a_shimmer_up.mp3",
+          "desc": "szybka kaskada w górę przez kwinty — rozjarowienie, odkrycie (na pianinie, seed 3)",
+          "source": "definicja własna, CC0",
+          "entry": {
+            "semantic": "jasny błysk wznoszący",
+            "desc": "szybka kaskada w górę przez kwinty — rozjarowienie, odkrycie",
+            "notes": [
+              {
+                "midi": 66,
+                "on": 0.0,
+                "off": 0.4,
+                "vel": 0.52
+              },
+              {
+                "midi": 72,
+                "on": 0.16,
+                "off": 0.6,
+                "vel": 0.55
+              },
+              {
+                "midi": 78,
+                "on": 0.32,
+                "off": 0.9,
+                "vel": 0.58
+              },
+              {
+                "midi": 84,
+                "on": 0.48,
+                "off": 1.9,
+                "vel": 0.62
+              }
+            ],
+            "instrument_tags": [
+              "struck-light",
+              "zither",
+              "piano"
+            ],
+            "id": "g5a_shimmer_up"
+          }
+        },
+        {
+          "label": "a.2",
+          "title": "dzwon odpowiedzi",
+          "file": "candidates/a_g5b_light_bell.mp3",
+          "desc": "wysoki sygnał zamieniający się w cichsze echo — znak z drugiej strony (na pianinie, seed 3)",
+          "source": "definicja własna, CC0",
+          "entry": {
+            "semantic": "jasny dzwon odpowiedzi",
+            "desc": "wysoki sygnał zamieniający się w cichsze echo — znak z drugiej strony",
+            "notes": [
+              {
+                "midi": 84,
+                "on": 0.0,
+                "off": 1.05,
+                "vel": 0.6
+              },
+              {
+                "midi": 78,
+                "on": 0.6,
+                "off": 1.9,
+                "vel": 0.5
+              },
+              {
+                "midi": 72,
+                "on": 1.5,
+                "off": 2.5,
+                "vel": 0.42
+              }
+            ],
+            "instrument_tags": [
+              "struck-light",
+              "zither",
+              "piano"
+            ],
+            "id": "g5b_light_bell"
+          }
+        },
+        {
+          "label": "a.3",
+          "title": "fala-otwarcie",
+          "file": "candidates/a_g5c_light_ripple.mp3",
+          "desc": "migocząca kwinta jak odbicie na wodzie — napięcie złagodzone (na pianinie, seed 3)",
+          "source": "definicja własna, CC0",
+          "entry": {
+            "semantic": "jasną falujące otwarcie",
+            "desc": "migocząca kwinta jak odbicie na wodzie — napięcie złagodzone",
+            "notes": [
+              {
+                "midi": 72,
+                "on": 0.0,
+                "off": 1.0,
+                "vel": 0.5
+              },
+              {
+                "midi": 78,
+                "on": 0.25,
+                "off": 1.2,
+                "vel": 0.46
+              },
+              {
+                "midi": 72,
+                "on": 0.9,
+                "off": 1.9,
+                "vel": 0.42
+              },
+              {
+                "midi": 78,
+                "on": 1.3,
+                "off": 2.4,
+                "vel": 0.38
+              }
+            ],
+            "instrument_tags": [
+              "struck-light",
+              "zither",
+              "piano"
+            ],
+            "id": "g5c_light_ripple"
+          }
+        }
+      ]
+    }
+  ]
+}

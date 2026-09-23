@@ -1,0 +1,35 @@
+{
+  "semantic": "jasny błysk wznoszący",
+  "desc": "szybka kaskada w górę przez kwinty — rozjarowienie, odkrycie",
+  "notes": [
+    {
+      "midi": 66,
+      "on": 0.0,
+      "off": 0.4,
+      "vel": 0.52
+    },
+    {
+      "midi": 72,
+      "on": 0.16,
+      "off": 0.6,
+      "vel": 0.55
+    },
+    {
+      "midi": 78,
+      "on": 0.32,
+      "off": 0.9,
+      "vel": 0.58
+    },
+    {
+      "midi": 84,
+      "on": 0.48,
+      "off": 1.9,
+      "vel": 0.62
+    }
+  ],
+  "instrument_tags": [
+    "struck-light",
+    "zither",
+    "piano"
+  ]
+}

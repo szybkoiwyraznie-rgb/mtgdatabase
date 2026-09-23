@@ -1,0 +1,35 @@
+{
+  "semantic": "jasną falujące otwarcie",
+  "desc": "migocząca kwinta jak odbicie na wodzie — napięcie złagodzone",
+  "notes": [
+    {
+      "midi": 72,
+      "on": 0.0,
+      "off": 1.0,
+      "vel": 0.5
+    },
+    {
+      "midi": 78,
+      "on": 0.25,
+      "off": 1.2,
+      "vel": 0.46
+    },
+    {
+      "midi": 72,
+      "on": 0.9,
+      "off": 1.9,
+      "vel": 0.42
+    },
+    {
+      "midi": 78,
+      "on": 1.3,
+      "off": 2.4,
+      "vel": 0.38
+    }
+  ],
+  "instrument_tags": [
+    "struck-light",
+    "zither",
+    "piano"
+  ]
+}
