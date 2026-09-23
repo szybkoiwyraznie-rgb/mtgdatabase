@@ -91,5 +91,11 @@
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "wrzask-wojenny-goblinów": "żaden",
+    "notes": {
+      "wrzask-wojenny-goblinów": "właściciel: wrzaski dalej słabe, żaden nie pasuje. Kit stworów (rubberduck) to wciąż wokalizacja udawana pod potwora. Wniosek na g007: zmienić TECHNIKĘ — prawdziwy męski krzyk obniżony i zaszorstkowany, jak w filmowym fantasy."
+    }
+  }
 }
