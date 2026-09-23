@@ -12,7 +12,10 @@ decyzji; fuzja PR zamyka sesję).
 
 1. Agent definiuje potrzebne **wpisy** do baz („jezioro", „nurek-wail",
    „groza-koda", „grandpiano") — każdy wpis ma rolę semantyczną i docelową
-   bazę (d/c/a/b).
+   bazę (d/c/a/b). Najpierw wyprowadza komplet czterech ról i sprawdza
+   `data/usage-policy.json`. **Wszystkie braki jednej fabuły trafiają do jednej
+   bramki jednocześnie**; nie wolno wystawić hero, a dopiero po jego wyborze
+   ujawnić kolejnej potrzeby tła, kody lub instrumentu.
 2. Dla KAŻDEGO wpisu: co najmniej **3 kandydaci dopasowani do tej roli**
    (3 jeziora, 3 nury, 3 pianina — NIE „kotły vs kieliszki vs harfa" jako
    konkurenci jednego wpisu; dla głosów: 3 RYKI tej samej bestii = rekordy/

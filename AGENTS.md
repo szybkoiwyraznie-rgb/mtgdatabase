@@ -13,27 +13,36 @@ i `docs/gate-protocol.md`.
 3. **Bramka odsłuchowa** (`docs/gate-protocol.md`): klocek wchodzi do bazy
    tylko wyborem właściciela. Minimum 3 kandydatów na brak, odrzuty nigdy
    nie są commitowane (`work/` jest poza gitem).
-4. **Rola przed plikiem**: najpierw rola semantyczna, potem sprawdzenie bazy,
-   dopiero potem pozyskiwanie. Nie dublować obsadzonych ról nowymi plikami.
-5. **Zakaz powtórki kombinacji**: para (tło, hero, koda, instrument) musi być
+4. **Rola przed plikiem**: najpierw rola semantyczna, potem sprawdzenie bazy
+   i statystyk użycia, dopiero potem pozyskiwanie. W trybie wzrostu świadomie
+   budujemy nowy wariant roli dla konkretnej fabuły; po progu 50 wpisów nie
+   dublujemy roli, jeśli pasujący klocek mieści się w limicie użycia.
+5. **Różnorodność przed reużyciem**: `data/usage-policy.json` jest wiążące.
+   Dopóki KAŻDA z czterech baz nie ma co najmniej 50 wpisów, każda nowa
+   fabuła dostaje cztery nowe klocki — istniejący pasujący wpis nie zwalnia
+   z bramki. Po osiągnięciu 50 wpisów w każdej bazie wolno reużywać, ale
+   żaden klocek nie może wystąpić w ponad 10% produkcji. Zamrożone fabuły
+   legacy nie są przerabiane, lecz ich użycia liczą się do limitu. Weryfikuje
+   `library_tool.py check`; statystyki pokazuje `library_tool.py report`.
+6. **Zakaz powtórki kombinacji**: para (tło, hero, koda, instrument) musi być
    unikalna między fabułami. Weryfikuje `library_tool.py check`.
-6. Hero i teła to **żywe nagrania** ze zweryfikowanych źródeł; instrumenty to
+7. Hero i teła to **żywe nagrania** ze zweryfikowanych źródeł; instrumenty to
    prawdziwe nagrania instrumentów (VCSL/VSCO). Synteza proceduralna tylko dla
    fabuł z klimatem sci-fi i tylko jako uzupełnienie.
-7. Natywna wysokość sampli (`pitch` 0,7–1,0 max w dół dla hero); opcjonalnie
+8. Natywna wysokość sampli (`pitch` 0,7–1,0 max w dół dla hero); opcjonalnie
    tylko `offset_sec`, `length_sec`, łagodny filtr, `target_db`, `pan`.
    **Audycja obowiązkowa** (`stem_probe.py`) — ustawiaj offset na głośny
    fragment, patrz LESSONS 2026-09-22 (ciche głowy nagrań).
-8. Każdy wpis bazy ma proweniencję: źródło, autor, licencja, url, kanał
+9. Każdy wpis bazy ma proweniencję: źródło, autor, licencja, url, kanał
    pobrania (w polu `source`). **Licencja nieznana nie blokuje przyjęcia** —
    projekt jest prywatny i niekomercyjny (decyzja właściciela 2026-09-23);
    zapisz `"license": "brak informacji"` i pracuj dalej. Materiał jawnie
    wolny ma pierwszeństwo; jawne zastrzeżenia komercyjne oznacz, bo dotyczą
    publikacji na Pages/Release. Szczegóły: `docs/sources-and-licensing.md`.
-9. Nie umieszczaj sekretów w kodzie/danych. Pages jest publiczny.
-10. Decyzje jednoznaczne wykonuj bez pytań; pytaj przy ryzyku utraty danych
+10. Nie umieszczaj sekretów w kodzie/danych. Pages jest publiczny.
+11. Decyzje jednoznaczne wykonuj bez pytań; pytaj przy ryzyku utraty danych
     lub nieodwracalnej publikacji.
-11. Raport końcowy: obrobione fabuły, przebieg bramki, wyniki QA renderów,
+12. Raport końcowy: obrobione fabuły, przebieg bramki, wyniki QA renderów,
     zmiany w bazach, ryzyka, następny krok.
 
 ## Pętla pracy
@@ -41,10 +50,13 @@ i `docs/gate-protocol.md`.
 1. **Audyt**: przeczytaj ostatni PR/diff, uruchom `python -m compileall -q scripts`,
    `python scripts/test_signature_system.py`, `python scripts/library_tool.py check`.
    Napraw regresje przed nową pracą.
-2. **Produkcja** (model ADR 0004): bramka = 3 kandydaci **na jeden wpis**
-   (np. „3 jeziora"), właściciel wybiera dokładnie jednego → tylko wybrany
-   trafia do bazy (`library_tool.py accept`). Agent sam obsadza fabułę z bazy
-   (role d/c/a/b), układa recepturę i renderuje z `--audit`; twardy render
+2. **Produkcja** (model ADR 0004): najpierw wyprowadź WSZYSTKIE cztery role
+   d/c/a/b i sprawdź politykę użycia. Jedna bramka sesji ma od razu zawierać
+   **wszystkie brakujące wpisy dla fabuły**, po 3 kandydatów na każdy wpis
+   (np. 3 jeziora + 3 hero + 3 kody + 3 instrumenty), żeby właściciel nie
+   dostawał potrzeb fabuły ratami. Właściciel wybiera dokładnie jednego na
+   wpis → tylko wybrani trafiają do baz (`library_tool.py accept`). Agent
+   układa recepturę i renderuje z `--audit`; twardy render
    autokalibruje słyszalność nut kody — pełne liczby w raporcie, odsłuch
    fabuły przez właściciela nie jest częścią pętli. **Agent sam decyduje,
    który wpis idzie do następnej bramki** i sam dobiera kandydatów — nie

@@ -9,7 +9,9 @@ Podkomendy:
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import json
+import math
 import re
 import shutil
 import sys
@@ -19,7 +21,9 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 LIB = REPO / "data" / "library"
 RECIPES = REPO / "data" / "recipes"
+USAGE_POLICY = REPO / "data" / "usage-policy.json"
 KIND_DIR = {"heroes": "heroes", "backgrounds": "backgrounds", "instruments": "instruments"}
+SLOT_NAMES = ("background", "hero", "gesture", "instrument")
 
 REQUIRED = {
     "heroes": ["id", "role", "desc", "file", "duration_sec", "character", "distance", "energy", "source", "approved"],
@@ -41,6 +45,46 @@ def save(kind: str, data: dict) -> None:
 def combo_key(recipe: dict) -> tuple:
     coda = recipe.get("coda") or {}
     return (recipe["background"]["id"], recipe["hero"]["id"], coda.get("gesture"), coda.get("instrument"))
+
+
+def usage_audit(recipes: list[dict]) -> tuple[list[str], dict[str, Counter], bool, int]:
+    """Sprawdź różnorodność z data/usage-policy.json.
+
+    Zamrożone fabuły legacy nie są retroaktywnie odrzucane. Ich użycia liczą
+    się jednak do sum, więc nowa receptura nie może pogłębić starej nadreprezentacji.
+    """
+    policy = json.loads(USAGE_POLICY.read_text(encoding="utf-8"))
+    legacy = {str(x) for x in policy.get("legacy_story_ids", [])}
+    counts = {slot: Counter() for slot in SLOT_NAMES}
+    values_by_story: dict[str, tuple] = {}
+    for recipe in recipes:
+        values = combo_key(recipe)
+        sid = str(recipe["story_id"])
+        values_by_story[sid] = values
+        for slot, value in zip(SLOT_NAMES, values):
+            if value:
+                counts[slot][value] += 1
+
+    floor = int(policy["growth_until_entries_per_category"])
+    growth_mode = any(len(load(kind)["entries"]) < floor for kind in REQUIRED)
+    total = len(recipes)
+    mature_cap = max(1, math.floor(float(policy["max_usage_share"]) * total))
+    errors: list[str] = []
+    for sid, values in values_by_story.items():
+        if sid in legacy:
+            continue
+        for slot, value in zip(SLOT_NAMES, values):
+            uses = counts[slot][value]
+            if growth_mode and uses > 1:
+                errors.append(
+                    f"fabuła {sid}: {slot} {value!r} użyty {uses}×; tryb wzrostu "
+                    f"(<{floor} wpisów w każdej bazie) wymaga nowego klocka")
+            elif not growth_mode and uses > mature_cap:
+                share = uses / max(total, 1)
+                errors.append(
+                    f"fabuła {sid}: {slot} {value!r} użyty {uses}× ({share:.1%}); "
+                    f"limit to {mature_cap}× / {policy['max_usage_share']:.0%}")
+    return errors, counts, growth_mode, mature_cap
 
 
 def check() -> int:
@@ -73,13 +117,17 @@ def check() -> int:
             if kind == "gestures" and not entry["notes"]:
                 errors.append(f"gestures/{entry['id']}: pusty gest")
     combos: dict[tuple, str] = {}
+    recipes: list[dict] = []
     for recipe_path in sorted(RECIPES.glob("*.json")):
         recipe = json.loads(recipe_path.read_text(encoding="utf-8"))
+        recipes.append(recipe)
         key = combo_key(recipe)
         if key in combos:
             errors.append(f"zduplikowana kombinacja a·b·c·d: {combos[key]} i {recipe_path.name}")
         else:
             combos[key] = recipe_path.name
+    usage_errors, _, _, _ = usage_audit(recipes)
+    errors.extend(usage_errors)
     for error in errors:
         print(f"BŁĄD: {error}")
     print(f"OK: {sum(len(load(k)['entries']) for k in REQUIRED)} wpisów, {len(combos)} receptur" if not errors else f"{len(errors)} problemów")
@@ -87,16 +135,23 @@ def check() -> int:
 
 
 def report() -> None:
-    usage: dict[str, int] = {}
-    for recipe_path in sorted(RECIPES.glob("*.json")):
-        recipe = json.loads(recipe_path.read_text(encoding="utf-8"))
-        for item in combo_key(recipe):
-            if item:
-                usage[item] = usage.get(item, 0) + 1
+    recipes = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(RECIPES.glob("*.json"))]
+    _, counts, growth_mode, mature_cap = usage_audit(recipes)
+    total = len(recipes)
+    usage = Counter(value for slot in counts.values() for value, n in slot.items() for _ in range(n))
+    policy = json.loads(USAGE_POLICY.read_text(encoding="utf-8"))
+    mode = (f"WZROST: nowe receptury muszą używać nowych klocków aż każda baza ma "
+            f"{policy['growth_until_entries_per_category']} wpisów" if growth_mode else
+            f"DOJRZAŁA BAZA: limit {policy['max_usage_share']:.0%} = {mature_cap} użyć przy {total} recepturach")
+    print(f"polityka różnorodności: {mode}")
     for kind in REQUIRED:
         entries = load(kind)["entries"]
         unused = [e["id"] for e in entries if e["id"] not in usage]
         print(f"{kind}: {len(entries)} wpisów, {len(unused)} nieużytych{': ' + ', '.join(unused) if unused else ''}")
+    print("użycie w recepturach:")
+    for slot in SLOT_NAMES:
+        values = ", ".join(f"{item}={n} ({n/max(total, 1):.1%})" for item, n in counts[slot].most_common())
+        print(f"  {slot}: {values or 'brak'}")
 
 
 def _ingest_candidate(gate_dir: Path, kind: str, cand: dict, stamp: dict) -> str:

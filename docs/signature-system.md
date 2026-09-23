@@ -35,8 +35,12 @@ i pieczątkę akceptacji `approved` (bramka, wybór, data).
 - Bazy **startują puste i rosną organicznie** — wpis trafia do bazy wyłącznie
   przez akceptację właściciela w bramce odsłuchowej (`docs/gate-protocol.md`).
 - Zasada „rola przed plikiem": agent najpierw definiuje rolę semantyczną
-  („krzyk dużego ptaka zwiadowczego"), sprawdza, czy rola jest obsadzona,
+  („krzyk dużego ptaka zwiadowczego"), sprawdza stan bazy i użycie wpisów,
   i dopiero wtedy pozyskuje kandydatów.
+- **Tryb wzrostu (ADR 0005):** do 50 wpisów w każdej kategorii każda nowa
+  fabuła dostaje cztery nowe klocki. Potem reuse jest dozwolony do 10%
+  produkcji na klocek. Polityka: `data/usage-policy.json`; walidacja i raport:
+  `library_tool.py check|report`.
 - Odrzuceni kandydaci **nigdy nie wchodzą do baz** — ale cała bramka
   (`data/gates/gNNN/`) jest commitowana, jako trwała dokumentacja procesu
   doboru (odporna na resety sandboksa).

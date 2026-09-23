@@ -1,7 +1,7 @@
 {
   "id": "g014",
   "created": "2026-09-23",
-  "note": "Hero do wylosowanej fabuły 18 (Lotusguard Disciple): odłamki odbijają się od magicznej tarczy chroniącej pilota. Trzy warianty jednej roli z prawdziwych nagrań metalowych uderzeń. Etykiety s.*.",
+  "note": "Komplet czterech wpisów do fabuły 18 (Lotusguard Disciple), wystawiony jednocześnie. Nowe tło, hero, koda i instrument realizują politykę różnorodności przy małych bazach.",
   "entries": [
     {
       "slug": "odlamki-odbite-przez-tarcze",
@@ -12,8 +12,8 @@
           "label": "s.1",
           "title": "twarde odbicie",
           "file": "candidates/s_solid_deflection.mp3",
-          "desc": "trzy zwarte uderzenia z czytelnym metalowym korpusem — bariera przyjmuje cięższe odłamki",
-          "source": "prawdziwe metalowe uderzenia — rubberduck / OpenGameArt, CC0",
+          "desc": "trzy zwarte uderzenia z metalowym korpusem — bariera przyjmuje cięższe odłamki",
+          "source": "prawdziwe metalowe uderzenia — rubberduck, CC0",
           "entry": {
             "id": "shield_deflect_01",
             "role": "seria odłamków odbitych przez świeżo utworzoną magiczną tarczę",
@@ -21,7 +21,7 @@
             "distance": "bliski",
             "energy": "wysoka",
             "duration_sec": 0.88,
-            "desc": "trzy zwarte uderzenia z czytelnym metalowym korpusem — bariera przyjmuje cięższe odłamki",
+            "desc": "trzy zwarte uderzenia z metalowym korpusem — bariera przyjmuje cięższe odłamki",
             "good_for": "magiczna bariera, odbicie pocisków, ochrona w ostatniej chwili",
             "bad_for": "atak przebijający cel, ciężka brama, komediowy pancerz",
             "file": "audio/library/heroes/shield_deflect_01.mp3",
@@ -31,7 +31,7 @@
               "license": "CC0 1.0 (public domain)",
               "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
               "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
-              "notes": "packs/opengameart-100-cc0-metal-and-wood-sfx; metal-hit-03 @ 0.00s + metal-hit-01 @ 0.22s + metal-hit-03 @ 0.47s; bez pitchowania i syntezy; mirror pack.json potwierdza CC0 1.0"
+              "notes": "packs/opengameart-100-cc0-metal-and-wood-sfx; metal-hit-03 @ 0.00s + metal-hit-01 @ 0.22s + metal-hit-03 @ 0.47s; bez pitchowania i syntezy"
             }
           }
         },
@@ -39,8 +39,8 @@
           "label": "s.2",
           "title": "dźwięczna bariera",
           "file": "candidates/s_ringing_barrier.mp3",
-          "desc": "trzy dźwięczne odbicia o dłuższym metalowym ogonie — bariera odpowiada rezonansem",
-          "source": "prawdziwe metalowe uderzenia — rubberduck / OpenGameArt, CC0",
+          "desc": "trzy dźwięczne odbicia o dłuższym ogonie — bariera odpowiada rezonansem",
+          "source": "prawdziwe metalowe uderzenia — rubberduck, CC0",
           "entry": {
             "id": "shield_deflect_02",
             "role": "seria odłamków odbitych przez świeżo utworzoną magiczną tarczę",
@@ -48,7 +48,7 @@
             "distance": "bliski",
             "energy": "wysoka",
             "duration_sec": 1.0,
-            "desc": "trzy dźwięczne odbicia o dłuższym metalowym ogonie — bariera odpowiada rezonansem",
+            "desc": "trzy dźwięczne odbicia o dłuższym ogonie — bariera odpowiada rezonansem",
             "good_for": "magiczna bariera, odbicie pocisków, ochrona w ostatniej chwili",
             "bad_for": "atak przebijający cel, ciężka brama, komediowy pancerz",
             "file": "audio/library/heroes/shield_deflect_02.mp3",
@@ -58,7 +58,7 @@
               "license": "CC0 1.0 (public domain)",
               "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
               "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
-              "notes": "packs/opengameart-100-cc0-metal-and-wood-sfx; metal-sheet-05 @ 0.00s + metal-sheet-03 @ 0.17s + metal-sheet-06 @ 0.38s; bez pitchowania i syntezy; mirror pack.json potwierdza CC0 1.0"
+              "notes": "packs/opengameart-100-cc0-metal-and-wood-sfx; metal-sheet-05 @ 0.00s + metal-sheet-03 @ 0.17s + metal-sheet-06 @ 0.38s; bez pitchowania i syntezy"
             }
           }
         },
@@ -66,8 +66,8 @@
           "label": "s.3",
           "title": "narastający rykoszet",
           "file": "candidates/s_rising_ricochet.mp3",
-          "desc": "kolejne odbicia rosną i kończą się najwyraźniejszym pingiem — tarcza domyka się w ruchu",
-          "source": "prawdziwe metalowe uderzenia — rubberduck / OpenGameArt, CC0",
+          "desc": "kolejne odbicia rosną do końcowego pingu — tarcza domyka się w ruchu",
+          "source": "prawdziwe metalowe uderzenia — rubberduck, CC0",
           "entry": {
             "id": "shield_deflect_03",
             "role": "seria odłamków odbitych przez świeżo utworzoną magiczną tarczę",
@@ -75,7 +75,7 @@
             "distance": "bliski",
             "energy": "wysoka",
             "duration_sec": 0.76,
-            "desc": "kolejne odbicia rosną i kończą się najwyraźniejszym pingiem — tarcza domyka się w ruchu",
+            "desc": "kolejne odbicia rosną do końcowego pingu — tarcza domyka się w ruchu",
             "good_for": "magiczna bariera, odbicie pocisków, ochrona w ostatniej chwili",
             "bad_for": "atak przebijający cel, ciężka brama, komediowy pancerz",
             "file": "audio/library/heroes/shield_deflect_03.mp3",
@@ -85,7 +85,337 @@
               "license": "CC0 1.0 (public domain)",
               "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
               "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
-              "notes": "packs/opengameart-100-cc0-metal-and-wood-sfx; metal-hit-01 @ 0.00s + metal-hit-03 @ 0.19s + metal-hit-05 @ 0.42s; bez pitchowania i syntezy; mirror pack.json potwierdza CC0 1.0"
+              "notes": "packs/opengameart-100-cc0-metal-and-wood-sfx; metal-hit-01 @ 0.00s + metal-hit-03 @ 0.19s + metal-hit-05 @ 0.42s; bez pitchowania i syntezy"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "ped-glidera-nad-torem",
+      "kind": "backgrounds",
+      "role": "pęd pojazdu-glidera nad torem wyścigowym",
+      "candidates": [
+        {
+          "label": "w.1",
+          "title": "daleki najazd",
+          "file": "candidates/w_distant_approach.mp3",
+          "desc": "pojazd narasta z dystansu do szybkiego przelotu — szeroka perspektywa toru",
+          "source": "terenowy przejazd skutera — Yellowstone NPS, domena publiczna",
+          "entry": {
+            "id": "race_glider_pass_01",
+            "setting": "tor wyścigowy / pojazd nadciąga",
+            "desc": "pojazd narasta z dystansu do szybkiego przelotu — szeroka perspektywa toru",
+            "file": "audio/library/backgrounds/race_glider_pass_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library — Snowmobile",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Snowmobile 3.5–11.5 s; filtr rumble 65 Hz, bez pitchowania"
+            }
+          }
+        },
+        {
+          "label": "w.2",
+          "title": "bliski przelot",
+          "file": "candidates/w_close_pass.mp3",
+          "desc": "najgłośniejsza część przejazdu: stały mechaniczny pęd i powietrze przy pojeździe",
+          "source": "terenowy przejazd skutera — Yellowstone NPS, domena publiczna",
+          "entry": {
+            "id": "race_glider_pass_02",
+            "setting": "tor wyścigowy / bliski przelot glidera",
+            "desc": "najgłośniejsza część przejazdu: stały mechaniczny pęd i powietrze przy pojeździe",
+            "file": "audio/library/backgrounds/race_glider_pass_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library — Snowmobile",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Snowmobile 5.5–13.5 s; filtr rumble 65 Hz, bez pitchowania"
+            }
+          }
+        },
+        {
+          "label": "w.3",
+          "title": "przelot i oddalenie",
+          "file": "candidates/w_receding_pass.mp3",
+          "desc": "pojazd mija punkt odsłuchu i stopniowo odchodzi — wyraźne poczucie prędkości",
+          "source": "terenowy przejazd skutera — Yellowstone NPS, domena publiczna",
+          "entry": {
+            "id": "race_glider_pass_03",
+            "setting": "tor wyścigowy / pojazd oddala się",
+            "desc": "pojazd mija punkt odsłuchu i stopniowo odchodzi — wyraźne poczucie prędkości",
+            "file": "audio/library/backgrounds/race_glider_pass_03.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "source": {
+              "title": "Yellowstone Sound Library — Snowmobile",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Snowmobile 7.5–15.5 s; filtr rumble 65 Hz, bez pitchowania"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-ochronnej-bariery",
+      "kind": "gestures",
+      "role": "jasny gest domknięcia ochronnej aury",
+      "candidates": [
+        {
+          "label": "a.1",
+          "title": "łuk ochronny",
+          "file": "candidates/a_g18_guardian_arc.mp3",
+          "desc": "wznoszący łuk trzech nut kończy się długim stabilnym światłem",
+          "source": "definicja nutowa; demo na zatwierdzonym Steinwayu",
+          "entry": {
+            "id": "g18_guardian_arc",
+            "semantic": "ochrona — świetlisty łuk wznosi się i domyka",
+            "desc": "trzy stopnie w górę, ostatni dźwięk zostaje jak zamknięta kopuła",
+            "notes": [
+              {
+                "midi": 72,
+                "on": 0.0,
+                "off": 0.55,
+                "vel": 0.58
+              },
+              {
+                "midi": 79,
+                "on": 0.32,
+                "off": 0.95,
+                "vel": 0.68
+              },
+              {
+                "midi": 84,
+                "on": 0.72,
+                "off": 2.15,
+                "vel": 0.78
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 14,
+                "vel": 0.03
+              }
+            },
+            "instrument_tags": [
+              "bells",
+              "glockenspiel",
+              "glass"
+            ]
+          }
+        },
+        {
+          "label": "a.2",
+          "title": "pierścień bariery",
+          "file": "candidates/a_g18_guardian_ring.mp3",
+          "desc": "dwa pulsujące kroki rozszerzają pierścień, trzeci zamyka tarczę",
+          "source": "definicja nutowa; demo na zatwierdzonym Steinwayu",
+          "entry": {
+            "id": "g18_guardian_ring",
+            "semantic": "ochrona — dwa impulsy rozszerzają pierścień bariery",
+            "desc": "dwa równe impulsy i wyższe domknięcie — aura pulsuje, potem twardnieje",
+            "notes": [
+              {
+                "midi": 72,
+                "on": 0.0,
+                "off": 0.42,
+                "vel": 0.62
+              },
+              {
+                "midi": 79,
+                "on": 0.48,
+                "off": 0.95,
+                "vel": 0.68
+              },
+              {
+                "midi": 84,
+                "on": 1.02,
+                "off": 2.15,
+                "vel": 0.76
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 10,
+                "vel": 0.025
+              }
+            },
+            "instrument_tags": [
+              "bells",
+              "glockenspiel",
+              "glass"
+            ]
+          }
+        },
+        {
+          "label": "a.3",
+          "title": "czuwająca korona",
+          "file": "candidates/a_g18_guardian_crown.mp3",
+          "desc": "stały fundament pod dwiema jasnymi odpowiedziami — ochrona zamiast triumfu",
+          "source": "definicja nutowa; demo na zatwierdzonym Steinwayu",
+          "entry": {
+            "id": "g18_guardian_crown",
+            "semantic": "ochrona — wysoka korona czuwa nad niższym fundamentem",
+            "desc": "niski fundament, dwie wysokie odpowiedzi i spokojne wspólne wybrzmienie",
+            "notes": [
+              {
+                "midi": 72,
+                "on": 0.0,
+                "off": 2.2,
+                "vel": 0.55
+              },
+              {
+                "midi": 84,
+                "on": 0.28,
+                "off": 0.82,
+                "vel": 0.72
+              },
+              {
+                "midi": 79,
+                "on": 0.86,
+                "off": 2.2,
+                "vel": 0.66
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 12,
+                "vel": 0.03
+              }
+            },
+            "instrument_tags": [
+              "bells",
+              "glockenspiel",
+              "glass"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "slug": "glockenspiel-ochronny",
+      "kind": "instruments",
+      "role": "jasny metaliczny instrument dla ochronnej bariery",
+      "candidates": [
+        {
+          "label": "b.1",
+          "title": "glockenspiel miękki",
+          "file": "candidates/b_b_glockenspiel_soft.mp3",
+          "desc": "zaokrąglony atak i jasny ogon — bariera bardziej opiekuńcza niż bojowa",
+          "source": "VCSL Glockenspiel, dynamika soft, CC0",
+          "entry": {
+            "id": "b_glockenspiel_soft",
+            "semantic": "jasny, łagodny, ochronny",
+            "family": "idiophone-struck",
+            "samples": {
+              "67": "audio/library/instruments/glockenspiel_soft/67.mp3",
+              "72": "audio/library/instruments/glockenspiel_soft/72.mp3",
+              "79": "audio/library/instruments/glockenspiel_soft/79.mp3",
+              "84": "audio/library/instruments/glockenspiel_soft/84.mp3",
+              "91": "audio/library/instruments/glockenspiel_soft/91.mp3",
+              "96": "audio/library/instruments/glockenspiel_soft/96.mp3"
+            },
+            "gate_sources": {
+              "67": "candidates/instruments/b_glockenspiel_soft/67.mp3",
+              "72": "candidates/instruments/b_glockenspiel_soft/72.mp3",
+              "79": "candidates/instruments/b_glockenspiel_soft/79.mp3",
+              "84": "candidates/instruments/b_glockenspiel_soft/84.mp3",
+              "91": "candidates/instruments/b_glockenspiel_soft/91.mp3",
+              "96": "candidates/instruments/b_glockenspiel_soft/96.mp3"
+            },
+            "source": {
+              "title": "Versilian Community Sample Library — Glockenspiel",
+              "author": "Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+              "notes": "Glockenspiel soft; rzeczywiste próbki G/C w zakresie G4–C7; demo w realnym zakresie"
+            }
+          }
+        },
+        {
+          "label": "b.2",
+          "title": "glockenspiel średni",
+          "file": "candidates/b_b_glockenspiel_medium.mp3",
+          "desc": "czytelny metaliczny atak bez ostrości — równowaga światła i odporności",
+          "source": "VCSL Glockenspiel, dynamika medium, CC0",
+          "entry": {
+            "id": "b_glockenspiel_medium",
+            "semantic": "świetlisty, czytelny, stabilny",
+            "family": "idiophone-struck",
+            "samples": {
+              "67": "audio/library/instruments/glockenspiel_medium/67.mp3",
+              "72": "audio/library/instruments/glockenspiel_medium/72.mp3",
+              "79": "audio/library/instruments/glockenspiel_medium/79.mp3",
+              "84": "audio/library/instruments/glockenspiel_medium/84.mp3",
+              "91": "audio/library/instruments/glockenspiel_medium/91.mp3",
+              "96": "audio/library/instruments/glockenspiel_medium/96.mp3"
+            },
+            "gate_sources": {
+              "67": "candidates/instruments/b_glockenspiel_medium/67.mp3",
+              "72": "candidates/instruments/b_glockenspiel_medium/72.mp3",
+              "79": "candidates/instruments/b_glockenspiel_medium/79.mp3",
+              "84": "candidates/instruments/b_glockenspiel_medium/84.mp3",
+              "91": "candidates/instruments/b_glockenspiel_medium/91.mp3",
+              "96": "candidates/instruments/b_glockenspiel_medium/96.mp3"
+            },
+            "source": {
+              "title": "Versilian Community Sample Library — Glockenspiel",
+              "author": "Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+              "notes": "Glockenspiel medium; rzeczywiste próbki G/C w zakresie G4–C7; demo w realnym zakresie"
+            }
+          }
+        },
+        {
+          "label": "b.3",
+          "title": "glockenspiel mocny",
+          "file": "candidates/b_b_glockenspiel_loud.mp3",
+          "desc": "najtwardszy atak tej samej rodziny — bariera z bojowym konturem",
+          "source": "VCSL Glockenspiel, dynamika loud, CC0",
+          "entry": {
+            "id": "b_glockenspiel_loud",
+            "semantic": "jasny, twardy, bojowy",
+            "family": "idiophone-struck",
+            "samples": {
+              "67": "audio/library/instruments/glockenspiel_loud/67.mp3",
+              "72": "audio/library/instruments/glockenspiel_loud/72.mp3",
+              "79": "audio/library/instruments/glockenspiel_loud/79.mp3",
+              "84": "audio/library/instruments/glockenspiel_loud/84.mp3",
+              "92": "audio/library/instruments/glockenspiel_loud/92.mp3",
+              "96": "audio/library/instruments/glockenspiel_loud/96.mp3"
+            },
+            "gate_sources": {
+              "67": "candidates/instruments/b_glockenspiel_loud/67.mp3",
+              "72": "candidates/instruments/b_glockenspiel_loud/72.mp3",
+              "79": "candidates/instruments/b_glockenspiel_loud/79.mp3",
+              "84": "candidates/instruments/b_glockenspiel_loud/84.mp3",
+              "92": "candidates/instruments/b_glockenspiel_loud/92.mp3",
+              "96": "candidates/instruments/b_glockenspiel_loud/96.mp3"
+            },
+            "source": {
+              "title": "Versilian Community Sample Library — Glockenspiel",
+              "author": "Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse (no-cone) z github.com/sgossner/VCSL",
+              "notes": "Glockenspiel loud; rzeczywiste próbki G/C w zakresie G4–C7; demo w realnym zakresie"
             }
           }
         }

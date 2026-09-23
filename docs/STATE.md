@@ -27,11 +27,13 @@ Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatab
 ## W toku
 
 Fabuła **18 (Lotusguard Disciple)** została wylosowana spośród niegotowych.
-Role z narracji: tło = pęd powietrza nad torem i rydwan-glider; hero = seria
-odłamków odbitych przez świeżo utworzoną magiczną tarczę; koda = jasne
-wznoszenie ochronnej aury; instrument = eteryczne szkło. Brakuje tła i hero.
-Bramka **g014** wystawia trzy warianty hero z prawdziwych metalowych uderzeń
-i czeka na werdykt właściciela. Po jej domknięciu potrzebna będzie bramka tła.
+Role z narracji: tło = pęd pojazdu-glidera nad torem; hero = seria odłamków
+odbitych przez świeżo utworzoną magiczną tarczę; koda = jasne domknięcie
+ochronnej aury; instrument = metaliczny glockenspiel. Po decyzji właściciela
+o wzroście baz g014 została rozszerzona: wystawia **jednocześnie wszystkie
+cztery wpisy**, po trzy warianty, i czeka na komplet werdyktów. Obowiązuje
+ADR 0005: do 50 wpisów w każdej kategorii każda nowa fabuła dostaje cztery
+nowe klocki; później limit użycia jednego klocka wynosi 10%.
 
 ## Co dalej (propozycja agenta, nie wymaga pytania właściciela)
 

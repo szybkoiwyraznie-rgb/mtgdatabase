@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import coda_synth  # noqa: E402
 import sig_audio as dsp  # noqa: E402
 import build_pack  # noqa: E402
+import library_tool  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 FAILURES: list[str] = []
@@ -168,6 +169,26 @@ def test_note_attack_gate() -> None:
     check("QA przepuszcza słyszalną nutę", not any("atak" in e for e in errors3), str(errors3))
 
 
+def test_usage_policy() -> None:
+    def recipe(sid: str, suffix: str) -> dict:
+        return {
+            "story_id": sid,
+            "background": {"id": f"bg_{suffix}"},
+            "hero": {"id": f"hero_{suffix}"},
+            "coda": {"gesture": f"gesture_{suffix}", "instrument": f"instrument_{suffix}"},
+        }
+
+    legacy = recipe("1", "old")
+    unique = recipe("18", "new")
+    errors, _, growth, _ = library_tool.usage_audit([legacy, unique])
+    check("różnorodność: tryb wzrostu aktywny", growth)
+    check("różnorodność: nowe cztery klocki przechodzą", not errors, str(errors))
+    reused = recipe("18", "old")
+    errors2, _, _, _ = library_tool.usage_audit([legacy, reused])
+    check("różnorodność: reuse w trybie wzrostu odrzucony",
+          len(errors2) == 4, str(errors2))
+
+
 def test_registries_and_reading() -> None:
     result = subprocess.run([sys.executable, str(REPO / "scripts" / "library_tool.py"), "check"],
                             capture_output=True, text=True, cwd=REPO)
@@ -188,6 +209,7 @@ def main() -> None:
     test_coda_min_sustain()
     test_note_attack_gate()
     test_qa_gates()
+    test_usage_policy()
     test_registries_and_reading()
     print(f"\n{len(FAILURES)} niepowodzeń" if FAILURES else "\nwszystkie testy OK")
     sys.exit(1 if FAILURES else 0)
