@@ -47,10 +47,7 @@ PAGE = """<!doctype html>
   code { background:#0d1014; padding:1px 6px; border-radius:6px; color:#f2c66d; }
 </style></head><body>
 <h1>Bramka odsłuchowa <b>__GID__</b></h1>
-<div class="howto">Wybierz dla każdego slotu <b>jednego</b> kandydata albo wszystkich odrzuć.
-Odpowiedź napisz w czacie agenta, np. dla dwóch fabuł:<br><br>
-<code>fabuła 1: d.1 c.2 a.1 b.2 &nbsp;·&nbsp; fabuła 4: d.1 c.1 a.2 b.3 d.żaden</code><br><br>
-Po „żaden" dopisz jedno słowo dlaczego (<code>za cichy</code>, <code>zły klimat</code>) — poprawi drugą rundę kandydatów.</div>
+<div class="howto">__HOWTO__</div>
 __BODY__
 </body></html>
 """
@@ -73,7 +70,16 @@ def render_candidate(cand: dict, gate_dir_uri: str) -> str:
 def build_page(gate_dir: Path) -> None:
     manifest = json.loads((gate_dir / "manifest.json").read_text(encoding="utf-8"))
     parts: list[str] = []
-    for story in manifest["stories"]:
+    entries_mode = bool(manifest.get("entries"))
+    for entry_spec in manifest.get("entries", []):
+        # tryb wpisowy (ADR 0004): dla KAŻDEGO wpisu bazy 3 kandydaci,
+        # właściciel wybiera dokładnie jednego (albo „żaden").
+        parts.append(f"<h2>Wpis do bazy: <code>{html.escape(entry_spec['slug'])}</code> "
+                     f"· baza {html.escape(entry_spec['kind'])}</h2>")
+        parts.append(f'<p class="role">rola: {html.escape(entry_spec.get("role", ""))}</p>')
+        for cand in entry_spec["candidates"]:
+            parts.append(render_candidate(cand, ""))
+    for story in manifest.get("stories", []):
         parts.append(f"<h2>Fabuła {story['story_id']} — {html.escape(story['title'])}</h2>")
         parts.append(f'<p class="story">{html.escape(story["story"])}</p>')
         for slot in SLOT_ORDER:
@@ -84,7 +90,21 @@ def build_page(gate_dir: Path) -> None:
             parts.append(f'<p class="role">rola: {html.escape(block.get("role", ""))}</p>')
             for cand in block["candidates"]:
                 parts.append(render_candidate(cand, ""))
-    page = PAGE.replace("__GID__", html.escape(manifest["id"])).replace("__BODY__", "\n".join(parts))
+    if entries_mode:
+        howto = ("Dla każdego wpisu wybierz <b>dokładnie jednego</b> kandydata albo wszystkich odrzuć.\n"
+                 "Tylko wybrany trafia do bazy; pozostali zostają w archiwum bramki.\n"
+                 "Odpowiedź napisz w czacie agenta, np.:<br><br>\n"
+                 "<code>jezioro: j.2 · krzyki-nurka: n.żaden-za-ostry · grandpiano: p.1</code><br><br>\n"
+                 "Po „żaden\" dopisz jedno słowo dlaczego (<code>za cichy</code>, <code>zły klimat</code>) — "
+                 "poprawi drugą rundę kandydatów.")
+    else:
+        howto = ("Wybierz dla każdego slotu <b>jednego</b> kandydata albo wszystkich odrzuć.\n"
+                 "Odpowiedź napisz w czacie agenta, np. dla dwóch fabuł:<br><br>\n"
+                 "<code>fabuła 1: d.1 c.2 a.1 b.2 &nbsp;·&nbsp; fabuła 4: d.1 c.1 a.2 b.3 d.żaden</code><br><br>\n"
+                 "Po „żaden\" dopisz jedno słowo dlaczego (<code>za cichy</code>, <code>zły klimat</code>) — poprawi drugą rundę kandydatów.")
+    page = (PAGE.replace("__GID__", html.escape(manifest["id"]))
+                .replace("__BODY__", "\n".join(parts))
+                .replace("__HOWTO__", howto))
     (gate_dir / "index.html").write_text(page, encoding="utf-8")
     print(f"zbudowano {gate_dir / 'index.html'}")
 

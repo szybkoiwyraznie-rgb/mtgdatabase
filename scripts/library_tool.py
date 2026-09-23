@@ -151,24 +151,28 @@ def accept(gate_id: str, rest: bool = False) -> int:
             added.append(_ingest_candidate(gate_dir, kind, cand, stamp))
             stamped.add(cand["entry"]["id"])
     if rest:
-        # ADR 0004: kandydaci nie odrzuceni przez właściciela + przeszli szycie
-        # jakościowe — trafiają do bazy jako warianty (użytek w przyszłych rolach).
-        count = 0
-        for story in manifest["stories"]:
-            for slot, block in story["slots"].items():
-                kind = slot_kind[slot]
-                for cand in block["candidates"]:
-                    eid = cand["entry"]["id"]
-                    if eid in stamped:
-                        continue
-                    stamp = {"gate": gate_id, "choice": "doktryna-jakości", "date": today}
-                    added.append(_ingest_candidate(gate_dir, kind, cand, stamp))
-                    stamped.add(eid)
-                    count += 1
-        print(f"  doktryna-jakości: +{count} wpisów (pozostali kandydaci bramki)")
+        # wycofane (2026-09-23, ADR 0004 w wersji uzupełnionej): nie wielo-
+        # wariantowo — do bazy trafia dokładnie JEDEN kandydat na wpis.
+        print("BŁĄD: --rest wycofany (złamany model; właściciel wybiera jednego kandydata na wpis)")
+        return 1
+    # tryb wpisowy (bramki od g002): dla każdego wpisu bazy 3 kandydaci,
+    # właściciel wybiera dokładnie jednego albo „żaden".
+    for entry_spec in manifest.get("entries", []):
+        slug = entry_spec["slug"]
+        label = verdicts.get(slug)
+        if label is None:
+            print(f"! wpis {slug!r}: brak werdyktu — pomijam")
+            continue
+        if label in ("żaden", "żadna", "none"):
+            print(f"  wpis {slug!r}: odrzucony — kandydaci w archiwum bramki")
+            continue
+        cands = {c["label"]: c for c in entry_spec["candidates"]}
+        if label not in cands:
+            print(f"BŁĄD wpis {slug!r}: nieznana etykieta {label!r}")
+            return 1
+        stamp = {"gate": gate_id, "choice": f"{slug}.{label.split('.')[-1]}", "date": today}
+        added.append(_ingest_candidate(gate_dir, entry_spec["kind"], cands[label], stamp))
     manifest["verdicts"] = verdicts
-    if rest:
-        manifest["rest_accepted_as_doctrine"] = today
     (gate_dir / "manifest.json").write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"przyjęto: {', '.join(added) if added else 'nic'}")
     return 0
@@ -182,7 +186,7 @@ def main() -> None:
     p_accept = sub.add_parser("accept")
     p_accept.add_argument("--gate", required=True)
     p_accept.add_argument("--rest", action="store_true",
-                          help="przyjmij też pozostałych kandydatów (doktryna-jakości, ADR 0004)")
+                          help="WYCOFANY: złamany model (doktryna-jakości cofnięta 2026-09-23)")
     args = parser.parse_args()
     sys.exit({"check": check, "report": report, "accept": lambda: accept(args.gate, rest=args.rest)}[args.cmd]())
 

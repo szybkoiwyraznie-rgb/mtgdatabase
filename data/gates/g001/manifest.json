@@ -824,5 +824,8 @@
       "4.d": "właściciel: żaby za głośne w pierwszej części kandydata; wzięty cichy fragment od ~6. s (przecięcie wykonane 2026-09-23)"
     }
   },
-  "rest_accepted_as_doctrine": "2026-09-23"
+  "doctrine_reverted": {
+    "date": "2026-09-23",
+    "note": "doktryna-jakości wycofana: do bazy trafia dokładnie JEDEN kandydat na wpis (wybór właściciela), pozostali kandydaci zostają wyłącznie w archiwum bramki"
+  }
 }

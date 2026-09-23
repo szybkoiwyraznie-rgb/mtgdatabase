@@ -37,11 +37,12 @@ i `docs/gate-protocol.md`.
 1. **Audyt**: przeczytaj ostatni PR/diff, uruchom `python -m compileall -q scripts`,
    `python scripts/test_signature_system.py`, `python scripts/library_tool.py check`.
    Napraw regresje przed nową pracą.
-2. **Produkcja** (model ADR 0004): bramka = dozór jakości **wariantów roli**
-   (np. „3 jeziora"), akceptacja wielowariantowa właściciela → `library_tool.py
-   accept`. Agent sam obsadza fabułę z bazy (role d/c/a/b), układa recepturę i
-   renderuje z `--audit`; twardy render autokalibruje słyszalność nut kody —
-   pełne liczby w raporcie, odsłuch fabuły przez właściciela nie jest częścią pętli.
+2. **Produkcja** (model ADR 0004): bramka = 3 kandydaci **na jeden wpis**
+   (np. „3 jeziora"), właściciel wybiera dokładnie jednego → tylko wybrany
+   trafia do bazy (`library_tool.py accept`). Agent sam obsadza fabułę z bazy
+   (role d/c/a/b), układa recepturę i renderuje z `--audit`; twardy render
+   autokalibruje słyszalność nut kody — pełne liczby w raporcie, odsłuch
+   fabuły przez właściciela nie jest częścią pętli.
 3. **Warsztat**: co najmniej jedna poprawka narzędzi/dokumentacji/bazy w sesji.
 4. **Publikacja**: `python scripts/build_pack.py` (test ZIP),
    `python scripts/build_site.py` (test gablotki), `git status`, commit, push.

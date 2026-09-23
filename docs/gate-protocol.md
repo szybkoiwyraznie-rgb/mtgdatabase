@@ -8,29 +8,31 @@ decyzji; fuzja PR zamyka sesję).
 
 ## Dwie fazy pracy agenta
 
-### Faza A: bramka = przyjęcia do bazy (raz na kandydaturę roli)
+### Faza A: bramka = przyjęcia do bazy (jeden kandydat na wpis)
 
-1. Właściciel lub agent definiuje brak semantyczny („brakuje nam jeziora"),
-   ale kandydaci to **warianty JEDNEJ roli**, nigdy „kotły vs kieliszki vs
-   harfa" jako konkurenci jednego slotu.
-2. Co najmniej 3 warianty na rolę; audycja `stem_probe.py` obowiązkowa;
-   kody (a) renderuj na neutralnym instrumencie, instrumenty (b) na frazie
+1. Agent definiuje potrzebne **wpisy** do baz („jezioro", „nurek-wail",
+   „groza-koda", „grandpiano") — każdy wpis ma rolę semantyczną i docelową
+   bazę (d/c/a/b).
+2. Dla KAŻDEGO wpisu: co najmniej **3 kandydaci dopasowani do tej roli**
+   (3 jeziora, 3 nury, 3 pianina — NIE „kotły vs kieliszki vs harfa" jako
+   konkurenci jednego wpisu); audycja `stem_probe.py` obowiązkowa; kody (a)
+   renderuj na neutralnym instrumencie, instrumenty (b) na frazie
    demonstracyjnej W ICH REALNYM ZAKRESIE.
-3. Bramka w `data/gates/gNNN/`: manifest + kandydaci + opisy + licencje,
-   **commitowana od razu** (ochrona przed resetami sandboksa).
+3. Bramka w `data/gates/gNNN/`: manifest (`entries` = wpisy z kandydatami)
+   + kandydaci + opisy + licencje, **commitowana od razu** (ochrona przed
+   resetami sandboksa).
 4. Strona: `python scripts/gate_preview.py data/gates/gNNN --port 8080`,
    link w czacie.
-5. Werdykt właściciela = **lista akceptacji**, może być „wszystkie dobre";
-   po odrzucie jedno słowo („za cichy", „zły klimat"). Zapisz jako
-   `verdicts.json`, wykonaj:
-   `python scripts/library_tool.py accept --gate gNNN` — skrypt przenosi
-   pliki do `audio/library/` i dopisuje wpisy z pieczątką `approved`.
-   Niezaakceptowane warianty zostają tylko w archiwum bramki.
+5. Werdykt właściciela = **jeden kandydat na wpis** albo „żaden" z jednym
+   słowem dlaczego. Zapisz jako `verdicts.json` i wykonaj:
+   `python scripts/library_tool.py accept --gate gNNN` — do bazy trafia
+   DOKŁADNIE wybrany; pozostali zostają wyłącznie w archiwum bramki
+   (mogą wrócić jako kandydaci innej roli w innej bramce).
 
-Format werdyktu (listowy):
+Format werdyktu (jeden na wpis):
 
 ```json
-{"jezioro": ["j.1", "j.3"], "krzyki-nurka": "wszystkie", "groza-koda": ["g.1"], "grandpiano": "żaden — za sztuczny"}
+{"jezioro": "j.2", "nurek-wail": "n.1", "groza-koda": "g.żaden — za słaby", "grandpiano": "p.3"}
 ```
 
 ### Faza B: obsada fabuły + montaż (bez odsłuchu właściciela)

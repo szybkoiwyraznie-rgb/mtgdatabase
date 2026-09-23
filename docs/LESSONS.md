@@ -101,7 +101,9 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   to **6 s** — receptury używają 6,0 s jako bazy.
 
 - **2026-09-23 (model pracy: dozór bazy ≠ montaż):** właściciel akceptuje jakość
-  wpisów do bazy (warianty jednej roli, wielowariantowo), agent obsadza fabułę
+  wpisów do bazy — **uwaga: pierwotnie opisałem to błędnie jako
+  wielowariantowo („doktryna-jakości"); właściciel sprostował: na wpis bazy
+  3 kandydatów, wybiera DOKŁADNIE JEDNEGO, tylko on trafia do bazy**; agent obsadza fabułę
   i montuje — bez odsłuchu końcowego. Konsekwencja kodowa: twarda bramka ataku
   każdej nuty kodu (+2,5 dB nad kontekst, okno 0,3 s), licznik zagranych nut,
   AUTOKALIBRACJA poziomów nut w renderze (sufit 8 dB, log `coda_boosts_db`).
