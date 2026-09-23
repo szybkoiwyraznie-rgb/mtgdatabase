@@ -233,3 +233,23 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   6. **Ograniczenia narzędzi omijaj, nie eskaluj do właściciela**: brak
      `actions:write` → `repository_dispatch`; brak egressu → mirrory GitHub;
      m4a → PyAV.
+
+## 2026-09-23 — „Szum wiatru zamiast wody”: żywioł poznaje się po tranzjentach
+
+- Sytuacja: tło „zalany kanion” (g008) wycięto z nagrania NPS „The Dragon's
+  Mouth” — gorącego źródła w jaskini. Wybór opierał się na opisie źródła
+  („woda bijąca o ściany”) i na stabilności RMS. Właściciel: „to nie brzmi
+  jak woda tylko jak szum wiatru — woda gdzieś tam jest, ale zagłuszona”.
+- Wniosek: gorące źródła to głównie syk pary. Miary, których użyłem
+  (stabilność, udział > 4 kHz), mówiły o gładkości łoża, ale żadna nie
+  sprawdzała, czy w materiale są **zdarzenia** charakterystyczne dla
+  żywiołu. Szerokopasmowy szum bez tranzjentów ucho zawsze przeczyta jako
+  wiatr, niezależnie od tego, co było przed mikrofonem.
+- Zasada / działanie zapobiegawcze: dla teł żywiołów licz dwie rzeczy —
+  (1) udział energii poniżej 1 kHz, (2) liczbę skoków energii > 4 dB na
+  sekundę (okna 100 ms). Woda: 67–81% i ≥1,5 zdarzenia/s (bulgot, bąble).
+  Odrzucone jako „wiatr”: Dragon's Mouth ~20% i ~0 zdarzeń, a także
+  `loop-water-*` rubberducka (13–36%, centroid 3200–4300 Hz — mimo nazwy
+  „water” to szum). Dodatkowo tnij pasmo > 5–6 kHz, które nadaje charakter
+  syku. Sprawdzone rodziny chlupotu: `bubbling-*` z lokif „Swamp
+  Environment Audio” i `loop-bubbles-*` z rubberduck „40 water/splash/slime”.

@@ -10,8 +10,8 @@ Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatab
 
 - Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **4**.
 - Baza klocków: **16 wpisów** (`library_tool.py check`).
-- Bramki rozegrane: **g001–g007** (werdykty w `data/gates/*/verdicts.json`),
-  **g008 czeka na werdykt**.
+- Bramki rozegrane: **g001–g008** (werdykty w `data/gates/*/verdicts.json`),
+  **g009 czeka na werdykt**.
 
 ## Gotowe fabuły
 

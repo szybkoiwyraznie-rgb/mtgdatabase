@@ -64,11 +64,22 @@ jak robi to filmowe fantasy: **prawdziwy ludzki wrzask + pitch-down +
 saturacja** (g007, przyjęty). Zanim otworzysz czwartą rundę z kolejną paczką,
 zapytaj: czy zepsuty jest plik, czy sposób jego wytworzenia?
 
-**Sito liczbowe zamiast zgadywania.** Dla głosów licz udział pasma gardła
-150–800 Hz: prawdziwy ludzki głos ma tam 41–66% energii, „głosik stwora”
-4–22%. Dla teł licz wahanie RMS w podoknach 0,5 s (stabilność) oraz udział
-powyżej 4 kHz (ilość rozprysku). Metryki drukuj w skrypcie bramki — trafiają
-wtedy do raportu w czacie i ułatwiają właścicielowi werdykt.
+**Sito liczbowe zamiast zgadywania.** Metryki drukuj w skrypcie bramki —
+trafiają wtedy do raportu w czacie i ułatwiają właścicielowi werdykt.
+
+| Rola | Miara | Wartość „to brzmi jak…” |
+|---|---|---|
+| głos (hero) | udział pasma gardła 150–800 Hz | prawdziwy głos 41–66%, „głosik stwora” 4–22% (g007) |
+| **woda** | **udział poniżej 1 kHz + liczba skoków energii > 4 dB na sekundę** | **woda 67–81% i ≥1,5 zdarzenia/s; „wiatr” 13–36% i ~0 zdarzeń (g008 odrzucony, g009)** |
+| tło ogólnie | wahanie RMS w podoknach 0,5 s | stabilne łoże < ~2,5 dB |
+| tło ogólnie | udział > 6 kHz | powyżej ~15% ucho słyszy syk/wiatr, nie materiał |
+
+**Żywioł rozpoznajemy po zdarzeniach, nie po nazwie pliku.** Nagranie
+podpisane „hot spring” było w istocie sykiem pary: szerokie pasmo, centroid
+2100–2700 Hz, zero tranzjentów — właściciel usłyszał wiatr. Woda brzmi jak
+woda, gdy ma masę poniżej 1 kHz (rezonans pęcherzyków i wnęki) i policzalne
+chlupnięcia. Analogicznie ogień potrzebuje trzasków, a deszcz gęstych
+mikrouderzeń. Zanim wytniesz okno, policz zdarzenia.
 
 ### Poprawka wykonawcza po akceptacji
 

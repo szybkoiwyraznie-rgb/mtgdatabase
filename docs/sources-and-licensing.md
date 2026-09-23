@@ -49,8 +49,8 @@ Egress sandboxa tnie TLS do Wikimedia/NPS/Freesound/raw.githubusercontent (patrz
 | `opengameart-magic-spell-sfx` (jaggedstone) | czary, pociski magiczne | **przyjęty g004** (m.2 → `spell_cast_bolt_01`) |
 | `opengameart-goblins-sound-pack` (artisticdude) | gobliny | **odrzucony 2× (g004, g005)** — wokalizacja kreskówkowa („Smerfy”), pitch-down nie pomaga |
 | `opengameart-80-cc0-creature-sfx` (rubberduck) | stwory, trolle, grunty | **odrzucony (g006)** jako wrzask bojowy; zapas na potwory |
-| `opengameart-40-cc0-water-splash-slime-sfx` (rubberduck) | plusk, bąble, woda, slime | rozpoznany, niewykorzystany (do plusków punktowych, nie do teł) |
-| `opengameart-swamp-environment-audio` (lokif) | ambience bagien | rozpoznany, zapas na tła mokradeł |
+| `opengameart-40-cc0-water-splash-slime-sfx` (rubberduck) | plusk, bąble, woda, slime | kandydat g009 (`loop-bubbles-*`). **Uwaga:** `loop-water-*` mimo nazwy to szerokopasmowy szum (centroid 3200–4300 Hz) — brzmi jak wiatr, nie woda |
+| `opengameart-swamp-environment-audio` (lokif) | ambience bagien, **bulgot wody** | kandydat g009 (`bubbling-2`: 73% energii < 1 kHz — najlepszy materiał „chlupotu” w mirrorze) |
 
 Niesprawdzone, a obiecujące (są w mirrorze): `opengameart-20-sword-sound-effects-attacks-and-clashes`
 (miecze), `opengameart-zombies-sound-pack`, `opengameart-voiceover-pack-fighter-40-taunts`,
@@ -60,7 +60,8 @@ Niesprawdzone, a obiecujące (są w mirrorze): `opengameart-20-sword-sound-effec
 **Yellowstone (YSL) — realny inwentarz** po `git ls-tree HEAD` (2026-09-23):
 wilki, kojoty, lis, łoś, żubr (jedzenie/ruja), kruk, ~20 gatunków ptaków,
 żaby, ogień, grzmot, gejzery (kilkanaście), fumarole, gorące źródła
-(**The Dragon's Mouth** = woda bijąca o ściany jaskini, użyta w g008),
+(**The Dragon's Mouth** — mimo opisu „woda w jaskini” to głównie syk pary;
+odrzucone w g008 jako „szum wiatru”),
 Yellowstone Lake, błotne kotły, skuter śnieżny, wóz konny. **Nie ma
 niedźwiedzia** ani nagrań „las/deszcz/morze”.
 
