@@ -41,7 +41,8 @@ Najnowszy raport dla pary (fabuła, wersja) ustawia aktualną ocenę, a każdy r
 ### 2. Remake najsłabszej fabuły (ranking wg najlepszej wersji)
 
 - uszereguj fabuły po **najlepiej ocenionej wersji** rosnąco: `python scripts/remake_queue.py --versions data/versions.json`; nisko oceniony remake (np. v2 = 3/15 przy v1 = 10/15) nie podnosi priorytetu fabuły ponad jej najlepszą wersję;
-- **próg właściciela (2026-09-22): fabuła z najlepszą wersją poniżej 12/15 wymaga remake'u; poniżej progu nowa wersja powstaje OD ZERA** (nowa dramaturgia, nowe sample, audytowane offsety) — iterowanie na odrzuconej recepturze dało 475 v2 „niczym się nie różni od poprzedniej";
+- **próg właściciela (2026-09-22): fabuła z najlepszą wersją poniżej 12/15 wymaga remake'u;**
+- **ochrona pochwalonych sampli (decyzja właściciela 2026-09-23, zasada twarda): jeśli jakakolwiek wersja fabuły ma ocenę powyżej 10/15, remake obowiązkowo wykorzystuje te same pliki sampli pochwalone wprost w komentarzu do tej wersji — z identycznym masterowaniem (offset, pitch, filtry, głośność, pozycja); „podobne" sample nie są zamiennikiem.** Remake od zera (nowa koncepcja, nowe sample) dotyczy wyłącznie fabuł, w których żadna wersja nie przekroczyła 10/15 — kolejka wypisze te obowiązki razem z komentarzami do zachowania;
 - pomiń fabuły, których najnowsza wersja czeka jeszcze na ocenę (nie stackuj wersji), oraz fabuły bez otwartych raportów;
 - zarezerwuj zadanie, aby dwóch agentów nie pracowało nad nim równocześnie;
 - przeanalizuj trzy oceny i komentarz; przy najlepszej wersji ≥12/15 nowa wersja `vN` buduje na jej mocnych stronach — raporty wskazują, co poprawić, nie wymuszają kontynuacji po porażce;

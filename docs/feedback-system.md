@@ -7,7 +7,12 @@ Formularz oceny pokazuje się wyłącznie przy wersjach bez oceny i ma trzy pola
 - jakość wykorzystanych sampli;
 - komentarz tekstowy.
 
-Wynik jest sumą trzech wartości, od 3 do 15. Wersja, która ma już ocenę, pokazuje na swojej karcie wynik z rozbiciem na trzy kryteria zamiast formularza — poprawy wprowadza się jako nową wersję `vN`, a nie przez ponowne ocenienie. Na liście fabuł karta, która ma ocenę i nowszą nieocenioną wersję, dostaje badge „nieoceniona nowa wersja" obok znacznika „najlepiej x/15".
+Wynik jest sumą trzech wartości, od 3 do 15. Wersja, która ma już ocenę, pokazuje na swojej karcie wynik z rozbiciem na trzy kryteria oraz **komentarze tekstowe właściciela** (najnowszy na górze, z datą i linkiem do issue) zamiast formularza — poprawy wprowadza się jako nową wersję `vN`, a nie przez ponowne ocenienie. Na liście fabuł karta, która ma ocenę i nowszą nieocenioną wersję, dostaje badge „nieoceniona nowa wersja" obok znacznika „najlepiej x/15".
+
+Karty wersji na stronach fabuł (decyzje właściciela 2026-09-23):
+
+- **kolejność:** najpierw wersje oczekujące na ocenę (najnowsza na górze), potem ocenione od najwyższej do najniższej oceny;
+- **kolorowe ramki:** wersje bez oceny mają ramkę amber (oczekiwanie na ocenę), wersja z najwyższą oceną fabuły — ramkę zieloną, pozostałe wersje są bez wyróżnienia.
 
 ## Zapis
 

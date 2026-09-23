@@ -21,8 +21,16 @@ def main() -> int:
             "versions": [{
                 "label": "v1",
                 "audio": "audio/999.mp3",
-                "score": MALICIOUS,
+                "score": 12,
                 "scores": {"feeling": MALICIOUS, "story_fit": MALICIOUS, "sample_quality": MALICIOUS},
+                "reports": [{
+                    "issue_url": MALICIOUS,
+                    "created_at": "2026-09-23T00:00:00Z",
+                    "state": "closed",
+                    "scores": {"feeling": 4, "story_fit": 4, "sample_quality": 4},
+                    "total": 12,
+                    "comment": MALICIOUS,
+                }],
                 "project_description": {
                     "description": MALICIOUS,
                     "qa": {"score": MALICIOUS, "details": [MALICIOUS]},
@@ -47,6 +55,7 @@ def main() -> int:
     escaped = "&lt;script&gt;alert(&quot;catalog-xss&quot;)&lt;/script&gt;"
     assert MALICIOUS not in page, "niebezpieczne dane katalogu trafiły do HTML bez escapingu"
     assert escaped in page, "dane katalogu nie zostały poprawnie escaped"
+    assert 'class="rated-comment"' in page, "komentarz właściciela nie jest renderowany na karcie ocenionej wersji"
 
     app = (ROOT / "site/assets/app.js").read_text(encoding="utf-8")
     assert "const storyTitle = escapeHtml(story.title);" in app, "homepage nie escape'uje tytułu z katalogu"
