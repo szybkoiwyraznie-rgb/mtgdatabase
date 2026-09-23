@@ -276,3 +276,24 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   plusknięcia są jasne „pod grę”); (3) warstwy strojemy liczbami do celu
   roli — tu centroid 1069–1332 Hz, > 6 kHz poniżej 2%, 2,4–3,0 zdarzenia/s.
   Funkcje wielokrotnego użytku: `build_gate_g010.flow_layer()` i `scatter()`.
+
+## 2026-09-23 — Pitch-down słychać: foley nie zastąpi nagrania terenowego
+
+- Sytuacja: po trzech odrzuconych rundach tła („wiatr”, „gotująca się woda”)
+  spróbowałem złożyć nurt foleyem — obniżony szum wody plus rozsiane,
+  również obniżone chlupnięcia. Werdykt: „wszystko strasznie nienaturalnie
+  nisko, jakby ktoś spitchował dźwięki; chlupotanie brzmi nienaturalnie”.
+- Wniosek: pitch-down działa na GŁOSY (g007: prawdziwy krzyk → orkowy
+  warcry — ucho nie zna „prawdziwego” tembru orka, więc akceptuje
+  przesunięcie). Nie działa na ŻYWIOŁY, których brzmienie każdy zna z
+  natury: spowolniona woda natychmiast zdradza obróbkę, bo znika
+  mikrostruktura (pojedyncze krople, przypadkowe rytmy, szerokie pasmo
+  tuż nad nurtem). Metryki mogą być idealne, a materiał i tak brzmi
+  sztucznie — sito liczbowe sprawdza pasmo i zdarzenia, nie naturalność.
+- Zasada / działanie zapobiegawcze: dla teł żywiołów (woda, deszcz, wiatr,
+  las) używaj WYŁĄCZNIE nagrań terenowych; dozwolone są tylko cięcie,
+  filtr łagodny, poziom i pętla. Jeśli w zweryfikowanych bibliotekach nie
+  ma danego zjawiska — nie składaj go i nie naciągaj podobnego: uruchom
+  Sample Scout (archive.org/Freesound przez GitHub Actions) po prawdziwy
+  field recording. Trzy rundy przepalone na materiale zastępczym są
+  droższe niż jedno uruchomienie workflow.
