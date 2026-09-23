@@ -41,11 +41,11 @@ Najnowszy raport dla pary (fabuła, wersja) ustawia aktualną ocenę, a każdy r
 ### 2. Remake najsłabszej fabuły (ranking wg najlepszej wersji)
 
 - uszereguj fabuły po **najlepiej ocenionej wersji** rosnąco: `python scripts/remake_queue.py --versions data/versions.json`; nisko oceniony remake (np. v2 = 3/15 przy v1 = 10/15) nie podnosi priorytetu fabuły ponad jej najlepszą wersję;
-- **próg właściciela (2026-09-22): fabuła z najlepszą wersją poniżej 12/15 wymaga remake'u;**
+- **zasady progów (doprecyzowanie właściciela 2026-09-23): kolejka biegnie od najgorzej ocenianych i nie wyklucza jingli 12–14/15 — każdy wynik poniżej 15/15 może być poprawiony; dla 15/15 pomijaj remake (brak sensownego zadania), chyba że właściciel wyraźnie zleci;**
 - **ochrona pochwalonych sampli (decyzja właściciela 2026-09-23, zasada twarda): jeśli jakakolwiek wersja fabuły ma ocenę powyżej 10/15, remake obowiązkowo wykorzystuje te same pliki sampli pochwalone wprost w komentarzu do tej wersji — z identycznym masterowaniem (offset, pitch, filtry, głośność, pozycja); „podobne" sample nie są zamiennikiem.** Remake od zera (nowa koncepcja, nowe sample) dotyczy wyłącznie fabuł, w których żadna wersja nie przekroczyła 10/15 — kolejka wypisze te obowiązki razem z komentarzami do zachowania;
 - pomiń fabuły, których najnowsza wersja czeka jeszcze na ocenę (nie stackuj wersji), oraz fabuły bez otwartych raportów;
 - zarezerwuj zadanie, aby dwóch agentów nie pracowało nad nim równocześnie;
-- przeanalizuj trzy oceny i komentarz; przy najlepszej wersji ≥12/15 nowa wersja `vN` buduje na jej mocnych stronach — raporty wskazują, co poprawić, nie wymuszają kontynuacji po porażce;
+- przeanalizuj trzy oceny i komentarz; przy najlepszej wersji powyżej 10/15 nowa wersja `vN` obowiązkowo zachowuje pochwalone sample i buduje na mocnych stronach najlepiej ocenionej wersji — raporty wskazują, co poprawić;
 - zaprojektuj poprawkę, zaktualizuj opis projektowy i nie kasuj poprzedniej wersji;
 - wyrenderuj kolejną wersję `vN` (audyt QA v2 ≥85/100: słyszalność żywych zdarzeń +6 dB nad tłem, RMS ≥ -26 dB, >6 kHz ≤ 12%) i oznacz raport jako obsłużony dopiero po udanej publikacji; po merge'u `data/versions.json` z nowszą wersją workflow `Sync ratings from issues` zamyka raport automatycznie, ale agent weryfikuje to na wypadek awarii automatu;
 - jeśli nie ma ocenionej fabuły do poprawy, zapisz to w raporcie.

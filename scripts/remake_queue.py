@@ -14,6 +14,11 @@ Pinned samples rule (owner decision 2026-09-23): any version rated above
 reuse those exact stem files with the same mastering. A from-scratch
 concept is allowed only when no version of the story exceeded 10/15.
 
+Thresholds (owner clarification 2026-09-23): the queue covers every story
+with an open report, worst first — there is NO ban on remaking jingles
+rated 12/15 or higher; anything below 15/15 can be improved. Only 15/15
+has no sensible remake task (skip unless the owner explicitly asks).
+
 Usage:
   python scripts/remake_queue.py --versions data/versions.json
 """
@@ -68,13 +73,13 @@ def main() -> int:
     if queue:
         for position, (sid, label, score, reports, pinned) in enumerate(queue, 1):
             if score <= 10:
-                plan = "OD ZERA (żadna wersja fabuły nie przekroczyła 10/15)"
-            elif score < 12:
-                plan = f"na fundamencie {label} — obowiązkowo te same pochwalone sample (decyzja właściciela 2026-09-23)"
+                plan = f"remakuj: nowa wersja, od zera dozwolone (żadna wersja fabuły nie przekroczyła 10/15 — nic nie jest przypięte)"
+            elif score < 15:
+                plan = f"remakuj: nowa wersja na fundamencie {label} — obowiązkowo te same pochwalone sample, nie od zera (decyzja właściciela 2026-09-23)"
             else:
-                plan = f"powyżej progu remaków (<12/15) — remake niewymagany; jeśli już, to na fundamencie {label} z obowiązkowymi pochwalonymi samplami"
+                plan = "POMIŃ: 15/15 — brak sensownego zadania remake'u (chyba że właściciel wyraźnie poprosi)"
             print(f"  {position}. fabuła {sid}: najlepsza {label} = {score:.0f}/15, otwartych raportów: {reports}"
-                  f" → remakuj kolejną wersję {plan}")
+                  f" → {plan}")
             for pinned_label, pinned_score, comments in pinned:
                 print(f"     OBOWIĄZEK ({pinned_label}, {pinned_score:.0f}/15 > 10/15): przeanalizuj komentarze i zachowaj WPROST pochwalone sample — te same pliki i to samo masterowanie ('podobne' nie wystarczy):")
                 for comment in comments:
