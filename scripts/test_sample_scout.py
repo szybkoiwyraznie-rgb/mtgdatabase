@@ -117,3 +117,20 @@ def test_archiveorg_finds_cc0_behind_popular_non_cc0_rows(monkeypatch):
     # długie nagranie terenowe nie może być odrzucone przez limit rozmiaru
     assert found[0]["truncated"] is True
     assert found[0]["archive_file"] == "creek.mp3"
+
+
+def test_licence_prose_with_public_domain_words_is_rejected():
+    """Regresja 2026-09-23: nota „Copyright status unknown” przeszła jako wolna.
+
+    Archiwa opisują status prozą, w której zwrot „public domain” pojawia się
+    w zdaniu o tym, czego NIE wolno. Wolny materiał rozpoznajemy po URL-u
+    licencji, a frazy ostrzegawcze odrzucamy twardo.
+    """
+    unknown = ("Copyright status unknown. This work may be protected by the U.S. "
+               "Copyright Law (Title 17, U.S.C.). Works not in the public domain "
+               "cannot be commercially exploited without permission.")
+    assert scout.is_cc0(unknown) is False
+    assert scout.is_cc0("https://creativecommons.org/publicdomain/zero/1.0/") is True
+    assert scout.is_cc0("http://creativecommons.org/publicdomain/mark/1.0/") is True
+    assert scout.is_cc0("Creative Commons 0") is True
+    assert scout.is_cc0("http://creativecommons.org/licenses/by-nc/4.0/") is False

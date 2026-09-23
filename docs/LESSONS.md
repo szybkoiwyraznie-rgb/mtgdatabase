@@ -334,3 +334,25 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   formularza wraz z gałęzią** — brak jednego pola kosztował kilka pustych
   przebiegów; (3) pola nieistotne dla wybranej ścieżki opisz jako
   ignorowane (tu: `sort` działa tylko dla Freesound).
+
+## 2026-09-23 — Nagranie terenowe bije każdą składankę; moje sito „wody” było błędne
+
+- Sytuacja: cztery rundy tła do fabuły 2. Trzy własne (syk źródła, bulgot,
+  foley z pitch-downu) odrzucone. Czwarta — dwa prawdziwe nagrania
+  strumienia z Internet Archive przez Sample scout — werdykt: „wszystkie
+  trzy ZAJEBISTE, o kilka klas lepsze niż wcześniejsze propozycje”.
+- Wniosek, najważniejszy z całej sesji: **progi, którymi strojłem tła, były
+  fałszywe**. Zakładałem „im więcej energii poniżej 1 kHz, tym bardziej
+  woda” i dociskałem materiał do > 65%. Przyjęte nagranie ma **15–27%
+  poniżej 1 kHz i centroid ~3 kHz** — czyli dokładnie profil, który moje
+  sito odrzucało jako „wiatr”. Naturalność bierze się z mikrostruktury
+  (tysiące drobnych, nieregularnych zdarzeń), a tej żadna z moich liczb nie
+  mierzyła. Im dłużej stroiłem metryki, tym dalej byłem od celu.
+- Zasada / działanie zapobiegawcze: (1) dla teł żywiołów metryki służą
+  WYŁĄCZNIE do odsiewania wad technicznych — rumble < 8%, brak mowy
+  (modulacja obwiedni < 0,25), stabilność okna; oceny „czy brzmi jak woda”
+  nie da się zautomatyzować, robi ją ucho w bramce; (2) brak zjawiska
+  w lokalnych bibliotekach = **od razu Sample scout**, bez rundy
+  zastępczej — polecenie właściciela: „nie bój się korzystać ze scouta”;
+  (3) obróbka nagrania terenowego: tylko okno, filtr rumble, łagodne
+  przymknięcie góry i poziom. Żadnego pitchowania.

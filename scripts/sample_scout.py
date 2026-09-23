@@ -53,12 +53,34 @@ def slugify(text: str) -> str:
     return re.sub(r"[^a-z0-9]+", "-", text.lower()).strip("-")[:48] or "query"
 
 
+# Wolne: CC0 i Public Domain Mark. „Public domain” w prozie bywa notą
+# archiwum o NIEZNANYM statusie, więc sam ten zwrot nie wystarcza.
+PD_URL_MARKERS = (CC0_URL_MARKER, "creativecommons.org/publicdomain/mark")
+LICENCE_RED_FLAGS = (
+    "copyright status unknown", "may be protected", "all rights reserved",
+    "permission of the copyright", "rights reserved", "noncommercial", "non-commercial",
+    "nc/", "by-nc", "educational use", "fair use",
+)
+
+
 def is_cc0(license_field: object) -> bool:
-    """Recognise the actual CC0 labels/URLs returned by the two source APIs."""
+    """Czy pole licencji oznacza materiał wolny (CC0 / Public Domain Mark).
+
+    Regresja 2026-09-23: przebieg Scouta przyniósł nagranie z notą
+    „Copyright status unknown… may be protected by the U.S. Copyright Law”,
+    bo tekst zawierał zwrot „public domain” w zdaniu o tym, czego NIE wolno.
+    Dlatego: najpierw twarde odrzucenie po frazach ostrzegawczych, dopiero
+    potem rozpoznanie po URL-u licencji (a nie po dowolnej prozie).
+    """
     if not license_field:
         return False
     value = str(license_field).lower()
-    return "creative commons 0" in value or "cc0" in value or CC0_URL_MARKER in value
+    if any(flag in value for flag in LICENCE_RED_FLAGS):
+        return False
+    if any(marker in value for marker in PD_URL_MARKERS):
+        return True
+    # Krótka etykieta API (Freesound) — proza archiwum tu nie przejdzie.
+    return len(value) <= 80 and ("creative commons 0" in value or "cc0" in value)
 
 
 def is_mp3(blob: bytes) -> bool:
@@ -177,9 +199,9 @@ def fetch_archiveorg(query: str, count: int) -> list[dict]:
                 continue
             meta = metadata.get("metadata") or {}
             licence = meta.get("licenseurl") or doc.get("licenseurl") or meta.get("rights") or ""
-            if not (is_cc0(licence) or "publicdomain" in str(licence).lower()
-                    or "public domain" in str(licence).lower()):
-                print(f"skip {identifier}: licencja {licence!r}", file=sys.stderr)
+            if not is_cc0(licence):
+                print(f"skip {identifier}: licencja nie jest wolna "
+                      f"({str(licence)[:70]!r})", file=sys.stderr)
                 continue
             files = [
                 item for item in metadata.get("files", [])

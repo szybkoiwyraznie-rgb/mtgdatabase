@@ -89,6 +89,28 @@
         "choice": "wir-energia.1",
         "date": "2026-09-23"
       }
+    },
+    {
+      "id": "flooded_canyon_03",
+      "setting": "zalany kanion / szeroki nurt",
+      "desc": "nagranie parkowego potoku: szerszy, równy nurt z drobnym pluskiem — najspokojniejszy wariant, dobry pod dialog sceny",
+      "file": "audio/library/backgrounds/flooded_canyon_03.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Cedar Creek Park, Allentown PA — nagranie terenowe (aporee / Internet Archive)",
+        "author": "aporee maps (Jl.purposedart)",
+        "license": "Public Domain Mark 1.0",
+        "url": "https://archive.org/details/aporee_26411_30501",
+        "channel": "workflow Sample scout (GitHub Actions) → legacy/source/sample_scout",
+        "notes": "Cedar Creek Park (aporee), okno 16,0–24,0 s — najstabilniejszy fragment (wahanie 0,6 dB); filtr rumble 70 Hz, przymknięcie góry 6,5 kHz, poziom −33 dB"
+      },
+      "approved": {
+        "gate": "g011",
+        "choice": "zalany-kanion.3",
+        "date": "2026-09-23"
+      }
     }
   ]
 }

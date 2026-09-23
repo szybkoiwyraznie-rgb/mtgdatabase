@@ -38,25 +38,5 @@
     "bytes": 1137664,
     "sha256": "34e5704556b213e33073ec294f1c9649e1686a6b12b5e3e8127d507c34f6550b",
     "candidate_rank": 2
-  },
-  {
-    "source": "archive.org",
-    "source_id": "curiv_000031",
-    "name": "Save Our Nextdoor Creek — curiv_000031_access.mp3",
-    "author": "Larry Dawson Productions",
-    "license": "Copyright status unknown. This work may be protected by the U.S. Copyright Law (Title 17, U.S.C.). In addition, its reproduction may be restricted by terms of gift or purchase agreements, donor restrictions, privacy and publicity rights, licensing and trademarks. This work is accessible for purposes of education and research. Transmission or reproduction of works protected by copyright beyond that allowed by fair use requires the written permission of the copyright owners. Works not in the public domain cannot be commercially exploited without permission of the copyright owner. Responsibility for any use rests exclusively with the user. University of California, Riverside Special Collections and Archives attempted to find rights owners without success but is eager to hear from them so that we may obtain permission, if needed. Upon request to specialcollections@ucr.edu, digitized works can be removed from public view if there are rights issues that need to be resolved.",
-    "source_url": "https://archive.org/details/curiv_000031",
-    "duration_sec": null,
-    "avg_rating": null,
-    "num_ratings": null,
-    "downloads": 20,
-    "archive_file": "curiv_000031_access.mp3",
-    "archive_file_bytes": 17783245,
-    "truncated": true,
-    "note": "Internet Archive nie publikuje oceny gwiazdkowej; ranking wg pobrań. Pobrano początek pliku (nagranie dłuższe niż limit).",
-    "file": "legacy/source/sample_scout/archive.org_creek-stream-water/05-curiv-000031-save-our-nextdoor-creek-curiv-000031-access-mp3.mp3",
-    "bytes": 12000000,
-    "sha256": "f43fde51502446bcb671729173737178ae2eedc76dfd48a0bb37d6b645eeb3a9",
-    "candidate_rank": 5
   }
 ]

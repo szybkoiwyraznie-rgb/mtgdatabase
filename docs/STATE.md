@@ -8,10 +8,10 @@ Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatab
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **4**.
-- Baza klocków: **16 wpisów** (`library_tool.py check`).
-- Bramki rozegrane: **g001–g009** (werdykty w `data/gates/*/verdicts.json`),
-  **g010 czeka na werdykt**.
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **5**.
+- Baza klocków: **17 wpisów** (`library_tool.py check`).
+- Bramki rozegrane: **g001–g011**, wszystkie z werdyktami
+  (`data/gates/*/verdicts.json`). Żadna nie czeka na właściciela.
 
 ## Gotowe fabuły
 
@@ -21,24 +21,21 @@ Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatab
 | 4 | Mystic Sanctuary | frogs_night_01 | loon_wail_01 | g4b_mystery_tritone × wine_glasses | „super 15/15”, zamrożona |
 | 5 | Academy Journeymage | energy_steam_roar_01 | spell_cast_bolt_01 | g5a_shimmer_up × piano_steinway | v2 po uwadze „czar brzmi jak koda”; przyjęta jako „akceptowalna jakość” |
 | 8 | Goblin Deathraiders | fire_hearth_small_01 | warband_cry_03 | g1b_march_pulse × bassdrum | „fajna” |
+| 2 | Coralhelm Guide | flooded_canyon_03 | beast_roar_long_01 | g4b_mystery_tritone × timpani→steinway | tło r.3 „najzajebistsza z zajebistych” |
 
 ## W toku
 
-- **Fabuła 2 (Coralhelm Guide)** — hero gotowy (`beast_roar_long_01`,
-  jedyny wolny hero w bazie), koda do wyboru przy montażu, **tło czeka na
-  werdykt bramki g008** (trzy okna nagrania NPS „The Dragon’s Mouth”:
-  k.1 spokojny chlupot / k.2 woda pod naporem / k.3 echo w głębi).
-  Po werdykcie: `verdicts.json` → `library_tool.py accept --gate g008` →
-  receptura `data/recipes/2.json` → render `--audit` → `build_pack` +
-  `build_site` → commit.
+Nic nie czeka na werdykt właściciela. Fabuła 2 (Coralhelm Guide) domknięta
+w tej sesji: tło z prawdziwego nagrania terenowego (g011 r.3), hero
+`beast_roar_long_01`, koda tryton na Steinwayu (kotły odpadły — mają tylko
+3 nuty 38/39/41, więc QA zgłosiło pominiętą nutę trytonu 54+72).
 
 ## Co dalej (propozycja agenta, nie wymaga pytania właściciela)
 
-1. Domknąć fabułę 2.
-2. Wybrać kolejne fabuły z katalogu i dla każdej wyprowadzić role
+1. Wybrać kolejne fabuły z katalogu i dla każdej wyprowadzić role
    z narracji; brakujące role → bramki. Hero nie może się powtórzyć,
    więc **każda nowa fabuła to zwykle nowa bramka hero**.
-3. Kandydaci-zapas rozpoznani, ale niewykorzystani (patrz
+2. Kandydaci-zapas rozpoznani, ale niewykorzystani (patrz
    `docs/sources-and-licensing.md`): miecze, zombie, głosy wysiłku,
    metal/drewno, bagna, woda/plusk.
 

@@ -70,9 +70,19 @@ trafiają wtedy do raportu w czacie i ułatwiają właścicielowi werdykt.
 | Rola | Miara | Wartość „to brzmi jak…” |
 |---|---|---|
 | głos (hero) | udział pasma gardła 150–800 Hz | prawdziwy głos 41–66%, „głosik stwora” 4–22% (g007) |
-| **woda** | **udział poniżej 1 kHz + liczba skoków energii > 4 dB na sekundę** | **woda 67–81% i ≥1,5 zdarzenia/s; „wiatr” 13–36% i ~0 zdarzeń (g008 odrzucony, g009)** |
+| **woda** | ~~udział poniżej 1 kHz~~ — **miara obalona**, patrz niżej | prawdziwy strumień ma centroid 2836–3102 Hz i tylko 15–27% energii < 1 kHz (g011, przyjęty) |
 | tło ogólnie | wahanie RMS w podoknach 0,5 s | stabilne łoże < ~2,5 dB |
 | tło ogólnie | udział > 6 kHz | powyżej ~15% ucho słyszy syk/wiatr, nie materiał |
+
+**Uwaga: sito „im niżej, tym bardziej woda” było błędne.** Trzy rundy
+(g008–g010) strojono do progu > 65% energii poniżej 1 kHz. Przyjęte
+w g011 nagranie terenowe ma **15–27%** i centroid ~3 kHz — czyli wartości,
+które moje sito odrzucało jako „wiatr”. Prawdziwy strumień jest jasny;
+o naturalności decyduje mikrostruktura (tysiące drobnych, nieregularnych
+zdarzeń), której żadna z tych liczb nie mierzy. Wniosek: **dla teł żywiołów
+metryki służą wyłącznie do odsiewania wad technicznych** (rumble < 8%,
+brak mowy: modulacja obwiedni < 0,25, stabilność okna), a nie do oceny
+„czy to brzmi jak woda”. Tę ocenę robi ucho właściciela w bramce.
 
 **Żywioł rozpoznajemy po zdarzeniach, nie po nazwie pliku.** Nagranie
 podpisane „hot spring” było w istocie sykiem pary: szerokie pasmo, centroid
