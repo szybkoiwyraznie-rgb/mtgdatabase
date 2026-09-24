@@ -414,3 +414,16 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   fabułę przestworzy.
 - Wniosek techniczny: matcher cech wymaganych ignorował słowa <4 znaki
   (gubił „pęd/ryk/syk/huk") — naprawione (min. 3 znaki, resolver.py).
+
+## Zwiad freesound: klucz API ≠ OAuth2 (2026-09-24)
+
+- Objaw: wyszukiwanie działa, każde pobranie pada z HTTP 401.
+- Przyczyna: endpoint `/download` Freesound wymaga OAuth2; zwykły klucz
+  API autoryzuje tylko wyszukiwanie i previews. Pobieramy więc
+  `preview-hq-mp3` (~128 kbps — nasz docelowy bitrate i tak wynosi 128).
+- Przy okazji: archive.org łączy słowa domyślnym AND (wielosłowne
+  zapytania → zero trafień; scout ma teraz fallback z OR), a zapytania
+  zwiadu mają być krótkie i ogólne (2–3 słowa).
+- Diagnostyka: workflow commituje log porażki do
+  `legacy/source/sample_scout/error.log`, bo sandbox nie czyta logów
+  Actions.

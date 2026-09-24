@@ -142,15 +142,17 @@ def fetch_freesound(query: str, count: int, sort: str, token: str) -> list[dict]
     payload = json.loads(http_get(f"https://freesound.org/apiv2/search/text/?{params}", token))
     candidates: list[dict] = []
     for item in payload.get("results", []):
+        # Endpoint /download wymaga OAuth2 — zwykły klucz API dostaje HTTP 401
+        # (lekcja 2026-09-24). Klucz autoryzuje wyszukiwanie i previews, więc
+        # pobieramy preview-hq-mp3 (~128 kbps; i tak kodujemy 128 kbps).
         preview = (item.get("previews") or {}).get("preview-hq-mp3")
-        download = item.get("download") or preview
-        if not download or not is_cc0(item.get("license")):
+        if not preview or not is_cc0(item.get("license")):
             continue
         candidates.append({
             "source": "freesound",
             "source_id": str(item["id"]),
-            "download_url": download,
-            "retrieval": "original" if item.get("download") else "preview-hq-mp3",
+            "download_url": preview,
+            "retrieval": "preview-hq-mp3",
             "name": item.get("name", str(item["id"])),
             "author": item.get("username") or "unknown",
             "license": str(item["license"]),
@@ -201,6 +203,14 @@ def fetch_archiveorg(query: str, count: int, allow_unknown: bool = True) -> list
         # Prywatny, niekomercyjny użytek: materiał bez podanej licencji też jest
         # dopuszczony (decyzja właściciela), ale dopiero po wyczerpaniu wolnego.
         queries.append(f"({query}) AND mediatype:(audio)")
+    # Lucene archive.org łączy słowa domyślnym AND — wielosłowne zapytanie
+    # potrafi dać zero trafień (lekcja 2026-09-24). Dokładamy fallbacki z OR.
+    words = [w for w in re.split(r"\s+", query.strip()) if w]
+    if len(words) >= 3:
+        or_query = " OR ".join(words)
+        queries.append(f"({or_query}) AND mediatype:(audio) AND {licence_clause}")
+        if allow_unknown:
+            queries.append(f"({or_query}) AND mediatype:(audio)")
     seen: set[str] = set()
     candidates: list[dict] = []
     for lucene in queries:
