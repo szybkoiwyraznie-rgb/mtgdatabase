@@ -1,0 +1,208 @@
+{
+  "id": "g024",
+  "created": "2026-09-24",
+  "story_id": "222",
+  "note": "Runda 2 `mroczna` po odrzuceniu rundy 1 (g023). Diagnoza właściciela: rodzina organów trafiona, ale wykonanie b.1 brzmiało za wysoko i za solo; kierunek: organy ciemne i bardziej chorusowe. Kandydaci: pełna dyspozycja renesansowa (chorus), głośny pedał 16' (niskie tony), głos 8' (najciemniejszy flet). Fraza demo C2–C3 — realny dół. Typ woła 90 fabuł; tło fabuły 222 już w bazie (sea_storm_02, g023).",
+  "entries": [
+    {
+      "slug": "instr-mroczna",
+      "kind": "instruments",
+      "role": "jedyny klocek typu instrumentacji `mroczna` (90 fabuł; slot b fabuły 222)",
+      "candidates": [
+        {
+          "label": "z.1",
+          "title": "organy renesansowe — dyspozycja full",
+          "file": "candidates/b_renorgan_full_demo.mp3",
+          "desc": "pełna dyspozycja: kilka rzędów na jedną nutę — brzmi jak chór piszczałek; w dolnym rejestrze ciemna, posępna masa",
+          "source": "VCSL — CC0 (fraza demonstracyjna C2–C3, realny rejestr)",
+          "entry": {
+            "id": "b_renorgan_full",
+            "semantic": "pełny, wielorzędowy — organowy chorus, ciemny dołem",
+            "family": "aerophone-organ",
+            "samples": {
+              "24": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_C1_rr1.mp3",
+              "26": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_D1_rr1.mp3",
+              "28": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_E1_rr1.mp3",
+              "30": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_Fs1_rr1.mp3",
+              "32": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_Gs1_rr1.mp3",
+              "34": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_As1_rr1.mp3",
+              "36": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_C2_rr1.mp3",
+              "38": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_D2_rr1.mp3",
+              "40": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_E2_rr1.mp3",
+              "42": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_Fs2_rr1.mp3",
+              "44": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_Gs2_rr1.mp3",
+              "46": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_As2_rr1.mp3",
+              "48": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_C3_rr1.mp3",
+              "50": "audio/library/instruments/renorgan_full/b_renorgan_full_RenOrgan_Full_Room_D3_rr1.mp3"
+            },
+            "gate_sources": {
+              "24": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_C1_rr1.mp3",
+              "26": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_D1_rr1.mp3",
+              "28": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_E1_rr1.mp3",
+              "30": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_Fs1_rr1.mp3",
+              "32": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_Gs1_rr1.mp3",
+              "34": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_As1_rr1.mp3",
+              "36": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_C2_rr1.mp3",
+              "38": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_D2_rr1.mp3",
+              "40": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_E2_rr1.mp3",
+              "42": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_Fs2_rr1.mp3",
+              "44": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_Gs2_rr1.mp3",
+              "46": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_As2_rr1.mp3",
+              "48": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_C3_rr1.mp3",
+              "50": "instr_notes/b_renorgan_full_RenOrgan_Full_Room_D3_rr1.mp3"
+            },
+            "semantics": {
+              "type": "mroczna",
+              "traits": [
+                "ciemny",
+                "wielogłosowy",
+                "chorus",
+                "pełny"
+              ],
+              "bad_for": [
+                "jasny",
+                "solo",
+                "lekki",
+                "figlarny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "14 nut (≤C3); trim 5.0 s; RenOrgan_Full_Room, low bank C1–C3; demo C2–C3"
+            }
+          }
+        },
+        {
+          "label": "z.2",
+          "title": "głośny pedał organowy 16'",
+          "file": "candidates/b_organ_loudpedal_demo.mp3",
+          "desc": "najniższa manualia organów w głośnej dyspozycji — ciężki, zamulony fundament, którego b.1 nie dał",
+          "source": "VCSL — CC0 (fraza demonstracyjna C2–C3, realny rejestr)",
+          "entry": {
+            "id": "b_organ_loudpedal",
+            "semantic": "ciężki 16-stopowy fundament — dudniące niskie tony",
+            "family": "aerophone-organ",
+            "samples": {
+              "24": "audio/library/instruments/organ_loudpedal/b_organ_loudpedal_Rode_Pedal_C1.mp3",
+              "27": "audio/library/instruments/organ_loudpedal/b_organ_loudpedal_Rode_Pedal_Ds1.mp3",
+              "30": "audio/library/instruments/organ_loudpedal/b_organ_loudpedal_Rode_Pedal_Fs1.mp3",
+              "33": "audio/library/instruments/organ_loudpedal/b_organ_loudpedal_Rode_Pedal_A1.mp3",
+              "36": "audio/library/instruments/organ_loudpedal/b_organ_loudpedal_Rode_Pedal_C2.mp3",
+              "39": "audio/library/instruments/organ_loudpedal/b_organ_loudpedal_Rode_Pedal_Ds2.mp3",
+              "42": "audio/library/instruments/organ_loudpedal/b_organ_loudpedal_Rode_Pedal_Fs2.mp3",
+              "45": "audio/library/instruments/organ_loudpedal/b_organ_loudpedal_Rode_Pedal_A2.mp3",
+              "48": "audio/library/instruments/organ_loudpedal/b_organ_loudpedal_Rode_Pedal_C3.mp3",
+              "51": "audio/library/instruments/organ_loudpedal/b_organ_loudpedal_Rode_Pedal_Ds3.mp3"
+            },
+            "gate_sources": {
+              "24": "instr_notes/b_organ_loudpedal_Rode_Pedal_C1.mp3",
+              "27": "instr_notes/b_organ_loudpedal_Rode_Pedal_Ds1.mp3",
+              "30": "instr_notes/b_organ_loudpedal_Rode_Pedal_Fs1.mp3",
+              "33": "instr_notes/b_organ_loudpedal_Rode_Pedal_A1.mp3",
+              "36": "instr_notes/b_organ_loudpedal_Rode_Pedal_C2.mp3",
+              "39": "instr_notes/b_organ_loudpedal_Rode_Pedal_Ds2.mp3",
+              "42": "instr_notes/b_organ_loudpedal_Rode_Pedal_Fs2.mp3",
+              "45": "instr_notes/b_organ_loudpedal_Rode_Pedal_A2.mp3",
+              "48": "instr_notes/b_organ_loudpedal_Rode_Pedal_C3.mp3",
+              "51": "instr_notes/b_organ_loudpedal_Rode_Pedal_Ds3.mp3"
+            },
+            "semantics": {
+              "type": "mroczna",
+              "traits": [
+                "ciemny",
+                "bardzo niski",
+                "dudniący",
+                "ciężki"
+              ],
+              "bad_for": [
+                "jasny",
+                "wysoki",
+                "lekki",
+                "staccato"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "10 nut (≤C3); trim 8.0 s; Rode_Pedal (loud), low bank C1–D#3; demo C1–C2"
+            }
+          }
+        },
+        {
+          "label": "z.3",
+          "title": "organy renesansowe — głos 8'",
+          "file": "candidates/b_renorgan_8_demo.mp3",
+          "desc": "pojedynczy ciemny głos fletowy — przygaszony, głuchy, najbardziej szary z organowych kandydatów",
+          "source": "VCSL — CC0 (fraza demonstracyjna C2–C3, realny rejestr)",
+          "entry": {
+            "id": "b_renorgan_8",
+            "semantic": "ciemny, fleciasty, przygaszony — 66-72% energii < 250 Hz",
+            "family": "aerophone-organ",
+            "samples": {
+              "24": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_C1_rr1.mp3",
+              "26": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_D1_rr1.mp3",
+              "28": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_E1_rr1.mp3",
+              "30": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_Fs1_rr1.mp3",
+              "32": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_Gs1_rr1.mp3",
+              "34": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_As1_rr1.mp3",
+              "36": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_C2_rr1.mp3",
+              "38": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_D2_rr1.mp3",
+              "40": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_E2_rr1.mp3",
+              "42": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_Fs2_rr1.mp3",
+              "44": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_Gs2_rr1.mp3",
+              "46": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_As2_rr1.mp3",
+              "48": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_C3_rr1.mp3",
+              "50": "audio/library/instruments/renorgan_8/b_renorgan_8_RenOrgan_8foot_Room_D3_rr1.mp3"
+            },
+            "gate_sources": {
+              "24": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_C1_rr1.mp3",
+              "26": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_D1_rr1.mp3",
+              "28": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_E1_rr1.mp3",
+              "30": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_Fs1_rr1.mp3",
+              "32": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_Gs1_rr1.mp3",
+              "34": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_As1_rr1.mp3",
+              "36": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_C2_rr1.mp3",
+              "38": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_D2_rr1.mp3",
+              "40": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_E2_rr1.mp3",
+              "42": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_Fs2_rr1.mp3",
+              "44": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_Gs2_rr1.mp3",
+              "46": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_As2_rr1.mp3",
+              "48": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_C3_rr1.mp3",
+              "50": "instr_notes/b_renorgan_8_RenOrgan_8foot_Room_D3_rr1.mp3"
+            },
+            "semantics": {
+              "type": "mroczna",
+              "traits": [
+                "ciemny",
+                "fleciasty",
+                "przygaszony",
+                "głuchy"
+              ],
+              "bad_for": [
+                "jasny",
+                "srebrzysty",
+                "skowany",
+                "figlarny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "14 nut (≤C3); trim 6.0 s; RenOrgan_8foot_Room, low bank C1–C3; demo C1–C2"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

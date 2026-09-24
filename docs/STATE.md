@@ -13,8 +13,9 @@ Ostatnia aktualizacja: **2026-09-24** (sesja `arena/01a0d3b8-mtgdatabase`).
 - Baza klocków: **32 wpisy** (`library_tool.py check`: 8 tła / 12 hero /
   6 instrumentów / 6 gestów), wszystkie z `semantics` (1:1, taksonomia v6).
 - Bramki rozegrane: **g001–g022** z werdyktami (g014 wycofana — archiwum).
-- Bramka **otwarta: g023** (fabuła 222 Maritime Guard; tło `morze-wybrzeze`
-  ×4 kandydatów + instrument `mroczna` ×3) — czeka na werdykt właściciela.
+- Bramki: **g023 zamknięta** (morze-wybrzeze = m.2 → `sea_storm_02` w bazie, 33 klocki;
+  instr-mroczna „żaden” z diagnozą) i **g024 OTWARTA** (runda 2 `mroczna`:
+  organy full / pedał 16' / głos 8', demo z niskiej oktawy) — czeka na werdykt.
 
 ## Gotowe fabuły
 
@@ -51,13 +52,12 @@ lekcja w LESSONS o ogonie hero maskującym nuty kody).
 
 ## W toku
 
-**Bramka g023 czeka na werdykt** (7 kandydatów: `m.1–m.4` morze-wybrzeze,
-`b.1–b.3` instr-mroczna). Po werdykcie: `library_tool.py accept --gate g023`,
-receptura 222 (obsada resolvera: `morze-wybrzeze` + stealth_move_03 +
-g6c_sentry_return + `<wybrany mroczna>`), render `--audit`, raport.
-Ten sam duet braków (morze + mroczna) ma też fabuła 28 (Kraken's Eye) —
-po g023 resolver obsadzi ją bez nowej bramki (hero fala-rozbryzg od g022
-jest już w bazie: wave_crash_03).
+**Bramka g024 czeka na werdykt** (z.1–z.3 instr-mroczna).
+Po werdykcie: `library_tool.py accept --gate g024`, receptura 222
+(obsada resolvera: sea_storm_02 + stealth_move_03 + g6c_sentry_return +
+`<wybrany mroczna>`), render `--audit`, raport. Diagnoza z g023: organy tak,
+ale ciemno i chorusowo — runda 2 trzyma się organów w niskiej oktawie.
+Werdykt g023: tło = m.2 (sea_storm_02 w bazie).
 
 Przebudowa semantyczna (ADR 0006) ZAMKNIĘĄ: Etapy 0–4 wykonane,
 taksonomia v6 zamrożona, resolver produkcyjny. Bieżąca faza to **Etap 5 =
