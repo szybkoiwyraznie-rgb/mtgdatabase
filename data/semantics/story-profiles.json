@@ -9531,6 +9531,946 @@
           "napięty"
         ]
       }
+    },
+    "300": {
+      "title": "Gila Courser",
+      "background": {
+        "opis": "Czerwone kaniony w słońcu — para portalu, daleki pociąg, otwarta równina",
+        "cechy": [
+          "czerwone kaniony",
+          "otwarta równina",
+          "para portalu",
+          "daleki pociąg"
+        ]
+      },
+      "hero": {
+        "opis": "Jaszczur biegacz odbija się od skał — szybki tupot pazurów, wzbijany kurz, pęd wyścigu",
+        "cechy": [
+          "tupot pazurów",
+          "odbicia od skały",
+          "wzbijany kurz",
+          "pęd wyścigu"
+        ]
+      },
+      "mood": {
+        "opis": "Wyścig o szansę za zakrętem",
+        "cechy": [
+          "pośpiech",
+          "brawura",
+          "nadzieja kuriera"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Szybko, sucho, dynamicznie",
+        "cechy": [
+          "szybki",
+          "suchy",
+          "dynamiczny"
+        ]
+      }
+    },
+    "301": {
+      "title": "Guildscorn Ward",
+      "background": {
+        "opis": "Zaułek dzielnicy bezgildyjnych — miejski gwar w tle, mur ze świeżym graffiti",
+        "cechy": [
+          "miejski zaułek",
+          "gwar w tle",
+          "mur z graffiti",
+          "napięcie ulicy"
+        ]
+      },
+      "hero": {
+        "opis": "Biała poświata odpycha patrol jak niewidzialna tarcza — cichy rozbłysk ochrony",
+        "cechy": [
+          "odpychający rozbłysk",
+          "niewidzialna tarcza",
+          "cofający się patrol",
+          "spokojnie wstający pies"
+        ]
+      },
+      "mood": {
+        "opis": "Bezbarwna ochrona wykluczonych",
+        "cechy": [
+          "cicha rebelia",
+          "ochrona słabszych",
+          "godność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Czysto, spokojnie, jasno",
+        "cechy": [
+          "czysty",
+          "spokojny",
+          "jasny"
+        ]
+      }
+    },
+    "302": {
+      "title": "Curate",
+      "background": {
+        "opis": "Górna czytelnia wielkiej biblioteki — cisza, szelest zwojów, drewniane stoły",
+        "cechy": [
+          "czytelnia biblioteki",
+          "cisza nauki",
+          "szelest zwojów",
+          "dębowe stoły"
+        ]
+      },
+      "hero": {
+        "opis": "Obracanie artefaktów w dłoniach — stuknięcia przedmiotów o blat, odsuwane zwoje",
+        "cechy": [
+          "stuknięcia przedmiotów",
+          "obracanie sfery",
+          "odsuwane zwoje",
+          "westchnienie zawodu"
+        ]
+      },
+      "mood": {
+        "opis": "Ciekawość w porządkowaniu wiedzy — nawet pomyłka ma sens",
+        "cechy": [
+          "ciekawość",
+          "porządkowanie",
+          "cierpliwa uczoność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, drobno, ciepło",
+        "cechy": [
+          "cichy",
+          "drobny",
+          "ciepły"
+        ]
+      }
+    },
+    "303": {
+      "title": "Blanchwood Prowler",
+      "background": {
+        "opis": "Wąski korytarz pradawnego lasu — zielony półmrok, mgła między korzeniami",
+        "cechy": [
+          "korytarz lasu",
+          "zielony półmrok",
+          "mgła",
+          "olbrzymie korzenie"
+        ]
+      },
+      "hero": {
+        "opis": "Mały elemental z mchu przeciska się śladem intruza — mokre organiczne pełznięcie",
+        "cechy": [
+          "mokre pełznięcie",
+          "szelest pnączy",
+          "tropienie śladów",
+          "przeciskanie przez szczelinę"
+        ]
+      },
+      "mood": {
+        "opis": "Las pamięta, kto go zranił — cierpliwe śledzenie",
+        "cechy": [
+          "pamięć lasu",
+          "czujne tropienie",
+          "cicha zapowiedź"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, cicho, wilgotno",
+        "cechy": [
+          "organiczny",
+          "cichy",
+          "mokry"
+        ]
+      }
+    },
+    "304": {
+      "title": "Sagittars' Volley",
+      "background": {
+        "opis": "Taras treningowy pod koroną drzewa-miasta — wysokość, wiatr w gałęziach",
+        "cechy": [
+          "taras treningowy",
+          "korona drzewa-miasta",
+          "wiatr w gałęziach",
+          "widok na iglice"
+        ]
+      },
+      "hero": {
+        "opis": "Zsynchronizowane puszczenie cięciw — drżenie strun i świst wznoszącej się salwy strzał",
+        "cechy": [
+          "drżenie cięciw",
+          "świst salwy",
+          "zsynchronizowany strzał",
+          "opadające strzały"
+        ],
+        "wymagane": [
+          "świst salwy"
+        ]
+      },
+      "mood": {
+        "opis": "Osłona wspólnoty — celowanie pamięcią, nie okiem",
+        "cechy": [
+          "obrona wspólnoty",
+          "harmonia",
+          "precyzja wiary"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dźwięcznie, zwinne, zestrojone",
+        "cechy": [
+          "dźwięczny",
+          "zwinny",
+          "zestrojony"
+        ]
+      }
+    },
+    "305": {
+      "title": "Illusory Demon",
+      "background": {
+        "opis": "Wirująca burza mgły i światła — bezkresna kolorowa otchłań z odłamkami skał",
+        "cechy": [
+          "wirująca burza",
+          "kolorowa otchłań",
+          "unoszące się odłamki",
+          "bezkres"
+        ]
+      },
+      "hero": {
+        "opis": "Demon z cienia rozpada się na świetliste drobiny — nietrwała obecność błędu światła",
+        "cechy": [
+          "rozpad na drobiny",
+          "skrzydła z cienia",
+          "migotanie krawędzi",
+          "nietrwała obecność"
+        ]
+      },
+      "mood": {
+        "opis": "Złudzenie groźby — pokonany może wrócić za chwilę",
+        "cechy": [
+          "złudzenie",
+          "niepewność",
+          "widmowość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Eterycznie, wirująco, niepokojąco",
+        "cechy": [
+          "eteryczny",
+          "wirujący",
+          "niepokojący"
+        ]
+      }
+    },
+    "306": {
+      "title": "Mysteries of the Deep",
+      "background": {
+        "opis": "Cofająca się woda odsłania dno — mokry piasek, krążący ptak morski",
+        "cechy": [
+          "cofająca się woda",
+          "mokry piasek",
+          "krzyk ptaka morskiego",
+          "odsłonięte dno"
+        ]
+      },
+      "hero": {
+        "opis": "Klęknięcie przy pulsującym kamieniu — odciskanie run na woskowej tabliczce",
+        "cechy": [
+          "puls many w kamieniu",
+          "odciskanie run",
+          "brodzenie",
+          "mapa tajemnic"
+        ]
+      },
+      "mood": {
+        "opis": "Zniszczenie prowadzi do ukrytych skarbów",
+        "cechy": [
+          "odkrycie",
+          "cierpliwa uczoność",
+          "tajemnica głębin"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, spokojnie, tajemniczo",
+        "cechy": [
+          "mokry",
+          "spokojny",
+          "tajemniczy"
+        ]
+      }
+    },
+    "307": {
+      "title": "Jyoti, Moag Ancient",
+      "background": {
+        "opis": "Prastare ostępy puszczy — kaskady źródlanej wody ze spękanej kory, głęboka zieleń",
+        "cechy": [
+          "prastara puszcza",
+          "kaskady źródła",
+          "głęboka zieleń",
+          "życiodajna wilgoć"
+        ]
+      },
+      "hero": {
+        "opis": "Powolny gest omszałego ramienia budzi las — chrzęst wyrywanych korzeni huornów",
+        "cechy": [
+          "chrzęst wyrywanych korzeni",
+          "powolny gest olbrzyma",
+          "budzący się las",
+          "skrzypienie konarów"
+        ],
+        "wymagane": [
+          "chrzęst wyrywanych korzeni"
+        ]
+      },
+      "mood": {
+        "opis": "Majestat pradawnego strażnika prowadzącego las",
+        "cechy": [
+          "majestat",
+          "pradawność",
+          "zbiorowa siła lasu"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, potężnie, dostojnie",
+        "cechy": [
+          "organiczny",
+          "potężny",
+          "dostojny"
+        ]
+      }
+    },
+    "308": {
+      "title": "Greatsword of Tyr",
+      "background": {
+        "opis": "Wysoka kamienna kaplica w chłodnym białym świetle — cisza sanktuarium",
+        "cechy": [
+          "kamienna kaplica",
+          "chłodne światło",
+          "cisza sanktuarium",
+          "heraldyczna tkanina"
+        ]
+      },
+      "hero": {
+        "opis": "Relikwia czeka na właściwą dłoń — cichy rezonans ostrza w nieruchomym powietrzu",
+        "cechy": [
+          "cichy rezonans ostrza",
+          "czekająca relikwia",
+          "nieruchome powietrze",
+          "święty ciężar"
+        ]
+      },
+      "mood": {
+        "opis": "Cierpliwa świętość — pokolenia oczekiwania",
+        "cechy": [
+          "świętość",
+          "oczekiwanie",
+          "sprawiedliwość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Zimno, dostojnie, cicho",
+        "cechy": [
+          "zimny",
+          "dostojny",
+          "cichy"
+        ]
+      }
+    },
+    "309": {
+      "title": "Civilized Scholar",
+      "background": {
+        "opis": "Nocny gabinet uczonego — mgła z portu wpełza przez witraż, skrzypienie pióra",
+        "cechy": [
+          "nocny gabinet",
+          "mgła z portu",
+          "skrzypienie pióra",
+          "stosy traktatów"
+        ]
+      },
+      "hero": {
+        "opis": "W lustrze odbija się cień bestii, atrament rozlewa się z przewróconego kałamarza",
+        "cechy": [
+          "odbicie w lustrze",
+          "rozlany atrament",
+          "notowanie mimo grozy",
+          "czający się cień"
+        ]
+      },
+      "mood": {
+        "opis": "Ukryta bestia pod opanowaniem uczonego",
+        "cechy": [
+          "podwójna natura",
+          "tłumiony gniew",
+          "niepokój"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, ciemno, napięcie",
+        "cechy": [
+          "cichy",
+          "ciemny",
+          "napięty"
+        ]
+      }
+    },
+    "310": {
+      "title": "Chatter of the Squirrel",
+      "background": {
+        "opis": "Skraj gęstego lasu — podszycie, ukryci obserwatorzy, granica puszczy",
+        "cechy": [
+          "skraj lasu",
+          "szelest podszycia",
+          "ukryci druidzi",
+          "granica puszczy"
+        ]
+      },
+      "hero": {
+        "opis": "Ostry terkot wiewiórki i odpowiedź drugiej — zwierzęcy alarm broniący granic lasu",
+        "cechy": [
+          "terkot wiewiórki",
+          "odpowiedź z podszycia",
+          "zwierzęcy alarm",
+          "echo szaleństwa"
+        ],
+        "wymagane": [
+          "terkot wiewiórki"
+        ]
+      },
+      "mood": {
+        "opis": "Las mówi ostrzeżeniem — natura zmieniona, ale czujna",
+        "cechy": [
+          "czujność natury",
+          "ostrzeżenie",
+          "niespokojna dzikość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Drobno, ostro, ruchliwie",
+        "cechy": [
+          "drobny",
+          "ostry",
+          "ruchliwy"
+        ]
+      }
+    },
+    "311": {
+      "title": "Guildsworn Prowler",
+      "background": {
+        "opis": "Zaułek za tawerną — wilgotny mur, wybuchająca bójka za ścianą, gwar izby",
+        "cechy": [
+          "zaułek za tawerną",
+          "odgłosy bójki",
+          "wilgotny mur",
+          "nocne miasto"
+        ]
+      },
+      "hero": {
+        "opis": "Sprowokowana awantura i pergamin upuszczony do rynny — gra cieni gildii",
+        "cechy": [
+          "przewrócony kufel",
+          "upuszczony pergamin",
+          "dobyta halabarda",
+          "wyrachowany spokój"
+        ]
+      },
+      "mood": {
+        "opis": "Zimna gra — nawet śmierć jest kartą",
+        "cechy": [
+          "intryga",
+          "wyrachowanie",
+          "cień gildii"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, nerwowo, chytrze",
+        "cechy": [
+          "ciemny",
+          "nerwowy",
+          "chytry"
+        ]
+      }
+    },
+    "312": {
+      "title": "Goblin Battle Jester",
+      "background": {
+        "opis": "Skalna półka nad pustym wąwozem — echo kanionu, wiatr w skałach",
+        "cechy": [
+          "skalna półka",
+          "echo wąwozu",
+          "wiatr w skałach",
+          "otwarta przepaść"
+        ]
+      },
+      "hero": {
+        "opis": "Trefniś tańczy i wygłupia się na krawędzi — prowokacyjne podskoki, brzęk kościanych ochraniaczy",
+        "cechy": [
+          "prowokacyjne podskoki",
+          "brzęk kościanych ozdób",
+          "szyderczy chichot",
+          "taniec na krawędzi"
+        ]
+      },
+      "mood": {
+        "opis": "Absurdalna dywersja — nikt nie trafi w to, co tak tańczy",
+        "cechy": [
+          "absurd",
+          "dywersja",
+          "zaczepny humor"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Skocznie, koślawo, zaczepnie",
+        "cechy": [
+          "skoczny",
+          "niezgrabny",
+          "zaczepny"
+        ]
+      }
+    },
+    "313": {
+      "title": "Faceless Butcher",
+      "background": {
+        "opis": "Organiczne pustkowie koszmarów — faliste cieliste wydmy, obca martwa cisza",
+        "cechy": [
+          "pustkowie koszmarów",
+          "cieliste wydmy",
+          "obca cisza",
+          "skręcone formy"
+        ]
+      },
+      "hero": {
+        "opis": "Chitynowe kroki wielonożnej istoty — wchłanianie cudzych rysów w bezrysową twarz",
+        "cechy": [
+          "chitynowe kroki",
+          "wchłanianie rysów",
+          "sierpowate dłonie",
+          "bezgłośne zastąpienie"
+        ]
+      },
+      "mood": {
+        "opis": "Cichy horror zastąpienia — nikt nie zauważy zniknięcia",
+        "cechy": [
+          "horror zastąpienia",
+          "obcość",
+          "pełzający lęk"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Obco, cienko, złowrogo",
+        "cechy": [
+          "obcy",
+          "cienki",
+          "złowrogi"
+        ]
+      }
+    },
+    "314": {
+      "title": "Revolutionist",
+      "background": {
+        "opis": "Zrujnowana podziemna biblioteka — przewrócone regały, wirujące kartki",
+        "cechy": [
+          "zrujnowana biblioteka",
+          "wirujące kartki",
+          "przewrócone regały",
+          "podziemny pogłos"
+        ]
+      },
+      "hero": {
+        "opis": "Gorączkowe rozrzucanie stron i rozbłysk ognistej runy — chaos jako paliwo",
+        "cechy": [
+          "gorączkowe kartkowanie",
+          "rozrzucane strony",
+          "rozbłysk runy",
+          "spirale papieru"
+        ]
+      },
+      "mood": {
+        "opis": "Anarchiczna gorączka — wyrwać z ruin tylko to, co spali system",
+        "cechy": [
+          "anarchia",
+          "gorączka",
+          "buntownicza energia"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ruchliwie, chaotycznie, ostro",
+        "cechy": [
+          "ruchliwy",
+          "chaotyczny",
+          "ostry"
+        ]
+      }
+    },
+    "315": {
+      "title": "Chronic Flooding",
+      "background": {
+        "opis": "Zalana miejska ulica — strumień z pękniętego kanału, woda niosąca księgi",
+        "cechy": [
+          "zalana ulica",
+          "strumień z kanału",
+          "pływające księgi",
+          "miejska awaria"
+        ]
+      },
+      "hero": {
+        "opis": "Brodzenie z naręczami ksiąg przez sięgającą kolan wodę — ratowanie zapisków przed rozmyciem",
+        "cechy": [
+          "brodzenie w wodzie",
+          "ochlapywane księgi",
+          "pospieszna ewakuacja",
+          "rozmywane zapiski"
+        ]
+      },
+      "mood": {
+        "opis": "Strata pod okiem cichego obserwatora — woda zapomina szybciej niż człowiek",
+        "cechy": [
+          "strata",
+          "pośpiech ratunku",
+          "ukryty zysk cudzy"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, niespokojnie, przyziemnie",
+        "cechy": [
+          "mokry",
+          "niespokojny",
+          "przyziemny"
+        ]
+      }
+    },
+    "316": {
+      "title": "Wormfang Newt",
+      "background": {
+        "opis": "Jesienna polana w złotych liściach — spokojny las przed zniknięciem kawałka świata",
+        "cechy": [
+          "jesienna polana",
+          "złote liście",
+          "spokojny las",
+          "cisza przed anomalią"
+        ]
+      },
+      "hero": {
+        "opis": "Falująca szczelina wciąga fragment polany — trzeszczące zaginanie przestrzeni",
+        "cechy": [
+          "wciąganie terenu",
+          "zaginanie przestrzeni",
+          "migoczący kontur",
+          "pożeranie miejsca"
+        ]
+      },
+      "mood": {
+        "opis": "Niesamowitość utraty miejsca — świat mniejszy niż rano",
+        "cechy": [
+          "niesamowitość",
+          "utrata",
+          "cichy niepokój"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Obco, falująco, niepokojąco",
+        "cechy": [
+          "obcy",
+          "falujący",
+          "niepokojący"
+        ]
+      }
+    },
+    "317": {
+      "title": "Village Bell-Ringer",
+      "background": {
+        "opis": "Drewniana dzwonnica o mglistym zmierzchu — skrzypienie belek, wioska w dole",
+        "cechy": [
+          "drewniana dzwonnica",
+          "mglisty zmierzch",
+          "skrzypienie belek",
+          "wioska w dole"
+        ]
+      },
+      "hero": {
+        "opis": "Szarpanie liny wielkiego dzwonu — bicie na alarm zwołujące mieszkańców do broni",
+        "cechy": [
+          "bicie dzwonu na alarm",
+          "napięta lina",
+          "wysiłek dzwonnika",
+          "wychodzący mieszkańcy"
+        ],
+        "wymagane": [
+          "bicie dzwonu na alarm"
+        ]
+      },
+      "mood": {
+        "opis": "Alarm, który ocala próg — siła na jeszcze jedno uderzenie",
+        "cechy": [
+          "mobilizacja",
+          "desperacka nadzieja",
+          "wspólnota w zagrożeniu"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dzwonnie, naglące, surowo",
+        "cechy": [
+          "dzwonny",
+          "naglący",
+          "surowy"
+        ]
+      }
+    },
+    "318": {
+      "title": "Gond Gate",
+      "background": {
+        "opis": "Miejska brama z mechanizmami — miarowy ruch kół zębatych i przeciwwag w kamieniu",
+        "cechy": [
+          "mechaniczna brama",
+          "koła zębate",
+          "przeciwwagi",
+          "miejskie przedbramie"
+        ]
+      },
+      "hero": {
+        "opis": "Wrota otwierają się same — zgrzyt cięgien, syk rur i powolny obrót mechanizmu",
+        "cechy": [
+          "zgrzyt cięgien",
+          "powolny obrót wrót",
+          "syk rur",
+          "mechanizm oceniający godnych"
+        ]
+      },
+      "mood": {
+        "opis": "Cud rzemiosła — mechanizm, który sam wybiera",
+        "cechy": [
+          "podziw rzemiosła",
+          "tajemnica mechanizmu",
+          "dostojność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Metalicznie, miarowo, dostojnie",
+        "cechy": [
+          "metaliczny",
+          "miarowy",
+          "dostojny"
+        ]
+      }
+    },
+    "319": {
+      "title": "Call the Mountain Chocobo",
+      "background": {
+        "opis": "Górska przełęcz między poszarpanymi skałami — wiatr wysokości, sypki żwir",
+        "cechy": [
+          "górska przełęcz",
+          "wiatr wysokości",
+          "sypki żwir",
+          "strome skały"
+        ]
+      },
+      "hero": {
+        "opis": "Zielony ptak skacze ze stopnia na stopień — energiczne wyskoki, wzbijany żwir, gwizd przywołania",
+        "cechy": [
+          "energiczne skoki",
+          "wzbijany żwir",
+          "gwizd przywołania",
+          "pęd po skałach"
+        ]
+      },
+      "mood": {
+        "opis": "Radość drogi, której nikt inny nie zna",
+        "cechy": [
+          "radość drogi",
+          "przygoda",
+          "zaufanie zwierzęcia"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Skocznie, lekko, pogodnie",
+        "cechy": [
+          "skoczny",
+          "lekki",
+          "pogodny"
+        ]
+      }
+    },
+    "320": {
+      "title": "Infectious Horror",
+      "background": {
+        "opis": "Kościane wydmy po bitwie — martwe pole, suchy pył, cofający się nekromanci",
+        "cechy": [
+          "kościane wydmy",
+          "martwe pole",
+          "suchy pył",
+          "pobojowisko"
+        ]
+      },
+      "hero": {
+        "opis": "Zielonkawa para wypływa ze szczelin trzech głów — sącząca się słabość odbierająca siły",
+        "cechy": [
+          "sącząca się para",
+          "otwierające się szczeliny",
+          "odbieranie sił",
+          "unoszenie się nad polem"
+        ]
+      },
+      "mood": {
+        "opis": "Życie jako waluta nieumarłych",
+        "cechy": [
+          "wyniszczenie",
+          "nieumarła groza",
+          "beznadzieja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Duszno, sucho, złowrogo",
+        "cechy": [
+          "duszny",
+          "suchy",
+          "złowrogi"
+        ]
+      }
+    },
+    "321": {
+      "title": "Ainok Artillerist",
+      "background": {
+        "opis": "Obóz wojenny po zmianie czasu — machiny z drewna świętych gajów, step w tle",
+        "cechy": [
+          "obóz wojenny",
+          "machiny oblężnicze",
+          "stepowy wiatr",
+          "święte drewno"
+        ]
+      },
+      "hero": {
+        "opis": "Obsługa balisty — skrzyp naciąganego drewna i trzask zwalnianego ramienia",
+        "cechy": [
+          "skrzyp naciągu",
+          "trzask zwolnienia",
+          "obsługa machiny",
+          "strzał w niebo"
+        ]
+      },
+      "mood": {
+        "opis": "Gorzka służba — świętość przekuta w broń",
+        "cechy": [
+          "gorycz zmiany",
+          "służba",
+          "utracona tradycja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Drewnianie, napięcie, twardo",
+        "cechy": [
+          "drewniany",
+          "napięty",
+          "twardy"
+        ]
+      }
+    },
+    "322": {
+      "title": "Satyr Wayfinder",
+      "background": {
+        "opis": "Poranek po nocnej hulance — śpiący satyrowie, cisza po zabawie",
+        "cechy": [
+          "poranek po hulance",
+          "śpiący towarzysze",
+          "leśna cisza",
+          "resztki zabawy"
+        ]
+      },
+      "hero": {
+        "opis": "Rozgarnianie ziemi i wybór jednego znaku — szelest mapy, odrzucone tropy w cień",
+        "cechy": [
+          "rozgarnianie ziemi",
+          "szelest mapy",
+          "wybór znaku",
+          "odrzucone tropy"
+        ]
+      },
+      "mood": {
+        "opis": "Przewodnik wybiera ścieżkę — reszta w cień",
+        "cechy": [
+          "wybór drogi",
+          "odpowiedzialność",
+          "poranna przytomność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, sucho, skupienie",
+        "cechy": [
+          "cichy",
+          "suchy",
+          "skupiony"
+        ]
+      }
+    },
+    "326": {
+      "title": "Bone Shredder",
+      "background": {
+        "opis": "Metalowe kotły i piece podziemi — prądy gorącego powietrza z rdzenia, echo ścian",
+        "cechy": [
+          "metalowe podziemia",
+          "prądy z rdzenia",
+          "echo ścian",
+          "żar pieców"
+        ]
+      },
+      "hero": {
+        "opis": "Maszyna na błonach opada z fragmentem w chwytaku — łopot błon i metaliczne echo obecności",
+        "cechy": [
+          "łopot błon",
+          "zacisk chwytaka",
+          "opadanie",
+          "metaliczne echo"
+        ]
+      },
+      "mood": {
+        "opis": "Bezduszna selekcja — usuwanie nienaznaczonych",
+        "cechy": [
+          "bezduszność",
+          "selekcja",
+          "mechaniczna groza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Metalicznie, ciemno, chłodno",
+        "cechy": [
+          "metaliczny",
+          "ciemny",
+          "chłodny"
+        ]
+      }
+    },
+    "330": {
+      "title": "Invasion of the Giants",
+      "background": {
+        "opis": "Równina pod otwierającym się portalem — drżąca ziemia, mroźny wiatr rubieży",
+        "cechy": [
+          "otwierający się portal",
+          "drżąca ziemia",
+          "mroźny wiatr",
+          "równina klanów"
+        ]
+      },
+      "hero": {
+        "opis": "Olbrzymy wkraczają na równinę — wstrząsające stąpnięcia i zbierane tarcze klanu",
+        "cechy": [
+          "stąpnięcia olbrzymów",
+          "zbierane tarcze",
+          "wkraczająca inwazja",
+          "okrzyki klanu"
+        ],
+        "wymagane": [
+          "stąpnięcia olbrzymów"
+        ]
+      },
+      "mood": {
+        "opis": "Saga się zaczyna — starcie zapisane w pieśni",
+        "cechy": [
+          "epicka groza",
+          "mobilizacja",
+          "materia sagi"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Potężnie, dudniąco, epicko",
+        "cechy": [
+          "potężny",
+          "dudniący",
+          "epicki"
+        ]
+      }
     }
   }
 }
