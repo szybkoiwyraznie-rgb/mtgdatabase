@@ -50,7 +50,10 @@ def test_freesound_filter_and_ranking() -> None:
         scout.http_get = old_get
     check("Freesound retains only CC0", [item["source_id"] for item in results] == ["2", "1"])
     check("Freesound preserves community metrics", results[0]["num_ratings"] == 1 and results[1]["downloads"] == 100)
-    check("Freesound prefers the authenticated original", results[0]["download_url"] == "https://api/2/download/" and results[0]["retrieval"] == "original")
+    # Lekcja 2026-09-24: /download wymaga OAuth2 (klucz API dostaje HTTP 401),
+    # więc pobieramy zawsze preview-hq-mp3 — nigdy pole `download`.
+    check("Freesound pobiera preview-hq-mp3 (nie /download)",
+          results[0]["download_url"] == "https://cdn/2" and results[0]["retrieval"] == "preview-hq-mp3")
 
 
 def test_archive_accepts_vbr_mp3() -> None:
