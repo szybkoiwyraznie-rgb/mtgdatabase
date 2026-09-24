@@ -1,0 +1,267 @@
+{
+  "id": "g017",
+  "created": "2026-09-24",
+  "note": "Etap 5. Dwa jedyne klocki hero w jednej rundzie werdyktów: rozblysk-swiatla (domyka 23) i skradanie-cisza (domyka 166 i 519). Kandydaci pod definicje typów.",
+  "entries": [
+    {
+      "slug": "rozblysk-swiatla",
+      "kind": "heroes",
+      "role": "jedyny klocek typu `rozblysk-swiatla` (domyka fabułę 23; woła ~25 fabuł)",
+      "candidates": [
+        {
+          "label": "c.1",
+          "title": "wznosząca kaskada dzwonków",
+          "file": "candidates/c_chimes_asc.mp3",
+          "desc": "dzwonki wiatrowe wznoszą się kaskadą — światło rozlewa się w górę",
+          "source": "Versilian Community Sample Library (VCSL)",
+          "entry": {
+            "id": "light_bloom_01",
+            "role": "narastający świetlisty rozbłysk",
+            "character": "wznoszący, migotliwy",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 3.5,
+            "desc": "dzwonki wiatrowe wznoszą się kaskadą — światło rozlewa się w górę",
+            "good_for": "magiczne ujawnienie, aura światła, promień, uświęcenie",
+            "bad_for": "mroczne zaklęcia, eksplozje, naturalistyczna fauna",
+            "file": "audio/library/heroes/light_bloom_01.mp3",
+            "semantics": {
+              "type": "rozblysk-swiatla",
+              "traits": [
+                "narastający",
+                "jasny",
+                "dzwoniący",
+                "kaskadowy"
+              ],
+              "bad_for": [
+                "mroczny",
+                "ciężki",
+                "perkusyjny huk"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Mark Trees windchimes_asc1, pierwsze 3.5 s; poziom, fade — bez pitchowania"
+            }
+          }
+        },
+        {
+          "label": "c.2",
+          "title": "pociągnięcie drzewka dzwonków",
+          "file": "candidates/c_belltree.mp3",
+          "desc": "jedno płynne pociągnięcie drzewka dzwonków — snop światła w jednym geście",
+          "source": "Versilian Community Sample Library (VCSL)",
+          "entry": {
+            "id": "light_bloom_02",
+            "role": "narastający świetlisty rozbłysk",
+            "character": "płynny, świetlisty",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 3.5,
+            "desc": "jedno płynne pociągnięcie drzewka dzwonków — snop światła w jednym geście",
+            "good_for": "magiczne ujawnienie, aura światła, promień, uświęcenie",
+            "bad_for": "mroczne zaklęcia, eksplozje, naturalistyczna fauna",
+            "file": "audio/library/heroes/light_bloom_02.mp3",
+            "semantics": {
+              "type": "rozblysk-swiatla",
+              "traits": [
+                "narastający",
+                "jasny",
+                "dzwoniący",
+                "kaskadowy"
+              ],
+              "bad_for": [
+                "mroczny",
+                "ciężki",
+                "perkusyjny huk"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Bell Tree stroke 4, pierwsze 3.5 s; poziom, fade — bez pitchowania"
+            }
+          }
+        },
+        {
+          "label": "c.3",
+          "title": "rozjarzenie talerza",
+          "file": "candidates/c_cym_swell.mp3",
+          "desc": "dwusekundowe crescendo talerza — aura narasta i rozjarza się",
+          "source": "Versilian Community Sample Library (VCSL)",
+          "entry": {
+            "id": "light_bloom_03",
+            "role": "narastający świetlisty rozbłysk",
+            "character": "narastający, szumiąco-świetlisty",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 3.5,
+            "desc": "dwusekundowe crescendo talerza — aura narasta i rozjarza się",
+            "good_for": "magiczne ujawnienie, aura światła, promień, uświęcenie",
+            "bad_for": "mroczne zaklęcia, eksplozje, naturalistyczna fauna",
+            "file": "audio/library/heroes/light_bloom_03.mp3",
+            "semantics": {
+              "type": "rozblysk-swiatla",
+              "traits": [
+                "narastający",
+                "jasny",
+                "dzwoniący",
+                "kaskadowy"
+              ],
+              "bad_for": [
+                "mroczny",
+                "ciężki",
+                "perkusyjny huk"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Suspended Cymbal cresc 2 s + 1.5 s wybrzmienia; poziom, fade"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "skradanie-cisza",
+      "kind": "heroes",
+      "role": "jedyny klocek typu `skradanie-cisza` (domyka fabuły 166 i 519; woła 22 fabuły)",
+      "candidates": [
+        {
+          "label": "c.1",
+          "title": "cichy przesuw powietrza",
+          "file": "candidates/s_air_slide.mp3",
+          "desc": "miękki, ciemny przesuw powietrza — ktoś przemieszcza się tuż obok, bez jednego szelestu",
+          "source": "Yellowstone Sound Library (NPS)",
+          "entry": {
+            "id": "stealth_move_01",
+            "role": "niemal bezgłośny ruch — napięcie zamiast hałasu",
+            "character": "ciemny, płynny, wstrzymany",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 3.0,
+            "desc": "miękki, ciemny przesuw powietrza — ktoś przemieszcza się tuż obok, bez jednego szelestu",
+            "good_for": "infiltracja, cicha warta, czatowanie, bezszelestny ruch",
+            "bad_for": "walka wprost, fanfary, jawne wejścia",
+            "file": "audio/library/heroes/stealth_move_01.mp3",
+            "semantics": {
+              "type": "skradanie-cisza",
+              "traits": [
+                "cichy",
+                "powolny",
+                "napięty",
+                "powietrzny"
+              ],
+              "bad_for": [
+                "głośny",
+                "gwałtowny",
+                "dzwoniący"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Hurricane Vent 12–15 s; lowpass 500 Hz (odjęte syczenie), poziom, długie fade"
+            }
+          }
+        },
+        {
+          "label": "c.2",
+          "title": "zamarła przestrzeń",
+          "file": "candidates/s_held_space.mp3",
+          "desc": "niemal martwa cisza z ledwie obecnym ruchem tła — czatowanie z wstrzymanym oddechem",
+          "source": "Yellowstone Sound Library (NPS)",
+          "entry": {
+            "id": "stealth_move_02",
+            "role": "niemal bezgłośny ruch — napięcie zamiast hałasu",
+            "character": "statyczny, napięty, ledwie obecny",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 3.0,
+            "desc": "niemal martwa cisza z ledwie obecnym ruchem tła — czatowanie z wstrzymanym oddechem",
+            "good_for": "infiltracja, cicha warta, czatowanie, bezszelestny ruch",
+            "bad_for": "walka wprost, fanfary, jawne wejścia",
+            "file": "audio/library/heroes/stealth_move_02.mp3",
+            "semantics": {
+              "type": "skradanie-cisza",
+              "traits": [
+                "cichy",
+                "powolny",
+                "napięty",
+                "powietrzny"
+              ],
+              "bad_for": [
+                "głośny",
+                "gwałtowny",
+                "dzwoniący"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Soundscapes 31.5–34.5 s (najcichsze okno nagrania); poziom, długie fade"
+            }
+          }
+        },
+        {
+          "label": "c.3",
+          "title": "smyczek po talerzu pp",
+          "file": "candidates/s_bowed_cym.mp3",
+          "desc": "smyczkowany talerz pianissimo — cienka, nieziemska nić napięcia w ciszy",
+          "source": "Versilian Community Sample Library (VCSL)",
+          "entry": {
+            "id": "stealth_move_03",
+            "role": "niemal bezgłośny ruch — napięcie zamiast hałasu",
+            "character": "szklisty, widmowy, napięty",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 4.0,
+            "desc": "smyczkowany talerz pianissimo — cienka, nieziemska nić napięcia w ciszy",
+            "good_for": "infiltracja, cicha warta, czatowanie, bezszelestny ruch",
+            "bad_for": "walka wprost, fanfary, jawne wejścia",
+            "file": "audio/library/heroes/stealth_move_03.mp3",
+            "semantics": {
+              "type": "skradanie-cisza",
+              "traits": [
+                "cichy",
+                "powolny",
+                "napięty",
+                "powietrzny"
+              ],
+              "bad_for": [
+                "głośny",
+                "gwałtowny",
+                "dzwoniący"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Suspended Cymbal bow 13, pierwsze 4 s; poziom -18, fade — bez pitchowania"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
