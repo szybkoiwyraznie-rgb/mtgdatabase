@@ -477,6 +477,49 @@
         "choice": "fala-rozbryzg.3",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "wingburst_takeoff_01",
+      "duration_sec": 2.1,
+      "level_ref_db": -18,
+      "loopable": false,
+      "setting": "skrzydlaty odlot — gwałtowna seria uderzeń małego ptaka",
+      "desc": "prawdziwy odlot małego ptaka z bliska: sześć-osiem twardych, rozłącznych uderzeń jedno po drugim, naturalny zanik — wersja bez ukrytego trzasku z ogona",
+      "semantics": {
+        "type": "trzepot-drobnych-skrzydel",
+        "traits": [
+          "mały ptak",
+          "traepot",
+          "odlot",
+          "rozłączny",
+          "gwałtowny"
+        ],
+        "bad_for": [
+          "smok",
+          "duże płóci",
+          "stacjonarny dron"
+        ]
+      },
+      "file": "audio/library/heroes/wingburst_takeoff_01.mp3",
+      "source": {
+        "title": "Pigeon, Flies Away, Flapping Wings (Freesound)",
+        "author": "Kinoton",
+        "license": "CC0 / Public Domain (wg scouta)",
+        "url": "https://freesound.org/people/Kinoton/sounds/689998/",
+        "channel": "sample-scout; manifest: freesound_pigeon-wings",
+        "notes": "okno 0,60–2,65 s (bez ogona z ukrytym trzaskiem); HP 60; -19 dB peak; id 689998"
+      },
+      "role": "łopot małego ptaka w gwałtownym starcie",
+      "character": "gwałtowny, rozłączny, żywy",
+      "distance": "bliski",
+      "energy": "wysoka",
+      "good_for": "start małego ptaka, skrzydlata istota odchodzi, życie wokół",
+      "bad_for": "smok, drak, wielkie skrzydła, stacjonarny dron",
+      "approved": {
+        "gate": "g029",
+        "choice": "hero-lopot.1c",
+        "date": "2026-09-24"
+      }
     }
   ]
 }

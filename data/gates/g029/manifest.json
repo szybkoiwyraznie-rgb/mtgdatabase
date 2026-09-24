@@ -154,6 +154,38 @@
             "url": "https://freesound.org/people/craigsmith/sounds/486295/",
             "channel": "sample-scout; manifest: freesound_battle-swords",
             "notes": "5 rozłącznych uderzeń z okien 2,85–23,2 s; LP 2400 / HP 180; do -40,5 dB; ziarno 110 (jitter ±0,15 s / ±1,5 dB); id 486295"
+          },
+          "entry": {
+            "id": "battle_charge_steel_01",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "setting": "otwarte pole — fala szarży ze szczękiem oręża",
+            "desc": "prawdziwa szarża tłumu (jedno wzięcie, nic nie jest pętlą) z delikatnymi uderzeniami stali w nieliniowych punktach",
+            "semantics": {
+              "type": "zgryw-bitwa",
+              "traits": [
+                "średniowiecze",
+                "szarża",
+                "tłum",
+                "stal",
+                "pole walki"
+              ],
+              "bad_for": [
+                "współczesna bitwa z prochami",
+                "cisza pustyni"
+              ]
+            },
+            "file": "audio/library/backgrounds/battle_charge_steel_01.mp3",
+            "source": {
+              "base": "zg1_szarza.mp3 (przyjęty wstętnie przez właściciela)",
+              "stab": "R27-37-Metal Clanks and Hits.wav (Freesound)",
+              "author": "craigsmith",
+              "license": "CC0 / Public Domain (wg scouta)",
+              "url": "https://freesound.org/people/craigsmith/sounds/486295/",
+              "channel": "sample-scout; manifest: freesound_battle-swords",
+              "notes": "5 rozłącznych uderzeń z okien 2,85–23,2 s; LP 2400 / HP 180; do -40,5 dB; ziarno 110 (jitter ±0,15 s / ±1,5 dB); id 486295"
+            }
           }
         },
         {
@@ -169,6 +201,38 @@
             "url": "https://freesound.org/people/craigsmith/sounds/486295/",
             "channel": "sample-scout; manifest: freesound_battle-swords",
             "notes": "5 rozłącznych uderzeń z okien 2,85–23,2 s; LP 2400 / HP 180; do -40,5 dB; ziarno 110 (jitter ±0,15 s / ±1,5 dB); id 486295"
+          },
+          "entry": {
+            "id": "battle_agony_steel_01",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "setting": "punkt przełamania — agonia i stal w biegu",
+            "desc": "agonia biegłej szarży (jedno wzięcie) z domieszką szczęku oręża w nieregularnych punktach",
+            "semantics": {
+              "type": "zgryw-bitwa",
+              "traits": [
+                "średniowiecze",
+                "krzyki",
+                "agonia",
+                "stal",
+                "pole walki"
+              ],
+              "bad_for": [
+                "współczesna bitwa z prochami",
+                "cisza pustyni"
+              ]
+            },
+            "file": "audio/library/backgrounds/battle_agony_steel_01.mp3",
+            "source": {
+              "base": "zg3_przełamanie.mp3 (przyjęty wstętnie przez właściciela)",
+              "stab": "R27-37-Metal Clanks and Hits.wav (Freesound)",
+              "author": "craigsmith",
+              "license": "CC0 / Public Domain (wg scouta)",
+              "url": "https://freesound.org/people/craigsmith/sounds/486295/",
+              "channel": "sample-scout; manifest: freesound_battle-swords",
+              "notes": "5 rozłącznych uderzeń z okien 2,85–23,2 s; LP 2400 / HP 180; do -40,5 dB; ziarno 110 (jitter ±0,15 s / ±1,5 dB); id 486295"
+            }
           }
         }
       ]
@@ -322,9 +386,55 @@
             "url": "https://freesound.org/people/Kinoton/sounds/689998/",
             "channel": "sample-scout; manifest: freesound_pigeon-wings",
             "notes": "okno 0,60–2,65 s; HP 60; -19 dB peak; id 689998"
+          },
+          "entry": {
+            "id": "wingburst_takeoff_01",
+            "duration_sec": 2.1,
+            "level_ref_db": -18,
+            "loopable": false,
+            "setting": "skrzydlaty odlot — gwałtowna seria uderzeń małego ptaka",
+            "desc": "prawdziwy odlot małego ptaka z bliska: sześć-osiem twardych, rozłącznych uderzeń jedno po drugim, naturalny zanik — wersja bez ukrytego trzasku z ogona",
+            "semantics": {
+              "type": "trzepot-drobnych-skrzydel",
+              "traits": [
+                "mały ptak",
+                "traepot",
+                "odlot",
+                "rozłączny",
+                "gwałtowny"
+              ],
+              "bad_for": [
+                "smok",
+                "duże płóci",
+                "stacjonarny dron"
+              ]
+            },
+            "file": "audio/library/heroes/wingburst_takeoff_01.mp3",
+            "source": {
+              "title": "Pigeon, Flies Away, Flapping Wings (Freesound)",
+              "author": "Kinoton",
+              "license": "CC0 / Public Domain (wg scouta)",
+              "url": "https://freesound.org/people/Kinoton/sounds/689998/",
+              "channel": "sample-scout; manifest: freesound_pigeon-wings",
+              "notes": "okno 0,60–2,65 s (bez ogona z ukrytym trzaskiem); HP 60; -19 dB peak; id 689998"
+            },
+            "role": "łopot małego ptaka w gwałtownym starcie",
+            "character": "gwałtowny, rozłączny, żywy",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "good_for": "start małego ptaka, skrzydlata istota odchodzi, życie wokół",
+            "bad_for": "smok, drak, wielkie skrzydła, stacjonarny dron"
           }
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "hero-lopot": "ł.1c",
+    "notes": {
+      "hero-lopot": "Właściciel: „ł.1 jako łopot skrzydeł małego ptaka jest ok, tylko pod koniec trzeciej sekundy jest strzał ze strzelby, trzeba go wyciąć”, po cięciu: „ł.1c – super”. Wersja ł.1c (łuk 0,60–2,65 s źródła 689998, bez wzmocnionego ogona z ukrytym trzaskiem -70 dB) przyjęta jako heroes/wingburst_takeoff_01. Lekcja: zwiniedowanewymykanowe ogonów field-nagrań przy dużym gainie — ukryte ostrzę piki eksplodują po normie.",
+      "tlo-bitwa-zgielk": "Właściciel: „zg1 i zg3 są naprawdę super, tylko brakuje tam szczęku oręża (delikatne uderzenia metalu o metal w losowych miejscach)” → po wersji s: „stal brzmi jak uderzenia drewnianym młotkiem; szczęk mieczy o siebie albo o tarcze brzmi inaczej, wyżej, jaśniej”. Diagnoza: filtr LP 2400 + poziom -40,5 dB zabił ring metalu. Naprawa: jaśniejsza stal (HP 200 + LP ~8 k zamiast 2,4 k; ringi z pełnego pasma 486295 / atom-ciecia miecza), bez zmian w łóżkach. Weryfikacja w g030 w obecności właściciela.",
+      "zg.2": "odrzucony brakiem wyboru (właściciel wskazał wyłącznie zg.1 i zg.3)."
+    }
+  }
 }

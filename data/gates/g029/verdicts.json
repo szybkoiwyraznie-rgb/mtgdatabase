@@ -1,0 +1,8 @@
+{
+  "hero-lopot": "ł.1c",
+  "notes": {
+    "hero-lopot": "Właściciel: „ł.1 jako łopot skrzydeł małego ptaka jest ok, tylko pod koniec trzeciej sekundy jest strzał ze strzelby, trzeba go wyciąć”, po cięciu: „ł.1c – super”. Wersja ł.1c (łuk 0,60–2,65 s źródła 689998, bez wzmocnionego ogona z ukrytym trzaskiem -70 dB) przyjęta jako heroes/wingburst_takeoff_01. Lekcja: zwiniedowanewymykanowe ogonów field-nagrań przy dużym gainie — ukryte ostrzę piki eksplodują po normie.",
+    "tlo-bitwa-zgielk": "Właściciel: „zg1 i zg3 są naprawdę super, tylko brakuje tam szczęku oręża (delikatne uderzenia metalu o metal w losowych miejscach)” → po wersji s: „stal brzmi jak uderzenia drewnianym młotkiem; szczęk mieczy o siebie albo o tarcze brzmi inaczej, wyżej, jaśniej”. Diagnoza: filtr LP 2400 + poziom -40,5 dB zabił ring metalu. Naprawa: jaśniejsza stal (HP 200 + LP ~8 k zamiast 2,4 k; ringi z pełnego pasma 486295 / atom-ciecia miecza), bez zmian w łóżkach. Weryfikacja w g030 w obecności właściciela.",
+    "zg.2": "odrzucony brakiem wyboru (właściciel wskazał wyłącznie zg.1 i zg.3)."
+  }
+}
