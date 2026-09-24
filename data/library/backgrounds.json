@@ -245,6 +245,42 @@
         "choice": "las-dzienny.1",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "warcamp_01",
+      "setting": "obóz wojenny / porządek formacji",
+      "desc": "tabor obozu: skrzyp uprzęży, kroki koni, brzęk okuć — logistyka wojenna w ruchu",
+      "file": "audio/library/backgrounds/warcamp_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "semantics": {
+        "type": "oboz-wojenny",
+        "traits": [
+          "tabor",
+          "kroki",
+          "brzęk rynsztunku",
+          "porządek"
+        ],
+        "bad_for": [
+          "dzika natura",
+          "wnętrze",
+          "miasto"
+        ]
+      },
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Horse-Drawn Wagon 2–10 s; poziom +~13 dB (ciche nagranie terenowe), fade"
+      },
+      "approved": {
+        "gate": "g018",
+        "choice": "oboz-wojenny.1",
+        "date": "2026-09-24"
+      }
     }
   ]
 }

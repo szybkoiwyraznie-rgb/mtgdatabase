@@ -222,6 +222,79 @@
         "choice": "koda-czujnosc.3",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "g7a_even_rank",
+      "semantic": "precyzja — równy szereg",
+      "desc": "cztery identyczne staccato w idealnych odstępach i czyste domknięcie — szereg wyrównany co do milimetra",
+      "notes": [
+        {
+          "midi": 72,
+          "on": 0.0,
+          "off": 0.22,
+          "vel": 0.5
+        },
+        {
+          "midi": 72,
+          "on": 0.4,
+          "off": 0.62,
+          "vel": 0.5
+        },
+        {
+          "midi": 72,
+          "on": 0.8,
+          "off": 1.02,
+          "vel": 0.5
+        },
+        {
+          "midi": 72,
+          "on": 1.2,
+          "off": 1.42,
+          "vel": 0.5
+        },
+        {
+          "midi": 60,
+          "on": 1.6,
+          "off": 2.4,
+          "vel": 0.46
+        },
+        {
+          "midi": 76,
+          "on": 1.6,
+          "off": 2.4,
+          "vel": 0.42
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 8,
+          "vel": 0.02
+        }
+      },
+      "instrument_tags": [
+        "struck-light",
+        "struck-dry",
+        "piano"
+      ],
+      "semantics": {
+        "type": "precyzja-dyscyplina",
+        "traits": [
+          "równy",
+          "kontrolowany",
+          "czysty",
+          "bez rubato"
+        ],
+        "bad_for": [
+          "rozlewny",
+          "chaotyczny",
+          "sentymentalny"
+        ]
+      },
+      "approved": {
+        "gate": "g018",
+        "choice": "koda-precyzja.1",
+        "date": "2026-09-24"
+      }
     }
   ]
 }

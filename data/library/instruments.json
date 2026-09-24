@@ -151,6 +151,43 @@
           "delikatność"
         ]
       }
+    },
+    {
+      "id": "b_logdrum",
+      "semantic": "suchy, głucho-drewniany",
+      "family": "idiophone-struck",
+      "samples": {
+        "38": "audio/library/instruments/logdrum/b_logdrum_LogDrumLo_MedM_v1_rr1_Sum.mp3",
+        "39": "audio/library/instruments/logdrum/b_logdrum_LogDrumLo_MedM_v2_rr1_Sum.mp3",
+        "41": "audio/library/instruments/logdrum/b_logdrum_LogDrumHi_MedM_v1_rr1_Sum.mp3"
+      },
+      "semantics": {
+        "type": "sucho-surowa",
+        "traits": [
+          "suchy",
+          "drewniany",
+          "bez pogłosu",
+          "twardy atak"
+        ],
+        "bad_for": [
+          "rozmyty",
+          "dzwoniący",
+          "syntetyczny"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "nuty 38/39/41 = progi uderzenia mp/f/ff"
+      },
+      "approved": {
+        "gate": "g018",
+        "choice": "instrument-suchy.3",
+        "date": "2026-09-24"
+      }
     }
   ]
 }
