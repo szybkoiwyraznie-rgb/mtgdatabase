@@ -110,9 +110,16 @@ jobs:
             echo "Brak zmian w paczce kandydatów."
           else
             git commit -m "$MSG"
-            # Push back to the branch this run was started from: main for the
-            # normal path, the session branch when the owner tests a fix.
-            git push origin "HEAD:${GITHUB_REF_NAME}"
+            # Push back to the branch this run was started from. Agent bywa
+            # aktywny na gałęzi w trakcie runa (lekcja 2026-09-24: non-fast-
+            # forward), więc przed pushem rebase i do trzech prób.
+            for i in 1 2 3; do
+              git fetch origin "${GITHUB_REF_NAME}"
+              git rebase "origin/${GITHUB_REF_NAME}" || { git rebase --abort; exit 1; }
+              if git push origin "HEAD:${GITHUB_REF_NAME}"; then break; fi
+              [ "$i" = 3 ] && exit 1
+              sleep 5
+            done
             echo "$MSG (gałąź ${GITHUB_REF_NAME})" >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Status zwiadu
