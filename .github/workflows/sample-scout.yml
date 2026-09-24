@@ -66,6 +66,10 @@ jobs:
       - name: Clear the previous bounded candidate batch
         run: rm -rf legacy/source/sample_scout
       - name: Fetch community-ranked CC0 candidates
+        id: scout
+        # Nie przerywamy joba: log z porażki MUSI trafić do repo, bo token
+        # sandboksa Areny nie ma uprawnień do czytania logów Actions.
+        continue-on-error: true
         env:
           FREESOUND_TOKEN: ${{ secrets.FREESOUND_TOKEN }}
           SCOUT_SOURCE: ${{ inputs.source || github.event.client_payload.source || 'freesound' }}
@@ -73,26 +77,46 @@ jobs:
           SCOUT_COUNT: ${{ inputs.count || github.event.client_payload.count || '5' }}
           SCOUT_SORT: ${{ inputs.sort || github.event.client_payload.sort || 'rating_desc' }}
         run: |
+          set -o pipefail
+          {
+            echo "=== sample-scout $(date -u +%FT%TZ) ==="
+            echo "source=$SCOUT_SOURCE query=$SCOUT_QUERY count=$SCOUT_COUNT sort=$SCOUT_SORT"
+            if [ -z "$FREESOUND_TOKEN" ]; then echo "FREESOUND_TOKEN: BRAK/PUSTY"; else echo "FREESOUND_TOKEN: ustawiony (${#FREESOUND_TOKEN} znaków)"; fi
+          } | tee scout_run.log
           python scripts/sample_scout.py \
             --source "$SCOUT_SOURCE" \
             --query "$SCOUT_QUERY" \
             --count "$SCOUT_COUNT" \
             --sort "$SCOUT_SORT" \
-            --out legacy/source/sample_scout
-      - name: Commit candidate batch
+            --out legacy/source/sample_scout 2>&1 | tee -a scout_run.log
+      - name: Commit candidate batch (albo log porażki)
         env:
           SCOUT_SOURCE: ${{ inputs.source || github.event.client_payload.source || 'freesound' }}
           SCOUT_COUNT: ${{ inputs.count || github.event.client_payload.count || '5' }}
+          SCOUT_OUTCOME: ${{ steps.scout.outcome }}
         run: |
           git config user.name "sample-scout-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          mkdir -p legacy/source/sample_scout
+          if [ "$SCOUT_OUTCOME" != "success" ]; then
+            cp scout_run.log legacy/source/sample_scout/error.log
+            MSG="Sample scout FAILED: ${SCOUT_SOURCE} — log w legacy/source/sample_scout/error.log [skip ci]"
+          else
+            rm -f legacy/source/sample_scout/error.log
+            MSG="Sample scout: ${SCOUT_SOURCE} (${SCOUT_COUNT} candidates) [skip ci]"
+          fi
           git add --all legacy/source/sample_scout
           if git diff --cached --quiet; then
             echo "Brak zmian w paczce kandydatów."
           else
-            git commit -m "Sample scout: ${SCOUT_SOURCE} (${SCOUT_COUNT} candidates) [skip ci]"
+            git commit -m "$MSG"
             # Push back to the branch this run was started from: main for the
             # normal path, the session branch when the owner tests a fix.
             git push origin "HEAD:${GITHUB_REF_NAME}"
-            echo "Kandydaci zacommitowani na gałęzi ${GITHUB_REF_NAME}." >> "$GITHUB_STEP_SUMMARY"
+            echo "$MSG (gałąź ${GITHUB_REF_NAME})" >> "$GITHUB_STEP_SUMMARY"
           fi
+      - name: Status zwiadu
+        if: steps.scout.outcome != 'success'
+        run: |
+          echo "Zwiad nie powiódł się — log błędu zacommitowany do repo." >> "$GITHUB_STEP_SUMMARY"
+          exit 1

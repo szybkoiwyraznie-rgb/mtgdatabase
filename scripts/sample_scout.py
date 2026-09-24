@@ -45,8 +45,18 @@ def http_get(url: str, token: str | None = None, timeout: int = 30) -> bytes:
     headers = dict(UA)
     if token:
         headers["Authorization"] = f"Token {token}"
-    with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=timeout) as response:
-        return response.read(MAX_SAMPLE_BYTES)
+    try:
+        with urllib.request.urlopen(urllib.request.Request(url, headers=headers), timeout=timeout) as response:
+            return response.read(MAX_SAMPLE_BYTES)
+    except urllib.error.HTTPError as error:  # opisowo: status + początek treści
+        body = b""
+        try:
+            body = error.read(300)
+        except Exception:
+            pass
+        raise RuntimeError(f"HTTP {error.code} dla {url.split('?')[0]}: {body[:300]!r}") from error
+    except urllib.error.URLError as error:
+        raise RuntimeError(f"połączenie nieudane dla {url.split('?')[0]}: {error.reason}") from error
 
 
 def slugify(text: str) -> str:
