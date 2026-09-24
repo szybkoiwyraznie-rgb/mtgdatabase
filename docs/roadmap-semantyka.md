@@ -79,12 +79,14 @@ listę klas; walidator odrzuca profil z klasą spoza taksonomii.
 Istniejące wpisy i receptury dostają metadane semantyczne.
 
 - Każdy wpis `data/library/*.json` deklaruje:
-  `semantics: {classes: [...], traits: [...], bad_for: [...]}`
-  (klasy wyłącznie z taksonomii v1).
+  `semantics: {type: "...", traits: [...], bad_for: [...]}`
+  (typ wyłącznie z taksonomii; relacja typ↔klocek ściśle 1:1 —
+  ADR 0006, aneks „Jeden typ = jeden klocek": dwa wpisy nie mogą
+  dzielić typu, wpis ma dokładnie jeden typ).
 - Sześć receptur legacy dostaje `profile` (z Etapu 1) — bez przerabiania
   ich audio; to zapis, nie remiks.
-- Walidator: wpis bez `semantics` lub z klasą spoza taksonomii = błąd
-  `library_tool.py check`.
+- Walidator: wpis bez `semantics`, z typem spoza taksonomii lub
+  z typem zdublowanym między wpisami = błąd `library_tool.py check`.
 
 DoD: 18/18 wpisów otagowane; 6/6 receptur ma profil; check zielony.
 
