@@ -466,5 +466,10 @@
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "niebo-przestworza": "d.2",
+    "bariera-odbicie": "c.1",
+    "koda-czujnosc": "a.3"
+  }
 }

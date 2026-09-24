@@ -244,6 +244,45 @@
           "sympatyczna psota"
         ]
       }
+    },
+    {
+      "id": "barrier_ring_01",
+      "role": "serie dzwoniących odbić od świetlistej bariery",
+      "character": "iskrzący, nieregularny, gasnący",
+      "distance": "bliski",
+      "energy": "wysoka",
+      "duration_sec": 2.4,
+      "desc": "pięć nieregularnych metalicznych odbić — szybka salwa iskier gasnąca na powłoce",
+      "good_for": "magiczna tarcza, deflektory, iskry o powłokę, święta ochrona",
+      "bad_for": "mroczne bariery, organiczne osłony, naturalistyczna fauna",
+      "file": "audio/library/heroes/barrier_ring_01.mp3",
+      "semantics": {
+        "type": "bariera-odbicie",
+        "traits": [
+          "dzwoniący",
+          "jasny",
+          "seria odbić",
+          "metaliczny"
+        ],
+        "bad_for": [
+          "mroczny",
+          "organiczny",
+          "głuchy"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "5 różnych ujęć rr trójkątów (otwarte+tłumione); aranżacja czasowa, bez pitchowania"
+      },
+      "approved": {
+        "gate": "g015",
+        "choice": "bariera-odbicie.1",
+        "date": "2026-09-24"
+      }
     }
   ]
 }

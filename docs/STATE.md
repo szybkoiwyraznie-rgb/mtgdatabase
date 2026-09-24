@@ -69,7 +69,13 @@ roadmapy, obsadzona od profilu semantycznego.
    obsadą; najczęściej wołane braki: `mroczna` (90), `las-dzienny`
    (67), `czujnosc-napiecie` (66), `cicho-kameralna` (65). Dalej:
    **Etap 5** — w toku.
-5. **Etap 5 — bramka g015 OTWARTA** (fabuła 18, Lotusguard Disciple):
+5. **Etap 5 — fabuła 18 WYPRODUKOWANA** (pierwsza w modelu 1:1):
+   werdykt g015 = d.2 (sky_rush_02), c.1 (barrier_ring_01),
+   a.3 (g6c_sentry_return); resolver OBSADZONA, QA zielone
+   (hero +18.9 dB, RMS -19.1, HF 8.1%), `audio/signatures/18.mp3`,
+   receptura z logiem `resolution`. Lekcja w LESSONS: kandydat obsadza
+   TYP, nie fabułę. Historyczny wpis o otwarciu bramki:
+   (bramka g015 była otwarta (fabuła 18, Lotusguard Disciple):
    wszystkie 3 braki naraz — tło `niebo-przestworza` (YSL: Hurricane
    Vent ×2, Snowmobile), hero `bariera-odbicie` (VCSL: trójkąty /
    dzwonki ręczne / glockenspiel — aranżacje bez pitchowania), koda

@@ -65,7 +65,8 @@ def load_data() -> dict:
 
 
 def tokens(text: str) -> set[str]:
-    return {w[:6] for w in re.findall(r"[a-ząćęłńóśźż]+", text.lower()) if len(w) >= 4}
+    # min. 3 znaki: polskie rdzenie dźwięków bywają krótkie (pęd, ryk, syk, huk)
+    return {w[:6] for w in re.findall(r"[a-ząćęłńóśźż]+", text.lower()) if len(w) >= 3}
 
 
 def overlap(a: str, b: str) -> bool:

@@ -401,3 +401,16 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   wykonującego tę ekspresję**. Creature-SFX nie wolno przemianować na emocję
   tylko dlatego, że zgadza się długość i pasmo. Obróbka może wzmacniać rolę,
   ale nie zastępuje wiarygodnego wykonania źródłowego.
+
+## Bramka obsadza TYP, nie fabułę (g015, 2026-09-24)
+
+- Sytuacja: do typu tła `niebo-przestworza` („pęd powietrza na wysokości")
+  pokazałem właścicielowi kandydata „przelot skutera śnieżnego", bo
+  narracja fabuły 18 mówiła o „pędzie pojazdu". Właściciel: „to jest
+  zupełnie inny dźwięk".
+- Zasada: w modelu 1:1 klocek jest wielokrotnego użytku w RAMACH TYPU —
+  kandydatów przesłuchuje się pod DEFINICJĘ TYPU (`co_slychac`), nie pod
+  smaczek pojedynczej narracji. Silnik spalinowy skaziłby każdą przyszłą
+  fabułę przestworzy.
+- Wniosek techniczny: matcher cech wymaganych ignorował słowa <4 znaki
+  (gubił „pęd/ryk/syk/huk") — naprawione (min. 3 znaki, resolver.py).
