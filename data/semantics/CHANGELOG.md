@@ -1,6 +1,11 @@
 # CHANGELOG taksonomii semantycznej
 
-## 2026-09-24 — korekta modelu: jeden typ = jeden klocek + propozycja 4 nowych typów hero (CZEKA NA AKCEPTACJĘ)
+## 2026-09-24 — korekta modelu: jeden typ = jeden klocek + 4 nowe typy hero (ZAAKCEPTOWANE → v2)
+
+Właściciel zaakceptował propozycję („kontynuuj" po bramce tekstowej).
+Taksonomia podniesiona do `version: 2`: hero 50 → 54 typy
+(`slup-wody`, `szelest-papieru`, `budzenie-gleby`, `ciche-wrota`).
+Po remapie: **510/510 kombinacji unikalnych, zero kolizji.**
 
 **Korekta rozstrzygnięciem właściciela** (unieważnia pkt 3 wpisu
 o akceptacji v1 poniżej): każdy typ ma dokładnie jeden klocek audio (1:1),

@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "1",
-  "status": "zaakceptowana i zamrożona 2026-09-24 (bramka tekstowa Etapu 2); zmiany wyłącznie przez wpis w data/semantics/CHANGELOG.md",
+  "version": "2",
+  "status": "v2 zaakceptowana 2026-09-24 (4 nowe typy hero rozbijają kolizje kombinacji; model 1:1 typ=klocek). Zmiany wyłącznie przez data/semantics/CHANGELOG.md",
   "note": "Taksonomia akustyczna (klasy opisują CO SŁYCHAĆ, nie lore). Klasa = parametr kombinacji a·b·c·d; cechy z profilu fabuły pozostają doprecyzowaniem wewnątrz klasy (traits). Wzorce służą do wstępnego mapowania profili; ostateczne przypisanie podlega przeglądowi. Po akceptacji: zmiany tylko przez data/semantics/CHANGELOG.md.",
   "layers": {
     "background": {
@@ -618,7 +618,7 @@
     "hero": {
       "kod": "b",
       "nazwa": "hero / główne zdarzenie",
-      "liczba_klas": 50,
+      "liczba_klas": 54,
       "klasy": [
         {
           "id": "ryk-bestii",
@@ -721,7 +721,7 @@
             "odnóż",
             "pancerz owad"
           ],
-          "fabul_w_szkicu": 8
+          "fabul_w_szkicu": 7
         },
         {
           "id": "smiech",
@@ -833,6 +833,18 @@
           "fabul_w_szkicu": 6
         },
         {
+          "id": "ciche-wrota",
+          "nazwa": "Bezgłośne wrota / mechanizm w ciszy",
+          "co_slychac": "Mechanizm otwierany niemal bezgłośnie: uniesienie kraty, sunięcie łodzi po cichej wodzie.",
+          "wzorce": [
+            "bezgłośn\\w* uniesieni",
+            "unosi się bezgłośnie",
+            "sunąc\\w* łódź",
+            "bezgłośn\\w* (?:otwarci|wrota)"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
           "id": "skradanie-cisza",
           "nazwa": "Skradanie / bezszelestny ruch",
           "co_slychac": "Niemal bezgłośny ruch, cicha warta — napięcie zamiast hałasu.",
@@ -849,7 +861,7 @@
             "czujn\\w* (?:wart|straż|obecnoś)",
             "spokojn\\w* obecnoś"
           ],
-          "fabul_w_szkicu": 22
+          "fabul_w_szkicu": 21
         },
         {
           "id": "zwinny-skok",
@@ -875,8 +887,6 @@
           "wzorce": [
             "pęd(?:y|ów|ami)",
             "wzrost",
-            "kiełk",
-            "nasion",
             "rozkwit",
             "wici",
             "pnącz",
@@ -886,10 +896,23 @@
             "bujn\\w* (?:wzrost|rozrost)",
             "rozrost",
             "zieleń wybucha",
-            "żyłek pod korą",
-            "żyzn"
+            "żyłek pod korą"
           ],
-          "fabul_w_szkicu": 17
+          "fabul_w_szkicu": 15
+        },
+        {
+          "id": "budzenie-gleby",
+          "nazwa": "Budzenie gleby / kiełkowanie",
+          "co_slychac": "Praca gleby: rozgarnianie ściółki, rozkład, kiełkujące nasiona, podziemne pulsowanie — bez strzelających pędów.",
+          "wzorce": [
+            "ściółk",
+            "nasion",
+            "kiełk",
+            "żyzn",
+            "gleb",
+            "próchnic"
+          ],
+          "fabul_w_szkicu": 4
         },
         {
           "id": "pelzanie-sluz",
@@ -1148,7 +1171,6 @@
             "bryzg",
             "wynurzen",
             "rozprysk wody",
-            "słup wody",
             "wir wodny",
             "topiąc",
             "wodospad",
@@ -1157,7 +1179,20 @@
             "płynąc\\w* wod",
             "kapiąc\\w* ciał"
           ],
-          "fabul_w_szkicu": 20
+          "fabul_w_szkicu": 19
+        },
+        {
+          "id": "slup-wody",
+          "nazwa": "Wzbierający słup wody",
+          "co_slychac": "Pionowa, narastająca kolumna wody: wzbieranie, utrzymanie, opadnięcie — nie uderzenie fali.",
+          "wzorce": [
+            "wzbierając\\w* słup",
+            "słup wody",
+            "kolumn\\w* wody",
+            "wodn\\w* kolumn",
+            "gejzer"
+          ],
+          "fabul_w_szkicu": 1
         },
         {
           "id": "trzask-lodu",
@@ -1195,7 +1230,7 @@
             "snop",
             "iskierk"
           ],
-          "fabul_w_szkicu": 39
+          "fabul_w_szkicu": 38
         },
         {
           "id": "mroczna-fala",
@@ -1404,6 +1439,18 @@
           "fabul_w_szkicu": 1
         },
         {
+          "id": "szelest-papieru",
+          "nazwa": "Szelest papieru / pergaminu",
+          "co_slychac": "Papier w ruchu: szelest mapy, kartkowanie, rozwijanie zwoju.",
+          "wzorce": [
+            "szelest (?:mapy|pergaminu|kart|stron|papieru)",
+            "kartkowan",
+            "rozwijan\\w* zwoj",
+            "rozkładan\\w* map"
+          ],
+          "fabul_w_szkicu": 5
+        },
+        {
           "id": "chrobot-szelest",
           "nazwa": "Chrobot / drapanie / szelest",
           "co_slychac": "Drobna manipulacja: chrobot, szelest, stuknięcia, grzechot, przekładanie przedmiotów.",
@@ -1436,7 +1483,7 @@
             "grzechot",
             "kośc"
           ],
-          "fabul_w_szkicu": 33
+          "fabul_w_szkicu": 28
         },
         {
           "id": "bulgot-syk",

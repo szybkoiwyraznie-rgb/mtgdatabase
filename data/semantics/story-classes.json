@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "taxonomy_version": "1",
+  "taxonomy_version": "2",
   "note": "Mapowanie fabuł na klasy taksonomii (Etap 2). Szkic do przeglądu; po akceptacji taksonomii v1 staje się wiążący.",
   "classes": {
     "1": {
@@ -389,7 +389,7 @@
     },
     "65": {
       "background": "dwor-komnaty",
-      "hero": "chrobot-szelest",
+      "hero": "szelest-papieru",
       "mood": "tajemnica-obcosc",
       "instrumentation": "jasno-swietlista"
     },
@@ -1439,7 +1439,7 @@
     },
     "289": {
       "background": "las-dzienny",
-      "hero": "wzrost-roslin",
+      "hero": "budzenie-gleby",
       "mood": "groza-przerazenie",
       "instrumentation": "metaliczno-mechaniczna"
     },
@@ -1637,7 +1637,7 @@
     },
     "322": {
       "background": "las-dzienny",
-      "hero": "chrobot-szelest",
+      "hero": "szelest-papieru",
       "mood": "wspolnota-wiez",
       "instrumentation": "cicho-kameralna"
     },
@@ -1805,7 +1805,7 @@
     },
     "377": {
       "background": "swiatynia-sanktuarium",
-      "hero": "chrobot-szelest",
+      "hero": "szelest-papieru",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cicho-kameralna"
     },
@@ -1817,7 +1817,7 @@
     },
     "381": {
       "background": "wioska-sielska",
-      "hero": "chrobot-szelest",
+      "hero": "szelest-papieru",
       "mood": "czujnosc-napiecie",
       "instrumentation": "mroczna"
     },
@@ -1985,7 +1985,7 @@
     },
     "438": {
       "background": "las-dzienny",
-      "hero": "wzrost-roslin",
+      "hero": "budzenie-gleby",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -2195,7 +2195,7 @@
     },
     "473": {
       "background": "dzungla-parna",
-      "hero": "klekot-chitynowy",
+      "hero": "budzenie-gleby",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "jasno-swietlista"
     },
@@ -2303,7 +2303,7 @@
     },
     "491": {
       "background": "las-dzienny",
-      "hero": "rozblysk-swiatla",
+      "hero": "budzenie-gleby",
       "mood": "wspolnota-wiez",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -2405,7 +2405,7 @@
     },
     "508": {
       "background": "morze-wybrzeze",
-      "hero": "fala-rozbryzg",
+      "hero": "slup-wody",
       "mood": "duma-majestat",
       "instrumentation": "monumentalno-potezna"
     },
@@ -2777,7 +2777,7 @@
     },
     "570": {
       "background": "miasto-nocne",
-      "hero": "skradanie-cisza",
+      "hero": "ciche-wrota",
       "mood": "podstep-intryga",
       "instrumentation": "cicho-kameralna"
     },
@@ -2837,7 +2837,7 @@
     },
     "580": {
       "background": "las-dzienny",
-      "hero": "chrobot-szelest",
+      "hero": "szelest-papieru",
       "mood": "radosc-beztroska",
       "instrumentation": "cieplo-serdeczna"
     },
