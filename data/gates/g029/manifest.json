@@ -2,7 +2,7 @@
   "id": "g029",
   "created": "2026-09-24",
   "story_id": "110",
-  "note": "RUNDA 3 fabuły 110 — zg i ł z przegranego przetargu g027 (koda n.3 już przyjęta). Po werdykcie „generyczne / jak ustawiona scena” i „trzepanie dywanu”: wyłącznie realne, długie wzięcia — bitwa z urzeczywistnionych nagrań (charge, archiwalna taśma, agony), skrzydła z prawdziwych gołębi nagranych z bliska. Żadnej syntetycznej warstwy.",
+  "note": "RUNDA 3 fabuły 110 — zg i ł z przegranego przetargu g027 (koda n.3 już przyjęta). Po werdykcie „generyczne / jak ustawiona scena” i „trzepanie dywanu”: wyłącznie realne, długie wzięcia — bitwa z urzeczywistnionych nagrań (charge, archiwalna taśma, agony), skrzydła z prawdziwych gołębi nagranych z bliska. Żadnej syntetycznej warstwy. POPRAWKI właściciela: zg.1s/zg.3s = wersje z domieszką szczęku oręża; ł.1c = ł.1 bez ukrytego strzału.",
   "entries": [
     {
       "slug": "tlo-bitwa-zgielk",
@@ -139,6 +139,36 @@
               "channel": "sample-scout (freesound, preview); manifest: freesound_battle-screams",
               "notes": "okno 0,4–8,4 s; HP 55; -33 dB RMS; id 563011"
             }
+          }
+        },
+        {
+          "label": "zg.1s",
+          "title": "szarża + stal — wersja na prośbę właściciela",
+          "file": "candidates/zg1_szarza_stal.mp3",
+          "desc": "zg.1 ze wzorzą domieszanym szczękiem oręża: 5 realizowanych uderzeń metalu w litterarowo przestrzennych miejscach (1,1 / 3,0 / 4,6 / 6,2 / 7,4 + log), cięte LP 2400 — słychać je jak haptyczne przypadki środka tłumu",
+          "source": {
+            "base": "zg1_szarza.mp3 (przyjęty wstętnie przez właściciela)",
+            "stab": "R27-37-Metal Clanks and Hits.wav (Freesound)",
+            "author": "craigsmith",
+            "license": "CC0 / Public Domain (wg scouta)",
+            "url": "https://freesound.org/people/craigsmith/sounds/486295/",
+            "channel": "sample-scout; manifest: freesound_battle-swords",
+            "notes": "5 rozłącznych uderzeń z okien 2,85–23,2 s; LP 2400 / HP 180; do -40,5 dB; ziarno 110 (jitter ±0,15 s / ±1,5 dB); id 486295"
+          }
+        },
+        {
+          "label": "zg.3s",
+          "title": "przełamanie + stal — wersja na prośbę właściciela",
+          "file": "candidates/zg3_przełamanie_stal.mp3",
+          "desc": "zg.3 z domieszanym szczękiem oręża: 5 innych punktów metalu (0,9 / 2,6 / 3,9 / 5,6 / 7,1 + log) — agonia i stal razem, nic nie dominuje",
+          "source": {
+            "base": "zg3_przełamanie.mp3 (przyjęty wstętnie przez właściciela)",
+            "stab": "R27-37-Metal Clanks and Hits.wav (Freesound)",
+            "author": "craigsmith",
+            "license": "CC0 / Public Domain (wg scouta)",
+            "url": "https://freesound.org/people/craigsmith/sounds/486295/",
+            "channel": "sample-scout; manifest: freesound_battle-swords",
+            "notes": "5 rozłącznych uderzeń z okien 2,85–23,2 s; LP 2400 / HP 180; do -40,5 dB; ziarno 110 (jitter ±0,15 s / ±1,5 dB); id 486295"
           }
         }
       ]
@@ -278,6 +308,20 @@
               "channel": "sample-scout (freesound, preview); manifest: freesound_pigeon-wings",
               "notes": "pęki @104,55 s i 153,0 s; HP 60; id 843933"
             }
+          }
+        },
+        {
+          "label": "ł.1c",
+          "title": "wstrzask odlotu (cięty) — bez strzału na końcu 3. sekundy",
+          "file": "candidates/l1_wstrzask_odlotu_ciecie.mp3",
+          "desc": "ł.1 bez wzmocnionego ogona, w którym siedział ukryty ostry trzask (-70 dB w źródle, po normie eksplodował do 0,66 peak): teraz sam odlot gołębia 0,60–2,65 s ze spokojnym naturalnym zanibem",
+          "source": {
+            "title": "Pigeon, Flies Away, Flapping Wings (Freesound)",
+            "author": "Kinoton",
+            "license": "CC0 / Public Domain (wg scouta)",
+            "url": "https://freesound.org/people/Kinoton/sounds/689998/",
+            "channel": "sample-scout; manifest: freesound_pigeon-wings",
+            "notes": "okno 0,60–2,65 s; HP 60; -19 dB peak; id 689998"
           }
         }
       ]
