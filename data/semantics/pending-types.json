@@ -1,5 +1,13 @@
 {
   "schema": 1,
   "note": "Propozycje nowych typów taksonomii czekające na akceptację właściciela (bramka tekstowa). Walidator traktuje typ z tej listy jako OSTRZEŻENIE, nie błąd. Po akceptacji typ przechodzi do taxonomy.json (wpis w CHANGELOG), a stąd znika.",
-  "pending": []
+  "pending": [
+    {
+      "layer": "hero",
+      "id": "trzepot-pojedynczy",
+      "glosa": "łagodny lot pojedynczego ptaka — swobodne, rozłączne rozmajanie skrzydeł, nie wybuchowy skoł chmary/stada",
+      "powod": "blok trzepot-drobnych-skrzydel (pęk gołębia) wg właściciela pasuje wyłącznie do dzikich ptaków (126) i ewentualnie Monastery Flock (467); do kilku innych fabuł pasuje „inny łopot — pojedynczego ptaka” (decyzja właściciela 2026-09-25)",
+      "zrodlo": "właściciel przy weryfikacji g029"
+    }
+  ]
 }

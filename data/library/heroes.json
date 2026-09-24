@@ -484,7 +484,7 @@
       "level_ref_db": -18,
       "loopable": false,
       "setting": "skrzydlaty odlot — gwałtowna seria uderzeń małego ptaka",
-      "desc": "prawdziwy odlot małego ptaka z bliska: sześć-osiem twardych, rozłącznych uderzeń jedno po drugim, naturalny zanik — wersja bez ukrytego trzasku z ogona",
+      "desc": "prawdziwy odlot małego ptaka z bliska: sześć-osiem twardych, rozłącznych uderzeń jedno po drugim, naturalny zanik — wersja bez ukrytego trzasku z ogona (werdykt właściciela: pasuje wyłącznie do zrywu dzikich ptaków/stada; przypisania: 126 Bird Admirer, 467 Monastery Flock)",
       "semantics": {
         "type": "trzepot-drobnych-skrzydel",
         "traits": [
@@ -496,7 +496,12 @@
         ],
         "bad_for": [
           "smok",
-          "duże płóci",
+          "drak",
+          "orzeł",
+          "aven",
+          "anioł",
+          "wróżka",
+          "chmara",
           "stacjonarny dron"
         ]
       },
@@ -514,7 +519,7 @@
       "distance": "bliski",
       "energy": "wysoka",
       "good_for": "start małego ptaka, skrzydlata istota odchodzi, życie wokół",
-      "bad_for": "smok, drak, wielkie skrzydła, stacjonarny dron",
+      "bad_for": "smok, drak, orzeł, aven, anioł, wróżka, chmara — wyłącznie zryw dzikich ptaków/stada (126, 467)",
       "approved": {
         "gate": "g029",
         "choice": "hero-lopot.1c",
