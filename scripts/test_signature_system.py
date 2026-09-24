@@ -74,7 +74,8 @@ def test_coda_render(tmp: Path) -> None:
     r2 = coda_synth.render_coda(gesture, instrument, seed=42)
     check("coda deterministyczna", np.allclose(r1.wave, r2.wave))
     check("coda niepusta", len(r1.wave[0]) > sr * 1.3 and float(np.abs(r1.wave).max()) > 0.01)
-    gesture_missing = {"notes": [{"midi": 90, "on": 0.0, "off": 0.5, "vel": 0.9}]}
+    # nuta poza zasięgiem wszystkich adaptacji (>±36+3 od banku) musi być odrzucona z ostrzeżeniem
+    gesture_missing = {"notes": [{"midi": 100, "on": 0.0, "off": 0.5, "vel": 0.9}]}
     r3 = coda_synth.render_coda(gesture_missing, instrument, seed=1)
     check("coda ostrzega o braku nuty", any("brak nuty" in w for w in r3.warnings))
 
@@ -119,6 +120,15 @@ def test_coda_register_adapt() -> None:
     resolved4, warn4 = coda_synth.resolve_samples(inst4, [60, 76, 80])
     check("kontur: dół gestu -> soft", resolved4.get(60) == Path("s.wav"), str(warn4))
     check("kontur: góra gestu -> hard", resolved4.get(80) == Path("h.wav"), str(warn4))
+    # okno transpozycji ±36: spiczasty bank pedału organowego {24,27,30,33,36,39,42,45,48,51};
+    # gest g6c {60,76,80} grał 2/3 nut (G#5 gubiona w ±24) — po rozszerzeniu jednolita
+    # transpozycja -28: C4->A1(33), E5->C3(48), G#5->D#3(51); wszystkie nuty grają
+    pedal = {str(m): f"p{m}.wav" for m in [24, 27, 30, 33, 36, 39, 42, 45, 48, 51]}
+    resolved5, warn5 = coda_synth.resolve_samples({"samples": pedal}, [60, 76, 80])
+    check("transpozycja ±36: wszystkie nuty g6c grają",
+          resolved5.get(60) == Path("p33.wav") and resolved5.get(76) == Path("p48.wav")
+          and resolved5.get(80) == Path("p51.wav"), str(warn5))
+    check("log transpozycji -28", any("transponowany -28" in w for w in warn5), str(warn5))
 
 
 def test_loop_seam() -> None:

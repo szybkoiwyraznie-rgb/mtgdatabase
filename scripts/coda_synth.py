@@ -85,9 +85,13 @@ def resolve_samples(instrument: dict, midis: list[int]) -> tuple[dict[int, Path]
     # 3) gdy nadal brakuje nut: transponujemy CAŁY gest jednolicie, tak żeby jak
     #    najwięcej nut weszło w bank (rachunek: max skuteczności, potem min korekta,
     #    potem min |t|); kontur i rytm gestu zostają nietknięte.
+    #    Okno ±36 półtonów (2026-09-24): spiczaste banki dźwiękochłonne (np. pedał
+    #    organowy C/D#/F#/A) wymagają transpozycji o ~2,5–3 oktawy; dotyka to tylko
+    #    receptur, które wcześniej DROPPOWAŁY nuty (zielone receptury mają wszystkie
+    #    nuty rozstrzygnięte w szczeblach 1–2 → transponowania nie wywołują).
     if any(m not in resolved for m in midis):
         best: tuple[tuple[int, int, int], int, dict[int, int | None]] | None = None
-        for t in range(-24, 25):
+        for t in range(-36, 37):
             mapped = {m: nearest(m + t) for m in midis}
             cnt = sum(1 for v in mapped.values() if v is not None)
             dist = sum(abs(v - (m + t)) for m, v in mapped.items() if v is not None)

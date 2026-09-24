@@ -8,14 +8,14 @@ Ostatnia aktualizacja: **2026-09-24** (sesja `arena/01a0d3b8-mtgdatabase`).
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **17**
-  (6 legacy + 11 z modelu 1:1: 18, 23, 166, 169, 193, 225, 451, 468, 519, 575, 578).
-- Baza klocków: **32 wpisy** (`library_tool.py check`: 8 tła / 12 hero /
-  6 instrumentów / 6 gestów), wszystkie z `semantics` (1:1, taksonomia v6).
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **19**
+  (6 legacy + 13 z modelu 1:1: 18, 23, 28, 166, 169, 193, 222, 225, 451, 468, 519, 575, 578).
+- Baza klocków: **34 wpisy** (`library_tool.py check`: 9 tła / 12 hero /
+  7 instrumentów / 6 gestów), wszystkie z `semantics` (1:1, taksonomia v6).
 - Bramki rozegrane: **g001–g022** z werdyktami (g014 wycofana — archiwum).
-- Bramki: **g023 zamknięta** (morze-wybrzeze = m.2 → `sea_storm_02` w bazie, 33 klocki;
-  instr-mroczna „żaden” z diagnozą) i **g024 OTWARTA** (runda 2 `mroczna`:
-  organy full / pedał 16' / głos 8', demo z niskiej oktawy) — czeka na werdykt.
+- Bramki: **g023 i g024 zamknięte**. g023: morze-wybrzeze = m.2 (`sea_storm_02`).
+  g024 (runda 2 `mroczna`): werdykt właściciela **z.2** = głośny pedał 16'
+  → `b_organ_loudpedal` w bazie (bank C1–D#3, po dwa bassudy na stopę).
 
 ## Gotowe fabuły
 
@@ -43,6 +43,8 @@ Ostatnia aktualizacja: **2026-09-24** (sesja `arena/01a0d3b8-mtgdatabase`).
 | 169 | Greenwood Sentinel | forest_day_01 × stealth_move_03 × g6c × logdrum | pełny reuse |
 | 225 | Furious Forebear | forest_day_01 × light_bloom_01 × g8b × steinway | pełny reuse |
 | 451 | Downwind Ambusher | forest_day_01 × stealth_move_03 × g7a × handchimes | pełny reuse |
+| 28 | Stormwright Overtake | sea_storm_02 × wave_crash_03 × g4b × b_organ_loudpedal | g023/g024 |
+| 222 | Maritime Guard | sea_storm_02 × stealth_move_03 × g4b × b_organ_loudpedal | g023/g024 |
 
 169/225/451 (2026-09-24, sesja 01a0d3b8): pierwsze fabuły obsadzone BEZ
 bramki — resolver zgłosił pełną obsadę z istniejących klocków. QA renderów:
@@ -52,12 +54,19 @@ lekcja w LESSONS o ogonie hero maskującym nuty kody).
 
 ## W toku
 
-**Bramka g024 czeka na werdykt** (z.1–z.3 instr-mroczna).
-Po werdykcie: `library_tool.py accept --gate g024`, receptura 222
-(obsada resolvera: sea_storm_02 + stealth_move_03 + g6c_sentry_return +
-`<wybrany mroczna>`), render `--audit`, raport. Diagnoza z g023: organy tak,
-ale ciemno i chorusowo — runda 2 trzyma się organów w niskiej oktawie.
-Werdykt g023: tło = m.2 (sea_storm_02 w bazie).
+Brak otwartych bramek. 28 i 222 (2026-09-24, sesja 01a0d3b8) — pierwsze
+sygnatury na bloku rodzinnym g024. QA: 28 (RMS -22,6, hero +16,9, HF 10,8%,
+ataki 3,4/3,0), 222 (RMS -21,0, hero +21,1, HF 0,4%, ataki 5,7/3,3).
+Zmiany silnika przy okazji 222 (`coda_synth.py`):
+(1) szczebel 3 drabiny adaptacji: okno transpozycji gestu ±24 → **±36**
+półtonów (spiczaste banki dźwiękochłonne gubiły nuty — w 222 gubiono G#5;
+poprawka nie rusza receptur zielonych, bo szczebel 3 odpala się tylko przy
+niedomiarze — regresja potwierdzona md5: 19/19 sygnatur identycznych);
+(2) dokumentacja granicy fizycznej: bank sustainowy (organy) nie wykona
+gestów z nutami nakładającymi się na siebie (g6c z akordowym finałem nie
+przechodzi progu ataków ≥2,5 dB; damp_db tłumi też własne okno ataku) —
+222 otrzymało **g4b_mystery_tritone** (semantyka „zjawy, których nie widać”;
+geometria sprawdzona na tym instrumencie w 28).
 
 Przebudowa semantyczna (ADR 0006) ZAMKNIĘĄ: Etapy 0–4 wykonane,
 taksonomia v6 zamrożona, resolver produkcyjny. Bieżąca faza to **Etap 5 =

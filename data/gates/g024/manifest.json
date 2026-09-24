@@ -204,5 +204,8 @@
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "instr-mroczna": "z.2"
+  }
 }
