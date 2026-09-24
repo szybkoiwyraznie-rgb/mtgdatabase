@@ -5762,6 +5762,952 @@
           "matowy"
         ]
       }
+    },
+    "173": {
+      "title": "Awaken the Bear",
+      "background": {
+        "opis": "Zaśnieżona grań górska — wiatr szczytów, topniejący śnieg wokół transu",
+        "cechy": [
+          "zaśnieżona grań",
+          "górski wiatr",
+          "śnieg",
+          "szamański trans"
+        ]
+      },
+      "hero": {
+        "opis": "Niski dudniący ryk szamana i wybuch duchowego niedźwiedzia z jego pleców",
+        "cechy": [
+          "dudniący ryk",
+          "duch niedźwiedzia",
+          "wybuch emanacji",
+          "trans"
+        ],
+        "wymagane": [
+          "dudniący ryk"
+        ]
+      },
+      "mood": {
+        "opis": "Szamańska jedność człowieka i bestii",
+        "cechy": [
+          "jedność z naturą",
+          "trans",
+          "pierwotna siła"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Głęboko, surowo, dudniąco",
+        "cechy": [
+          "głęboki",
+          "surowy",
+          "dudniący"
+        ]
+      }
+    },
+    "175": {
+      "title": "Caves of Chaos Adventurer",
+      "background": {
+        "opis": "Próg jaskiń w półmroku — echo korytarza, światło latarni towarzyszy",
+        "cechy": [
+          "próg jaskini",
+          "echo korytarza",
+          "półmrok",
+          "światło latarni"
+        ]
+      },
+      "hero": {
+        "opis": "Topór uderza w strażnika, pęka ametystowa ściana i wypada ukryty skarb",
+        "cechy": [
+          "uderzenie topora",
+          "pękająca kryształowa ściana",
+          "wypadający skarb",
+          "przekroczenie progu"
+        ]
+      },
+      "mood": {
+        "opis": "Śmiałość nagrodzona — loch oddaje dług",
+        "cechy": [
+          "śmiałość",
+          "nagroda",
+          "dreszcz przygody"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Twardo, dźwięcznie, pogłosowo",
+        "cechy": [
+          "twardy",
+          "dźwięczny",
+          "pogłosowy"
+        ]
+      }
+    },
+    "177": {
+      "title": "Dire Fleet Ravager",
+      "background": {
+        "opis": "Nocny pokład pirackiego galeonu — skrzypienie drewna, morze w ciemności",
+        "cechy": [
+          "nocny pokład",
+          "skrzypienie galeonu",
+          "morze nocą",
+          "piracka załoga"
+        ]
+      },
+      "hero": {
+        "opis": "Triumfalny ryk orka-czarnoksiężnika i sycząca aura rozkładu postarzająca wszystko wokół",
+        "cechy": [
+          "triumfalny ryk",
+          "syk rozkładu",
+          "rdzewiejące gwoździe",
+          "cofająca się załoga"
+        ],
+        "wymagane": [
+          "triumfalny ryk"
+        ]
+      },
+      "mood": {
+        "opis": "Toksyczny triumf — strach sojuszników i wrogów naraz",
+        "cechy": [
+          "toksyczny triumf",
+          "strach otoczenia",
+          "rozkład"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, chropowato, dusząco",
+        "cechy": [
+          "ciemny",
+          "chropowaty",
+          "duszący"
+        ]
+      }
+    },
+    "179": {
+      "title": "Index",
+      "background": {
+        "opis": "Chaotyczny gabinet bibliotekarza — szelest papierów, balansujące stosy tomów",
+        "cechy": [
+          "gabinet w chaosie",
+          "szelest papierów",
+          "stosy ksiąg",
+          "twórczy nieład"
+        ]
+      },
+      "hero": {
+        "opis": "Błękitne błyskawice przeskakują między stronami indeksu, kartki fruwają w powietrzu",
+        "cechy": [
+          "przeskakujące iskry",
+          "fruwające kartki",
+          "gorączkowe kartkowanie",
+          "litery w powietrzu"
+        ]
+      },
+      "mood": {
+        "opis": "Roztrzepana uczoność — wie, że wie, tylko nie wie gdzie",
+        "cechy": [
+          "roztrzepanie",
+          "uczoność",
+          "komizm chaosu"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Drobno, ruchliwie, migotliwie",
+        "cechy": [
+          "drobny",
+          "ruchliwy",
+          "migotliwy"
+        ]
+      }
+    },
+    "180": {
+      "title": "Homicidal Brute",
+      "background": {
+        "opis": "Ciemna gotycka uliczka przy gasnącej latarni — potłuczone szkło, wypadłe sprzęty",
+        "cechy": [
+          "ciemna uliczka",
+          "gasnąca latarnia",
+          "potłuczone szkło",
+          "ślady ucieczki"
+        ]
+      },
+      "hero": {
+        "opis": "Przygarbiona bestia tuż po przemianie — napięty oddech, chrzęst ciała i niski warkot",
+        "cechy": [
+          "napięty oddech",
+          "chrzęst przemiany",
+          "niski warkot",
+          "rozdarta odzież"
+        ]
+      },
+      "mood": {
+        "opis": "Tragedia podwójnej tożsamości — groza do świtu",
+        "cechy": [
+          "tragedia",
+          "groza",
+          "rozdarcie tożsamości"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, napięcie, ciężko",
+        "cechy": [
+          "ciemny",
+          "napięty",
+          "ciężki"
+        ]
+      }
+    },
+    "181": {
+      "title": "Spectral Prison",
+      "background": {
+        "opis": "Gotycka kaplica w bladoniebieskim świetle księżyca — kamienna cisza sklepień",
+        "cechy": [
+          "gotycka kaplica",
+          "księżycowe światło",
+          "kamienna cisza",
+          "runiczna posadzka"
+        ]
+      },
+      "hero": {
+        "opis": "Eteryczna klatka z nici światła wokół uśpionego — kryształowe migotanie snu bez wyjścia",
+        "cechy": [
+          "kryształowe migotanie",
+          "klatka ze światła",
+          "wieczny sen",
+          "śpiący strażnicy"
+        ]
+      },
+      "mood": {
+        "opis": "Piękne uwięzienie — sen zamiast miecza",
+        "cechy": [
+          "piękne uwięzienie",
+          "święty sen",
+          "bezsilność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Szkliście, eterycznie, zimno",
+        "cechy": [
+          "szklisty",
+          "eteryczny",
+          "zimny"
+        ]
+      }
+    },
+    "182": {
+      "title": "Stomping Slabs",
+      "background": {
+        "opis": "Pagórkowata dolina z osadą drobnych istot o zachodzie — sielski krajobraz przed katastrofą",
+        "cechy": [
+          "pagórkowata dolina",
+          "osada maluczkich",
+          "zachód słońca",
+          "sielanka przed burzą"
+        ]
+      },
+      "hero": {
+        "opis": "Grad kamiennych płyt i dudniące kroki niewidocznego olbrzyma",
+        "cechy": [
+          "dudnienie kroków olbrzyma",
+          "świszczące płyty",
+          "grad głazów",
+          "trzask dachów"
+        ],
+        "wymagane": [
+          "dudnienie kroków olbrzyma"
+        ]
+      },
+      "mood": {
+        "opis": "Komiczno-groźna katastrofa z perspektywy maluczkich",
+        "cechy": [
+          "katastrofa",
+          "bezradność małych",
+          "groteska"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciężko, dudniąco, szeroko",
+        "cechy": [
+          "ciężki",
+          "dudniący",
+          "szeroki"
+        ]
+      }
+    },
+    "183": {
+      "title": "Sifter Wurm",
+      "background": {
+        "opis": "Pustynne ruiny pochłaniane przez dżunglę — zieleń nad hieroglifami, parna cisza",
+        "cechy": [
+          "zarośnięte ruiny",
+          "pustynna dżungla",
+          "hieroglify",
+          "parna cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Kolosalny wurm przeciska się przez miasto — szoranie łusek o kamień i przesuwana masa",
+        "cechy": [
+          "szoranie łusek",
+          "przesuwana masa",
+          "kruszenie murów",
+          "kolos wśród ruin"
+        ]
+      },
+      "mood": {
+        "opis": "Powolna potęga starsza niż bogowie",
+        "cechy": [
+          "powolna potęga",
+          "pradawność",
+          "obojętny majestat"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Nisko, potężnie, powoli",
+        "cechy": [
+          "niski",
+          "potężny",
+          "powolny"
+        ]
+      }
+    },
+    "184": {
+      "title": "Altar of the Goyf",
+      "background": {
+        "opis": "Leśna polana z zarośniętym ołtarzem — próchnica, kości, cisza puszczy",
+        "cechy": [
+          "polana z ołtarzem",
+          "próchnica i kości",
+          "cisza puszczy",
+          "zatarte runy"
+        ]
+      },
+      "hero": {
+        "opis": "Bestia z korzeni i kości porusza się za ołtarzem — mech drga, żarzą się zielone oczy",
+        "cechy": [
+          "poruszenie mchu",
+          "żarzące się oczy",
+          "budząca się bestia",
+          "trzask korzeni"
+        ]
+      },
+      "mood": {
+        "opis": "Ofiara dojrzała — coś bez nazwy się budzi",
+        "cechy": [
+          "czające się przebudzenie",
+          "pradawna ofiara",
+          "niepokój"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, ciemno, narastająco",
+        "cechy": [
+          "organiczny",
+          "ciemny",
+          "narastający"
+        ]
+      }
+    },
+    "185": {
+      "title": "Alaborn Trooper",
+      "background": {
+        "opis": "Słoneczny dziedziniec warowni — codzienna krzątanina garnizonu",
+        "cechy": [
+          "dziedziniec warowni",
+          "krzątanina garnizonu",
+          "słoneczny dzień",
+          "stojaki z bronią"
+        ]
+      },
+      "hero": {
+        "opis": "Ślubowanie z dłonią na piersi — spokojna przysięga i cichy szczęk rynsztunku",
+        "cechy": [
+          "spokojna przysięga",
+          "cichy szczęk rynsztunku",
+          "dłoń na piersi",
+          "młody żołnierz"
+        ]
+      },
+      "mood": {
+        "opis": "Skromna wierność codziennej służby",
+        "cechy": [
+          "wierność",
+          "skromność",
+          "służba"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Prosto, ciepło, miarowo",
+        "cechy": [
+          "prosty",
+          "ciepły",
+          "miarowy"
+        ]
+      }
+    },
+    "186": {
+      "title": "Cogwork Assembler",
+      "background": {
+        "opis": "Jasny warsztat pod witrażowymi świetlikami — tykanie mechanizmów",
+        "cechy": [
+          "jasny warsztat",
+          "tykanie mechanizmów",
+          "witrażowe świetliki",
+          "porządek pracowni"
+        ]
+      },
+      "hero": {
+        "opis": "Konstrukt składa kopię konstruktu — precyzyjne zębatki i dymiące świeże złącza",
+        "cechy": [
+          "precyzyjne zębatki",
+          "dymiące złącza",
+          "projekcja schematu",
+          "samopowielanie"
+        ]
+      },
+      "mood": {
+        "opis": "Samopowielająca się precyzja z nutą niesamowitości",
+        "cechy": [
+          "precyzja",
+          "samopowielanie",
+          "cicha niesamowitość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Precyzyjnie, metalicznie, drobno",
+        "cechy": [
+          "precyzyjny",
+          "metaliczny",
+          "drobny"
+        ]
+      }
+    },
+    "187": {
+      "title": "Idyllic Grange",
+      "background": {
+        "opis": "Sielski dworek pod prastarym dębem — wiatr w zbożu, ptaki, wiejska beztroska",
+        "cechy": [
+          "sielski dworek",
+          "wiatr w zbożu",
+          "ptaki podwórza",
+          "beztroska"
+        ]
+      },
+      "hero": {
+        "opis": "Dzieci z drewnianymi mieczami śnią o rycerstwie — stukot zabawkowej broni i śmiech",
+        "cechy": [
+          "stukot drewnianych mieczy",
+          "dziecięcy śmiech",
+          "zabawa w rycerzy",
+          "początek opowieści"
+        ]
+      },
+      "mood": {
+        "opis": "Początek baśni — zwyczajność spleciona z przeznaczeniem",
+        "cechy": [
+          "początek baśni",
+          "beztroska",
+          "nuta przeznaczenia"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciepło, prosto, jasno",
+        "cechy": [
+          "ciepły",
+          "prosty",
+          "jasny"
+        ]
+      }
+    },
+    "188": {
+      "title": "Apprentice Wizard",
+      "background": {
+        "opis": "Kamienna komnata akademii o świcie — cisza nauki, trzepot stron od podmuchu",
+        "cechy": [
+          "komnata o świcie",
+          "cisza nauki",
+          "trzepot stron",
+          "kredowy krąg"
+        ]
+      },
+      "hero": {
+        "opis": "Pierwsza samodzielna kula mocy między palcami — drżące skupienie i cichy pomruk energii",
+        "cechy": [
+          "cichy pomruk energii",
+          "drżące skupienie",
+          "pierwsza kula mocy",
+          "pot wysiłku"
+        ]
+      },
+      "mood": {
+        "opis": "Wysiłek i duma pierwszego sukcesu",
+        "cechy": [
+          "wysiłek",
+          "pierwszy sukces",
+          "skupienie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, skupienie, czysto",
+        "cechy": [
+          "cichy",
+          "skupiony",
+          "czysty"
+        ]
+      }
+    },
+    "189": {
+      "title": "Glint-Sleeve Artisan",
+      "background": {
+        "opis": "Warsztat pod kopułą — iskry nad stołem, brzęk narzędzi cechu",
+        "cechy": [
+          "warsztat cechu",
+          "iskry nad stołem",
+          "brzęk narzędzi",
+          "aetherowy rdzeń"
+        ]
+      },
+      "hero": {
+        "opis": "Dokręcenie śruby i pierwszy krok mosiężnego serwomechanizmu",
+        "cechy": [
+          "zgrzyt klucza",
+          "pierwszy krok maszynki",
+          "mosiężne stąpnięcie",
+          "iskry po inskrypcjach"
+        ]
+      },
+      "mood": {
+        "opis": "Rzemieślnicza duma — piękno dowodem sprawności",
+        "cechy": [
+          "duma rzemiosła",
+          "staranność",
+          "radość tworzenia"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Metalicznie, drobno, jasno",
+        "cechy": [
+          "metaliczny",
+          "drobny",
+          "jasny"
+        ]
+      }
+    },
+    "190": {
+      "title": "Goldmeadow Nomad",
+      "background": {
+        "opis": "Skraj wioski przy wieczornym ognisku — trzask ognia, krąg słuchaczy",
+        "cechy": [
+          "wieczorne ognisko",
+          "krąg słuchaczy",
+          "trzask ognia",
+          "wioska o zmroku"
+        ]
+      },
+      "hero": {
+        "opis": "Z poświaty kopczyka wyłania się postać opowieści — ciepła manifestacja wspomnienia",
+        "cechy": [
+          "wyłanianie się z poświaty",
+          "manifestacja wspomnienia",
+          "dłoń po opowieść",
+          "ożywiona historia"
+        ]
+      },
+      "mood": {
+        "opis": "Opowieści wypełniające pustkę — wspólnota głosów",
+        "cechy": [
+          "opowieść",
+          "wspólnota",
+          "tęsknota wypełniona"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciepło, miękko, kameralnie",
+        "cechy": [
+          "ciepły",
+          "miękki",
+          "kameralny"
+        ]
+      }
+    },
+    "191": {
+      "title": "Esper Stormblade",
+      "background": {
+        "opis": "Krawędź wulkanicznego klifu — termiczne prądy, wiatr niosący żar",
+        "cechy": [
+          "wulkaniczny klif",
+          "termiczne prądy",
+          "wiatr z żarem",
+          "styk światów"
+        ]
+      },
+      "hero": {
+        "opis": "Unosząca się postać z eterowym mieczem — wirująca para i elektryczne iskry wokół ostrza",
+        "cechy": [
+          "wirująca para",
+          "elektryczne iskry",
+          "lewitacja",
+          "eterowe ostrze"
+        ]
+      },
+      "mood": {
+        "opis": "Chłodne opanowanie cudzego żywiołu",
+        "cechy": [
+          "opanowanie",
+          "chłód umysłu",
+          "adaptacja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Metalicznie, elektrycznie, chłodno",
+        "cechy": [
+          "metaliczny",
+          "elektryczny",
+          "chłodny"
+        ]
+      }
+    },
+    "193": {
+      "title": "Floodhound",
+      "background": {
+        "opis": "Deszczowy mglisty brzeg rzeki — deszcz na kamieniach, płynąca woda",
+        "cechy": [
+          "deszczowy brzeg",
+          "mgła poranka",
+          "płynąca rzeka",
+          "mokre kamienie"
+        ]
+      },
+      "hero": {
+        "opis": "Ogar z płynącej wody węszy przy tropie — kapiące ciało i płynne pociągnięcia nosem",
+        "cechy": [
+          "kapiące wodne ciało",
+          "węszenie",
+          "odnaleziony trop",
+          "płynna sylwetka"
+        ]
+      },
+      "mood": {
+        "opis": "Nieustępliwy trop — woda ma dobrą pamięć",
+        "cechy": [
+          "nieustępliwość",
+          "pamięć wody",
+          "cierpliwy pościg"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Płynnie, chłodno, cicho",
+        "cechy": [
+          "płynny",
+          "chłodny",
+          "cichy"
+        ]
+      }
+    },
+    "195": {
+      "title": "Entrancing Lyre",
+      "background": {
+        "opis": "Śródziemnomorska dolina oliwek i cyprysów — senne popołudnie, cykady",
+        "cechy": [
+          "dolina oliwek",
+          "senne popołudnie",
+          "cykady",
+          "marmurowy głaz"
+        ]
+      },
+      "hero": {
+        "opis": "Struny liry wibrują same z siebie — hipnotyczna pieśń bez grajka usypia słuchaczy",
+        "cechy": [
+          "samogrające struny",
+          "hipnotyczna pieśń",
+          "wibracja bez dotyku",
+          "usypianie słuchaczy"
+        ],
+        "wymagane": [
+          "samogrające struny"
+        ]
+      },
+      "mood": {
+        "opis": "Słodkie omamienie — kto słucha, ten zostaje",
+        "cechy": [
+          "omamienie",
+          "słodycz pułapki",
+          "urok"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dźwięcznie, miękko, kołysząco",
+        "cechy": [
+          "dźwięczny",
+          "miękki",
+          "kołyszący"
+        ]
+      }
+    },
+    "197": {
+      "title": "Dismal Backwater",
+      "background": {
+        "opis": "Stojąca zatoka mrocznego bagna z wpółzatopioną świątynią — lustrzana martwa cisza",
+        "cechy": [
+          "stojąca zatoka",
+          "bagno",
+          "zatopiona świątynia",
+          "lustrzana cisza"
+        ],
+        "wymagane": [
+          "stojąca zatoka"
+        ]
+      },
+      "hero": {
+        "opis": "Pojedyncze zakłócenie martwej tafli — plusk czapli i rozchodzące się kręgi",
+        "cechy": [
+          "pojedynczy plusk",
+          "kręgi na tafli",
+          "czapla",
+          "zakłócona cisza"
+        ]
+      },
+      "mood": {
+        "opis": "Melancholia świątyni wchłoniętej przez bagno",
+        "cechy": [
+          "melancholia",
+          "wchłonięcie",
+          "pamięć bagna"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, mokro, powoli",
+        "cechy": [
+          "ciemny",
+          "mokry",
+          "powolny"
+        ]
+      }
+    },
+    "199": {
+      "title": "Gloomfang Mauler",
+      "background": {
+        "opis": "Skażone bagno pod ciężkim niebem — więdnąca roślinność, martwiejący pas ziemi",
+        "cechy": [
+          "skażone bagno",
+          "ciężkie niebo",
+          "więdnąca roślinność",
+          "martwa trasa"
+        ]
+      },
+      "hero": {
+        "opis": "Koszmar pełznie na hakowatych kończynach — chitynowe wbijanie haków i pulsująca energia",
+        "cechy": [
+          "wbijanie haków",
+          "chitynowe pełzanie",
+          "pulsujące żyłki",
+          "czerniejąca ziemia"
+        ]
+      },
+      "mood": {
+        "opis": "Pełzająca zagłada wyznaczająca własną trasę",
+        "cechy": [
+          "pełzająca zagłada",
+          "nieuchronność",
+          "odraza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Chropowato, nisko, ciemno",
+        "cechy": [
+          "chropowaty",
+          "niski",
+          "ciemny"
+        ]
+      }
+    },
+    "200": {
+      "title": "Cloak of the Bat",
+      "background": {
+        "opis": "Nocne zaułki i dachy portowego miasta — kominy, przystań w dole",
+        "cechy": [
+          "nocne dachy",
+          "portowe miasto",
+          "zaułki",
+          "księżyc nad murami"
+        ]
+      },
+      "hero": {
+        "opis": "Płaszcz rozciąga się w skrzydła — świszczący lot między kominami szybszy od strzały",
+        "cechy": [
+          "świst lotu",
+          "rozciągnięte skrzydła",
+          "przemykanie między kominami",
+          "cień na tle księżyca"
+        ],
+        "wymagane": [
+          "świst lotu"
+        ]
+      },
+      "mood": {
+        "opis": "Złodziejska swoboda cienia",
+        "cechy": [
+          "swoboda",
+          "cień",
+          "zuchwałość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Szybko, cicho, ciemno",
+        "cechy": [
+          "szybki",
+          "cichy",
+          "ciemny"
+        ]
+      }
+    },
+    "201": {
+      "title": "Tiller of Flesh",
+      "background": {
+        "opis": "Sterylne białe tarasy bazyliki — nabożna porcelanowa cisza",
+        "cechy": [
+          "białe tarasy",
+          "sterylna cisza",
+          "nabożność maszyn",
+          "inkubatory"
+        ]
+      },
+      "hero": {
+        "opis": "Zalążek umieszczany w kokonie i stymulowany wzrost — mokre organiczne pulsowanie w porcelanie",
+        "cechy": [
+          "mokre pulsowanie",
+          "umieszczenie zalążka",
+          "stymulowany wzrost",
+          "kokon inkubacyjny"
+        ]
+      },
+      "mood": {
+        "opis": "Nabożna, przerażająca doskonałość",
+        "cechy": [
+          "nabożność",
+          "doskonałość",
+          "przerażenie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Zimno, pulsująco, niepokojąco",
+        "cechy": [
+          "zimny",
+          "pulsujący",
+          "niepokojący"
+        ]
+      }
+    },
+    "202": {
+      "title": "Inferno Titan",
+      "background": {
+        "opis": "Spękana bazaltowa kraina z gejzerami żaru — dudniący, martwy masyw",
+        "cechy": [
+          "bazaltowa kraina",
+          "gejzery żaru",
+          "spękana ziemia",
+          "martwy krajobraz"
+        ]
+      },
+      "hero": {
+        "opis": "Tytan z magmy kroczy i zbiera kulę żaru — dudniące kroki i trzy smugi ognia",
+        "cechy": [
+          "dudniące kroki tytana",
+          "buchający żar",
+          "kula ognia",
+          "smugi w trzy cele"
+        ],
+        "wymagane": [
+          "dudniące kroki tytana"
+        ]
+      },
+      "mood": {
+        "opis": "Apokaliptyczna potęga, po której nic nie zostaje",
+        "cechy": [
+          "apokalipsa",
+          "potęga",
+          "spustoszenie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Potężnie, ogniście, dudniąco",
+        "cechy": [
+          "potężny",
+          "ognisty",
+          "dudniący"
+        ]
+      }
+    },
+    "204": {
+      "title": "Skilled Animator",
+      "background": {
+        "opis": "Zalana słońcem pracownia metropolii — jasny warsztat mistrza",
+        "cechy": [
+          "słoneczna pracownia",
+          "warsztat mistrza",
+          "jasne wnętrze",
+          "filigranowe konstrukcje"
+        ]
+      },
+      "hero": {
+        "opis": "Strumień eteru budzi automat — rozświetlenie rdzenia i pierwszy ciężki krok kolosa",
+        "cechy": [
+          "strumień eteru",
+          "budzący się rdzeń",
+          "pierwszy ciężki krok",
+          "ożywienie maszyny"
+        ]
+      },
+      "mood": {
+        "opis": "Cud rzemiosła — martwe staje się strażnikiem",
+        "cechy": [
+          "cud rzemiosła",
+          "ożywienie",
+          "duma mistrza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Jasno, metalicznie, pełnie",
+        "cechy": [
+          "jasny",
+          "metaliczny",
+          "pełny"
+        ]
+      }
+    },
+    "206": {
+      "title": "High Stride",
+      "background": {
+        "opis": "Brzeg rzeczki wśród traw wyższych niż drzewa — bujna miniaturowa dolina",
+        "cechy": [
+          "miniaturowa dolina",
+          "trawy jak drzewa",
+          "płytka rzeczka",
+          "bujna zieleń"
+        ]
+      },
+      "hero": {
+        "opis": "Radosny marsz na drewnianych szczudłach ponad trawami — stukot i szeroki uśmiech",
+        "cechy": [
+          "stukot szczudeł",
+          "marsz ponad trawą",
+          "radosne kroki",
+          "widok z góry"
+        ]
+      },
+      "mood": {
+        "opis": "Pomysłowość małych i radość odkrycia",
+        "cechy": [
+          "pomysłowość",
+          "radość odkrycia",
+          "pogodna determinacja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Lekko, drewnianie, pogodnie",
+        "cechy": [
+          "lekki",
+          "drewniany",
+          "pogodny"
+        ]
+      }
     }
   }
 }
