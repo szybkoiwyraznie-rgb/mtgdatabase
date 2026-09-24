@@ -32,6 +32,32 @@ REQUIRED = {
     "instruments": ["id", "semantic", "family", "samples", "source", "approved"],
 }
 SOURCE_KEYS = ["title", "author", "license", "url", "channel"]
+# ADR 0006, aneks „Jeden typ = jeden klocek": każdy wpis ma semantics.type
+# z taksonomii warstwy; relacja typ<->klocek jest 1:1 w obie strony.
+KIND_LAYER = {
+    "backgrounds": "background",
+    "heroes": "hero",
+    "gestures": "mood",
+    "instruments": "instrumentation",
+}
+SEMANTICS = REPO / "data" / "semantics"
+
+
+def taxonomy_types() -> dict[str, set[str]]:
+    tax = json.loads((SEMANTICS / "taxonomy.json").read_text(encoding="utf-8"))
+    return {layer: {k["id"] for k in spec["klasy"]}
+            for layer, spec in tax["layers"].items()}
+
+
+def pending_types() -> dict[str, set[str]]:
+    path = SEMANTICS / "pending-types.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[str, set[str]] = {}
+    for p in data.get("pending", []):
+        out.setdefault(p["layer"], set()).add(p["id"])
+    return out
 
 
 def load(kind: str) -> dict:
@@ -64,10 +90,28 @@ def usage_counts(recipes: list[dict]) -> dict[str, Counter]:
 
 def check() -> int:
     errors: list[str] = []
+    warnings: list[str] = []
+    tax = taxonomy_types()
+    pending = pending_types()
     for kind, required in REQUIRED.items():
         data = load(kind)
         ids: set[str] = set()
+        layer = KIND_LAYER[kind]
+        types_seen: dict[str, str] = {}
         for entry in data["entries"]:
+            sem = entry.get("semantics")
+            if not sem or not all(k in sem for k in ("type", "traits", "bad_for")):
+                errors.append(f"{kind}/{entry.get('id', '?')}: brak semantics {{type, traits, bad_for}}")
+            else:
+                t = sem["type"]
+                if t in types_seen:
+                    errors.append(f"{kind}: typ {t} zdublowany ({types_seen[t]} i {entry.get('id')}) — łamie 1:1")
+                types_seen[t] = entry.get("id", "?")
+                if t not in tax.get(layer, set()):
+                    if t in pending.get(layer, set()):
+                        warnings.append(f"{kind}/{entry.get('id')}: typ {t} czeka na akceptację (pending-types.json)")
+                    else:
+                        errors.append(f"{kind}/{entry.get('id')}: typ {t} spoza taksonomii warstwy {layer}")
             missing = [k for k in required if k not in entry]
             if missing:
                 errors.append(f"{kind}/{entry.get('id', '?')}: brak pól {missing}")
@@ -101,6 +145,8 @@ def check() -> int:
             errors.append(f"zduplikowana kombinacja a·b·c·d: {combos[key]} i {recipe_path.name}")
         else:
             combos[key] = recipe_path.name
+    for warning in warnings:
+        print(f"OSTRZEŻENIE: {warning}")
     for error in errors:
         print(f"BŁĄD: {error}")
     print(f"OK: {sum(len(load(k)['entries']) for k in REQUIRED)} wpisów, {len(combos)} receptur" if not errors else f"{len(errors)} problemów")

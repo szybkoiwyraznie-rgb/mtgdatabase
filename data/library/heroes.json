@@ -30,6 +30,19 @@
         "gate": "g001",
         "choice": "c.3",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "krzyk-ptaka",
+        "traits": [
+          "kruk",
+          "agresywny",
+          "przeciągły",
+          "bliski"
+        ],
+        "bad_for": [
+          "subtelność",
+          "śpiewny spokój"
+        ]
       }
     },
     {
@@ -61,6 +74,19 @@
         "gate": "g001",
         "choice": "c.1",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "jek-zawodzenie",
+        "traits": [
+          "nawiedzony zew",
+          "melodyjny",
+          "daleki",
+          "nad wodą"
+        ],
+        "bad_for": [
+          "walka",
+          "agresja"
+        ]
       }
     },
     {
@@ -86,6 +112,18 @@
         "gate": "g004",
         "choice": "ryk-bestii.1",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "ryk-bestii",
+        "traits": [
+          "niski",
+          "pełny",
+          "rozwlekły"
+        ],
+        "bad_for": [
+          "ultrakrótkie sygnatury",
+          "komedia"
+        ]
       }
     },
     {
@@ -111,6 +149,19 @@
         "gate": "g004",
         "choice": "rzut-czaru.2",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "trzask-blyskawicy",
+        "traits": [
+          "czysty",
+          "skupiony",
+          "wysoki pik",
+          "szybki"
+        ],
+        "bad_for": [
+          "naturalistyczna sceneria",
+          "chaos hordy"
+        ]
       }
     },
     {
@@ -136,6 +187,19 @@
         "gate": "g007",
         "choice": "wrzask-wojenny-goblinów.3",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "okrzyk-bojowy",
+        "traits": [
+          "tłum",
+          "narastający",
+          "groźny",
+          "plemienny"
+        ],
+        "bad_for": [
+          "pojedynczy głos",
+          "dworska elegancja"
+        ]
       }
     },
     {
@@ -161,6 +225,19 @@
         "gate": "g013",
         "choice": "chichot-chochlika.2",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "smiech",
+        "traits": [
+          "diabelski chichot",
+          "maniakalny",
+          "dwufalowy"
+        ],
+        "bad_for": [
+          "komedia",
+          "sympatyczna psota",
+          "dziecięca niewinność"
+        ]
       }
     }
   ]

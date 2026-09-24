@@ -19,5 +19,14 @@
   },
   "seed": 2,
   "gate": "g011",
-  "notes": "Rola z narracji: wąski zalany kanion Zendikaru (tło = prawdziwy nurt, nagranie terenowe z g011), Baloth przeciskający się szczeliną (hero = ryk bestii, 1:1 dla tej fabuły), skradanie pod patrolami Eldrazi (koda = tryton tajemnicy: niski szmer i wisząca nad nim wysoka nuta — nic się nie rusza). Kotły odpadły: mają tylko 3 nuty (38/39/41), tryton 54+72 się w nich nie mieści (QA zgłosiło pominiętą nutę). Steinway obejmuje obie; kombinacja g4b x b_piano_steinway nieużyta gdzie indziej."
+  "notes": "Rola z narracji: wąski zalany kanion Zendikaru (tło = prawdziwy nurt, nagranie terenowe z g011), Baloth przeciskający się szczeliną (hero = ryk bestii, 1:1 dla tej fabuły), skradanie pod patrolami Eldrazi (koda = tryton tajemnicy: niski szmer i wisząca nad nim wysoka nuta — nic się nie rusza). Kotły odpadły: mają tylko 3 nuty (38/39/41), tryton 54+72 się w nich nie mieści (QA zgłosiło pominiętą nutę). Steinway obejmuje obie; kombinacja g4b x b_piano_steinway nieużyta gdzie indziej.",
+  "profile": {
+    "types": {
+      "background": "gory-wichry",
+      "hero": "fala-rozbryzg",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "zimno-szklista"
+    },
+    "note": "Zapis dokumentacyjny (Etap 3, ADR 0006) — profil semantyczny fabuły wg taksonomii v2; audio legacy bez zmian, obsada klocków sprzed modelu 1:1."
+  }
 }

@@ -41,6 +41,18 @@
         "gate": "g001",
         "choice": "a.2",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "nieuchronnosc-fatum",
+        "traits": [
+          "marszowy",
+          "dwa impulsy",
+          "niski cień"
+        ],
+        "bad_for": [
+          "radość",
+          "sielanka"
+        ]
       }
     },
     {
@@ -77,6 +89,18 @@
         "gate": "g001",
         "choice": "a.2",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "tajemnica-obcosc",
+        "traits": [
+          "tryton",
+          "zawieszony",
+          "bez rozwiązania"
+        ],
+        "bad_for": [
+          "triumf",
+          "domknięcie"
+        ]
       }
     },
     {
@@ -118,6 +142,18 @@
         "gate": "g002",
         "choice": "koda-swiatlo.1",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "radosc-beztroska",
+        "traits": [
+          "wznosząca kaskada",
+          "jasny",
+          "odkrycie"
+        ],
+        "bad_for": [
+          "groza",
+          "żałoba"
+        ]
       }
     }
   ]

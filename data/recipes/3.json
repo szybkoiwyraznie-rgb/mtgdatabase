@@ -1,10 +1,32 @@
 {
   "story_id": "3",
   "length_sec": 8.0,
-  "background": {"id": "fire_hearth_small_01", "offset_sec": 0.0, "target_db": -32},
-  "hero": {"id": "demonic_laugh_02", "at_sec": 0.7, "target_db": -15},
-  "coda": {"gesture": "g4b_mystery_tritone", "instrument": "b_wine_glasses", "at_sec": 4.0, "target_db": -21},
+  "background": {
+    "id": "fire_hearth_small_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "demonic_laugh_02",
+    "at_sec": 0.7,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g4b_mystery_tritone",
+    "instrument": "b_wine_glasses",
+    "at_sec": 4.0,
+    "target_db": -21
+  },
   "seed": 3,
   "gate": "g013",
-  "notes": "Role wyprowadzone z narracji: d = mały ogień dopalającej się mapy w zamkniętym gabinecie (fire_hearth_small_01: żywe nagranie oszczędnych trzasków), c = prawdziwy podwójny diabelski rechot chochlika po udanym sabotażu (hero 1:1), a = nierozwiązana tajemnica widmowego artefaktu, b = eteryczne kieliszki odpowiadające pulsującemu kryształowi i widmowej wizji. Istniejące a, b i d pasują semantycznie; bramka była potrzebna tylko dla brakującego hero."
+  "notes": "Role wyprowadzone z narracji: d = mały ogień dopalającej się mapy w zamkniętym gabinecie (fire_hearth_small_01: żywe nagranie oszczędnych trzasków), c = prawdziwy podwójny diabelski rechot chochlika po udanym sabotażu (hero 1:1), a = nierozwiązana tajemnica widmowego artefaktu, b = eteryczne kieliszki odpowiadające pulsującemu kryształowi i widmowej wizji. Istniejące a, b i d pasują semantycznie; bramka była potrzebna tylko dla brakującego hero.",
+  "profile": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "smiech",
+      "mood": "triumf-chwala",
+      "instrumentation": "mroczna"
+    },
+    "note": "Zapis dokumentacyjny (Etap 3, ADR 0006) — profil semantyczny fabuły wg taksonomii v2; audio legacy bez zmian, obsada klocków sprzed modelu 1:1."
+  }
 }

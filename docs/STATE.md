@@ -50,11 +50,16 @@ roadmapy, obsadzona od profilu semantycznego.
    `scripts/map_profiles.py`).
    **Korekta właściciela: jeden typ = jeden klocek (1:1)** — ADR 0006,
    aneks; `unique_combo` działa na poziomie typów; usage-policy ma
-   drugą twardą regułę `one_block_per_type`. Cztery kolizje kombinacji
-   rozwiązuje propozycja 4 nowych typów hero (CHANGELOG taksonomii,
-   wpis „CZEKA NA AKCEPTACJĘ"). Po akceptacji: v2 taksonomii, remap,
-   potem **Etap 3** — migracja bibliotek (każdy z 18 klocków dostaje
-   RÓŻNY typ; przypisanie 1:1) i receptur.
+   drugą twardą regułę `one_block_per_type`. Taksonomia **v2**
+   (54 typy hero) — 510/510 kombinacji unikalnych, zero kolizji.
+3. **Etap 3 — WYKONANY**: 18/18 klocków ma `semantics: {type, traits,
+   bad_for}` (typy 1:1, walidacja w `library_tool.py check`); 6/6
+   receptur legacy ma `profile` (dokumentacyjnie). Otwarta bramka
+   tekstowa: typ tła `ognisko-palenisko` dla `fire_hearth_small_01`
+   (`data/semantics/pending-types.json`; do decyzji walidator daje
+   OSTRZEŻENIE, nie błąd). Dalej: **Etap 4** — `scripts/resolver.py`
+   (obsada typ→klocek, twarde filtry bad_for/wymagane, unikalność
+   kombinacji, log decyzji) + testy.
 3. Etapy 3–5: migracja bibliotek, resolver, wznowienie produkcji od
    fabuły 18. Kandydaci-zapas z `docs/sources-and-licensing.md`
    (miecze, zombie, metal/drewno, bagna, woda) pozostają w odwodzie.

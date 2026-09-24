@@ -1,5 +1,18 @@
 # CHANGELOG taksonomii semantycznej
 
+## 2026-09-24 — Etap 3: migracja bibliotek + propozycja typu `ognisko-palenisko` (CZEKA NA AKCEPTACJĘ)
+
+- 18/18 klocków otagowane `semantics: {type, traits, bad_for}`; typy
+  wzajemnie różne w każdej bazie (niezmiennik 1:1 pilnowany przez
+  `library_tool.py check`).
+- 6/6 receptur legacy dostało pole `profile` (typy wg taksonomii v2,
+  zapis dokumentacyjny — audio bez zmian).
+- **Propozycja nowego typu tła** `ognisko-palenisko` („Małe ognisko /
+  palenisko z bliska: oszczędne trzaski żaru, kameralne ciepło ognia")
+  dla klocka `fire_hearth_small_01` — nie mieści się uczciwie w żadnym
+  z 29 typów tła. Do akceptacji: `data/semantics/pending-types.json`;
+  walidator zgłasza go jako OSTRZEŻENIE do czasu decyzji.
+
 ## 2026-09-24 — korekta modelu: jeden typ = jeden klocek + 4 nowe typy hero (ZAAKCEPTOWANE → v2)
 
 Właściciel zaakceptował propozycję („kontynuuj" po bramce tekstowej).
