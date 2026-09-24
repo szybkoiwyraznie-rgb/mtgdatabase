@@ -98,19 +98,20 @@ Deterministyczna obsada fabuły z miękkim balansem użycia.
   `scripts/test_signature_system.py`.
 - Wejście: profil fabuły + biblioteki + historia receptur.
   Wyjście: obsada czterech ról **albo** lista braków do bramki.
-- Ranking wg ADR 0006: klasa > cechy > kary miękkie (częstość w klasie,
-  świeżość, powtarzalne pary) > tie-break z id fabuły. Twarde filtry:
-  kombinacja a·b·c·d nie może powtórzyć istniejącej receptury;
-  klasa jest warunkiem koniecznym, nie wystarczającym — wpis odpada
-  przy konflikcie z `bad_for` lub przy braku cechy `required` profilu
-  (wtedy klasa z wpisami nadal może być BRAKIEM → bramka).
+- Obsada per fabuła (model 1:1, ADR 0006 aneks): typ z profilu →
+  jego jedyny klocek. Twarde filtry: konflikt `bad_for` lub brak cechy
+  `wymaganej` = typ nie obsługuje profilu (→ inny istniejący typ albo
+  propozycja nowego typu — bramka tekstowa); kombinacja czterech
+  typów/klocków nie może powtórzyć istniejącej receptury (kolizja =
+  propozycja doprecyzowania taksonomii).
+- Ranking (klasa > cechy > tie-break) stosuje się przy bramce audio —
+  do wyboru JEDYNEGO klocka nowego typu spośród kandydatów.
 - Ślad decyzji zapisywany w recepturze:
-  `resolution: {candidates, scores, reason}`.
+  `resolution: {types, blocks, vetoes, reason}`; przy bramce dodatkowo
+  `candidates` + `scores`.
 - Audyt ostrzeżeń (nie zakazów) w `library_tool.py report`:
-  najczęstszy wpis wybrany mimo równie dobrego rzadszego; natychmiastowa
-  powtórka klocka; stała para gest–instrument; wpisy nigdy niekandydujące;
-  klasa często wołana, a obsługiwana stale jednym wpisem (sygnał do
-  opcjonalnej bramki poszerzającej).
+  naruszenia 1:1, typy-sieroty (typ bez klocka wołany przez profile),
+  klocki nigdy nieużyte, propozycje typów czekające w CHANGELOG.
 
 DoD: testy resolvera zielone (determinizm, nadrzędność semantyki,
 preferencja rzadszego przy remisie, blokada duplikatu kombinacji);
