@@ -281,6 +281,42 @@
         "choice": "oboz-wojenny.1",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "sea_storm_02",
+      "setting": "morze / sztormowe wybrzeże",
+      "desc": "ciężka, tocząca masa wody — wolniejszy rytm, głębszy rejestr, jak przypływ w nocy pod klifem",
+      "file": "audio/library/backgrounds/sea_storm_02.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -32,
+      "loopable": true,
+      "semantics": {
+        "type": "morze-wybrzeze",
+        "traits": [
+          "fale",
+          "przybój",
+          "szum morza",
+          "wichura"
+        ],
+        "bad_for": [
+          "wnętrze",
+          "martwa cisza",
+          "suchy krajobraz"
+        ]
+      },
+      "source": {
+        "title": "Ocean Waves Crashing... Big Lagoon, Redwood (Freesound)",
+        "author": "CVLTIV8R",
+        "license": "CC0 / Public Domain (wg API Freesound)",
+        "url": "https://freesound.org/people/CVLTIV8R/sounds/803679/",
+        "channel": "sample-scout run 36007698060 (preview-hq-mp3); manifest sha256: data/gates/g022/source-manifest.json",
+        "notes": "okno 55.5–63.5 s nagrania 01; poziom, fade"
+      },
+      "approved": {
+        "gate": "g023",
+        "choice": "morze-wybrzeze.2",
+        "date": "2026-09-24"
+      }
     }
   ]
 }
