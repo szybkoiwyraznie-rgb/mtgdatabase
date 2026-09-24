@@ -30,6 +30,25 @@ def load():
     return tax, prof
 
 
+def load_overrides(tax):
+    """Ręczne nadpisania (assignment-overrides.json) + walidacja typów."""
+    path = ROOT / 'data/semantics/assignment-overrides.json'
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text('utf-8'))
+    valid = {L: {k['id'] for k in spec['klasy']}
+             for L, spec in tax['layers'].items()}
+    out = {}
+    for sid, layers in data.get('overrides', {}).items():
+        for layer, spec in layers.items():
+            t = spec['typ']
+            if t not in valid.get(layer, set()):
+                raise SystemExit(
+                    f'override {sid}/{layer}: typ {t} spoza taksonomii')
+            out.setdefault(sid, {})[layer] = t
+    return out
+
+
 def compile_layers(tax):
     layers = {}
     for lname, layer in tax['layers'].items():
@@ -53,13 +72,17 @@ def classify(defs, text):
 def main(argv):
     tax, prof = load()
     layers = compile_layers(tax)
+    overrides = load_overrides(tax)
+    n_over = sum(len(v) for v in overrides.values())
+    if n_over:
+        print(f'nadpisania ręczne: {n_over} (assignment-overrides.json)')
     result = {}
     ok = True
     for lname, defs in layers.items():
         counts = collections.Counter()
         for sid, p in sorted(prof.items(), key=lambda kv: int(kv[0])):
             text = (p[lname]['opis'] + ' ' + ' '.join(p[lname]['cechy'])).lower()
-            cid = classify(defs, text)
+            cid = overrides.get(sid, {}).get(lname) or classify(defs, text)
             result.setdefault(sid, {})[lname] = cid
             if cid is None:
                 ok = False

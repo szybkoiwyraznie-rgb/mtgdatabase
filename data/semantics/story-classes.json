@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "taxonomy_version": "4",
+  "taxonomy_version": "5",
   "note": "Mapowanie fabuł na klasy taksonomii (Etap 2). Szkic do przeglądu; po akceptacji taksonomii v1 staje się wiążący.",
   "classes": {
     "1": {
@@ -10,7 +10,7 @@
       "instrumentation": "mroczna"
     },
     "2": {
-      "background": "gory-wichry",
+      "background": "rzeka-strumien",
       "hero": "fala-rozbryzg",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "zimno-szklista"
@@ -35,7 +35,7 @@
     },
     "6": {
       "background": "dwor-komnaty",
-      "hero": "rezonans-magiczny",
+      "hero": "wiezy-swiatla",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "zimno-szklista"
     },
@@ -47,7 +47,7 @@
     },
     "8": {
       "background": "kraina-ognia",
-      "hero": "skrzek-wrzask",
+      "hero": "wrzask-bandy",
       "mood": "zuchwalosc-brawura",
       "instrumentation": "ciezka"
     },
@@ -77,12 +77,12 @@
     },
     "13": {
       "background": "step-rownina",
-      "hero": "rozblysk-swiatla",
+      "hero": "aura-lagodna",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cicho-kameralna"
     },
     "14": {
-      "background": "miasto-gwar",
+      "background": "miasto-neonowe",
       "hero": "potezny-cios",
       "mood": "zuchwalosc-brawura",
       "instrumentation": "metaliczno-mechaniczna"
@@ -131,7 +131,7 @@
     },
     "22": {
       "background": "morze-wybrzeze",
-      "hero": "ryk-bestii",
+      "hero": "ryk-humanoida",
       "mood": "triumf-chwala",
       "instrumentation": "monumentalno-potezna"
     },
@@ -143,13 +143,13 @@
     },
     "24": {
       "background": "noc-ksiezyc",
-      "hero": "skrzek-wrzask",
+      "hero": "wycie-wilcze",
       "mood": "tajemnica-obcosc",
       "instrumentation": "ostro-gwaltowna"
     },
     "25": {
       "background": "miasto-nocne",
-      "hero": "rozblysk-swiatla",
+      "hero": "wiezy-swiatla",
       "mood": "triumf-chwala",
       "instrumentation": "jasno-swietlista"
     },
@@ -173,7 +173,7 @@
     },
     "29": {
       "background": "podziemia-jaskinia",
-      "hero": "rozblysk-swiatla",
+      "hero": "aura-lagodna",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -184,14 +184,14 @@
       "instrumentation": "metaliczno-mechaniczna"
     },
     "31": {
-      "background": "las-dzienny",
+      "background": "las-mroczny",
       "hero": "klekot-chitynowy",
       "mood": "groza-przerazenie",
       "instrumentation": "cicho-kameralna"
     },
     "32": {
       "background": "podwodne-glebiny",
-      "hero": "potezny-cios",
+      "hero": "fala-rozbryzg",
       "mood": "czujnosc-napiecie",
       "instrumentation": "mokro-organiczna"
     },
@@ -203,25 +203,25 @@
     },
     "34": {
       "background": "kraina-ognia",
-      "hero": "potezny-cios",
+      "hero": "wybuch",
       "mood": "furia-dzikosc",
       "instrumentation": "monumentalno-potezna"
     },
     "35": {
       "background": "krypta-nekropolia",
-      "hero": "jek-zawodzenie",
+      "hero": "trzepot-drobnych-skrzydel",
       "mood": "tajemnica-obcosc",
       "instrumentation": "cicho-kameralna"
     },
     "36": {
       "background": "bagno-moczary",
-      "hero": "pelzanie-sluz",
+      "hero": "zgrzyt-metalu",
       "mood": "groza-przerazenie",
       "instrumentation": "ciezka"
     },
     "37": {
       "background": "noc-ksiezyc",
-      "hero": "jek-zawodzenie",
+      "hero": "wycie-wilcze",
       "mood": "wspolnota-wiez",
       "instrumentation": "mroczna"
     },
@@ -233,12 +233,12 @@
     },
     "39": {
       "background": "bagno-moczary",
-      "hero": "ryk-bestii",
+      "hero": "ryk-humanoida",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "sucho-surowa"
     },
     "40": {
-      "background": "oboz-wojenny",
+      "background": "dziedziniec-spokojny",
       "hero": "pelzanie-sluz",
       "mood": "groza-przerazenie",
       "instrumentation": "mroczna"
@@ -269,12 +269,12 @@
     },
     "45": {
       "background": "dwor-komnaty",
-      "hero": "rozblysk-swiatla",
+      "hero": "wiezy-swiatla",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "zimno-szklista"
     },
     "46": {
-      "background": "oboz-wojenny",
+      "background": "dziedziniec-spokojny",
       "hero": "przemiana-materializacja",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "jasno-swietlista"
@@ -317,12 +317,12 @@
     },
     "53": {
       "background": "kraina-lodu",
-      "hero": "skradanie-cisza",
+      "hero": "pelzanie-sluz",
       "mood": "czujnosc-napiecie",
       "instrumentation": "cicho-kameralna"
     },
     "54": {
-      "background": "las-dzienny",
+      "background": "las-mroczny",
       "hero": "szum-obcy",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cicho-kameralna"
@@ -334,7 +334,7 @@
       "instrumentation": "metaliczno-mechaniczna"
     },
     "56": {
-      "background": "miasto-gwar",
+      "background": "laboratorium-technika",
       "hero": "klekot-chitynowy",
       "mood": "czujnosc-napiecie",
       "instrumentation": "metaliczno-mechaniczna"
@@ -346,8 +346,8 @@
       "instrumentation": "eteryczno-oniryczna"
     },
     "58": {
-      "background": "miasto-gwar",
-      "hero": "ryk-bestii",
+      "background": "miasto-neonowe",
+      "hero": "loskot-machiny",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "metaliczno-mechaniczna"
     },
@@ -370,7 +370,7 @@
       "instrumentation": "zimno-szklista"
     },
     "62": {
-      "background": "las-dzienny",
+      "background": "las-mroczny",
       "hero": "wzrost-roslin",
       "mood": "bezsilnosc-osaczenie",
       "instrumentation": "ciezka"
@@ -382,7 +382,7 @@
       "instrumentation": "mroczna"
     },
     "64": {
-      "background": "gory-wichry",
+      "background": "niebo-przestworza",
       "hero": "rozblysk-swiatla",
       "mood": "duma-majestat",
       "instrumentation": "jasno-swietlista"
@@ -406,37 +406,37 @@
       "instrumentation": "zimno-szklista"
     },
     "68": {
-      "background": "gory-wichry",
-      "hero": "zgrzyt-zawiasow",
+      "background": "kraina-lodu",
+      "hero": "skradanie-cisza",
       "mood": "czujnosc-napiecie",
       "instrumentation": "cicho-kameralna"
     },
     "69": {
       "background": "kuznia-warsztat",
-      "hero": "przemiana-materializacja",
+      "hero": "skrobanie-pisma",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "ostro-gwaltowna"
     },
     "70": {
-      "background": "oboz-wojenny",
-      "hero": "ryk-bestii",
+      "background": "dziedziniec-spokojny",
+      "hero": "bariera-odbicie",
       "mood": "precyzja-dyscyplina",
       "instrumentation": "jasno-swietlista"
     },
     "71": {
-      "background": "miasto-gwar",
-      "hero": "potezny-cios",
+      "background": "miasto-neonowe",
+      "hero": "bariera-odbicie",
       "mood": "duma-majestat",
       "instrumentation": "ciezka"
     },
     "72": {
       "background": "krypta-nekropolia",
-      "hero": "warkot-drapieznika",
+      "hero": "rezonans-magiczny",
       "mood": "czujnosc-napiecie",
       "instrumentation": "mroczna"
     },
     "73": {
-      "background": "las-dzienny",
+      "background": "las-mroczny",
       "hero": "furkot-mechanizmu",
       "mood": "czujnosc-napiecie",
       "instrumentation": "jasno-swietlista"
@@ -455,19 +455,19 @@
     },
     "76": {
       "background": "dwor-komnaty",
-      "hero": "rezonans-magiczny",
+      "hero": "bariera-odbicie",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "zimno-szklista"
     },
     "77": {
-      "background": "miasto-gwar",
+      "background": "pustynia-pyl",
       "hero": "trzask-blyskawicy",
       "mood": "precyzja-dyscyplina",
       "instrumentation": "ostro-gwaltowna"
     },
     "78": {
       "background": "noc-ksiezyc",
-      "hero": "jek-zawodzenie",
+      "hero": "przemiana-materializacja",
       "mood": "precyzja-dyscyplina",
       "instrumentation": "mroczna"
     },
@@ -490,13 +490,13 @@
       "instrumentation": "ciezka"
     },
     "82": {
-      "background": "bitwa-zgielk",
+      "background": "oboz-wojenny",
       "hero": "lopot-skrzydel",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "jasno-swietlista"
     },
     "83": {
-      "background": "las-dzienny",
+      "background": "las-mroczny",
       "hero": "tetent-kopyt",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "ciezka"
@@ -515,13 +515,13 @@
     },
     "86": {
       "background": "niebo-przestworza",
-      "hero": "lopot-skrzydel",
+      "hero": "trzepot-drobnych-skrzydel",
       "mood": "wspolnota-wiez",
       "instrumentation": "cicho-kameralna"
     },
     "87": {
       "background": "step-rownina",
-      "hero": "rezonans-magiczny",
+      "hero": "aura-lagodna",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "jasno-swietlista"
     },
@@ -550,7 +550,7 @@
       "instrumentation": "mroczna"
     },
     "92": {
-      "background": "oboz-wojenny",
+      "background": "pustkowie-cisza",
       "hero": "zgrzyt-metalu",
       "mood": "czujnosc-napiecie",
       "instrumentation": "mroczna"
@@ -563,7 +563,7 @@
     },
     "94": {
       "background": "bitwa-zgielk",
-      "hero": "okrzyk-bojowy",
+      "hero": "okrzyk-bojowy-zenski",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -581,13 +581,13 @@
     },
     "97": {
       "background": "rzeka-strumien",
-      "hero": "zgrzyt-zawiasow",
+      "hero": "wybuch",
       "mood": "furia-dzikosc",
       "instrumentation": "monumentalno-potezna"
     },
     "98": {
       "background": "miasto-nocne",
-      "hero": "zwinny-skok",
+      "hero": "trzepot-drobnych-skrzydel",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cicho-kameralna"
     },
@@ -605,7 +605,7 @@
     },
     "101": {
       "background": "krypta-nekropolia",
-      "hero": "chrobot-szelest",
+      "hero": "brzek-drobiazgow",
       "mood": "tajemnica-obcosc",
       "instrumentation": "mroczna"
     },
@@ -628,7 +628,7 @@
       "instrumentation": "metaliczno-mechaniczna"
     },
     "105": {
-      "background": "miasto-gwar",
+      "background": "miasto-neonowe",
       "hero": "przemiana-materializacja",
       "mood": "precyzja-dyscyplina",
       "instrumentation": "ostro-gwaltowna"
@@ -659,7 +659,7 @@
     },
     "110": {
       "background": "bitwa-zgielk",
-      "hero": "rozblysk-swiatla",
+      "hero": "lopot-skrzydel",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "jasno-swietlista"
     },
@@ -683,7 +683,7 @@
     },
     "114": {
       "background": "bagno-moczary",
-      "hero": "lopot-skrzydel",
+      "hero": "trzepot-drobnych-skrzydel",
       "mood": "radosc-beztroska",
       "instrumentation": "cicho-kameralna"
     },
@@ -694,7 +694,7 @@
       "instrumentation": "mokro-organiczna"
     },
     "116": {
-      "background": "miasto-gwar",
+      "background": "pustkowie-cisza",
       "hero": "huk-ognia",
       "mood": "furia-dzikosc",
       "instrumentation": "jasno-swietlista"
@@ -725,7 +725,7 @@
     },
     "121": {
       "background": "swiatynia-sanktuarium",
-      "hero": "potezny-cios",
+      "hero": "fala-rozbryzg",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "monumentalno-potezna"
     },
@@ -748,14 +748,14 @@
       "instrumentation": "jasno-swietlista"
     },
     "125": {
-      "background": "las-dzienny",
+      "background": "noc-ksiezyc",
       "hero": "warkot-drapieznika",
       "mood": "tajemnica-obcosc",
       "instrumentation": "ciezka"
     },
     "126": {
       "background": "las-dzienny",
-      "hero": "lopot-skrzydel",
+      "hero": "trzepot-drobnych-skrzydel",
       "mood": "czujnosc-napiecie",
       "instrumentation": "jasno-swietlista"
     },
@@ -773,7 +773,7 @@
     },
     "129": {
       "background": "bitwa-zgielk",
-      "hero": "okrzyk-bojowy",
+      "hero": "okrzyk-bojowy-meski",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -790,7 +790,7 @@
       "instrumentation": "jasno-swietlista"
     },
     "132": {
-      "background": "gory-wichry",
+      "background": "niebo-przestworza",
       "hero": "furkot-mechanizmu",
       "mood": "wspolnota-wiez",
       "instrumentation": "metaliczno-mechaniczna"
@@ -839,7 +839,7 @@
     },
     "143": {
       "background": "step-rownina",
-      "hero": "okrzyk-bojowy",
+      "hero": "okrzyk-bojowy-meski",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -851,7 +851,7 @@
     },
     "150": {
       "background": "miasto-gwar",
-      "hero": "brzeczenie-roju",
+      "hero": "rezonans-magiczny",
       "mood": "radosc-beztroska",
       "instrumentation": "jasno-swietlista"
     },
@@ -869,7 +869,7 @@
     },
     "163": {
       "background": "miasto-gwar",
-      "hero": "potezny-cios",
+      "hero": "dzwon-gong",
       "mood": "groza-przerazenie",
       "instrumentation": "mroczna"
     },
@@ -904,8 +904,8 @@
       "instrumentation": "cicho-kameralna"
     },
     "173": {
-      "background": "gory-wichry",
-      "hero": "rezonans-magiczny",
+      "background": "kraina-lodu",
+      "hero": "ryk-humanoida",
       "mood": "wspolnota-wiez",
       "instrumentation": "ciezka"
     },
@@ -917,7 +917,7 @@
     },
     "177": {
       "background": "morze-wybrzeze",
-      "hero": "ryk-bestii",
+      "hero": "ryk-humanoida",
       "mood": "groza-przerazenie",
       "instrumentation": "mroczna"
     },
@@ -929,13 +929,13 @@
     },
     "180": {
       "background": "miasto-nocne",
-      "hero": "pelzanie-sluz",
+      "hero": "oddech-cielska",
       "mood": "groza-przerazenie",
       "instrumentation": "mroczna"
     },
     "181": {
       "background": "swiatynia-sanktuarium",
-      "hero": "rozblysk-swiatla",
+      "hero": "wiezy-swiatla",
       "mood": "bezsilnosc-osaczenie",
       "instrumentation": "zimno-szklista"
     },
@@ -977,7 +977,7 @@
     },
     "188": {
       "background": "dwor-komnaty",
-      "hero": "warkot-drapieznika",
+      "hero": "rezonans-magiczny",
       "mood": "duma-majestat",
       "instrumentation": "cicho-kameralna"
     },
@@ -989,7 +989,7 @@
     },
     "190": {
       "background": "ognisko-palenisko",
-      "hero": "rozblysk-swiatla",
+      "hero": "aura-lagodna",
       "mood": "wspolnota-wiez",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -1007,7 +1007,7 @@
     },
     "195": {
       "background": "sfera-obca",
-      "hero": "piesn-chor",
+      "hero": "rezonans-magiczny",
       "mood": "bezsilnosc-osaczenie",
       "instrumentation": "jasno-swietlista"
     },
@@ -1019,7 +1019,7 @@
     },
     "199": {
       "background": "bagno-moczary",
-      "hero": "zgrzyt-zawiasow",
+      "hero": "klekot-chitynowy",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "mroczna"
     },
@@ -1055,7 +1055,7 @@
     },
     "207": {
       "background": "bagno-moczary",
-      "hero": "piesn-chor",
+      "hero": "chor-glosow",
       "mood": "groza-przerazenie",
       "instrumentation": "mroczna"
     },
@@ -1073,7 +1073,7 @@
     },
     "213": {
       "background": "kuznia-warsztat",
-      "hero": "brzeczenie-roju",
+      "hero": "furkot-mechanizmu",
       "mood": "smutek-strata",
       "instrumentation": "cicho-kameralna"
     },
@@ -1109,7 +1109,7 @@
     },
     "219": {
       "background": "miasto-gwar",
-      "hero": "okrzyk-bojowy",
+      "hero": "okrzyk-bojowy-zenski",
       "mood": "zuchwalosc-brawura",
       "instrumentation": "jasno-swietlista"
     },
@@ -1133,7 +1133,7 @@
     },
     "223": {
       "background": "dwor-komnaty",
-      "hero": "rozblysk-swiatla",
+      "hero": "aura-lagodna",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cicho-kameralna"
     },
@@ -1169,7 +1169,7 @@
     },
     "229": {
       "background": "dwor-komnaty",
-      "hero": "chrobot-szelest",
+      "hero": "brzek-drobiazgow",
       "mood": "wladza-kontrola",
       "instrumentation": "cicho-kameralna"
     },
@@ -1180,14 +1180,14 @@
       "instrumentation": "jasno-swietlista"
     },
     "231": {
-      "background": "oboz-wojenny",
-      "hero": "piesn-chor",
+      "background": "dziedziniec-spokojny",
+      "hero": "chor-glosow",
       "mood": "wspolnota-wiez",
       "instrumentation": "uroczysto-podniosla"
     },
     "232": {
       "background": "las-dzienny",
-      "hero": "chrobot-szelest",
+      "hero": "brzek-drobiazgow",
       "mood": "radosc-beztroska",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -1199,7 +1199,7 @@
     },
     "234": {
       "background": "wioska-sielska",
-      "hero": "pelzanie-sluz",
+      "hero": "oddech-cielska",
       "mood": "groza-przerazenie",
       "instrumentation": "mroczna"
     },
@@ -1217,13 +1217,13 @@
     },
     "238": {
       "background": "oboz-wojenny",
-      "hero": "warkot-drapieznika",
+      "hero": "loskot-machiny",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "ciezka"
     },
     "240": {
       "background": "step-rownina",
-      "hero": "rozblysk-swiatla",
+      "hero": "aura-lagodna",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -1241,7 +1241,7 @@
     },
     "245": {
       "background": "swiatynia-sanktuarium",
-      "hero": "jek-zawodzenie",
+      "hero": "mroczna-fala",
       "mood": "smutek-strata",
       "instrumentation": "mroczna"
     },
@@ -1253,7 +1253,7 @@
     },
     "248": {
       "background": "krypta-nekropolia",
-      "hero": "chrobot-szelest",
+      "hero": "grzechot-kosci",
       "mood": "groza-przerazenie",
       "instrumentation": "sucho-surowa"
     },
@@ -1265,7 +1265,7 @@
     },
     "251": {
       "background": "noc-ksiezyc",
-      "hero": "piesn-chor",
+      "hero": "spiew-zenski",
       "mood": "wspolnota-wiez",
       "instrumentation": "monumentalno-potezna"
     },
@@ -1301,7 +1301,7 @@
     },
     "262": {
       "background": "step-rownina",
-      "hero": "rozblysk-swiatla",
+      "hero": "rog-sygnal",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "jasno-swietlista"
     },
@@ -1319,7 +1319,7 @@
     },
     "267": {
       "background": "dzungla-parna",
-      "hero": "strzal-pocisk",
+      "hero": "strzal-z-luku",
       "mood": "podstep-intryga",
       "instrumentation": "cicho-kameralna"
     },
@@ -1354,14 +1354,14 @@
       "instrumentation": "cieplo-serdeczna"
     },
     "274": {
-      "background": "oboz-wojenny",
+      "background": "dziedziniec-spokojny",
       "hero": "rozblysk-swiatla",
       "mood": "poswiecenie-ofiara",
       "instrumentation": "jasno-swietlista"
     },
     "275": {
       "background": "laboratorium-technika",
-      "hero": "zwinny-skok",
+      "hero": "marsz-oddzialu",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "metaliczno-mechaniczna"
     },
@@ -1408,8 +1408,8 @@
       "instrumentation": "jasno-swietlista"
     },
     "284": {
-      "background": "gory-wichry",
-      "hero": "chrobot-szelest",
+      "background": "dwor-komnaty",
+      "hero": "brzek-drobiazgow",
       "mood": "spokoj-kontemplacja",
       "instrumentation": "cicho-kameralna"
     },
@@ -1463,7 +1463,7 @@
     },
     "293": {
       "background": "dwor-komnaty",
-      "hero": "jek-zawodzenie",
+      "hero": "mroczna-fala",
       "mood": "groza-przerazenie",
       "instrumentation": "mroczna"
     },
@@ -1474,14 +1474,14 @@
       "instrumentation": "lekko-zwinna"
     },
     "295": {
-      "background": "oboz-wojenny",
+      "background": "miasto-nocne",
       "hero": "skradanie-cisza",
       "mood": "podstep-intryga",
       "instrumentation": "lekko-zwinna"
     },
     "296": {
       "background": "kuznia-warsztat",
-      "hero": "pelzanie-sluz",
+      "hero": "oddech-cielska",
       "mood": "groza-przerazenie",
       "instrumentation": "ciezka"
     },
@@ -1529,7 +1529,7 @@
     },
     "304": {
       "background": "las-dzienny",
-      "hero": "strzal-pocisk",
+      "hero": "strzal-z-luku",
       "mood": "wspolnota-wiez",
       "instrumentation": "jasno-swietlista"
     },
@@ -1541,7 +1541,7 @@
     },
     "306": {
       "background": "morze-wybrzeze",
-      "hero": "chrobot-szelest",
+      "hero": "skrobanie-pisma",
       "mood": "tajemnica-obcosc",
       "instrumentation": "mokro-organiczna"
     },
@@ -1571,13 +1571,13 @@
     },
     "311": {
       "background": "miasto-gwar",
-      "hero": "okrzyk-bojowy",
+      "hero": "przemowa-glos",
       "mood": "podstep-intryga",
       "instrumentation": "mroczna"
     },
     "312": {
       "background": "gory-wichry",
-      "hero": "chrobot-szelest",
+      "hero": "grzechot-kosci",
       "mood": "radosc-beztroska",
       "instrumentation": "ostro-gwaltowna"
     },
@@ -1631,7 +1631,7 @@
     },
     "321": {
       "background": "oboz-wojenny",
-      "hero": "strzal-pocisk",
+      "hero": "machina-miotajaca",
       "mood": "poswiecenie-ofiara",
       "instrumentation": "sucho-surowa"
     },
@@ -1655,13 +1655,13 @@
     },
     "331": {
       "background": "las-dzienny",
-      "hero": "piesn-chor",
+      "hero": "chor-glosow",
       "mood": "spokoj-kontemplacja",
       "instrumentation": "sucho-surowa"
     },
     "335": {
       "background": "burza-zywiol",
-      "hero": "piesn-chor",
+      "hero": "przemowa-glos",
       "mood": "wspolnota-wiez",
       "instrumentation": "napieto-niepokojaca"
     },
@@ -1709,7 +1709,7 @@
     },
     "347": {
       "background": "kuznia-warsztat",
-      "hero": "rezonans-magiczny",
+      "hero": "aura-lagodna",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "jasno-swietlista"
     },
@@ -1745,7 +1745,7 @@
     },
     "360": {
       "background": "kuznia-warsztat",
-      "hero": "chrobot-szelest",
+      "hero": "skrobanie-pisma",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cicho-kameralna"
     },
@@ -1763,7 +1763,7 @@
     },
     "367": {
       "background": "las-dzienny",
-      "hero": "chrobot-szelest",
+      "hero": "grzechot-kosci",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "sucho-surowa"
     },
@@ -1792,7 +1792,7 @@
       "instrumentation": "jasno-swietlista"
     },
     "375": {
-      "background": "oboz-wojenny",
+      "background": "las-mroczny",
       "hero": "skradanie-cisza",
       "mood": "spokoj-kontemplacja",
       "instrumentation": "mroczna"
@@ -1847,7 +1847,7 @@
     },
     "386": {
       "background": "wioska-sielska",
-      "hero": "pelzanie-sluz",
+      "hero": "chrzest-pozerania",
       "mood": "bezsilnosc-osaczenie",
       "instrumentation": "ciezka"
     },
@@ -1859,7 +1859,7 @@
     },
     "388": {
       "background": "laboratorium-technika",
-      "hero": "chrobot-szelest",
+      "hero": "brzek-drobiazgow",
       "mood": "radosc-beztroska",
       "instrumentation": "monumentalno-potezna"
     },
@@ -1871,7 +1871,7 @@
     },
     "393": {
       "background": "podziemia-jaskinia",
-      "hero": "ryk-bestii",
+      "hero": "potezny-cios",
       "mood": "furia-dzikosc",
       "instrumentation": "jasno-swietlista"
     },
@@ -1901,7 +1901,7 @@
     },
     "403": {
       "background": "oboz-wojenny",
-      "hero": "przemiana-materializacja",
+      "hero": "bulgot-syk",
       "mood": "groza-przerazenie",
       "instrumentation": "napieto-niepokojaca"
     },
@@ -1979,7 +1979,7 @@
     },
     "437": {
       "background": "las-dzienny",
-      "hero": "rezonans-magiczny",
+      "hero": "skradanie-cisza",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "cicho-kameralna"
     },
@@ -2009,7 +2009,7 @@
     },
     "442": {
       "background": "wioska-sielska",
-      "hero": "okrzyk-bojowy",
+      "hero": "okrzyk-bojowy-zenski",
       "mood": "wspolnota-wiez",
       "instrumentation": "miarowo-rytmiczna"
     },
@@ -2021,25 +2021,25 @@
     },
     "444": {
       "background": "gory-wichry",
-      "hero": "kroki-kolosa",
+      "hero": "swist-lotu",
       "mood": "furia-dzikosc",
       "instrumentation": "ciezka"
     },
     "445": {
       "background": "kraina-lodu",
-      "hero": "marsz-oddzialu",
+      "hero": "tetent-kopyt",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "uroczysto-podniosla"
     },
     "446": {
       "background": "dzungla-parna",
-      "hero": "rozblysk-swiatla",
+      "hero": "aura-lagodna",
       "mood": "wspolnota-wiez",
       "instrumentation": "cieplo-serdeczna"
     },
     "447": {
       "background": "krypta-nekropolia",
-      "hero": "chrobot-szelest",
+      "hero": "grzechot-kosci",
       "mood": "poswiecenie-ofiara",
       "instrumentation": "napieto-niepokojaca"
     },
@@ -2075,7 +2075,7 @@
     },
     "453": {
       "background": "burza-zywiol",
-      "hero": "rozblysk-swiatla",
+      "hero": "aura-lagodna",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "jasno-swietlista"
     },
@@ -2087,7 +2087,7 @@
     },
     "455": {
       "background": "oboz-wojenny",
-      "hero": "potezny-cios",
+      "hero": "loskot-machiny",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "metaliczno-mechaniczna"
     },
@@ -2117,7 +2117,7 @@
     },
     "460": {
       "background": "kuznia-warsztat",
-      "hero": "chrobot-szelest",
+      "hero": "brzek-drobiazgow",
       "mood": "wspolnota-wiez",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -2189,7 +2189,7 @@
     },
     "472": {
       "background": "morze-wybrzeze",
-      "hero": "jek-zawodzenie",
+      "hero": "brzek-drobiazgow",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "ciezka"
     },
@@ -2381,13 +2381,13 @@
     },
     "504": {
       "background": "oboz-wojenny",
-      "hero": "strzal-pocisk",
+      "hero": "machina-miotajaca",
       "mood": "czujnosc-napiecie",
       "instrumentation": "napieto-niepokojaca"
     },
     "505": {
       "background": "oboz-wojenny",
-      "hero": "strzal-pocisk",
+      "hero": "zgrzyt-metalu",
       "mood": "bezsilnosc-osaczenie",
       "instrumentation": "ciezka"
     },
@@ -2411,13 +2411,13 @@
     },
     "509": {
       "background": "kraina-lodu",
-      "hero": "pelzanie-sluz",
+      "hero": "skradanie-cisza",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "cicho-kameralna"
     },
     "510": {
       "background": "noc-ksiezyc",
-      "hero": "piesn-chor",
+      "hero": "spiew-zenski",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "uroczysto-podniosla"
     },
@@ -2453,7 +2453,7 @@
     },
     "516": {
       "background": "miasto-gwar",
-      "hero": "okrzyk-bojowy",
+      "hero": "okrzyk-bojowy-zenski",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "uroczysto-podniosla"
     },
@@ -2477,7 +2477,7 @@
     },
     "520": {
       "background": "krypta-nekropolia",
-      "hero": "piesn-chor",
+      "hero": "przemowa-glos",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "mroczna"
     },
@@ -2489,7 +2489,7 @@
     },
     "522": {
       "background": "las-dzienny",
-      "hero": "zgrzyt-zawiasow",
+      "hero": "wiezy-swiatla",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "jasno-swietlista"
     },
@@ -2519,7 +2519,7 @@
     },
     "527": {
       "background": "kraina-lodu",
-      "hero": "rezonans-magiczny",
+      "hero": "trzask-lodu",
       "mood": "duma-majestat",
       "instrumentation": "uroczysto-podniosla"
     },
@@ -2549,7 +2549,7 @@
     },
     "532": {
       "background": "burza-zywiol",
-      "hero": "piesn-chor",
+      "hero": "przemowa-glos",
       "mood": "podstep-intryga",
       "instrumentation": "lekko-zwinna"
     },
@@ -2561,13 +2561,13 @@
     },
     "534": {
       "background": "pustkowie-cisza",
-      "hero": "ryk-bestii",
+      "hero": "ryk-humanoida",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "mroczna"
     },
     "535": {
       "background": "podziemia-jaskinia",
-      "hero": "skrzek-wrzask",
+      "hero": "pisk-gryzoni",
       "mood": "groza-przerazenie",
       "instrumentation": "metaliczno-mechaniczna"
     },
@@ -2579,7 +2579,7 @@
     },
     "537": {
       "background": "gory-wichry",
-      "hero": "chrobot-szelest",
+      "hero": "skrobanie-pisma",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "cicho-kameralna"
     },
@@ -2597,7 +2597,7 @@
     },
     "540": {
       "background": "miasto-nocne",
-      "hero": "skrzek-wrzask",
+      "hero": "pisk-gryzoni",
       "mood": "bezsilnosc-osaczenie",
       "instrumentation": "mroczna"
     },
@@ -2632,7 +2632,7 @@
       "instrumentation": "zimno-szklista"
     },
     "546": {
-      "background": "miasto-nocne",
+      "background": "miasto-neonowe",
       "hero": "jek-zawodzenie",
       "mood": "furia-dzikosc",
       "instrumentation": "metaliczno-mechaniczna"
@@ -2657,13 +2657,13 @@
     },
     "550": {
       "background": "kraina-lodu",
-      "hero": "skradanie-cisza",
+      "hero": "trzask-lodu",
       "mood": "groza-przerazenie",
       "instrumentation": "cicho-kameralna"
     },
     "551": {
-      "background": "oboz-wojenny",
-      "hero": "okrzyk-bojowy",
+      "background": "swiatynia-sanktuarium",
+      "hero": "zwinny-skok",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "ostro-gwaltowna"
     },
@@ -2705,7 +2705,7 @@
     },
     "558": {
       "background": "bitwa-zgielk",
-      "hero": "trzask-blyskawicy",
+      "hero": "aura-lagodna",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "jasno-swietlista"
     },
@@ -2723,13 +2723,13 @@
     },
     "561": {
       "background": "wioska-sielska",
-      "hero": "potezny-cios",
+      "hero": "krzyk-ptaka",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "mroczna"
     },
     "562": {
       "background": "bitwa-zgielk",
-      "hero": "strzal-pocisk",
+      "hero": "trzask-blyskawicy",
       "mood": "czujnosc-napiecie",
       "instrumentation": "ostro-gwaltowna"
     },
@@ -2765,7 +2765,7 @@
     },
     "568": {
       "background": "laboratorium-technika",
-      "hero": "brzeczenie-roju",
+      "hero": "furkot-mechanizmu",
       "mood": "czujnosc-napiecie",
       "instrumentation": "cicho-kameralna"
     },
@@ -2813,13 +2813,13 @@
     },
     "576": {
       "background": "oboz-wojenny",
-      "hero": "okrzyk-bojowy",
+      "hero": "okrzyk-bojowy-meski",
       "mood": "triumf-chwala",
       "instrumentation": "jasno-swietlista"
     },
     "577": {
       "background": "bitwa-zgielk",
-      "hero": "potezny-cios",
+      "hero": "bariera-odbicie",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "monumentalno-potezna"
     },
@@ -2831,7 +2831,7 @@
     },
     "579": {
       "background": "gory-wichry",
-      "hero": "pelzanie-sluz",
+      "hero": "skradanie-cisza",
       "mood": "spokoj-kontemplacja",
       "instrumentation": "zimno-szklista"
     },
@@ -2855,7 +2855,7 @@
     },
     "583": {
       "background": "step-rownina",
-      "hero": "strzal-pocisk",
+      "hero": "strzal-z-luku",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "cicho-kameralna"
     },
@@ -2885,7 +2885,7 @@
     },
     "588": {
       "background": "krypta-nekropolia",
-      "hero": "rozblysk-swiatla",
+      "hero": "mroczna-fala",
       "mood": "wladza-kontrola",
       "instrumentation": "mroczna"
     },
@@ -2909,25 +2909,25 @@
     },
     "592": {
       "background": "oboz-wojenny",
-      "hero": "rezonans-magiczny",
+      "hero": "rozbicie-szkla",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "mroczna"
     },
     "593": {
       "background": "bitwa-zgielk",
-      "hero": "okrzyk-bojowy",
+      "hero": "okrzyk-bojowy-meski",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "uroczysto-podniosla"
     },
     "594": {
       "background": "wioska-sielska",
-      "hero": "jek-zawodzenie",
+      "hero": "fala-rozbryzg",
       "mood": "furia-dzikosc",
       "instrumentation": "mroczna"
     },
     "595": {
       "background": "miasto-nocne",
-      "hero": "okrzyk-bojowy",
+      "hero": "rozblysk-swiatla",
       "mood": "furia-dzikosc",
       "instrumentation": "uroczysto-podniosla"
     },
@@ -2945,7 +2945,7 @@
     },
     "598": {
       "background": "wioska-sielska",
-      "hero": "okrzyk-bojowy",
+      "hero": "okrzyk-bojowy-meski",
       "mood": "czujnosc-napiecie",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -2980,7 +2980,7 @@
       "instrumentation": "mroczna"
     },
     "604": {
-      "background": "oboz-wojenny",
+      "background": "dwor-komnaty",
       "hero": "skrzek-wrzask",
       "mood": "groza-przerazenie",
       "instrumentation": "ostro-gwaltowna"
@@ -3029,7 +3029,7 @@
     },
     "612": {
       "background": "oboz-wojenny",
-      "hero": "rozblysk-swiatla",
+      "hero": "aura-lagodna",
       "mood": "wspolnota-wiez",
       "instrumentation": "cicho-kameralna"
     },

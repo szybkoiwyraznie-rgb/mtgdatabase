@@ -1,0 +1,856 @@
+{
+  "schema": 1,
+  "note": "Ręczne nadpisania przypisań fabuła→typ (korekta szumu wzorców; audyt docs/audits/2026-09-24-audyt-taksonomii-v4.md). Nakładane przez map_profiles.py PO klasyfikacji regułowej. Każde z uzasadnieniem.",
+  "overrides": {
+    "22": {
+      "hero": {
+        "typ": "ryk-humanoida",
+        "powod": "ryk wysiłku śmiertelnika"
+      }
+    },
+    "39": {
+      "hero": {
+        "typ": "ryk-humanoida",
+        "powod": "ryk orka"
+      }
+    },
+    "177": {
+      "hero": {
+        "typ": "ryk-humanoida",
+        "powod": "triumfalny ryk orka-czarnoksiężnika"
+      }
+    },
+    "534": {
+      "hero": {
+        "typ": "ryk-humanoida",
+        "powod": "nieludzki ryk człowieka zza wizjera"
+      }
+    },
+    "173": {
+      "hero": {
+        "typ": "ryk-humanoida",
+        "powod": "dudniący ryk szamana"
+      },
+      "background": {
+        "typ": "kraina-lodu",
+        "powod": "zaśnieżona grań, wiatr szczytów"
+      }
+    },
+    "8": {
+      "hero": {
+        "typ": "wrzask-bandy",
+        "powod": "wrzask szarżującej watahy — wielogłos"
+      }
+    },
+    "535": {
+      "hero": {
+        "typ": "pisk-gryzoni",
+        "powod": "pisk tysięcy gryzoni"
+      }
+    },
+    "540": {
+      "hero": {
+        "typ": "pisk-gryzoni",
+        "powod": "osaczający pisk stada szczurów"
+      }
+    },
+    "24": {
+      "hero": {
+        "typ": "wycie-wilcze",
+        "powod": "przerwany skowyt wilkołaka"
+      }
+    },
+    "37": {
+      "hero": {
+        "typ": "wycie-wilcze",
+        "powod": "wycie wilka"
+      }
+    },
+    "35": {
+      "hero": {
+        "typ": "trzepot-drobnych-skrzydel",
+        "powod": "trzepot owadzich skrzydeł wróżki"
+      }
+    },
+    "86": {
+      "hero": {
+        "typ": "trzepot-drobnych-skrzydel",
+        "powod": "trzepot małych skrzydełek"
+      }
+    },
+    "114": {
+      "hero": {
+        "typ": "trzepot-drobnych-skrzydel",
+        "powod": "niezdarny trzepot małego chochlika"
+      }
+    },
+    "126": {
+      "hero": {
+        "typ": "trzepot-drobnych-skrzydel",
+        "powod": "trzepot drobnych ptaków przy dłoni"
+      }
+    },
+    "98": {
+      "hero": {
+        "typ": "trzepot-drobnych-skrzydel",
+        "powod": "wirowanie chmary motyli"
+      }
+    },
+    "304": {
+      "hero": {
+        "typ": "strzal-z-luku",
+        "powod": "świst salwy strzał z cięciw"
+      }
+    },
+    "583": {
+      "hero": {
+        "typ": "strzal-z-luku",
+        "powod": "perfekcyjny strzał z łuku"
+      }
+    },
+    "267": {
+      "hero": {
+        "typ": "strzal-z-luku",
+        "powod": "cichy strzał z dmuchawki — pojedynczy świst"
+      }
+    },
+    "321": {
+      "hero": {
+        "typ": "machina-miotajaca",
+        "powod": "obsługa balisty"
+      }
+    },
+    "504": {
+      "hero": {
+        "typ": "machina-miotajaca",
+        "powod": "strzał balisty"
+      }
+    },
+    "510": {
+      "hero": {
+        "typ": "spiew-zenski",
+        "powod": "rezonujący śpiew anielicy"
+      }
+    },
+    "251": {
+      "hero": {
+        "typ": "spiew-zenski",
+        "powod": "pieśń bojowa bardki"
+      }
+    },
+    "520": {
+      "hero": {
+        "typ": "przemowa-glos",
+        "powod": "mruczący głos paktu demona"
+      }
+    },
+    "532": {
+      "hero": {
+        "typ": "przemowa-glos",
+        "powod": "potok słów barda"
+      }
+    },
+    "335": {
+      "hero": {
+        "typ": "przemowa-glos",
+        "powod": "głos kapitana nad tłumem"
+      }
+    },
+    "311": {
+      "hero": {
+        "typ": "przemowa-glos",
+        "powod": "sprowokowana awantura słowna"
+      }
+    },
+    "207": {
+      "hero": {
+        "typ": "chor-glosow",
+        "powod": "rozpływanie się jednostek w chórze"
+      }
+    },
+    "231": {
+      "hero": {
+        "typ": "chor-glosow",
+        "powod": "chóralny okrzyk czterech wojowniczek"
+      },
+      "background": {
+        "typ": "dziedziniec-spokojny",
+        "powod": "marmurowe schody agory"
+      }
+    },
+    "331": {
+      "hero": {
+        "typ": "chor-glosow",
+        "powod": "trzy siostry — głos wielotonowy"
+      }
+    },
+    "248": {
+      "hero": {
+        "typ": "grzechot-kosci",
+        "powod": "grzechot składanego szkieletu"
+      }
+    },
+    "447": {
+      "hero": {
+        "typ": "grzechot-kosci",
+        "powod": "podnoszenie się z plątaniny kości"
+      }
+    },
+    "312": {
+      "hero": {
+        "typ": "grzechot-kosci",
+        "powod": "brzęk kościanych ochraniaczy trefnisia"
+      }
+    },
+    "367": {
+      "hero": {
+        "typ": "grzechot-kosci",
+        "powod": "rytmiczne grzechotanie wielkiej grzechotki"
+      }
+    },
+    "360": {
+      "hero": {
+        "typ": "skrobanie-pisma",
+        "powod": "pióro samo zapisuje runy"
+      }
+    },
+    "537": {
+      "hero": {
+        "typ": "skrobanie-pisma",
+        "powod": "skrobanie rylca kartografki"
+      }
+    },
+    "306": {
+      "hero": {
+        "typ": "skrobanie-pisma",
+        "powod": "odciskanie run na woskowej tabliczce"
+      }
+    },
+    "69": {
+      "hero": {
+        "typ": "skrobanie-pisma",
+        "powod": "metalowe rysiki zdrapują litery"
+      }
+    },
+    "229": {
+      "hero": {
+        "typ": "brzek-drobiazgow",
+        "powod": "pobrzękiwanie pęku kluczy"
+      }
+    },
+    "101": {
+      "hero": {
+        "typ": "brzek-drobiazgow",
+        "powod": "moneta na granicy dwóch światów"
+      }
+    },
+    "284": {
+      "hero": {
+        "typ": "brzek-drobiazgow",
+        "powod": "komplet wytrychów przy zamku"
+      },
+      "background": {
+        "typ": "dwor-komnaty",
+        "powod": "kamienny skarbiec, cisza murów"
+      }
+    },
+    "388": {
+      "hero": {
+        "typ": "brzek-drobiazgow",
+        "powod": "brzęk odrzucanych części"
+      }
+    },
+    "460": {
+      "hero": {
+        "typ": "brzek-drobiazgow",
+        "powod": "brzęk zapinanych pasów napierśnika"
+      }
+    },
+    "232": {
+      "hero": {
+        "typ": "brzek-drobiazgow",
+        "powod": "nieporadne brzęknięcia rynsztunku"
+      }
+    },
+    "472": {
+      "hero": {
+        "typ": "brzek-drobiazgow",
+        "powod": "brzęk dziesiątek zarekwirowanych mieczy"
+      }
+    },
+    "13": {
+      "hero": {
+        "typ": "aura-lagodna",
+        "powod": "strumień uzdrawiającego światła"
+      }
+    },
+    "29": {
+      "hero": {
+        "typ": "aura-lagodna",
+        "powod": "złota aura kręgu towarzyszy"
+      }
+    },
+    "110": {
+      "hero": {
+        "typ": "lopot-skrzydel",
+        "powod": "szum skrzydeł ze światła — to skrzydła, nie aura (rozbija kolizję z 558)"
+      }
+    },
+    "190": {
+      "hero": {
+        "typ": "aura-lagodna",
+        "powod": "ciepła manifestacja wspomnienia"
+      }
+    },
+    "223": {
+      "hero": {
+        "typ": "aura-lagodna",
+        "powod": "złote iskierki i gest daru"
+      }
+    },
+    "240": {
+      "hero": {
+        "typ": "aura-lagodna",
+        "powod": "aureola rodowego błogosławieństwa"
+      }
+    },
+    "446": {
+      "hero": {
+        "typ": "aura-lagodna",
+        "powod": "rozbłysk aury i oddech ożywienia"
+      }
+    },
+    "453": {
+      "hero": {
+        "typ": "aura-lagodna",
+        "powod": "regenerująca błogosławiona energia"
+      }
+    },
+    "558": {
+      "hero": {
+        "typ": "aura-lagodna",
+        "powod": "uzdrawiająca energia laski"
+      }
+    },
+    "612": {
+      "hero": {
+        "typ": "aura-lagodna",
+        "powod": "powstrzymana agresja i łagodna aura"
+      }
+    },
+    "25": {
+      "hero": {
+        "typ": "wiezy-swiatla",
+        "powod": "zatrzask świetlistych łańcuchów"
+      }
+    },
+    "45": {
+      "hero": {
+        "typ": "wiezy-swiatla",
+        "powod": "świetliste linie paraliżu"
+      }
+    },
+    "181": {
+      "hero": {
+        "typ": "wiezy-swiatla",
+        "powod": "eteryczna klatka z nici światła"
+      }
+    },
+    "522": {
+      "hero": {
+        "typ": "wiezy-swiatla",
+        "powod": "świetliste łańcuchy wiary"
+      }
+    },
+    "6": {
+      "hero": {
+        "typ": "wiezy-swiatla",
+        "powod": "runy-kajdany, narastający glif i zatrzask"
+      }
+    },
+    "180": {
+      "hero": {
+        "typ": "oddech-cielska",
+        "powod": "napięty oddech bestii po przemianie"
+      }
+    },
+    "234": {
+      "hero": {
+        "typ": "oddech-cielska",
+        "powod": "mokry płazi oddech slaada"
+      }
+    },
+    "296": {
+      "hero": {
+        "typ": "oddech-cielska",
+        "powod": "ciężki nierówny oddech kolosa"
+      }
+    },
+    "94": {
+      "hero": {
+        "typ": "okrzyk-bojowy-zenski",
+        "powod": "okrzyk rozkazu kapłanki"
+      }
+    },
+    "219": {
+      "hero": {
+        "typ": "okrzyk-bojowy-zenski",
+        "powod": "zawołanie przewodniczki"
+      }
+    },
+    "442": {
+      "hero": {
+        "typ": "okrzyk-bojowy-zenski",
+        "powod": "ostre polecenia taktyczki"
+      }
+    },
+    "516": {
+      "hero": {
+        "typ": "okrzyk-bojowy-zenski",
+        "powod": "komenda weteranki"
+      }
+    },
+    "129": {
+      "hero": {
+        "typ": "okrzyk-bojowy-meski",
+        "powod": "okrzyk dowódcy"
+      }
+    },
+    "143": {
+      "hero": {
+        "typ": "okrzyk-bojowy-meski",
+        "powod": "spokojna komenda jeźdźca"
+      }
+    },
+    "576": {
+      "hero": {
+        "typ": "okrzyk-bojowy-meski",
+        "powod": "okrzyk rozkazu do natarcia"
+      }
+    },
+    "593": {
+      "hero": {
+        "typ": "okrzyk-bojowy-meski",
+        "powod": "okrzyk kapitana"
+      }
+    },
+    "598": {
+      "hero": {
+        "typ": "okrzyk-bojowy-meski",
+        "powod": "zawołanie szeryfa"
+      }
+    },
+    "58": {
+      "hero": {
+        "typ": "loskot-machiny",
+        "powod": "ryk silnika wozu bojowego"
+      },
+      "background": {
+        "typ": "miasto-neonowe",
+        "powod": "neonowe aleje metropolii nocą"
+      }
+    },
+    "70": {
+      "hero": {
+        "typ": "bariera-odbicie",
+        "powod": "zatrzask energetycznej sfery"
+      },
+      "background": {
+        "typ": "dziedziniec-spokojny",
+        "powod": "dziedziniec kampusu"
+      }
+    },
+    "393": {
+      "hero": {
+        "typ": "potezny-cios",
+        "powod": "uderzenia żeliwnego pręta"
+      }
+    },
+    "562": {
+      "hero": {
+        "typ": "trzask-blyskawicy",
+        "powod": "łuk błyskawicy z trzaskiem"
+      }
+    },
+    "163": {
+      "hero": {
+        "typ": "dzwon-gong",
+        "powod": "widmowy rezonans dzwonu-czaszki"
+      }
+    },
+    "34": {
+      "hero": {
+        "typ": "wybuch",
+        "powod": "erupcja i tsunami magmy"
+      }
+    },
+    "32": {
+      "hero": {
+        "typ": "fala-rozbryzg",
+        "powod": "podwodna fala uderzeniowa mureny"
+      }
+    },
+    "121": {
+      "hero": {
+        "typ": "fala-rozbryzg",
+        "powod": "uderzenie fali o marmur"
+      }
+    },
+    "455": {
+      "hero": {
+        "typ": "loskot-machiny",
+        "powod": "parowy czołg — syk zaworów i koła"
+      }
+    },
+    "71": {
+      "hero": {
+        "typ": "bariera-odbicie",
+        "powod": "głuche uderzenie o niewidzialną barierę"
+      },
+      "background": {
+        "typ": "miasto-neonowe",
+        "powod": "nocna uliczka miasta neonów"
+      }
+    },
+    "577": {
+      "hero": {
+        "typ": "bariera-odbicie",
+        "powod": "bariera trzaskających wyładowań"
+      }
+    },
+    "561": {
+      "hero": {
+        "typ": "krzyk-ptaka",
+        "powod": "krzyk gryfa przy uderzeniu"
+      }
+    },
+    "262": {
+      "hero": {
+        "typ": "rog-sygnal",
+        "powod": "świetlista trąbka — wezwanie"
+      }
+    },
+    "588": {
+      "hero": {
+        "typ": "mroczna-fala",
+        "powod": "nekromancki blask podrywa poległych"
+      }
+    },
+    "444": {
+      "hero": {
+        "typ": "swist-lotu",
+        "powod": "świst zniżającego lotu drapieżnika"
+      }
+    },
+    "445": {
+      "hero": {
+        "typ": "tetent-kopyt",
+        "powod": "krok karego rumaka"
+      }
+    },
+    "550": {
+      "hero": {
+        "typ": "trzask-lodu",
+        "powod": "trzask zamarzania przy dotknięciu"
+      }
+    },
+    "527": {
+      "hero": {
+        "typ": "trzask-lodu",
+        "powod": "trzeszczący lodowiec transformacji"
+      }
+    },
+    "592": {
+      "hero": {
+        "typ": "rozbicie-szkla",
+        "powod": "trzask rozbijanego relikwiarza"
+      }
+    },
+    "403": {
+      "hero": {
+        "typ": "bulgot-syk",
+        "powod": "syk stężonego gazu"
+      }
+    },
+    "386": {
+      "hero": {
+        "typ": "chrzest-pozerania",
+        "powod": "mlaskanie pożerającego olbrzyma"
+      }
+    },
+    "36": {
+      "hero": {
+        "typ": "zgrzyt-metalu",
+        "powod": "zgrzyt kół zębatych abominacji"
+      }
+    },
+    "72": {
+      "hero": {
+        "typ": "rezonans-magiczny",
+        "powod": "gorący pomruk portalu"
+      }
+    },
+    "188": {
+      "hero": {
+        "typ": "rezonans-magiczny",
+        "powod": "cichy pomruk kuli mocy"
+      }
+    },
+    "238": {
+      "hero": {
+        "typ": "loskot-machiny",
+        "powod": "toczący się walec bojowy"
+      }
+    },
+    "97": {
+      "hero": {
+        "typ": "wybuch",
+        "powod": "krater bucha słupem iskier"
+      }
+    },
+    "199": {
+      "hero": {
+        "typ": "klekot-chitynowy",
+        "powod": "chitynowe wbijanie haków"
+      }
+    },
+    "76": {
+      "hero": {
+        "typ": "bariera-odbicie",
+        "powod": "rozbicie strumienia mocy o barierę"
+      }
+    },
+    "437": {
+      "hero": {
+        "typ": "skradanie-cisza",
+        "powod": "pająk opuszcza się bez pośpiechu"
+      }
+    },
+    "78": {
+      "hero": {
+        "typ": "przemiana-materializacja",
+        "powod": "mglisty przepływ sekretów do fiolki"
+      }
+    },
+    "245": {
+      "hero": {
+        "typ": "mroczna-fala",
+        "powod": "strumień skażonej magii"
+      }
+    },
+    "293": {
+      "hero": {
+        "typ": "mroczna-fala",
+        "powod": "sylwetki z zapomnienia — nekromantyczny przepływ (rozbija kolizję z 354)"
+      }
+    },
+    "594": {
+      "hero": {
+        "typ": "fala-rozbryzg",
+        "powod": "brodzenie w mazi, mlaśnięcie błota"
+      }
+    },
+    "505": {
+      "hero": {
+        "typ": "zgrzyt-metalu",
+        "powod": "wyrywanie balisty z mocowań"
+      }
+    },
+    "509": {
+      "hero": {
+        "typ": "skradanie-cisza",
+        "powod": "wstrzymany oddech trapera"
+      }
+    },
+    "579": {
+      "hero": {
+        "typ": "skradanie-cisza",
+        "powod": "nagła cicha gotowość"
+      }
+    },
+    "195": {
+      "hero": {
+        "typ": "rezonans-magiczny",
+        "powod": "samogrające struny liry"
+      }
+    },
+    "275": {
+      "hero": {
+        "typ": "marsz-oddzialu",
+        "powod": "dudnienie kroków drużyny na schodach"
+      }
+    },
+    "551": {
+      "hero": {
+        "typ": "zwinny-skok",
+        "powod": "wyskok dwóch graczy po kulę"
+      }
+    },
+    "595": {
+      "hero": {
+        "typ": "rozblysk-swiatla",
+        "powod": "blask pochodni obnaża goblinów"
+      }
+    },
+    "150": {
+      "hero": {
+        "typ": "rezonans-magiczny",
+        "powod": "spokojne buczenie wielkiej konstrukcji"
+      }
+    },
+    "213": {
+      "hero": {
+        "typ": "furkot-mechanizmu",
+        "powod": "brzęczenie wielu maszynek"
+      }
+    },
+    "568": {
+      "hero": {
+        "typ": "furkot-mechanizmu",
+        "powod": "cichy szum naprawczej nano-chmury"
+      }
+    },
+    "68": {
+      "hero": {
+        "typ": "skradanie-cisza",
+        "powod": "węszenie i skrzypiące kroki w śniegu"
+      },
+      "background": {
+        "typ": "kraina-lodu",
+        "powod": "zaśnieżona przełęcz w zamieci"
+      }
+    },
+    "105": {
+      "background": {
+        "typ": "miasto-neonowe",
+        "powod": "uliczka między tradycją a neonami"
+      }
+    },
+    "14": {
+      "background": {
+        "typ": "miasto-neonowe",
+        "powod": "plac budowy nad miastem neonów"
+      }
+    },
+    "56": {
+      "background": {
+        "typ": "laboratorium-technika",
+        "powod": "metalowy korytarz placówki z buczeniem bariery"
+      }
+    },
+    "40": {
+      "background": {
+        "typ": "dziedziniec-spokojny",
+        "powod": "cichy dziedziniec katedry"
+      }
+    },
+    "46": {
+      "background": {
+        "typ": "dziedziniec-spokojny",
+        "powod": "dziedziniec pod drzewem-miastem"
+      }
+    },
+    "274": {
+      "background": {
+        "typ": "dziedziniec-spokojny",
+        "powod": "dziedziniec cytadeli w ceremonialnej ciszy"
+      }
+    },
+    "295": {
+      "background": {
+        "typ": "miasto-nocne",
+        "powod": "zaułek za kantyną o zmroku"
+      }
+    },
+    "375": {
+      "background": {
+        "typ": "las-mroczny",
+        "powod": "duszący się las, martwa głusza"
+      }
+    },
+    "31": {
+      "background": {
+        "typ": "las-mroczny",
+        "powod": "skażony metaliczny las"
+      }
+    },
+    "54": {
+      "background": {
+        "typ": "las-mroczny",
+        "powod": "mglisty las z anomalią"
+      }
+    },
+    "62": {
+      "background": {
+        "typ": "las-mroczny",
+        "powod": "mokry mglisty las, czarne pnie"
+      }
+    },
+    "73": {
+      "background": {
+        "typ": "las-mroczny",
+        "powod": "granica skażonego lasu"
+      }
+    },
+    "83": {
+      "background": {
+        "typ": "las-mroczny",
+        "powod": "mroczny iglasty las"
+      }
+    },
+    "125": {
+      "background": {
+        "typ": "noc-ksiezyc",
+        "powod": "księżycowa noc nad polaną"
+      }
+    },
+    "64": {
+      "background": {
+        "typ": "niebo-przestworza",
+        "powod": "przestworza nad kanionami"
+      }
+    },
+    "132": {
+      "background": {
+        "typ": "niebo-przestworza",
+        "powod": "wiatr przestworzy z wysokości"
+      }
+    },
+    "2": {
+      "background": {
+        "typ": "rzeka-strumien",
+        "powod": "zalany kanion — echo, kapanie, toń (spójne z klockiem legacy)"
+      }
+    },
+    "77": {
+      "background": {
+        "typ": "pustynia-pyl",
+        "powod": "zakurzona ulica pogranicza, wiatr z pyłem"
+      }
+    },
+    "116": {
+      "background": {
+        "typ": "pustkowie-cisza",
+        "powod": "zrujnowana ulica, zawalone ściany"
+      }
+    },
+    "92": {
+      "background": {
+        "typ": "pustkowie-cisza",
+        "powod": "kamienny most, martwy szyk nieumarłych"
+      }
+    },
+    "53": {
+      "hero": {
+        "typ": "pelzanie-sluz",
+        "powod": "meduzowaty płynny ruch macek — mokre pełznięcie (rozbija kolizję z 68)"
+      }
+    },
+    "82": {
+      "background": {
+        "typ": "oboz-wojenny",
+        "powod": "wiatr nad umocnieniami linii frontu = pozycje wojskowe, nie czynna bitwa (rozbija kolizję z 110)"
+      }
+    }
+  }
+}

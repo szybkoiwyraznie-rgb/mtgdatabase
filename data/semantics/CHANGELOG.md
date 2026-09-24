@@ -1,5 +1,29 @@
 # CHANGELOG taksonomii semantycznej
 
+## 2026-09-24 — v5: wdrożenie audytu (16 rozbić + okrzyk wg płci + korekta szumu przypisań)
+
+Właściciel zaakceptował audyt v4 w całości i nakazał natychmiastową
+korektę szumu przypisań.
+
+- **Nowe typy hero (16):** ryk-humanoida, pisk-gryzoni, wycie-wilcze,
+  trzepot-drobnych-skrzydel, strzal-z-luku, machina-miotajaca,
+  spiew-zenski, przemowa-glos, chor-glosow, grzechot-kosci,
+  skrobanie-pisma, brzek-drobiazgow, aura-lagodna, wiezy-swiatla,
+  oddech-cielska; `okrzyk-bojowy` rozbity na `-meski` / `-zenski`
+  (płeć głosu jak przy śmiechu).
+- **Nowe typy tła (2):** miasto-neonowe, dziedziniec-spokojny
+  (oboz-wojenny traci wzorzec „dziedzin-").
+- **Usunięty** opustoszały `piesn-chor` (fabuły przeszły do
+  spiew-zenski / przemowa-glos / chor-glosow / rezonans-magiczny).
+- **Nowy mechanizm:** `data/semantics/assignment-overrides.json` —
+  146 ręcznych nadpisań w 139 fabułach, każde z uzasadnieniem;
+  map_profiles.py nakłada je po klasyfikacji regułowej i waliduje typy.
+- Kolizje ujawnione przetasowaniem (53↔68, 110↔558, 293↔354, 82↔110)
+  rozwiązane precyzyjniejszymi typami z profili — bez naginania fabuł.
+
+Stan: tła 32 / hero 74 / nastrój 20 / instrumentacja 18 = 144 typy;
+510/510 kombinacji unikalnych, zero kolizji.
+
 ## 2026-09-24 — v4: rozbicie szerokiego typu `smiech` (korekta właściciela)
 
 Właściciel: demonic_laugh_02 to nie szeroki „śmiech" — to śmiech
