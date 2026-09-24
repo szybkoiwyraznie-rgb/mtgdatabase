@@ -427,3 +427,35 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Diagnostyka: workflow commituje log porażki do
   `legacy/source/sample_scout/error.log`, bo sandbox nie czyta logów
   Actions.
+
+## Ogon hero maskuje środkowe nuty kody (fabuła 451, 2026-09-24)
+
+- Sytuacja: receptura 451 z hero `stealth_move_03` (4,0 s brzmienia) na 0,9 s
+  oblała QA ataków: dwie środkowe nuty kody z detektorem „atak < +2,5 dB"
+  mimo sufitu autokalibracji (ogniwa 3–4 staccato handchimes wpadały
+  w jeszcze brzmiący ogon smyczkowanego talerza, koniec ~4,9 s).
+- Wniosek: QA ataku mierzy się względem KONTEKSTU (tło+hero+ogon kody),
+  więc „cichy" hero o długim ogonie bywa maskotą groźniejszą niż głośny
+  o krótkim. Przy planowaniu okna kody licz `hero.at_sec + duration`
+  kontra pozycje nut (`coda_note_ons` w audycie).
+- Zasada / remedium (w tej kolejności): (1) przytnij hero
+  (`length_sec`, tu 4,0 → 2,6 s) — esencja roli siedzi w głowie nagrania;
+  (2) przesuń hero wcześniej albo kodę później; (3) dla staccato na
+  wybrzmiewającym instrumencie podnieś `damp_db` (8 → 12). Efekt: marginesy
+  ataków 3,2–3,4 dB przy boostach 1–4,5 dB zamiast porażki przy +8.
+
+## Zwiad czyści `legacy/source/sample_scout/` przy każdym runie (2026-09-24)
+
+- Sytuacja: po dispatchu nowej kolejki (freesound „storm sea waves rocks
+  coast") merge commita bota usunął z drzewa CAŁĄ poprzednią partię
+  (`freesound_water-splash/`) — w workflow jest `rm -rf legacy/source/
+  sample_scout` przed pobieraniem. Surowce g022 zniknęły z HEAD,
+  choć bramka i jej source-manifest (sha256) zostały.
+- Wniosek: katalog zwiadu jest PRZYCHOWALNIĄ, nie archiwum. Surowiec
+  potrzebny w kolejnej rundzie trzymaj poza repo (`/tmp`, `work/`) albo
+  odzyskaj z historii: `git show <baza>:<ścieżka> > /tmp/plik` (tak
+  odzyskano ocean g022 do bramki g023). Token sesji (bez actions:write)
+  nie poprawi workflow — stąd zapis tu, nie w YAML-u.
+- Zasada: przy planowaniu rund zwiadu zakładaj, że przetrwa tylko
+  ostatnia partia; skrypty bramek nie mogą zakładać obecności
+  `legacy/source/sample_scout/<stara_partia>` w drzewie.
