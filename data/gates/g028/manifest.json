@@ -135,5 +135,11 @@
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "tlo-dwor-komnaty": "k.1",
+    "notes": {
+      "tlo-dwor-komnaty": "Właściciel: „k1 jest ok — dobry pomysł z tym kominkiem” → backgrounds/chamber_hearth_01 do bazy."
+    }
+  }
 }
