@@ -203,6 +203,32 @@ def test_registries_and_reading() -> None:
     check("budżet lektury", result.returncode == 0, result.stdout[-300:])
 
 
+def test_resolver() -> None:
+    import resolver
+    data = resolver.load_data()
+    a = resolver.resolve_story("3", data)
+    b = resolver.resolve_story("3", data)
+    check("resolver determinizm", a == b)
+    check("resolver 1:1 typ->klocek (fabuła 3, hero)",
+          a["blocks"].get("hero") == "demonic_laugh_02")
+    check("resolver BRAK dla typu bez klocka",
+          any(x["filtr"] == "typ bez klocka" for x in a["braki"]))
+    # cecha wymagana pokryta w traits (złośliwy chichot ~ diabelski chichot)
+    entry = data["by_type"]["hero"]["smiech-maniakalny"]
+    ok_req = resolver.check_required(
+        {"wymagane": ["złośliwy chichot"]}, entry)
+    check("resolver: wymagana cecha pokryta", ok_req == [])
+    # weto bad_for: kobiecy głos kontra męski maniakalny chichot
+    veto = resolver.check_required({"wymagane": ["kobiecy głos"]}, entry)
+    check("resolver: weto bad_for (kobiecy głos)",
+          any(p["filtr"] == "weto bad_for" for p in veto))
+    # kolizja kombinacji z istniejącą recepturą (syntetycznie)
+    legacy = data["recipes"][0]
+    combo = resolver.recipe_combo(legacy)
+    check("resolver: combo receptury odtwarzalne",
+          len(combo) == 4 and combo[0] and combo[1])
+
+
 def main() -> None:
     test_midi()
     with tempfile.TemporaryDirectory() as td:
@@ -215,6 +241,7 @@ def main() -> None:
     test_note_attack_gate()
     test_qa_gates()
     test_usage_policy()
+    test_resolver()
     test_registries_and_reading()
     print(f"\n{len(FAILURES)} niepowodzeń" if FAILURES else "\nwszystkie testy OK")
     sys.exit(1 if FAILURES else 0)

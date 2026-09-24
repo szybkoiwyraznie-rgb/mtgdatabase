@@ -58,9 +58,18 @@ roadmapy, obsadzona od profilu semantycznego.
    receptur legacy ma `profile`. Korekty właściciela wdrożone:
    `ognisko-palenisko` zaakceptowane, `krakanie` ≠ `krzyk-ptaka`,
    `wrzask-bandy` ≠ `okrzyk-bojowy` (okrzyk-bojowy chwilowo bez
-   klocka — dozwolone). Brak otwartych bramek. Dalej: **Etap 4** —
-   `scripts/resolver.py` (obsada typ→klocek, twarde filtry
-   bad_for/wymagane, unikalność kombinacji, log decyzji) + testy.
+   klocka — dozwolone). Brak otwartych bramek.
+4. **Etap 4 — WYKONANY**: `scripts/resolver.py` — deterministyczna
+   obsada w modelu 1:1 (typ→jedyny klocek), twarde filtry: typ bez
+   klocka, weto `bad_for` na cesze wymaganej, cecha wymagana bez
+   pokrycia, kolizja kombinacji z recepturą; `--survey` = przegląd
+   całego katalogu i priorytety bramek. Testy resolvera w
+   `test_signature_system.py` — zielone. Stan holdingu: 0/510 fabuł
+   w pełni obsadzalnych (18 klocków na 127 typów), 240 z częściową
+   obsadą; najczęściej wołane braki: `mroczna` (90), `las-dzienny`
+   (67), `czujnosc-napiecie` (66), `cicho-kameralna` (65). Dalej:
+   **Etap 5** — wznowienie produkcji od fabuły 18 (resolver → bramki
+   na brakujące klocki, wszystkie naraz).
 3. Etapy 3–5: migracja bibliotek, resolver, wznowienie produkcji od
    fabuły 18. Kandydaci-zapas z `docs/sources-and-licensing.md`
    (miecze, zombie, metal/drewno, bagna, woda) pozostają w odwodzie.
