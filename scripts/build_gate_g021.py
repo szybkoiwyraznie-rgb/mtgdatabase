@@ -51,7 +51,7 @@ def cand(name, label, title, entry_id, key, t0, dur, desc, character):
     w, _ = dsp.load_any(files[0])
     seg = w[:, int(t0 * dsp.SR):int((t0 + dur) * dsp.SR)].copy()
     seg = soft_limit(seg, crest_db=14.0, rounds=4)
-    seg = dsp.normalize_rms(seg, -17.0)
+    seg = dsp.normalize_rms(seg, -21.0)
     seg = dsp.fade(seg, 0.03, 0.25)
     peak = float(np.max(np.abs(seg)))
     ceil = dsp.db_to_gain(-1.0)
@@ -71,7 +71,7 @@ def cand(name, label, title, entry_id, key, t0, dur, desc, character):
             "semantics": {"type": "weszenie",
                           "traits": ["pociągnięcia nosem", "rytmiczne", "skupione", "bliskie"],
                           "bad_for": ["agresywny", "głośny", "mechaniczny"]},
-            "source": meta(key, f"okno {t0:.1f}–{t0+dur:.1f} s; poziom -17, fade; bez pitchowania"),
+            "source": meta(key, f"okno {t0:.1f}–{t0+dur:.1f} s; poziom -21 (werdykt: ciszej), fade; bez pitchowania"),
         },
     }
 

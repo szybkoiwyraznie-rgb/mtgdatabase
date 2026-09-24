@@ -1,0 +1,47 @@
+{
+  "story_id": "193",
+  "length_sec": 6.0,
+  "background": {
+    "id": "thunder_far_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "sniff_track_01",
+    "at_sec": 1.0,
+    "target_db": -20
+  },
+  "coda": {
+    "gesture": "g8b_knocked_returns",
+    "instrument": "b_handchimes",
+    "at_sec": 3.4,
+    "target_db": -19,
+    "damp_db": 8.0
+  },
+  "seed": 193,
+  "gate": "g021",
+  "profile": {
+    "types": {
+      "background": "burza-zywiol",
+      "hero": "weszenie",
+      "mood": "determinacja-niezlomnosc",
+      "instrumentation": "cicho-kameralna"
+    },
+    "note": "Tryb losowy; typ weszenie dodany decyzją właściciela (v6); hero celowo cicho (-20)."
+  },
+  "resolution": {
+    "types": {
+      "background": "burza-zywiol",
+      "hero": "weszenie",
+      "mood": "determinacja-niezlomnosc",
+      "instrumentation": "cicho-kameralna"
+    },
+    "blocks": {
+      "background": "thunder_far_01",
+      "hero": "sniff_track_01",
+      "mood": "g8b_knocked_returns",
+      "instrumentation": "b_handchimes"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; filtry twarde czyste; kombinacja unikalna"
+  }
+}

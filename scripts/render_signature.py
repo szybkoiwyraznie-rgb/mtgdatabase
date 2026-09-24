@@ -107,7 +107,8 @@ def render(recipe: dict) -> tuple[np.ndarray, dict, list[str]]:
         result = None
         for _iteration in range(6):
             result = coda_synth.render_coda(gesture, instrument, seed=seed,
-                                            level_ref_db=target, gain_plan=plan)
+                                            level_ref_db=target, gain_plan=plan,
+                                            damp_db=float(coda_ref.get("damp_db", 0.0)))
             candidate = dsp.place(base_mix.copy(), result.wave, coda_at)
             if candidate.shape[1] > want_mix_len:
                 candidate = dsp.fade(candidate[:, :want_mix_len].copy(), 0.0, min(1.6, length * 0.3))

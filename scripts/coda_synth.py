@@ -124,12 +124,17 @@ def resolve_samples(instrument: dict, midis: list[int]) -> tuple[dict[int, Path]
 
 
 def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: float = -20.0,
-                gain_plan: list[float] | None = None) -> RenderedCoda:
+                gain_plan: list[float] | None = None, damp_db: float = 0.0) -> RenderedCoda:
     """Wyrenderuj gest na instrumencie. Zwraca waveform od 0.0 s.
 
     level_ref_db: docelowy RMS pojedynczej nuty przed skalowaniem velocity —
     względne proporcje velocity w gest zachowane. gain_plan: dodatkowe dB na
     kolejne nuty (w kolejności czasowej) — gałka autokalibracji z render_signature.
+    damp_db: „tłumienie dłonią" (opt-in per receptura) — przy ataku każdej
+    kolejnej nuty dotychczasowy ogon kody jest miękko przyduszany o damp_db
+    (30 ms zejścia, 120 ms trzymania, 250 ms powrotu), jak dzwonnik gaszący
+    poprzedni dzwonek. Ratuje czytelność ataków na długo wybrzmiewających
+    instrumentach; 0.0 = zachowanie historyczne.
     """
     warnings: list[str] = []
     midis = _collect_used_midis(gesture)
@@ -170,6 +175,19 @@ def render_coda(gesture: dict, instrument: dict, seed: int = 0, level_ref_db: fl
             vel = float(np.clip(vel * (1.0 + rng.uniform(-vel_jitter, vel_jitter)), 0.05, 1.0))
         if gain_plan and idx < len(gain_plan) and gain_plan[idx]:
             vel *= float(dsp.db_to_gain(gain_plan[idx]))
+        if damp_db > 0.0 and placed > 0:
+            # jak dzwonnik: poprzedni ogon gasimy ZANIM zagra następna nuta
+            # (0.4 s wyprzedzenia pokrywa okno pomiaru ataku) i NA STAŁE.
+            i0 = int(max(on, 0.0) * dsp.SR)
+            pre = int(0.40 * dsp.SR)
+            ramp = int(0.12 * dsp.SR)
+            lo = float(dsp.db_to_gain(-abs(damp_db)))
+            start = max(i0 - pre, 0)
+            ramp_n = min(ramp, out.shape[1] - start)
+            if ramp_n > 0:
+                out[:, start:start + ramp_n] *= np.linspace(1.0, lo, ramp_n)
+            if start + ramp_n < out.shape[1]:
+                out[:, start + ramp_n:] *= lo
         out = dsp.place(out, seg * vel, max(on, 0.0))
         events.append({"index": idx, "midi": m, "on_sec": round(max(on, 0.0), 3),
                        "vel": round(vel, 3)})

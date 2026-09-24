@@ -69,7 +69,12 @@ roadmapy, obsadzona od profilu semantycznego.
    obsadą; najczęściej wołane braki: `mroczna` (90), `las-dzienny`
    (67), `czujnosc-napiecie` (66), `cicho-kameralna` (65). Dalej:
    **Etap 5** — w toku.
-5. **Etap 5 — siedem fabuł wyprodukowanych** (18, 23, 166, 468, 519, 575, 578):
+5. **Etap 5 — osiem fabuł wyprodukowanych** (18, 23, 166, 193, 468, 519, 575, 578):
+   193 Floodhound: typ `weszenie` (v6, decyzja właściciela), klocek
+   sniff_track_01 ze zwiadu (ciszej per werdykt); renderer: „tłumienie
+   dzwonnika" (damp_db, opt-in per receptura; gaszenie ogona 0.4 s
+   PRZED atakiem następnej nuty). fala-rozbryzg nadal bez klocka
+   (gejzery odrzucone; runda 2 z „water splash"). Wcześniej:
    575 (tryb losowy właściciela) = pełny cykl nowego modelu: 4 braki →
    bramki g018/g019 → werdykty (d.1/a.1/b.3, marsz odrzucony →
    runda 2 ze zwiadu → m.2 kolumna na żwirze) → QA zielone.

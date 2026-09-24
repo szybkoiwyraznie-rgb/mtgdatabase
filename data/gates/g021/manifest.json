@@ -46,7 +46,7 @@
               "license": "CC0 / Public Domain (wg API Freesound)",
               "url": "https://freesound.org/people/td6d/sounds/467762/",
               "channel": "sample-scout run 36007326109 (preview-hq-mp3); manifest z sha256 w katalogu paczki",
-              "notes": "okno 16.0–19.0 s; poziom -17, fade; bez pitchowania"
+              "notes": "okno 16.0–19.0 s; poziom -21 (werdykt: ciszej), fade; bez pitchowania"
             }
           }
         },
@@ -87,7 +87,7 @@
               "license": "CC0 / Public Domain (wg API Freesound)",
               "url": "https://freesound.org/people/15GPanskaCepelak_Adam/sounds/534005/",
               "channel": "sample-scout run 36007326109 (preview-hq-mp3); manifest z sha256 w katalogu paczki",
-              "notes": "okno 1.0–4.0 s; poziom -17, fade; bez pitchowania"
+              "notes": "okno 1.0–4.0 s; poziom -21 (werdykt: ciszej), fade; bez pitchowania"
             }
           }
         },
@@ -128,11 +128,14 @@
               "license": "CC0 / Public Domain (wg API Freesound)",
               "url": "https://freesound.org/people/Caap/sounds/566052/",
               "channel": "sample-scout run 36007326109 (preview-hq-mp3); manifest z sha256 w katalogu paczki",
-              "notes": "okno 0.0–2.1 s; poziom -17, fade; bez pitchowania"
+              "notes": "okno 0.0–2.1 s; poziom -21 (werdykt: ciszej), fade; bez pitchowania"
             }
           }
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "weszenie": "w.1"
+  }
 }
