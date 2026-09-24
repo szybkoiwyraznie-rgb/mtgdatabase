@@ -86,6 +86,25 @@ zakazy), m.in.: wybrano najczęstszy wpis mimo równie dobrego rzadszego;
 ten sam klocek wraca natychmiast; stała para gest–instrument; martwa
 część bazy nigdy nie kandyduje.
 
+### Klasa konieczna, nie wystarczająca (uzupełnienie 2026-09-24)
+
+Pytanie właściciela: czy istnienie wpisu z pasującą klasą nie zamrozi
+klasy na jednym wpisie, skoro traity są tylko rankingiem? Odpowiedź:
+traity działają na **trzech poziomach**, z których dwa są twarde:
+
+1. **weto `bad_for`** — jeśli profil wymaga cechy z listy `bad_for`
+   wpisu, wpis odpada mimo zgodnej klasy;
+2. **cechy wymagane** — profil może oznaczyć 1–2 cechy jako `required`;
+   wpis, który ich nie obsługuje, nie jest kandydatem;
+3. **cechy miękkie** — reszta traitów wpływa tylko na ranking.
+
+**Brak → bramka** zachodzi więc, gdy klasa jest pusta ALBO gdy wszystkie
+wpisy klasy odpadły przez weto/cechy wymagane. Tak klasy rosną wewnętrznie
+pod ciśnieniem profili (chichot demona ≠ chichot wróżki przy tej samej
+klasie), bez powrotu do limitów ilościowych. Dodatkowe ostrzeżenie audytu:
+klasa często wołana, obsługiwana stale jednym wpisem → sygnał do
+opcjonalnej bramki poszerzającej (decyzja świadoma, nie automat).
+
 ## Skutki
 
 - `data/usage-policy.json` traci moc w wersji z ADR 0005; zostaje

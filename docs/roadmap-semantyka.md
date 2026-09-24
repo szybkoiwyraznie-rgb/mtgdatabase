@@ -35,7 +35,9 @@ bibliotek audio. To surowiec dla kafeterii — świadomie luźny słownik.
 
 - Artefakt: `data/semantics/story-profiles.json`
   (na fabułę: `background`, `hero`, `mood`, `instrumentation`;
-  każde pole = swobodny opis + robocze słowa kluczowe).
+  każde pole = swobodny opis + robocze słowa kluczowe, z oznaczeniem
+  cech **wymaganych** vs. preferowanych — waga cech zasila później
+  weto resolvera, patrz ADR 0006 § „Klasa konieczna, nie wystarczająca”).
 - Praca partiami (np. po 50 fabuł), commit po każdej partii.
 - Zakaz zaglądania do `data/library/*.json` podczas opisywania —
   profil wynika z narracji, nie z inwentarza.
@@ -95,13 +97,18 @@ Deterministyczna obsada fabuły z miękkim balansem użycia.
 - Wejście: profil fabuły + biblioteki + historia receptur.
   Wyjście: obsada czterech ról **albo** lista braków do bramki.
 - Ranking wg ADR 0006: klasa > cechy > kary miękkie (częstość w klasie,
-  świeżość, powtarzalne pary) > tie-break z id fabuły. Twardy filtr:
-  kombinacja a·b·c·d nie może powtórzyć istniejącej receptury.
+  świeżość, powtarzalne pary) > tie-break z id fabuły. Twarde filtry:
+  kombinacja a·b·c·d nie może powtórzyć istniejącej receptury;
+  klasa jest warunkiem koniecznym, nie wystarczającym — wpis odpada
+  przy konflikcie z `bad_for` lub przy braku cechy `required` profilu
+  (wtedy klasa z wpisami nadal może być BRAKIEM → bramka).
 - Ślad decyzji zapisywany w recepturze:
   `resolution: {candidates, scores, reason}`.
 - Audyt ostrzeżeń (nie zakazów) w `library_tool.py report`:
   najczęstszy wpis wybrany mimo równie dobrego rzadszego; natychmiastowa
-  powtórka klocka; stała para gest–instrument; wpisy nigdy niekandydujące.
+  powtórka klocka; stała para gest–instrument; wpisy nigdy niekandydujące;
+  klasa często wołana, a obsługiwana stale jednym wpisem (sygnał do
+  opcjonalnej bramki poszerzającej).
 
 DoD: testy resolvera zielone (determinizm, nadrzędność semantyki,
 preferencja rzadszego przy remisie, blokada duplikatu kombinacji);
