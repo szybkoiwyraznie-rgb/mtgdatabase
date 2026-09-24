@@ -1,0 +1,46 @@
+{
+  "story_id": "28",
+  "length_sec": 6.0,
+  "background": {
+    "id": "sea_storm_02",
+    "offset_sec": 1.6,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "wave_crash_03",
+    "at_sec": 1.2,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g4b_mystery_tritone",
+    "instrument": "b_organ_loudpedal",
+    "at_sec": 3.6,
+    "target_db": -21
+  },
+  "seed": 28,
+  "gate": "g024",
+  "profile": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "fala-rozbryzg",
+      "mood": "tajemnica-obcosc",
+      "instrumentation": "mroczna"
+    },
+    "note": "Pełny reuse po g023/g024 — ten sam duet braków co 222, obsadzony bez własnej bramki (model 1:1, taksonomia v6)."
+  },
+  "resolution": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "fala-rozbryzg",
+      "mood": "tajemnica-obcosc",
+      "instrumentation": "mroczna"
+    },
+    "blocks": {
+      "background": "sea_storm_02",
+      "hero": "wave_crash_03",
+      "mood": "g4b_mystery_tritone",
+      "instrumentation": "b_organ_loudpedal"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; filtry twarde czyste; kombinacja unikalna"
+  }
+}

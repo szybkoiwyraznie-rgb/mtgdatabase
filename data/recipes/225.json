@@ -1,0 +1,45 @@
+{
+  "story_id": "225",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 1.2,
+    "target_db": -33
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 0.8,
+    "target_db": -17
+  },
+  "coda": {
+    "gesture": "g8b_knocked_returns",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.5,
+    "target_db": -20
+  },
+  "seed": 225,
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "rozblysk-swiatla",
+      "mood": "determinacja-niezlomnosc",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Pełny reuse — resolver OBSADZONA bez bramki (model 1:1, taksonomia v6)."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "rozblysk-swiatla",
+      "mood": "determinacja-niezlomnosc",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "light_bloom_01",
+      "mood": "g8b_knocked_returns",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; filtry twarde czyste; kombinacja unikalna"
+  }
+}
