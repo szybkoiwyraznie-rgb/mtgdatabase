@@ -1,20 +1,5 @@
 {
   "schema": 1,
   "note": "Propozycje nowych typów taksonomii czekające na akceptację właściciela (bramka tekstowa). Walidator traktuje typ z tej listy jako OSTRZEŻENIE, nie błąd. Po akceptacji typ przechodzi do taxonomy.json (wpis w CHANGELOG), a stąd znika.",
-  "pending": [
-    {
-      "layer": "background",
-      "id": "ognisko-palenisko",
-      "nazwa": "Ognisko / palenisko z bliska",
-      "co_slychac": "Małe ognisko lub palenisko z bliska: oszczędne trzaski żaru, kameralne ciepło ognia.",
-      "wzorce": [
-        "ognisk",
-        "palenisk",
-        "kominek",
-        "komink",
-        "trzask (?:ognia|żaru|pochodni)"
-      ],
-      "powod": "Migracja Etapu 3: klocek fire_hearth_small_01 nie mieści się uczciwie w żadnym z 29 typów tła (kuznia-warsztat wymaga młota i narzędzi, kraina-ognia to skala wulkaniczna)."
-    }
-  ]
+  "pending": []
 }

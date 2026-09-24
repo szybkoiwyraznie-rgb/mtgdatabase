@@ -1,5 +1,24 @@
 # CHANGELOG taksonomii semantycznej
 
+## 2026-09-24 — v3: decyzje właściciela (ognisko + krakanie + wrzask bandy)
+
+1. **Zaakceptowany** typ tła `ognisko-palenisko` (30 typów tła);
+   `pending-types.json` opróżnione; fabuły 190 i 500 przechodzą do
+   nowego typu.
+2. **Korekta właściciela:** krakanie to nie krzyk ptaka drapieżnego.
+   Nowy typ hero `krakanie` (chrapliwe kraknięcia krukowatych);
+   `krzyk-ptaka` zawężony do drapieżnych pisków (sokół/orzeł/gryf).
+   Klocek `raven_yell_long_01` przetagowany na `krakanie`; fabuły 1 i 42
+   przechodzą do `krakanie`.
+3. **Korekta właściciela:** wielogłosowy wrzask bandy to nie szeroki
+   okrzyk bojowy. Nowy typ hero `wrzask-bandy` (kilka rozstrojonych
+   głosów podchwytuje krzyk); klocek `warband_cry_03` przetagowany.
+   Typ `okrzyk-bojowy` zostaje bez klocka (dozwolone — klocek przyjdzie
+   bramką, gdy zawoła go produkcja).
+
+Hero: 54 → 56 typów. Po remapie: 510/510 kombinacji unikalnych, zero
+kolizji.
+
 ## 2026-09-24 — Etap 3: migracja bibliotek + propozycja typu `ognisko-palenisko` (CZEKA NA AKCEPTACJĘ)
 
 - 18/18 klocków otagowane `semantics: {type, traits, bad_for}`; typy

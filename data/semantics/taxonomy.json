@@ -1,13 +1,13 @@
 {
   "schema": 1,
-  "version": "2",
-  "status": "v2 zaakceptowana 2026-09-24 (4 nowe typy hero rozbijają kolizje kombinacji; model 1:1 typ=klocek). Zmiany wyłącznie przez data/semantics/CHANGELOG.md",
+  "version": "3",
+  "status": "v3 zaakceptowana 2026-09-24: +ognisko-palenisko (tło), +krakanie, +wrzask-bandy (hero) — korekty właściciela. Zmiany wyłącznie przez data/semantics/CHANGELOG.md",
   "note": "Taksonomia akustyczna (klasy opisują CO SŁYCHAĆ, nie lore). Klasa = parametr kombinacji a·b·c·d; cechy z profilu fabuły pozostają doprecyzowaniem wewnątrz klasy (traits). Wzorce służą do wstępnego mapowania profili; ostateczne przypisanie podlega przeglądowi. Po akceptacji: zmiany tylko przez data/semantics/CHANGELOG.md.",
   "layers": {
     "background": {
       "kod": "a",
       "nazwa": "środowisko / tło",
-      "liczba_klas": 29,
+      "liczba_klas": 30,
       "klasy": [
         {
           "id": "bitwa-zgielk",
@@ -57,7 +57,7 @@
             "cytadel",
             "dziedzin"
           ],
-          "fabul_w_szkicu": 33
+          "fabul_w_szkicu": 32
         },
         {
           "id": "kuznia-warsztat",
@@ -169,7 +169,7 @@
             "farmer",
             "warzywn"
           ],
-          "fabul_w_szkicu": 22
+          "fabul_w_szkicu": 21
         },
         {
           "id": "dwor-komnaty",
@@ -612,13 +612,26 @@
             "próżni"
           ],
           "fabul_w_szkicu": 6
+        },
+        {
+          "id": "ognisko-palenisko",
+          "nazwa": "Ognisko / palenisko z bliska",
+          "co_slychac": "Małe ognisko lub palenisko z bliska: oszczędne trzaski żaru, kameralne ciepło ognia.",
+          "wzorce": [
+            "ognisk",
+            "palenisk",
+            "kominek",
+            "komink",
+            "trzask (?:ognia|żaru|pochodni)"
+          ],
+          "fabul_w_szkicu": 2
         }
       ]
     },
     "hero": {
       "kod": "b",
       "nazwa": "hero / główne zdarzenie",
-      "liczba_klas": 54,
+      "liczba_klas": 56,
       "klasy": [
         {
           "id": "ryk-bestii",
@@ -686,15 +699,26 @@
         {
           "id": "krzyk-ptaka",
           "nazwa": "Krzyk ptaka drapieżnego",
-          "co_slychac": "Krzyk ptaka drapieżnego: sokół, orzeł, gryf, kruk.",
+          "co_slychac": "Drapieżny krzyk ptaka łownego: sokół, orzeł, gryf — przenikliwy pisk/wrzask, nie krakanie.",
           "wzorce": [
             "krzyk (?:sokoł|orł|ptak|gryf)",
             "sokol",
-            "klangor",
-            "krak",
-            "kruk"
+            "klangor"
           ],
-          "fabul_w_szkicu": 4
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "krakanie",
+          "nazwa": "Krakanie krukowate",
+          "co_slychac": "Krakanie: chrapliwe, gardłowe kraknięcia krukowatych — nie przenikliwy krzyk drapieżnika.",
+          "wzorce": [
+            "krak",
+            "kruk",
+            "wron",
+            "gawron",
+            "krucz"
+          ],
+          "fabul_w_szkicu": 2
         },
         {
           "id": "brzeczenie-roju",
@@ -735,6 +759,19 @@
             "zaśmia"
           ],
           "fabul_w_szkicu": 4
+        },
+        {
+          "id": "wrzask-bandy",
+          "nazwa": "Wielogłosowy wrzask bandy",
+          "co_slychac": "Kilka rozstrojonych głosów podchwytuje krzyk — chaotyczny, plemienny wrzask bandy/hordy; nie pojedynczy rozkaz ani zwarty chór.",
+          "wzorce": [
+            "wrzask (?:bandy|hordy|tłumu|watahy)",
+            "wielogłos",
+            "chóraln\\w* okrzyk",
+            "zbiorow\\w* (?:wrzask|okrzyk)",
+            "rozstrojon\\w* głos"
+          ],
+          "fabul_w_szkicu": 0
         },
         {
           "id": "okrzyk-bojowy",

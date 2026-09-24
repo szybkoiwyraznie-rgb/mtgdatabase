@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "taxonomy_version": "2",
+  "taxonomy_version": "3",
   "note": "Mapowanie fabuł na klasy taksonomii (Etap 2). Szkic do przeglądu; po akceptacji taksonomii v1 staje się wiążący.",
   "classes": {
     "1": {
       "background": "gory-wichry",
-      "hero": "krzyk-ptaka",
+      "hero": "krakanie",
       "mood": "czujnosc-napiecie",
       "instrumentation": "mroczna"
     },
@@ -251,7 +251,7 @@
     },
     "42": {
       "background": "krypta-nekropolia",
-      "hero": "krzyk-ptaka",
+      "hero": "krakanie",
       "mood": "tajemnica-obcosc",
       "instrumentation": "mroczna"
     },
@@ -988,7 +988,7 @@
       "instrumentation": "cicho-kameralna"
     },
     "190": {
-      "background": "wioska-sielska",
+      "background": "ognisko-palenisko",
       "hero": "rozblysk-swiatla",
       "mood": "wspolnota-wiez",
       "instrumentation": "cieplo-serdeczna"
@@ -2356,7 +2356,7 @@
       "instrumentation": "ostro-gwaltowna"
     },
     "500": {
-      "background": "oboz-wojenny",
+      "background": "ognisko-palenisko",
       "hero": "bulgot-syk",
       "mood": "spokoj-kontemplacja",
       "instrumentation": "cieplo-serdeczna"
