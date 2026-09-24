@@ -361,6 +361,44 @@
         "choice": "skradanie-cisza.3",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "troop_march_05",
+      "role": "miarowy marsz oddziału",
+      "character": "żwirowy, ciężki, wielonożny",
+      "distance": "średni",
+      "energy": "średnia",
+      "duration_sec": 3.6,
+      "desc": "cztery warstwy prawdziwych kroków po żwirze, przesunięte jak w plutonie",
+      "good_for": "kolumna wojska, natarcie w szyku, patrol, falanga",
+      "bad_for": "pojedynczy wędrowiec, skradanie, kawaleria",
+      "file": "audio/library/heroes/troop_march_05.mp3",
+      "semantics": {
+        "type": "marsz-oddzialu",
+        "traits": [
+          "miarowy",
+          "prawdziwe kroki",
+          "wielu maszerujących"
+        ],
+        "bad_for": [
+          "chaotyczny",
+          "pojedynczy",
+          "galop"
+        ]
+      },
+      "source": {
+        "title": "Footsteps wearing leather shoes on gravel (Freesound)",
+        "author": "felix.blume",
+        "license": "CC0 / Public Domain (wg API Freesound)",
+        "url": "https://freesound.org/people/felix.blume/sounds/779884/",
+        "channel": "sample-scout run 36001624763 (preview-hq-mp3; klucz API nie autoryzuje /download — lekcja 2026-09-24); manifest z sha256 w legacy/source/sample_scout/freesound_marching-footsteps/",
+        "notes": "4 warstwy z różnych fragmentów od 90 s; przesunięcia losowe seed 575; poziom, fade"
+      },
+      "approved": {
+        "gate": "g019",
+        "choice": "marsz-oddzialu.2",
+        "date": "2026-09-24"
+      }
     }
   ]
 }

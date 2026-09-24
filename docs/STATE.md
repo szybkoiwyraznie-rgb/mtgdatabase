@@ -69,7 +69,13 @@ roadmapy, obsadzona od profilu semantycznego.
    obsadą; najczęściej wołane braki: `mroczna` (90), `las-dzienny`
    (67), `czujnosc-napiecie` (66), `cicho-kameralna` (65). Dalej:
    **Etap 5** — w toku.
-5. **Etap 5 — sześć fabuł wyprodukowanych** (18, 23, 166, 468, 519, 578):
+5. **Etap 5 — siedem fabuł wyprodukowanych** (18, 23, 166, 468, 519, 575, 578):
+   575 (tryb losowy właściciela) = pełny cykl nowego modelu: 4 braki →
+   bramki g018/g019 → werdykty (d.1/a.1/b.3, marsz odrzucony →
+   runda 2 ze zwiadu → m.2 kolumna na żwirze) → QA zielone.
+   **Zwiad naprawiony end-to-end** (preview-hq-mp3 zamiast /download 401;
+   fallback OR archive.org; log porażki commitowany; rebase+retry przy
+   pushu). Wcześniej:
    g017 (light_bloom_01 = kaskada dzwonków, stealth_move_03 = smyczek
    po talerzu, ciszej per werdykt) domknął 23/166/519. Zasada etykiet:
    unikatowe litery per wpis bramki (gate-protocol). Wcześniej:
