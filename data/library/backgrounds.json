@@ -209,6 +209,42 @@
         "choice": "niebo-przestworza.2",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "forest_day_01",
+      "setting": "las za dnia",
+      "desc": "gęsty poranny chór ptaków — las budzi się, wyraźne ptactwo blisko i w głębi",
+      "file": "audio/library/backgrounds/forest_day_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "semantics": {
+        "type": "las-dzienny",
+        "traits": [
+          "ptaki",
+          "szum liści",
+          "dzień",
+          "spokojny"
+        ],
+        "bad_for": [
+          "noc",
+          "wnętrze",
+          "martwa cisza"
+        ]
+      },
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Dawn Chorus, okno 38.0–46.0 s; poziom i fade"
+      },
+      "approved": {
+        "gate": "g016",
+        "choice": "las-dzienny.1",
+        "date": "2026-09-24"
+      }
     }
   ]
 }

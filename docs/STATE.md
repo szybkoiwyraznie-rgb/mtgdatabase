@@ -69,7 +69,14 @@ roadmapy, obsadzona od profilu semantycznego.
    obsadą; najczęściej wołane braki: `mroczna` (90), `las-dzienny`
    (67), `czujnosc-napiecie` (66), `cicho-kameralna` (65). Dalej:
    **Etap 5** — w toku.
-5. **Etap 5 — fabuła 18 WYPRODUKOWANA** (pierwsza w modelu 1:1):
+5. **Etap 5 — trzy fabuły wyprodukowane** (18, 468, 578):
+   g016 (las-dzienny → forest_day_01, werdykt d.1) domknął 468
+   (Cacophodon) i 578 (Savage Surge) bez dodatkowych bramek — pełny
+   reuse: beast_roar + g6c + bassdrum/timpani. QA zielone (hero
+   +15.5 dB, RMS -20.5/-21.8). Nowa mechanika renderera: wąski bank
+   perkusyjny realizuje gest kody RYTMICZNIE (kontur wysokości →
+   progi uderzeń; coda_synth, testy). Historycznie:
+   **fabuła 18 WYPRODUKOWANA** (pierwsza w modelu 1:1):
    werdykt g015 = d.2 (sky_rush_02), c.1 (barrier_ring_01),
    a.3 (g6c_sentry_return); resolver OBSADZONA, QA zielone
    (hero +18.9 dB, RMS -19.1, HF 8.1%), `audio/signatures/18.mp3`,

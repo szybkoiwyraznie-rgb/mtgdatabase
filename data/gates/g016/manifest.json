@@ -124,5 +124,8 @@
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "las-dzienny": "d.1"
+  }
 }

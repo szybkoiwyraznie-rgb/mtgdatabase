@@ -110,10 +110,15 @@ def test_coda_register_adapt() -> None:
     check("transpozycja gestu: 33->38", resolved2.get(33) == Path("x.wav"), str(warn2))
     check("transpozycja gestu: 38->41", resolved2.get(38) == Path("z.wav"), str(warn2))
     check("log transpozycji", any("transponowany" in w for w in warn2))
-    # niedopasowalne nuty dalej są pomijane z ostrzeżeniem
+    # wąski bank (progi uderzeń): gest realizowany rytmicznie — każda nuta gra
     resolved3, warn3 = coda_synth.resolve_samples({"samples": {"60": "q.wav"}}, [30, 90])
-    check("niedopasowane pominięte", 30 not in resolved3 and 90 not in resolved3)
-    check("log pominięć", any("pominięta" in w for w in warn3))
+    check("wąski bank: rytmiczna realizacja", resolved3.get(30) == Path("q.wav") and resolved3.get(90) == Path("q.wav"), str(warn3))
+    check("log realizacji rytmicznej", any("rytmicznie" in w for w in warn3))
+    # kontur na progi: bank {38,39,41}, gest {60,76,80} -> soft/mid(hard)/hard
+    inst4 = {"samples": {"38": "s.wav", "39": "m.wav", "41": "h.wav"}}
+    resolved4, warn4 = coda_synth.resolve_samples(inst4, [60, 76, 80])
+    check("kontur: dół gestu -> soft", resolved4.get(60) == Path("s.wav"), str(warn4))
+    check("kontur: góra gestu -> hard", resolved4.get(80) == Path("h.wav"), str(warn4))
 
 
 def test_loop_seam() -> None:

@@ -100,6 +100,20 @@ def resolve_samples(instrument: dict, midis: list[int]) -> tuple[dict[int, Path]
             warnings.append(f"gest transponowany {t:+d} półtonów do zakresu instrumentu (dopasowane {cnt}/{len(midis)})")
             resolved = {m: v for m, v in mapped.items() if v is not None}
             octave_fixed = set()
+    # 4) instrument o wąskim banku (perkusyjne progi uderzeń, np. timpani
+    #    soft/mid/hard): gest realizowany RYTMICZNIE — każda nuta gra, a kontur
+    #    wysokości mapuje się na progi uderzenia (nisko→soft, wysoko→hard).
+    #    Rytm i dynamika gestu zostają nietknięte.
+    if any(m not in resolved for m in midis) and bank and (bank[-1] - bank[0]) <= 6:
+        lo, hi = min(midis), max(midis)
+        span = max(hi - lo, 1)
+        for m in midis:
+            tier = bank[min(int((m - lo) / span * len(bank)), len(bank) - 1)]
+            resolved[m] = tier
+        warnings.append(
+            f"wąski bank instrumentu ({len(bank)} próbek w {bank[-1]-bank[0]} półtonach): "
+            "gest zrealizowany rytmicznie — kontur wysokości zastąpiony progami uderzenia")
+        return {m: Path(have[n]) for m, n in resolved.items()}, warnings
     for m in midis:
         if m in resolved:
             if resolved[m] != m and m not in octave_fixed:
