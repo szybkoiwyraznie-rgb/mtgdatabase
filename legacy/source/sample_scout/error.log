@@ -1,0 +1,4 @@
+=== sample-scout 2026-09-24T19:49:46Z ===
+source=freesound query=castle hallway footsteps count=3 sort=rating_desc
+FREESOUND_TOKEN: ustawiony (40 znaków)
+freesound: brak kandydatów CC0 dla 'castle hallway footsteps'.
