@@ -1,0 +1,101 @@
+{
+  "id": "g013",
+  "created": "2026-09-23",
+  "note": "Runda 2 hero do fabuły 3 po odrzuceniu kreskówkowego kitu g012. Trzy osobne ujęcia prawdziwego człowieka wykonującego maniakalny śmiech; zero pitchowania i składania sylab. Etykiety h.*.",
+  "entries": [
+    {
+      "slug": "chichot-chochlika",
+      "kind": "heroes",
+      "role": "prawdziwy diabelski chichot małego demona po udanym sabotażu",
+      "candidates": [
+        {
+          "label": "h.1",
+          "title": "niski maniakalny chichot",
+          "file": "candidates/h_low_maniac.mp3",
+          "desc": "jedno zwarte ujęcie: mocny atak przechodzi w nierówny, gasnący rechot",
+          "source": "prawdziwy ludzki śmiech — Huminaatio / Freesound, CC0",
+          "entry": {
+            "id": "demonic_laugh_01",
+            "role": "prawdziwy diabelski chichot małego demona po udanym sabotażu",
+            "character": "zwarty, złowrogi, gasnący",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 2.12,
+            "desc": "jedno zwarte ujęcie: mocny atak przechodzi w nierówny, gasnący rechot",
+            "good_for": "imp, demon, złodziej artefaktu, maniakalna satysfakcja",
+            "bad_for": "komedia, sympatyczne stworzenie, naturalistyczna fauna",
+            "file": "audio/library/heroes/demonic_laugh_01.mp3",
+            "source": {
+              "title": "Maniac kid laugh (1) (Freesound)",
+              "author": "Huminaatio",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://freesound.org/people/Huminaatio/sounds/189278/",
+              "channel": "git clone sparse z github.com/lihop/barrel-of-laughs (mirror z rejestrem licencji)",
+              "notes": "okno 13.18–15.30 s z nieprzerwanej sesji aktorskiej; tylko filtr rumble 70 Hz, poziom i fade; bez pitchowania i warstwowania; licencja potwierdzona w objects/hiding_spots/barrel/assets/work/sounds/licenses.txt"
+            }
+          }
+        },
+        {
+          "label": "h.2",
+          "title": "podwójny diabelski rechot",
+          "file": "candidates/h_double_cackle.mp3",
+          "desc": "dwie fale śmiechu w jednym oddechu — druga wraca po krótkim zawahaniu",
+          "source": "prawdziwy ludzki śmiech — Huminaatio / Freesound, CC0",
+          "entry": {
+            "id": "demonic_laugh_02",
+            "role": "prawdziwy diabelski chichot małego demona po udanym sabotażu",
+            "character": "dwufalowy, maniakalny, nieprzewidywalny",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 2.8,
+            "desc": "dwie fale śmiechu w jednym oddechu — druga wraca po krótkim zawahaniu",
+            "good_for": "imp, demon, złodziej artefaktu, maniakalna satysfakcja",
+            "bad_for": "komedia, sympatyczne stworzenie, naturalistyczna fauna",
+            "file": "audio/library/heroes/demonic_laugh_02.mp3",
+            "source": {
+              "title": "Maniac kid laugh (1) (Freesound)",
+              "author": "Huminaatio",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://freesound.org/people/Huminaatio/sounds/189278/",
+              "channel": "git clone sparse z github.com/lihop/barrel-of-laughs (mirror z rejestrem licencji)",
+              "notes": "okno 15.55–18.35 s z nieprzerwanej sesji aktorskiej; tylko filtr rumble 70 Hz, poziom i fade; bez pitchowania i warstwowania; licencja potwierdzona w objects/hiding_spots/barrel/assets/work/sounds/licenses.txt"
+            }
+          }
+        },
+        {
+          "label": "h.3",
+          "title": "triumfalny diabelski śmiech",
+          "file": "candidates/h_triumphant_laugh.mp3",
+          "desc": "najmocniejsze ujęcie sesji: szybkie sylaby rosną do otwartego triumfalnego śmiechu",
+          "source": "prawdziwy ludzki śmiech — Huminaatio / Freesound, CC0",
+          "entry": {
+            "id": "demonic_laugh_03",
+            "role": "prawdziwy diabelski chichot małego demona po udanym sabotażu",
+            "character": "narastający, triumfalny, bezczelny",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 2.45,
+            "desc": "najmocniejsze ujęcie sesji: szybkie sylaby rosną do otwartego triumfalnego śmiechu",
+            "good_for": "imp, demon, złodziej artefaktu, maniakalna satysfakcja",
+            "bad_for": "komedia, sympatyczne stworzenie, naturalistyczna fauna",
+            "file": "audio/library/heroes/demonic_laugh_03.mp3",
+            "source": {
+              "title": "Maniac kid laugh (1) (Freesound)",
+              "author": "Huminaatio",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://freesound.org/people/Huminaatio/sounds/189278/",
+              "channel": "git clone sparse z github.com/lihop/barrel-of-laughs (mirror z rejestrem licencji)",
+              "notes": "okno 21.90–24.35 s z nieprzerwanej sesji aktorskiej; tylko filtr rumble 70 Hz, poziom i fade; bez pitchowania i warstwowania; licencja potwierdzona w objects/hiding_spots/barrel/assets/work/sounds/licenses.txt"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "chichot-chochlika": "h.2",
+    "notes": {
+      "chichot-chochlika": "właściciel wybrał h.2 — podwójny diabelski rechot z prawdziwego wykonania aktorskiego. Poprzednia runda g012 została odrzucona jako kreskówkowa."
+    }
+  }
+}

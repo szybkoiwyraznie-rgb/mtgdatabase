@@ -282,8 +282,32 @@ def main() -> None:
 
     # ---------- fabuły z sygnaturą ----------
     by_id = {int(s["id"]): s for s in catalog}
+
+    def last_touch(sid: str) -> tuple[float, str]:
+        """Czas ostatniej modyfikacji fabuły (żądanie właściciela: najnowsze
+        najwyżej). Bierzemy nowszą z dat commitów sygnatury i receptury;
+        dla plików niezacommitowanych — mtime z dysku."""
+        import subprocess
+        best = 0.0
+        for path in (sigs[sid], REPO / "data" / "recipes" / f"{sid}.json"):
+            try:
+                ct = subprocess.run(["git", "log", "-1", "--format=%ct", "--", str(path)],
+                                    capture_output=True, text=True, cwd=REPO, timeout=10)
+                ts = float(ct.stdout.strip() or 0)
+                dirty = subprocess.run(["git", "status", "--porcelain", "--", str(path)],
+                                       capture_output=True, text=True, cwd=REPO, timeout=10)
+                if dirty.stdout.strip() or ts == 0:
+                    ts = max(ts, path.stat().st_mtime)
+            except Exception:
+                ts = path.stat().st_mtime if path.exists() else 0.0
+            best = max(best, ts)
+        import datetime
+        label = datetime.datetime.fromtimestamp(best).strftime("%Y-%m-%d %H:%M") if best else "?"
+        return best, label
+
+    touched = {sid: last_touch(sid) for sid in sigs}
     cards = []
-    for sid in sorted(sigs, key=int):
+    for sid in sorted(sigs, key=lambda s: (-touched[s][0], int(s))):
         story = by_id.get(int(sid))
         if not story:
             continue
@@ -302,13 +326,14 @@ def main() -> None:
             scen.append(f'{float(coda.get("at_sec", 0)):.1f} s — koda <a href="baza-gesty.html#{esc(coda["gesture"])}">{esc(coda["gesture"])}</a> '
                         f'na <a href="baza-instrumenty.html#{esc(coda.get("instrument", ""))}">{esc(coda.get("instrument", ""))}</a> ({coda.get("target_db", "?")} dB)')
         scen.append(f'długość {r.get("length_sec", "?")} s · seed {r.get("seed", "?")}')
+        scen.append(f'zmieniono {touched[sid][1]}')
         cards.append(
             f'<div class="card" id="f{esc(sid)}"><h2><span class="eid">{esc(sid)}</span> {esc(story["title"])}</h2>'
             f'<p class="story">{esc(story["story"])}</p>'
             f'<p class="scen">{" · ".join(scen)}</p>'
             + player(f"audio/{sid}.mp3") + "</div>")
     fab_body = ("<h1>Fabuły z gotową sygnaturą</h1>"
-                f"<p class=\"sub\">{len(sigs)} gotowych · receptury w <code>data/recipes/</code> · produkty w <code>audio/signatures/&lt;id&gt;.mp3</code></p>"
+                f"<p class=\"sub\">{len(sigs)} gotowych · najnowsze zmiany najwyżej · receptury w <code>data/recipes/</code> · produkty w <code>audio/signatures/&lt;id&gt;.mp3</code></p>"
                 + ("\n".join(cards) if cards else '<div class="empty">jeszcze żadna fabuła nie ma sygnatury — pierwsza bramka (g001) w toku</div>'))
     (out / "fabuly.html").write_text(page("Fabuły", fab_body), encoding="utf-8")
 

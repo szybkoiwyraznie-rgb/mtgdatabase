@@ -30,6 +30,21 @@
         "gate": "g001",
         "choice": "c.3",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "krakanie",
+        "traits": [
+          "kruk",
+          "chrapliwy",
+          "agresywny",
+          "przeciągły",
+          "bliski"
+        ],
+        "bad_for": [
+          "subtelność",
+          "śpiewny spokój",
+          "drapieżny pisk"
+        ]
       }
     },
     {
@@ -61,6 +76,19 @@
         "gate": "g001",
         "choice": "c.1",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "jek-zawodzenie",
+        "traits": [
+          "nawiedzony zew",
+          "melodyjny",
+          "daleki",
+          "nad wodą"
+        ],
+        "bad_for": [
+          "walka",
+          "agresja"
+        ]
       }
     },
     {
@@ -86,6 +114,18 @@
         "gate": "g004",
         "choice": "ryk-bestii.1",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "ryk-bestii",
+        "traits": [
+          "niski",
+          "pełny",
+          "rozwlekły"
+        ],
+        "bad_for": [
+          "ultrakrótkie sygnatury",
+          "komedia"
+        ]
       }
     },
     {
@@ -111,6 +151,19 @@
         "gate": "g004",
         "choice": "rzut-czaru.2",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "trzask-blyskawicy",
+        "traits": [
+          "czysty",
+          "skupiony",
+          "wysoki pik",
+          "szybki"
+        ],
+        "bad_for": [
+          "naturalistyczna sceneria",
+          "chaos hordy"
+        ]
       }
     },
     {
@@ -136,6 +189,293 @@
         "gate": "g007",
         "choice": "wrzask-wojenny-goblinów.3",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "wrzask-bandy",
+        "traits": [
+          "cztery głosy",
+          "rozstrojony",
+          "narastający",
+          "plemienny"
+        ],
+        "bad_for": [
+          "pojedynczy rozkaz",
+          "zwarty chór",
+          "dworska elegancja"
+        ]
+      }
+    },
+    {
+      "id": "demonic_laugh_02",
+      "role": "prawdziwy diabelski chichot małego demona po udanym sabotażu",
+      "character": "dwufalowy, maniakalny, nieprzewidywalny",
+      "distance": "bliski",
+      "energy": "wysoka",
+      "duration_sec": 2.8,
+      "desc": "dwie fale śmiechu w jednym oddechu — druga wraca po krótkim zawahaniu",
+      "good_for": "imp, demon, złodziej artefaktu, maniakalna satysfakcja",
+      "bad_for": "komedia, sympatyczne stworzenie, naturalistyczna fauna",
+      "file": "audio/library/heroes/demonic_laugh_02.mp3",
+      "source": {
+        "title": "Maniac kid laugh (1) (Freesound)",
+        "author": "Huminaatio",
+        "license": "CC0 1.0 (public domain)",
+        "url": "https://freesound.org/people/Huminaatio/sounds/189278/",
+        "channel": "git clone sparse z github.com/lihop/barrel-of-laughs (mirror z rejestrem licencji)",
+        "notes": "okno 15.55–18.35 s z nieprzerwanej sesji aktorskiej; tylko filtr rumble 70 Hz, poziom i fade; bez pitchowania i warstwowania; licencja potwierdzona w objects/hiding_spots/barrel/assets/work/sounds/licenses.txt"
+      },
+      "approved": {
+        "gate": "g013",
+        "choice": "chichot-chochlika.2",
+        "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "smiech-maniakalny",
+        "traits": [
+          "męski",
+          "maniakalny",
+          "dwufalowy",
+          "diabelski chichot"
+        ],
+        "bad_for": [
+          "kobiecy głos",
+          "dziecięca niewinność",
+          "komedia",
+          "sympatyczna psota"
+        ]
+      }
+    },
+    {
+      "id": "barrier_ring_01",
+      "role": "serie dzwoniących odbić od świetlistej bariery",
+      "character": "iskrzący, nieregularny, gasnący",
+      "distance": "bliski",
+      "energy": "wysoka",
+      "duration_sec": 2.4,
+      "desc": "pięć nieregularnych metalicznych odbić — szybka salwa iskier gasnąca na powłoce",
+      "good_for": "magiczna tarcza, deflektory, iskry o powłokę, święta ochrona",
+      "bad_for": "mroczne bariery, organiczne osłony, naturalistyczna fauna",
+      "file": "audio/library/heroes/barrier_ring_01.mp3",
+      "semantics": {
+        "type": "bariera-odbicie",
+        "traits": [
+          "dzwoniący",
+          "jasny",
+          "seria odbić",
+          "metaliczny"
+        ],
+        "bad_for": [
+          "mroczny",
+          "organiczny",
+          "głuchy"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "5 różnych ujęć rr trójkątów (otwarte+tłumione); aranżacja czasowa, bez pitchowania"
+      },
+      "approved": {
+        "gate": "g015",
+        "choice": "bariera-odbicie.1",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "light_bloom_01",
+      "role": "narastający świetlisty rozbłysk",
+      "character": "wznoszący, migotliwy",
+      "distance": "bliski",
+      "energy": "średnia",
+      "duration_sec": 3.5,
+      "desc": "dzwonki wiatrowe wznoszą się kaskadą — światło rozlewa się w górę",
+      "good_for": "magiczne ujawnienie, aura światła, promień, uświęcenie",
+      "bad_for": "mroczne zaklęcia, eksplozje, naturalistyczna fauna",
+      "file": "audio/library/heroes/light_bloom_01.mp3",
+      "semantics": {
+        "type": "rozblysk-swiatla",
+        "traits": [
+          "narastający",
+          "jasny",
+          "dzwoniący",
+          "kaskadowy"
+        ],
+        "bad_for": [
+          "mroczny",
+          "ciężki",
+          "perkusyjny huk"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "Mark Trees windchimes_asc1, pierwsze 3.5 s; poziom, fade — bez pitchowania"
+      },
+      "approved": {
+        "gate": "g017",
+        "choice": "rozblysk-swiatla.1",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "stealth_move_03",
+      "role": "niemal bezgłośny ruch — napięcie zamiast hałasu",
+      "character": "szklisty, widmowy, napięty",
+      "distance": "bliski",
+      "energy": "średnia",
+      "duration_sec": 4.0,
+      "desc": "smyczkowany talerz pianissimo — cienka, nieziemska nić napięcia w ciszy",
+      "good_for": "infiltracja, cicha warta, czatowanie, bezszelestny ruch",
+      "bad_for": "walka wprost, fanfary, jawne wejścia",
+      "file": "audio/library/heroes/stealth_move_03.mp3",
+      "semantics": {
+        "type": "skradanie-cisza",
+        "traits": [
+          "cichy",
+          "powolny",
+          "napięty",
+          "powietrzny"
+        ],
+        "bad_for": [
+          "głośny",
+          "gwałtowny",
+          "dzwoniący"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "Suspended Cymbal bow 13, pierwsze 4 s; poziom -21 (werdykt: ciszej), fade — bez pitchowania"
+      },
+      "approved": {
+        "gate": "g017",
+        "choice": "skradanie-cisza.3",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "troop_march_05",
+      "role": "miarowy marsz oddziału",
+      "character": "żwirowy, ciężki, wielonożny",
+      "distance": "średni",
+      "energy": "średnia",
+      "duration_sec": 3.6,
+      "desc": "cztery warstwy prawdziwych kroków po żwirze, przesunięte jak w plutonie",
+      "good_for": "kolumna wojska, natarcie w szyku, patrol, falanga",
+      "bad_for": "pojedynczy wędrowiec, skradanie, kawaleria",
+      "file": "audio/library/heroes/troop_march_05.mp3",
+      "semantics": {
+        "type": "marsz-oddzialu",
+        "traits": [
+          "miarowy",
+          "prawdziwe kroki",
+          "wielu maszerujących"
+        ],
+        "bad_for": [
+          "chaotyczny",
+          "pojedynczy",
+          "galop"
+        ]
+      },
+      "source": {
+        "title": "Footsteps wearing leather shoes on gravel (Freesound)",
+        "author": "felix.blume",
+        "license": "CC0 / Public Domain (wg API Freesound)",
+        "url": "https://freesound.org/people/felix.blume/sounds/779884/",
+        "channel": "sample-scout run 36001624763 (preview-hq-mp3; klucz API nie autoryzuje /download — lekcja 2026-09-24); manifest z sha256 w legacy/source/sample_scout/freesound_marching-footsteps/",
+        "notes": "4 warstwy z różnych fragmentów od 90 s; przesunięcia losowe seed 575; poziom, fade"
+      },
+      "approved": {
+        "gate": "g019",
+        "choice": "marsz-oddzialu.2",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "sniff_track_01",
+      "role": "węszenie tropiciela przy tropie",
+      "character": "rytmiczny, pracowity, bliski",
+      "distance": "bliski",
+      "energy": "niska",
+      "duration_sec": 3.0,
+      "desc": "gęsta seria pociągnięć nosem z oddechem — pies pracuje na tropie",
+      "good_for": "tropiciel, ogar, zwiadowca zwierzęcy, poszukiwanie śladu",
+      "bad_for": "atak, warkot agresji, wielkie bestie",
+      "file": "audio/library/heroes/sniff_track_01.mp3",
+      "semantics": {
+        "type": "weszenie",
+        "traits": [
+          "pociągnięcia nosem",
+          "rytmiczne",
+          "skupione",
+          "bliskie"
+        ],
+        "bad_for": [
+          "agresywny",
+          "głośny",
+          "mechaniczny"
+        ]
+      },
+      "source": {
+        "title": "Dog - Snif - Sniffing - Animal - Breathing - Search (Freesound)",
+        "author": "td6d",
+        "license": "CC0 / Public Domain (wg API Freesound)",
+        "url": "https://freesound.org/people/td6d/sounds/467762/",
+        "channel": "sample-scout run 36007326109 (preview-hq-mp3); manifest z sha256 w katalogu paczki",
+        "notes": "okno 16.0–19.0 s; poziom -21 (werdykt: ciszej), fade; bez pitchowania"
+      },
+      "approved": {
+        "gate": "g021",
+        "choice": "weszenie.1",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "wave_crash_03",
+      "role": "uderzenie wody — fala, rozbryzg, plusk",
+      "character": "krótki, czysty, dynamiczny",
+      "distance": "bliski",
+      "energy": "wysoka",
+      "duration_sec": 1.89,
+      "desc": "krótki dynamiczny rozbryzg — czysty chlust bez tła",
+      "good_for": "fala, rozbryzg, wynurzenie, wodny żywioł",
+      "bad_for": "ogień, suche wnętrza, delikatne sceny",
+      "file": "audio/library/heroes/wave_crash_03.mp3",
+      "semantics": {
+        "type": "fala-rozbryzg",
+        "traits": [
+          "uderzenie wody",
+          "rozbryzg",
+          "naturalny",
+          "dynamiczny"
+        ],
+        "bad_for": [
+          "suchy",
+          "ognisty",
+          "metaliczny"
+        ]
+      },
+      "source": {
+        "title": "water splash 2 (Freesound)",
+        "author": "swordofkings128",
+        "license": "CC0 / Public Domain (wg API Freesound)",
+        "url": "https://freesound.org/people/swordofkings128/sounds/",
+        "channel": "sample-scout run 36007698060 (preview-hq-mp3); manifest sha256: data/gates/g022/source-manifest.json",
+        "notes": "całość 1.9 s; poziom, fade (okno od 0.0 s)"
+      },
+      "approved": {
+        "gate": "g022",
+        "choice": "fala-rozbryzg.3",
+        "date": "2026-09-24"
       }
     }
   ]

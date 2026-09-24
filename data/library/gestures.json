@@ -41,6 +41,18 @@
         "gate": "g001",
         "choice": "a.2",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "nieuchronnosc-fatum",
+        "traits": [
+          "marszowy",
+          "dwa impulsy",
+          "niski cień"
+        ],
+        "bad_for": [
+          "radość",
+          "sielanka"
+        ]
       }
     },
     {
@@ -77,6 +89,18 @@
         "gate": "g001",
         "choice": "a.2",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "tajemnica-obcosc",
+        "traits": [
+          "tryton",
+          "zawieszony",
+          "bez rozwiązania"
+        ],
+        "bad_for": [
+          "triumf",
+          "domknięcie"
+        ]
       }
     },
     {
@@ -118,6 +142,219 @@
         "gate": "g002",
         "choice": "koda-swiatlo.1",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "radosc-beztroska",
+        "traits": [
+          "wznosząca kaskada",
+          "jasny",
+          "odkrycie"
+        ],
+        "bad_for": [
+          "groza",
+          "żałoba"
+        ]
+      }
+    },
+    {
+      "id": "g6c_sentry_return",
+      "semantic": "jasna czujność — obchód i powrót na posterunek",
+      "desc": "figura odchodzi o krok w górę i wraca na tę samą jasną nutę — sprawdzone, bezpiecznie, warta trwa",
+      "notes": [
+        {
+          "midi": 76,
+          "on": 0.0,
+          "off": 0.45,
+          "vel": 0.48
+        },
+        {
+          "midi": 80,
+          "on": 0.35,
+          "off": 0.85,
+          "vel": 0.46
+        },
+        {
+          "midi": 76,
+          "on": 0.75,
+          "off": 1.35,
+          "vel": 0.44
+        },
+        {
+          "midi": 60,
+          "on": 1.2,
+          "off": 2.5,
+          "vel": 0.38
+        },
+        {
+          "midi": 76,
+          "on": 1.6,
+          "off": 2.5,
+          "vel": 0.38
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "struck-light",
+        "zither",
+        "piano"
+      ],
+      "semantics": {
+        "type": "czujnosc-napiecie",
+        "traits": [
+          "jasna",
+          "zawieszona",
+          "pulsująca",
+          "bez rozwiązania"
+        ],
+        "bad_for": [
+          "żałobna",
+          "ciężka",
+          "triumfalna"
+        ]
+      },
+      "approved": {
+        "gate": "g015",
+        "choice": "koda-czujnosc.3",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "g7a_even_rank",
+      "semantic": "precyzja — równy szereg",
+      "desc": "cztery identyczne staccato w idealnych odstępach i czyste domknięcie — szereg wyrównany co do milimetra",
+      "notes": [
+        {
+          "midi": 72,
+          "on": 0.0,
+          "off": 0.22,
+          "vel": 0.5
+        },
+        {
+          "midi": 72,
+          "on": 0.4,
+          "off": 0.62,
+          "vel": 0.5
+        },
+        {
+          "midi": 72,
+          "on": 0.8,
+          "off": 1.02,
+          "vel": 0.5
+        },
+        {
+          "midi": 72,
+          "on": 1.2,
+          "off": 1.42,
+          "vel": 0.5
+        },
+        {
+          "midi": 60,
+          "on": 1.6,
+          "off": 2.4,
+          "vel": 0.46
+        },
+        {
+          "midi": 76,
+          "on": 1.6,
+          "off": 2.4,
+          "vel": 0.42
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 8,
+          "vel": 0.02
+        }
+      },
+      "instrument_tags": [
+        "struck-light",
+        "struck-dry",
+        "piano"
+      ],
+      "semantics": {
+        "type": "precyzja-dyscyplina",
+        "traits": [
+          "równy",
+          "kontrolowany",
+          "czysty",
+          "bez rubato"
+        ],
+        "bad_for": [
+          "rozlewny",
+          "chaotyczny",
+          "sentymentalny"
+        ]
+      },
+      "approved": {
+        "gate": "g018",
+        "choice": "koda-precyzja.1",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "g8b_knocked_returns",
+      "semantic": "determinacja — zbity, wraca wyżej",
+      "desc": "figura schodzi o stopień jak po ciosie i natychmiast wraca ponad punkt wyjścia — nieustępliwość w jednym geście",
+      "notes": [
+        {
+          "midi": 60,
+          "on": 0.0,
+          "off": 0.35,
+          "vel": 0.5
+        },
+        {
+          "midi": 56,
+          "on": 0.45,
+          "off": 0.8,
+          "vel": 0.44
+        },
+        {
+          "midi": 60,
+          "on": 0.9,
+          "off": 1.25,
+          "vel": 0.5
+        },
+        {
+          "midi": 64,
+          "on": 1.35,
+          "off": 2.3,
+          "vel": 0.52
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 12,
+          "vel": 0.03
+        }
+      },
+      "instrument_tags": [
+        "struck-light",
+        "plucked",
+        "piano"
+      ],
+      "semantics": {
+        "type": "determinacja-niezlomnosc",
+        "traits": [
+          "miarowy",
+          "nieustępliwy",
+          "prosty",
+          "bez wahania"
+        ],
+        "bad_for": [
+          "chwiejny",
+          "żałobny",
+          "figlarny"
+        ]
+      },
+      "approved": {
+        "gate": "g020",
+        "choice": "koda-determinacja.2",
+        "date": "2026-09-24"
       }
     }
   ]

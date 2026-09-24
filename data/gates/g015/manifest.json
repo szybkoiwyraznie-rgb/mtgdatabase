@@ -1,0 +1,475 @@
+{
+  "id": "g015",
+  "created": "2026-09-24",
+  "story_id": "18",
+  "note": "Etap 5 / fabuła 18 (Lotusguard Disciple). Trzy braki wskazane przez resolver (model 1:1): tło niebo-przestworza, hero bariera-odbicie, koda czujnosc-napiecie. Wszystkie bramki fabuły naraz, po jednym werdykcie na slug. Czwarty slot (instrumentacja jasno-swietlista) obsadza istniejący b_piano_steinway.",
+  "entries": [
+    {
+      "slug": "niebo-przestworza",
+      "kind": "backgrounds",
+      "role": "pęd powietrza nad torem wyścigowym — tło fabuły 18",
+      "candidates": [
+        {
+          "label": "d.1",
+          "title": "ryk pędu powietrza",
+          "file": "candidates/d_air_rush.mp3",
+          "desc": "ciągły, wyrównany pęd powietrza — jazda w strudze wiatru",
+          "source": "Yellowstone Sound Library (NPS) — public domain",
+          "entry": {
+            "id": "sky_rush_01",
+            "setting": "przestworza / pęd powietrza",
+            "desc": "ciągły, wyrównany pęd powietrza — jazda w strudze wiatru",
+            "file": "audio/library/backgrounds/sky_rush_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "niebo-przestworza",
+              "traits": [
+                "pęd powietrza",
+                "wysokość",
+                "ciągły",
+                "bez gruntu"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "sielski spokój"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Hurricane Vent, okno 46.0–54.0 s; poziom i fade"
+            }
+          }
+        },
+        {
+          "label": "d.2",
+          "title": "jaśniejszy świst pędu",
+          "file": "candidates/d_air_bright.mp3",
+          "desc": "ten sam pęd z odjętym dołem — lżejszy, szybszy charakter toru",
+          "source": "Yellowstone Sound Library (NPS) — public domain",
+          "entry": {
+            "id": "sky_rush_02",
+            "setting": "przestworza / pęd powietrza",
+            "desc": "ten sam pęd z odjętym dołem — lżejszy, szybszy charakter toru",
+            "file": "audio/library/backgrounds/sky_rush_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "niebo-przestworza",
+              "traits": [
+                "pęd powietrza",
+                "wysokość",
+                "ciągły",
+                "bez gruntu"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "sielski spokój"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Hurricane Vent, okno 76.0–84.0 s; highpass 180 Hz, poziom i fade"
+            }
+          }
+        },
+        {
+          "label": "d.3",
+          "title": "przelot pojazdu (doppler)",
+          "file": "candidates/d_flyby.mp3",
+          "desc": "przejazd pojazdu silnikowego z narastaniem i odjazdem — dosłowny pęd pojazdu (uwaga: słyszalny silnik)",
+          "source": "Yellowstone Sound Library (NPS) — public domain",
+          "entry": {
+            "id": "sky_flyby_01",
+            "setting": "przestworza / pęd powietrza",
+            "desc": "przejazd pojazdu silnikowego z narastaniem i odjazdem — dosłowny pęd pojazdu (uwaga: słyszalny silnik)",
+            "file": "audio/library/backgrounds/sky_flyby_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "niebo-przestworza",
+              "traits": [
+                "pęd powietrza",
+                "wysokość",
+                "ciągły",
+                "bez gruntu"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "sielski spokój"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Snowmobile, okno 3.5–11.5 s; poziom i fade"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "bariera-odbicie",
+      "kind": "heroes",
+      "role": "serie dzwoniących odbić od świetlistej tarczy — hero fabuły 18",
+      "candidates": [
+        {
+          "label": "c.1",
+          "title": "iskry o powłokę (trójkąty)",
+          "file": "candidates/c_triangle_deflect.mp3",
+          "desc": "pięć nieregularnych metalicznych odbić — szybka salwa iskier gasnąca na powłoce",
+          "source": "Versilian Community Sample Library (VCSL) — CC0",
+          "entry": {
+            "id": "barrier_ring_01",
+            "role": "serie dzwoniących odbić od świetlistej bariery",
+            "character": "iskrzący, nieregularny, gasnący",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 2.4,
+            "desc": "pięć nieregularnych metalicznych odbić — szybka salwa iskier gasnąca na powłoce",
+            "good_for": "magiczna tarcza, deflektory, iskry o powłokę, święta ochrona",
+            "bad_for": "mroczne bariery, organiczne osłony, naturalistyczna fauna",
+            "file": "audio/library/heroes/barrier_ring_01.mp3",
+            "semantics": {
+              "type": "bariera-odbicie",
+              "traits": [
+                "dzwoniący",
+                "jasny",
+                "seria odbić",
+                "metaliczny"
+              ],
+              "bad_for": [
+                "mroczny",
+                "organiczny",
+                "głuchy"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "5 różnych ujęć rr trójkątów (otwarte+tłumione); aranżacja czasowa, bez pitchowania"
+            }
+          }
+        },
+        {
+          "label": "c.2",
+          "title": "dzwoniąca tarcza (dzwonki ręczne)",
+          "file": "candidates/c_chime_shield.mp3",
+          "desc": "cztery tonalne, śpiewne odbicia — powłoka odpowiada akordem światła",
+          "source": "Versilian Community Sample Library (VCSL) — CC0",
+          "entry": {
+            "id": "barrier_ring_02",
+            "role": "serie dzwoniących odbić od świetlistej bariery",
+            "character": "tonalny, śpiewny, świetlisty",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 2.6,
+            "desc": "cztery tonalne, śpiewne odbicia — powłoka odpowiada akordem światła",
+            "good_for": "magiczna tarcza, deflektory, iskry o powłokę, święta ochrona",
+            "bad_for": "mroczne bariery, organiczne osłony, naturalistyczna fauna",
+            "file": "audio/library/heroes/barrier_ring_02.mp3",
+            "semantics": {
+              "type": "bariera-odbicie",
+              "traits": [
+                "dzwoniący",
+                "jasny",
+                "seria odbić",
+                "metaliczny"
+              ],
+              "bad_for": [
+                "mroczny",
+                "organiczny",
+                "głuchy"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "4 dzwonki ręczne (C5/G#5/E5/C6); aranżacja czasowa, bez pitchowania"
+            }
+          }
+        },
+        {
+          "label": "c.3",
+          "title": "szkliste rykoszety (dzwonki)",
+          "file": "candidates/c_glock_sparks.mp3",
+          "desc": "wysokie szkliste pingnięcia coraz dalej — odłamki rykoszetują i opadają",
+          "source": "Versilian Community Sample Library (VCSL) — CC0",
+          "entry": {
+            "id": "barrier_ring_03",
+            "role": "serie dzwoniących odbić od świetlistej bariery",
+            "character": "szklisty, wysoki, oddalający się",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 2.2,
+            "desc": "wysokie szkliste pingnięcia coraz dalej — odłamki rykoszetują i opadają",
+            "good_for": "magiczna tarcza, deflektory, iskry o powłokę, święta ochrona",
+            "bad_for": "mroczne bariery, organiczne osłony, naturalistyczna fauna",
+            "file": "audio/library/heroes/barrier_ring_03.mp3",
+            "semantics": {
+              "type": "bariera-odbicie",
+              "traits": [
+                "dzwoniący",
+                "jasny",
+                "seria odbić",
+                "metaliczny"
+              ],
+              "bad_for": [
+                "mroczny",
+                "organiczny",
+                "głuchy"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "5 ujęć dzwonków orkiestrowych (C6/C7/G#6, loud+medium); aranżacja czasowa, bez pitchowania"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-czujnosc",
+      "kind": "gestures",
+      "role": "koda `czujnosc-napiecie` — jasna czujność strażnika (fabuła 18)",
+      "candidates": [
+        {
+          "label": "a.1",
+          "title": "puls warty",
+          "file": "candidates/g6a_watch_pulse.mp3",
+          "desc": "cichy, równy puls sekundy nad jasnym dwudźwiękiem — oddech strażnika, który nie śpi; napięcie sus2 nigdy nie opada",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g6a_watch_pulse",
+            "semantic": "jasna czujność — puls warty nad spokojnym dwudźwiękiem",
+            "desc": "cichy, równy puls sekundy nad jasnym dwudźwiękiem — oddech strażnika, który nie śpi; napięcie sus2 nigdy nie opada",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 2.6,
+                "vel": 0.38
+              },
+              {
+                "midi": 64,
+                "on": 0.0,
+                "off": 2.6,
+                "vel": 0.34
+              },
+              {
+                "midi": 74,
+                "on": 0.2,
+                "off": 0.55,
+                "vel": 0.46
+              },
+              {
+                "midi": 74,
+                "on": 0.8,
+                "off": 1.15,
+                "vel": 0.44
+              },
+              {
+                "midi": 74,
+                "on": 1.4,
+                "off": 1.75,
+                "vel": 0.46
+              },
+              {
+                "midi": 74,
+                "on": 2.0,
+                "off": 2.55,
+                "vel": 0.42
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "struck-light",
+              "zither",
+              "piano"
+            ],
+            "semantics": {
+              "type": "czujnosc-napiecie",
+              "traits": [
+                "jasna",
+                "zawieszona",
+                "pulsująca",
+                "bez rozwiązania"
+              ],
+              "bad_for": [
+                "żałobna",
+                "ciężka",
+                "triumfalna"
+              ]
+            }
+          }
+        },
+        {
+          "label": "a.2",
+          "title": "uniesienie i zawieszenie",
+          "file": "candidates/g6b_alert_lift.mp3",
+          "desc": "dwie nuty w górę jak uniesienie wzroku, trzecia zawisa rozjarzona bez rozwiązania — gotowość tuż przed zdarzeniem",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g6b_alert_lift",
+            "semantic": "jasna czujność — uniesienie i rozjarzone zawieszenie",
+            "desc": "dwie nuty w górę jak uniesienie wzroku, trzecia zawisa rozjarzona bez rozwiązania — gotowość tuż przed zdarzeniem",
+            "notes": [
+              {
+                "midi": 72,
+                "on": 0.0,
+                "off": 0.5,
+                "vel": 0.5
+              },
+              {
+                "midi": 76,
+                "on": 0.35,
+                "off": 0.95,
+                "vel": 0.54
+              },
+              {
+                "midi": 80,
+                "on": 0.75,
+                "off": 2.4,
+                "vel": 0.48
+              },
+              {
+                "midi": 60,
+                "on": 0.75,
+                "off": 2.4,
+                "vel": 0.36
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "struck-light",
+              "zither",
+              "piano"
+            ],
+            "semantics": {
+              "type": "czujnosc-napiecie",
+              "traits": [
+                "jasna",
+                "zawieszona",
+                "pulsująca",
+                "bez rozwiązania"
+              ],
+              "bad_for": [
+                "żałobna",
+                "ciężka",
+                "triumfalna"
+              ]
+            }
+          }
+        },
+        {
+          "label": "a.3",
+          "title": "obchód i powrót",
+          "file": "candidates/g6c_sentry_return.mp3",
+          "desc": "figura odchodzi o krok w górę i wraca na tę samą jasną nutę — sprawdzone, bezpiecznie, warta trwa",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g6c_sentry_return",
+            "semantic": "jasna czujność — obchód i powrót na posterunek",
+            "desc": "figura odchodzi o krok w górę i wraca na tę samą jasną nutę — sprawdzone, bezpiecznie, warta trwa",
+            "notes": [
+              {
+                "midi": 76,
+                "on": 0.0,
+                "off": 0.45,
+                "vel": 0.48
+              },
+              {
+                "midi": 80,
+                "on": 0.35,
+                "off": 0.85,
+                "vel": 0.46
+              },
+              {
+                "midi": 76,
+                "on": 0.75,
+                "off": 1.35,
+                "vel": 0.44
+              },
+              {
+                "midi": 60,
+                "on": 1.2,
+                "off": 2.5,
+                "vel": 0.38
+              },
+              {
+                "midi": 76,
+                "on": 1.6,
+                "off": 2.5,
+                "vel": 0.38
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "struck-light",
+              "zither",
+              "piano"
+            ],
+            "semantics": {
+              "type": "czujnosc-napiecie",
+              "traits": [
+                "jasna",
+                "zawieszona",
+                "pulsująca",
+                "bez rozwiązania"
+              ],
+              "bad_for": [
+                "żałobna",
+                "ciężka",
+                "triumfalna"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "niebo-przestworza": "d.2",
+    "bariera-odbicie": "c.1",
+    "koda-czujnosc": "a.3"
+  }
+}

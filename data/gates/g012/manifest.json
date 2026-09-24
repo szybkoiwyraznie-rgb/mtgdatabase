@@ -1,0 +1,95 @@
+{
+  "id": "g012",
+  "created": "2026-09-23",
+  "note": "Hero do fabuły 3 (Nefarious Imp): złośliwy chichot małego demona po spaleniu mapy i kradzieży kryształu. Trzy warianty jednej roli z różnych wokalizacji tego samego kitu CC0; bez pitchowania. Etykiety i.*.",
+  "entries": [
+    {
+      "slug": "chichot-chochlika",
+      "kind": "heroes",
+      "role": "złośliwy chichot małego demona po udanym sabotażu",
+      "candidates": [
+        {
+          "label": "i.1",
+          "title": "suchy chichot",
+          "file": "candidates/i_dry_snicker.mp3",
+          "desc": "dwie niskie, krótkie sylaby — powściągana satysfakcja po kradzieży kryształu",
+          "source": "80 creature SFX (OpenGameArt) — rubberduck, CC0",
+          "entry": {
+            "id": "imp_snicker_01",
+            "role": "złośliwy chichot małego demona po udanym sabotażu",
+            "character": "krótki, suchy, pod nosem",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 0.89,
+            "desc": "dwie niskie, krótkie sylaby — powściągana satysfakcja po kradzieży kryształu",
+            "good_for": "chochlik, mały demon, złodziej artefaktu, udany sabotaż",
+            "bad_for": "duża bestia, heroiczny wojownik, naturalistyczna fauna",
+            "file": "audio/library/heroes/imp_snicker_01.mp3",
+            "source": {
+              "title": "80 creature SFX (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/80-cc0-creature-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-80-cc0-creature-sfx; cute-02 + cute-08; różne sylaby ułożone bez pitchowania; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        },
+        {
+          "label": "i.2",
+          "title": "krzywy rechocik",
+          "file": "candidates/i_crooked_giggle.mp3",
+          "desc": "ciemniejsza pierwsza sylaba przechodzi w krótki pisk — uśmiech, który robi się niepokojący",
+          "source": "80 creature SFX (OpenGameArt) — rubberduck, CC0",
+          "entry": {
+            "id": "imp_snicker_02",
+            "role": "złośliwy chichot małego demona po udanym sabotażu",
+            "character": "chropawy początek, przewrotny koniec",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 1.01,
+            "desc": "ciemniejsza pierwsza sylaba przechodzi w krótki pisk — uśmiech, który robi się niepokojący",
+            "good_for": "chochlik, mały demon, złodziej artefaktu, udany sabotaż",
+            "bad_for": "duża bestia, heroiczny wojownik, naturalistyczna fauna",
+            "file": "audio/library/heroes/imp_snicker_02.mp3",
+            "source": {
+              "title": "80 creature SFX (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/80-cc0-creature-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-80-cc0-creature-sfx; weird-01 + cute-03; różne sylaby ułożone bez pitchowania; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        },
+        {
+          "label": "i.3",
+          "title": "szybki trójsylabowy chichot",
+          "file": "candidates/i_quick_cackle.mp3",
+          "desc": "trzy coraz ciaśniejsze sylaby — jawna, nerwowa radość z udanego sabotażu",
+          "source": "80 creature SFX (OpenGameArt) — rubberduck, CC0",
+          "entry": {
+            "id": "imp_snicker_03",
+            "role": "złośliwy chichot małego demona po udanym sabotażu",
+            "character": "żywy, trójsylabowy, zadziorny",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 1.41,
+            "desc": "trzy coraz ciaśniejsze sylaby — jawna, nerwowa radość z udanego sabotażu",
+            "good_for": "chochlik, mały demon, złodziej artefaktu, udany sabotaż",
+            "bad_for": "duża bestia, heroiczny wojownik, naturalistyczna fauna",
+            "file": "audio/library/heroes/imp_snicker_03.mp3",
+            "source": {
+              "title": "80 creature SFX (OpenGameArt)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/80-cc0-creature-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-80-cc0-creature-sfx; cute-01 + cute-09 + cute-06; różne sylaby ułożone bez pitchowania; mirror pack.json potwierdza CC0 1.0"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

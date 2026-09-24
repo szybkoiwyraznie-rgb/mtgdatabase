@@ -1,0 +1,47 @@
+{
+  "story_id": "575",
+  "length_sec": 6.0,
+  "background": {
+    "id": "warcamp_01",
+    "offset_sec": 0.0,
+    "target_db": -28
+  },
+  "hero": {
+    "id": "troop_march_05",
+    "at_sec": 1.0,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g7a_even_rank",
+    "instrument": "b_logdrum",
+    "at_sec": 3.4,
+    "target_db": -15,
+    "damp_db": 8.0
+  },
+  "seed": 575,
+  "gate": "g019",
+  "profile": {
+    "types": {
+      "background": "oboz-wojenny",
+      "hero": "marsz-oddzialu",
+      "mood": "precyzja-dyscyplina",
+      "instrumentation": "sucho-surowa"
+    },
+    "note": "Tryb losowy właściciela; wszystkie 4 klocki z bramek g018/g019."
+  },
+  "resolution": {
+    "types": {
+      "background": "oboz-wojenny",
+      "hero": "marsz-oddzialu",
+      "mood": "precyzja-dyscyplina",
+      "instrumentation": "sucho-surowa"
+    },
+    "blocks": {
+      "background": "warcamp_01",
+      "hero": "troop_march_05",
+      "mood": "g7a_even_rank",
+      "instrumentation": "b_logdrum"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; filtry twarde czyste; kombinacja unikalna"
+  }
+}

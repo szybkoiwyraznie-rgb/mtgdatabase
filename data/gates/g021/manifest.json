@@ -1,0 +1,141 @@
+{
+  "id": "g021",
+  "created": "2026-09-24",
+  "story_id": "193",
+  "note": "Jedyny klocek typu `weszenie` (v6, decyzja właściciela przy g020). Prawdziwe psie węszenie ze zwiadu; domyka fabułę 193.",
+  "entries": [
+    {
+      "slug": "weszenie",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `weszenie` (domyka fabułę 193)",
+      "candidates": [
+        {
+          "label": "w.1",
+          "title": "węszenie poszukujące (seria)",
+          "file": "candidates/w_search_long.mp3",
+          "desc": "gęsta seria pociągnięć nosem z oddechem — pies pracuje na tropie",
+          "source": "freesound CC0 — prawdziwe psie węszenie",
+          "entry": {
+            "id": "sniff_track_01",
+            "role": "węszenie tropiciela przy tropie",
+            "character": "rytmiczny, pracowity, bliski",
+            "distance": "bliski",
+            "energy": "niska",
+            "duration_sec": 3.0,
+            "desc": "gęsta seria pociągnięć nosem z oddechem — pies pracuje na tropie",
+            "good_for": "tropiciel, ogar, zwiadowca zwierzęcy, poszukiwanie śladu",
+            "bad_for": "atak, warkot agresji, wielkie bestie",
+            "file": "audio/library/heroes/sniff_track_01.mp3",
+            "semantics": {
+              "type": "weszenie",
+              "traits": [
+                "pociągnięcia nosem",
+                "rytmiczne",
+                "skupione",
+                "bliskie"
+              ],
+              "bad_for": [
+                "agresywny",
+                "głośny",
+                "mechaniczny"
+              ]
+            },
+            "source": {
+              "title": "Dog - Snif - Sniffing - Animal - Breathing - Search (Freesound)",
+              "author": "td6d",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/td6d/sounds/467762/",
+              "channel": "sample-scout run 36007326109 (preview-hq-mp3); manifest z sha256 w katalogu paczki",
+              "notes": "okno 16.0–19.0 s; poziom -21 (werdykt: ciszej), fade; bez pitchowania"
+            }
+          }
+        },
+        {
+          "label": "w.2",
+          "title": "węszenie przy ziemi",
+          "file": "candidates/w_two_dogs.mp3",
+          "desc": "węszenie tuż przy gruncie z krótkimi sapnięciami",
+          "source": "freesound CC0 — prawdziwe psie węszenie",
+          "entry": {
+            "id": "sniff_track_02",
+            "role": "węszenie tropiciela przy tropie",
+            "character": "przyziemny, sapiący, skupiony",
+            "distance": "bliski",
+            "energy": "niska",
+            "duration_sec": 3.0,
+            "desc": "węszenie tuż przy gruncie z krótkimi sapnięciami",
+            "good_for": "tropiciel, ogar, zwiadowca zwierzęcy, poszukiwanie śladu",
+            "bad_for": "atak, warkot agresji, wielkie bestie",
+            "file": "audio/library/heroes/sniff_track_02.mp3",
+            "semantics": {
+              "type": "weszenie",
+              "traits": [
+                "pociągnięcia nosem",
+                "rytmiczne",
+                "skupione",
+                "bliskie"
+              ],
+              "bad_for": [
+                "agresywny",
+                "głośny",
+                "mechaniczny"
+              ]
+            },
+            "source": {
+              "title": "2-3 dog sniffing (Freesound)",
+              "author": "15GPanskaCepelak_Adam",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/15GPanskaCepelak_Adam/sounds/534005/",
+              "channel": "sample-scout run 36007326109 (preview-hq-mp3); manifest z sha256 w katalogu paczki",
+              "notes": "okno 1.0–4.0 s; poziom -21 (werdykt: ciszej), fade; bez pitchowania"
+            }
+          }
+        },
+        {
+          "label": "w.3",
+          "title": "krótkie obwąchanie",
+          "file": "candidates/w_quick_snuffle.mp3",
+          "desc": "krótkie, ciekawskie obwąchanie — dwa-trzy pociągnięcia i decyzja",
+          "source": "freesound CC0 — prawdziwe psie węszenie",
+          "entry": {
+            "id": "sniff_track_03",
+            "role": "węszenie tropiciela przy tropie",
+            "character": "krótki, ciekawski, lekki",
+            "distance": "bliski",
+            "energy": "niska",
+            "duration_sec": 2.1,
+            "desc": "krótkie, ciekawskie obwąchanie — dwa-trzy pociągnięcia i decyzja",
+            "good_for": "tropiciel, ogar, zwiadowca zwierzęcy, poszukiwanie śladu",
+            "bad_for": "atak, warkot agresji, wielkie bestie",
+            "file": "audio/library/heroes/sniff_track_03.mp3",
+            "semantics": {
+              "type": "weszenie",
+              "traits": [
+                "pociągnięcia nosem",
+                "rytmiczne",
+                "skupione",
+                "bliskie"
+              ],
+              "bad_for": [
+                "agresywny",
+                "głośny",
+                "mechaniczny"
+              ]
+            },
+            "source": {
+              "title": "12-PerritoOlfateando (Freesound)",
+              "author": "Caap",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/Caap/sounds/566052/",
+              "channel": "sample-scout run 36007326109 (preview-hq-mp3); manifest z sha256 w katalogu paczki",
+              "notes": "okno 0.0–2.1 s; poziom -21 (werdykt: ciszej), fade; bez pitchowania"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "weszenie": "w.1"
+  }
+}

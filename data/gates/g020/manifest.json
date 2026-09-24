@@ -1,0 +1,554 @@
+{
+  "id": "g020",
+  "created": "2026-09-24",
+  "story_id": "193",
+  "note": "Tryb losowy: fabuła 193 Floodhound. Trzy braki naraz (tło thunder_far_01 już w bazie). `cicho-kameralna` to najczęściej wołany brakujący instrument (65 fabuł).",
+  "entries": [
+    {
+      "slug": "fala-rozbryzg",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `fala-rozbryzg` (19 fabuł; slot c fabuły 193)",
+      "candidates": [
+        {
+          "label": "c.1",
+          "title": "kipiel gejzeru (Castle)",
+          "file": "candidates/c_castle_surge.mp3",
+          "desc": "wzburzona kipiel wody — masa wody przewala się i rozbryzguje",
+          "source": "YSL — public domain",
+          "entry": {
+            "id": "wave_crash_01",
+            "role": "uderzenie wody — fala, kipiel, rozbryzg",
+            "character": "kipiący, masywny, naturalny",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 3.2,
+            "desc": "wzburzona kipiel wody — masa wody przewala się i rozbryzguje",
+            "good_for": "fala, rozbryzg, kipiel, wodny żywioł, wynurzenie",
+            "bad_for": "ogień, suche wnętrza, delikatne sceny",
+            "file": "audio/library/heroes/wave_crash_01.mp3",
+            "semantics": {
+              "type": "fala-rozbryzg",
+              "traits": [
+                "uderzenie wody",
+                "kipiel",
+                "naturalny",
+                "dynamiczny"
+              ],
+              "bad_for": [
+                "suchy",
+                "ognisty",
+                "metaliczny"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Castle Geyser, okno 11.5–14.7 s; poziom i fade"
+            }
+          }
+        },
+        {
+          "label": "c.2",
+          "title": "szeroka fala erupcji (Grand)",
+          "file": "candidates/c_grand_wave.mp3",
+          "desc": "szerokie uderzenie fali z długim mokrym ogonem",
+          "source": "YSL — public domain",
+          "entry": {
+            "id": "wave_crash_02",
+            "role": "uderzenie wody — fala, kipiel, rozbryzg",
+            "character": "szeroki, falujący, mokry",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 3.2,
+            "desc": "szerokie uderzenie fali z długim mokrym ogonem",
+            "good_for": "fala, rozbryzg, kipiel, wodny żywioł, wynurzenie",
+            "bad_for": "ogień, suche wnętrza, delikatne sceny",
+            "file": "audio/library/heroes/wave_crash_02.mp3",
+            "semantics": {
+              "type": "fala-rozbryzg",
+              "traits": [
+                "uderzenie wody",
+                "kipiel",
+                "naturalny",
+                "dynamiczny"
+              ],
+              "bad_for": [
+                "suchy",
+                "ognisty",
+                "metaliczny"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Grand Geyser, okno 635.0–638.2 s; poziom i fade"
+            }
+          }
+        },
+        {
+          "label": "c.3",
+          "title": "rozbryzg u podstawy erupcji (Old Faithful)",
+          "file": "candidates/c_faithful_burst.mp3",
+          "desc": "gwałtowny rozbryzg i syczący opad kropel",
+          "source": "YSL — public domain",
+          "entry": {
+            "id": "wave_crash_03",
+            "role": "uderzenie wody — fala, kipiel, rozbryzg",
+            "character": "gwałtowny, rozpryskowy, syczący",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 3.2,
+            "desc": "gwałtowny rozbryzg i syczący opad kropel",
+            "good_for": "fala, rozbryzg, kipiel, wodny żywioł, wynurzenie",
+            "bad_for": "ogień, suche wnętrza, delikatne sceny",
+            "file": "audio/library/heroes/wave_crash_03.mp3",
+            "semantics": {
+              "type": "fala-rozbryzg",
+              "traits": [
+                "uderzenie wody",
+                "kipiel",
+                "naturalny",
+                "dynamiczny"
+              ],
+              "bad_for": [
+                "suchy",
+                "ognisty",
+                "metaliczny"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Old Faithful, okno 73.5–76.7 s; poziom i fade"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-determinacja",
+      "kind": "gestures",
+      "role": "koda `determinacja-niezlomnosc` (32 fabuły; slot a fabuły 193)",
+      "candidates": [
+        {
+          "label": "a.1",
+          "title": "krok za krokiem",
+          "file": "candidates/g8a_step_by_step.mp3",
+          "desc": "pary niskich nut wspinają się bez cofnięcia i osiadają na wyższym stopniu — upór, który nie zna odwrotu",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g8a_step_by_step",
+            "semantic": "determinacja — krok za krokiem, nigdy wstecz",
+            "desc": "pary niskich nut wspinają się bez cofnięcia i osiadają na wyższym stopniu — upór, który nie zna odwrotu",
+            "notes": [
+              {
+                "midi": 48,
+                "on": 0.0,
+                "off": 0.4,
+                "vel": 0.46
+              },
+              {
+                "midi": 48,
+                "on": 0.5,
+                "off": 0.9,
+                "vel": 0.46
+              },
+              {
+                "midi": 50,
+                "on": 1.0,
+                "off": 1.4,
+                "vel": 0.48
+              },
+              {
+                "midi": 50,
+                "on": 1.5,
+                "off": 1.9,
+                "vel": 0.48
+              },
+              {
+                "midi": 54,
+                "on": 2.0,
+                "off": 2.7,
+                "vel": 0.5
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 12,
+                "vel": 0.03
+              }
+            },
+            "instrument_tags": [
+              "struck-light",
+              "plucked",
+              "piano"
+            ],
+            "semantics": {
+              "type": "determinacja-niezlomnosc",
+              "traits": [
+                "miarowy",
+                "nieustępliwy",
+                "prosty",
+                "bez wahania"
+              ],
+              "bad_for": [
+                "chwiejny",
+                "żałobny",
+                "figlarny"
+              ]
+            }
+          }
+        },
+        {
+          "label": "a.2",
+          "title": "zbity, wraca wyżej",
+          "file": "candidates/g8b_knocked_returns.mp3",
+          "desc": "figura schodzi o stopień jak po ciosie i natychmiast wraca ponad punkt wyjścia — nieustępliwość w jednym geście",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g8b_knocked_returns",
+            "semantic": "determinacja — zbity, wraca wyżej",
+            "desc": "figura schodzi o stopień jak po ciosie i natychmiast wraca ponad punkt wyjścia — nieustępliwość w jednym geście",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 0.35,
+                "vel": 0.5
+              },
+              {
+                "midi": 56,
+                "on": 0.45,
+                "off": 0.8,
+                "vel": 0.44
+              },
+              {
+                "midi": 60,
+                "on": 0.9,
+                "off": 1.25,
+                "vel": 0.5
+              },
+              {
+                "midi": 64,
+                "on": 1.35,
+                "off": 2.3,
+                "vel": 0.52
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 12,
+                "vel": 0.03
+              }
+            },
+            "instrument_tags": [
+              "struck-light",
+              "plucked",
+              "piano"
+            ],
+            "semantics": {
+              "type": "determinacja-niezlomnosc",
+              "traits": [
+                "miarowy",
+                "nieustępliwy",
+                "prosty",
+                "bez wahania"
+              ],
+              "bad_for": [
+                "chwiejny",
+                "żałobny",
+                "figlarny"
+              ]
+            }
+          }
+        },
+        {
+          "label": "a.3",
+          "title": "puls, który nie gaśnie",
+          "file": "candidates/g8c_steady_pulse.mp3",
+          "desc": "niski fundament trwa, a nad nim równy puls powtarza się bez jednego zawahania — cierpliwy pościg",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g8c_steady_pulse",
+            "semantic": "determinacja — puls, który nie gaśnie",
+            "desc": "niski fundament trwa, a nad nim równy puls powtarza się bez jednego zawahania — cierpliwy pościg",
+            "notes": [
+              {
+                "midi": 48,
+                "on": 0.0,
+                "off": 2.5,
+                "vel": 0.4
+              },
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 0.4,
+                "vel": 0.46
+              },
+              {
+                "midi": 60,
+                "on": 0.6,
+                "off": 1.0,
+                "vel": 0.46
+              },
+              {
+                "midi": 60,
+                "on": 1.2,
+                "off": 1.6,
+                "vel": 0.46
+              },
+              {
+                "midi": 60,
+                "on": 1.8,
+                "off": 2.5,
+                "vel": 0.46
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 12,
+                "vel": 0.03
+              }
+            },
+            "instrument_tags": [
+              "struck-light",
+              "plucked",
+              "piano"
+            ],
+            "semantics": {
+              "type": "determinacja-niezlomnosc",
+              "traits": [
+                "miarowy",
+                "nieustępliwy",
+                "prosty",
+                "bez wahania"
+              ],
+              "bad_for": [
+                "chwiejny",
+                "żałobny",
+                "figlarny"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "instrument-kameralny",
+      "kind": "instruments",
+      "role": "instrument `cicho-kameralna` (65 fabuł! — slot b fabuły 193)",
+      "candidates": [
+        {
+          "label": "b.1",
+          "title": "kalimba",
+          "file": "candidates/b_kalimba_demo.mp3",
+          "desc": "drewniane języczki tuż przy uchu — ciepło i intymnie",
+          "source": "VCSL — CC0 (fraza demonstracyjna)",
+          "entry": {
+            "id": "b_kalimba",
+            "semantic": "cichy, ciepły, blisko ucha",
+            "family": "lamellophone",
+            "samples": {
+              "47": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_B2_k8_vl3_rr2.mp3",
+              "49": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_Cs3_k7_vl3_rr2.mp3",
+              "51": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_Ds3_k9_vl3_rr2.mp3",
+              "54": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_Fs3_k5_vl3_rr2.mp3",
+              "56": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_Gs3_k4_vl3_rr2.mp3",
+              "59": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_B3_k3_vl3_rr2.mp3",
+              "61": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_Cs4_k2_vl3_rr2.mp3",
+              "63": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_Ds4_k13_vl3_rr2.mp3",
+              "66": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_Fs4_k14_vl3_rr2.mp3",
+              "69": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_A4_k1_vl3_rr2.mp3",
+              "71": "audio/library/instruments/kalimba/b_kalimba_Mbira6_Normal_MainSpirit_B4_k15_vl3_rr2.mp3"
+            },
+            "gate_sources": {
+              "47": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_B2_k8_vl3_rr2.mp3",
+              "49": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_Cs3_k7_vl3_rr2.mp3",
+              "51": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_Ds3_k9_vl3_rr2.mp3",
+              "54": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_Fs3_k5_vl3_rr2.mp3",
+              "56": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_Gs3_k4_vl3_rr2.mp3",
+              "59": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_B3_k3_vl3_rr2.mp3",
+              "61": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_Cs4_k2_vl3_rr2.mp3",
+              "63": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_Ds4_k13_vl3_rr2.mp3",
+              "66": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_Fs4_k14_vl3_rr2.mp3",
+              "69": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_A4_k1_vl3_rr2.mp3",
+              "71": "instr_notes/b_kalimba_Mbira6_Normal_MainSpirit_B4_k15_vl3_rr2.mp3"
+            },
+            "semantics": {
+              "type": "cicho-kameralna",
+              "traits": [
+                "cichy",
+                "drobny",
+                "blisko ucha",
+                "mała dynamika"
+              ],
+              "bad_for": [
+                "monumentalny",
+                "huczny",
+                "industrialny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "11 nut; wybór vl3_rr2"
+            }
+          }
+        },
+        {
+          "label": "b.2",
+          "title": "cytra dan tranh",
+          "file": "candidates/b_dantranh_demo.mp3",
+          "desc": "delikatnie szarpana cytra — srebrzysta nić melodii",
+          "source": "VCSL — CC0 (fraza demonstracyjna)",
+          "entry": {
+            "id": "b_dantranh",
+            "semantic": "cichy, srebrzysty, kameralny",
+            "family": "zither-plucked",
+            "samples": {
+              "47": "audio/library/instruments/dantranh/b_dantranh_B2_f_1.mp3",
+              "49": "audio/library/instruments/dantranh/b_dantranh_Cs3_mf_1.mp3",
+              "51": "audio/library/instruments/dantranh/b_dantranh_Ds3_mf_1.mp3",
+              "54": "audio/library/instruments/dantranh/b_dantranh_Fs3_mf_1.mp3",
+              "56": "audio/library/instruments/dantranh/b_dantranh_Gs3_mf_1.mp3",
+              "59": "audio/library/instruments/dantranh/b_dantranh_B3_mf_1.mp3",
+              "61": "audio/library/instruments/dantranh/b_dantranh_Cs4_mf_1.mp3",
+              "63": "audio/library/instruments/dantranh/b_dantranh_Ds4_mf_1.mp3",
+              "66": "audio/library/instruments/dantranh/b_dantranh_Fs4_mf_1.mp3",
+              "68": "audio/library/instruments/dantranh/b_dantranh_Gs4_mf_1.mp3",
+              "71": "audio/library/instruments/dantranh/b_dantranh_B4_mf_1.mp3"
+            },
+            "gate_sources": {
+              "47": "instr_notes/b_dantranh_B2_f_1.mp3",
+              "49": "instr_notes/b_dantranh_Cs3_mf_1.mp3",
+              "51": "instr_notes/b_dantranh_Ds3_mf_1.mp3",
+              "54": "instr_notes/b_dantranh_Fs3_mf_1.mp3",
+              "56": "instr_notes/b_dantranh_Gs3_mf_1.mp3",
+              "59": "instr_notes/b_dantranh_B3_mf_1.mp3",
+              "61": "instr_notes/b_dantranh_Cs4_mf_1.mp3",
+              "63": "instr_notes/b_dantranh_Ds4_mf_1.mp3",
+              "66": "instr_notes/b_dantranh_Fs4_mf_1.mp3",
+              "68": "instr_notes/b_dantranh_Gs4_mf_1.mp3",
+              "71": "instr_notes/b_dantranh_B4_mf_1.mp3"
+            },
+            "semantics": {
+              "type": "cicho-kameralna",
+              "traits": [
+                "cichy",
+                "drobny",
+                "blisko ucha",
+                "mała dynamika"
+              ],
+              "bad_for": [
+                "monumentalny",
+                "huczny",
+                "industrialny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "11 nut; wybór _mf_"
+            }
+          }
+        },
+        {
+          "label": "b.3",
+          "title": "dzwonki ręczne",
+          "file": "candidates/b_handchimes_demo.mp3",
+          "desc": "miękkie pojedyncze dzwonki — kameralne, bez blasku orkiestry",
+          "source": "VCSL — CC0 (fraza demonstracyjna)",
+          "entry": {
+            "id": "b_handchimes",
+            "semantic": "cichy, dzwonkowy, miękki",
+            "family": "idiophone-struck",
+            "samples": {
+              "48": "audio/library/instruments/handchimes/b_handchimes_sus_C3_r01_main.mp3",
+              "50": "audio/library/instruments/handchimes/b_handchimes_sus_D3_r01_main.mp3",
+              "52": "audio/library/instruments/handchimes/b_handchimes_sus_E3_r01_main.mp3",
+              "54": "audio/library/instruments/handchimes/b_handchimes_sus_Fs3_r01_main.mp3",
+              "56": "audio/library/instruments/handchimes/b_handchimes_sus_Gs3_r01_main.mp3",
+              "58": "audio/library/instruments/handchimes/b_handchimes_sus_As3_r01_main.mp3",
+              "60": "audio/library/instruments/handchimes/b_handchimes_sus_C4_r01_main.mp3",
+              "62": "audio/library/instruments/handchimes/b_handchimes_sus_D4_r01_main.mp3",
+              "64": "audio/library/instruments/handchimes/b_handchimes_sus_E4_r01_main.mp3",
+              "66": "audio/library/instruments/handchimes/b_handchimes_sus_Fs4_r01_main.mp3",
+              "68": "audio/library/instruments/handchimes/b_handchimes_sus_Gs4_r01_main.mp3",
+              "69": "audio/library/instruments/handchimes/b_handchimes_sus_A4_r01_main.mp3",
+              "72": "audio/library/instruments/handchimes/b_handchimes_sus_C5_r01_main.mp3",
+              "74": "audio/library/instruments/handchimes/b_handchimes_sus_D5_r01_main.mp3",
+              "76": "audio/library/instruments/handchimes/b_handchimes_sus_E5_r01_main.mp3",
+              "78": "audio/library/instruments/handchimes/b_handchimes_sus_Fs5_r01_main.mp3",
+              "80": "audio/library/instruments/handchimes/b_handchimes_sus_Gs5_r01_main.mp3",
+              "82": "audio/library/instruments/handchimes/b_handchimes_sus_As5_r01_main.mp3",
+              "84": "audio/library/instruments/handchimes/b_handchimes_sus_C6_r01_main.mp3"
+            },
+            "gate_sources": {
+              "48": "instr_notes/b_handchimes_sus_C3_r01_main.mp3",
+              "50": "instr_notes/b_handchimes_sus_D3_r01_main.mp3",
+              "52": "instr_notes/b_handchimes_sus_E3_r01_main.mp3",
+              "54": "instr_notes/b_handchimes_sus_Fs3_r01_main.mp3",
+              "56": "instr_notes/b_handchimes_sus_Gs3_r01_main.mp3",
+              "58": "instr_notes/b_handchimes_sus_As3_r01_main.mp3",
+              "60": "instr_notes/b_handchimes_sus_C4_r01_main.mp3",
+              "62": "instr_notes/b_handchimes_sus_D4_r01_main.mp3",
+              "64": "instr_notes/b_handchimes_sus_E4_r01_main.mp3",
+              "66": "instr_notes/b_handchimes_sus_Fs4_r01_main.mp3",
+              "68": "instr_notes/b_handchimes_sus_Gs4_r01_main.mp3",
+              "69": "instr_notes/b_handchimes_sus_A4_r01_main.mp3",
+              "72": "instr_notes/b_handchimes_sus_C5_r01_main.mp3",
+              "74": "instr_notes/b_handchimes_sus_D5_r01_main.mp3",
+              "76": "instr_notes/b_handchimes_sus_E5_r01_main.mp3",
+              "78": "instr_notes/b_handchimes_sus_Fs5_r01_main.mp3",
+              "80": "instr_notes/b_handchimes_sus_Gs5_r01_main.mp3",
+              "82": "instr_notes/b_handchimes_sus_As5_r01_main.mp3",
+              "84": "instr_notes/b_handchimes_sus_C6_r01_main.mp3"
+            },
+            "semantics": {
+              "type": "cicho-kameralna",
+              "traits": [
+                "cichy",
+                "drobny",
+                "blisko ucha",
+                "mała dynamika"
+              ],
+              "bad_for": [
+                "monumentalny",
+                "huczny",
+                "industrialny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "19 nut; wybór sus_"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "fala-rozbryzg": "żaden",
+    "koda-determinacja": "a.2",
+    "instrument-kameralny": "b.3"
+  }
+}

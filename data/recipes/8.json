@@ -1,10 +1,32 @@
 {
   "story_id": "8",
   "length_sec": 6.0,
-  "background": {"id": "fire_hearth_small_01", "offset_sec": 0.0, "target_db": -32},
-  "hero": {"id": "warband_cry_03", "at_sec": 1.2, "target_db": -15},
-  "coda": {"gesture": "g1b_march_pulse", "instrument": "b_bassdrum", "at_sec": 3.2, "target_db": -20},
+  "background": {
+    "id": "fire_hearth_small_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "warband_cry_03",
+    "at_sec": 1.2,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g1b_march_pulse",
+    "instrument": "b_bassdrum",
+    "at_sec": 3.2,
+    "target_db": -20
+  },
   "seed": 8,
   "gate": "g007",
-  "notes": "Rola z narracji: wulkaniczne zbocza Jundu (żar/ogień w tle), trójka goblinów w szarży (hero = horda, nie pojedynczy głos — narracja mówi o trzech), tętent szarży jako koda na bębnie basowym. Hero 1:1 dla tej fabuły: warband_cry_03 nie występuje w żadnej innej recepturze."
+  "notes": "Rola z narracji: wulkaniczne zbocza Jundu (żar/ogień w tle), trójka goblinów w szarży (hero = horda, nie pojedynczy głos — narracja mówi o trzech), tętent szarży jako koda na bębnie basowym. Hero 1:1 dla tej fabuły: warband_cry_03 nie występuje w żadnej innej recepturze.",
+  "profile": {
+    "types": {
+      "background": "kraina-ognia",
+      "hero": "wrzask-bandy",
+      "mood": "zuchwalosc-brawura",
+      "instrumentation": "ciezka"
+    },
+    "note": "Zapis dokumentacyjny (Etap 3, ADR 0006) — profil semantyczny fabuły wg taksonomii v2; audio legacy bez zmian, obsada klocków sprzed modelu 1:1."
+  }
 }

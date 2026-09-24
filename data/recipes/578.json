@@ -1,0 +1,46 @@
+{
+  "story_id": "578",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "beast_roar_long_01",
+    "at_sec": 1.2,
+    "target_db": -12
+  },
+  "coda": {
+    "gesture": "g6c_sentry_return",
+    "instrument": "b_timpani",
+    "at_sec": 3.0,
+    "target_db": -21
+  },
+  "seed": 578,
+  "gate": "g016",
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "ryk-bestii",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "ciezka"
+    },
+    "note": "Obsada z resolvera (model 1:1, taksonomia v5)."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "ryk-bestii",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "ciezka"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "beast_roar_long_01",
+      "mood": "g6c_sentry_return",
+      "instrumentation": "b_timpani"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; filtry twarde czyste; kombinacja unikalna"
+  }
+}

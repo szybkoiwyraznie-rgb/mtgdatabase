@@ -1,0 +1,46 @@
+{
+  "story_id": "18",
+  "length_sec": 6.0,
+  "background": {
+    "id": "sky_rush_02",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "barrier_ring_01",
+    "at_sec": 1.0,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g6c_sentry_return",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.0,
+    "target_db": -21
+  },
+  "seed": 18,
+  "gate": "g015",
+  "profile": {
+    "types": {
+      "background": "niebo-przestworza",
+      "hero": "bariera-odbicie",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Pierwsza produkcja w modelu 1:1 (taksonomia v5); obsada z resolvera."
+  },
+  "resolution": {
+    "types": {
+      "background": "niebo-przestworza",
+      "hero": "bariera-odbicie",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "sky_rush_02",
+      "hero": "barrier_ring_01",
+      "mood": "g6c_sentry_return",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; filtry twarde czyste; kombinacja unikalna"
+  }
+}

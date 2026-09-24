@@ -1,0 +1,5 @@
+{
+  "schema": 1,
+  "note": "Propozycje nowych typów taksonomii czekające na akceptację właściciela (bramka tekstowa). Walidator traktuje typ z tej listy jako OSTRZEŻENIE, nie błąd. Po akceptacji typ przechodzi do taxonomy.json (wpis w CHANGELOG), a stąd znika.",
+  "pending": []
+}

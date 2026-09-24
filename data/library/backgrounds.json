@@ -22,6 +22,19 @@
         "gate": "g001",
         "choice": "d.2",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "burza-zywiol",
+        "traits": [
+          "daleki grzmot",
+          "toczący się",
+          "niski",
+          "złowieszczy"
+        ],
+        "bad_for": [
+          "pogodna sielanka",
+          "wnętrze"
+        ]
       }
     },
     {
@@ -44,6 +57,19 @@
         "gate": "g001",
         "choice": "d.3",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "bagno-moczary",
+        "traits": [
+          "chór żab",
+          "stojąca woda",
+          "noc",
+          "spokojny"
+        ],
+        "bad_for": [
+          "suchy teren",
+          "miasto"
+        ]
       }
     },
     {
@@ -66,6 +92,18 @@
         "gate": "g002",
         "choice": "ogien-palenisko.1",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "ognisko-palenisko",
+        "traits": [
+          "małe ognisko",
+          "oszczędne trzaski",
+          "kameralny"
+        ],
+        "bad_for": [
+          "pożar",
+          "wulkaniczny rozmach"
+        ]
       }
     },
     {
@@ -88,6 +126,19 @@
         "gate": "g002",
         "choice": "wir-energia.1",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "kraina-ognia",
+        "traits": [
+          "syk pary",
+          "geotermalny",
+          "ciągły",
+          "groźny"
+        ],
+        "bad_for": [
+          "sielski spokój",
+          "zimna cisza"
+        ]
       }
     },
     {
@@ -110,6 +161,125 @@
         "gate": "g011",
         "choice": "zalany-kanion.3",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "rzeka-strumien",
+        "traits": [
+          "równy nurt",
+          "drobny plusk",
+          "spokojny"
+        ],
+        "bad_for": [
+          "sztorm",
+          "wodospadowy huk"
+        ]
+      }
+    },
+    {
+      "id": "sky_rush_02",
+      "setting": "przestworza / pęd powietrza",
+      "desc": "ten sam pęd z odjętym dołem — lżejszy, szybszy charakter toru",
+      "file": "audio/library/backgrounds/sky_rush_02.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "semantics": {
+        "type": "niebo-przestworza",
+        "traits": [
+          "pęd powietrza",
+          "wysokość",
+          "ciągły",
+          "bez gruntu"
+        ],
+        "bad_for": [
+          "wnętrze",
+          "sielski spokój"
+        ]
+      },
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Hurricane Vent, okno 76.0–84.0 s; highpass 180 Hz, poziom i fade"
+      },
+      "approved": {
+        "gate": "g015",
+        "choice": "niebo-przestworza.2",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "forest_day_01",
+      "setting": "las za dnia",
+      "desc": "gęsty poranny chór ptaków — las budzi się, wyraźne ptactwo blisko i w głębi",
+      "file": "audio/library/backgrounds/forest_day_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "semantics": {
+        "type": "las-dzienny",
+        "traits": [
+          "ptaki",
+          "szum liści",
+          "dzień",
+          "spokojny"
+        ],
+        "bad_for": [
+          "noc",
+          "wnętrze",
+          "martwa cisza"
+        ]
+      },
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Dawn Chorus, okno 38.0–46.0 s; poziom i fade"
+      },
+      "approved": {
+        "gate": "g016",
+        "choice": "las-dzienny.1",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "warcamp_01",
+      "setting": "obóz wojenny / porządek formacji",
+      "desc": "tabor obozu: skrzyp uprzęży, kroki koni, brzęk okuć — logistyka wojenna w ruchu",
+      "file": "audio/library/backgrounds/warcamp_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "semantics": {
+        "type": "oboz-wojenny",
+        "traits": [
+          "tabor",
+          "kroki",
+          "brzęk rynsztunku",
+          "porządek"
+        ],
+        "bad_for": [
+          "dzika natura",
+          "wnętrze",
+          "miasto"
+        ]
+      },
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Horse-Drawn Wagon 2–10 s; poziom +~13 dB (ciche nagranie terenowe), fade"
+      },
+      "approved": {
+        "gate": "g018",
+        "choice": "oboz-wojenny.1",
+        "date": "2026-09-24"
       }
     }
   ]

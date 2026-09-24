@@ -1,0 +1,131 @@
+{
+  "id": "g016",
+  "created": "2026-09-24",
+  "note": "Etap 5. Jedyny klocek typu `las-dzienny` (najczęściej wołany typ tła: 67 fabuł). Kandydaci oceniani pod definicję typu, nie pod pojedynczą fabułę (lekcja g015). Po akceptacji produkcja fabuł 468 (Cacophodon) i 578 (Savage Surge) bez dodatkowych bramek.",
+  "entries": [
+    {
+      "slug": "las-dzienny",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `las-dzienny` (woła go 67 fabuł; od razu domyka 468 i 578)",
+      "candidates": [
+        {
+          "label": "d.1",
+          "title": "poranny chór ptaków",
+          "file": "candidates/d_dawn_chorus.mp3",
+          "desc": "gęsty poranny chór ptaków — las budzi się, wyraźne ptactwo blisko i w głębi",
+          "source": "Yellowstone Sound Library (NPS) — public domain",
+          "entry": {
+            "id": "forest_day_01",
+            "setting": "las za dnia",
+            "desc": "gęsty poranny chór ptaków — las budzi się, wyraźne ptactwo blisko i w głębi",
+            "file": "audio/library/backgrounds/forest_day_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "las-dzienny",
+              "traits": [
+                "ptaki",
+                "szum liści",
+                "dzień",
+                "spokojny"
+              ],
+              "bad_for": [
+                "noc",
+                "wnętrze",
+                "martwa cisza"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Dawn Chorus, okno 38.0–46.0 s; poziom i fade"
+            }
+          }
+        },
+        {
+          "label": "d.2",
+          "title": "dzienny chór w koronach",
+          "file": "candidates/d_bird_chorus.mp3",
+          "desc": "równy dzienny śpiew ptaków w koronach — mniej gęsty, więcej powietrza między głosami",
+          "source": "Yellowstone Sound Library (NPS) — public domain",
+          "entry": {
+            "id": "forest_day_02",
+            "setting": "las za dnia",
+            "desc": "równy dzienny śpiew ptaków w koronach — mniej gęsty, więcej powietrza między głosami",
+            "file": "audio/library/backgrounds/forest_day_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "las-dzienny",
+              "traits": [
+                "ptaki",
+                "szum liści",
+                "dzień",
+                "spokojny"
+              ],
+              "bad_for": [
+                "noc",
+                "wnętrze",
+                "martwa cisza"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Bird Chorus, okno 5.0–13.0 s; poziom i fade"
+            }
+          }
+        },
+        {
+          "label": "d.3",
+          "title": "szeroki pejzaż dnia",
+          "file": "candidates/d_soundscape.mp3",
+          "desc": "szeroki naturalny pejzaż — ptaki dalej, więcej tła przestrzeni i lekkiego wiatru",
+          "source": "Yellowstone Sound Library (NPS) — public domain",
+          "entry": {
+            "id": "forest_day_03",
+            "setting": "las za dnia",
+            "desc": "szeroki naturalny pejzaż — ptaki dalej, więcej tła przestrzeni i lekkiego wiatru",
+            "file": "audio/library/backgrounds/forest_day_03.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "las-dzienny",
+              "traits": [
+                "ptaki",
+                "szum liści",
+                "dzień",
+                "spokojny"
+              ],
+              "bad_for": [
+                "noc",
+                "wnętrze",
+                "martwa cisza"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Soundscapes, okno 29.0–37.0 s; poziom i fade"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "las-dzienny": "d.1"
+  }
+}

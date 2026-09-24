@@ -4,13 +4,13 @@ Ten plik odpowiada na pytanie „gdzie jesteśmy i co robić dalej”, żeby now
 sesja nie musiała rekonstruować kontekstu z historii gita. Reguły są
 w `AGENTS.md` i `docs/gate-protocol.md` — tutaj wyłącznie bieżący stan.
 
-Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatabase`).
+Ostatnia aktualizacja: **2026-09-24** (PR #34, gałąź `arena/01a0d031-mtgdatabase`).
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **5**.
-- Baza klocków: **17 wpisów** (`library_tool.py check`).
-- Bramki rozegrane: **g001–g011**, wszystkie z werdyktami
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **6**.
+- Baza klocków: **18 wpisów** (`library_tool.py check`).
+- Bramki rozegrane: **g001–g013**, wszystkie z werdyktami
   (`data/gates/*/verdicts.json`). Żadna nie czeka na właściciela.
 
 ## Gotowe fabuły
@@ -22,22 +22,92 @@ Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatab
 | 5 | Academy Journeymage | energy_steam_roar_01 | spell_cast_bolt_01 | g5a_shimmer_up × piano_steinway | v2 po uwadze „czar brzmi jak koda”; przyjęta jako „akceptowalna jakość” |
 | 8 | Goblin Deathraiders | fire_hearth_small_01 | warband_cry_03 | g1b_march_pulse × bassdrum | „fajna” |
 | 2 | Coralhelm Guide | flooded_canyon_03 | beast_roar_long_01 | g4b_mystery_tritone × timpani→steinway | tło r.3 „najzajebistsza z zajebistych” |
+| 3 | Nefarious Imp | fire_hearth_small_01 | demonic_laugh_02 | g4b_mystery_tritone × wine_glasses | g012 odrzucona jako kreskówkowa; g013 h.2 z prawdziwego wykonania |
 
 ## W toku
 
-Nic nie czeka na werdykt właściciela. Fabuła 2 (Coralhelm Guide) domknięta
-w tej sesji: tło z prawdziwego nagrania terenowego (g011 r.3), hero
-`beast_roar_long_01`, koda tryton na Steinwayu (kotły odpadły — mają tylko
-3 nuty 38/39/41, więc QA zgłosiło pominiętą nutę trytonu 54+72).
+**Przebudowa na model semantyczny (ADR 0006, 2026-09-24).** Właściciel
+cofnął ADR 0005 (tryby wzrostowe, limity procentowe) w całości. Nowy
+porządek: profil semantyczny fabuły (4 warstwy, bez zaglądania do baz) →
+kafeteria kontrolowanych klas → resolver z miękkim balansem. Jedyna twarda
+reguła: unikalna kombinacja a·b·c·d. Plan: `docs/roadmap-semantyka.md`
+(Etap 0 ukończony w tej sesji).
 
-## Co dalej (propozycja agenta, nie wymaga pytania właściciela)
+Bramka **g014 (fabuła 18) jest wycofana** — żaden kandydat nie wszedł do
+bazy; archiwum w `data/gates/g014/` zostaje. Fabuła 18 wróci w Etapie 5
+roadmapy, obsadzona od profilu semantycznego.
 
-1. Wybrać kolejne fabuły z katalogu i dla każdej wyprowadzić role
-   z narracji; brakujące role → bramki. Hero nie może się powtórzyć,
-   więc **każda nowa fabuła to zwykle nowa bramka hero**.
-2. Kandydaci-zapas rozpoznani, ale niewykorzystani (patrz
-   `docs/sources-and-licensing.md`): miecze, zombie, głosy wysiłku,
-   metal/drewno, bagna, woda/plusk.
+## Co dalej (kolejność z roadmapy, nie wymaga pytania właściciela)
+
+1. **Etap 1 — UKOŃCZONY (510/510)**: profile semantyczne całego katalogu
+   w `data/semantics/story-profiles.json`; walidator
+   `scripts/check_profiles.py --require-complete` przechodzi.
+2. **Etap 2 — taksonomia v1 ZAMROŻONA** (bramka tekstowa przeszła
+   2026-09-24; decyzje w `data/semantics/CHANGELOG.md`): 29 środowisk /
+   50 hero / 20 nastrojów / 18 instrumentacji
+   (`data/semantics/taxonomy.json`, `version: 1`). Mapowanie fabuł
+   zapisane w `data/semantics/story-classes.json` (510/510;
+   `scripts/map_profiles.py`).
+   **Korekta właściciela: jeden typ = jeden klocek (1:1)** — ADR 0006,
+   aneks; `unique_combo` działa na poziomie typów; usage-policy ma
+   drugą twardą regułę `one_block_per_type`. Taksonomia **v5**
+   (32 tła / 74 hero / 20 nastrojów / 18 instrumentacji; audyt wdrożony, 146 ręcznych nadpisań w assignment-overrides.json) — 510/510
+   kombinacji unikalnych, zero kolizji.
+3. **Etap 3 — WYKONANY**: 18/18 klocków ma `semantics: {type, traits,
+   bad_for}` (typy 1:1, walidacja w `library_tool.py check`); 6/6
+   receptur legacy ma `profile`. Korekty właściciela wdrożone:
+   `ognisko-palenisko` zaakceptowane, `krakanie` ≠ `krzyk-ptaka`,
+   `wrzask-bandy` ≠ `okrzyk-bojowy` (okrzyk-bojowy chwilowo bez
+   klocka — dozwolone). Brak otwartych bramek.
+4. **Etap 4 — WYKONANY**: `scripts/resolver.py` — deterministyczna
+   obsada w modelu 1:1 (typ→jedyny klocek), twarde filtry: typ bez
+   klocka, weto `bad_for` na cesze wymaganej, cecha wymagana bez
+   pokrycia, kolizja kombinacji z recepturą; `--survey` = przegląd
+   całego katalogu i priorytety bramek. Testy resolvera w
+   `test_signature_system.py` — zielone. Stan holdingu: 0/510 fabuł
+   w pełni obsadzalnych (18 klocków na 127 typów), 240 z częściową
+   obsadą; najczęściej wołane braki: `mroczna` (90), `las-dzienny`
+   (67), `czujnosc-napiecie` (66), `cicho-kameralna` (65). Dalej:
+   **Etap 5** — w toku.
+5. **Etap 5 — osiem fabuł wyprodukowanych** (18, 23, 166, 193, 468, 519, 575, 578):
+   193 Floodhound: typ `weszenie` (v6, decyzja właściciela), klocek
+   sniff_track_01 ze zwiadu (ciszej per werdykt); renderer: „tłumienie
+   dzwonnika" (damp_db, opt-in per receptura; gaszenie ogona 0.4 s
+   PRZED atakiem następnej nuty). fala-rozbryzg nadal bez klocka
+   (gejzery odrzucone; runda 2 z „water splash"). Wcześniej:
+   575 (tryb losowy właściciela) = pełny cykl nowego modelu: 4 braki →
+   bramki g018/g019 → werdykty (d.1/a.1/b.3, marsz odrzucony →
+   runda 2 ze zwiadu → m.2 kolumna na żwirze) → QA zielone.
+   **Zwiad naprawiony end-to-end** (preview-hq-mp3 zamiast /download 401;
+   fallback OR archive.org; log porażki commitowany; rebase+retry przy
+   pushu). Wcześniej:
+   g017 (light_bloom_01 = kaskada dzwonków, stealth_move_03 = smyczek
+   po talerzu, ciszej per werdykt) domknął 23/166/519. Zasada etykiet:
+   unikatowe litery per wpis bramki (gate-protocol). Wcześniej:
+   g016 (las-dzienny → forest_day_01, werdykt d.1) domknął 468
+   (Cacophodon) i 578 (Savage Surge) bez dodatkowych bramek — pełny
+   reuse: beast_roar + g6c + bassdrum/timpani. QA zielone (hero
+   +15.5 dB, RMS -20.5/-21.8). Nowa mechanika renderera: wąski bank
+   perkusyjny realizuje gest kody RYTMICZNIE (kontur wysokości →
+   progi uderzeń; coda_synth, testy). Historycznie:
+   **fabuła 18 WYPRODUKOWANA** (pierwsza w modelu 1:1):
+   werdykt g015 = d.2 (sky_rush_02), c.1 (barrier_ring_01),
+   a.3 (g6c_sentry_return); resolver OBSADZONA, QA zielone
+   (hero +18.9 dB, RMS -19.1, HF 8.1%), `audio/signatures/18.mp3`,
+   receptura z logiem `resolution`. Lekcja w LESSONS: kandydat obsadza
+   TYP, nie fabułę. Historyczny wpis o otwarciu bramki:
+   (bramka g015 była otwarta (fabuła 18, Lotusguard Disciple):
+   wszystkie 3 braki naraz — tło `niebo-przestworza` (YSL: Hurricane
+   Vent ×2, Snowmobile), hero `bariera-odbicie` (VCSL: trójkąty /
+   dzwonki ręczne / glockenspiel — aranżacje bez pitchowania), koda
+   `czujnosc-napiecie` (3 gesty autorskie, render b_piano_steinway).
+   Werdykt: po jednym labelu na slug (d.* / c.* / a.*) albo „żaden".
+   UWAGA: workflow sample-scout pada na obu źródłach w ~12 s (logi
+   niedostępne dla tokenu sandboksa) — do naprawy; bramka poszła
+   z luster GitHub (YSL public domain, VCSL CC0).
+3. Etapy 3–5: migracja bibliotek, resolver, wznowienie produkcji od
+   fabuły 18. Kandydaci-zapas z `docs/sources-and-licensing.md`
+   (miecze, zombie, metal/drewno, bagna, woda) pozostają w odwodzie.
 
 ## Sample scout — uruchomienie
 

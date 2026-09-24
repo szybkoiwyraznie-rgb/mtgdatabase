@@ -23,6 +23,18 @@
         "gate": "g001",
         "choice": "b.1",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "ciezka",
+        "traits": [
+          "kotły",
+          "niski",
+          "złowieszczy"
+        ],
+        "bad_for": [
+          "filigranowy",
+          "pogodny"
+        ]
       }
     },
     {
@@ -47,6 +59,18 @@
         "gate": "g001",
         "choice": "b.3",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "eteryczno-oniryczna",
+        "traits": [
+          "szklane smyki",
+          "nieziemski",
+          "zawieszony"
+        ],
+        "bad_for": [
+          "perkusyjna masa",
+          "brutalny atak"
+        ]
       }
     },
     {
@@ -79,6 +103,18 @@
         "gate": "g002",
         "choice": "grandpiano.2",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "jasno-swietlista",
+        "traits": [
+          "koncertowy",
+          "czysty",
+          "dźwięczny"
+        ],
+        "bad_for": [
+          "brud",
+          "industrialny zgrzyt"
+        ]
       }
     },
     {
@@ -102,6 +138,108 @@
         "gate": "g002",
         "choice": "beben-wojenny.2",
         "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "monumentalno-potezna",
+        "traits": [
+          "wielki bęben",
+          "teatralny",
+          "długie wybrzmienie"
+        ],
+        "bad_for": [
+          "kameralna cisza",
+          "delikatność"
+        ]
+      }
+    },
+    {
+      "id": "b_logdrum",
+      "semantic": "suchy, głucho-drewniany",
+      "family": "idiophone-struck",
+      "samples": {
+        "38": "audio/library/instruments/logdrum/b_logdrum_LogDrumLo_MedM_v1_rr1_Sum.mp3",
+        "39": "audio/library/instruments/logdrum/b_logdrum_LogDrumLo_MedM_v2_rr1_Sum.mp3",
+        "41": "audio/library/instruments/logdrum/b_logdrum_LogDrumHi_MedM_v1_rr1_Sum.mp3"
+      },
+      "semantics": {
+        "type": "sucho-surowa",
+        "traits": [
+          "suchy",
+          "drewniany",
+          "bez pogłosu",
+          "twardy atak"
+        ],
+        "bad_for": [
+          "rozmyty",
+          "dzwoniący",
+          "syntetyczny"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "nuty 38/39/41 = progi uderzenia mp/f/ff"
+      },
+      "approved": {
+        "gate": "g018",
+        "choice": "instrument-suchy.3",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "b_handchimes",
+      "semantic": "cichy, dzwonkowy, miękki",
+      "family": "idiophone-struck",
+      "samples": {
+        "48": "audio/library/instruments/handchimes/b_handchimes_sus_C3_r01_main.mp3",
+        "50": "audio/library/instruments/handchimes/b_handchimes_sus_D3_r01_main.mp3",
+        "52": "audio/library/instruments/handchimes/b_handchimes_sus_E3_r01_main.mp3",
+        "54": "audio/library/instruments/handchimes/b_handchimes_sus_Fs3_r01_main.mp3",
+        "56": "audio/library/instruments/handchimes/b_handchimes_sus_Gs3_r01_main.mp3",
+        "58": "audio/library/instruments/handchimes/b_handchimes_sus_As3_r01_main.mp3",
+        "60": "audio/library/instruments/handchimes/b_handchimes_sus_C4_r01_main.mp3",
+        "62": "audio/library/instruments/handchimes/b_handchimes_sus_D4_r01_main.mp3",
+        "64": "audio/library/instruments/handchimes/b_handchimes_sus_E4_r01_main.mp3",
+        "66": "audio/library/instruments/handchimes/b_handchimes_sus_Fs4_r01_main.mp3",
+        "68": "audio/library/instruments/handchimes/b_handchimes_sus_Gs4_r01_main.mp3",
+        "69": "audio/library/instruments/handchimes/b_handchimes_sus_A4_r01_main.mp3",
+        "72": "audio/library/instruments/handchimes/b_handchimes_sus_C5_r01_main.mp3",
+        "74": "audio/library/instruments/handchimes/b_handchimes_sus_D5_r01_main.mp3",
+        "76": "audio/library/instruments/handchimes/b_handchimes_sus_E5_r01_main.mp3",
+        "78": "audio/library/instruments/handchimes/b_handchimes_sus_Fs5_r01_main.mp3",
+        "80": "audio/library/instruments/handchimes/b_handchimes_sus_Gs5_r01_main.mp3",
+        "82": "audio/library/instruments/handchimes/b_handchimes_sus_As5_r01_main.mp3",
+        "84": "audio/library/instruments/handchimes/b_handchimes_sus_C6_r01_main.mp3"
+      },
+      "semantics": {
+        "type": "cicho-kameralna",
+        "traits": [
+          "cichy",
+          "drobny",
+          "blisko ucha",
+          "mała dynamika"
+        ],
+        "bad_for": [
+          "monumentalny",
+          "huczny",
+          "industrialny"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "19 nut; wybór sus_"
+      },
+      "approved": {
+        "gate": "g020",
+        "choice": "instrument-kameralny.3",
+        "date": "2026-09-24"
       }
     }
   ]

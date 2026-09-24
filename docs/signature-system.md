@@ -35,8 +35,13 @@ i pieczątkę akceptacji `approved` (bramka, wybór, data).
 - Bazy **startują puste i rosną organicznie** — wpis trafia do bazy wyłącznie
   przez akceptację właściciela w bramce odsłuchowej (`docs/gate-protocol.md`).
 - Zasada „rola przed plikiem": agent najpierw definiuje rolę semantyczną
-  („krzyk dużego ptaka zwiadowczego"), sprawdza, czy rola jest obsadzona,
+  („krzyk dużego ptaka zwiadowczego"), sprawdza stan bazy i użycie wpisów,
   i dopiero wtedy pozyskuje kandydatów.
+- **Reuse bez limitów (ADR 0006):** klocki są reużywalne; jedyna twarda
+  reguła to unikalna kombinacja a·b·c·d między fabułami. Różnorodność
+  zapewnia miękki ranking resolvera nad zbiorem semantycznie pasujących
+  wpisów (profil fabuły → kafeteria → resolver; plan:
+  `docs/roadmap-semantyka.md`). Statystyki: `library_tool.py report`.
 - Odrzuceni kandydaci **nigdy nie wchodzą do baz** — ale cała bramka
   (`data/gates/gNNN/`) jest commitowana, jako trwała dokumentacja procesu
   doboru (odporna na resety sandboksa).

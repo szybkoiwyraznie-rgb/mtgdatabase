@@ -12,7 +12,11 @@ decyzji; fuzja PR zamyka sesję).
 
 1. Agent definiuje potrzebne **wpisy** do baz („jezioro", „nurek-wail",
    „groza-koda", „grandpiano") — każdy wpis ma rolę semantyczną i docelową
-   bazę (d/c/a/b).
+   bazę (d/c/a/b). Najpierw zapisuje profil semantyczny fabuły (ADR 0006:
+   cztery warstwy z narracji, bez zaglądania do baz), potem dopasowuje bazy;
+   brak klasy = wpis do bramki. **Wszystkie braki jednej fabuły trafiają do
+   jednej bramki jednocześnie**; nie wolno wystawić hero, a dopiero po jego
+   wyborze ujawnić kolejnej potrzeby tła, kody lub instrumentu.
 2. Dla KAŻDEGO wpisu: co najmniej **3 kandydaci dopasowani do tej roli**
    (3 jeziora, 3 nury, 3 pianina — NIE „kotły vs kieliszki vs harfa" jako
    konkurenci jednego wpisu; dla głosów: 3 RYKI tej samej bestii = rekordy/
@@ -112,10 +116,11 @@ zapisz uwagę w `verdicts.json::notes` i dopiero wtedy `accept`.
    fabuły („gobliny Jundu" ≠ „kruk"), NIE jest obsadą — to brak → bramka
    (korekta po fabułach 5/8: nur z fabuły 4 do fabuły o portalu i kruk
    z fabuły 1 do goblinów = podstawianie inwentarza, wycofane).
-2a. **Hero = tożsamość fabuły (1:1)**: nie używaj hero, który jest już
-   hero innej fabuły — efekt to kopia tamtej fabuły („fabuła 8 = fabuła 1
-   z innym tłem"). Tło/gest/instrument mogą się powtarzać świadomie
-   (ekonomia wariacji), hero — nigdy domyślnie.
+2a. **Hero = tożsamość fabuły**: powtórzenie hero między fabułami grozi
+   kopią („fabuła 8 = fabuła 1 z innym tłem"), więc resolver karze je
+   najmocniej ze wszystkich powtórek — ale twardy (ADR 0006) jest tylko
+   zakaz identycznej kombinacji czterech klocków. Tło/gest/instrument
+   mogą się powtarzać swobodnie (ekonomia wariacji).
 3. Agent układa recepturę `data/recipes/<id>.json` i renderuje:
    `python scripts/render_signature.py data/recipes/<id>.json --audit`.
    Twardy render (patrz `docs/signature-system.md` § Render i QA) gwarantuje:
@@ -146,3 +151,9 @@ zapisz uwagę w `verdicts.json::notes` i dopiero wtedy `accept`.
   najpierw `md5sum` pliku na dysku kontra to, co zwraca serwer, i analiza
   treści (np. pik widma hero) — raz przyczyną był wyłącznie cache
   przeglądarki, a montaż był poprawny. Patrz LESSONS 2026-09-23.
+
+## Etykiety kandydatów w bramkach wielowpisowych (korekta właściciela, 2026-09-24)
+
+W bramce z wieloma wpisami każdy wpis dostaje WŁASNĄ literę etykiet
+(np. `r.1–r.3` dla rozbłysku i `s.1–s.3` dla skradania). Powtarzanie
+tej samej litery między wpisami (dwa razy „c.1") myli przy werdykcie.

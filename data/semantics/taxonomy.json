@@ -1,0 +1,2720 @@
+{
+  "schema": 1,
+  "version": "6",
+  "status": "v6 zaakceptowana 2026-09-24: +weszenie (hero; decyzja właściciela przy bramce g020 — fabuła 193 to węszenie, nie fala). Zmiany wyłącznie przez CHANGELOG.",
+  "note": "Taksonomia akustyczna (klasy opisują CO SŁYCHAĆ, nie lore). Klasa = parametr kombinacji a·b·c·d; cechy z profilu fabuły pozostają doprecyzowaniem wewnątrz klasy (traits). Wzorce służą do wstępnego mapowania profili; ostateczne przypisanie podlega przeglądowi. Po akceptacji: zmiany tylko przez data/semantics/CHANGELOG.md.",
+  "layers": {
+    "background": {
+      "kod": "a",
+      "nazwa": "środowisko / tło",
+      "liczba_klas": 32,
+      "klasy": [
+        {
+          "id": "bitwa-zgielk",
+          "nazwa": "Bitwa / oblężenie — zgiełk starcia",
+          "co_slychac": "Zgiełk wielu walczących: krzyki, szczęk broni w oddali, dudnienie — tło aktywnego starcia.",
+          "wzorce": [
+            "zgiełk",
+            "bitewn",
+            "oblężen",
+            "oblężon",
+            "szturm",
+            "pole bitwy",
+            "starci",
+            "walcząc",
+            "wrzawa bit",
+            "front",
+            "kontratak",
+            "inwazj"
+          ],
+          "fabul_w_szkicu": 15
+        },
+        {
+          "id": "oboz-wojenny",
+          "nazwa": "Obóz / szyk / plac ćwiczeń",
+          "co_slychac": "Wojskowy porządek: kroki formacji, komendy w oddali, łopot sztandarów, brzęk rynsztunku.",
+          "wzorce": [
+            "obóz",
+            "obozow",
+            "falang",
+            "szyk",
+            "musztr",
+            "koszar",
+            "garnizon",
+            "regiment",
+            "sztandar",
+            "przedbitewn",
+            "warown",
+            "twierdz",
+            "palisad",
+            "posterun",
+            "straż",
+            "patrol",
+            "aren",
+            "treningow",
+            "ćwiczebn",
+            "trybun",
+            "cytadel"
+          ],
+          "fabul_w_szkicu": 23
+        },
+        {
+          "id": "kuznia-warsztat",
+          "nazwa": "Warsztat / kuźnia / pracownia rzemiosła",
+          "co_slychac": "Rytm pracy rzemieślnika: uderzenia młota, syk paleniska, brzęk narzędzi.",
+          "wzorce": [
+            "warsztat",
+            "kuźni",
+            "kowadł",
+            "palenisk",
+            "narzędzi",
+            "pracowni",
+            "rzemieślnic",
+            "manufaktur",
+            "stoczni",
+            "cyzel"
+          ],
+          "fabul_w_szkicu": 19
+        },
+        {
+          "id": "laboratorium-technika",
+          "nazwa": "Laboratorium / instalacja technologiczna",
+          "co_slychac": "Sterylne buczenie maszyn i instalacji, cichy szum energii, pojedyncze sygnały urządzeń.",
+          "wzorce": [
+            "laborator",
+            "steryln",
+            "maszyn",
+            "generator",
+            "reaktor",
+            "instalacj",
+            "orbital",
+            "pokład",
+            "mostek",
+            "technicz",
+            "metaliczn\\w* (?:równin|morz|korytarz)",
+            "przewod",
+            "konsol",
+            "mechanizm",
+            "fabry",
+            "rafineri",
+            "dok ",
+            "hangar"
+          ],
+          "fabul_w_szkicu": 21
+        },
+        {
+          "id": "miasto-gwar",
+          "nazwa": "Miasto za dnia — gwar ulic i targu",
+          "co_slychac": "Gwar tłumu za dnia: nawoływania, kroki na bruku, targowy harmider.",
+          "wzorce": [
+            "gwar",
+            "targ",
+            "bazar",
+            "ulic",
+            "plac",
+            "tłum",
+            "metropoli",
+            "jarmar",
+            "portow",
+            "nabrzeż",
+            "dok(?:i|ach|ów)",
+            "bram(?:a|y|ą|ie)"
+          ],
+          "fabul_w_szkicu": 23
+        },
+        {
+          "id": "miasto-nocne",
+          "nazwa": "Miasto nocą / zaułki / dachy",
+          "co_slychac": "Nocne miasto: pojedyncze kroki na bruku, dalekie echa, kapanie w kanałach.",
+          "wzorce": [
+            "zaułk",
+            "nocn\\w* miast",
+            "dach",
+            "bruk",
+            "latarni",
+            "kanał",
+            "rynszto",
+            "ciemn\\w* ulic",
+            "przęse",
+            "estakad",
+            "filar"
+          ],
+          "fabul_w_szkicu": 21
+        },
+        {
+          "id": "wioska-sielska",
+          "nazwa": "Wioska / gospodarstwo / trakt sielski",
+          "co_slychac": "Sielskie tło wsi i traktu: ptactwo podwórzowe, skrzyp wozów, daleki gwar zagrody.",
+          "wzorce": [
+            "wiosk",
+            "wiejsk",
+            "zagrod",
+            "podwórz",
+            "gospodarst",
+            "pastwisk",
+            "sad",
+            "pole uprawn",
+            "zboż",
+            "folwar",
+            "sioł",
+            "chat",
+            "osad",
+            "trakt",
+            "karawan",
+            "woz(?:y|ów|ami)",
+            "gościńc",
+            "kucyk",
+            "murki",
+            "farmer",
+            "warzywn"
+          ],
+          "fabul_w_szkicu": 21
+        },
+        {
+          "id": "dwor-komnaty",
+          "nazwa": "Dwór / gmach / komnaty / wieża",
+          "co_slychac": "Wnętrze reprezentacyjne: pogłos sal, stłumione kroki, cichy szmer dworu lub urzędu.",
+          "wzorce": [
+            "dwor",
+            "dwór",
+            "pałac",
+            "komnat",
+            "salon",
+            "ucztow",
+            "bal ",
+            "tron",
+            "audiencj",
+            "bibliotec",
+            "biblioteka",
+            "archiw",
+            "muze",
+            "gabinet",
+            "skryptori",
+            "gmach",
+            "sąd",
+            "urzęd",
+            "akademi",
+            "kolegium",
+            "wież",
+            "areszt",
+            "sala",
+            "sali"
+          ],
+          "fabul_w_szkicu": 29
+        },
+        {
+          "id": "swiatynia-sanktuarium",
+          "nazwa": "Świątynia / sanktuarium / cisza rytuału",
+          "co_slychac": "Uroczysta cisza rytuału: pogłos kamienia, pojedyncze dźwięki ceremonii, oddech przestrzeni.",
+          "wzorce": [
+            "świątyn",
+            "sanktuari",
+            "ołtarz",
+            "kaplic",
+            "klasztor",
+            "katedr",
+            "rytuał",
+            "nabożn",
+            "modlitewn",
+            "święt\\w* cisz",
+            "relikwi",
+            "mauzole",
+            "ceremonialn",
+            "modlitw"
+          ],
+          "fabul_w_szkicu": 21
+        },
+        {
+          "id": "krypta-nekropolia",
+          "nazwa": "Krypta / cmentarz / nekropolia",
+          "co_slychac": "Grobowa cisza: chłodny pogłos, osypujący się pył, dalekie skrzypnięcia.",
+          "wzorce": [
+            "krypt",
+            "cmentar",
+            "grobow",
+            "mogił",
+            "nekropoli",
+            "grób",
+            "groby",
+            "kostnic",
+            "sarkofag",
+            "katakumb"
+          ],
+          "fabul_w_szkicu": 15
+        },
+        {
+          "id": "podziemia-jaskinia",
+          "nazwa": "Podziemia / jaskinie / tunele",
+          "co_slychac": "Podziemny pogłos: kapanie wody, echo korytarzy, głuchy przeciąg.",
+          "wzorce": [
+            "jaskiń",
+            "jaskini",
+            "podziem",
+            "tunel",
+            "grot",
+            "sztolni",
+            "kopalni",
+            "korytarz",
+            "pieczar",
+            "czeluś",
+            "loch"
+          ],
+          "fabul_w_szkicu": 28
+        },
+        {
+          "id": "ruiny-pradawne",
+          "nazwa": "Ruiny / pradawne pozostałości",
+          "co_slychac": "Wiatr wśród kamieni, osypujący się gruz, martwe echo dawnej budowli.",
+          "wzorce": [
+            "ruin",
+            "zgliszcz",
+            "rumowisk",
+            "wykopalis",
+            "pradawn\\w* (?:kamien|budowl)",
+            "porzucon\\w* miast",
+            "opuszczon",
+            "zatopion\\w* ruin",
+            "monolit",
+            "megalit",
+            "menhir",
+            "kurhan"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "las-mroczny",
+          "nazwa": "Las mroczny / nocny / spaczony",
+          "co_slychac": "Las nocny lub spaczony: skrzypienie pni, niepokojące szelesty, stłumiona cisza.",
+          "wzorce": [
+            "mroczn\\w* (?:las|kni|ostęp|koron|bor)",
+            "nocn\\w* las",
+            "czarn\\w* (?:las|ciern)",
+            "spaczon\\w* las",
+            "wieczn\\w* półmrok",
+            "martwe drzewa",
+            "cienist\\w* (?:las|kni)",
+            "mrok gęstwiny",
+            "czatując\\w* cisz",
+            "lepkie nici",
+            "cień między pniami",
+            "zielony półmrok",
+            "wykrzywion\\w* (?:drzew|pni)"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "las-dzienny",
+          "nazwa": "Las umiarkowany za dnia",
+          "co_slychac": "Las za dnia: szum liści, ptaki, lekki wiatr w koronach.",
+          "wzorce": [
+            "las",
+            "leśn",
+            "puszcz",
+            "knie",
+            "bor(?:u|ze)",
+            "gaj",
+            "zagajnik",
+            "polan",
+            "dąbrow",
+            "ostęp",
+            "drzew",
+            "gęstwin",
+            "poszy",
+            "dęb",
+            "koron\\w* drzew"
+          ],
+          "fabul_w_szkicu": 61
+        },
+        {
+          "id": "dzungla-parna",
+          "nazwa": "Dżungla / las tropikalny",
+          "co_slychac": "Gęsta dżungla: brzęczenie owadów, dalekie nawoływania fauny, parny szum.",
+          "wzorce": [
+            "dżungl",
+            "tropikaln",
+            "lian",
+            "parn",
+            "namorzyn",
+            "bambus"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "bagno-moczary",
+          "nazwa": "Bagno / moczary / rozlewiska",
+          "co_slychac": "Bagno: bulgot, mlaskanie błota, brzęczenie owadów nad stojącą wodą.",
+          "wzorce": [
+            "bagn",
+            "bagien",
+            "moczar",
+            "trzęsawis",
+            "rozlewis",
+            "grzęzawis",
+            "mokradł",
+            "muł",
+            "błot",
+            "torfowis",
+            "maź",
+            "mazi",
+            "oleist",
+            "rozpadlin"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "rzeka-strumien",
+          "nazwa": "Rzeka / strumień / wodospad",
+          "co_slychac": "Płynąca woda: nurt, szum wodospadu, plusk o kamienie.",
+          "wzorce": [
+            "rzek",
+            "strumie",
+            "wodospad",
+            "potok",
+            "nurt",
+            "bystrz",
+            "brod"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "morze-wybrzeze",
+          "nazwa": "Morze / wybrzeże / fale",
+          "co_slychac": "Morze i wybrzeże: fale, bryza, mewy, skrzyp lin i kadłubów.",
+          "wzorce": [
+            "morz",
+            "morsk",
+            "wybrzeż",
+            "klif",
+            "fal(?:e|ami|ach)",
+            "przybój",
+            "zatok",
+            "plaż",
+            "laguna",
+            "żagl",
+            "okręt",
+            "galeon",
+            "sztorm",
+            "przysta"
+          ],
+          "fabul_w_szkicu": 22
+        },
+        {
+          "id": "podwodne-glebiny",
+          "nazwa": "Toń podwodna / głębiny",
+          "co_slychac": "Stłumiona toń: głuche prądy, bąble, odległe odgłosy głębin.",
+          "wzorce": [
+            "podwodn",
+            "głębin",
+            "toń",
+            "toni",
+            "rafa",
+            "rafy",
+            "dno morsk",
+            "odmęt"
+          ],
+          "fabul_w_szkicu": 3
+        },
+        {
+          "id": "gory-wichry",
+          "nazwa": "Góry / granie / wiatr wysokości",
+          "co_slychac": "Wiatr wysokości: świst na graniach, skalne echo, osypujące się kamienie.",
+          "wzorce": [
+            "gór",
+            "grani",
+            "grań",
+            "przełęcz",
+            "urwis",
+            "turni",
+            "szczyt",
+            "skaln",
+            "wąwóz",
+            "kanion",
+            "płaskowyż",
+            "wysokości",
+            "zbocz"
+          ],
+          "fabul_w_szkicu": 28
+        },
+        {
+          "id": "step-rownina",
+          "nazwa": "Step / równina / otwarta przestrzeń",
+          "co_slychac": "Otwarta przestrzeń: szeroki wiatr w trawach, dal bez echa.",
+          "wzorce": [
+            "step",
+            "równin",
+            "preri",
+            "sawann",
+            "traw",
+            "bezkres",
+            "otwart\\w* przestrzeń",
+            "błoni",
+            "wrzosowis",
+            "łąk",
+            "pastwis"
+          ],
+          "fabul_w_szkicu": 19
+        },
+        {
+          "id": "pustynia-pyl",
+          "nazwa": "Pustynia / pył / spiekota",
+          "co_slychac": "Suchy wiatr z pyłem, sypki piasek, rozgrzana pustka.",
+          "wzorce": [
+            "pustyn",
+            "wydm",
+            "piask",
+            "pył",
+            "spiekot",
+            "suchy wiatr",
+            "wysuszon",
+            "spalon\\w* słoń"
+          ],
+          "fabul_w_szkicu": 6
+        },
+        {
+          "id": "kraina-lodu",
+          "nazwa": "Kraina lodu / mróz / lodowiec",
+          "co_slychac": "Mroźny wiatr, skrzypienie śniegu, trzaski lodu.",
+          "wzorce": [
+            "lodow",
+            "lód",
+            "lodu",
+            "mroźn",
+            "mróz",
+            "śnieg",
+            "śnież",
+            "zamarzn",
+            "tundr",
+            "szron",
+            "zmarzlin",
+            "arktycz"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "kraina-ognia",
+          "nazwa": "Kraina ognia / wulkan / żar",
+          "co_slychac": "Dudnienie wulkanu, bulgot lawy, trzask żaru, syk gejzerów.",
+          "wzorce": [
+            "wulkan",
+            "lawa",
+            "lawy",
+            "magm",
+            "żar",
+            "popiel",
+            "popiół",
+            "popioł",
+            "gejzer",
+            "siarcz",
+            "płonąc\\w* (?:ziem|krain)"
+          ],
+          "fabul_w_szkicu": 15
+        },
+        {
+          "id": "burza-zywiol",
+          "nazwa": "Burza / nawałnica / żywioł nieba",
+          "co_slychac": "Burza: grzmoty, ulewa, porywy wichury.",
+          "wzorce": [
+            "burz",
+            "nawałnic",
+            "piorun",
+            "grzmot",
+            "ulew",
+            "deszcz",
+            "wichur",
+            "huragan",
+            "sztorm\\w* nieb",
+            "gradow"
+          ],
+          "fabul_w_szkicu": 6
+        },
+        {
+          "id": "niebo-przestworza",
+          "nazwa": "Przestworza / lot / pęd powietrza",
+          "co_slychac": "Pęd powietrza na wysokości: świst wiatru, przelot, przestrzeń bez gruntu.",
+          "wzorce": [
+            "przestworz",
+            "chmur",
+            "podniebn",
+            "lewituj",
+            "niebo",
+            "nieba",
+            "powietrzn\\w* (?:szlak|przestrz)",
+            "balon",
+            "sterow",
+            "wyżyn",
+            "tor wyścigow",
+            "wyścig",
+            "rydwan",
+            "przelot",
+            "pęd(?:u|em)? ",
+            "prędkoś"
+          ],
+          "fabul_w_szkicu": 13
+        },
+        {
+          "id": "noc-ksiezyc",
+          "nazwa": "Noc pod gołym niebem / księżyc",
+          "co_slychac": "Noc pod gołym niebem: cisza ze świerszczami, pojedyncze odgłosy nocy.",
+          "wzorce": [
+            "noc",
+            "księżyc",
+            "zmierzch",
+            "zmrok",
+            "północ",
+            "gwiazd",
+            "świt"
+          ],
+          "fabul_w_szkicu": 13
+        },
+        {
+          "id": "pustkowie-cisza",
+          "nazwa": "Pustkowie / martwa cisza / teren po kataklizmie",
+          "co_slychac": "Martwa, nienaturalna cisza: pojedyncze podmuchy, brak życia, teren po kataklizmie.",
+          "wzorce": [
+            "pustkowi",
+            "martw\\w* cisz",
+            "jałow",
+            "wyludni",
+            "bezludn",
+            "głusz",
+            "odludzi",
+            "martw\\w* (?:ziemi|równin|drzew)",
+            "skażon",
+            "spustoszon",
+            "kataklizm",
+            "szczelin",
+            "rozrywan\\w* ziemi",
+            "pobojowis",
+            "zgliszcz"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "sfera-obca",
+          "nazwa": "Sfera obca / nierzeczywista / zaświaty",
+          "co_slychac": "Nierzeczywiste tło: wypaczony pogłos, obce częstotliwości, senna zawiesina.",
+          "wzorce": [
+            "zaświat",
+            "nierzeczywist",
+            "wypaczon",
+            "spaczon",
+            "obc\\w* (?:cisz|przestrzeń|geometri)",
+            "czasoprzestrz",
+            "sen",
+            "snów",
+            "snu",
+            "wymiar",
+            "eterycz\\w* (?:krain|przestrzeń)",
+            "pustk(?:a|i) międzyplan",
+            "astral",
+            "kosmicz",
+            "próżni"
+          ],
+          "fabul_w_szkicu": 6
+        },
+        {
+          "id": "ognisko-palenisko",
+          "nazwa": "Ognisko / palenisko z bliska",
+          "co_slychac": "Małe ognisko lub palenisko z bliska: oszczędne trzaski żaru, kameralne ciepło ognia.",
+          "wzorce": [
+            "ognisk",
+            "palenisk",
+            "kominek",
+            "komink",
+            "trzask (?:ognia|żaru|pochodni)"
+          ],
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "miasto-neonowe",
+          "nazwa": "Miasto neonowe",
+          "co_slychac": "Futurystyczna metropolia: elektryczne buczenie neonów, ruch pojazdów, syntetyczny gwar.",
+          "wzorce": [
+            "neon",
+            "metropoli",
+            "ścigacz"
+          ],
+          "fabul_w_szkicu": 5
+        },
+        {
+          "id": "dziedziniec-spokojny",
+          "nazwa": "Cichy dziedziniec",
+          "co_slychac": "Kamienny dziedziniec bez wojska: pogłos murów, pojedyncze kroki, spokój klasztoru lub akademii.",
+          "wzorce": [
+            "dziedziniec (?:katedr|kampus|klasztor)",
+            "klasztorn\\w* cisz"
+          ],
+          "fabul_w_szkicu": 5
+        }
+      ]
+    },
+    "hero": {
+      "kod": "b",
+      "nazwa": "hero / główne zdarzenie",
+      "liczba_klas": 75,
+      "klasy": [
+        {
+          "id": "ryk-bestii",
+          "nazwa": "Ryk bestii / potwora",
+          "co_slychac": "Głęboki, gardłowy ryk dużego stworzenia.",
+          "wzorce": [
+            "ryk",
+            "rycz",
+            "zaryc",
+            "porykiw"
+          ],
+          "fabul_w_szkicu": 6
+        },
+        {
+          "id": "ryk-humanoida",
+          "nazwa": "Gardłowy ryk humanoida",
+          "co_slychac": "Ryk z ludzkiego/orkowego gardła: wysiłek, furia, triumf — głos humanoidalny, nie zwierzęcy.",
+          "wzorce": [
+            "ryk (?:wysiłku|orka|szamana)",
+            "triumfaln\\w* ryk",
+            "nieludzki ryk",
+            "dudniący ryk"
+          ],
+          "fabul_w_szkicu": 5
+        },
+        {
+          "id": "trabienie-kolosa",
+          "nazwa": "Trąbienie / zew kolosa",
+          "co_slychac": "Trąbiący, donośny zew kolosa (słoniowy rejestr).",
+          "wzorce": [
+            "trąbi",
+            "trąbiąc",
+            "zew",
+            "tryumfaln\\w* odgłos"
+          ],
+          "fabul_w_szkicu": 3
+        },
+        {
+          "id": "warkot-drapieznika",
+          "nazwa": "Warkot / warczenie drapieżnika",
+          "co_slychac": "Niski warkot lub pomruk drapieżnika przed atakiem.",
+          "wzorce": [
+            "warkot drapież",
+            "warcze",
+            "warkn",
+            "warkot wilk",
+            "pomruk"
+          ],
+          "fabul_w_szkicu": 7
+        },
+        {
+          "id": "skrzek-wrzask",
+          "nazwa": "Skrzek / wrzask / pisk przeraźliwy",
+          "co_slychac": "Przeraźliwy skrzek, wrzask, pisk lub terkot stworzenia.",
+          "wzorce": [
+            "skrzek",
+            "wrzask",
+            "wrzeszcz",
+            "pisk",
+            "skowyt",
+            "kwik",
+            "terkot"
+          ],
+          "fabul_w_szkicu": 7
+        },
+        {
+          "id": "pisk-gryzoni",
+          "nazwa": "Masowy pisk gryzoni",
+          "co_slychac": "Pisk i chrobot wielu małych gryzoni naraz — osaczająca masa.",
+          "wzorce": [
+            "pisk (?:gryzoni|tysięcy|szczur)",
+            "osaczając\\w* pisk"
+          ],
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "syk-gadzi",
+          "nazwa": "Syk gadzi / wężowy",
+          "co_slychac": "Wężowy albo gadzi syk.",
+          "wzorce": [
+            "syk (?:węż|gad|żmii|kobry)",
+            "sycze",
+            "wężow\\w* syk"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "krzyk-ptaka",
+          "nazwa": "Krzyk ptaka drapieżnego",
+          "co_slychac": "Drapieżny krzyk ptaka łownego: sokół, orzeł, gryf — przenikliwy pisk/wrzask, nie krakanie.",
+          "wzorce": [
+            "krzyk (?:sokoł|orł|ptak|gryf)",
+            "sokol",
+            "klangor"
+          ],
+          "fabul_w_szkicu": 3
+        },
+        {
+          "id": "krakanie",
+          "nazwa": "Krakanie krukowate",
+          "co_slychac": "Krakanie: chrapliwe, gardłowe kraknięcia krukowatych — nie przenikliwy krzyk drapieżnika.",
+          "wzorce": [
+            "krak",
+            "kruk",
+            "wron",
+            "gawron",
+            "krucz"
+          ],
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "brzeczenie-roju",
+          "nazwa": "Brzęczenie / szum roju owadów",
+          "co_slychac": "Masowe brzęczenie owadziego roju.",
+          "wzorce": [
+            "brzęczen",
+            "rojen",
+            "rój",
+            "roju",
+            "bzycze",
+            "szum (?:tysięcy )?skrzydeł owad"
+          ],
+          "fabul_w_szkicu": 5
+        },
+        {
+          "id": "klekot-chitynowy",
+          "nazwa": "Klekot / chrzęst chitynowy",
+          "co_slychac": "Klekot żuwaczek i chrzęst chitynowego pancerza.",
+          "wzorce": [
+            "klekot",
+            "żuwacz",
+            "chityn",
+            "odnóż",
+            "pancerz owad"
+          ],
+          "fabul_w_szkicu": 8
+        },
+        {
+          "id": "smiech-maniakalny",
+          "nazwa": "Śmiech maniakalny / demoniczny",
+          "co_slychac": "Złośliwy, maniakalny chichot — diaboliczna satysfakcja; pojedynczy głos.",
+          "wzorce": [
+            "złośliw\\w* chichot",
+            "maniakaln\\w* śmiech",
+            "diabolicz",
+            "diabelsk\\w* chichot",
+            "demonicz\\w* (?:śmiech|chichot)",
+            "szydercz\\w* chichot"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "smiech-widmowy",
+          "nazwa": "Widmowe echa śmiechu",
+          "co_slychac": "Bezcielesne, pogłosowe echa śmiechu krążące w przestrzeni — upiorne, bez źródła.",
+          "wzorce": [
+            "widmow\\w* (?:echa )?śmiech",
+            "echa śmiechu",
+            "bezcielesn\\w* śmiech",
+            "upiorn\\w* śmiech"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "smiech-biesiadny",
+          "nazwa": "Gromadny śmiech zabawy",
+          "co_slychac": "Wielogłosowy radosny śmiech wspólnej zabawy, z klaskaniem i gwarem korowodu.",
+          "wzorce": [
+            "klaskanie i śmiech",
+            "śmiech (?:zabawy|biesiad|tłumu|gromad)",
+            "wspóln\\w* śmiech",
+            "rozbawion\\w* (?:tłum|głosy)"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "smiech-dzieciecy",
+          "nazwa": "Śmiech dziecięcy",
+          "co_slychac": "Jasny, wysoki śmiech dzieci przy zabawie — niewinny, spontaniczny.",
+          "wzorce": [
+            "dziecięc\\w* śmiech",
+            "śmiech dzieci"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "wrzask-bandy",
+          "nazwa": "Wielogłosowy wrzask bandy",
+          "co_slychac": "Kilka rozstrojonych głosów podchwytuje krzyk — chaotyczny, plemienny wrzask bandy/hordy; nie pojedynczy rozkaz ani zwarty chór.",
+          "wzorce": [
+            "wrzask (?:bandy|hordy|tłumu|watahy)",
+            "wielogłos",
+            "chóraln\\w* okrzyk",
+            "zbiorow\\w* (?:wrzask|okrzyk)",
+            "rozstrojon\\w* głos"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "okrzyk-bojowy-meski",
+          "nazwa": "Okrzyk bojowy męski",
+          "co_slychac": "Pojedynczy męski głos: rozkaz, zagrzewka, zawołanie do natarcia.",
+          "wzorce": [
+            "okrzyk (?:dowódcy|kapitana|szeryfa|wodza)"
+          ],
+          "fabul_w_szkicu": 5
+        },
+        {
+          "id": "okrzyk-bojowy-zenski",
+          "nazwa": "Okrzyk bojowy żeński",
+          "co_slychac": "Pojedynczy kobiecy głos: rozkaz, zagrzewka, zawołanie do natarcia.",
+          "wzorce": [
+            "okrzyk (?:kapłanki|dowódczyni|taktyczki|weteranki|przewodniczki)"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "spiew-zenski",
+          "nazwa": "Śpiew solowy żeński",
+          "co_slychac": "Pojedynczy kobiecy głos śpiewający pieśń.",
+          "wzorce": [
+            "śpiew anielicy",
+            "bardka śpiewa",
+            "rezonując\\w* śpiew"
+          ],
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "przemowa-glos",
+          "nazwa": "Przemowa / głos mówiony",
+          "co_slychac": "Mówiony głos niosący scenę: przemowa, perswazja, pakt, tyrada.",
+          "wzorce": [
+            "przemow",
+            "mrucząc\\w* głos",
+            "potok (?:kwiecistych )?słów",
+            "głos kapitana"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "chor-glosow",
+          "nazwa": "Chór wielu głosów",
+          "co_slychac": "Wiele głosów zlanych w jedno: chór, litania, wspólne wołanie.",
+          "wzorce": [
+            "chóraln",
+            "w chórze",
+            "litani"
+          ],
+          "fabul_w_szkicu": 3
+        },
+        {
+          "id": "jek-zawodzenie",
+          "nazwa": "Jęk / zawodzenie / szloch",
+          "co_slychac": "Jęk, zawodzenie, lament, szloch.",
+          "wzorce": [
+            "jęk",
+            "wyci",
+            "zawodzen",
+            "lament",
+            "upiorn\\w* (?:głos|chór|wyci)",
+            "szloch",
+            "płacz",
+            "łkani"
+          ],
+          "fabul_w_szkicu": 3
+        },
+        {
+          "id": "wycie-wilcze",
+          "nazwa": "Wycie wilcze",
+          "co_slychac": "Wycie lub skowyt psowatych — przeciągłe, niesione echem.",
+          "wzorce": [
+            "wyci\\w* wilka",
+            "skowyt"
+          ],
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "kroki-kolosa",
+          "nazwa": "Ciężkie kroki kolosa / sejsmiczne stąpanie",
+          "co_slychac": "Sejsmiczne, ciężkie stąpanie olbrzyma.",
+          "wzorce": [
+            "kroki (?:giganta|olbrzym|kolosa|tytan)",
+            "stąpn",
+            "stąpani",
+            "dudniąc\\w* krok",
+            "sejsmiczn",
+            "ciężkie kroki",
+            "krok kolosa",
+            "ciężki krok",
+            "stawia krok"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "marsz-oddzialu",
+          "nazwa": "Marsz / pochód oddziału",
+          "co_slychac": "Miarowy marsz wielu par nóg.",
+          "wzorce": [
+            "marsz",
+            "maszeruj",
+            "pochód",
+            "kolumn\\w* marszow",
+            "miarowy krok",
+            "defilad"
+          ],
+          "fabul_w_szkicu": 7
+        },
+        {
+          "id": "tetent-kopyt",
+          "nazwa": "Tętent / stukot kopyt",
+          "co_slychac": "Tętent lub stukot kopyt.",
+          "wzorce": [
+            "tętent",
+            "kopyt",
+            "galop",
+            "cwał",
+            "kłus"
+          ],
+          "fabul_w_szkicu": 7
+        },
+        {
+          "id": "ciche-wrota",
+          "nazwa": "Bezgłośne wrota / mechanizm w ciszy",
+          "co_slychac": "Mechanizm otwierany niemal bezgłośnie: uniesienie kraty, sunięcie łodzi po cichej wodzie.",
+          "wzorce": [
+            "bezgłośn\\w* uniesieni",
+            "unosi się bezgłośnie",
+            "sunąc\\w* łódź",
+            "bezgłośn\\w* (?:otwarci|wrota)"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "skradanie-cisza",
+          "nazwa": "Skradanie / bezszelestny ruch",
+          "co_slychac": "Niemal bezgłośny ruch, cicha warta — napięcie zamiast hałasu.",
+          "wzorce": [
+            "skradan",
+            "bezszelestn",
+            "bezgłośn",
+            "niesłyszaln",
+            "cich\\w* (?:krok|podejści|przemkn)",
+            "czołga",
+            "wart(?:a|y|ie|ą|ę)",
+            "czuwan",
+            "czatowan",
+            "czujn\\w* (?:wart|straż|obecnoś)",
+            "spokojn\\w* obecnoś"
+          ],
+          "fabul_w_szkicu": 23
+        },
+        {
+          "id": "zwinny-skok",
+          "nazwa": "Zwinny skok / akrobacja / bieg",
+          "co_slychac": "Dynamiczny skok, akrobacja, sprint.",
+          "wzorce": [
+            "skok",
+            "zeskok",
+            "przeskok",
+            "akrobac",
+            "wspinacz",
+            "bieg",
+            "sus",
+            "przewrot",
+            "salt"
+          ],
+          "fabul_w_szkicu": 10
+        },
+        {
+          "id": "wzrost-roslin",
+          "nazwa": "Gwałtowny wzrost / pędy roślin",
+          "co_slychac": "Gwałtowny wzrost roślin: strzelające pędy, prostujące się korzenie, rozkwit.",
+          "wzorce": [
+            "pęd(?:y|ów|ami)",
+            "wzrost",
+            "rozkwit",
+            "wici",
+            "pnącz",
+            "korzeni\\w* prostuj",
+            "wyrastając",
+            "porastając",
+            "bujn\\w* (?:wzrost|rozrost)",
+            "rozrost",
+            "zieleń wybucha",
+            "żyłek pod korą"
+          ],
+          "fabul_w_szkicu": 15
+        },
+        {
+          "id": "budzenie-gleby",
+          "nazwa": "Budzenie gleby / kiełkowanie",
+          "co_slychac": "Praca gleby: rozgarnianie ściółki, rozkład, kiełkujące nasiona, podziemne pulsowanie — bez strzelających pędów.",
+          "wzorce": [
+            "ściółk",
+            "nasion",
+            "kiełk",
+            "żyzn",
+            "gleb",
+            "próchnic"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "weszenie",
+          "nazwa": "Węszenie tropiciela",
+          "co_slychac": "Rytmiczne pociągnięcia nosem i sapnięcia przy tropie — skupione węszenie, nie atak.",
+          "wzorce": [
+            "węszen",
+            "pociągnięci\\w* nosem",
+            "obwąch"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "pelzanie-sluz",
+          "nazwa": "Pełzanie / śluzowaty ruch",
+          "co_slychac": "Mokre pełznięcie, ciężki oddech cielska, śluzowaty ruch.",
+          "wzorce": [
+            "pełzn",
+            "pełzan",
+            "śluz",
+            "oślizg",
+            "mlaskan",
+            "maź",
+            "mazi",
+            "oddech",
+            "płazi",
+            "sapani",
+            "dysze",
+            "cielsk"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "oddech-cielska",
+          "nazwa": "Oddech wielkiego cielska",
+          "co_slychac": "Ciężki, nierówny oddech ogromnego stworzenia: sapanie, mokry płazi oddech.",
+          "wzorce": [
+            "płazi oddech",
+            "nierówn\\w* oddech",
+            "napięty oddech",
+            "gorący oddech z nozdrzy"
+          ],
+          "fabul_w_szkicu": 3
+        },
+        {
+          "id": "lopot-skrzydel",
+          "nazwa": "Łopot / szum skrzydeł",
+          "co_slychac": "Łopot i szum skrzydeł, przysiad lub lądowanie.",
+          "wzorce": [
+            "łopot",
+            "trzepot",
+            "szum skrzydeł",
+            "uderzeni\\w* skrzyd",
+            "furkot skrzyd",
+            "ląduje",
+            "lądowan"
+          ],
+          "fabul_w_szkicu": 7
+        },
+        {
+          "id": "trzepot-drobnych-skrzydel",
+          "nazwa": "Trzepot drobnych skrzydeł",
+          "co_slychac": "Migotliwy trzepot małych skrzydeł: owady, wróżki, drobne ptaki.",
+          "wzorce": [
+            "trzepot (?:małych|drobnych|owadzich)",
+            "skrzydełk"
+          ],
+          "fabul_w_szkicu": 5
+        },
+        {
+          "id": "swist-lotu",
+          "nazwa": "Świst pikowania / szybkiego lotu",
+          "co_slychac": "Świst szybkiego lotu lub pikowania.",
+          "wzorce": [
+            "pikowan",
+            "świst (?:lotu|powietrza|pędu)",
+            "przelot",
+            "szybuj",
+            "śmign"
+          ],
+          "fabul_w_szkicu": 6
+        },
+        {
+          "id": "strzal-pocisk",
+          "nazwa": "Strzał / świst pocisku / salwa",
+          "co_slychac": "Strzał, świst pocisku, salwa, praca machin miotających.",
+          "wzorce": [
+            "strzał",
+            "strzel",
+            "wystrzał",
+            "salw",
+            "pocisk",
+            "strzał\\w* z łuku",
+            "cięciw",
+            "bełt",
+            "balist",
+            "katapult",
+            "łuk",
+            "wystrzel"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "strzal-z-luku",
+          "nazwa": "Strzał z łuku",
+          "co_slychac": "Napięta cięciwa i świst strzały — pojedynczy strzał lub salwa łuczników.",
+          "wzorce": [
+            "cięciw",
+            "świst strzały",
+            "świst salwy",
+            "łuczni"
+          ],
+          "fabul_w_szkicu": 3
+        },
+        {
+          "id": "machina-miotajaca",
+          "nazwa": "Machina miotająca",
+          "co_slychac": "Balista/katapulta: skrzyp naciągu, trzask zwalnianego ramienia, ciężki pocisk.",
+          "wzorce": [
+            "balist",
+            "katapult",
+            "trebusz"
+          ],
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "swist-ostrza",
+          "nazwa": "Świst ostrza / cięcie",
+          "co_slychac": "Świst cięcia ostrza lub bicza.",
+          "wzorce": [
+            "świst (?:ostrz|miecz|klingi|rapier|kos)",
+            "cięci",
+            "ciachn",
+            "rąban",
+            "sieczn",
+            "bicz",
+            "rzemien"
+          ],
+          "fabul_w_szkicu": 7
+        },
+        {
+          "id": "szczek-broni",
+          "nazwa": "Szczęk broni / starcie oręża",
+          "co_slychac": "Szczęk krzyżowanego oręża, metaliczne zwarcie.",
+          "wzorce": [
+            "szczęk",
+            "starci\\w* (?:mieczy|oręża)",
+            "skrzyżowan\\w* (?:ostrz|kling)",
+            "brzęk (?:stali|mieczy|oręża)",
+            "nożyc",
+            "zwarci\\w* ostrzy"
+          ],
+          "fabul_w_szkicu": 5
+        },
+        {
+          "id": "potezny-cios",
+          "nazwa": "Potężny cios / uderzenie / miażdżenie",
+          "co_slychac": "Pojedynczy ciężki cios, uderzenie, miażdżenie.",
+          "wzorce": [
+            "cios",
+            "uderzeni",
+            "powaleni",
+            "zmiażdż",
+            "miażdż",
+            "druzgo",
+            "trzask kości",
+            "łupnięci",
+            "walnięci",
+            "młot",
+            "wbit",
+            "wbij"
+          ],
+          "fabul_w_szkicu": 21
+        },
+        {
+          "id": "trzask-drewna",
+          "nazwa": "Trzask łamanego drewna",
+          "co_slychac": "Trzask i łamanie drewna, pękające pnie i belki.",
+          "wzorce": [
+            "łaman\\w* (?:drzew|belek|pni)",
+            "trzask (?:drewna|pni|gałęzi|belek)",
+            "pękając\\w* gałęzi",
+            "łamani",
+            "łamiąc",
+            "kruszon\\w* pni",
+            "wyrwan\\w* (?:drzew|korzen)",
+            "wyrywan\\w* korzen"
+          ],
+          "fabul_w_szkicu": 3
+        },
+        {
+          "id": "kruszenie-kamienia",
+          "nazwa": "Kruszenie kamienia / muru",
+          "co_slychac": "Kruszenie kamienia, pękający mur, lawina głazów.",
+          "wzorce": [
+            "krusze",
+            "kruszon\\w* (?:kamien|mur|skał)",
+            "pękając\\w* (?:mur|skał|kamien)",
+            "rozpadając\\w* się mur",
+            "przebijan\\w* mur",
+            "głaz",
+            "obryw",
+            "lawin"
+          ],
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "taran-wywazenie",
+          "nazwa": "Taran / wyważenie wrót",
+          "co_slychac": "Taran, szarża, wyważanie wrót i barykad.",
+          "wzorce": [
+            "taran",
+            "wyważ",
+            "druzgotan\\w* wr[oó]t",
+            "rozbijan\\w* (?:barykad|bram|wrót)",
+            "szarż"
+          ],
+          "fabul_w_szkicu": 3
+        },
+        {
+          "id": "rozbicie-szkla",
+          "nazwa": "Rozbicie szkła / kryształu",
+          "co_slychac": "Brzęk tłuczonego szkła lub kryształu.",
+          "wzorce": [
+            "rozprysk kryształ",
+            "tłuczon",
+            "rozbit\\w* (?:szkł|kryształ|zwierciad)",
+            "pękając\\w* szkł",
+            "brzęk szkła"
+          ],
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "zgrzyt-metalu",
+          "nazwa": "Zgrzyt / darcie metalu",
+          "co_slychac": "Zgrzyt, darcie i skręcanie metalu.",
+          "wzorce": [
+            "zgrzyt",
+            "dart\\w* metal",
+            "rozdzieran\\w* (?:stali|blach|metalu|pancerz)",
+            "szarpan\\w* metal",
+            "skręcan\\w* stal"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "wybuch",
+          "nazwa": "Wybuch / eksplozja / detonacja",
+          "co_slychac": "Eksplozja, detonacja, rozerwanie.",
+          "wzorce": [
+            "wybuch",
+            "eksploz",
+            "detonac",
+            "rozsadz",
+            "rozerwan"
+          ],
+          "fabul_w_szkicu": 6
+        },
+        {
+          "id": "wstrzas-ziemi",
+          "nazwa": "Wstrząs ziemi / pękający grunt",
+          "co_slychac": "Wstrząs gruntu, pękająca ziemia, tąpnięcie.",
+          "wzorce": [
+            "pękając\\w* ziemi",
+            "wstrząs",
+            "trzęsieni",
+            "rozstępując\\w* się (?:grunt|ziemi)",
+            "szczelin",
+            "tąpnięci"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "huk-ognia",
+          "nazwa": "Huk ognia / strumień płomieni",
+          "co_slychac": "Huk i strumień płomieni, buchający ogień.",
+          "wzorce": [
+            "płomien",
+            "ogni\\w{0,4} ",
+            "miotacz",
+            "pożar",
+            "żar ",
+            "płonąc",
+            "podpalen",
+            "ognist"
+          ],
+          "fabul_w_szkicu": 16
+        },
+        {
+          "id": "trzask-blyskawicy",
+          "nazwa": "Trzask błyskawicy / wyładowanie",
+          "co_slychac": "Elektryczny trzask, wyładowanie, iskrzenie.",
+          "wzorce": [
+            "błyskawic",
+            "wyładowan",
+            "piorun",
+            "elektryczn",
+            "iskr",
+            "porażen"
+          ],
+          "fabul_w_szkicu": 12
+        },
+        {
+          "id": "fala-rozbryzg",
+          "nazwa": "Fala / rozbryzg / uderzenie wody",
+          "co_slychac": "Uderzenie wody: fala, rozbryzg, plusk, wodospad.",
+          "wzorce": [
+            "fal(?:a|i|ą|e) ",
+            "rozbryzg",
+            "plusk",
+            "chlust",
+            "bryzg",
+            "wynurzen",
+            "rozprysk wody",
+            "wir wodny",
+            "topiąc",
+            "wodospad",
+            "szum wod",
+            "brodzeni",
+            "płynąc\\w* wod",
+            "kapiąc\\w* ciał"
+          ],
+          "fabul_w_szkicu": 21
+        },
+        {
+          "id": "slup-wody",
+          "nazwa": "Wzbierający słup wody",
+          "co_slychac": "Pionowa, narastająca kolumna wody: wzbieranie, utrzymanie, opadnięcie — nie uderzenie fali.",
+          "wzorce": [
+            "wzbierając\\w* słup",
+            "słup wody",
+            "kolumn\\w* wody",
+            "wodn\\w* kolumn",
+            "gejzer"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "trzask-lodu",
+          "nazwa": "Trzask lodu / zamarzanie",
+          "co_slychac": "Trzask lodu, zamarzanie, narastający szron.",
+          "wzorce": [
+            "lod(?:u|em)",
+            "zamarza",
+            "zamroż",
+            "mróz",
+            "szron",
+            "oblodzen",
+            "krystalizacj\\w* lodu",
+            "sopl"
+          ],
+          "fabul_w_szkicu": 7
+        },
+        {
+          "id": "aura-lagodna",
+          "nazwa": "Łagodna narastająca aura",
+          "co_slychac": "Miękki świetlisty szum: uzdrowienie, błogosławieństwo, ciepła aura — narasta bez uderzenia.",
+          "wzorce": [
+            "uzdrawiając",
+            "błogosławieńst",
+            "ciepł\\w* aur",
+            "ukojen",
+            "kojąc"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "wiezy-swiatla",
+          "nazwa": "Świetliste więzy",
+          "co_slychac": "Zatrzask świetlistych więzów: łańcuchy, klatki, linie paraliżu — dźwięczne spięcie.",
+          "wzorce": [
+            "świetlist\\w* (?:łańcuch|więz|klatk)",
+            "linie paraliżu",
+            "zatrzask więzów",
+            "promienie zakazu"
+          ],
+          "fabul_w_szkicu": 5
+        },
+        {
+          "id": "rozblysk-swiatla",
+          "nazwa": "Rozbłysk świetlistej mocy",
+          "co_slychac": "Narastający świetlisty rozbłysk, aura, promień, snop światła.",
+          "wzorce": [
+            "rozbłysk",
+            "świetlist",
+            "promien",
+            "blask",
+            "lśnien",
+            "jaśniej",
+            "aureol",
+            "aur(?:a|y|ą) ",
+            "poświat",
+            "ściana światła",
+            "olśniewając",
+            "światł",
+            "snop",
+            "iskierk"
+          ],
+          "fabul_w_szkicu": 25
+        },
+        {
+          "id": "mroczna-fala",
+          "nazwa": "Mroczna fala / wyssanie mocy",
+          "co_slychac": "Mroczna fala mocy: wysysanie, nekromantyczny przepływ, klątwa.",
+          "wzorce": [
+            "wyssan",
+            "wysysan",
+            "mroczn\\w* (?:fal|energ|wstęg|moc)",
+            "nekromant",
+            "cień poch",
+            "smolist",
+            "klątw",
+            "spaczając",
+            "całun",
+            "karmazynow\\w* wstęg",
+            "bluźnierc"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "rezonans-magiczny",
+          "nazwa": "Rezonans / brzmienie magii",
+          "co_slychac": "Rezonans i wibracja magii: zaklęcia, runy, rytualne przepływy energii.",
+          "wzorce": [
+            "rezonans",
+            "rezonuj",
+            "wibracj",
+            "brzmien",
+            "harmonicz",
+            "pulsując\\w* (?:moc|energi|świat)",
+            "drgani",
+            "zaklęci",
+            "czar(?:u|em|y)? ",
+            "run(?:y|iczn)",
+            "glify",
+            "astraln",
+            "błogosławieńst",
+            "wstęg",
+            "strumień (?:eteru|energii|mocy)",
+            "spływając\\w* moc",
+            "duch",
+            "przodk",
+            "wizj",
+            "hipnoz",
+            "trans",
+            "rytualn\\w* akt"
+          ],
+          "fabul_w_szkicu": 24
+        },
+        {
+          "id": "szum-obcy",
+          "nazwa": "Zniekształcony szum / obca ingerencja",
+          "co_slychac": "Zniekształcony, obcy szum — zakłócenie rzeczywistości, sygnał cyfrowy.",
+          "wzorce": [
+            "zniekształcon\\w* szum",
+            "statyczn\\w* szum",
+            "obc\\w* (?:szum|dźwięk|częstotliw)",
+            "dysonans",
+            "zakłócen",
+            "psionicz",
+            "cyfrow",
+            "rejestrator",
+            "migotan\\w* ekran"
+          ],
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "bariera-odbicie",
+          "nazwa": "Bariera / tarcza / odbicie ataku",
+          "co_slychac": "Tarcza lub bariera: rozbicie ataku o powłokę, odbicie.",
+          "wzorce": [
+            "barier",
+            "tarcz",
+            "osłon",
+            "odbici",
+            "odbit",
+            "rykoszet",
+            "powłok",
+            "kopuł",
+            "blokuj"
+          ],
+          "fabul_w_szkicu": 18
+        },
+        {
+          "id": "przemiana-materializacja",
+          "nazwa": "Przemiana / materializacja / rozpad formy",
+          "co_slychac": "Przemiana formy: materializacja, rozpad, rozpłynięcie, kopiowanie.",
+          "wzorce": [
+            "przemian",
+            "materializ",
+            "dematerializ",
+            "rozpad",
+            "rozpłyn",
+            "krystalizuj",
+            "formuj",
+            "formowan",
+            "przeobraż",
+            "transformac",
+            "wyłaniając",
+            "kokon",
+            "metamorfoz",
+            "zastyg",
+            "łuszcz",
+            "wspomnie",
+            "ulotnien",
+            "wsysa",
+            "wciągnięci",
+            "rozpuszczaj",
+            "kopi(?:a|ę) ",
+            "podwojen",
+            "wir "
+          ],
+          "fabul_w_szkicu": 23
+        },
+        {
+          "id": "furkot-mechanizmu",
+          "nazwa": "Furkot drobnego mechanizmu",
+          "co_slychac": "Praca drobnego lub precyzyjnego mechanizmu: furkot, tryby, serwomotory.",
+          "wzorce": [
+            "furkot",
+            "tryb(?:y|ów|ami)",
+            "zegarow",
+            "thopter",
+            "mechanizm",
+            "nakręcan",
+            "sprężyn",
+            "tykani",
+            "serwomechanizm",
+            "konstrukt",
+            "chwytak",
+            "zębatk",
+            "automat",
+            "robot",
+            "implant",
+            "cykani",
+            "montuj",
+            "montaż",
+            "demontaż",
+            "skaner",
+            "kompas",
+            "hologra",
+            "moduł"
+          ],
+          "fabul_w_szkicu": 16
+        },
+        {
+          "id": "loskot-machiny",
+          "nazwa": "Łoskot ciężkiej machiny / silnika",
+          "co_slychac": "Łoskot ciężkiej machiny, ryk silnika, walec.",
+          "wzorce": [
+            "silnik",
+            "napęd",
+            "turbin",
+            "tłok",
+            "łoskot",
+            "warkot (?:maszyn|silnik|machin)",
+            "walec",
+            "lokomotyw",
+            "machin",
+            "dźwig"
+          ],
+          "fabul_w_szkicu": 6
+        },
+        {
+          "id": "zgrzyt-zawiasow",
+          "nazwa": "Zgrzyt zawiasów / łańcuchów / lin",
+          "co_slychac": "Zgrzyt zawiasów, łańcuchów, lin, krat i wrót.",
+          "wzorce": [
+            "zawias",
+            "łańcuch",
+            "skrzyp",
+            "wciągar",
+            "kołowrot",
+            "lin(?:a|y|ę|ami)",
+            "ramp",
+            "wrota",
+            "krat",
+            "hak"
+          ],
+          "fabul_w_szkicu": 8
+        },
+        {
+          "id": "dzwon-gong",
+          "nazwa": "Dzwon / gong",
+          "co_slychac": "Bicie dzwonu lub gongu.",
+          "wzorce": [
+            "dzwon",
+            "gong",
+            "bicie dzwon"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "rog-sygnal",
+          "nazwa": "Róg / trąbka / sygnał",
+          "co_slychac": "Róg, trąbka, fanfara — sygnał dźwiękowy.",
+          "wzorce": [
+            "róg",
+            "rogu",
+            "trąbk",
+            "sygnał",
+            "fanfar",
+            "hejnał"
+          ],
+          "fabul_w_szkicu": 2
+        },
+        {
+          "id": "szelest-papieru",
+          "nazwa": "Szelest papieru / pergaminu",
+          "co_slychac": "Papier w ruchu: szelest mapy, kartkowanie, rozwijanie zwoju.",
+          "wzorce": [
+            "szelest (?:mapy|pergaminu|kart|stron|papieru)",
+            "kartkowan",
+            "rozwijan\\w* zwoj",
+            "rozkładan\\w* map"
+          ],
+          "fabul_w_szkicu": 5
+        },
+        {
+          "id": "grzechot-kosci",
+          "nazwa": "Grzechot kości",
+          "co_slychac": "Suchy grzechot i stukot kości, kościanych ozdób, grzechotek.",
+          "wzorce": [
+            "grzechot",
+            "kościan\\w* ochran"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "skrobanie-pisma",
+          "nazwa": "Skrobanie pisma",
+          "co_slychac": "Pióro, rylec lub rysik skrobiący po pergaminie, tabliczce, kamieniu.",
+          "wzorce": [
+            "skroban",
+            "drapanie po pergamin",
+            "rylc",
+            "rysik"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "brzek-drobiazgow",
+          "nazwa": "Brzęk metalowych drobiazgów",
+          "co_slychac": "Brzęk drobnych metalowych przedmiotów: klucze, monety, wytrychy, sprzączki, wiszący oręż.",
+          "wzorce": [
+            "pobrzękiwan",
+            "wytrych",
+            "monet",
+            "brzęk (?:zapinanych|odrzucanych|dziesiątek)",
+            "pęk\\w* kluczy"
+          ],
+          "fabul_w_szkicu": 7
+        },
+        {
+          "id": "chrobot-szelest",
+          "nazwa": "Chrobot / drapanie / szelest",
+          "co_slychac": "Drobna manipulacja: chrobot, szelest, stuknięcia, grzechot, przekładanie przedmiotów.",
+          "wzorce": [
+            "chrobot",
+            "drapan",
+            "szelest",
+            "szuran",
+            "chrzęst (?:liści|pergamin)",
+            "skroban",
+            "szmer",
+            "stuknięci",
+            "przesypywan",
+            "odgrzebywan",
+            "przeszukiwan",
+            "grzebani",
+            "pobrzękiwan",
+            "klucz",
+            "brzęknięci",
+            "rynsztunk",
+            "monet",
+            "odciskan",
+            "tabliczk",
+            "kart\\w* księg",
+            "opatrunk",
+            "składani",
+            "wydzier",
+            "zapinan\\w* pas",
+            "odrzucan\\w* częś",
+            "grzechot",
+            "kośc"
+          ],
+          "fabul_w_szkicu": 15
+        },
+        {
+          "id": "bulgot-syk",
+          "nazwa": "Bulgot / syk wywaru, kwasu, pary",
+          "co_slychac": "Bulgot wywaru, syk pary, kwasu lub gazu.",
+          "wzorce": [
+            "bulgot",
+            "wywar",
+            "kwas",
+            "syk (?:pary|gazu|palnik|kwasu|jarzącej|włazu)",
+            "wrzeni",
+            "kipien",
+            "par(?:a|y) ",
+            "opary",
+            "trując\\w* gaz"
+          ],
+          "fabul_w_szkicu": 5
+        },
+        {
+          "id": "chrzest-pozerania",
+          "nazwa": "Chrzęst pożerania / kąsanie",
+          "co_slychac": "Kąsanie, kłapnięcie paszczy, chrzęst pożerania.",
+          "wzorce": [
+            "pożera",
+            "kąsan",
+            "ukąsze",
+            "kły",
+            "zębiska",
+            "przegryza",
+            "mlaska",
+            "żarłocz",
+            "połknię",
+            "kłapnięci",
+            "paszcz"
+          ],
+          "fabul_w_szkicu": 4
+        }
+      ]
+    },
+    "mood": {
+      "kod": "c",
+      "nazwa": "nastrój kody",
+      "liczba_klas": 20,
+      "klasy": [
+        {
+          "id": "czujnosc-napiecie",
+          "nazwa": "Czujność / napięcie / oczekiwanie",
+          "co_slychac": "Czujność, napięcie, wyczekiwanie — koda trzyma oddech.",
+          "wzorce": [
+            "czujnoś",
+            "napięci",
+            "oczekiwan",
+            "wyczekiwan",
+            "gotowoś",
+            "nasłuchiwan",
+            "ostrożnoś",
+            "niepewnoś",
+            "zasadzk",
+            "czajen",
+            "nieufnoś",
+            "podejrzliw",
+            "groźb",
+            "uśpion",
+            "śledzen",
+            "tropien",
+            "alarm",
+            "hałas",
+            "straż",
+            "terytorialn",
+            "warta",
+            "czuwan"
+          ],
+          "fabul_w_szkicu": 66
+        },
+        {
+          "id": "groza-przerazenie",
+          "nazwa": "Groza / przerażenie / makabra",
+          "co_slychac": "Groza, strach, makabra — koda mrozi.",
+          "wzorce": [
+            "groz",
+            "przerażen",
+            "strach",
+            "lęk",
+            "trwog",
+            "koszmar",
+            "makabr",
+            "horror",
+            "paniczn",
+            "panik",
+            "obrzydzen",
+            "odraz",
+            "upiorn",
+            "wstręt",
+            "zaraz",
+            "plag"
+          ],
+          "fabul_w_szkicu": 59
+        },
+        {
+          "id": "nieuchronnosc-fatum",
+          "nazwa": "Nieuchronność / fatum / nieodwracalność",
+          "co_slychac": "Nieuchronność, fatum, wyrok — koda opada bez ratunku.",
+          "wzorce": [
+            "nieuchronn",
+            "fatum",
+            "nieodwracaln",
+            "nieubłagan",
+            "nieodwołaln",
+            "przeznaczen",
+            "wyrok",
+            "zguba",
+            "zagład",
+            "beznadziej",
+            "rytualn",
+            "obieg śmierci",
+            "kaprys",
+            "los(?:u|em)? ",
+            "pakt"
+          ],
+          "fabul_w_szkicu": 27
+        },
+        {
+          "id": "determinacja-niezlomnosc",
+          "nazwa": "Determinacja / niezłomność / wytrwałość",
+          "co_slychac": "Determinacja, wytrwałość, hart — koda zaciska pięść.",
+          "wzorce": [
+            "determinac",
+            "niezłomn",
+            "wytrwał",
+            "nieustępliw",
+            "upór",
+            "uporcz",
+            "hart",
+            "przetrwan",
+            "niepoddawan",
+            "walka do końca",
+            "zaciekł",
+            "zawzięt"
+          ],
+          "fabul_w_szkicu": 32
+        },
+        {
+          "id": "triumf-chwala",
+          "nazwa": "Triumf / chwała / heroizm",
+          "co_slychac": "Triumf, chwała, zwycięstwo — koda unosi.",
+          "wzorce": [
+            "triumf",
+            "chwał",
+            "zwycięst",
+            "heroizm",
+            "heroiczn",
+            "bohater",
+            "sława",
+            "wiktori",
+            "odwrócen\\w* los"
+          ],
+          "fabul_w_szkicu": 8
+        },
+        {
+          "id": "nadzieja-ukojenie",
+          "nazwa": "Nadzieja / otucha / ukojenie",
+          "co_slychac": "Nadzieja, otucha, ukojenie, uzdrowienie — koda ogrzewa.",
+          "wzorce": [
+            "nadziej",
+            "otuch",
+            "ukojen",
+            "pocieszen",
+            "ulga",
+            "uzdrowien",
+            "ocalen",
+            "wybawien",
+            "odroczen",
+            "łask",
+            "uzdrawia",
+            "odrodzen",
+            "oczyszczen",
+            "kojąc",
+            "wiar",
+            "natchnien",
+            "miłosierdz",
+            "łagodnoś"
+          ],
+          "fabul_w_szkicu": 47
+        },
+        {
+          "id": "wspolnota-wiez",
+          "nazwa": "Wspólnota / więź / wierność",
+          "co_slychac": "Wspólnota, więź, wierność — koda łączy.",
+          "wzorce": [
+            "wspólnot",
+            "więź",
+            "więzi",
+            "wiernoś",
+            "lojalnoś",
+            "braterst",
+            "przyjaźń",
+            "oddani",
+            "sojusz",
+            "jednoś",
+            "solidarnoś",
+            "zaufan",
+            "towarzysk",
+            "rodzinn",
+            "gościnnoś",
+            "serdecznoś",
+            "wielkodusznoś",
+            "życzliw",
+            "błog",
+            "sympati",
+            "zjednoczen",
+            "przewodnik"
+          ],
+          "fabul_w_szkicu": 34
+        },
+        {
+          "id": "duma-majestat",
+          "nazwa": "Duma / majestat / dostojeństwo",
+          "co_slychac": "Duma, majestat, dostojeństwo, potęga — koda rośnie szeroko.",
+          "wzorce": [
+            "dum(?:a|y|ą)",
+            "majestat",
+            "dostojeńst",
+            "dostojnoś",
+            "wzniosłoś",
+            "podniosłoś",
+            "godnoś",
+            "wielkoś",
+            "monumentaln",
+            "pewnoś",
+            "potęg",
+            "niewzruszon"
+          ],
+          "fabul_w_szkicu": 31
+        },
+        {
+          "id": "furia-dzikosc",
+          "nazwa": "Furia / dzikość / żywioł",
+          "co_slychac": "Furia, dzikość, żywioł — koda uderza bez kontroli.",
+          "wzorce": [
+            "furi",
+            "szał",
+            "dzikoś",
+            "gniew",
+            "wściekłoś",
+            "żywioł",
+            "pierwotn\\w* (?:sił|instynkt|głód|więź)",
+            "nieokiełzn",
+            "kataklizm",
+            "chaos",
+            "apokalipt",
+            "anarch",
+            "gorączk",
+            "surowoś"
+          ],
+          "fabul_w_szkicu": 24
+        },
+        {
+          "id": "bezwzglednosc-drapieznosc",
+          "nazwa": "Bezwzględność / drapieżność / dominacja",
+          "co_slychac": "Bezwzględność, drapieżność, dominacja — koda jest zimna i ostateczna.",
+          "wzorce": [
+            "bezwzględn",
+            "drapieżn",
+            "bezlitosn",
+            "okrucieńst",
+            "okrutn",
+            "dominacj",
+            "tyrani",
+            "przemoc",
+            "brutalnoś",
+            "wyższoś",
+            "pogard",
+            "wyzysk",
+            "bezdusznoś",
+            "zimn\\w* kalkulacj",
+            "chciwoś",
+            "plugaw",
+            "pasożyt",
+            "wysysa",
+            "pragmat",
+            "poborc"
+          ],
+          "fabul_w_szkicu": 31
+        },
+        {
+          "id": "podstep-intryga",
+          "nazwa": "Podstęp / intryga / konspiracja",
+          "co_slychac": "Podstęp, intryga, konspiracja — koda mruga okiem w cieniu.",
+          "wzorce": [
+            "podstęp",
+            "intryg",
+            "konspirac",
+            "spisek",
+            "fortel",
+            "zdrad",
+            "oszust",
+            "kradzież",
+            "sabotaż",
+            "przebiegłoś",
+            "spryt",
+            "chytroś",
+            "szelmost",
+            "kamuflaż",
+            "maskowan",
+            "sekret"
+          ],
+          "fabul_w_szkicu": 17
+        },
+        {
+          "id": "tajemnica-obcosc",
+          "nazwa": "Tajemnica / niesamowitość / obcość",
+          "co_slychac": "Tajemnica, niesamowitość, obcość — koda zostawia znak zapytania.",
+          "wzorce": [
+            "tajemnic",
+            "niesamowit",
+            "obcoś",
+            "zagadk",
+            "nieznan",
+            "niepojęt",
+            "osobliw",
+            "dziwn",
+            "dziwacz",
+            "nadprzyrodzon",
+            "mistycyzm",
+            "mistyczn",
+            "oniryczn",
+            "senn",
+            "ułud",
+            "kosmiczn\\w* groz",
+            "dezorientacj",
+            "surrealn",
+            "zawieszen",
+            "głębi"
+          ],
+          "fabul_w_szkicu": 24
+        },
+        {
+          "id": "spokoj-kontemplacja",
+          "nazwa": "Spokój / kontemplacja / skupienie",
+          "co_slychac": "Spokój, kontemplacja, skupienie — koda oddycha powoli.",
+          "wzorce": [
+            "spokój",
+            "spokojn",
+            "kontemplac",
+            "skupien",
+            "medytac",
+            "cisz",
+            "opanowan",
+            "równowag",
+            "harmoni",
+            "cierpliwoś",
+            "pokora",
+            "pokorn",
+            "uważnoś",
+            "zaduma",
+            "świętoś",
+            "wiecznoś",
+            "trwani"
+          ],
+          "fabul_w_szkicu": 22
+        },
+        {
+          "id": "radosc-beztroska",
+          "nazwa": "Radość / beztroska / zabawa",
+          "co_slychac": "Radość, beztroska, ciekawość, zabawa — koda jest lekka.",
+          "wzorce": [
+            "radoś",
+            "beztrosk",
+            "zabaw",
+            "wesoł",
+            "entuzjazm",
+            "ciekawoś",
+            "psot",
+            "figlarn",
+            "swawol",
+            "pogod",
+            "żart",
+            "uciech",
+            "zachwyt",
+            "komiczn",
+            "absurd",
+            "sielank",
+            "odkry",
+            "krzątanin",
+            "pracowit"
+          ],
+          "fabul_w_szkicu": 20
+        },
+        {
+          "id": "zuchwalosc-brawura",
+          "nazwa": "Zuchwałość / brawura / pęd",
+          "co_slychac": "Zuchwałość, brawura, pęd, przygoda — koda szarżuje z uśmiechem.",
+          "wzorce": [
+            "zuchwał",
+            "brawur",
+            "pęd",
+            "ryzyk",
+            "śmiałoś",
+            "odwag",
+            "wolnoś",
+            "przygod",
+            "adrenalin",
+            "żywiołow\\w* rozpęd",
+            "bezczelnoś",
+            "eufori"
+          ],
+          "fabul_w_szkicu": 18
+        },
+        {
+          "id": "smutek-strata",
+          "nazwa": "Smutek / strata / melancholia",
+          "co_slychac": "Smutek, strata, melancholia, pożegnanie — koda gaśnie.",
+          "wzorce": [
+            "smutek",
+            "smutn",
+            "strat",
+            "utrat",
+            "melanchol",
+            "żal",
+            "żałob",
+            "tęsknot",
+            "pożegnan",
+            "elegijn",
+            "samotnoś",
+            "wygnan",
+            "gorycz",
+            "przemijan"
+          ],
+          "fabul_w_szkicu": 9
+        },
+        {
+          "id": "bezsilnosc-osaczenie",
+          "nazwa": "Bezsilność / osaczenie / duszność",
+          "co_slychac": "Bezsilność, osaczenie, duszność — koda zaciska się wokół słuchacza.",
+          "wzorce": [
+            "bezsilnoś",
+            "osaczen",
+            "uwięzien",
+            "bezradnoś",
+            "przytłoczen",
+            "dusznoś",
+            "klaustrofob",
+            "pułapk",
+            "niewola",
+            "zniewolen",
+            "obezwładnien",
+            "paraliż",
+            "przymus",
+            "wyczerpu",
+            "nękan",
+            "mozoł",
+            "mozół"
+          ],
+          "fabul_w_szkicu": 11
+        },
+        {
+          "id": "poswiecenie-ofiara",
+          "nazwa": "Poświęcenie / ofiara / służba",
+          "co_slychac": "Poświęcenie, ofiara, służba — koda jest powinnością.",
+          "wzorce": [
+            "poświęcen",
+            "ofiar",
+            "służb",
+            "obowiąz",
+            "powinnoś",
+            "oddanie sprawie",
+            "męczeńst",
+            "wyrzeczen",
+            "inicjacj",
+            "cena "
+          ],
+          "fabul_w_szkicu": 9
+        },
+        {
+          "id": "precyzja-dyscyplina",
+          "nazwa": "Precyzja / dyscyplina / mistrzostwo",
+          "co_slychac": "Precyzja, dyscyplina, mistrzostwo — koda jest czysta i kontrolowana.",
+          "wzorce": [
+            "precyz",
+            "dyscyplin",
+            "mistrzost",
+            "perfekcj",
+            "doskonałoś",
+            "rzemiosł",
+            "kunszt",
+            "wprawa",
+            "profesjonal",
+            "metodycznoś",
+            "porządek",
+            "rygor",
+            "skutecznoś",
+            "eleganc",
+            "industrialn"
+          ],
+          "fabul_w_szkicu": 17
+        },
+        {
+          "id": "wladza-kontrola",
+          "nazwa": "Władza / kontrola / autorytet",
+          "co_slychac": "Władza, kontrola, autorytet — koda panuje nad przestrzenią.",
+          "wzorce": [
+            "władz",
+            "kontrol",
+            "autorytet",
+            "panowan",
+            "rozkaz",
+            "posłuszeńst",
+            "poddańst",
+            "hierarchi",
+            "zwierzchnoś",
+            "imperialn",
+            "przywilej",
+            "wyklucze",
+            "podział"
+          ],
+          "fabul_w_szkicu": 4
+        }
+      ]
+    },
+    "instrumentation": {
+      "kod": "d",
+      "nazwa": "charakter instrumentacji",
+      "liczba_klas": 18,
+      "klasy": [
+        {
+          "id": "mroczna",
+          "nazwa": "Mrocznie (ciemna barwa)",
+          "co_slychac": "Ciemna barwa brzmienia: przygaszone, posępne, pozbawione blasku — niezależnie od masy.",
+          "wzorce": [
+            "ciemn",
+            "mroczn",
+            "posępn",
+            "przyciemnion",
+            "popielat",
+            "gnilnie",
+            "gnilny",
+            "szar(?:o|y)",
+            "cienist"
+          ],
+          "fabul_w_szkicu": 90
+        },
+        {
+          "id": "ciezka",
+          "nazwa": "Ciężko (masa i niski rejestr)",
+          "co_slychac": "Masa dźwięku: niskie rejestry, dudnienie, powolne wybrzmienia, ciężar — niezależnie od barwy.",
+          "wzorce": [
+            "ciężk",
+            "nisk",
+            "dudni",
+            "głębok",
+            "ociężał",
+            "masywn",
+            "przytłaczając",
+            "głuch",
+            "przepastn"
+          ],
+          "fabul_w_szkicu": 50
+        },
+        {
+          "id": "monumentalno-potezna",
+          "nazwa": "Monumentalnie i potężnie (masa, rozmach)",
+          "co_slychac": "Masa i rozmach: pełne tutti, wielkie uderzenia, szeroka dynamika.",
+          "wzorce": [
+            "potężn",
+            "monumentaln",
+            "epick",
+            "ogłuszając",
+            "miażdżąc",
+            "przytłaczając",
+            "masow",
+            "wstrząsow",
+            "burzow",
+            "burzliw",
+            "wybuchow",
+            "huczą",
+            "grzmiąc",
+            "porywając",
+            "widowisk",
+            "dramatyczn",
+            "miażdż"
+          ],
+          "fabul_w_szkicu": 33
+        },
+        {
+          "id": "cicho-kameralna",
+          "nazwa": "Cicho i kameralnie (drobne, oszczędne)",
+          "co_slychac": "Drobno i oszczędnie: pojedyncze źródła, mała dynamika, blisko ucha.",
+          "wzorce": [
+            "cich",
+            "delikatn",
+            "drobn",
+            "filigranow",
+            "stłumion",
+            "kameraln",
+            "oszczędn",
+            "przyciszon",
+            "dyskretn",
+            "subteln",
+            "minimaln",
+            "punktow",
+            "przytulnie"
+          ],
+          "fabul_w_szkicu": 65
+        },
+        {
+          "id": "jasno-swietlista",
+          "nazwa": "Jasno i świetliście (czyste, dzwoniące)",
+          "co_slychac": "Jasno i czysto: wysokie rejestry, dzwoniące i szkliste barwy.",
+          "wzorce": [
+            "jasn",
+            "świetliś",
+            "świetlist",
+            "czyst",
+            "krystaliczn",
+            "srebrzyst",
+            "klarown",
+            "olśniewając",
+            "dźwięczn",
+            "dzwonn",
+            "dzwoniąc",
+            "połyskliw",
+            "opalizując",
+            "jaskraw",
+            "błyskotliw",
+            "iskrząc",
+            "przejrzyst",
+            "olśni"
+          ],
+          "fabul_w_szkicu": 66
+        },
+        {
+          "id": "cieplo-serdeczna",
+          "nazwa": "Ciepło i miękko (organiczne ciepło)",
+          "co_slychac": "Ciepło i miękko: łagodne barwy, zaokrąglone ataki, organiczne ciepło.",
+          "wzorce": [
+            "ciepł",
+            "miękk",
+            "kojąc",
+            "serdeczn",
+            "dobroduszn",
+            "aksamitn",
+            "łagodn",
+            "przytuln",
+            "swojsk",
+            "pogodn",
+            "dobrotliw"
+          ],
+          "fabul_w_szkicu": 33
+        },
+        {
+          "id": "uroczysto-podniosla",
+          "nazwa": "Uroczyście i podniośle (ceremonia, chorał)",
+          "co_slychac": "Ceremonialnie: chorałowe brzmienia, dęte, wolne dostojne tempo.",
+          "wzorce": [
+            "uroczyst",
+            "dostojn",
+            "ceremonialn",
+            "nabożn",
+            "majestatyczn",
+            "heroiczn",
+            "podniosł",
+            "wzniosł",
+            "chóraln",
+            "dęt",
+            "hymnicz",
+            "rytualn",
+            "sakraln",
+            "koronacyj",
+            "triumfaln",
+            "teatraln",
+            "władcz",
+            "epicko"
+          ],
+          "fabul_w_szkicu": 15
+        },
+        {
+          "id": "metaliczno-mechaniczna",
+          "nazwa": "Metalicznie i mechanicznie (tryby, blacha)",
+          "co_slychac": "Metal i mechanika: blachy, tryby, industrialne faktury, precyzyjne rytmy.",
+          "wzorce": [
+            "metalicz",
+            "mechanicz",
+            "mosiężn",
+            "blaszan",
+            "technicz",
+            "zgrzytliw",
+            "parow",
+            "industrialn",
+            "maszynow",
+            "fabryczn",
+            "elektronicz",
+            "porcelanow",
+            "rzemieślnicz",
+            "precyzyj"
+          ],
+          "fabul_w_szkicu": 30
+        },
+        {
+          "id": "ostro-gwaltowna",
+          "nazwa": "Ostro i gwałtownie (nagłe, tnące)",
+          "co_slychac": "Ostro i nagle: szybkie ataki, tnące transjenty, agresywna dynamika.",
+          "wzorce": [
+            "ostr(?:o|y|a)",
+            "gwałtown",
+            "nagł",
+            "dynamiczn",
+            "brutaln",
+            "przenikliw",
+            "rozdzierając",
+            "przeszywając",
+            "agresywn",
+            "zaczepn",
+            "drapieżn",
+            "szybk",
+            "pędząc",
+            "rozpędzon",
+            "naglą",
+            "piskliw",
+            "wysok",
+            "stanowcz"
+          ],
+          "fabul_w_szkicu": 32
+        },
+        {
+          "id": "zimno-szklista",
+          "nazwa": "Zimno i szkliście (mróz, kryształ)",
+          "co_slychac": "Zimno: szkliste, kruche, mroźne barwy, brak ciepła.",
+          "wzorce": [
+            "chłodn",
+            "zimn",
+            "mroźn",
+            "lodowat",
+            "szklist",
+            "szklan",
+            "kruch",
+            "cienk",
+            "matow",
+            "sopl",
+            "zmrożon"
+          ],
+          "fabul_w_szkicu": 21
+        },
+        {
+          "id": "mokro-organiczna",
+          "nazwa": "Mokro i lepko (woda, śluz, bagno)",
+          "co_slychac": "Mokro i lepko: płynne, bulgoczące, faliste faktury.",
+          "wzorce": [
+            "mokr",
+            "wodnist",
+            "bulgocząc",
+            "oleist",
+            "lepk",
+            "bagienn",
+            "błotnist",
+            "oślizg",
+            "śluzow",
+            "wilgotn",
+            "kapiąc",
+            "sącząc",
+            "płynn",
+            "falując",
+            "kołysząc",
+            "podwodn",
+            "parn"
+          ],
+          "fabul_w_szkicu": 15
+        },
+        {
+          "id": "napieto-niepokojaca",
+          "nazwa": "Napięcie i niepokój (złowrogie tło)",
+          "co_slychac": "Niepokój: dysonujące napięcie, nieregularne akcenty, złowrogie tło.",
+          "wzorce": [
+            "napięt",
+            "niepokojąc",
+            "nerwow",
+            "niespokojn",
+            "złowrog",
+            "złowieszcz",
+            "upiorn",
+            "duszn",
+            "duszą",
+            "groźn",
+            "posępnie",
+            "niestabiln",
+            "chwiejn",
+            "dwuznaczn",
+            "przerażając",
+            "groteskow",
+            "obsesyj",
+            "paranoiczn",
+            "pełzając"
+          ],
+          "fabul_w_szkicu": 14
+        },
+        {
+          "id": "miarowo-rytmiczna",
+          "nazwa": "Miarowo i rytmicznie (puls, marsz)",
+          "co_slychac": "Puls: miarowy rytm, marszowy lub wahadłowy ruch.",
+          "wzorce": [
+            "miarow",
+            "rytmiczn",
+            "powoln",
+            "wytrwał",
+            "jednostajn",
+            "kroczą",
+            "pulsując",
+            "marszow",
+            "taneczn",
+            "maszerując",
+            "wahadłow",
+            "zestrojon",
+            "zwart",
+            "cierpliw",
+            "pewn"
+          ],
+          "fabul_w_szkicu": 4
+        },
+        {
+          "id": "lekko-zwinna",
+          "nazwa": "Lekko i zwinnie (ruchliwe, skoczne)",
+          "co_slychac": "Lekko i ruchliwie: drobne wartości, skoczne figury, szybkie pasaże.",
+          "wzorce": [
+            "lekk",
+            "zwinn",
+            "ruchliw",
+            "skoczn",
+            "żyw(?:o|y|a)",
+            "figlarn",
+            "brawurow",
+            "sprężyst",
+            "zwiewn",
+            "wesoł",
+            "psotn",
+            "przekorn",
+            "chytr",
+            "sprytn",
+            "skrząc",
+            "wirując",
+            "uskrzydlon",
+            "frywoln",
+            "swobodn",
+            "beztrosk"
+          ],
+          "fabul_w_szkicu": 12
+        },
+        {
+          "id": "eteryczno-oniryczna",
+          "nazwa": "Eterycznie i onirycznie (mgła, sen, mistyka)",
+          "co_slychac": "Mgliście: rozmyte, oniryczne, zawieszone brzmienia bez wyraźnego pulsu.",
+          "wzorce": [
+            "eteryczn",
+            "mglist",
+            "oniryczn",
+            "mistyczn",
+            "hipnotyczn",
+            "tajemnicz",
+            "migotliw",
+            "rozmyt",
+            "senn",
+            "baśniow",
+            "nierealn",
+            "widmow",
+            "astraln",
+            "unoszą",
+            "wznoszą",
+            "blaknąc",
+            "medytacyj",
+            "elegijn",
+            "melancholij",
+            "nostalgi",
+            "aksamitnie mrocz",
+            "snopodobn",
+            "kwitnąc"
+          ],
+          "fabul_w_szkicu": 6
+        },
+        {
+          "id": "ognisto-zarowa",
+          "nazwa": "Ogniście i żarowo (płomień, spiek)",
+          "co_slychac": "Żar: trzeszczące, płomienne, gorące faktury.",
+          "wzorce": [
+            "ognist",
+            "gorąc",
+            "żarow",
+            "żrąc",
+            "płomienn",
+            "trzeszcząc",
+            "skwiercz",
+            "spopielając",
+            "lawow",
+            "wulkanicz",
+            "piekieln"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "sucho-surowa",
+          "nazwa": "Sucho i surowo (ziemia, drewno, kamień)",
+          "co_slychac": "Sucho i surowo: drewno, kamień, skóra — brzmienia bez pogłosu i ozdób.",
+          "wzorce": [
+            "such",
+            "surow",
+            "tward",
+            "kamienn",
+            "ziemist",
+            "szorstk",
+            "chropowa",
+            "sypk",
+            "tęp",
+            "drewnian",
+            "prost",
+            "przyziemn",
+            "rzeczow",
+            "wiejsk",
+            "ludow",
+            "folkow",
+            "rustykaln",
+            "żwirow",
+            "piaszczyst",
+            "skalist",
+            "archaicz",
+            "plemienn",
+            "dzik",
+            "organiczn",
+            "pierwotn",
+            "naturaln",
+            "grzechotliw",
+            "chrzęstliw",
+            "chrobotliw",
+            "skrzypiąc",
+            "trzeszczą",
+            "łusk",
+            "kostn",
+            "gliniane"
+          ],
+          "fabul_w_szkicu": 19
+        },
+        {
+          "id": "elektryczno-obca",
+          "nazwa": "Elektrycznie i obco (wyładowania, dysonans)",
+          "co_slychac": "Elektrycznie i obco: syntetyczne, rezonujące, zniekształcone widma.",
+          "wzorce": [
+            "elektryczn",
+            "psionicz",
+            "dysonans",
+            "rozstrojon",
+            "niezgodn",
+            "wibrując",
+            "rezonując",
+            "harmoniczn",
+            "obc(?:o|y|a)",
+            "syntetyczn",
+            "kosmiczn",
+            "statyczn",
+            "glitch",
+            "zniekształcon",
+            "falow",
+            "oscyluj",
+            "brzęcząc",
+            "bzycząc",
+            "świszczą",
+            "sycząc",
+            "szumią",
+            "szeleszczą",
+            "pogłosow",
+            "przestrzenn",
+            "przestronn",
+            "szerok",
+            "pust",
+            "echo",
+            "otwart"
+          ],
+          "fabul_w_szkicu": 4
+        }
+      ]
+    }
+  }
+}

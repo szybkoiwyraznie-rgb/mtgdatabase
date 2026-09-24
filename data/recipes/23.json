@@ -1,0 +1,46 @@
+{
+  "story_id": "23",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -34
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 0.8,
+    "target_db": -17
+  },
+  "coda": {
+    "gesture": "g5a_shimmer_up",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.8,
+    "target_db": -22
+  },
+  "seed": 23,
+  "gate": "g017",
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "rozblysk-swiatla",
+      "mood": "radosc-beztroska",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Obsada z resolvera (model 1:1, taksonomia v5)."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "rozblysk-swiatla",
+      "mood": "radosc-beztroska",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "light_bloom_01",
+      "mood": "g5a_shimmer_up",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; filtry twarde czyste; kombinacja unikalna"
+  }
+}

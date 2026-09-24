@@ -1,0 +1,138 @@
+{
+  "id": "g019",
+  "created": "2026-09-24",
+  "story_id": "575",
+  "note": "Runda 2 hero `marsz-oddzialu` po odrzuceniu stylizacji bębnowych (g018). Prawdziwe kroki ze zwiadu freesound; m.2/m.3 to wielowarstwowe złożenia PRAWDZIWYCH kroków (praktyka foley), nie synteza. Domyka fabułę 575.",
+  "entries": [
+    {
+      "slug": "marsz-oddzialu",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `marsz-oddzialu` (7 fabuł; domyka 575)",
+      "candidates": [
+        {
+          "label": "m.1",
+          "title": "prawdziwy marsz (surowe okno)",
+          "file": "candidates/m_real_march.mp3",
+          "desc": "nieprzetworzone okno nagrania maszerującego oddziału — krok co ~0,54 s",
+          "source": "freesound CC0 — lyghtningwither",
+          "entry": {
+            "id": "troop_march_04",
+            "role": "miarowy marsz oddziału",
+            "character": "miarowy, zwarty, naturalny",
+            "distance": "średni",
+            "energy": "średnia",
+            "duration_sec": 3.6,
+            "desc": "nieprzetworzone okno nagrania maszerującego oddziału — krok co ~0,54 s",
+            "good_for": "kolumna wojska, natarcie w szyku, patrol, falanga",
+            "bad_for": "pojedynczy wędrowiec, skradanie, kawaleria",
+            "file": "audio/library/heroes/troop_march_04.mp3",
+            "semantics": {
+              "type": "marsz-oddzialu",
+              "traits": [
+                "miarowy",
+                "prawdziwe kroki",
+                "wielu maszerujących"
+              ],
+              "bad_for": [
+                "chaotyczny",
+                "pojedynczy",
+                "galop"
+              ]
+            },
+            "source": {
+              "title": "Marching Sound (Freesound)",
+              "author": "lyghtningwither",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/lyghtningwither/sounds/771884/",
+              "channel": "sample-scout run 36001624763 (preview-hq-mp3; klucz API nie autoryzuje /download — lekcja 2026-09-24); manifest z sha256 w legacy/source/sample_scout/freesound_marching-footsteps/",
+              "notes": "okno 10.0–13.6 s; tylko poziom i fade"
+            }
+          }
+        },
+        {
+          "label": "m.2",
+          "title": "kolumna na żwirze (4 warstwy)",
+          "file": "candidates/m_gravel_column.mp3",
+          "desc": "cztery warstwy PRAWDZIWYCH kroków po żwirze, przesunięte jak w plutonie — zero syntezy",
+          "source": "freesound CC0 — felix.blume",
+          "entry": {
+            "id": "troop_march_05",
+            "role": "miarowy marsz oddziału",
+            "character": "żwirowy, ciężki, wielonożny",
+            "distance": "średni",
+            "energy": "średnia",
+            "duration_sec": 3.6,
+            "desc": "cztery warstwy prawdziwych kroków po żwirze, przesunięte jak w plutonie",
+            "good_for": "kolumna wojska, natarcie w szyku, patrol, falanga",
+            "bad_for": "pojedynczy wędrowiec, skradanie, kawaleria",
+            "file": "audio/library/heroes/troop_march_05.mp3",
+            "semantics": {
+              "type": "marsz-oddzialu",
+              "traits": [
+                "miarowy",
+                "prawdziwe kroki",
+                "wielu maszerujących"
+              ],
+              "bad_for": [
+                "chaotyczny",
+                "pojedynczy",
+                "galop"
+              ]
+            },
+            "source": {
+              "title": "Footsteps wearing leather shoes on gravel (Freesound)",
+              "author": "felix.blume",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/felix.blume/sounds/779884/",
+              "channel": "sample-scout run 36001624763 (preview-hq-mp3; klucz API nie autoryzuje /download — lekcja 2026-09-24); manifest z sha256 w legacy/source/sample_scout/freesound_marching-footsteps/",
+              "notes": "4 warstwy z różnych fragmentów od 90 s; przesunięcia losowe seed 575; poziom, fade"
+            }
+          }
+        },
+        {
+          "label": "m.3",
+          "title": "kolumna na otoczakach (4 warstwy)",
+          "file": "candidates/m_pebble_column.mp3",
+          "desc": "cztery warstwy prawdziwych kroków po otoczakach — suchszy, ostrzejszy chrzęst",
+          "source": "freesound CC0 — guyburns",
+          "entry": {
+            "id": "troop_march_06",
+            "role": "miarowy marsz oddziału",
+            "character": "chrzęszczący, suchy, wielonożny",
+            "distance": "średni",
+            "energy": "średnia",
+            "duration_sec": 3.6,
+            "desc": "cztery warstwy prawdziwych kroków po otoczakach",
+            "good_for": "kolumna wojska, natarcie w szyku, patrol, falanga",
+            "bad_for": "pojedynczy wędrowiec, skradanie, kawaleria",
+            "file": "audio/library/heroes/troop_march_06.mp3",
+            "semantics": {
+              "type": "marsz-oddzialu",
+              "traits": [
+                "miarowy",
+                "prawdziwe kroki",
+                "wielu maszerujących"
+              ],
+              "bad_for": [
+                "chaotyczny",
+                "pojedynczy",
+                "galop"
+              ]
+            },
+            "source": {
+              "title": "Footsteps on pebbles (Freesound)",
+              "author": "guyburns",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/guyburns/sounds/464800/",
+              "channel": "sample-scout run 36001624763 (preview-hq-mp3; klucz API nie autoryzuje /download — lekcja 2026-09-24); manifest z sha256 w legacy/source/sample_scout/freesound_marching-footsteps/",
+              "notes": "4 warstwy z różnych fragmentów od 2 s; przesunięcia losowe seed 575; poziom, fade"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "marsz-oddzialu": "m.2"
+  }
+}

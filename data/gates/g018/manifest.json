@@ -1,0 +1,621 @@
+{
+  "id": "g018",
+  "created": "2026-09-24",
+  "story_id": "575",
+  "note": "Etap 5, tryb losowy (decyzja właściciela): fabuła 575 Dromoka Warrior wylosowana; brakowały WSZYSTKIE cztery klocki — komplet bramek naraz. Etykiety unikatowe per wpis (d/c/a/b). Kandydaci pod definicje typów.",
+  "entries": [
+    {
+      "slug": "oboz-wojenny",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `oboz-wojenny` (woła 30 fabuł; domyka slot d fabuły 575)",
+      "candidates": [
+        {
+          "label": "d.1",
+          "title": "tabor obozu",
+          "file": "candidates/d_wagon.mp3",
+          "desc": "tabor obozu: skrzyp uprzęży, kroki koni, brzęk okuć — logistyka wojenna w ruchu",
+          "source": "YSL — public domain",
+          "entry": {
+            "id": "warcamp_01",
+            "setting": "obóz wojenny / porządek formacji",
+            "desc": "tabor obozu: skrzyp uprzęży, kroki koni, brzęk okuć — logistyka wojenna w ruchu",
+            "file": "audio/library/backgrounds/warcamp_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "oboz-wojenny",
+              "traits": [
+                "tabor",
+                "kroki",
+                "brzęk rynsztunku",
+                "porządek"
+              ],
+              "bad_for": [
+                "dzika natura",
+                "wnętrze",
+                "miasto"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Horse-Drawn Wagon 2–10 s; poziom +~13 dB (ciche nagranie terenowe), fade"
+            }
+          }
+        },
+        {
+          "label": "d.2",
+          "title": "tabor przy ogniach",
+          "file": "candidates/d_wagon_fire.mp3",
+          "desc": "tabor z ogniami obozowymi w oddali — skrzyp, kroki i ciepły trzask na dystansie",
+          "source": "YSL — public domain (miks 2 nagrań)",
+          "entry": {
+            "id": "warcamp_02",
+            "setting": "obóz wojenny / porządek formacji",
+            "desc": "tabor z ogniami obozowymi w oddali — skrzyp, kroki i ciepły trzask na dystansie",
+            "file": "audio/library/backgrounds/warcamp_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "oboz-wojenny",
+              "traits": [
+                "tabor",
+                "kroki",
+                "brzęk rynsztunku",
+                "porządek"
+              ],
+              "bad_for": [
+                "dzika natura",
+                "wnętrze",
+                "miasto"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "miks: Wagon 12–20 s (-33) + Fire 5–13 s lowpass 1.8 kHz (-39); poziomy i fade"
+            }
+          }
+        },
+        {
+          "label": "d.3",
+          "title": "ognie obozowe w oddali",
+          "file": "candidates/d_fires.mp3",
+          "desc": "szerokie ognie obozowe na dystansie — trzask wielu palenisk, bez taboru",
+          "source": "YSL — public domain",
+          "entry": {
+            "id": "warcamp_03",
+            "setting": "obóz wojenny / porządek formacji",
+            "desc": "szerokie ognie obozowe na dystansie — trzask wielu palenisk, bez taboru",
+            "file": "audio/library/backgrounds/warcamp_03.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "oboz-wojenny",
+              "traits": [
+                "tabor",
+                "kroki",
+                "brzęk rynsztunku",
+                "porządek"
+              ],
+              "bad_for": [
+                "dzika natura",
+                "wnętrze",
+                "miasto"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "Fire 20–28 s; lowpass 1.8 kHz (dystans), poziom, fade"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "marsz-oddzialu",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `marsz-oddzialu` (7 fabuł; slot c fabuły 575)",
+      "candidates": [
+        {
+          "label": "c.1",
+          "title": "głuchy marsz (bęben obręczowy)",
+          "file": "candidates/c_march_muted.mp3",
+          "desc": "sześć miarowych, głuchych stąpnięć w dwóch warstwach — kolumna idzie równym krokiem",
+          "source": "VCSL — CC0 (aranżacja rytmiczna, bez pitchowania)",
+          "entry": {
+            "id": "troop_march_01",
+            "role": "miarowy marsz oddziału",
+            "character": "głuchy, miarowy, zwarty",
+            "distance": "średni",
+            "energy": "średnia",
+            "duration_sec": 3.8,
+            "desc": "sześć miarowych, głuchych stąpnięć w dwóch warstwach — kolumna idzie równym krokiem",
+            "good_for": "kolumna wojska, natarcie w szyku, patrol, falanga",
+            "bad_for": "pojedynczy wędrowiec, skradanie, kawaleria",
+            "file": "audio/library/heroes/troop_march_01.mp3",
+            "semantics": {
+              "type": "marsz-oddzialu",
+              "traits": [
+                "miarowy",
+                "wielogłosowy krok",
+                "zdyscyplinowany"
+              ],
+              "bad_for": [
+                "chaotyczny",
+                "pojedynczy",
+                "galop"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "frame drum HitMuted, 4 ujęcia rr; rytm 0.5 s × 6, dwie warstwy ±18 ms; stylizowany marsz"
+            }
+          }
+        },
+        {
+          "label": "c.2",
+          "title": "drewniany krok kolumny",
+          "file": "candidates/c_march_wood.mp3",
+          "desc": "głęboki drewniany krok — jak tarany stóp w suchym pyle",
+          "source": "VCSL — CC0 (aranżacja rytmiczna, bez pitchowania)",
+          "entry": {
+            "id": "troop_march_02",
+            "role": "miarowy marsz oddziału",
+            "character": "drewniany, głęboki, surowy",
+            "distance": "średni",
+            "energy": "średnia",
+            "duration_sec": 3.8,
+            "desc": "głęboki drewniany krok — jak tarany stóp w suchym pyle",
+            "good_for": "kolumna wojska, natarcie w szyku, patrol, falanga",
+            "bad_for": "pojedynczy wędrowiec, skradanie, kawaleria",
+            "file": "audio/library/heroes/troop_march_02.mp3",
+            "semantics": {
+              "type": "marsz-oddzialu",
+              "traits": [
+                "miarowy",
+                "wielogłosowy krok",
+                "zdyscyplinowany"
+              ],
+              "bad_for": [
+                "chaotyczny",
+                "pojedynczy",
+                "galop"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "log drum Lo, 3 ujęcia rr; rytm 0.5 s × 6, dwie warstwy; stylizowany marsz"
+            }
+          }
+        },
+        {
+          "label": "c.3",
+          "title": "marsz z akcentem broni",
+          "file": "candidates/c_march_accent.mp3",
+          "desc": "miarowy marsz z suchym akcentem co drugi krok — pancerz i drzewce w rytmie",
+          "source": "VCSL — CC0 (aranżacja rytmiczna, bez pitchowania)",
+          "entry": {
+            "id": "troop_march_03",
+            "role": "miarowy marsz oddziału",
+            "character": "miarowy, akcentowany, wojskowy",
+            "distance": "średni",
+            "energy": "średnia",
+            "duration_sec": 3.8,
+            "desc": "miarowy marsz z suchym akcentem co drugi krok — pancerz i drzewce w rytmie",
+            "good_for": "kolumna wojska, natarcie w szyku, patrol, falanga",
+            "bad_for": "pojedynczy wędrowiec, skradanie, kawaleria",
+            "file": "audio/library/heroes/troop_march_03.mp3",
+            "semantics": {
+              "type": "marsz-oddzialu",
+              "traits": [
+                "miarowy",
+                "wielogłosowy krok",
+                "zdyscyplinowany"
+              ],
+              "bad_for": [
+                "chaotyczny",
+                "pojedynczy",
+                "galop"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "frame drum jak c.1 + claves co 1.0 s (-7 dB); stylizowany marsz"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-precyzja",
+      "kind": "gestures",
+      "role": "koda `precyzja-dyscyplina` (17 fabuł; slot a fabuły 575)",
+      "candidates": [
+        {
+          "label": "a.1",
+          "title": "równy szereg",
+          "file": "candidates/g7a_even_rank.mp3",
+          "desc": "cztery identyczne staccato w idealnych odstępach i czyste domknięcie — szereg wyrównany co do milimetra",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g7a_even_rank",
+            "semantic": "precyzja — równy szereg",
+            "desc": "cztery identyczne staccato w idealnych odstępach i czyste domknięcie — szereg wyrównany co do milimetra",
+            "notes": [
+              {
+                "midi": 72,
+                "on": 0.0,
+                "off": 0.22,
+                "vel": 0.5
+              },
+              {
+                "midi": 72,
+                "on": 0.4,
+                "off": 0.62,
+                "vel": 0.5
+              },
+              {
+                "midi": 72,
+                "on": 0.8,
+                "off": 1.02,
+                "vel": 0.5
+              },
+              {
+                "midi": 72,
+                "on": 1.2,
+                "off": 1.42,
+                "vel": 0.5
+              },
+              {
+                "midi": 60,
+                "on": 1.6,
+                "off": 2.4,
+                "vel": 0.46
+              },
+              {
+                "midi": 76,
+                "on": 1.6,
+                "off": 2.4,
+                "vel": 0.42
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 8,
+                "vel": 0.02
+              }
+            },
+            "instrument_tags": [
+              "struck-light",
+              "struck-dry",
+              "piano"
+            ],
+            "semantics": {
+              "type": "precyzja-dyscyplina",
+              "traits": [
+                "równy",
+                "kontrolowany",
+                "czysty",
+                "bez rubato"
+              ],
+              "bad_for": [
+                "rozlewny",
+                "chaotyczny",
+                "sentymentalny"
+              ]
+            }
+          }
+        },
+        {
+          "label": "a.2",
+          "title": "kadencja rozkazu",
+          "file": "candidates/g7b_order_cadence.mp3",
+          "desc": "trzy kroki w górę wykonane co do joty i twarde osadzenie na tonice — rozkaz wydany i wykonany",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g7b_order_cadence",
+            "semantic": "precyzja — kadencja rozkazu",
+            "desc": "trzy kroki w górę wykonane co do joty i twarde osadzenie na tonice — rozkaz wydany i wykonany",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 0.3,
+                "vel": 0.5
+              },
+              {
+                "midi": 64,
+                "on": 0.35,
+                "off": 0.65,
+                "vel": 0.5
+              },
+              {
+                "midi": 72,
+                "on": 0.7,
+                "off": 1.0,
+                "vel": 0.52
+              },
+              {
+                "midi": 60,
+                "on": 1.15,
+                "off": 2.3,
+                "vel": 0.48
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 8,
+                "vel": 0.02
+              }
+            },
+            "instrument_tags": [
+              "struck-light",
+              "struck-dry",
+              "piano"
+            ],
+            "semantics": {
+              "type": "precyzja-dyscyplina",
+              "traits": [
+                "równy",
+                "kontrolowany",
+                "czysty",
+                "bez rubato"
+              ],
+              "bad_for": [
+                "rozlewny",
+                "chaotyczny",
+                "sentymentalny"
+              ]
+            }
+          }
+        },
+        {
+          "label": "a.3",
+          "title": "dwugłos w kroku",
+          "file": "candidates/g7c_lockstep.mp3",
+          "desc": "dwa głosy idą równolegle w oktawie, żaden nie wyprzedza — dyscyplina jako spokój, nie musztra",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g7c_lockstep",
+            "semantic": "precyzja — dwugłos w kroku",
+            "desc": "dwa głosy idą równolegle w oktawie, żaden nie wyprzedza — dyscyplina jako spokój, nie musztra",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 0.35,
+                "vel": 0.46
+              },
+              {
+                "midi": 72,
+                "on": 0.0,
+                "off": 0.35,
+                "vel": 0.42
+              },
+              {
+                "midi": 64,
+                "on": 0.5,
+                "off": 0.85,
+                "vel": 0.46
+              },
+              {
+                "midi": 76,
+                "on": 0.5,
+                "off": 0.85,
+                "vel": 0.42
+              },
+              {
+                "midi": 60,
+                "on": 1.0,
+                "off": 2.2,
+                "vel": 0.44
+              },
+              {
+                "midi": 72,
+                "on": 1.0,
+                "off": 2.2,
+                "vel": 0.4
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 8,
+                "vel": 0.02
+              }
+            },
+            "instrument_tags": [
+              "struck-light",
+              "struck-dry",
+              "piano"
+            ],
+            "semantics": {
+              "type": "precyzja-dyscyplina",
+              "traits": [
+                "równy",
+                "kontrolowany",
+                "czysty",
+                "bez rubato"
+              ],
+              "bad_for": [
+                "rozlewny",
+                "chaotyczny",
+                "sentymentalny"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "instrument-suchy",
+      "kind": "instruments",
+      "role": "instrument `sucho-surowa` (19 fabuł; slot b fabuły 575)",
+      "candidates": [
+        {
+          "label": "b.1",
+          "title": "pudełko drewniane",
+          "file": "candidates/b_woodblock_demo.mp3",
+          "desc": "krótki twardy klik drewna — zero ogona, sama krawędź",
+          "source": "VCSL — CC0 (fraza demonstracyjna)",
+          "entry": {
+            "id": "b_woodblock",
+            "semantic": "suchy, twardy, bez pogłosu",
+            "family": "idiophone-struck",
+            "samples": {
+              "38": "audio/library/instruments/woodblock/b_woodblock_wood_click_mp.mp3",
+              "39": "audio/library/instruments/woodblock/b_woodblock_wood_click_f_rr1.mp3",
+              "41": "audio/library/instruments/woodblock/b_woodblock_wood_click_ff.mp3"
+            },
+            "gate_sources": {
+              "38": "instr_notes/b_woodblock_wood_click_mp.mp3",
+              "39": "instr_notes/b_woodblock_wood_click_f_rr1.mp3",
+              "41": "instr_notes/b_woodblock_wood_click_ff.mp3"
+            },
+            "semantics": {
+              "type": "sucho-surowa",
+              "traits": [
+                "suchy",
+                "drewniany",
+                "bez pogłosu",
+                "twardy atak"
+              ],
+              "bad_for": [
+                "rozmyty",
+                "dzwoniący",
+                "syntetyczny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "nuty 38/39/41 = progi uderzenia mp/f/ff"
+            }
+          }
+        },
+        {
+          "label": "b.2",
+          "title": "klawesy",
+          "file": "candidates/b_claves_demo.mp3",
+          "desc": "sucha, dźwięczna kość drewna — odrobina tonu w klikanym ataku",
+          "source": "VCSL — CC0 (fraza demonstracyjna)",
+          "entry": {
+            "id": "b_claves",
+            "semantic": "suchy, dźwięczno-drewniany",
+            "family": "idiophone-struck",
+            "samples": {
+              "38": "audio/library/instruments/claves/b_claves_Claves1_Hit_v1_rr1_Mid.mp3",
+              "39": "audio/library/instruments/claves/b_claves_Claves1_Hit_v2_rr1_Mid.mp3",
+              "41": "audio/library/instruments/claves/b_claves_Claves1_Hit_v3_rr1_Mid.mp3"
+            },
+            "gate_sources": {
+              "38": "instr_notes/b_claves_Claves1_Hit_v1_rr1_Mid.mp3",
+              "39": "instr_notes/b_claves_Claves1_Hit_v2_rr1_Mid.mp3",
+              "41": "instr_notes/b_claves_Claves1_Hit_v3_rr1_Mid.mp3"
+            },
+            "semantics": {
+              "type": "sucho-surowa",
+              "traits": [
+                "suchy",
+                "drewniany",
+                "bez pogłosu",
+                "twardy atak"
+              ],
+              "bad_for": [
+                "rozmyty",
+                "dzwoniący",
+                "syntetyczny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "nuty 38/39/41 = progi uderzenia mp/f/ff"
+            }
+          }
+        },
+        {
+          "label": "b.3",
+          "title": "bęben szczelinowy",
+          "file": "candidates/b_logdrum_demo.mp3",
+          "desc": "głuchy drewniany puls — ciemniejszy i głębszy niż woodblock",
+          "source": "VCSL — CC0 (fraza demonstracyjna)",
+          "entry": {
+            "id": "b_logdrum",
+            "semantic": "suchy, głucho-drewniany",
+            "family": "idiophone-struck",
+            "samples": {
+              "38": "audio/library/instruments/logdrum/b_logdrum_LogDrumLo_MedM_v1_rr1_Sum.mp3",
+              "39": "audio/library/instruments/logdrum/b_logdrum_LogDrumLo_MedM_v2_rr1_Sum.mp3",
+              "41": "audio/library/instruments/logdrum/b_logdrum_LogDrumHi_MedM_v1_rr1_Sum.mp3"
+            },
+            "gate_sources": {
+              "38": "instr_notes/b_logdrum_LogDrumLo_MedM_v1_rr1_Sum.mp3",
+              "39": "instr_notes/b_logdrum_LogDrumLo_MedM_v2_rr1_Sum.mp3",
+              "41": "instr_notes/b_logdrum_LogDrumHi_MedM_v1_rr1_Sum.mp3"
+            },
+            "semantics": {
+              "type": "sucho-surowa",
+              "traits": [
+                "suchy",
+                "drewniany",
+                "bez pogłosu",
+                "twardy atak"
+              ],
+              "bad_for": [
+                "rozmyty",
+                "dzwoniący",
+                "syntetyczny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "nuty 38/39/41 = progi uderzenia mp/f/ff"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "oboz-wojenny": "d.1",
+    "marsz-oddzialu": "żaden",
+    "koda-precyzja": "a.1",
+    "instrument-suchy": "b.3"
+  }
+}

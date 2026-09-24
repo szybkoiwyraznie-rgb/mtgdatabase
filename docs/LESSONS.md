@@ -385,3 +385,45 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   `restricted`, bo dotyczą wyłącznie publicznej gablotki Pages i ZIP-a
   w Releases. Scout: `license_status` w manifeście, `--free-only` gdy
   materiał ma iść do publikacji. Polityka w `docs/sources-and-licensing.md`.
+
+## 2026-09-23 — Metryki głosu nie odróżniają aktora od kreskówkowego stworka
+
+- Sytuacja: g012 miała obsadzić „złośliwy chichot małego demona”. Złożyłem
+  krótkie sylaby z kitu `80 creature SFX`; wszystkie były głośne, niepuste,
+  miały czytelne pasmo głosu i równe poziomy. Właściciel odrzucił całą rundę:
+  „to nie żaden imp tylko postać z kreskówki — ma być prawdziwy diabelski
+  chichot”.
+- Wniosek: techniczna sonda słyszalności potwierdza tylko, że sygnał istnieje.
+  Nie potwierdza źródła wykonania ani wiarygodności aktorskiej. Nazwanie kilku
+  zaprojektowanych odgłosów `cute-*` „chichotem” było nadinterpretacją opisu.
+- Zasada / działanie zapobiegawcze: role oparte na ludzkiej ekspresji
+  (śmiech, płacz, krzyk, szept) zaczynaj od **prawdziwego nagrania człowieka
+  wykonującego tę ekspresję**. Creature-SFX nie wolno przemianować na emocję
+  tylko dlatego, że zgadza się długość i pasmo. Obróbka może wzmacniać rolę,
+  ale nie zastępuje wiarygodnego wykonania źródłowego.
+
+## Bramka obsadza TYP, nie fabułę (g015, 2026-09-24)
+
+- Sytuacja: do typu tła `niebo-przestworza` („pęd powietrza na wysokości")
+  pokazałem właścicielowi kandydata „przelot skutera śnieżnego", bo
+  narracja fabuły 18 mówiła o „pędzie pojazdu". Właściciel: „to jest
+  zupełnie inny dźwięk".
+- Zasada: w modelu 1:1 klocek jest wielokrotnego użytku w RAMACH TYPU —
+  kandydatów przesłuchuje się pod DEFINICJĘ TYPU (`co_slychac`), nie pod
+  smaczek pojedynczej narracji. Silnik spalinowy skaziłby każdą przyszłą
+  fabułę przestworzy.
+- Wniosek techniczny: matcher cech wymaganych ignorował słowa <4 znaki
+  (gubił „pęd/ryk/syk/huk") — naprawione (min. 3 znaki, resolver.py).
+
+## Zwiad freesound: klucz API ≠ OAuth2 (2026-09-24)
+
+- Objaw: wyszukiwanie działa, każde pobranie pada z HTTP 401.
+- Przyczyna: endpoint `/download` Freesound wymaga OAuth2; zwykły klucz
+  API autoryzuje tylko wyszukiwanie i previews. Pobieramy więc
+  `preview-hq-mp3` (~128 kbps — nasz docelowy bitrate i tak wynosi 128).
+- Przy okazji: archive.org łączy słowa domyślnym AND (wielosłowne
+  zapytania → zero trafień; scout ma teraz fallback z OR), a zapytania
+  zwiadu mają być krótkie i ogólne (2–3 słowa).
+- Diagnostyka: workflow commituje log porażki do
+  `legacy/source/sample_scout/error.log`, bo sandbox nie czyta logów
+  Actions.

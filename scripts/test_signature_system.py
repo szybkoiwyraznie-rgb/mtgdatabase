@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 import coda_synth  # noqa: E402
 import sig_audio as dsp  # noqa: E402
 import build_pack  # noqa: E402
+import library_tool  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
 FAILURES: list[str] = []
@@ -109,10 +110,15 @@ def test_coda_register_adapt() -> None:
     check("transpozycja gestu: 33->38", resolved2.get(33) == Path("x.wav"), str(warn2))
     check("transpozycja gestu: 38->41", resolved2.get(38) == Path("z.wav"), str(warn2))
     check("log transpozycji", any("transponowany" in w for w in warn2))
-    # niedopasowalne nuty dalej są pomijane z ostrzeżeniem
+    # wąski bank (progi uderzeń): gest realizowany rytmicznie — każda nuta gra
     resolved3, warn3 = coda_synth.resolve_samples({"samples": {"60": "q.wav"}}, [30, 90])
-    check("niedopasowane pominięte", 30 not in resolved3 and 90 not in resolved3)
-    check("log pominięć", any("pominięta" in w for w in warn3))
+    check("wąski bank: rytmiczna realizacja", resolved3.get(30) == Path("q.wav") and resolved3.get(90) == Path("q.wav"), str(warn3))
+    check("log realizacji rytmicznej", any("rytmicznie" in w for w in warn3))
+    # kontur na progi: bank {38,39,41}, gest {60,76,80} -> soft/mid(hard)/hard
+    inst4 = {"samples": {"38": "s.wav", "39": "m.wav", "41": "h.wav"}}
+    resolved4, warn4 = coda_synth.resolve_samples(inst4, [60, 76, 80])
+    check("kontur: dół gestu -> soft", resolved4.get(60) == Path("s.wav"), str(warn4))
+    check("kontur: góra gestu -> hard", resolved4.get(80) == Path("h.wav"), str(warn4))
 
 
 def test_loop_seam() -> None:
@@ -168,6 +174,31 @@ def test_note_attack_gate() -> None:
     check("QA przepuszcza słyszalną nutę", not any("atak" in e for e in errors3), str(errors3))
 
 
+def test_usage_policy() -> None:
+    """ADR 0006: reuse klocków bez limitów; twarda tylko unikalność kombinacji."""
+    def recipe(sid: str, suffix: str) -> dict:
+        return {
+            "story_id": sid,
+            "background": {"id": f"bg_{suffix}"},
+            "hero": {"id": f"hero_{suffix}"},
+            "coda": {"gesture": f"gesture_{suffix}", "instrument": f"instrument_{suffix}"},
+        }
+
+    legacy = recipe("1", "old")
+    reused = recipe("18", "old")
+    reused["hero"]["id"] = "hero_new"  # inna kombinacja, trzy wspólne klocki
+    counts = library_tool.usage_counts([legacy, reused])
+    check("ADR 0006: reuse klocków liczony informacyjnie, bez błędów",
+          counts["background"]["bg_old"] == 2 and counts["hero"]["hero_old"] == 1,
+          str(counts))
+    check("ADR 0006: brak funkcji zakazującej reuse",
+          not hasattr(library_tool, "usage_audit"))
+    key_a = library_tool.combo_key(legacy)
+    key_b = library_tool.combo_key(reused)
+    check("ADR 0006: identyczna kombinacja wykrywalna po combo_key",
+          key_a != key_b and key_a == library_tool.combo_key(recipe("99", "old")))
+
+
 def test_registries_and_reading() -> None:
     result = subprocess.run([sys.executable, str(REPO / "scripts" / "library_tool.py"), "check"],
                             capture_output=True, text=True, cwd=REPO)
@@ -175,6 +206,32 @@ def test_registries_and_reading() -> None:
     result = subprocess.run([sys.executable, str(REPO / "scripts" / "check_required_reading.py")],
                             capture_output=True, text=True, cwd=REPO)
     check("budżet lektury", result.returncode == 0, result.stdout[-300:])
+
+
+def test_resolver() -> None:
+    import resolver
+    data = resolver.load_data()
+    a = resolver.resolve_story("3", data)
+    b = resolver.resolve_story("3", data)
+    check("resolver determinizm", a == b)
+    check("resolver 1:1 typ->klocek (fabuła 3, hero)",
+          a["blocks"].get("hero") == "demonic_laugh_02")
+    check("resolver BRAK dla typu bez klocka",
+          any(x["filtr"] == "typ bez klocka" for x in a["braki"]))
+    # cecha wymagana pokryta w traits (złośliwy chichot ~ diabelski chichot)
+    entry = data["by_type"]["hero"]["smiech-maniakalny"]
+    ok_req = resolver.check_required(
+        {"wymagane": ["złośliwy chichot"]}, entry)
+    check("resolver: wymagana cecha pokryta", ok_req == [])
+    # weto bad_for: kobiecy głos kontra męski maniakalny chichot
+    veto = resolver.check_required({"wymagane": ["kobiecy głos"]}, entry)
+    check("resolver: weto bad_for (kobiecy głos)",
+          any(p["filtr"] == "weto bad_for" for p in veto))
+    # kolizja kombinacji z istniejącą recepturą (syntetycznie)
+    legacy = data["recipes"][0]
+    combo = resolver.recipe_combo(legacy)
+    check("resolver: combo receptury odtwarzalne",
+          len(combo) == 4 and combo[0] and combo[1])
 
 
 def main() -> None:
@@ -188,6 +245,8 @@ def main() -> None:
     test_coda_min_sustain()
     test_note_attack_gate()
     test_qa_gates()
+    test_usage_policy()
+    test_resolver()
     test_registries_and_reading()
     print(f"\n{len(FAILURES)} niepowodzeń" if FAILURES else "\nwszystkie testy OK")
     sys.exit(1 if FAILURES else 0)

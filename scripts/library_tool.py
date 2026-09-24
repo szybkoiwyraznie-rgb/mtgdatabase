@@ -9,6 +9,7 @@ Podkomendy:
 from __future__ import annotations
 
 import argparse
+from collections import Counter
 import json
 import re
 import shutil
@@ -19,7 +20,10 @@ from pathlib import Path
 REPO = Path(__file__).resolve().parent.parent
 LIB = REPO / "data" / "library"
 RECIPES = REPO / "data" / "recipes"
+# data/usage-policy.json (schema 2, ADR 0006): jedyna twarda reguła to
+# unikalna kombinacja a·b·c·d — egzekwowana bezpośrednio w check().
 KIND_DIR = {"heroes": "heroes", "backgrounds": "backgrounds", "instruments": "instruments"}
+SLOT_NAMES = ("background", "hero", "gesture", "instrument")
 
 REQUIRED = {
     "heroes": ["id", "role", "desc", "file", "duration_sec", "character", "distance", "energy", "source", "approved"],
@@ -28,6 +32,32 @@ REQUIRED = {
     "instruments": ["id", "semantic", "family", "samples", "source", "approved"],
 }
 SOURCE_KEYS = ["title", "author", "license", "url", "channel"]
+# ADR 0006, aneks „Jeden typ = jeden klocek": każdy wpis ma semantics.type
+# z taksonomii warstwy; relacja typ<->klocek jest 1:1 w obie strony.
+KIND_LAYER = {
+    "backgrounds": "background",
+    "heroes": "hero",
+    "gestures": "mood",
+    "instruments": "instrumentation",
+}
+SEMANTICS = REPO / "data" / "semantics"
+
+
+def taxonomy_types() -> dict[str, set[str]]:
+    tax = json.loads((SEMANTICS / "taxonomy.json").read_text(encoding="utf-8"))
+    return {layer: {k["id"] for k in spec["klasy"]}
+            for layer, spec in tax["layers"].items()}
+
+
+def pending_types() -> dict[str, set[str]]:
+    path = SEMANTICS / "pending-types.json"
+    if not path.exists():
+        return {}
+    data = json.loads(path.read_text(encoding="utf-8"))
+    out: dict[str, set[str]] = {}
+    for p in data.get("pending", []):
+        out.setdefault(p["layer"], set()).add(p["id"])
+    return out
 
 
 def load(kind: str) -> dict:
@@ -43,12 +73,45 @@ def combo_key(recipe: dict) -> tuple:
     return (recipe["background"]["id"], recipe["hero"]["id"], coda.get("gesture"), coda.get("instrument"))
 
 
+def usage_counts(recipes: list[dict]) -> dict[str, Counter]:
+    """Policz użycia klocków per slot — wyłącznie informacyjnie (ADR 0006).
+
+    Klocki są reużywalne bez limitów; jedyna twarda reguła to unikalna
+    kombinacja a·b·c·d (sprawdzana w check()). Statystyki służą miękkiemu
+    rankingowi resolvera i audytowi ostrzeżeń, nie zakazom.
+    """
+    counts = {slot: Counter() for slot in SLOT_NAMES}
+    for recipe in recipes:
+        for slot, value in zip(SLOT_NAMES, combo_key(recipe)):
+            if value:
+                counts[slot][value] += 1
+    return counts
+
+
 def check() -> int:
     errors: list[str] = []
+    warnings: list[str] = []
+    tax = taxonomy_types()
+    pending = pending_types()
     for kind, required in REQUIRED.items():
         data = load(kind)
         ids: set[str] = set()
+        layer = KIND_LAYER[kind]
+        types_seen: dict[str, str] = {}
         for entry in data["entries"]:
+            sem = entry.get("semantics")
+            if not sem or not all(k in sem for k in ("type", "traits", "bad_for")):
+                errors.append(f"{kind}/{entry.get('id', '?')}: brak semantics {{type, traits, bad_for}}")
+            else:
+                t = sem["type"]
+                if t in types_seen:
+                    errors.append(f"{kind}: typ {t} zdublowany ({types_seen[t]} i {entry.get('id')}) — łamie 1:1")
+                types_seen[t] = entry.get("id", "?")
+                if t not in tax.get(layer, set()):
+                    if t in pending.get(layer, set()):
+                        warnings.append(f"{kind}/{entry.get('id')}: typ {t} czeka na akceptację (pending-types.json)")
+                    else:
+                        errors.append(f"{kind}/{entry.get('id')}: typ {t} spoza taksonomii warstwy {layer}")
             missing = [k for k in required if k not in entry]
             if missing:
                 errors.append(f"{kind}/{entry.get('id', '?')}: brak pól {missing}")
@@ -73,13 +136,17 @@ def check() -> int:
             if kind == "gestures" and not entry["notes"]:
                 errors.append(f"gestures/{entry['id']}: pusty gest")
     combos: dict[tuple, str] = {}
+    recipes: list[dict] = []
     for recipe_path in sorted(RECIPES.glob("*.json")):
         recipe = json.loads(recipe_path.read_text(encoding="utf-8"))
+        recipes.append(recipe)
         key = combo_key(recipe)
         if key in combos:
             errors.append(f"zduplikowana kombinacja a·b·c·d: {combos[key]} i {recipe_path.name}")
         else:
             combos[key] = recipe_path.name
+    for warning in warnings:
+        print(f"OSTRZEŻENIE: {warning}")
     for error in errors:
         print(f"BŁĄD: {error}")
     print(f"OK: {sum(len(load(k)['entries']) for k in REQUIRED)} wpisów, {len(combos)} receptur" if not errors else f"{len(errors)} problemów")
@@ -87,16 +154,20 @@ def check() -> int:
 
 
 def report() -> None:
-    usage: dict[str, int] = {}
-    for recipe_path in sorted(RECIPES.glob("*.json")):
-        recipe = json.loads(recipe_path.read_text(encoding="utf-8"))
-        for item in combo_key(recipe):
-            if item:
-                usage[item] = usage.get(item, 0) + 1
+    recipes = [json.loads(p.read_text(encoding="utf-8")) for p in sorted(RECIPES.glob("*.json"))]
+    counts = usage_counts(recipes)
+    total = len(recipes)
+    usage = Counter(value for slot in counts.values() for value, n in slot.items() for _ in range(n))
+    print("polityka (ADR 0006): reuse bez limitów; twarda tylko unikalność kombinacji a·b·c·d; "
+          "statystyki poniżej są informacyjne (miękki ranking resolvera)")
     for kind in REQUIRED:
         entries = load(kind)["entries"]
         unused = [e["id"] for e in entries if e["id"] not in usage]
         print(f"{kind}: {len(entries)} wpisów, {len(unused)} nieużytych{': ' + ', '.join(unused) if unused else ''}")
+    print("użycie w recepturach:")
+    for slot in SLOT_NAMES:
+        values = ", ".join(f"{item}={n} ({n/max(total, 1):.1%})" for item, n in counts[slot].most_common())
+        print(f"  {slot}: {values or 'brak'}")
 
 
 def _ingest_candidate(gate_dir: Path, kind: str, cand: dict, stamp: dict) -> str:
