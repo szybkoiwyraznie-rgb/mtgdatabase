@@ -6708,6 +6708,946 @@
           "pogodny"
         ]
       }
+    },
+    "207": {
+      "title": "Feed the Infection",
+      "background": {
+        "opis": "Toksyczne serce bagien rdzy — powietrze przeżerające płuca, oleiste zwierciadło",
+        "cechy": [
+          "bagna rdzy",
+          "toksyczne powietrze",
+          "oleista tafla",
+          "martwa cisza kultu"
+        ]
+      },
+      "hero": {
+        "opis": "Czarne wici oleju przeszywają klęczących — syk paktu i rozpływanie się jednostek w chórze",
+        "cechy": [
+          "syk wici oleju",
+          "przeszycie ciał",
+          "chór jednego celu",
+          "dopełnienie paktu"
+        ]
+      },
+      "mood": {
+        "opis": "Ofiara z tożsamości — upiorne oddanie Maszynie",
+        "cechy": [
+          "oddanie",
+          "utrata tożsamości",
+          "upiorny kult"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Gęsto, ciemno, dusząco",
+        "cechy": [
+          "gęsty",
+          "ciemny",
+          "duszący"
+        ]
+      }
+    },
+    "209": {
+      "title": "Burning-Yard Trainer",
+      "background": {
+        "opis": "Piaszczysta arena treningowa pod zamkiem — kosze ognia, trybuny, parskanie koni",
+        "cechy": [
+          "arena treningowa",
+          "kosze ognia",
+          "trybuny uczniów",
+          "parskanie koni"
+        ]
+      },
+      "hero": {
+        "opis": "Płonący miecz treningowy i tor przeszkód w ogniu — spokojny płomień egzaminu",
+        "cechy": [
+          "płonący miecz treningowy",
+          "spokojny ogień",
+          "tor przeszkód",
+          "egzamin odwagi"
+        ]
+      },
+      "mood": {
+        "opis": "Dyscyplina treningu — ogień jako ostatni sprawdzian",
+        "cechy": [
+          "dyscyplina",
+          "trening",
+          "sprawdzian"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciepło, miarowo, ogniście",
+        "cechy": [
+          "ciepły",
+          "miarowy",
+          "ognisty"
+        ]
+      }
+    },
+    "211": {
+      "title": "Seismic Monstrosaur",
+      "background": {
+        "opis": "Zawalona podziemna komnata świątyni — wstrząsy, sypiący się kurz, ucieczka odkrywców",
+        "cechy": [
+          "podziemna komnata",
+          "wstrząsy",
+          "sypiący kurz",
+          "zapadająca jaskinia"
+        ]
+      },
+      "hero": {
+        "opis": "Monstrozaur przebija się przez kamień — kruszenie posadzki i ryk dawnego głodu",
+        "cechy": [
+          "ryk bestii",
+          "kruszenie posadzki",
+          "przebijanie się",
+          "połykanie kamienia"
+        ],
+        "wymagane": [
+          "ryk bestii"
+        ]
+      },
+      "mood": {
+        "opis": "Obudzony pradawny głód i panika ucieczki",
+        "cechy": [
+          "obudzony głód",
+          "panika",
+          "żywioł bestii"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Potężnie, dudniąco, ciemno",
+        "cechy": [
+          "potężny",
+          "dudniący",
+          "ciemny"
+        ]
+      }
+    },
+    "213": {
+      "title": "Reclusive Artificer",
+      "background": {
+        "opis": "Zagracony półmroczny warsztat wysoko w kamienicy — łańcuchy, lampy, szkice",
+        "cechy": [
+          "zagracony warsztat",
+          "lampy warsztatowe",
+          "piętro kamienicy",
+          "rozrzucone szkice"
+        ]
+      },
+      "hero": {
+        "opis": "Jednoczesna aktywacja arsenału stworzeń — łuki energii i brzęczenie wielu maszynek",
+        "cechy": [
+          "łuki energii",
+          "brzęczenie maszynek",
+          "jednoczesna aktywacja",
+          "rój pomocników"
+        ]
+      },
+      "mood": {
+        "opis": "Pozorna samotność w towarzystwie własnych dzieł",
+        "cechy": [
+          "twórcza samotność",
+          "towarzystwo maszyn",
+          "zapał"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Migotliwie, drobno, ruchliwie",
+        "cechy": [
+          "migotliwy",
+          "drobny",
+          "ruchliwy"
+        ]
+      }
+    },
+    "214": {
+      "title": "Snarling Wolf",
+      "background": {
+        "opis": "Wieczny półmrok głębi boru — mgła między pniami, cisza terytorium",
+        "cechy": [
+          "głębia boru",
+          "półmrok",
+          "mgła",
+          "cisza terytorium"
+        ]
+      },
+      "hero": {
+        "opis": "Warkot wilka i szare grzbiety watahy wyłaniające się z mgły",
+        "cechy": [
+          "warkot wilka",
+          "wyłaniająca się wataha",
+          "obnażone kły",
+          "obrona terytorium"
+        ],
+        "wymagane": [
+          "warkot wilka"
+        ]
+      },
+      "mood": {
+        "opis": "Pierwotna furia — ta ziemia nie wybacza słabości",
+        "cechy": [
+          "pierwotna furia",
+          "bezlitosność",
+          "territorium"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Surowo, ciemno, nisko",
+        "cechy": [
+          "surowy",
+          "ciemny",
+          "niski"
+        ]
+      }
+    },
+    "215": {
+      "title": "Malamet Battle Glyph",
+      "background": {
+        "opis": "Podziemna dolina jaskiń — kamienne echo, stele przodków",
+        "cechy": [
+          "jaskinie rdzenia",
+          "kamienne echo",
+          "stele przodków",
+          "podziemna dolina"
+        ]
+      },
+      "hero": {
+        "opis": "Zielony glif jaguara formuje się w powietrzu przy słowach steli",
+        "cechy": [
+          "formowanie glifu",
+          "słowa steli",
+          "zawieszony znak",
+          "rytuał taktyki"
+        ]
+      },
+      "mood": {
+        "opis": "Strzeżona taktyka — rytualna czujność przed obcym",
+        "cechy": [
+          "czujność",
+          "strzeżony sekret",
+          "rytualność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Surowo, nisko, uroczyście",
+        "cechy": [
+          "surowy",
+          "niski",
+          "uroczysty"
+        ]
+      }
+    },
+    "216": {
+      "title": "Armored Skaab",
+      "background": {
+        "opis": "Mgliste kamieniste wybrzeże o świcie — fale, resztki pobojowiska na piasku",
+        "cechy": [
+          "mgliste wybrzeże",
+          "fale o kamienie",
+          "resztki pobojowiska",
+          "świt"
+        ]
+      },
+      "hero": {
+        "opis": "Nieruchoma warta zszytego trupa — skrzyp niedopasowanej zbroi i martwa cierpliwość",
+        "cechy": [
+          "skrzyp niedopasowanej zbroi",
+          "martwa cierpliwość",
+          "nieruchoma warta",
+          "topór o ziemię"
+        ]
+      },
+      "mood": {
+        "opis": "Martwa służba na pustym brzegu",
+        "cechy": [
+          "martwa służba",
+          "pustka",
+          "wytrwałość bez woli"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Matowo, ciężko, mokro",
+        "cechy": [
+          "matowy",
+          "ciężki",
+          "mokry"
+        ]
+      }
+    },
+    "217": {
+      "title": "Manor Gate",
+      "background": {
+        "opis": "Brama między dzielnicami miasta — gwar za murem, kroki straży",
+        "cechy": [
+          "miejska brama",
+          "gwar za murem",
+          "kroki straży",
+          "mur podziału"
+        ]
+      },
+      "hero": {
+        "opis": "Kontrola przy bramie — okazanie sygnetu i skrzyp otwieranych wrót",
+        "cechy": [
+          "okazanie sygnetu",
+          "skrzyp wrót",
+          "kontrola wejścia",
+          "przepuszczenie wybranych"
+        ]
+      },
+      "mood": {
+        "opis": "Podział miasta — przywilej i wykluczenie",
+        "cechy": [
+          "podział",
+          "przywilej",
+          "wykluczenie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Twardo, dostojnie, chłodno",
+        "cechy": [
+          "twardy",
+          "dostojny",
+          "chłodny"
+        ]
+      }
+    },
+    "218": {
+      "title": "Trigon of Corruption",
+      "background": {
+        "opis": "Jałowa metaliczna dolina pod mlecznym niebem — martwa, cierpliwa cisza",
+        "cechy": [
+          "jałowa dolina",
+          "mleczne niebo",
+          "martwa cisza",
+          "cokół artefaktu"
+        ]
+      },
+      "hero": {
+        "opis": "Artefakt sączy korupcję — drobne wyładowania i pękający, matowiejący metal u podstawy",
+        "cechy": [
+          "drobne wyładowania",
+          "pękający metal",
+          "sącząca się korupcja",
+          "cichy rozkład"
+        ]
+      },
+      "mood": {
+        "opis": "Cierpliwa, metodyczna zagłada bez krzyku",
+        "cechy": [
+          "cierpliwa zagłada",
+          "metodyczność",
+          "nieuchronny rozkład"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, niepokojąco, powoli",
+        "cechy": [
+          "cichy",
+          "niepokojący",
+          "powolny"
+        ]
+      }
+    },
+    "219": {
+      "title": "Prishe's Wanderings",
+      "background": {
+        "opis": "Tunele i bramy tętniącego miasta — gwar przechodniów, kryształowy portal",
+        "cechy": [
+          "miejskie tunele",
+          "gwar przechodniów",
+          "bramy dzielnic",
+          "portal"
+        ]
+      },
+      "hero": {
+        "opis": "Energiczna przewodniczka woła drużynę naprzód — okrzyk zapału i marsz kompanii",
+        "cechy": [
+          "okrzyk zapału",
+          "marsz kompanii",
+          "wołanie naprzód",
+          "zebrana drużyna"
+        ]
+      },
+      "mood": {
+        "opis": "Radosna żądza przygody",
+        "cechy": [
+          "zapał",
+          "przygoda",
+          "wspólna droga"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ruchliwie, jasno, pogodnie",
+        "cechy": [
+          "ruchliwy",
+          "jasny",
+          "pogodny"
+        ]
+      }
+    },
+    "220": {
+      "title": "Urza's Mine",
+      "background": {
+        "opis": "Kolosalna podziemna kopalnia — kołowroty, mosty techniczne, głęboki szyb energii",
+        "cechy": [
+          "podziemna kopalnia",
+          "kołowroty",
+          "głęboki szyb",
+          "warstwy ruin"
+        ]
+      },
+      "hero": {
+        "opis": "Wiertło energetyczne pracuje w świecącym złożu — zgrzyt wiercenia i buczenie mocy",
+        "cechy": [
+          "zgrzyt wiercenia",
+          "buczenie energii",
+          "praca wiertła",
+          "wydobycie"
+        ],
+        "wymagane": [
+          "zgrzyt wiercenia"
+        ]
+      },
+      "mood": {
+        "opis": "Wydobywanie pamięci świata — industrialna głębia",
+        "cechy": [
+          "industrialna głębia",
+          "wydobycie",
+          "niebezpieczna wiedza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Metalicznie, głęboko, hucząco",
+        "cechy": [
+          "metaliczny",
+          "głęboki",
+          "huczący"
+        ]
+      }
+    },
+    "221": {
+      "title": "Mark of the Vampire",
+      "background": {
+        "opis": "Kaplica rodu nocą — świece, cisza próby, kamienny chłód",
+        "cechy": [
+          "nocna kaplica",
+          "świece",
+          "cisza próby",
+          "ród w cieniu"
+        ]
+      },
+      "hero": {
+        "opis": "Złożenie znaku zębów, który nie krwawi — cichy rytualny akt przyjęcia do nocy",
+        "cechy": [
+          "cichy rytualny akt",
+          "znak zębów",
+          "przyjęcie do nocy",
+          "ciemna żyła mocy"
+        ]
+      },
+      "mood": {
+        "opis": "Mroczna inicjacja — cena mocy",
+        "cechy": [
+          "inicjacja",
+          "cena mocy",
+          "mroczna przynależność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, cicho, uroczyście",
+        "cechy": [
+          "ciemny",
+          "cichy",
+          "uroczysty"
+        ]
+      }
+    },
+    "222": {
+      "title": "Maritime Guard",
+      "background": {
+        "opis": "Czarne skalne wybrzeże w sztormową noc — fale bijące, wichura",
+        "cechy": [
+          "czarne wybrzeże",
+          "sztormowa noc",
+          "bijące fale",
+          "wichura"
+        ]
+      },
+      "hero": {
+        "opis": "Samotna czujna warta merfolka z koralową włócznią — straż starsza niż drakkary",
+        "cechy": [
+          "czujna warta",
+          "koralowa włócznia",
+          "samotna postać na skale",
+          "pradawna straż"
+        ]
+      },
+      "mood": {
+        "opis": "Straż tych, których ludzie przestali widzieć",
+        "cechy": [
+          "pradawna wierność",
+          "samotność",
+          "czuwanie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, surowo, ciemno",
+        "cechy": [
+          "mokry",
+          "surowy",
+          "ciemny"
+        ]
+      }
+    },
+    "223": {
+      "title": "Angel's Feather",
+      "background": {
+        "opis": "Świetlista komnata otwarta arkadami na niebo — łagodne podmuchy",
+        "cechy": [
+          "świetlista komnata",
+          "otwarte arkady",
+          "łagodne podmuchy",
+          "biały kamień"
+        ]
+      },
+      "hero": {
+        "opis": "Pióro ze światła obraca się nad postumentem — złote iskierki i gest przyjęcia daru",
+        "cechy": [
+          "obracające się pióro",
+          "złote iskierki",
+          "gest przyjęcia",
+          "dar z wysoka"
+        ]
+      },
+      "mood": {
+        "opis": "Cichy ciężar łaski",
+        "cechy": [
+          "łaska",
+          "cichy ciężar",
+          "pokora"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Jasno, delikatnie, uroczyście",
+        "cechy": [
+          "jasny",
+          "delikatny",
+          "uroczysty"
+        ]
+      }
+    },
+    "224": {
+      "title": "Immersturm Skullcairn",
+      "background": {
+        "opis": "Wulkaniczna równina pod płonącym niebem — lawa między iglicami, błyskawice",
+        "cechy": [
+          "wulkaniczna równina",
+          "płonące niebo",
+          "strumienie lawy",
+          "błyskawice"
+        ]
+      },
+      "hero": {
+        "opis": "Kurhan wbitych mieczy żarzy się szczelinami — broń poległych czeka na uwolnienie",
+        "cechy": [
+          "żarzące się szczeliny",
+          "wbita broń",
+          "uśpiony kurhan",
+          "czekająca moc"
+        ]
+      },
+      "mood": {
+        "opis": "Uśpiona wojna — groźba, która nie umarła",
+        "cechy": [
+          "uśpiona wojna",
+          "groźba",
+          "pamięć bitew"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, ogniście, ciężko",
+        "cechy": [
+          "ciemny",
+          "ognisty",
+          "ciężki"
+        ]
+      }
+    },
+    "225": {
+      "title": "Furious Forebear",
+      "background": {
+        "opis": "Leśna polana o zmierzchu tuż po walce — wbite strzały, opadające napięcie",
+        "cechy": [
+          "polana po walce",
+          "zmierzch",
+          "wbite strzały",
+          "cisza po niebezpieczeństwie"
+        ]
+      },
+      "hero": {
+        "opis": "Duch przodkini odchyla nadlatujące strzały — świetlista aureola niezłomnej obrony",
+        "cechy": [
+          "odchylanie strzał",
+          "świetlista aureola",
+          "duch przodkini",
+          "ostatnia linia obrony"
+        ]
+      },
+      "mood": {
+        "opis": "Opieka przodków — wola, by ród nie urwał się dziś",
+        "cechy": [
+          "opieka przodków",
+          "niezłomna wola",
+          "ciągłość krwi"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciepło, uroczyście, jasno",
+        "cechy": [
+          "ciepły",
+          "uroczysty",
+          "jasny"
+        ]
+      }
+    },
+    "226": {
+      "title": "Makeshift Mauler",
+      "background": {
+        "opis": "Piwniczne laboratorium alchemiczne — słoje w półmroku, zimny księżyc z okienka",
+        "cechy": [
+          "piwniczne laboratorium",
+          "słoje i butelki",
+          "zimne światło",
+          "alchemiczny półmrok"
+        ]
+      },
+      "hero": {
+        "opis": "Kompozytowy konstrukt budzi się pierwszy raz — skrzyp obejm i niezdarne poruszenie",
+        "cechy": [
+          "skrzyp obejm",
+          "niezdarne poruszenie",
+          "pierwsze przebudzenie",
+          "przechylona głowa"
+        ]
+      },
+      "mood": {
+        "opis": "Niesamowite narodziny z części, które nie miały się spotkać",
+        "cechy": [
+          "niesamowite narodziny",
+          "chłodna obserwacja",
+          "nieoczywiste dopasowanie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Zimno, ociężale, ciemno",
+        "cechy": [
+          "zimny",
+          "ociężały",
+          "ciemny"
+        ]
+      }
+    },
+    "227": {
+      "title": "Jwari Shapeshifter",
+      "background": {
+        "opis": "Wietrzny skalisty płaskowyż — wiatr niosący pył, ekspedycja w tle",
+        "cechy": [
+          "skalisty płaskowyż",
+          "wiatr z pyłem",
+          "ekspedycja",
+          "jasne niebo"
+        ]
+      },
+      "hero": {
+        "opis": "Z błękitnej mgły wyłania się idealna kopia — eteryczne podwojenie postaci",
+        "cechy": [
+          "eteryczne podwojenie",
+          "wyłanianie z mgły",
+          "idealna kopia",
+          "figlarna pewność"
+        ]
+      },
+      "mood": {
+        "opis": "Figlarna adaptacja — zostać każdym, kogo trzeba",
+        "cechy": [
+          "adaptacja",
+          "figlarnność",
+          "pewność siebie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Chłodno, migotliwie, lekko",
+        "cechy": [
+          "chłodny",
+          "migotliwy",
+          "lekki"
+        ]
+      }
+    },
+    "228": {
+      "title": "Strandwalker",
+      "background": {
+        "opis": "Popielne pustkowie z resztkami metalicznej roślinności — zawieszone drobiny",
+        "cechy": [
+          "popielne pustkowie",
+          "metaliczna roślinność",
+          "zawieszony pył",
+          "martwota"
+        ]
+      },
+      "hero": {
+        "opis": "Ekwipunek-istota kroczy na szczudłowatych nogach — ostrożne kroki i gotowe chwytaki",
+        "cechy": [
+          "ostrożne kroki szczudeł",
+          "wzbijany popiół",
+          "gotowe chwytaki",
+          "pusta wnęka na nosiciela"
+        ]
+      },
+      "mood": {
+        "opis": "Obca autonomia rzeczy — czeka i już idzie",
+        "cechy": [
+          "obca autonomia",
+          "oczekiwanie",
+          "niepokój"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cienko, metalicznie, niepokojąco",
+        "cechy": [
+          "cienki",
+          "metaliczny",
+          "niepokojący"
+        ]
+      }
+    },
+    "229": {
+      "title": "Sterling Keykeeper",
+      "background": {
+        "opis": "Elegancki areszt w słońcu południa — cisza urzędu, listy gończe na ścianie",
+        "cechy": [
+          "areszt w południe",
+          "cisza urzędu",
+          "listy gończe",
+          "secesyjne kraty"
+        ]
+      },
+      "hero": {
+        "opis": "Pobrzękiwanie pęku srebrnych kluczy uniesionego jak symbol przewagi",
+        "cechy": [
+          "pobrzękiwanie kluczy",
+          "uniesiony pęk",
+          "symbol przewagi",
+          "zamknięty rzezimieszek"
+        ],
+        "wymagane": [
+          "pobrzękiwanie kluczy"
+        ]
+      },
+      "mood": {
+        "opis": "Pewna siebie, opłacona kontrola",
+        "cechy": [
+          "pewność siebie",
+          "kontrola",
+          "chłodny profesjonalizm"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Srebrzyście, drobno, pewnie",
+        "cechy": [
+          "srebrzysty",
+          "drobny",
+          "pewny"
+        ]
+      }
+    },
+    "230": {
+      "title": "Horizon Spellbomb",
+      "background": {
+        "opis": "Otwarta metaliczna równina pod jasnym niebem — cisza rozległości",
+        "cechy": [
+          "metaliczna równina",
+          "otwarta przestrzeń",
+          "jasne niebo",
+          "cisza rozległości"
+        ]
+      },
+      "hero": {
+        "opis": "Kręgi energii skanują teren do horyzontu — rozszerzające się fale i rozluźnianie artefaktu",
+        "cechy": [
+          "rozszerzające się kręgi",
+          "fale skanowania",
+          "odsłanianie ukrytych warstw",
+          "jednorazowy gest"
+        ]
+      },
+      "mood": {
+        "opis": "Wskazanie drogi — jeden gest otwiera następny krok",
+        "cechy": [
+          "wskazanie drogi",
+          "odkrycie",
+          "nadzieja pod skażeniem"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Czysto, szeroko, jasno",
+        "cechy": [
+          "czysty",
+          "szeroki",
+          "jasny"
+        ]
+      }
+    },
+    "231": {
+      "title": "Anthem of Champions",
+      "background": {
+        "opis": "Marmurowe schody agory — miasto patrzące na obrończynie",
+        "cechy": [
+          "schody agory",
+          "patrzące miasto",
+          "marmur",
+          "szyk obronny"
+        ]
+      },
+      "hero": {
+        "opis": "Zsynchronizowane uniesienie broni i chóralny okrzyk czterech wojowniczek",
+        "cechy": [
+          "chóralny okrzyk",
+          "zsynchronizowany gest",
+          "pieśń bojowa",
+          "poświata inspiracji"
+        ],
+        "wymagane": [
+          "chóralny okrzyk"
+        ]
+      },
+      "mood": {
+        "opis": "Jedność czterech — pieśń, po której wróg przejdzie tylko po trupach",
+        "cechy": [
+          "jedność",
+          "pieśń obrony",
+          "determinacja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Chóralnie, mocno, uroczyście",
+        "cechy": [
+          "chóralny",
+          "mocny",
+          "uroczysty"
+        ]
+      }
+    },
+    "232": {
+      "title": "Goblin Piker",
+      "background": {
+        "opis": "Leśny dukt z prowizorycznym posterunkiem — las, kubek na skrzynce, koledzy za palisadą",
+        "cechy": [
+          "leśny dukt",
+          "prowizoryczny posterunek",
+          "las wokół",
+          "rozbawieni koledzy"
+        ]
+      },
+      "hero": {
+        "opis": "Niepewny wartownik obraca pikę z poważną miną — nieporadne brzęknięcia rynsztunku",
+        "cechy": [
+          "nieporadne brzęknięcia",
+          "obracanie piki",
+          "poważna mina",
+          "pierwsza warta"
+        ]
+      },
+      "mood": {
+        "opis": "Komiczna powaga świeżego awansu",
+        "cechy": [
+          "komizm",
+          "powaga nie na miejscu",
+          "dobroduszność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Niezgrabnie, lekko, pogodnie",
+        "cechy": [
+          "niezgrabny",
+          "lekki",
+          "pogodny"
+        ]
+      }
+    },
+    "233": {
+      "title": "Barkform Harvester",
+      "background": {
+        "opis": "Warzywne pole o pogodnym poranku — liście-giganty, ukradkiem patrzący farmerzy",
+        "cechy": [
+          "warzywne pole",
+          "pogodny poranek",
+          "liście-giganty",
+          "ukryci obserwatorzy"
+        ]
+      },
+      "hero": {
+        "opis": "Konstrukt z kory wyrywa bulwy — trzask korzonków i skrzyp drewnianych kończyn",
+        "cechy": [
+          "trzask korzonków",
+          "skrzyp drewnianych kończyn",
+          "zbieranie plonów",
+          "kosz na grzbiecie"
+        ]
+      },
+      "mood": {
+        "opis": "Dziwaczna pożyteczność przyjęta z ostrożną sympatią",
+        "cechy": [
+          "dziwaczność",
+          "pożyteczność",
+          "ostrożna sympatia"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Drewnianie, skrzypiąco, ciepło",
+        "cechy": [
+          "drewniany",
+          "skrzypiący",
+          "ciepły"
+        ]
+      }
+    },
+    "234": {
+      "title": "Gray Slaad",
+      "background": {
+        "opis": "Zamglone mokradło z martwymi drzewami — resztki traktu, ciężka wilgoć",
+        "cechy": [
+          "zamglone mokradło",
+          "martwe drzewa",
+          "resztki traktu",
+          "ciężka wilgoć"
+        ]
+      },
+      "hero": {
+        "opis": "Obecność slaada sączy zarazę — mokry płazi oddech i mgła choroby wokół szponów",
+        "cechy": [
+          "mokry płazi oddech",
+          "sącząca się mgła",
+          "bierna zaraza",
+          "pulsujące narośla"
+        ]
+      },
+      "mood": {
+        "opis": "Bezcelowa, bierna zaraza — choruje wszystko obok",
+        "cechy": [
+          "bierna zaraza",
+          "obcość",
+          "chorobliwość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, duszno, ciemno",
+        "cechy": [
+          "mokry",
+          "duszny",
+          "ciemny"
+        ]
+      }
     }
   }
 }
