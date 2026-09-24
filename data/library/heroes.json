@@ -438,6 +438,45 @@
         "choice": "weszenie.1",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "wave_crash_03",
+      "role": "uderzenie wody — fala, rozbryzg, plusk",
+      "character": "krótki, czysty, dynamiczny",
+      "distance": "bliski",
+      "energy": "wysoka",
+      "duration_sec": 1.89,
+      "desc": "krótki dynamiczny rozbryzg — czysty chlust bez tła",
+      "good_for": "fala, rozbryzg, wynurzenie, wodny żywioł",
+      "bad_for": "ogień, suche wnętrza, delikatne sceny",
+      "file": "audio/library/heroes/wave_crash_03.mp3",
+      "semantics": {
+        "type": "fala-rozbryzg",
+        "traits": [
+          "uderzenie wody",
+          "rozbryzg",
+          "naturalny",
+          "dynamiczny"
+        ],
+        "bad_for": [
+          "suchy",
+          "ognisty",
+          "metaliczny"
+        ]
+      },
+      "source": {
+        "title": "water splash 2 (Freesound)",
+        "author": "swordofkings128",
+        "license": "CC0 / Public Domain (wg API Freesound)",
+        "url": "https://freesound.org/people/swordofkings128/sounds/",
+        "channel": "sample-scout run 36007698060 (preview-hq-mp3); manifest sha256: data/gates/g022/source-manifest.json",
+        "notes": "całość 1.9 s; poziom, fade (okno od 0.0 s)"
+      },
+      "approved": {
+        "gate": "g022",
+        "choice": "fala-rozbryzg.3",
+        "date": "2026-09-24"
+      }
     }
   ]
 }

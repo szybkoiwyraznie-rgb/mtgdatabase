@@ -8,13 +8,13 @@
   },
   "hero": {
     "id": "sniff_track_01",
-    "at_sec": 1.0,
+    "at_sec": 0.5,
     "target_db": -20
   },
   "coda": {
     "gesture": "g8b_knocked_returns",
     "instrument": "b_handchimes",
-    "at_sec": 3.4,
+    "at_sec": 3.7,
     "target_db": -19,
     "damp_db": 8.0
   },

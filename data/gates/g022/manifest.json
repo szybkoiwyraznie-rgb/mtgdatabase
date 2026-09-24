@@ -133,5 +133,8 @@
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "fala-rozbryzg": "f.3"
+  }
 }

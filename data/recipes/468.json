@@ -9,7 +9,7 @@
   "hero": {
     "id": "beast_roar_long_01",
     "at_sec": 1.2,
-    "target_db": -15
+    "target_db": -12
   },
   "coda": {
     "gesture": "g6c_sentry_return",

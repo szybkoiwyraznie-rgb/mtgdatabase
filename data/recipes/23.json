@@ -4,12 +4,12 @@
   "background": {
     "id": "forest_day_01",
     "offset_sec": 0.0,
-    "target_db": -32
+    "target_db": -34
   },
   "hero": {
     "id": "light_bloom_01",
     "at_sec": 0.8,
-    "target_db": -18
+    "target_db": -17
   },
   "coda": {
     "gesture": "g5a_shimmer_up",

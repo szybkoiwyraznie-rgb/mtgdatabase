@@ -4,18 +4,19 @@
   "background": {
     "id": "warcamp_01",
     "offset_sec": 0.0,
-    "target_db": -32
+    "target_db": -28
   },
   "hero": {
     "id": "troop_march_05",
-    "at_sec": 0.6,
+    "at_sec": 1.0,
     "target_db": -15
   },
   "coda": {
     "gesture": "g7a_even_rank",
     "instrument": "b_logdrum",
-    "at_sec": 3.2,
-    "target_db": -17
+    "at_sec": 3.4,
+    "target_db": -15,
+    "damp_db": 8.0
   },
   "seed": 575,
   "gate": "g019",
