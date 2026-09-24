@@ -13297,6 +13297,958 @@
           "zaskakujący"
         ]
       }
+    },
+    "458": {
+      "title": "Trained Arynx",
+      "background": {
+        "opis": "Spalone słońcem pustkowia i kanion — suchy wiatr, otwarte szlaki pościgu",
+        "cechy": [
+          "spalone pustkowia",
+          "suchy wiatr",
+          "kanion",
+          "otwarte szlaki"
+        ]
+      },
+      "hero": {
+        "opis": "Szarża i skok rogatego drapieżnika nad kanionem — pęd bestii w idealnej synchronizacji z jeźdźcem",
+        "cechy": [
+          "pędząca szarża",
+          "skok nad kanionem",
+          "tupot drapieżnika",
+          "zsynchronizowany duet"
+        ]
+      },
+      "mood": {
+        "opis": "Zawsze uderzyć pierwszym — czujna przewaga",
+        "cechy": [
+          "przewaga",
+          "czujność",
+          "zgranie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dynamicznie, sucho, pewnie",
+        "cechy": [
+          "dynamiczny",
+          "suchy",
+          "pewny"
+        ]
+      }
+    },
+    "459": {
+      "title": "Prismari Campus",
+      "background": {
+        "opis": "Plenerowy amfiteatr kampusu — gwar publiczności, scena żywiołów",
+        "cechy": [
+          "plenerowy amfiteatr",
+          "gwar publiczności",
+          "scena spektaklu",
+          "uczelniana energia"
+        ]
+      },
+      "hero": {
+        "opis": "Zderzenie ognia i wody w taflę lodu i pary — spektakl żywiołów jako soczewka wizji",
+        "cechy": [
+          "zderzenie żywiołów",
+          "syk pary",
+          "tafla lodu",
+          "rozbłysk spektaklu"
+        ]
+      },
+      "mood": {
+        "opis": "Sztuka z żywiołów — natchnienie z ulotnego płótna",
+        "cechy": [
+          "ekspresja",
+          "natchnienie",
+          "twórczy amok"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Widowiskowo, kontrastowo, błyskotliwie",
+        "cechy": [
+          "widowiskowy",
+          "kontrastowy",
+          "błyskotliwy"
+        ]
+      }
+    },
+    "460": {
+      "title": "Ivy Lane Denizen",
+      "background": {
+        "opis": "Zielone zaułki miejskiej dzielnicy — tętniące życie, warsztat zbrojmistrza",
+        "cechy": [
+          "zielone zaułki",
+          "miejski gwar",
+          "warsztat zbrojmistrza",
+          "wspólnota gildii"
+        ]
+      },
+      "hero": {
+        "opis": "Dopasowywanie ciężkiego napierśnika nowemu sojusznikowi — brzęk zapinanych pasów",
+        "cechy": [
+          "brzęk zapinanych pasów",
+          "dopasowanie pancerza",
+          "rzemieślnicza wprawa",
+          "gotowość do patrolu"
+        ]
+      },
+      "mood": {
+        "opis": "Wsparcie wspólnoty — każdy nowy silniejszy od progu",
+        "cechy": [
+          "gościnność",
+          "wspólnota",
+          "praktyczna troska"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciepło, rzemieślniczo, rzeczowo",
+        "cechy": [
+          "ciepły",
+          "rzemieślniczy",
+          "rzeczowy"
+        ]
+      }
+    },
+    "461": {
+      "title": "Negate",
+      "background": {
+        "opis": "Starożytna puszcza strażniczek — gęsta zieleń, czujna cisza granicy",
+        "cechy": [
+          "starożytna puszcza",
+          "gęsta zieleń",
+          "czujna cisza",
+          "granica lasu"
+        ]
+      },
+      "hero": {
+        "opis": "Woda i pnącza miażdżą kulę ognia w powietrzu — zaklęcie gaśnie w obłoku pary",
+        "cechy": [
+          "zmiażdżony płomień",
+          "syk gasnącego zaklęcia",
+          "wyrastające pnącza",
+          "obłok pary"
+        ]
+      },
+      "mood": {
+        "opis": "Bezwzględna odmowa natury — spokojny gest przewagi",
+        "cechy": [
+          "odmowa",
+          "spokój przewagi",
+          "obrona lasu"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, sycząco, stanowczo",
+        "cechy": [
+          "organiczny",
+          "syczący",
+          "stanowczy"
+        ]
+      }
+    },
+    "462": {
+      "title": "Marut",
+      "background": {
+        "opis": "Podziemia kupieckie pod miastem — echo krypty paktów, blask złota",
+        "cechy": [
+          "podziemia kupieckie",
+          "echo krypty",
+          "blask złota",
+          "atmosfera paktu"
+        ]
+      },
+      "hero": {
+        "opis": "Żeliwny gigant miażdży złote monety krokiem pieczętującym pakt — brzęk fortuny pod stopami",
+        "cechy": [
+          "ciężkie kroki giganta",
+          "brzęk miażdżonych monet",
+          "pieczętowanie układu",
+          "zwrot zastawu"
+        ],
+        "wymagane": [
+          "ciężkie kroki giganta"
+        ]
+      },
+      "mood": {
+        "opis": "Nieodwołalny kontrakt — od paktu nie ma odwrotu",
+        "cechy": [
+          "nieodwołalność",
+          "kosmiczny porządek",
+          "powaga umowy"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Żeliwnie, dostojnie, ciężko",
+        "cechy": [
+          "metaliczny",
+          "dostojny",
+          "ciężki"
+        ]
+      }
+    },
+    "463": {
+      "title": "Knockout Maneuver",
+      "background": {
+        "opis": "Ceremonialna arena w mroźnych górach — okrzyki obchodów, obserwująca starszyzna",
+        "cechy": [
+          "ceremonialna arena",
+          "okrzyki obchodów",
+          "mroźne góry",
+          "obserwująca starszyzna"
+        ]
+      },
+      "hero": {
+        "opis": "Rzut rywalem na lity lód — wstrząs gruntu i kaskady skruszonego śniegu",
+        "cechy": [
+          "rzut na lód",
+          "wstrząs gruntu",
+          "kaskady śniegu",
+          "żelazny chwyt"
+        ],
+        "wymagane": [
+          "rzut na lód"
+        ]
+      },
+      "mood": {
+        "opis": "Brutalny turniej — pokaz siły przed klanem",
+        "cechy": [
+          "brutalna rywalizacja",
+          "duma klanu",
+          "surowe święto"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Twardo, lodowato, gwałtownie",
+        "cechy": [
+          "twardy",
+          "lodowaty",
+          "gwałtowny"
+        ]
+      }
+    },
+    "464": {
+      "title": "Polluted Dead",
+      "background": {
+        "opis": "Opuszczone pola spustoszonej prowincji — martwa cisza porzuconych domostw",
+        "cechy": [
+          "opuszczone pola",
+          "martwa cisza",
+          "porzucone domostwa",
+          "jałowiejąca gleba"
+        ]
+      },
+      "hero": {
+        "opis": "Powolny nieumarły sączy gęstą mgłę przy ziemi — pełzający całun zatruwający grunt",
+        "cechy": [
+          "powolne kroki upiora",
+          "sącząca się mgła",
+          "pełzający całun",
+          "zatruwana gleba"
+        ]
+      },
+      "mood": {
+        "opis": "Cicha zaraza — ziemia, która nie wyda plonu",
+        "cechy": [
+          "pełzająca zaraza",
+          "beznadzieja",
+          "wyludnienie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mgliście, powoli, dusząco",
+        "cechy": [
+          "mglisty",
+          "powolny",
+          "duszący"
+        ]
+      }
+    },
+    "465": {
+      "title": "Gurmag Drowner",
+      "background": {
+        "opis": "Mroczne bagna klanu — błotniste, głodne wody, duszna ciemność mokradeł",
+        "cechy": [
+          "mroczne bagna",
+          "błotniste wody",
+          "duszna ciemność",
+          "mokradła"
+        ]
+      },
+      "hero": {
+        "opis": "Rytualny drenaż umysłu sługi — wyciąganie wspomnień i pochłonięcie ciała przez bagno",
+        "cechy": [
+          "drenaż wspomnień",
+          "szept rytuału",
+          "pochłonięcie przez bagno",
+          "wybrany fragment zaklęcia"
+        ]
+      },
+      "mood": {
+        "opis": "Egoistyczne okrucieństwo — sługa jako surowiec",
+        "cechy": [
+          "okrucieństwo",
+          "bezwzględność",
+          "mroczna chciwość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Bagienne, ciemno, oleisto",
+        "cechy": [
+          "mokry",
+          "ciemny",
+          "oleisty"
+        ]
+      }
+    },
+    "466": {
+      "title": "Basilisk Gate",
+      "background": {
+        "opis": "Monumentalna brama wschodnia — gigantyczne łuki, kamienne bestie nad wjazdem",
+        "cechy": [
+          "monumentalna brama",
+          "kamienne bestie",
+          "gigantyczne łuki",
+          "ruch wjazdu"
+        ]
+      },
+      "hero": {
+        "opis": "Złota energia miasta spływa na pancerz strażnika — rezonans bram ponad dachami",
+        "cechy": [
+          "spływająca energia",
+          "rezonans bram",
+          "rozjaśniony pancerz",
+          "wsparcie murów"
+        ]
+      },
+      "mood": {
+        "opis": "Miasto broni obrońcę — potęga fundamentów",
+        "cechy": [
+          "potęga miasta",
+          "otucha obrony",
+          "dostojność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dostojnie, rezonująco, złociście",
+        "cechy": [
+          "dostojny",
+          "rezonujący",
+          "jasny"
+        ]
+      }
+    },
+    "467": {
+      "title": "Monastery Flock",
+      "background": {
+        "opis": "Klasztor na niedostępnych szczytach — wiatr wysokości, poranna medytacja na murach",
+        "cechy": [
+          "klasztor na szczytach",
+          "wiatr wysokości",
+          "poranna medytacja",
+          "spokój twierdzy"
+        ]
+      },
+      "hero": {
+        "opis": "Ogromne stado ptaków zrywa się z dachów — szum tysięcy skrzydeł jako żywa osłona",
+        "cechy": [
+          "szum tysięcy skrzydeł",
+          "zrywające się stado",
+          "krążąca chmara",
+          "żywa osłona"
+        ],
+        "wymagane": [
+          "szum tysięcy skrzydeł"
+        ]
+      },
+      "mood": {
+        "opis": "Harmonia z naturą jako tarcza",
+        "cechy": [
+          "harmonia",
+          "ufność",
+          "spokojna czujność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Szumiąco, przestronnie, spokojnie",
+        "cechy": [
+          "szumiący",
+          "przestronny",
+          "spokojny"
+        ]
+      }
+    },
+    "468": {
+      "title": "Cacophodon",
+      "background": {
+        "opis": "Duszne ostępy dżungli — złudna cisza, ukryci strzelcy w poszyciu",
+        "cechy": [
+          "duszna dżungla",
+          "złudna cisza",
+          "gęste poszycie",
+          "śpiący obóz"
+        ]
+      },
+      "hero": {
+        "opis": "Ogłuszający ryk bestii — fala dźwiękowa wygina paprocie i wprawia ziemię w drżenie",
+        "cechy": [
+          "ogłuszający ryk",
+          "fala dźwiękowa",
+          "drżenie ziemi",
+          "wygięte korony"
+        ],
+        "wymagane": [
+          "ogłuszający ryk"
+        ]
+      },
+      "mood": {
+        "opis": "Żywy alarm dżungli — hałas jako broń",
+        "cechy": [
+          "alarm",
+          "obezwładniający hałas",
+          "nagła mobilizacja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ogłuszająco, potężnie, nisko",
+        "cechy": [
+          "ogłuszający",
+          "potężny",
+          "niski"
+        ]
+      }
+    },
+    "469": {
+      "title": "Chained Throatseeker",
+      "background": {
+        "opis": "Sterylne laboratoria z klatkami — cisza bezruchu, ciężkie łańcuchy",
+        "cechy": [
+          "sterylne laboratoria",
+          "klatki i łańcuchy",
+          "cisza bezruchu",
+          "chirurgiczny chłód"
+        ]
+      },
+      "hero": {
+        "opis": "Bestia gwałtownie napina żelazne okowy — zgrzyt łańcuchów wobec wyczutej zarazy",
+        "cechy": [
+          "zgrzyt napinanych łańcuchów",
+          "gwałtowny zryw",
+          "ślepy łowca",
+          "wyczuty olej"
+        ],
+        "wymagane": [
+          "zgrzyt napinanych łańcuchów"
+        ]
+      },
+      "mood": {
+        "opis": "Uśpiona groza budzi się na zapach zarazy",
+        "cechy": [
+          "uwięziona groza",
+          "morderczy instynkt",
+          "niepokój"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Metalicznie, gwałtownie, złowrogo",
+        "cechy": [
+          "metaliczny",
+          "gwałtowny",
+          "złowrogi"
+        ]
+      }
+    },
+    "470": {
+      "title": "Springbloom Druid",
+      "background": {
+        "opis": "Popielate pustkowie po pożogach — martwa gleba, blizny spalonych puszcz",
+        "cechy": [
+          "popielate pustkowie",
+          "martwa gleba",
+          "ślady pożóg",
+          "cisza zniszczenia"
+        ]
+      },
+      "hero": {
+        "opis": "Ofiara jednego skrawka gleby budzi dwa potężne drzewa — gwałtowny podwójny wzrost",
+        "cechy": [
+          "rozsypanie gleby w pył",
+          "gwałtowny wzrost drzew",
+          "trzask pędów",
+          "żywy opatrunek"
+        ]
+      },
+      "mood": {
+        "opis": "Trudna ofiara dla większego uzdrowienia",
+        "cechy": [
+          "ofiara",
+          "uzdrowienie",
+          "surowa nadzieja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, narastająco, uroczyście",
+        "cechy": [
+          "organiczny",
+          "narastający",
+          "uroczysty"
+        ]
+      }
+    },
+    "471": {
+      "title": "Healer of the Glade",
+      "background": {
+        "opis": "Zniszczone lasy w kredowym pyle — martwa cisza po koszmarze",
+        "cechy": [
+          "zniszczone lasy",
+          "kredowy pył",
+          "martwa cisza",
+          "ślady spustoszenia"
+        ]
+      },
+      "hero": {
+        "opis": "Żywiołak uwalnia szmaragdowy pyłek — ból ustępuje, pod stopami rozkwita trawa",
+        "cechy": [
+          "uwalniany pyłek",
+          "bezszelestne kroki żywiołaka",
+          "rozkwitająca trawa",
+          "ukojenie zwiadowczyni"
+        ]
+      },
+      "mood": {
+        "opis": "Łagodne uzdrowienie — nadzieja po koszmarze",
+        "cechy": [
+          "ukojenie",
+          "odnowa",
+          "łagodność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Miękko, świetliście, kojąco",
+        "cechy": [
+          "miękki",
+          "świetlisty",
+          "kojący"
+        ]
+      }
+    },
+    "472": {
+      "title": "Kazuul's Toll Collector",
+      "background": {
+        "opis": "Strome szlaki ku klifom — górskie przejście, wąski przesmyk haraczu",
+        "cechy": [
+          "strome szlaki",
+          "górski przesmyk",
+          "punkt haraczu",
+          "echo klifów"
+        ]
+      },
+      "hero": {
+        "opis": "Ogr obwieszony zarekwirowanym orężem — brzęk dziesiątek mieczy przy każdym ruchu",
+        "cechy": [
+          "brzęk zarekwirowanego oręża",
+          "ciężkie kroki ogra",
+          "wyciągnięta łapa po ostrze",
+          "obwieszone cielsko"
+        ]
+      },
+      "mood": {
+        "opis": "Chciwy poborca — przejście kosztuje najlepsze ostrze",
+        "cechy": [
+          "chciwość",
+          "groźna fascynacja",
+          "wymuszony haracz"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Brzęcząco, ciężko, groteskowo",
+        "cechy": [
+          "metaliczny",
+          "ciężki",
+          "groteskowy"
+        ]
+      }
+    },
+    "473": {
+      "title": "Scion Summoner",
+      "background": {
+        "opis": "Głębokie dżungle przepisywane przez korupcję — trzeszcząca krystalizacja natury",
+        "cechy": [
+          "skażona dżungla",
+          "krystalizacja natury",
+          "obca korupcja",
+          "wypaczony szlak"
+        ]
+      },
+      "hero": {
+        "opis": "Dron wtłacza energię w glebę — mech krystalizuje w obsydian i lęgnie się pomiot",
+        "cechy": [
+          "wtłaczana energia",
+          "krystalizacja gleby",
+          "lęgnący się pomiot",
+          "obce odnóże"
+        ]
+      },
+      "mood": {
+        "opis": "Nieustanna multiplikacja — każdy krok rodzi pomiot",
+        "cechy": [
+          "obca płodność",
+          "nieuchronność",
+          "wysysanie świata"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Krystalicznie, obco, złowrogo",
+        "cechy": [
+          "krystaliczny",
+          "obcy",
+          "złowrogi"
+        ]
+      }
+    },
+    "474": {
+      "title": "Scroll Thief",
+      "background": {
+        "opis": "Sztormowe klify pod zamkiem czarodziejek — kipiel morska, śliskie marmurowe stopnie",
+        "cechy": [
+          "sztormowe klify",
+          "kipiel morska",
+          "śliskie stopnie",
+          "nocna twierdza"
+        ]
+      },
+      "hero": {
+        "opis": "Tryton wynurza się bezszelestnie i znika z pergaminami w spienionych falach",
+        "cechy": [
+          "bezszelestne wynurzenie",
+          "mokra wspinaczka",
+          "zrabowane pergaminy",
+          "zniknięcie w falach"
+        ]
+      },
+      "mood": {
+        "opis": "Kradzież sekretów — morze zabiera wiedzę",
+        "cechy": [
+          "skryta kradzież",
+          "zuchwałość",
+          "morska tajemnica"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, cicho, zwinnie",
+        "cechy": [
+          "mokry",
+          "cichy",
+          "zwinny"
+        ]
+      }
+    },
+    "475": {
+      "title": "Ruinous Rampage",
+      "background": {
+        "opis": "Szturm na port kosmiczny — alarmy, drony zwiadowcze, lśniące terminale",
+        "cechy": [
+          "port kosmiczny",
+          "alarmy szturmu",
+          "drony zwiadowcze",
+          "technologiczna twierdza"
+        ]
+      },
+      "hero": {
+        "opis": "Wyrwane ramię mecha jako maczuga — deszcz roztrzaskanej elektroniki i błękitnych iskier",
+        "cechy": [
+          "wyrwane ramię mecha",
+          "roztrzaskana elektronika",
+          "deszcz iskier",
+          "brutalne uderzenia"
+        ],
+        "wymagane": [
+          "roztrzaskana elektronika"
+        ]
+      },
+      "mood": {
+        "opis": "Czysta przemoc kontra technologia",
+        "cechy": [
+          "brutalna siła",
+          "destrukcja",
+          "przewaga prostoty"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Wybuchowo, metalicznie, brutalnie",
+        "cechy": [
+          "wybuchowy",
+          "metaliczny",
+          "brutalny"
+        ]
+      }
+    },
+    "476": {
+      "title": "Banishment Decree",
+      "background": {
+        "opis": "Katedralne korytarze porcelany i ścięgien — sterylna nabożna cisza wyroku",
+        "cechy": [
+          "katedralne korytarze",
+          "porcelanowa biel",
+          "nabożna cisza",
+          "atmosfera wyroku"
+        ]
+      },
+      "hero": {
+        "opis": "Strumień sterylnego światła odpycha heretyka — ślizg mosiężnych dłoni po posadzce",
+        "cechy": [
+          "strumień światła",
+          "odepchnięcie falą",
+          "ślizg po posadzce",
+          "wyrok wygnania"
+        ]
+      },
+      "mood": {
+        "opis": "Bezlitosny dekret — wygnanie zamiast zjednoczenia",
+        "cechy": [
+          "bezlitosny osąd",
+          "wykluczenie",
+          "zimna doktryna"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Sterylnie, zimno, dostojnie",
+        "cechy": [
+          "zimny",
+          "czysty",
+          "dostojny"
+        ]
+      }
+    },
+    "477": {
+      "title": "Jeskai Windscout",
+      "background": {
+        "opis": "Ośnieżone szczyty i lodowate prądy — klasztorne inkantacje niesione wiatrem",
+        "cechy": [
+          "ośnieżone szczyty",
+          "lodowate prądy",
+          "dalekie inkantacje",
+          "wysokie niebo"
+        ]
+      },
+      "hero": {
+        "opis": "Zwiadowca pikuje z glewią nasyconą magią — świst lotu i świetliste ostrze",
+        "cechy": [
+          "świst pikowania",
+          "łopot skrzydeł",
+          "świetliste ostrze",
+          "miażdżące uderzenie"
+        ],
+        "wymagane": [
+          "świst pikowania"
+        ]
+      },
+      "mood": {
+        "opis": "Zimna precyzja podniebnego wojownika",
+        "cechy": [
+          "precyzja",
+          "szybkość",
+          "dyscyplina klanu"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Świszcząco, chłodno, dynamicznie",
+        "cechy": [
+          "świszczący",
+          "chłodny",
+          "dynamiczny"
+        ]
+      }
+    },
+    "478": {
+      "title": "Spare from Evil",
+      "background": {
+        "opis": "Brukowane ulice nocą — szturm watahy, nocny patrol w potrzasku",
+        "cechy": [
+          "brukowane ulice",
+          "nocny patrol",
+          "szturm watahy",
+          "zagrożona prowincja"
+        ]
+      },
+      "hero": {
+        "opis": "Ściana czystego światła ze świętego symbolu — pazury bestii bezsilne o barierę",
+        "cechy": [
+          "ściana światła",
+          "drapanie pazurów o barierę",
+          "wzniesiony symbol",
+          "chwila ochrony"
+        ],
+        "wymagane": [
+          "ściana światła"
+        ]
+      },
+      "mood": {
+        "opis": "Wiara jako pancerz — chwila wytchnienia przed kontratakiem",
+        "cechy": [
+          "żarliwa wiara",
+          "ochrona",
+          "nadzieja w oblężeniu"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Świetliście, mocno, nabożnie",
+        "cechy": [
+          "świetlisty",
+          "mocny",
+          "nabożny"
+        ]
+      }
+    },
+    "479": {
+      "title": "Impact Tremors",
+      "background": {
+        "opis": "Jałowe stepy pod szarżą — tętent watahy, drżący grunt",
+        "cechy": [
+          "jałowe stepy",
+          "tętent watahy",
+          "drżący grunt",
+          "kurz szarży"
+        ]
+      },
+      "hero": {
+        "opis": "Uderzenie orka o grunt wyzwala sejsmiczną falę — huk i czerwone błyskawice obezwładniają",
+        "cechy": [
+          "sejsmiczne uderzenie",
+          "ogłuszający huk",
+          "czerwone błyskawice",
+          "wibracje skał"
+        ],
+        "wymagane": [
+          "sejsmiczne uderzenie"
+        ]
+      },
+      "mood": {
+        "opis": "Żywioł zamiast ciosu — obezwładnienie przed zwarciem",
+        "cechy": [
+          "żywiołowa siła",
+          "obezwładnienie",
+          "surowa agresja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dudniąco, wstrząsowo, potężnie",
+        "cechy": [
+          "dudniący",
+          "wstrząsowy",
+          "potężny"
+        ]
+      }
+    },
+    "480": {
+      "title": "Zoraline, Cosmos Caller",
+      "background": {
+        "opis": "Sanktuarium ukryte w koronach drzew — nocna cisza doliny, gwiezdne niebo",
+        "cechy": [
+          "sanktuarium w koronach",
+          "nocna cisza",
+          "gwiezdne niebo",
+          "ukryta świątynia"
+        ]
+      },
+      "hero": {
+        "opis": "Strumień astralnej energii spływa na nieprzytomnego — kosztowne błogosławieństwo przywraca zmysły",
+        "cechy": [
+          "spływający strumień energii",
+          "splot światła i cienia",
+          "budzący się zwiadowca",
+          "ofiara własnych sił"
+        ]
+      },
+      "mood": {
+        "opis": "Dar wszechświata za cenę siebie",
+        "cechy": [
+          "poświęcenie",
+          "kosmiczna łaska",
+          "czuła opieka"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Astralnie, miękko, uroczyście",
+        "cechy": [
+          "eteryczny",
+          "miękki",
+          "uroczysty"
+        ]
+      }
+    },
+    "481": {
+      "title": "Dawntreader Elk",
+      "background": {
+        "opis": "Zasypane śniegiem bory — mroźna głusza, uśpiona pod lodem polana",
+        "cechy": [
+          "zaśnieżone bory",
+          "mroźna głusza",
+          "uśpiona polana",
+          "zimowa cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Jeleń rozsypuje się w wir szmaragdowej energii — topniejący śnieg i budząca się wiosna",
+        "cechy": [
+          "rozsypanie w wir energii",
+          "topniejący śnieg",
+          "budzące się kwiaty",
+          "bezgłośne poświęcenie"
+        ]
+      },
+      "mood": {
+        "opis": "Ciche poświęcenie rodzi azyl",
+        "cechy": [
+          "poświęcenie",
+          "odrodzenie",
+          "wiosenny spokój"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Miękko, świetliście, ciepło",
+        "cechy": [
+          "miękki",
+          "świetlisty",
+          "ciepły"
+        ]
+      }
+    },
+    "482": {
+      "title": "True Conviction",
+      "background": {
+        "opis": "Pola brzytwotrawy w cieniu walk — metaliczne ostrza traw, szczątki dawnych maszyn",
+        "cechy": [
+          "pola brzytwotrawy",
+          "metaliczne trawy",
+          "szczątki maszyn",
+          "cień nieustannych walk"
+        ]
+      },
+      "hero": {
+        "opis": "Podwójny błysk bliźniaczych ostrzy z powietrza — energia ciosu wraca w ciało wojowniczki",
+        "cechy": [
+          "podwójne cięcie",
+          "błysk światła",
+          "zderzenie z wrakiem",
+          "lśniące pasma mocy"
+        ]
+      },
+      "mood": {
+        "opis": "Przekonanie jako moc — cios, który wzmacnia",
+        "cechy": [
+          "niezłomne przekonanie",
+          "zapał młodych",
+          "siła wiary"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Jasno, tnąco, heroicznie",
+        "cechy": [
+          "jasny",
+          "ostry",
+          "heroiczny"
+        ]
+      }
     }
   }
 }
