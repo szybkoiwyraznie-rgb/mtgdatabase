@@ -1,5 +1,16 @@
 # CHANGELOG taksonomii semantycznej
 
+## 2026-09-24 — v6: nowy typ hero `weszenie` (decyzja właściciela przy g020)
+
+Bramka g020 ujawniła błąd przypisania: hero fabuły 193 (Floodhound —
+„węszy przy tropie, płynne pociągnięcia nosem") siedział w `fala-rozbryzg`
+przez cechę „kapiące ciało". Właściciel: „może lepiej tu dać węszenie" —
+dodany typ `weszenie` (rytmiczne pociągnięcia nosem przy tropie), fabuła
+193 przepięta nadpisaniem. Kandydaci na kipiel gejzerów odrzuceni w c
+(brzmiały jak hałas, nie rozbryzg) — `fala-rozbryzg` nadal bez klocka;
+następna próba z materiału zwiadu („water splash"), nie z gejzerów.
+Hero: 74 → 75 typów; 510/510 kombinacji unikalnych.
+
 ## 2026-09-24 — v5: wdrożenie audytu (16 rozbić + okrzyk wg płci + korekta szumu przypisań)
 
 Właściciel zaakceptował audyt v4 w całości i nakazał natychmiastową

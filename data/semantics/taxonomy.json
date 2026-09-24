@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "5",
-  "status": "v5 zaakceptowana 2026-09-24 (audyt: 16 rozbić + okrzyk wg płci głosu; szum przypisań korygowany przez assignment-overrides.json). Zmiany wyłącznie przez data/semantics/CHANGELOG.md",
+  "version": "6",
+  "status": "v6 zaakceptowana 2026-09-24: +weszenie (hero; decyzja właściciela przy bramce g020 — fabuła 193 to węszenie, nie fala). Zmiany wyłącznie przez CHANGELOG.",
   "note": "Taksonomia akustyczna (klasy opisują CO SŁYCHAĆ, nie lore). Klasa = parametr kombinacji a·b·c·d; cechy z profilu fabuły pozostają doprecyzowaniem wewnątrz klasy (traits). Wzorce służą do wstępnego mapowania profili; ostateczne przypisanie podlega przeglądowi. Po akceptacji: zmiany tylko przez data/semantics/CHANGELOG.md.",
   "layers": {
     "background": {
@@ -651,7 +651,7 @@
     "hero": {
       "kod": "b",
       "nazwa": "hero / główne zdarzenie",
-      "liczba_klas": 74,
+      "liczba_klas": 75,
       "klasy": [
         {
           "id": "ryk-bestii",
@@ -1055,6 +1055,17 @@
           "fabul_w_szkicu": 4
         },
         {
+          "id": "weszenie",
+          "nazwa": "Węszenie tropiciela",
+          "co_slychac": "Rytmiczne pociągnięcia nosem i sapnięcia przy tropie — skupione węszenie, nie atak.",
+          "wzorce": [
+            "węszen",
+            "pociągnięci\\w* nosem",
+            "obwąch"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
           "id": "pelzanie-sluz",
           "nazwa": "Pełzanie / śluzowaty ruch",
           "co_slychac": "Mokre pełznięcie, ciężki oddech cielska, śluzowaty ruch.",
@@ -1364,7 +1375,7 @@
             "płynąc\\w* wod",
             "kapiąc\\w* ciał"
           ],
-          "fabul_w_szkicu": 22
+          "fabul_w_szkicu": 21
         },
         {
           "id": "slup-wody",

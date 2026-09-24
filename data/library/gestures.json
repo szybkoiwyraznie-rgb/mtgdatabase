@@ -295,6 +295,67 @@
         "choice": "koda-precyzja.1",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "g8b_knocked_returns",
+      "semantic": "determinacja — zbity, wraca wyżej",
+      "desc": "figura schodzi o stopień jak po ciosie i natychmiast wraca ponad punkt wyjścia — nieustępliwość w jednym geście",
+      "notes": [
+        {
+          "midi": 60,
+          "on": 0.0,
+          "off": 0.35,
+          "vel": 0.5
+        },
+        {
+          "midi": 56,
+          "on": 0.45,
+          "off": 0.8,
+          "vel": 0.44
+        },
+        {
+          "midi": 60,
+          "on": 0.9,
+          "off": 1.25,
+          "vel": 0.5
+        },
+        {
+          "midi": 64,
+          "on": 1.35,
+          "off": 2.3,
+          "vel": 0.52
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 12,
+          "vel": 0.03
+        }
+      },
+      "instrument_tags": [
+        "struck-light",
+        "plucked",
+        "piano"
+      ],
+      "semantics": {
+        "type": "determinacja-niezlomnosc",
+        "traits": [
+          "miarowy",
+          "nieustępliwy",
+          "prosty",
+          "bez wahania"
+        ],
+        "bad_for": [
+          "chwiejny",
+          "żałobny",
+          "figlarny"
+        ]
+      },
+      "approved": {
+        "gate": "g020",
+        "choice": "koda-determinacja.2",
+        "date": "2026-09-24"
+      }
     }
   ]
 }

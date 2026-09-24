@@ -851,6 +851,12 @@
         "typ": "oboz-wojenny",
         "powod": "wiatr nad umocnieniami linii frontu = pozycje wojskowe, nie czynna bitwa (rozbija kolizję z 110)"
       }
+    },
+    "193": {
+      "hero": {
+        "typ": "weszenie",
+        "powod": "werdykt właściciela g020: hero to węszenie ogara, nie uderzenie wody (kapiące ciało zmyliło wzorce)"
+      }
     }
   }
 }

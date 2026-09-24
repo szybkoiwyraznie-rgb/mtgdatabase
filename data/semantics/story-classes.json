@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "taxonomy_version": "5",
+  "taxonomy_version": "6",
   "note": "Mapowanie fabuł na klasy taksonomii (Etap 2). Szkic do przeglądu; po akceptacji taksonomii v1 staje się wiążący.",
   "classes": {
     "1": {
@@ -1001,7 +1001,7 @@
     },
     "193": {
       "background": "burza-zywiol",
-      "hero": "fala-rozbryzg",
+      "hero": "weszenie",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "cicho-kameralna"
     },

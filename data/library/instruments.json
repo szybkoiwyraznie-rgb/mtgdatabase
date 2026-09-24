@@ -188,6 +188,59 @@
         "choice": "instrument-suchy.3",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "b_handchimes",
+      "semantic": "cichy, dzwonkowy, miękki",
+      "family": "idiophone-struck",
+      "samples": {
+        "48": "audio/library/instruments/handchimes/b_handchimes_sus_C3_r01_main.mp3",
+        "50": "audio/library/instruments/handchimes/b_handchimes_sus_D3_r01_main.mp3",
+        "52": "audio/library/instruments/handchimes/b_handchimes_sus_E3_r01_main.mp3",
+        "54": "audio/library/instruments/handchimes/b_handchimes_sus_Fs3_r01_main.mp3",
+        "56": "audio/library/instruments/handchimes/b_handchimes_sus_Gs3_r01_main.mp3",
+        "58": "audio/library/instruments/handchimes/b_handchimes_sus_As3_r01_main.mp3",
+        "60": "audio/library/instruments/handchimes/b_handchimes_sus_C4_r01_main.mp3",
+        "62": "audio/library/instruments/handchimes/b_handchimes_sus_D4_r01_main.mp3",
+        "64": "audio/library/instruments/handchimes/b_handchimes_sus_E4_r01_main.mp3",
+        "66": "audio/library/instruments/handchimes/b_handchimes_sus_Fs4_r01_main.mp3",
+        "68": "audio/library/instruments/handchimes/b_handchimes_sus_Gs4_r01_main.mp3",
+        "69": "audio/library/instruments/handchimes/b_handchimes_sus_A4_r01_main.mp3",
+        "72": "audio/library/instruments/handchimes/b_handchimes_sus_C5_r01_main.mp3",
+        "74": "audio/library/instruments/handchimes/b_handchimes_sus_D5_r01_main.mp3",
+        "76": "audio/library/instruments/handchimes/b_handchimes_sus_E5_r01_main.mp3",
+        "78": "audio/library/instruments/handchimes/b_handchimes_sus_Fs5_r01_main.mp3",
+        "80": "audio/library/instruments/handchimes/b_handchimes_sus_Gs5_r01_main.mp3",
+        "82": "audio/library/instruments/handchimes/b_handchimes_sus_As5_r01_main.mp3",
+        "84": "audio/library/instruments/handchimes/b_handchimes_sus_C6_r01_main.mp3"
+      },
+      "semantics": {
+        "type": "cicho-kameralna",
+        "traits": [
+          "cichy",
+          "drobny",
+          "blisko ucha",
+          "mała dynamika"
+        ],
+        "bad_for": [
+          "monumentalny",
+          "huczny",
+          "industrialny"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "19 nut; wybór sus_"
+      },
+      "approved": {
+        "gate": "g020",
+        "choice": "instrument-kameralny.3",
+        "date": "2026-09-24"
+      }
     }
   ]
 }
