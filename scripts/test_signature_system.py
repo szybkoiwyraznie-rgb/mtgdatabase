@@ -170,6 +170,7 @@ def test_note_attack_gate() -> None:
 
 
 def test_usage_policy() -> None:
+    """ADR 0006: reuse klocków bez limitów; twarda tylko unikalność kombinacji."""
     def recipe(sid: str, suffix: str) -> dict:
         return {
             "story_id": sid,
@@ -179,14 +180,18 @@ def test_usage_policy() -> None:
         }
 
     legacy = recipe("1", "old")
-    unique = recipe("18", "new")
-    errors, _, growth, _ = library_tool.usage_audit([legacy, unique])
-    check("różnorodność: tryb wzrostu aktywny", growth)
-    check("różnorodność: nowe cztery klocki przechodzą", not errors, str(errors))
     reused = recipe("18", "old")
-    errors2, _, _, _ = library_tool.usage_audit([legacy, reused])
-    check("różnorodność: reuse w trybie wzrostu odrzucony",
-          len(errors2) == 4, str(errors2))
+    reused["hero"]["id"] = "hero_new"  # inna kombinacja, trzy wspólne klocki
+    counts = library_tool.usage_counts([legacy, reused])
+    check("ADR 0006: reuse klocków liczony informacyjnie, bez błędów",
+          counts["background"]["bg_old"] == 2 and counts["hero"]["hero_old"] == 1,
+          str(counts))
+    check("ADR 0006: brak funkcji zakazującej reuse",
+          not hasattr(library_tool, "usage_audit"))
+    key_a = library_tool.combo_key(legacy)
+    key_b = library_tool.combo_key(reused)
+    check("ADR 0006: identyczna kombinacja wykrywalna po combo_key",
+          key_a != key_b and key_a == library_tool.combo_key(recipe("99", "old")))
 
 
 def test_registries_and_reading() -> None:

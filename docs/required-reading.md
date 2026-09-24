@@ -12,6 +12,7 @@
 10. `docs/LESSONS.md`
 11. `ENVIRONMENT.md`
 12. wszystkie pliki `docs/decisions/*.md` oznaczone jako aktywne
+13. `docs/roadmap-semantyka.md` — plan wdrożenia ADR 0006 z bieżącym statusem
 
 Metadane fabuły/ receptury są obowiązkowe, nie opcjonalne. Dokumenty
 archiwalne (`legacy/old-factory/`, historia ocen) nie są lekturą

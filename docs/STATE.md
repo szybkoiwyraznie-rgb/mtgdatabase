@@ -4,7 +4,7 @@ Ten plik odpowiada na pytanie „gdzie jesteśmy i co robić dalej”, żeby now
 sesja nie musiała rekonstruować kontekstu z historii gita. Reguły są
 w `AGENTS.md` i `docs/gate-protocol.md` — tutaj wyłącznie bieżący stan.
 
-Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatabase`).
+Ostatnia aktualizacja: **2026-09-24** (PR #34, gałąź `arena/01a0d031-mtgdatabase`).
 
 ## Liczby
 
@@ -26,23 +26,27 @@ Ostatnia aktualizacja: **2026-09-23** (PR #33, gałąź `arena/01a0ce26-mtgdatab
 
 ## W toku
 
-Fabuła **18 (Lotusguard Disciple)** została wylosowana spośród niegotowych.
-Role z narracji: tło = pęd pojazdu-glidera nad torem; hero = seria odłamków
-odbitych przez świeżo utworzoną magiczną tarczę; koda = jasne domknięcie
-ochronnej aury; instrument = metaliczny glockenspiel. Po decyzji właściciela
-o wzroście baz g014 została rozszerzona: wystawia **jednocześnie wszystkie
-cztery wpisy**, po trzy warianty, i czeka na komplet werdyktów. Obowiązuje
-ADR 0005: do 10 wpisów w każdej kategorii każda nowa fabuła dostaje cztery
-nowe klocki; później limit użycia jednego klocka wynosi 10%.
+**Przebudowa na model semantyczny (ADR 0006, 2026-09-24).** Właściciel
+cofnął ADR 0005 (tryby wzrostowe, limity procentowe) w całości. Nowy
+porządek: profil semantyczny fabuły (4 warstwy, bez zaglądania do baz) →
+kafeteria kontrolowanych klas → resolver z miękkim balansem. Jedyna twarda
+reguła: unikalna kombinacja a·b·c·d. Plan: `docs/roadmap-semantyka.md`
+(Etap 0 ukończony w tej sesji).
 
-## Co dalej (propozycja agenta, nie wymaga pytania właściciela)
+Bramka **g014 (fabuła 18) jest wycofana** — żaden kandydat nie wszedł do
+bazy; archiwum w `data/gates/g014/` zostaje. Fabuła 18 wróci w Etapie 5
+roadmapy, obsadzona od profilu semantycznego.
 
-1. Wybrać kolejne fabuły z katalogu i dla każdej wyprowadzić role
-   z narracji; brakujące role → bramki. Hero nie może się powtórzyć,
-   więc **każda nowa fabuła to zwykle nowa bramka hero**.
-2. Kandydaci-zapas rozpoznani, ale niewykorzystani (patrz
-   `docs/sources-and-licensing.md`): miecze, zombie, głosy wysiłku,
-   metal/drewno, bagna, woda/plusk.
+## Co dalej (kolejność z roadmapy, nie wymaga pytania właściciela)
+
+1. **Etap 1**: profile semantyczne wszystkich 510 fabuł
+   (`data/semantics/story-profiles.json`), partiami, bez patrzenia
+   do bibliotek.
+2. **Etap 2**: kafeteria v1 (`data/semantics/taxonomy.json`) z analizy
+   korpusu + bramka tekstowa właściciela (akceptacja listy klas).
+3. Etapy 3–5: migracja bibliotek, resolver, wznowienie produkcji od
+   fabuły 18. Kandydaci-zapas z `docs/sources-and-licensing.md`
+   (miecze, zombie, metal/drewno, bagna, woda) pozostają w odwodzie.
 
 ## Sample scout — uruchomienie
 

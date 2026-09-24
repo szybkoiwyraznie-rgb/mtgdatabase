@@ -13,19 +13,19 @@ i `docs/gate-protocol.md`.
 3. **Bramka odsłuchowa** (`docs/gate-protocol.md`): klocek wchodzi do bazy
    tylko wyborem właściciela. Minimum 3 kandydatów na brak, odrzuty nigdy
    nie są commitowane (`work/` jest poza gitem).
-4. **Rola przed plikiem**: najpierw rola semantyczna, potem sprawdzenie bazy
-   i statystyk użycia, dopiero potem pozyskiwanie. W trybie wzrostu świadomie
-   budujemy nowy wariant roli dla konkretnej fabuły; po progu 10 wpisów nie
-   dublujemy roli, jeśli pasujący klocek mieści się w limicie użycia.
-5. **Różnorodność przed reużyciem**: `data/usage-policy.json` jest wiążące.
-   Dopóki KAŻDA z czterech baz nie ma co najmniej 10 wpisów, każda nowa
-   fabuła dostaje cztery nowe klocki — istniejący pasujący wpis nie zwalnia
-   z bramki. Po osiągnięciu 10 wpisów w każdej bazie wolno reużywać, ale
-   żaden klocek nie może wystąpić w ponad 10% produkcji. Zamrożone fabuły
-   legacy nie są przerabiane, lecz ich użycia liczą się do limitu. Weryfikuje
-   `library_tool.py check`; statystyki pokazuje `library_tool.py report`.
-6. **Zakaz powtórki kombinacji**: para (tło, hero, koda, instrument) musi być
-   unikalna między fabułami. Weryfikuje `library_tool.py check`.
+4. **Profil przed bazą (ADR 0006)**: fabułę najpierw rozbierz semantycznie
+   na cztery warstwy — (a) tło/środowisko, (b) hero/zdarzenie, (c) nastrój
+   kody, (d) przymiotnik instrumentacji — **zanim zajrzysz do bibliotek**.
+   Profil wynika z narracji, nie z inwentarza. Dopiero potem dopasowanie:
+   pasujące klocki → użyte, braki → jedna kompletna bramka. Opisuj to,
+   co słychać, nie lore („śmiech goblina” i „śmiech orka” to ta sama klasa).
+5. **Reuse bez limitów, różnorodność miękko**: klocki są reużywalne —
+   żadnych trybów wzrostu ani progów procentowych (cofnięte ADR 0006).
+   O wyborze spośród pasujących decyduje deterministyczny ranking resolvera
+   (semantyka nadrzędna, potem preferencja rzadziej używanych); audyt
+   generuje ostrzeżenia, nie zakazy. Plan wdrożenia: `docs/roadmap-semantyka.md`.
+6. **Jedyna twarda reguła kombinacji**: zestaw (tło, hero, koda, instrument)
+   musi być unikalny między fabułami. Weryfikuje `library_tool.py check`.
 7. Hero i teła to **żywe nagrania** ze zweryfikowanych źródeł; instrumenty to
    prawdziwe nagrania instrumentów (VCSL/VSCO). Synteza proceduralna tylko dla
    fabuł z klimatem sci-fi i tylko jako uzupełnienie.
@@ -50,8 +50,9 @@ i `docs/gate-protocol.md`.
 1. **Audyt**: przeczytaj ostatni PR/diff, uruchom `python -m compileall -q scripts`,
    `python scripts/test_signature_system.py`, `python scripts/library_tool.py check`.
    Napraw regresje przed nową pracą.
-2. **Produkcja** (model ADR 0004): najpierw wyprowadź WSZYSTKIE cztery role
-   d/c/a/b i sprawdź politykę użycia. Jedna bramka sesji ma od razu zawierać
+2. **Produkcja** (model ADR 0004 + 0006): najpierw zapisz profil semantyczny
+   fabuły (cztery warstwy, bez zaglądania do baz), potem dopasuj klocki.
+   Jedna bramka sesji ma od razu zawierać
    **wszystkie brakujące wpisy dla fabuły**, po 3 kandydatów na każdy wpis
    (np. 3 jeziora + 3 hero + 3 kody + 3 instrumenty), żeby właściciel nie
    dostawał potrzeb fabuły ratami. Właściciel wybiera dokładnie jednego na
@@ -63,7 +64,9 @@ i `docs/gate-protocol.md`.
    pytaj właściciela „co teraz?”, przedstaw gotową bramkę.
 2a. **Rola wynika z narracji konkretnej fabuły**, nigdy z tego, co leży
    w bazie. Wpis o pasującej nazwie, ale nie pasujący do sceny, to BRAK →
-   bramka. Hero jest tożsamością fabuły **1:1** — nie obsadzaj nim drugiej.
+   bramka. Powtórzenie hero między fabułami jest silnie karane w rankingu
+   (ryzyko „fabuła 8 = fabuła 1 z innym tłem”), choć twardy jest tylko
+   zakaz identycznej kombinacji czterech klocków.
    Złamanie tych reguł kosztowało wycofanie dwóch gotowych fabuł.
 3. **Warsztat**: co najmniej jedna poprawka narzędzi/dokumentacji/bazy w sesji.
 4. **Publikacja**: `python scripts/build_pack.py` (test ZIP),

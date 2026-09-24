@@ -1,8 +1,10 @@
 # ADR 0005: Najpierw wzrost baz, potem kontrolowany reuse
 
-- Status: accepted (próg wzrostu skorygowany przez właściciela z 50 do 10
-  wpisów na kategorię tego samego dnia)
-- Data: 2026-09-23
+- Status: **superseded przez ADR 0006** (2026-09-24) — właściciel cofnął
+  wszystkie tryby wzrostowe i limity procentowe; klocki są reużywalne,
+  twarda pozostaje tylko unikalność kombinacji a·b·c·d
+- Data: 2026-09-23 (accepted; próg wzrostu korygowany 50→10 tego samego
+  dnia, całość cofnięta następnego)
 
 ## Kontekst
 
