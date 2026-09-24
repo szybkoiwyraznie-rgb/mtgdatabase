@@ -1,0 +1,521 @@
+{
+  "id": "g027",
+  "created": "2026-09-24",
+  "story_id": "110",
+  "note": "RUNDA 2 fabuły 110 po odrzuceniu g025 („żadne” ×3 z diagnozą właściciela). Bitwa: wyłącznie stal i ludzie z atomcut (CC0) — mediewalny zgiełk bez prochu; łopot: foley dużych skrzydeł (Freesound) z wyraźnymi odbiciami, bez pitch-down; nadzieja: gesty DUROWE (C-dur/lydyjski-D/powrót-C) na siatce steinwaya.",
+  "entries": [
+    {
+      "slug": "tlo-bitwa-zgielk",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `bitwa-zgielk` (15 fabuł; slot d fabuły 110)",
+      "candidates": [
+        {
+          "label": "zg.1",
+          "title": "front stali — szczęk oręża prowadzi",
+          "file": "candidates/zg1_front_stali.mp3",
+          "desc": "sześć zderzeń mieczy na pierwszym planie oddali, dwa wojenne okrzyki (−4 półtony), jeden jęk rannego i puste uderzenia tarcz; spód = gwar wielu ludzi, zero wybuchów — czysta średniowieczna bitwa",
+          "source": {
+            "title": "atomcut-library — paczki OpenGameArt (CC0): 20 sword SFX, male-gruntyelling (haeldb), 15 vocal male strain/hurt (cc0), metal&wood",
+            "author": "Various OpenGameArt artists",
+            "license": "CC0 1.0",
+            "url": "https://github.com/novincode/atomcut-library",
+            "channel": "git sparse-checkout /tmp/atomcut; montaż skryptem build_gate_g027.py",
+            "notes": "sword-clash 1,2,4,5,6,8 (LP 2600/HP 110, -27 dB); 1yell4/2yell10 −4 półt.; slightscream-05 −3 półt.; hammer LP 500; gwar-podkład 2yell6 −5 półt."
+          },
+          "entry": {
+            "id": "battle_medieval_01",
+            "setting": "pole bitwy — starcie stali oddalone",
+            "desc": "szczęk oręża niesie się z pola, pojedyncze okrzyki i jęk — linia frontu słyszana z tyłu, bez prochu",
+            "file": "audio/library/backgrounds/battle_medieval_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "bitwa-zgielk",
+              "traits": [
+                "bitwa",
+                "zgiełk",
+                "szczęk broni",
+                "okrzyki",
+                "średniowieczna"
+              ],
+              "bad_for": [
+                "spokojna komnata",
+                "sielanka",
+                "kameralna scena"
+              ]
+            },
+            "source": {
+              "title": "atomcut-library — paczki OpenGameArt (CC0): 20 sword SFX, male-gruntyelling (haeldb), 15 vocal male strain/hurt (cc0), metal&wood",
+              "author": "Various OpenGameArt artists",
+              "license": "CC0 1.0",
+              "url": "https://github.com/novincode/atomcut-library",
+              "channel": "git sparse-checkout /tmp/atomcut; montaż skryptem build_gate_g027.py",
+              "notes": "jak wyżej; montaż 6 zderzeń + 2 okrzyki + jęk"
+            }
+          }
+        },
+        {
+          "label": "zg.2",
+          "title": "pole rannych — krzyki i jęki ponad wygasającą stalą",
+          "file": "candidates/zg2_pole_rannych.mp3",
+          "desc": "cztery jęki i krzyki rannych (obniżone 3 półtony — ludzie, nie ptactwo) nad gasnącymi pojedynczymi zderzeniami mieczy; bitwa po szczycie, pole pełne ranionych",
+          "source": {
+            "title": "atomcut-library — paczki OpenGameArt (CC0): 20 sword SFX, male-gruntyelling (haeldb), 15 vocal male strain/hurt (cc0), metal&wood",
+            "author": "Various OpenGameArt artists",
+            "license": "CC0 1.0",
+            "url": "https://github.com/novincode/atomcut-library",
+            "channel": "git sparse-checkout /tmp/atomcut; montaż skryptem build_gate_g027.py",
+            "notes": "slightscream 1,4,5,9 −3 półt. (-31 dB); sword-clash 3,9,10 (-32 dB); 1yell6 −4 półt.; gwar 2yell6 −5 półt."
+          },
+          "entry": {
+            "id": "battle_medieval_02",
+            "setting": "pole bitwy — po szczycie, krzyki rannych",
+            "desc": "wygasające starcie: struna jęków rannych, sporadyczny szczęk — zgiełk bitwy skręcający ku zmierzchowi",
+            "file": "audio/library/backgrounds/battle_medieval_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "bitwa-zgielk",
+              "traits": [
+                "bitwa",
+                "zgiełk",
+                "krzyki rannych",
+                "wygasająca",
+                "średniowieczna"
+              ],
+              "bad_for": [
+                "spokojna komnata",
+                "sielanka",
+                "kameralna scena"
+              ]
+            },
+            "source": {
+              "title": "atomcut-library — paczki OpenGameArt (CC0): 20 sword SFX, male-gruntyelling (haeldb), 15 vocal male strain/hurt (cc0), metal&wood",
+              "author": "Various OpenGameArt artists",
+              "license": "CC0 1.0",
+              "url": "https://github.com/novincode/atomcut-library",
+              "channel": "git sparse-checkout /tmp/atomcut; montaż skryptem build_gate_g027.py",
+              "notes": "jak wyżej; montaż 4 jęki + 3 zderzenia + okrzyk"
+            }
+          }
+        },
+        {
+          "label": "zg.3",
+          "title": "wir walki — gęsty szczęk, machina uderzeniowa w tękcie",
+          "file": "candidates/zg3_wir_walki.mp3",
+          "desc": "dziewięć zderzeń mieczy w przyspieszonym rytmie, potem rzadsze — plus trzy głuche uderzenia taranu/tarcz, okrzyk i jęk; ostatnie 2 s zamiera o 6 dB: cichnące pole bitwy o zmierzchu",
+          "source": {
+            "title": "atomcut-library — paczki OpenGameArt (CC0): 20 sword SFX, male-gruntyelling (haeldb), 15 vocal male strain/hurt (cc0), metal&wood",
+            "author": "Various OpenGameArt artists",
+            "license": "CC0 1.0",
+            "url": "https://github.com/novincode/atomcut-library",
+            "channel": "git sparse-checkout /tmp/atomcut; montaż skryptem build_gate_g027.py",
+            "notes": "9× sword-clash (-28→-31 dB); hammer ×3 LP 450; 1yell13 −4 półt.; slightscream-07 −3 półt.; ogon -6 dB"
+          },
+          "entry": {
+            "id": "battle_medieval_03",
+            "setting": "pole bitwy — wir starcia cichnący o zmierzchu",
+            "desc": "gęsty szczęk wielu zderzeń z pulsem taranu, kończący się w kierunku wieczora — zgiełk aktywnej bitwy, która gaśnie",
+            "file": "audio/library/backgrounds/battle_medieval_03.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": false,
+            "semantics": {
+              "type": "bitwa-zgielk",
+              "traits": [
+                "bitwa",
+                "zgiełk",
+                "szczęk broni",
+                "gęsta",
+                "cichnąca"
+              ],
+              "bad_for": [
+                "spokojna komnata",
+                "sielanka",
+                "kameralna scena"
+              ]
+            },
+            "source": {
+              "title": "atomcut-library — paczki OpenGameArt (CC0): 20 sword SFX, male-gruntyelling (haeldb), 15 vocal male strain/hurt (cc0), metal&wood",
+              "author": "Various OpenGameArt artists",
+              "license": "CC0 1.0",
+              "url": "https://github.com/novincode/atomcut-library",
+              "channel": "git sparse-checkout /tmp/atomcut; montaż skryptem build_gate_g027.py",
+              "notes": "jak wyżej; montaż 9 zderzeń + 3 młoty + głosy"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hero-lopot",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `lopot-skrzydel` (18 fabuł; slot c fabuły 110)",
+      "candidates": [
+        {
+          "label": "ł.1",
+          "title": "cztery potężne suwy peleryny — foley kinowy",
+          "file": "candidates/l1_suwy_peleryny.mp3",
+          "desc": "filmowa technika (pękata peleryna superbohatera): cztery szerokie, silne odbicia jedno za drugim — czysty atak, bez treli, bez grzmota; brzmi jak powietrze spychane wielkim skrzydłem",
+          "source": {
+            "title": "Large Wings / Superhero Cape Foley (Freesound)",
+            "author": "Cultureshock007",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/Cultureshock007/sounds/711122/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: wings-foley/freesound_wing-flap-foley",
+            "notes": "okno 3,9–13,2 s; HP 55 Hz; bez zmiany wysokości; -19 dB; freesound id 711122"
+          },
+          "entry": {
+            "id": "wing_foley_cape",
+            "role": "łopot wielkich skrzydeł — suwy górą powietrza",
+            "character": "potężny, szeroki, miarowy",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 9.3,
+            "desc": "cztery pełne suwy wielkich skrzydeł — moc i majestat zstąpienia",
+            "good_for": "zstąpienie wielkiej istoty, anioł, smok, majestat",
+            "bad_for": "trzepot, drobne skrzydła, kameralny nastrój",
+            "file": "audio/library/heroes/wing_foley_cape.mp3",
+            "semantics": {
+              "type": "lopot-skrzydel",
+              "traits": [
+                "łopot",
+                "wielkie skrzydła",
+                "wyraźne odbicia",
+                "potężny"
+              ],
+              "bad_for": [
+                "trzepot",
+                "trele",
+                "szum bez rytmu"
+              ]
+            },
+            "source": {
+              "title": "Large Wings / Superhero Cape Foley (Freesound)",
+              "author": "Cultureshock007",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/Cultureshock007/sounds/711122/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: wings-foley/freesound_wing-flap-foley",
+              "notes": "okno 3,9–13,2 s; HP 55; natywna wysokość; freesound id 711122"
+            }
+          }
+        },
+        {
+          "label": "ł.2",
+          "title": "seria łękotu — sześć szybkich odbić jak hamowanie w locie",
+          "file": "candidates/l2_lekot_seria.mp3",
+          "desc": "gęsta seria czystych odbić skrzydeł (foley): wielka istota wyhamowuje tuż nad żołnierzem — żywe, wyraźne zamachy bez tła terenowego",
+          "source": {
+            "title": "Flapping wings (foley) (Freesound)",
+            "author": "Nakhas",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/Nakhas/sounds/506940/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: wings-foley/freesound_wing-flap-foley",
+            "notes": "okno 3,1–6,9 s; HP 70 Hz; bez zmiany wysokości; -19 dB; freesound id 506940"
+          },
+          "entry": {
+            "id": "wing_foley_hover",
+            "role": "łopot wielkich skrzydeł — łękot hamowania",
+            "character": "żywy, gęsty, bliski",
+            "distance": "bliski",
+            "energy": "średnio-wysoka",
+            "duration_sec": 3.8,
+            "desc": "seria szybkich odbić skrzydeł przy zwolnieniu przed postojem",
+            "good_for": "lądowanie skrzydlatej istoty, pobliskie zawisanie",
+            "bad_for": "powolne majestatyczne suwy, kameralna cisza",
+            "file": "audio/library/heroes/wing_foley_hover.mp3",
+            "semantics": {
+              "type": "lopot-skrzydel",
+              "traits": [
+                "łopot",
+                "wielkie skrzydła",
+                "gęste odbicia",
+                "żywy"
+              ],
+              "bad_for": [
+                "trzepot owada",
+                "trele",
+                "statyczny szum"
+              ]
+            },
+            "source": {
+              "title": "Flapping wings (foley) (Freesound)",
+              "author": "Nakhas",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/Nakhas/sounds/506940/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: wings-foley/freesound_wing-flap-foley",
+              "notes": "okno 3,1–6,9 s; HP 70; natywna wysokość; freesound id 506940"
+            }
+          }
+        },
+        {
+          "label": "ł.3",
+          "title": "trzy ciężkie odbicia tkaniny — jak uderzenia płócien",
+          "file": "candidates/l3_ciezkie_od_bicia.mp3",
+          "desc": "najcięższe zamachy z taśmy foley (dywan/tkanina), ułożone w rytm zstąpienia — potężne, pojedyncze trzepnięcia powietrza; aranżacja z jednego nagrania, bez spowolnienia",
+          "source": {
+            "title": "Wing flap, flutter, carpet, fabric, foley (2012).wav (Freesound)",
+            "author": "TRP",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/TRP/sounds/616859/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: wings-foley/freesound_wing-flap-foley",
+            "notes": "okna 0,55–1.55 / 4,55–5,95 / 25,6–27,4; HP 60; -19 dB; montaż; freesound id 616859"
+          },
+          "entry": {
+            "id": "wing_foley_fabric",
+            "role": "łopot wielkich skrzydeł — ciężkie trzepnięcie",
+            "character": "ciężki, materiałowy, mięsisty",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 4.2,
+            "desc": "trzy ciężkie odbicia jak płótno wiatrem — masa wielkich skrzydeł",
+            "good_for": "potężne skrzydła, anioł niosący ciężar, duży ptaszek",
+            "bad_for": "miękkie fale, subtelne tła, trele",
+            "file": "audio/library/heroes/wing_foley_fabric.mp3",
+            "semantics": {
+              "type": "lopot-skrzydel",
+              "traits": [
+                "łopot",
+                "wielkie skrzydła",
+                "ciężkie odbicia",
+                "materiałowy"
+              ],
+              "bad_for": [
+                "trzepot owada",
+                "pisk",
+                "metla szumu"
+              ]
+            },
+            "source": {
+              "title": "Wing flap, flutter, carpet, fabric, foley (2012).wav (Freesound)",
+              "author": "TRP",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/TRP/sounds/616859/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: wings-foley/freesound_wing-flap-foley",
+              "notes": "3 okna; HP 60; natywna wysokość; montaż; freesound id 616859"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-nadzieja",
+      "kind": "gestures",
+      "role": "jedyny klocek typu kody `nadzieja-ukojenie` (22 fabuły; slot a fabuły 110)",
+      "candidates": [
+        {
+          "label": "n.1",
+          "title": "durowa łuna rozświetlająca (C-dur z lydyjskim błyskiem)",
+          "file": "candidates/g11a_major_bloom.mp3",
+          "desc": "ciepły durowy dwudźwięk nisko, nad nim rozjarza się aug (błysk), a na szczycie czyste C5+E5 — jak niebo otwierane warstwami światła",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g11a_major_bloom",
+            "semantic": "nadzieja — durowa łuna rozświetlająca (C-dur z lydyjskim błyskiem)",
+            "desc": "ciepły durowy dwudźwięk nisko, nad nim rozjarza się aug (błysk), a na szczycie czyste C5+E5 — jak niebo otwierane warstwami światła",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 1.1,
+                "vel": 0.4
+              },
+              {
+                "midi": 64,
+                "on": 0.0,
+                "off": 1.1,
+                "vel": 0.38
+              },
+              {
+                "midi": 68,
+                "on": 0.75,
+                "off": 1.65,
+                "vel": 0.38
+              },
+              {
+                "midi": 72,
+                "on": 1.25,
+                "off": 2.7,
+                "vel": 0.46
+              },
+              {
+                "midi": 76,
+                "on": 1.25,
+                "off": 2.7,
+                "vel": 0.42
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "warm-keys"
+            ],
+            "semantics": {
+              "type": "nadzieja-ukojenie",
+              "traits": [
+                "podniosła",
+                "ciepła",
+                "durowa",
+                "rozświetlona"
+              ],
+              "bad_for": [
+                "groza",
+                "przygnębienie",
+                "ironia",
+                "molowa"
+              ]
+            }
+          }
+        },
+        {
+          "label": "n.2",
+          "title": "lydyjski wierzchołek nad durowym D",
+          "file": "candidates/g11b_lydian_summit.mp3",
+          "desc": "bas D-F# trzyma durowy grunt, a melodia wspina się przez lydyjską kwartę Gis — światło, które nie chce spaść; wznoszenie jak błogość",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g11b_lydian_summit",
+            "semantic": "nadzieja — lydyjski wierzchołek nad durowym D",
+            "desc": "bas D-F# trzyma durowy grunt, a melodia wspina się przez lydyjską kwartę Gis — światło, które nie chce spaść; wznoszenie jak błogość",
+            "notes": [
+              {
+                "midi": 50,
+                "on": 0.0,
+                "off": 2.7,
+                "vel": 0.36
+              },
+              {
+                "midi": 54,
+                "on": 0.0,
+                "off": 2.7,
+                "vel": 0.34
+              },
+              {
+                "midi": 74,
+                "on": 0.55,
+                "off": 1.0,
+                "vel": 0.44
+              },
+              {
+                "midi": 80,
+                "on": 1.05,
+                "off": 2.0,
+                "vel": 0.46
+              },
+              {
+                "midi": 76,
+                "on": 1.85,
+                "off": 2.7,
+                "vel": 0.4
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "warm-keys"
+            ],
+            "semantics": {
+              "type": "nadzieja-ukojenie",
+              "traits": [
+                "podniosła",
+                "ciepła",
+                "durowa",
+                "rozświetlona"
+              ],
+              "bad_for": [
+                "groza",
+                "przygnębienie",
+                "ironia",
+                "molowa"
+              ]
+            }
+          }
+        },
+        {
+          "label": "n.3",
+          "title": "powrót do domu: durowy dopływ w C",
+          "file": "candidates/g11c_home_arrival.mp3",
+          "desc": "skoki radości E4→C5→E5 z lądowaniem na pełnym durowym dnie C3: melodia wraca tam, skąd wyszła — pociecha i należność",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g11c_home_arrival",
+            "semantic": "nadzieja — powrót do domu: durowy dopływ w C",
+            "desc": "skoki radości E4→C5→E5 z lądowaniem na pełnym durowym dnie C3: melodia wraca tam, skąd wyszła — pociecha i należność",
+            "notes": [
+              {
+                "midi": 64,
+                "on": 0.0,
+                "off": 0.5,
+                "vel": 0.44
+              },
+              {
+                "midi": 72,
+                "on": 0.45,
+                "off": 0.95,
+                "vel": 0.44
+              },
+              {
+                "midi": 76,
+                "on": 0.95,
+                "off": 2.7,
+                "vel": 0.46
+              },
+              {
+                "midi": 48,
+                "on": 0.95,
+                "off": 2.7,
+                "vel": 0.36
+              },
+              {
+                "midi": 60,
+                "on": 1.3,
+                "off": 2.7,
+                "vel": 0.34
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "warm-keys"
+            ],
+            "semantics": {
+              "type": "nadzieja-ukojenie",
+              "traits": [
+                "podniosła",
+                "ciepła",
+                "durowa",
+                "rozświetlona"
+              ],
+              "bad_for": [
+                "groza",
+                "przygnębienie",
+                "ironia",
+                "molowa"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

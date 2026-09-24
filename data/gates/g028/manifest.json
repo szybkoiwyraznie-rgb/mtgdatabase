@@ -1,0 +1,139 @@
+{
+  "id": "g028",
+  "created": "2026-09-24",
+  "story_id": "249",
+  "note": "RUNDA 2 fabuły 249 — wyłącznie wpis `dwor-komnaty` (koda s.3 i instrument o.2 z g026 zaakceptowane). Diagnoza właściciela: cisza i szum niczego nie przypominają, komnata potrzebuje dźwięku-reprezentanta. Kandydaci: palenisko / rezonans znaków / życie gmachu.",
+  "entries": [
+    {
+      "slug": "tlo-dwor-komnaty",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `dwor-komnaty` (17 fabuł; slot d fabuły 249)",
+      "candidates": [
+        {
+          "label": "k.1",
+          "title": "palenisko trzaskające w komnacie",
+          "file": "candidates/k1_palenisko_trzaska.mp3",
+          "desc": "prawdziwy kominek w izbie: trzaski drzewa w pasmach 2-6 kHz nosi charakter, niski dół palenia daje ciepło; nad oddechem wnętrza — komnata, w której ktoś czuwa przy ogniu",
+          "source": {
+            "title": "Fireplace.wav (Freesound)",
+            "author": "OwennewO",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/OwennewO/sounds/549208/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: fireplace/freesound_fireplace-crackle",
+            "notes": "okno 4–12 s; HP 70 Hz; -32 dB; podkład-powietrze -44 dB; freesound id 549208"
+          },
+          "entry": {
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "dwor-komnaty",
+              "traits": [
+                "wnętrze",
+                "palenisko",
+                "trzask",
+                "komnata",
+                "ciepło"
+              ],
+              "bad_for": [
+                "plener",
+                "bitwa",
+                "mokre podziemia"
+              ]
+            },
+            "id": "chamber_hearth_01",
+            "setting": "gmach / komnata — palenisko w izbie",
+            "desc": "trzask paleniska nad powietrzem cichej komnaty — ciepłe, zamieszkałe wnętrze wieży",
+            "file": "audio/library/backgrounds/chamber_hearth_01.mp3",
+            "source": {
+              "title": "Fireplace.wav (Freesound)",
+              "author": "OwennewO",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/OwennewO/sounds/549208/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: fireplace/freesound_fireplace-crackle",
+              "notes": "okno 4–12 s; HP 70; -32 dB; freesound id 549208"
+            }
+          }
+        },
+        {
+          "label": "k.2",
+          "title": "znaki pracują — cichy rezonans wypełnia komnatę",
+          "file": "candidates/k2_znaki_pracuja.mp3",
+          "desc": "utrzymany, prawie niesłyszalny szklany rezonans (kieliszek z bazy wlożony nisko) z dwoma pojedynczymi pobrzękami — jak świecące znaki wisiorkujące w powietrzu komnaty maga",
+          "source": "b_wine_glasses z bazy (VSCO-2-CE, CC0): warkot D#4 w pętli -38.5 dB, pobrzęki F#4/A#4 -35.5 dB; podkład-powietrze -38 dB",
+          "entry": {
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "dwor-komnaty",
+              "traits": [
+                "wnętrze",
+                "komnata",
+                "rezonans",
+                "magia",
+                "szklisty"
+              ],
+              "bad_for": [
+                "plener",
+                "bitwa",
+                "hałaśliwy gwar"
+              ]
+            },
+            "id": "chamber_runes_01",
+            "setting": "gmach / komnata — rezonans zaklęć",
+            "desc": "cienki szklany rezonans utrzymujący się pod sufitem komnaty z pojedynczymi dzwiękami — powietrze pracującej magii",
+            "file": "audio/library/backgrounds/chamber_runes_01.mp3",
+            "source": {
+              "title": "b_wine_glasses (wpis z bramki g010) w pętli/rezerwie",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VSCO-2-CE",
+              "channel": "z bazy projektu; montaż skryptem build_gate_g028.py",
+              "notes": "ring D#4 -38.5 dB pętla 8 s; pingi F#4/A#4 -35.5 dB"
+            }
+          }
+        },
+        {
+          "label": "k.3",
+          "title": "życie gmachu za murami — kroki, drzwi, zwoje",
+          "file": "candidates/k3_gmach_zyje.mp3",
+          "desc": "cztery rzadkie kroki na kamieniu za ścianą, jedno dalekie domknięcie/otwarcie i cichy brzęk przekładanych przedmiotów — komnata w środku żyjącego Kolegium, gdzie praca trwa także gdzie indziej",
+          "source": "atomcut CC0 (metal&wood: door-open-01, keys-02) + Sparkstream Kenney (footstep_concrete, CC0); wszystko LP 900-4500 Hz, -34..-39.5 dB; podkład -38 dB",
+          "entry": {
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "dwor-komnaty",
+              "traits": [
+                "wnętrze",
+                "gmach",
+                "kroki",
+                "daleki",
+                "komnata"
+              ],
+              "bad_for": [
+                "plener",
+                "bitwa",
+                "martwa cisza"
+              ]
+            },
+            "id": "chamber_school_01",
+            "setting": "gmach / komnaty — życie za murami",
+            "desc": "cicha izba, za której kamiennymi ścianami gmach dalej żyje — rekolekcje kroków, drzwi i pracy",
+            "file": "audio/library/backgrounds/chamber_school_01.mp3",
+            "source": {
+              "title": "montaż: atomcut-library + sparkstream-sounds",
+              "author": "Various OpenGameArt artists / Kenney",
+              "license": "CC0 1.0",
+              "url": "https://github.com/novincode/atomcut-library",
+              "channel": "git sparse-checkout /tmp/atomcut + /tmp/sparkstream; skrypt build_gate_g028.py",
+              "notes": "kroki beton LP 1100 (-34), drzwi LP 900 (-36.5), klucze (-39.5)"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
