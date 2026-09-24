@@ -15207,6 +15207,955 @@
           "olśniewający"
         ]
       }
+    },
+    "508": {
+      "title": "Wavecrash Triton",
+      "background": {
+        "opis": "Wybrzeże świętego morza podczas bitwy — huk fal, zgiełk walki na lądzie",
+        "cechy": [
+          "wybrzeże w bitwie",
+          "huk fal",
+          "zgiełk walki",
+          "morska domena"
+        ]
+      },
+      "hero": {
+        "opis": "Wodna kolumna zamyka wroga w przezroczystej klatce — wzbierający słup i uwięziony minotaur",
+        "cechy": [
+          "wzbierający słup wody",
+          "zamknięcie w klatce",
+          "plusk pułapki",
+          "sparaliżowany wróg"
+        ],
+        "wymagane": [
+          "wzbierający słup wody"
+        ]
+      },
+      "mood": {
+        "opis": "Potęga oceanu na usługach herosa",
+        "cechy": [
+          "morska potęga",
+          "heroiczny zryw",
+          "ujarzmienie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, potężnie, dźwięcznie",
+        "cechy": [
+          "mokry",
+          "potężny",
+          "dźwięczny"
+        ]
+      }
+    },
+    "509": {
+      "title": "Highland Game",
+      "background": {
+        "opis": "Mroźne szczyty łowów — skrzypiący śnieg, cichy podchód, surowa zima",
+        "cechy": [
+          "mroźne szczyty",
+          "skrzypiący śnieg",
+          "cichy podchód",
+          "surowa zima"
+        ]
+      },
+      "hero": {
+        "opis": "Traper podchodzi olbrzymiego jelenia — wstrzymany oddech i bolesna konieczność strzału",
+        "cechy": [
+          "wstrzymany oddech",
+          "cichy krok trapera",
+          "szlachetna zwierzyna",
+          "strzał konieczności"
+        ]
+      },
+      "mood": {
+        "opis": "Łowy dla przetrwania — szacunek dla zdobyczy",
+        "cechy": [
+          "konieczność",
+          "szacunek",
+          "surowe przetrwanie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mroźnie, cicho, surowo",
+        "cechy": [
+          "mroźny",
+          "cichy",
+          "surowy"
+        ]
+      }
+    },
+    "510": {
+      "title": "Angel of the Dawn",
+      "background": {
+        "opis": "Zamkowe mury o brzasku — cisza nocy ustępująca pierwszym promieniom",
+        "cechy": [
+          "zamkowe mury",
+          "brzask",
+          "cisza przed świtem",
+          "strudzeni obrońcy"
+        ]
+      },
+      "hero": {
+        "opis": "Rezonujący śpiew anielicy i złoty pył z jej skrzydeł — odwaga wlana w serca obrońców",
+        "cechy": [
+          "rezonujący śpiew",
+          "opadający złoty pył",
+          "zstąpienie z niebios",
+          "prostujący się rycerze"
+        ],
+        "wymagane": [
+          "rezonujący śpiew"
+        ]
+      },
+      "mood": {
+        "opis": "Nadzieja o świcie — boska pieśń przeciw ciemności",
+        "cechy": [
+          "nadzieja",
+          "boska otucha",
+          "odrodzona odwaga"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Jasno, chóralne, uroczyście",
+        "cechy": [
+          "jasny",
+          "chóralny",
+          "uroczysty"
+        ]
+      }
+    },
+    "511": {
+      "title": "Emerald Oryx",
+      "background": {
+        "opis": "Wiecznie zielone ostępy świętej puszczy — bezszelestna gęstwina, ukryte ścieżki",
+        "cechy": [
+          "święta puszcza",
+          "bezszelestna gęstwina",
+          "ukryte ścieżki",
+          "zielony półmrok"
+        ]
+      },
+      "hero": {
+        "opis": "Oryks przemyka niewidzialny przez zarośla — ledwie słyszalny krok świętego zwierzęcia",
+        "cechy": [
+          "bezszelestny krok",
+          "przemykanie przez zarośla",
+          "święta zwierzyna",
+          "szmaragdowe kości w ściółce"
+        ]
+      },
+      "mood": {
+        "opis": "Wieczne trwanie puszczy — świętość ukryta w cieniu",
+        "cechy": [
+          "świętość natury",
+          "ulotność",
+          "wieczny obieg"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, organicznie, tajemniczo",
+        "cechy": [
+          "cichy",
+          "organiczny",
+          "tajemniczy"
+        ]
+      }
+    },
+    "512": {
+      "title": "Vanish from Sight",
+      "background": {
+        "opis": "Klaustrofobiczne korytarze demonicznego domu — trzeszcząca boazeria, załamująca się rzeczywistość",
+        "cechy": [
+          "klaustrofobiczne korytarze",
+          "trzeszcząca boazeria",
+          "załamana rzeczywistość",
+          "opresyjny dom"
+        ]
+      },
+      "hero": {
+        "opis": "Ściana pożera towarzysza — dłoń zaciska się na pustym powietrzu i rozpływających się powidokach",
+        "cechy": [
+          "pożerająca boazeria",
+          "rozpaczliwy chwyt",
+          "rozpływające się powidoki",
+          "zniknięcie przyjaciela"
+        ]
+      },
+      "mood": {
+        "opis": "Bezsilność wobec niemożliwej architektury",
+        "cechy": [
+          "bezsilność",
+          "rozpacz",
+          "surrealna groza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Upiornie, wciągająco, głucho",
+        "cechy": [
+          "upiorny",
+          "wciągający",
+          "głuchy"
+        ]
+      }
+    },
+    "513": {
+      "title": "Spreading Insurrection",
+      "background": {
+        "opis": "Wzburzone wody wokół galeonu — karmazynowa burza w żaglach, trzask takielunku",
+        "cechy": [
+          "wzburzone morze",
+          "burza w żaglach",
+          "trzask takielunku",
+          "pokład w chaosie"
+        ]
+      },
+      "hero": {
+        "opis": "Magia buntu przejmuje załogę — kordelas przy gardle kapitana, płonące oczy bosmana",
+        "cechy": [
+          "ostrze przy gardle",
+          "płonące oczy",
+          "przejęte umysły",
+          "wybuch buntu"
+        ]
+      },
+      "mood": {
+        "opis": "Fala buntu — każdy staje po stronie silniejszego",
+        "cechy": [
+          "bunt",
+          "zdradziecka fala",
+          "chaos lojalności"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Burzliwie, gwałtownie, ciemno",
+        "cechy": [
+          "burzliwy",
+          "gwałtowny",
+          "ciemny"
+        ]
+      }
+    },
+    "514": {
+      "title": "Wolfkin Bond",
+      "background": {
+        "opis": "Mroczne knieje pełne koszmarów — bezdroża, cień między pniami",
+        "cechy": [
+          "mroczne knieje",
+          "bezdroża",
+          "cień między pniami",
+          "kraina koszmarów"
+        ]
+      },
+      "hero": {
+        "opis": "Człowiek i wilk atakują w idealnej synchronizacji — wspólny warkot pierwotnej więzi",
+        "cechy": [
+          "zsynchronizowany atak",
+          "wspólny warkot",
+          "szmaragdowy blask oczu",
+          "fuzja instynktów"
+        ]
+      },
+      "mood": {
+        "opis": "Dwoje jako jeden organizm łowów",
+        "cechy": [
+          "pierwotna więź",
+          "drapieżna jedność",
+          "dzika siła"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dziko, nisko, zsynchronizowanie",
+        "cechy": [
+          "dziki",
+          "niski",
+          "zestrojony"
+        ]
+      }
+    },
+    "515": {
+      "title": "Warmaker Gunship",
+      "background": {
+        "opis": "Wypalone pustkowia księżyca — purpurowe niebo, czarna superpustka na horyzoncie",
+        "cechy": [
+          "wypalone pustkowia",
+          "purpurowe niebo",
+          "czarne skały",
+          "obca pustka"
+        ]
+      },
+      "hero": {
+        "opis": "Okręt desantowy wypluwa ogień i opuszcza rampę — drony bojowe wypadają z ładowni",
+        "cechy": [
+          "kaskady ognia z silników",
+          "zgrzyt opuszczanej rampy",
+          "wypadające drony",
+          "wznoszony pył"
+        ],
+        "wymagane": [
+          "zgrzyt opuszczanej rampy"
+        ]
+      },
+      "mood": {
+        "opis": "Zwiastun bezlitosnego szturmu",
+        "cechy": [
+          "militarna groza",
+          "nieuchronny desant",
+          "surowa potęga"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Hucząco, metalicznie, ciężko",
+        "cechy": [
+          "huczący",
+          "metaliczny",
+          "ciężki"
+        ]
+      }
+    },
+    "516": {
+      "title": "Tenth District Veteran",
+      "background": {
+        "opis": "Zrujnowana barykada na placu targowym — odłamki i jesienne liście na bruku",
+        "cechy": [
+          "zrujnowana barykada",
+          "odłamki na bruku",
+          "jesienne liście",
+          "miasto w walkach"
+        ]
+      },
+      "hero": {
+        "opis": "Weteranka dźwiga rekruta do szyku — wyszczerbiony miecz wskazuje natarcie",
+        "cechy": [
+          "chwyt za ramię rekruta",
+          "wyszczerbiony miecz",
+          "komenda natarcia",
+          "trwanie na stanowisku"
+        ]
+      },
+      "mood": {
+        "opis": "Przysięga silniejsza niż zmęczenie",
+        "cechy": [
+          "wierność przysiędze",
+          "hart",
+          "opiekuńcza surowość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Twardo, miarowo, heroicznie",
+        "cechy": [
+          "twardy",
+          "miarowy",
+          "heroiczny"
+        ]
+      }
+    },
+    "517": {
+      "title": "Force Away",
+      "background": {
+        "opis": "Mroźna przełęcz podczas szarży — tętent w śniegu, wichura wysokości",
+        "cechy": [
+          "mroźna przełęcz",
+          "tętent w śniegu",
+          "wichura",
+          "granica klanów"
+        ]
+      },
+      "hero": {
+        "opis": "Fala magii żywiołów wymazuje najeźdźcę w chmurę mgły — pisk hamującego wierzchowca",
+        "cechy": [
+          "uderzenie fali magii",
+          "rozpłynięcie w mgłę",
+          "pisk wierzchowca",
+          "tasak w śniegu"
+        ]
+      },
+      "mood": {
+        "opis": "Surowa odpowiedź gór — najeźdźca przestaje istnieć",
+        "cechy": [
+          "surowa moc",
+          "nagłość",
+          "respekt żywiołów"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mroźnie, gwałtownie, głucho",
+        "cechy": [
+          "mroźny",
+          "gwałtowny",
+          "głuchy"
+        ]
+      }
+    },
+    "518": {
+      "title": "Woolly Loxodon",
+      "background": {
+        "opis": "Wieczna zamieć górskiego pasma — wyjący wiatr, pozornie puste zaspy",
+        "cechy": [
+          "wieczna zamieć",
+          "wyjący wiatr",
+          "puste zaspy",
+          "mroźne pasmo"
+        ]
+      },
+      "hero": {
+        "opis": "Gigant wyłania się z zaspy zrzucając zwały lodu — trąbiący ryk mamuciego wojownika",
+        "cechy": [
+          "zrzucane zwały lodu",
+          "wyłonienie z zaspy",
+          "trąbiący ryk",
+          "kościany oręż"
+        ],
+        "wymagane": [
+          "trąbiący ryk"
+        ]
+      },
+      "mood": {
+        "opis": "Zasadzka z ukrycia — szacunek dla mamuciej siły",
+        "cechy": [
+          "zaskoczenie",
+          "mamucia potęga",
+          "klanowy respekt"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mroźnie, potężnie, dudniąco",
+        "cechy": [
+          "mroźny",
+          "potężny",
+          "dudniący"
+        ]
+      }
+    },
+    "519": {
+      "title": "Lurking Green Dragon",
+      "background": {
+        "opis": "Szmaragdowy półmrok korony kolosalnego dębu — przemykające sarny, cisza gęstwiny",
+        "cechy": [
+          "korona dębu",
+          "szmaragdowy półmrok",
+          "przemykające sarny",
+          "cisza gęstwiny"
+        ]
+      },
+      "hero": {
+        "opis": "Smok w bezruchu sączy smużkę trującego gazu — cierpliwe czatowanie na lukę w sklepieniu",
+        "cechy": [
+          "syk sączonego gazu",
+          "głęboki powolny oddech",
+          "bezruch cielska",
+          "czatowanie na intruza"
+        ]
+      },
+      "mood": {
+        "opis": "Mistrzostwo cierpliwości — groźba w bezruchu",
+        "cechy": [
+          "cierpliwa groźba",
+          "terytorializm",
+          "utajona potęga"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, nisko, dusząco",
+        "cechy": [
+          "cichy",
+          "niski",
+          "duszący"
+        ]
+      }
+    },
+    "520": {
+      "title": "Rakshasa Vizier",
+      "background": {
+        "opis": "Ociekające złotem wilgotne krypty — turkusowa mgła nad szczątkami dłużników",
+        "cechy": [
+          "złote krypty",
+          "wilgotny przepych",
+          "szczątki dłużników",
+          "nekromantyczna mgła"
+        ]
+      },
+      "hero": {
+        "opis": "Demon podsuwa klejnot klęczącemu kupcowi — mruczący głos paktu i wnikające opary mocy",
+        "cechy": [
+          "mruczący głos demona",
+          "podsunięty klejnot",
+          "szept paktu",
+          "rozdymające się cielsko"
+        ]
+      },
+      "mood": {
+        "opis": "Mroczny targ — cena zawsze wyższa niż klejnot",
+        "cechy": [
+          "kusicielstwo",
+          "mroczny pakt",
+          "drapieżna wyższość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, aksamitnie, złowieszczo",
+        "cechy": [
+          "ciemny",
+          "aksamitny",
+          "złowieszczy"
+        ]
+      }
+    },
+    "521": {
+      "title": "Leafcrown Dryad",
+      "background": {
+        "opis": "Konar wiekowego dębu na granicy królestwa — szum koron, czujna cisza puszczy",
+        "cechy": [
+          "konar dębu",
+          "szum koron",
+          "granica puszczy",
+          "czujna cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Kolczaste pędy tkają sieć pod koronami — skrzypienie splatanych jeżyn i napięty łuk",
+        "cechy": [
+          "skrzypienie splatanych pędów",
+          "tkana zapora",
+          "napięty łuk",
+          "cierpliwa zasadzka"
+        ]
+      },
+      "mood": {
+        "opis": "Las sam jest sidłem — cierpliwa straż granic",
+        "cechy": [
+          "cierpliwość",
+          "obrona granic",
+          "żywa pułapka"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, cicho, napięcie",
+        "cechy": [
+          "organiczny",
+          "cichy",
+          "napięty"
+        ]
+      }
+    },
+    "522": {
+      "title": "Hobble",
+      "background": {
+        "opis": "Głębokie ostępy mrocznego lasu — przerwana szarża, leśne błoto",
+        "cechy": [
+          "ostępy lasu",
+          "tętent szarży",
+          "leśne błoto",
+          "mrok gęstwiny"
+        ]
+      },
+      "hero": {
+        "opis": "Świetliste łańcuchy wiary oplatają kopytne nogi — bestia wali się w błoto",
+        "cechy": [
+          "materializacja łańcuchów",
+          "oploted nóg",
+          "upadek w błoto",
+          "wzniesiony symbol"
+        ]
+      },
+      "mood": {
+        "opis": "Wiara pęta bestię — zagrożenie zneutralizowane",
+        "cechy": [
+          "moc wiary",
+          "spętanie",
+          "triumf ładu"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Świetliście, brzęcząco, stanowczo",
+        "cechy": [
+          "świetlisty",
+          "metaliczny",
+          "stanowczy"
+        ]
+      }
+    },
+    "523": {
+      "title": "Segmented Krotiq",
+      "background": {
+        "opis": "Grząski trakt kupiecki w gęstym lesie — gnijące liście, wilgotna cisza",
+        "cechy": [
+          "grząski trakt",
+          "gnijące liście",
+          "gęsty las",
+          "wilgotna cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Gigantyczny wij wyłania się z błota łamiąc wierzbę — klekot żuwaczek w amoku",
+        "cechy": [
+          "wyłonienie z błota",
+          "łamana wierzba",
+          "klekot żuwaczek",
+          "unik wiedźmina"
+        ],
+        "wymagane": [
+          "klekot żuwaczek"
+        ]
+      },
+      "mood": {
+        "opis": "Nagłe monstrum na starym szlaku",
+        "cechy": [
+          "zasadzka terytorium",
+          "monstrualność",
+          "bojowe skupienie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, chitynowo, gwałtownie",
+        "cechy": [
+          "mokry",
+          "twardy",
+          "gwałtowny"
+        ]
+      }
+    },
+    "524": {
+      "title": "Squire's Lightblade",
+      "background": {
+        "opis": "Cuchnący zaułek po zmroku — osaczające kroki kultystów, mokry bruk",
+        "cechy": [
+          "cuchnący zaułek",
+          "osaczające kroki",
+          "mokry bruk",
+          "nocna zasadzka"
+        ]
+      },
+      "hero": {
+        "opis": "Ostrze z oślepiającego światła wytryska z relikwiarza — rozbłysk i decydujące pchnięcie",
+        "cechy": [
+          "wytryśnięcie świetlnego ostrza",
+          "oślepiający rozbłysk",
+          "zaskoczeni napastnicy",
+          "decydujące pchnięcie"
+        ]
+      },
+      "mood": {
+        "opis": "Desperacka iskra nadziei w potrzasku",
+        "cechy": [
+          "desperacja",
+          "nagły ratunek",
+          "młodzieńcza odwaga"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Świetliście, nagle, ostro",
+        "cechy": [
+          "świetlisty",
+          "nagły",
+          "ostry"
+        ]
+      }
+    },
+    "525": {
+      "title": "Jill, Shiva's Dominant",
+      "background": {
+        "opis": "Skute mrozem przełęcze podczas odwrotu — zgiełk pościgu, śnieg pod butami wojsk",
+        "cechy": [
+          "mroźne przełęcze",
+          "zgiełk pościgu",
+          "ewakuacja sojuszników",
+          "śnieżne pole bitwy"
+        ]
+      },
+      "hero": {
+        "opis": "Uderzenie rapiera wyzwala falę lodowych kolców — napastnicy podrzuceni w powietrze",
+        "cechy": [
+          "fala lodowych kolców",
+          "trzask wyrastającego lodu",
+          "odrzuceni napastnicy",
+          "szron na ciele"
+        ],
+        "wymagane": [
+          "trzask wyrastającego lodu"
+        ]
+      },
+      "mood": {
+        "opis": "Samotna zapora — mróz kupuje czas ucieczki",
+        "cechy": [
+          "ofiarna obrona",
+          "mroźna determinacja",
+          "narastająca przemiana"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Lodowato, tnąco, dramatycznie",
+        "cechy": [
+          "lodowaty",
+          "ostry",
+          "dramatyczny"
+        ]
+      }
+    },
+    "526": {
+      "title": "Canonized in Blood",
+      "background": {
+        "opis": "Podziemna świątynia nietoperzowego boga — echo krypt, prastary ołtarz",
+        "cechy": [
+          "podziemna świątynia",
+          "echo krypt",
+          "prastary ołtarz",
+          "mrok głębin"
+        ]
+      },
+      "hero": {
+        "opis": "Mroczna moc spływa na wzniesione ręce — bluźnierczy rytuał wynosi wampira do rangi półdemona",
+        "cechy": [
+          "spływająca moc",
+          "wzniesione ręce",
+          "bluźniercza inkantacja",
+          "nasycany pancerz"
+        ]
+      },
+      "mood": {
+        "opis": "Fanatyczne wywyższenie — początek krucjaty",
+        "cechy": [
+          "fanatyzm",
+          "mroczne namaszczenie",
+          "złowroga podniosłość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, uroczyście, narastająco",
+        "cechy": [
+          "ciemny",
+          "uroczysty",
+          "narastający"
+        ]
+      }
+    },
+    "527": {
+      "title": "Shiva, Warden of Ice",
+      "background": {
+        "opis": "Zaśnieżone pole bitwy — szroniąca mgła, temperatura spadająca z każdą chwilą",
+        "cechy": [
+          "zaśnieżone pole",
+          "szroniąca mgła",
+          "spadająca temperatura",
+          "odcięte drogi"
+        ]
+      },
+      "hero": {
+        "opis": "Transformacja w lodową strażniczkę — trzeszczący lodowiec pokrywa pole i paraliżuje wojska",
+        "cechy": [
+          "trzeszczący lodowiec",
+          "rozrastający się lód",
+          "uniesienie nad polem",
+          "tchnienie chłodu"
+        ],
+        "wymagane": [
+          "trzeszczący lodowiec"
+        ]
+      },
+      "mood": {
+        "opis": "Majestat żywiołu — mróz jako ostateczna zapora",
+        "cechy": [
+          "majestat",
+          "lodowa potęga",
+          "nieprzejednanie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Lodowato, majestatycznie, przestronnie",
+        "cechy": [
+          "lodowaty",
+          "majestatyczny",
+          "przestronny"
+        ]
+      }
+    },
+    "528": {
+      "title": "Enter the Enigma",
+      "background": {
+        "opis": "Nieskończone korytarze wypaczonego domu — zbutwiała tapeta, migoczące sztuczne światło",
+        "cechy": [
+          "wypaczone korytarze",
+          "zbutwiała tapeta",
+          "migoczące światło",
+          "opresyjna cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Przecięcie bariery rzeczywistości — iskrzenie wyrwy i dłoń na rękojeści katany",
+        "cechy": [
+          "iskrzenie wyrwy",
+          "przejście przez barierę",
+          "dłoń na katanie",
+          "czujne wkroczenie"
+        ]
+      },
+      "mood": {
+        "opis": "Odwaga wobec zagadki — dom próbuje osaczyć",
+        "cechy": [
+          "zimna odwaga",
+          "obcość",
+          "czujność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Migotliwie, niepokojąco, chłodno",
+        "cechy": [
+          "migotliwy",
+          "niepokojący",
+          "chłodny"
+        ]
+      }
+    },
+    "529": {
+      "title": "Turn the Tide",
+      "background": {
+        "opis": "Sześciokątne brzegi metalicznego morza — napór biomechanicznej awangardy",
+        "cechy": [
+          "metaliczne wybrzeże",
+          "napór wroga",
+          "linia obrony",
+          "rtęciowa tafla"
+        ]
+      },
+      "hero": {
+        "opis": "Kolosalna fala lustrzanego metalu wypiętrza się i miażdży szyk najeźdźców",
+        "cechy": [
+          "wypiętrzająca się fala",
+          "uderzenie ciężkiego metalu",
+          "łamany szyk",
+          "kontrola żywiołu"
+        ],
+        "wymagane": [
+          "uderzenie ciężkiego metalu"
+        ]
+      },
+      "mood": {
+        "opis": "Odwrócenie losów — plan sam broni swoich",
+        "cechy": [
+          "kontratak",
+          "tryumf oporu",
+          "potęga inżynierii"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Metalicznie, potężnie, falująco",
+        "cechy": [
+          "metaliczny",
+          "potężny",
+          "falujący"
+        ]
+      }
+    },
+    "530": {
+      "title": "Grazing Gladehart",
+      "background": {
+        "opis": "Kolosalny tętniący życiem las — nasycona magią gleba, czające się pnącza",
+        "cechy": [
+          "kolosalny las",
+          "tętniące życie",
+          "magiczna gleba",
+          "czające się pnącza"
+        ]
+      },
+      "hero": {
+        "opis": "Kopyta miażdżą zmutowane pnącza — wokół uderzeń rozkwitają świetliste paprocie",
+        "cechy": [
+          "miażdżące kopyta",
+          "trzask pnączy",
+          "rozkwitające paprocie",
+          "życiodajne uderzenia"
+        ]
+      },
+      "mood": {
+        "opis": "Łagodność pozorna — brutalność spleciona z życiem",
+        "cechy": [
+          "dzika równowaga",
+          "zaskakująca siła",
+          "życiodajność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, twardo, kwitnąco",
+        "cechy": [
+          "organiczny",
+          "twardy",
+          "świeży"
+        ]
+      }
+    },
+    "531": {
+      "title": "Disa the Restless",
+      "background": {
+        "opis": "Zasypane śniegiem pustkowia epoki lodowcowej — mroźny wiatr u stóp błękitnych lodowców",
+        "cechy": [
+          "śnieżne pustkowia",
+          "mroźny wiatr",
+          "błękitne lodowce",
+          "ruiny imperium"
+        ]
+      },
+      "hero": {
+        "opis": "Zwiadowczyni bada szponiaste ślady w zmarzlinie — skrobanie lodu i notowanie tropu",
+        "cechy": [
+          "badanie śladów",
+          "skrobanie lodu",
+          "notatki na wietrze",
+          "trop bestii"
+        ]
+      },
+      "mood": {
+        "opis": "Samotna praca badaczki — ostrzeżenie dla pokoleń",
+        "cechy": [
+          "badawcza wytrwałość",
+          "samotność",
+          "cień zagrożenia"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mroźnie, cicho, skupienie",
+        "cechy": [
+          "mroźny",
+          "cichy",
+          "skupiony"
+        ]
+      }
+    },
+    "532": {
+      "title": "You're Confronted by Robbers",
+      "background": {
+        "opis": "Zalany deszczem nocny zaułek — kapiąca rynna, osaczający rzezimieszkowie",
+        "cechy": [
+          "deszczowy zaułek",
+          "kapiąca rynna",
+          "osaczenie",
+          "nocne miasto"
+        ]
+      },
+      "hero": {
+        "opis": "Potok kwiecistych słów barda zbija bandytów z tropu — zza mgły wyłania się straż",
+        "cechy": [
+          "potok kwiecistej mowy",
+          "zbici z tropu bandyci",
+          "opuszczana broń",
+          "kroki halabardników"
+        ]
+      },
+      "mood": {
+        "opis": "Spryt ponad siłę — pułapka domknięta słowem",
+        "cechy": [
+          "spryt",
+          "przewrotny humor",
+          "odwrócenie ról"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Lekko, chytrze, teatralnie",
+        "cechy": [
+          "lekki",
+          "chytry",
+          "teatralny"
+        ]
+      }
     }
   }
 }
