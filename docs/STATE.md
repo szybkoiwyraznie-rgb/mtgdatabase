@@ -68,8 +68,16 @@ roadmapy, obsadzona od profilu semantycznego.
    w pełni obsadzalnych (18 klocków na 127 typów), 240 z częściową
    obsadą; najczęściej wołane braki: `mroczna` (90), `las-dzienny`
    (67), `czujnosc-napiecie` (66), `cicho-kameralna` (65). Dalej:
-   **Etap 5** — wznowienie produkcji od fabuły 18 (resolver → bramki
-   na brakujące klocki, wszystkie naraz).
+   **Etap 5** — w toku.
+5. **Etap 5 — bramka g015 OTWARTA** (fabuła 18, Lotusguard Disciple):
+   wszystkie 3 braki naraz — tło `niebo-przestworza` (YSL: Hurricane
+   Vent ×2, Snowmobile), hero `bariera-odbicie` (VCSL: trójkąty /
+   dzwonki ręczne / glockenspiel — aranżacje bez pitchowania), koda
+   `czujnosc-napiecie` (3 gesty autorskie, render b_piano_steinway).
+   Werdykt: po jednym labelu na slug (d.* / c.* / a.*) albo „żaden".
+   UWAGA: workflow sample-scout pada na obu źródłach w ~12 s (logi
+   niedostępne dla tokenu sandboksa) — do naprawy; bramka poszła
+   z luster GitHub (YSL public domain, VCSL CC0).
 3. Etapy 3–5: migracja bibliotek, resolver, wznowienie produkcji od
    fabuły 18. Kandydaci-zapas z `docs/sources-and-licensing.md`
    (miecze, zombie, metal/drewno, bagna, woda) pozostają w odwodzie.
