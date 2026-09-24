@@ -1,0 +1,137 @@
+{
+  "id": "g022",
+  "created": "2026-09-24",
+  "note": "Runda 2 `fala-rozbryzg` po odrzuceniu gejzerów (g020). Prawdziwe fale/rozbryzgi ze zwiadu. Typ woła 21 fabuł.",
+  "entries": [
+    {
+      "slug": "fala-rozbryzg",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `fala-rozbryzg` (21 fabuł)",
+      "candidates": [
+        {
+          "label": "f.1",
+          "title": "fala rozbijająca się o brzeg",
+          "file": "candidates/f_ocean_crash.mp3",
+          "desc": "prawdziwa fala oceanu łamie się i rozlewa po kamieniach",
+          "source": "freesound CC0 — prawdziwa woda",
+          "entry": {
+            "id": "wave_crash_01",
+            "role": "uderzenie wody — fala, rozbryzg, plusk",
+            "character": "łamiący się, szeroki, pienisty",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 3.4,
+            "desc": "prawdziwa fala oceanu łamie się i rozlewa po kamieniach",
+            "good_for": "fala, rozbryzg, wynurzenie, wodny żywioł",
+            "bad_for": "ogień, suche wnętrza, delikatne sceny",
+            "file": "audio/library/heroes/wave_crash_01.mp3",
+            "semantics": {
+              "type": "fala-rozbryzg",
+              "traits": [
+                "uderzenie wody",
+                "rozbryzg",
+                "naturalny",
+                "dynamiczny"
+              ],
+              "bad_for": [
+                "suchy",
+                "ognisty",
+                "metaliczny"
+              ]
+            },
+            "source": {
+              "title": "Ocean Waves Crashing... Big Lagoon, Redwood (Freesound)",
+              "author": "CVLTIV8R",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/CVLTIV8R/sounds/711427/",
+              "channel": "sample-scout run 36007698060 (preview-hq-mp3); manifest sha256: data/gates/g022/source-manifest.json",
+              "notes": "najgłośniejsze okno nagrania fal; poziom, fade (okno od 8.5 s)"
+            }
+          }
+        },
+        {
+          "label": "f.2",
+          "title": "wielki plusk w toni",
+          "file": "candidates/f_big_splash.mp3",
+          "desc": "pojedynczy wielki plusk z echem podziemnej toni",
+          "source": "freesound CC0 — prawdziwa woda",
+          "entry": {
+            "id": "wave_crash_02",
+            "role": "uderzenie wody — fala, rozbryzg, plusk",
+            "character": "pojedynczy, głęboki, z echem",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 3.0,
+            "desc": "pojedynczy wielki plusk z echem podziemnej toni",
+            "good_for": "fala, rozbryzg, wynurzenie, wodny żywioł",
+            "bad_for": "ogień, suche wnętrza, delikatne sceny",
+            "file": "audio/library/heroes/wave_crash_02.mp3",
+            "semantics": {
+              "type": "fala-rozbryzg",
+              "traits": [
+                "uderzenie wody",
+                "rozbryzg",
+                "naturalny",
+                "dynamiczny"
+              ],
+              "bad_for": [
+                "suchy",
+                "ognisty",
+                "metaliczny"
+              ]
+            },
+            "source": {
+              "title": "Quarry Tunnel Ambience 1, Large Splash (Freesound)",
+              "author": "ecfike",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/ecfike/sounds/",
+              "channel": "sample-scout run 36007698060 (preview-hq-mp3); manifest sha256: data/gates/g022/source-manifest.json",
+              "notes": "okno wielkiego plusku; poziom, fade (okno od 32.0 s)"
+            }
+          }
+        },
+        {
+          "label": "f.3",
+          "title": "szybki rozbryzg",
+          "file": "candidates/f_quick_splash.mp3",
+          "desc": "krótki dynamiczny rozbryzg — czysty chlust bez tła",
+          "source": "freesound CC0 — prawdziwa woda",
+          "entry": {
+            "id": "wave_crash_03",
+            "role": "uderzenie wody — fala, rozbryzg, plusk",
+            "character": "krótki, czysty, dynamiczny",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "duration_sec": 1.89,
+            "desc": "krótki dynamiczny rozbryzg — czysty chlust bez tła",
+            "good_for": "fala, rozbryzg, wynurzenie, wodny żywioł",
+            "bad_for": "ogień, suche wnętrza, delikatne sceny",
+            "file": "audio/library/heroes/wave_crash_03.mp3",
+            "semantics": {
+              "type": "fala-rozbryzg",
+              "traits": [
+                "uderzenie wody",
+                "rozbryzg",
+                "naturalny",
+                "dynamiczny"
+              ],
+              "bad_for": [
+                "suchy",
+                "ognisty",
+                "metaliczny"
+              ]
+            },
+            "source": {
+              "title": "water splash 2 (Freesound)",
+              "author": "swordofkings128",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/swordofkings128/sounds/",
+              "channel": "sample-scout run 36007698060 (preview-hq-mp3); manifest sha256: data/gates/g022/source-manifest.json",
+              "notes": "całość 1.9 s; poziom, fade (okno od 0.0 s)"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
