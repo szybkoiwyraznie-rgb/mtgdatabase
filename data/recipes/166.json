@@ -1,0 +1,46 @@
+{
+  "story_id": "166",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "stealth_move_03",
+    "at_sec": 0.8,
+    "target_db": -19
+  },
+  "coda": {
+    "gesture": "g6c_sentry_return",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.2,
+    "target_db": -19
+  },
+  "seed": 166,
+  "gate": "g017",
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "skradanie-cisza",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Obsada z resolvera (model 1:1, taksonomia v5)."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "skradanie-cisza",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "stealth_move_03",
+      "mood": "g6c_sentry_return",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; filtry twarde czyste; kombinacja unikalna"
+  }
+}

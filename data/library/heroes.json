@@ -283,6 +283,84 @@
         "choice": "bariera-odbicie.1",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "light_bloom_01",
+      "role": "narastający świetlisty rozbłysk",
+      "character": "wznoszący, migotliwy",
+      "distance": "bliski",
+      "energy": "średnia",
+      "duration_sec": 3.5,
+      "desc": "dzwonki wiatrowe wznoszą się kaskadą — światło rozlewa się w górę",
+      "good_for": "magiczne ujawnienie, aura światła, promień, uświęcenie",
+      "bad_for": "mroczne zaklęcia, eksplozje, naturalistyczna fauna",
+      "file": "audio/library/heroes/light_bloom_01.mp3",
+      "semantics": {
+        "type": "rozblysk-swiatla",
+        "traits": [
+          "narastający",
+          "jasny",
+          "dzwoniący",
+          "kaskadowy"
+        ],
+        "bad_for": [
+          "mroczny",
+          "ciężki",
+          "perkusyjny huk"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "Mark Trees windchimes_asc1, pierwsze 3.5 s; poziom, fade — bez pitchowania"
+      },
+      "approved": {
+        "gate": "g017",
+        "choice": "rozblysk-swiatla.1",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "stealth_move_03",
+      "role": "niemal bezgłośny ruch — napięcie zamiast hałasu",
+      "character": "szklisty, widmowy, napięty",
+      "distance": "bliski",
+      "energy": "średnia",
+      "duration_sec": 4.0,
+      "desc": "smyczkowany talerz pianissimo — cienka, nieziemska nić napięcia w ciszy",
+      "good_for": "infiltracja, cicha warta, czatowanie, bezszelestny ruch",
+      "bad_for": "walka wprost, fanfary, jawne wejścia",
+      "file": "audio/library/heroes/stealth_move_03.mp3",
+      "semantics": {
+        "type": "skradanie-cisza",
+        "traits": [
+          "cichy",
+          "powolny",
+          "napięty",
+          "powietrzny"
+        ],
+        "bad_for": [
+          "głośny",
+          "gwałtowny",
+          "dzwoniący"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "Suspended Cymbal bow 13, pierwsze 4 s; poziom -21 (werdykt: ciszej), fade — bez pitchowania"
+      },
+      "approved": {
+        "gate": "g017",
+        "choice": "skradanie-cisza.3",
+        "date": "2026-09-24"
+      }
     }
   ]
 }

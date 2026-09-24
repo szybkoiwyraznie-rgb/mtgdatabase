@@ -257,11 +257,15 @@
               "license": "CC0 1.0",
               "url": "https://github.com/sgossner/VCSL",
               "channel": "git clone sparse z github.com/sgossner/VCSL",
-              "notes": "Suspended Cymbal bow 13, pierwsze 4 s; poziom -18, fade — bez pitchowania"
+              "notes": "Suspended Cymbal bow 13, pierwsze 4 s; poziom -21 (werdykt: ciszej), fade — bez pitchowania"
             }
           }
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "rozblysk-swiatla": "c.1",
+    "skradanie-cisza": "c.3"
+  }
 }

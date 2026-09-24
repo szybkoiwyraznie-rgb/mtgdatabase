@@ -170,8 +170,8 @@ def main() -> None:
         from_file("s_bowed_cym", "c.3", "smyczek po talerzu pp",
                   "stealth_move_03", VC / "Suspended Cymbal 1/susCymb1_bow_13.wav",
                   SEM_SKRADANIE, VCSL_SRC,
-                  "Suspended Cymbal bow 13, pierwsze 4 s; poziom -18, fade — bez pitchowania",
-                  t0=0.0, t1=4.0, rms=-18.0, fade_out=0.8,
+                  "Suspended Cymbal bow 13, pierwsze 4 s; poziom -21 (werdykt: ciszej), fade — bez pitchowania",
+                  t0=0.0, t1=4.0, rms=-21.0, fade_out=0.8,
                   desc="smyczkowany talerz pianissimo — cienka, nieziemska nić napięcia w ciszy",
                   character="szklisty, widmowy, napięty"),
     ]

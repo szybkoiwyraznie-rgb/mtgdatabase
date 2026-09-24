@@ -69,7 +69,10 @@ roadmapy, obsadzona od profilu semantycznego.
    obsadą; najczęściej wołane braki: `mroczna` (90), `las-dzienny`
    (67), `czujnosc-napiecie` (66), `cicho-kameralna` (65). Dalej:
    **Etap 5** — w toku.
-5. **Etap 5 — trzy fabuły wyprodukowane** (18, 468, 578):
+5. **Etap 5 — sześć fabuł wyprodukowanych** (18, 23, 166, 468, 519, 578):
+   g017 (light_bloom_01 = kaskada dzwonków, stealth_move_03 = smyczek
+   po talerzu, ciszej per werdykt) domknął 23/166/519. Zasada etykiet:
+   unikatowe litery per wpis bramki (gate-protocol). Wcześniej:
    g016 (las-dzienny → forest_day_01, werdykt d.1) domknął 468
    (Cacophodon) i 578 (Savage Surge) bez dodatkowych bramek — pełny
    reuse: beast_roar + g6c + bassdrum/timpani. QA zielone (hero

@@ -151,3 +151,9 @@ zapisz uwagę w `verdicts.json::notes` i dopiero wtedy `accept`.
   najpierw `md5sum` pliku na dysku kontra to, co zwraca serwer, i analiza
   treści (np. pik widma hero) — raz przyczyną był wyłącznie cache
   przeglądarki, a montaż był poprawny. Patrz LESSONS 2026-09-23.
+
+## Etykiety kandydatów w bramkach wielowpisowych (korekta właściciela, 2026-09-24)
+
+W bramce z wieloma wpisami każdy wpis dostaje WŁASNĄ literę etykiet
+(np. `r.1–r.3` dla rozbłysku i `s.1–s.3` dla skradania). Powtarzanie
+tej samej litery między wpisami (dwa razy „c.1") myli przy werdykcie.
