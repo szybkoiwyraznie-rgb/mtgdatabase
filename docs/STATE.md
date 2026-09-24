@@ -42,13 +42,15 @@ roadmapy, obsadzona od profilu semantycznego.
 1. **Etap 1 — UKOŃCZONY (510/510)**: profile semantyczne całego katalogu
    w `data/semantics/story-profiles.json`; walidator
    `scripts/check_profiles.py --require-complete` przechodzi.
-2. **Etap 2** (w toku): szkic taksonomii v1 gotowy
-   (`data/semantics/taxonomy.json`, `version: 1-draft`; 29 środowisk /
-   50 hero / 20 nastrojów / 17 instrumentacji; mapowanie regułowe
-   `scripts/map_profiles.py` pokrywa 510/510). **Czeka na bramkę
-   tekstową właściciela** — akceptacja listy klas. Po akceptacji:
-   `version: 1`, zamrożenie, zapis mapowania (`--write`) i przegląd
-   przypisań.
+2. **Etap 2 — taksonomia v1 ZAMROŻONA** (bramka tekstowa przeszła
+   2026-09-24; decyzje w `data/semantics/CHANGELOG.md`): 29 środowisk /
+   50 hero / 20 nastrojów / 18 instrumentacji
+   (`data/semantics/taxonomy.json`, `version: 1`). Mapowanie fabuł
+   zapisane w `data/semantics/story-classes.json` (510/510;
+   `scripts/map_profiles.py`). Pozostały przegląd przypisań per fabuła
+   przy okazji produkcji; dalej: **Etap 3** — migracja bibliotek
+   (`semantics:{classes,traits,bad_for}` w `data/library/*.json`)
+   i receptur.
 3. Etapy 3–5: migracja bibliotek, resolver, wznowienie produkcji od
    fabuły 18. Kandydaci-zapas z `docs/sources-and-licensing.md`
    (miecze, zombie, metal/drewno, bagna, woda) pozostają w odwodzie.
