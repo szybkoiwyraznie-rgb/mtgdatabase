@@ -317,6 +317,43 @@
         "choice": "morze-wybrzeze.2",
         "date": "2026-09-24"
       }
+    },
+    {
+      "duration_sec": 8.0,
+      "level_ref_db": -32,
+      "loopable": true,
+      "semantics": {
+        "type": "dwor-komnaty",
+        "traits": [
+          "wnętrze",
+          "palenisko",
+          "trzask",
+          "komnata",
+          "ciepło"
+        ],
+        "bad_for": [
+          "plener",
+          "bitwa",
+          "mokre podziemia"
+        ]
+      },
+      "id": "chamber_hearth_01",
+      "setting": "gmach / komnata — palenisko w izbie",
+      "desc": "trzask paleniska nad powietrzem cichej komnaty — ciepłe, zamieszkałe wnętrze wieży",
+      "file": "audio/library/backgrounds/chamber_hearth_01.mp3",
+      "source": {
+        "title": "Fireplace.wav (Freesound)",
+        "author": "OwennewO",
+        "license": "CC0 / Public Domain (wg API Freesound)",
+        "url": "https://freesound.org/people/OwennewO/sounds/549208/",
+        "channel": "sample-scout (preview-hq-mp3); manifest: fireplace/freesound_fireplace-crackle",
+        "notes": "okno 4–12 s; HP 70; -32 dB; freesound id 549208"
+      },
+      "approved": {
+        "gate": "g028",
+        "choice": "tlo-dwor-komnaty.1",
+        "date": "2026-09-24"
+      }
     }
   ]
 }
