@@ -12357,6 +12357,946 @@
           "zdeterminowany"
         ]
       }
+    },
+    "433": {
+      "title": "Inspire Awe",
+      "background": {
+        "opis": "Najgłębsze ostępy pradawnego lasu — wycie bestii z gęstwiny, zatrzymany marsz oddziału",
+        "cechy": [
+          "ostępy lasu",
+          "wycie bestii",
+          "zatrzymany oddział",
+          "gęstwina"
+        ]
+      },
+      "hero": {
+        "opis": "Bogini wyłania się z tkanki lasu — upuszczany oręż i paraliż wobec boskiego majestatu",
+        "cechy": [
+          "boskie wyłonienie",
+          "upuszczany oręż",
+          "paraliż zachwytu",
+          "gwiezdny blask"
+        ]
+      },
+      "mood": {
+        "opis": "Trwoga i zachwyt wobec bóstwa",
+        "cechy": [
+          "boski majestat",
+          "onieśmielenie",
+          "wygaszony zapał"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Świetliście, potężnie, nabożnie",
+        "cechy": [
+          "świetlisty",
+          "potężny",
+          "nabożny"
+        ]
+      }
+    },
+    "434": {
+      "title": "Epic Experiment",
+      "background": {
+        "opis": "Trzewia wieży laboratoryjnej — buczenie reaktora, miesiące obliczeń na tablicach",
+        "cechy": [
+          "wieża laboratorium",
+          "buczenie reaktora",
+          "zapisane tablice",
+          "napięcie eksperymentu"
+        ]
+      },
+      "hero": {
+        "opis": "Przeciążenie reaktora — kaskada żywiołów w jednym wybuchu nieskrępowanej energii",
+        "cechy": [
+          "przeciążenie reaktora",
+          "kaskada żywiołów",
+          "wybuch energii",
+          "wyładowania i ogień"
+        ],
+        "wymagane": [
+          "wybuch energii"
+        ]
+      },
+      "mood": {
+        "opis": "Chaos jako punkt kulminacyjny — euforia badaczy",
+        "cechy": [
+          "euforia odkrycia",
+          "chaos",
+          "szaleńczy geniusz"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Wybuchowo, elektrycznie, chaotycznie",
+        "cechy": [
+          "wybuchowy",
+          "elektryczny",
+          "chaotyczny"
+        ]
+      }
+    },
+    "435": {
+      "title": "Warrior's Sword",
+      "background": {
+        "opis": "Zapomniane sanktuarium na obrzeżach królestwa — kurz wieków, cierpliwa cisza",
+        "cechy": [
+          "zapomniane sanktuarium",
+          "kurz wieków",
+          "cierpliwa cisza",
+          "uśpiony oręż"
+        ]
+      },
+      "hero": {
+        "opis": "Chwycenie rękojeści budzi magię — krystalizujący się pancerz wokół ciała adepta",
+        "cechy": [
+          "przebudzenie ostrza",
+          "krystalizacja pancerza",
+          "narastająca energia",
+          "przypieczętowany los"
+        ]
+      },
+      "mood": {
+        "opis": "Moment wyboru ścieżki — narodziny bohatera",
+        "cechy": [
+          "przeznaczenie",
+          "podniosłość",
+          "początek drogi"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Krystalicznie, narastająco, heroicznie",
+        "cechy": [
+          "krystaliczny",
+          "narastający",
+          "heroiczny"
+        ]
+      }
+    },
+    "436": {
+      "title": "Fireball",
+      "background": {
+        "opis": "Zamknięty dziedziniec kolegium — ćwiczebne cele, skupienie adeptów",
+        "cechy": [
+          "dziedziniec kolegium",
+          "ćwiczebne cele",
+          "skupienie adeptów",
+          "zapach dymu"
+        ]
+      },
+      "hero": {
+        "opis": "Rozszczepienie zaklęcia na trzy ogniste kule — świst pocisków i fala gorąca",
+        "cechy": [
+          "świst ognistych kul",
+          "rozszczepienie zaklęcia",
+          "fala gorąca",
+          "dymiące cele"
+        ],
+        "wymagane": [
+          "świst ognistych kul"
+        ]
+      },
+      "mood": {
+        "opis": "Pokaz kontrolowanej destrukcji",
+        "cechy": [
+          "precyzja",
+          "mistrzostwo",
+          "kontrolowany żywioł"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ogniście, ostro, precyzyjnie",
+        "cechy": [
+          "ognisty",
+          "ostry",
+          "precyzyjny"
+        ]
+      }
+    },
+    "437": {
+      "title": "Giant Spider",
+      "background": {
+        "opis": "Gęste korony pradawnej puszczy — wysokie sklepienie, cisza między konarami",
+        "cechy": [
+          "korony puszczy",
+          "wysokie sklepienie",
+          "cisza konarów",
+          "rozpięte sieci"
+        ]
+      },
+      "hero": {
+        "opis": "Pająk opuszcza się bez pośpiechu ku schwytanej zdobyczy — drganie sieci i szamotanina skrzydeł",
+        "cechy": [
+          "opuszczanie na nici",
+          "drganie sieci",
+          "szamotanina zdobyczy",
+          "cierpliwy tkacz"
+        ]
+      },
+      "mood": {
+        "opis": "Naturalny porządek łowów — bez zła, bez litości",
+        "cechy": [
+          "naturalna drapieżność",
+          "cierpliwość",
+          "ekosystem"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, pełzająco, naturalnie",
+        "cechy": [
+          "cichy",
+          "pełzający",
+          "organiczny"
+        ]
+      }
+    },
+    "438": {
+      "title": "Circle of the Land Druid",
+      "background": {
+        "opis": "Gęste ostępy wysokiego lasu z ruinami — martwa ściółka nad dawnym życiem",
+        "cechy": [
+          "ostępy z ruinami",
+          "martwa ściółka",
+          "wilgotna gleba",
+          "zapomniane artefakty"
+        ]
+      },
+      "hero": {
+        "opis": "Rozgarnianie ściółki i przyspieszony rozkład — nasiona budzą się w żyznym gruncie",
+        "cechy": [
+          "rozgarnianie ściółki",
+          "przyspieszony rozkład",
+          "budzące się nasiona",
+          "pulsująca gleba"
+        ]
+      },
+      "mood": {
+        "opis": "Poświęcenie dla odrodzenia — życie z rozpadu",
+        "cechy": [
+          "poświęcenie",
+          "odrodzenie",
+          "cicha praca natury"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, miękko, cierpliwie",
+        "cechy": [
+          "organiczny",
+          "miękki",
+          "cierpliwy"
+        ]
+      }
+    },
+    "439": {
+      "title": "Hecteyes",
+      "background": {
+        "opis": "Mroczne głębiny piekielnego szlaku — kryształowe szczeliny, echo jaskini",
+        "cechy": [
+          "piekielny szlak",
+          "kryształowe szczeliny",
+          "echo jaskini",
+          "uśpione koszmary"
+        ]
+      },
+      "hero": {
+        "opis": "Bezkształtny stwór wypełza ze szczelin — paraliżujący wzrok i brzęk upuszczanego ekwipunku",
+        "cechy": [
+          "oślizgłe wypełzanie",
+          "paraliżujący wzrok",
+          "upuszczany ekwipunek",
+          "wielookie spojrzenie"
+        ]
+      },
+      "mood": {
+        "opis": "Paraliż przed ciosem — strata bez walki",
+        "cechy": [
+          "paraliżująca groza",
+          "utrata",
+          "piekielna obcość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Oślizgle, ciemno, obco",
+        "cechy": [
+          "oślizgły",
+          "ciemny",
+          "obcy"
+        ]
+      }
+    },
+    "440": {
+      "title": "Your Temple Is Under Attack",
+      "background": {
+        "opis": "Starożytna świątynia z przerwaną ciszą — echo najścia w kamiennych nawach",
+        "cechy": [
+          "starożytna świątynia",
+          "przerwana cisza",
+          "kamienne nawy",
+          "napierający intruz"
+        ]
+      },
+      "hero": {
+        "opis": "Bariera srebrnego światła na stopniach ołtarza — i pergamin podany zamiast ciosu",
+        "cechy": [
+          "bariera światła",
+          "zatrzymany napór",
+          "podany pergamin",
+          "chłodne miłosierdzie"
+        ]
+      },
+      "mood": {
+        "opis": "Miłosierdzie z pozycji siły — wybór zamiast walki",
+        "cechy": [
+          "miłosierdzie",
+          "niewzruszona obrona",
+          "napięta przerwa"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Srebrzysto, dostojnie, napięcie",
+        "cechy": [
+          "srebrzysty",
+          "dostojny",
+          "napięty"
+        ]
+      }
+    },
+    "441": {
+      "title": "Survivor of Korlis",
+      "background": {
+        "opis": "Dymiące zgliszcza kupieckiego miasta — tlące się rynki, opadający popiół",
+        "cechy": [
+          "dymiące zgliszcza",
+          "tlące się rynki",
+          "opadający popiół",
+          "zburzone mury"
+        ]
+      },
+      "hero": {
+        "opis": "Ocalała strażniczka wydziera z ruin plany najeźdźców — zaciśnięta na włóczni dłoń",
+        "cechy": [
+          "przetrząsanie ruin",
+          "znalezione plany",
+          "zaciśnięta włócznia",
+          "cicha przysięga"
+        ]
+      },
+      "mood": {
+        "opis": "Z popiołów — obietnica pierwszego ciosu",
+        "cechy": [
+          "strata",
+          "determinacja",
+          "zapowiedź odwetu"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Popielato, cicho, twardo",
+        "cechy": [
+          "popielaty",
+          "cichy",
+          "twardy"
+        ]
+      }
+    },
+    "442": {
+      "title": "Cenn's Tactician",
+      "background": {
+        "opis": "Ciernisty wąwóz pod osadą — nadciągający hałas hordy, ustawiani obrońcy",
+        "cechy": [
+          "ciernisty wąwóz",
+          "hałas hordy",
+          "ustawiani obrońcy",
+          "wiejska osada"
+        ]
+      },
+      "hero": {
+        "opis": "Ostre polecenia taktyczki i korekty postaw — jeden strażnik blokuje kilku napastników",
+        "cechy": [
+          "ostre polecenia",
+          "korekty postaw",
+          "blokada wąwozu",
+          "splot myśli"
+        ]
+      },
+      "mood": {
+        "opis": "Lojalność zamiast pancerza — zapora ramię w ramię",
+        "cechy": [
+          "lojalność",
+          "wspólna obrona",
+          "taktyczna pewność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Rzeczowo, zwarcie, miarowo",
+        "cechy": [
+          "rzeczowy",
+          "zwarty",
+          "miarowy"
+        ]
+      }
+    },
+    "443": {
+      "title": "Scorned Villager",
+      "background": {
+        "opis": "Obrzeża ponurego boru nocą — dogasające ognisko, dalekie palisady dawnej osady",
+        "cechy": [
+          "obrzeża boru",
+          "dogasające ognisko",
+          "chłodny księżyc",
+          "dalekie palisady"
+        ]
+      },
+      "hero": {
+        "opis": "Łamiące się gałęzie w gęstwinie — dłoń zaciska się na zardzewiałym nożu",
+        "cechy": [
+          "łamiące się gałęzie",
+          "zaciśnięta dłoń na nożu",
+          "instynktowna czujność",
+          "samotność wygnanej"
+        ]
+      },
+      "mood": {
+        "opis": "Wygnanie i strach — coś nadchodzi z gęstwiny",
+        "cechy": [
+          "wygnanie",
+          "strach",
+          "gorzka samotność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, ciemno, niespokojnie",
+        "cechy": [
+          "cichy",
+          "ciemny",
+          "niespokojny"
+        ]
+      }
+    },
+    "444": {
+      "title": "Colossodon Yearling",
+      "background": {
+        "opis": "Surowe doliny u podnóża gór — skaliste zbocza, otwarte niebo stepów",
+        "cechy": [
+          "surowe doliny",
+          "skaliste zbocza",
+          "otwarte niebo",
+          "stepowy wiatr"
+        ]
+      },
+      "hero": {
+        "opis": "Cień skrzydeł pada na młodego pancernika — świst zniżającego lotu drapieżnika",
+        "cechy": [
+          "świst zniżającego lotu",
+          "padający cień",
+          "ciężkie kroki młodego",
+          "bezradny pancerz"
+        ]
+      },
+      "mood": {
+        "opis": "Natura bez sentymentów — pancerz to tylko naczynie",
+        "cechy": [
+          "surowość natury",
+          "zagrożenie z nieba",
+          "bezbronność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciężko, złowieszczo, przestronnie",
+        "cechy": [
+          "ciężki",
+          "złowieszczy",
+          "przestronny"
+        ]
+      }
+    },
+    "445": {
+      "title": "Locthwain Paladin",
+      "background": {
+        "opis": "Zamieć na obrzeżach mrocznej dziczy — gęstniejący śnieg, skute lodem pnącza",
+        "cechy": [
+          "zamieć śnieżna",
+          "skute lodem pnącza",
+          "mroźna dzicz",
+          "gęstniejąca biel"
+        ]
+      },
+      "hero": {
+        "opis": "Miarowy krok karego rumaka łamiącego lód — łopot proporca na złotej lancy",
+        "cechy": [
+          "łamanie lodu kopytami",
+          "miarowy krok rumaka",
+          "łopot proporca",
+          "szron na zbroi"
+        ]
+      },
+      "mood": {
+        "opis": "Nieustępliwość patrolu — misja ponad zamieć",
+        "cechy": [
+          "nieustępliwość",
+          "wierność misji",
+          "samotny trud"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mroźnie, miarowo, dostojnie",
+        "cechy": [
+          "mroźny",
+          "miarowy",
+          "dostojny"
+        ]
+      }
+    },
+    "446": {
+      "title": "Unbreakable Bond",
+      "background": {
+        "opis": "Prastara dżungla nasycona magią — parne powietrze, cisza wokół letargu bestii",
+        "cechy": [
+          "prastara dżungla",
+          "parne powietrze",
+          "cisza letargu",
+          "jadeit i złoto"
+        ]
+      },
+      "hero": {
+        "opis": "Czoło przyciśnięte do pyska budzi bestię — rozbłysk aury i głęboki oddech ożywienia",
+        "cechy": [
+          "dotyk czoła",
+          "rozbłysk aury",
+          "budzący się oddech bestii",
+          "spleciona więź"
+        ]
+      },
+      "mood": {
+        "opis": "Pakt silniejszy niż śmierć",
+        "cechy": [
+          "więź",
+          "lojalność",
+          "wzajemne ożywienie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciepło, organicznie, uroczyście",
+        "cechy": [
+          "ciepły",
+          "organiczny",
+          "uroczysty"
+        ]
+      }
+    },
+    "447": {
+      "title": "Resurrected Cultist",
+      "background": {
+        "opis": "Cmentarne ogrody w nienaturalnej mgle — zbezczeszczona, pulsująca ziemia",
+        "cechy": [
+          "cmentarne ogrody",
+          "nienaturalna mgła",
+          "zbezczeszczona ziemia",
+          "zbutwiałe księgi"
+        ]
+      },
+      "hero": {
+        "opis": "Wyznawca podnosi się z plątaniny kości — sine palce zaciskają się na sztylecie",
+        "cechy": [
+          "podnoszenie się z kości",
+          "zaciskane palce",
+          "szelest łachmanów",
+          "wijące się insekty"
+        ]
+      },
+      "mood": {
+        "opis": "Służba nie kończy się śmiercią",
+        "cechy": [
+          "nieumarła służba",
+          "profanacja",
+          "posępna groza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Sucho, upiornie, powoli",
+        "cechy": [
+          "suchy",
+          "upiorny",
+          "powolny"
+        ]
+      }
+    },
+    "448": {
+      "title": "Rupture Spire",
+      "background": {
+        "opis": "Zrujnowane dzielnice przeklętego miasta — spękany bruk, niespokojna magia w powietrzu",
+        "cechy": [
+          "zrujnowane dzielnice",
+          "spękany bruk",
+          "niespokojna magia",
+          "stare domostwa"
+        ]
+      },
+      "hero": {
+        "opis": "Krystaliczne iglice wyrastają z hukiem z ulic — pulsujące wyładowania rozrywają fundamenty",
+        "cechy": [
+          "huk wyrastających iglic",
+          "rozrywane fundamenty",
+          "pulsujące wyładowania",
+          "padający gruz"
+        ],
+        "wymagane": [
+          "huk wyrastających iglic"
+        ]
+      },
+      "mood": {
+        "opis": "Miasto deformowane przez chaos",
+        "cechy": [
+          "kataklizm",
+          "nieprzewidywalność",
+          "spaczenie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Krystalicznie, hucząco, chaotycznie",
+        "cechy": [
+          "krystaliczny",
+          "huczący",
+          "chaotyczny"
+        ]
+      }
+    },
+    "449": {
+      "title": "Greater Tanuki",
+      "background": {
+        "opis": "Bezkresny labirynt drzew — dziewicza puszcza bez śladu technologii, święta gęstwina",
+        "cechy": [
+          "labirynt drzew",
+          "dziewicza puszcza",
+          "święta gęstwina",
+          "cisza sanktuarium"
+        ]
+      },
+      "hero": {
+        "opis": "Ogromne tanuki toruje drogę przez gąszcz — trzask kruszonych przeszkód jak suchych gałązek",
+        "cechy": [
+          "trzask kruszonych pni",
+          "torowanie drogi",
+          "ciężkie kroki bestii",
+          "nowa ścieżka w puszczy"
+        ],
+        "wymagane": [
+          "trzask kruszonych pni"
+        ]
+      },
+      "mood": {
+        "opis": "Błogosławiony strażnik rzeźbi święte ścieżki",
+        "cechy": [
+          "błogosławiona siła",
+          "majestat natury",
+          "odkrycie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, potężnie, dobrodusznie",
+        "cechy": [
+          "organiczny",
+          "potężny",
+          "dobroduszny"
+        ]
+      }
+    },
+    "450": {
+      "title": "Thornhide Wolves",
+      "background": {
+        "opis": "Nocne obozowisko za barierą cierni — dogasające ognisko, mroki boru",
+        "cechy": [
+          "nocne obozowisko",
+          "bariera cierni",
+          "dogasające ognisko",
+          "mroki boru"
+        ]
+      },
+      "hero": {
+        "opis": "Wilk rozsuwa kolczaste pędy i wkracza w krąg ognia — szelest cierni o twardą sierść",
+        "cechy": [
+          "rozsuwanie cierni",
+          "szelest o twardą sierść",
+          "wkroczenie w krąg",
+          "upuszczone wnyki"
+        ]
+      },
+      "mood": {
+        "opis": "Natura kpi z ludzkich zabezpieczeń",
+        "cechy": [
+          "fatalna pomyłka",
+          "drapieżna przewaga",
+          "nocny strach"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Szeleszcząco, ciemno, groźnie",
+        "cechy": [
+          "szeleszczący",
+          "ciemny",
+          "groźny"
+        ]
+      }
+    },
+    "451": {
+      "title": "Downwind Ambusher",
+      "background": {
+        "opis": "Podszycie leśnej doliny — kierunek wiatru, paprocie, dysząca ranna ofiara",
+        "cechy": [
+          "leśne podszycie",
+          "kierunek wiatru",
+          "mrok paproci",
+          "dyszący uciekinier"
+        ]
+      },
+      "hero": {
+        "opis": "Skunks wypuszcza ciężką mgłę z wiatrem i unosi zatruty kolec — cichy paraliż",
+        "cechy": [
+          "syk wypuszczanej mgły",
+          "paraliż zmysłów",
+          "uniesiony kolec",
+          "bezszelestne podejście"
+        ]
+      },
+      "mood": {
+        "opis": "Zabójstwo z wiatrem — precyzja bez walki",
+        "cechy": [
+          "skrytobójstwo",
+          "chłodna precyzja",
+          "duszące osaczenie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, duszno, precyzyjnie",
+        "cechy": [
+          "cichy",
+          "duszny",
+          "precyzyjny"
+        ]
+      }
+    },
+    "452": {
+      "title": "Omenspeaker",
+      "background": {
+        "opis": "Najwyższa wieża kolegium — mosiężne astrolabium, nocna cisza obserwatorium",
+        "cechy": [
+          "wieża kolegium",
+          "mosiężne astrolabium",
+          "nocne obserwatorium",
+          "zalane atramentem pergaminy"
+        ]
+      },
+      "hero": {
+        "opis": "Mechanizm ożywa i rzutuje konstelacje — słowa proroctwa same uciekają z ust",
+        "cechy": [
+          "ożywający mechanizm",
+          "rzutowane konstelacje",
+          "mimowolne proroctwo",
+          "zastygnięcie w bezruchu"
+        ]
+      },
+      "mood": {
+        "opis": "Ciężar wizji — proroctwo wyprzedza myśl",
+        "cechy": [
+          "przytłoczenie wizją",
+          "mroczne proroctwo",
+          "osłupienie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mosiężnie, migotliwie, niepokojąco",
+        "cechy": [
+          "mosiężny",
+          "migotliwy",
+          "niepokojący"
+        ]
+      }
+    },
+    "453": {
+      "title": "Elgaud Inquisitor",
+      "background": {
+        "opis": "Deszczowe ulice nadmorskiego miasta — kapiący deszcz, mrok zaułków",
+        "cechy": [
+          "deszczowe ulice",
+          "kapiący deszcz",
+          "nadmorski mrok",
+          "wypełzające potworności"
+        ]
+      },
+      "hero": {
+        "opis": "Rozbłyski błogosławionej energii regenerują siły — dłoń zaciska się na buzdyganie",
+        "cechy": [
+          "rozbłyski energii",
+          "regeneracja sił",
+          "zaciśnięty buzdygan",
+          "gotowość na ofiarę"
+        ]
+      },
+      "mood": {
+        "opis": "Święta krucjata ponad śmierć",
+        "cechy": [
+          "poświęcenie",
+          "niezłomna wiara",
+          "znużona wytrwałość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, świetliście, surowo",
+        "cechy": [
+          "mokry",
+          "świetlisty",
+          "surowy"
+        ]
+      }
+    },
+    "454": {
+      "title": "Setessan Skirmisher",
+      "background": {
+        "opis": "Cień pradawnych dębów — bezruch na gałęzi, gęste poszycie granicy",
+        "cechy": [
+          "pradawne dęby",
+          "bezruch zasadzki",
+          "gęste poszycie",
+          "granica terytorium"
+        ]
+      },
+      "hero": {
+        "opis": "Gwiezdna energia nasyca oręż — stopy twardo o korę, gotowość do skoku",
+        "cechy": [
+          "nasycenie gwiezdną energią",
+          "napięta gotowość",
+          "stopy o korę",
+          "błysk ostrza w listowiu"
+        ]
+      },
+      "mood": {
+        "opis": "Czujna straż granicy z boską iskrą",
+        "cechy": [
+          "czujność",
+          "boskie wsparcie",
+          "drapieżna cierpliwość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, napięcie, świetliście",
+        "cechy": [
+          "cichy",
+          "napięty",
+          "świetlisty"
+        ]
+      }
+    },
+    "455": {
+      "title": "Irontread Crusher",
+      "background": {
+        "opis": "Zgliszcza obozu w mrocznym lesie — spalone palisady, błoto i porzucona broń",
+        "cechy": [
+          "zgliszcza obozu",
+          "spalone palisady",
+          "błoto",
+          "mroczny las"
+        ]
+      },
+      "hero": {
+        "opis": "Parowy czołg miażdży przeszkody — syk zaworów, dymiący kocioł, kolczaste koła",
+        "cechy": [
+          "miażdżenie kołami",
+          "gwiżdżące zawory",
+          "dymiący kocioł",
+          "nitowany pancerz"
+        ],
+        "wymagane": [
+          "miażdżenie kołami"
+        ]
+      },
+      "mood": {
+        "opis": "Nieubłagany marsz machiny torującej drogę",
+        "cechy": [
+          "industrialna potęga",
+          "nieubłaganość",
+          "weterańska duma"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Parowo, ciężko, metalicznie",
+        "cechy": [
+          "parowy",
+          "ciężki",
+          "metaliczny"
+        ]
+      }
+    },
+    "456": {
+      "title": "Crawling Chorus",
+      "background": {
+        "opis": "Nieskazitelne korytarze bazyliki — sterylne posadzki, dogmatyczny chór w tle",
+        "cechy": [
+          "sterylne korytarze",
+          "dogmatyczny chór",
+          "porcelanowa biel",
+          "zw unifikowana cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Pęknięty pancerz uwalnia metalowe roztocza — chitynowy szelest roznoszący olej",
+        "cechy": [
+          "pełznięcie monstrum",
+          "pękająca porcelana",
+          "szelest roztoczy",
+          "rozsiewany olej"
+        ]
+      },
+      "mood": {
+        "opis": "Zniszczenie nie kończy pieśni",
+        "cechy": [
+          "upiorna ciągłość",
+          "zaraza",
+          "beznadziejność oporu"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Porcelanowo, szeleszcząco, złowrogo",
+        "cechy": [
+          "porcelanowy",
+          "szeleszczący",
+          "złowrogi"
+        ]
+      }
+    },
+    "457": {
+      "title": "Silken Strength",
+      "background": {
+        "opis": "Piaszczyste tory wieloświatowego wyścigu — warkot maszyn, kurz toru",
+        "cechy": [
+          "piaszczyste tory",
+          "warkot maszyn",
+          "kurz wyścigu",
+          "pędzące łaziki"
+        ]
+      },
+      "hero": {
+        "opis": "Pasma magicznego jedwabiu ratują łazik z wywrotki — sieć wystrzeliwuje w niebo",
+        "cechy": [
+          "wystrzeliwujące pasma",
+          "ratunek z wywrotki",
+          "sprężysta sieć",
+          "wychwycone sokoły"
+        ]
+      },
+      "mood": {
+        "opis": "Natura w służbie wyścigu — refleks i spryt",
+        "cechy": [
+          "refleks",
+          "triumf sprytu",
+          "dynamiczna adrenalina"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dynamicznie, sprężyście, zaskakująco",
+        "cechy": [
+          "dynamiczny",
+          "sprężysty",
+          "zaskakujący"
+        ]
+      }
     }
   }
 }
