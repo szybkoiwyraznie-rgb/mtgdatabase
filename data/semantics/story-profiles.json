@@ -10471,6 +10471,946 @@
           "epicki"
         ]
       }
+    },
+    "331": {
+      "title": "Trostani Discordant",
+      "background": {
+        "opis": "Dziupla drzewa-miasta — opadające liście, dzielące się światło, oczekujące Konklawe",
+        "cechy": [
+          "dziupla drzewa",
+          "opadające liście",
+          "oczekujący tłum",
+          "świątynna cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Trzy siostry zwrócone w trzy strony — głos, który nie potrafi zabrzmieć jednym tonem",
+        "cechy": [
+          "trzy rozbieżne głosy",
+          "niezgodny akord",
+          "napięte oczekiwanie",
+          "rozdzielone spojrzenia"
+        ]
+      },
+      "mood": {
+        "opis": "Dysonans jedności — harmonia pęknięta od środka",
+        "cechy": [
+          "dysonans",
+          "rozdarcie",
+          "niespokojna świętość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, niezgodnie, uroczyście",
+        "cechy": [
+          "organiczny",
+          "niezgodny",
+          "uroczysty"
+        ]
+      }
+    },
+    "335": {
+      "title": "Gather the Townsfolk",
+      "background": {
+        "opis": "Plac miasteczka przed burzą — daleki grzmot, skrzypiąca tablica ogłoszeń",
+        "cechy": [
+          "plac przed burzą",
+          "daleki grzmot",
+          "skrzypiąca tablica",
+          "niespokojny wiatr"
+        ]
+      },
+      "hero": {
+        "opis": "Zbierający się tłum mieszczan — kroki z pośpiechem, głos kapitana nad zwiniętym zwojem",
+        "cechy": [
+          "schodzący się tłum",
+          "pospieszne kroki",
+          "głos kapitana",
+          "szelest zwoju"
+        ]
+      },
+      "mood": {
+        "opis": "Ostatnia chwila przed zamknięciem okiennic — zdecydowana troska",
+        "cechy": [
+          "mobilizacja",
+          "troska",
+          "wspólnota"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Gwarnie, niespokojnie, przyziemnie",
+        "cechy": [
+          "gwarny",
+          "niespokojny",
+          "przyziemny"
+        ]
+      }
+    },
+    "337": {
+      "title": "Glaring Aegis",
+      "background": {
+        "opis": "Jasna skalista grań wzgórza — pełne słońce, wiatr wysokości",
+        "cechy": [
+          "skalista grań",
+          "pełne słońce",
+          "wiatr wysokości",
+          "otwarta przestrzeń"
+        ]
+      },
+      "hero": {
+        "opis": "Promień słońca odbity od tarczy oślepia wroga — dźwięczny błysk klina światła",
+        "cechy": [
+          "odbity promień",
+          "dźwięczny błysk tarczy",
+          "oślepiony przeciwnik",
+          "klin światła"
+        ]
+      },
+      "mood": {
+        "opis": "Cierpliwość tarczownika — słońce staje po jego stronie",
+        "cechy": [
+          "cierpliwość",
+          "triumf sprytu",
+          "jasność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Jasno, ostro, metalicznie",
+        "cechy": [
+          "jasny",
+          "ostry",
+          "metaliczny"
+        ]
+      }
+    },
+    "339": {
+      "title": "Patron of the Arts",
+      "background": {
+        "opis": "Renesansowa galeria sztuki — elegancki korytarz, echo obcasów po marmurze",
+        "cechy": [
+          "galeria sztuki",
+          "echo obcasów",
+          "marmurowe nisze",
+          "wystawny przepych"
+        ]
+      },
+      "hero": {
+        "opis": "Arystokratka zdejmuje złoconą ramę ze ściany — szelest sukni i gest mecenasa",
+        "cechy": [
+          "zdjęcie ramy",
+          "szelest sukni",
+          "zadowolone kroki",
+          "gest mecenasa"
+        ]
+      },
+      "mood": {
+        "opis": "Bezczelny mecenat — kolekcja rośnie, bo tak chce",
+        "cechy": [
+          "bezczelność",
+          "przepych",
+          "zabawna pewność siebie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Elegancko, lekko, przekornie",
+        "cechy": [
+          "elegancki",
+          "lekki",
+          "przekorny"
+        ]
+      }
+    },
+    "342": {
+      "title": "Gorger Wurm",
+      "background": {
+        "opis": "Bagienna dolina pogranicza — czarna woda, resztki obozowiska, parne mokradło",
+        "cechy": [
+          "bagienna dolina",
+          "czarna woda",
+          "resztki obozu",
+          "parna cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Ogromny wurm wynurza się z rozwartą paszczą — mokre cielsko oplata korzenie",
+        "cechy": [
+          "wynurzenie cielska",
+          "rozwarta paszcza",
+          "mokre oplatanie",
+          "połknięty namiot"
+        ],
+        "wymagane": [
+          "wynurzenie cielska"
+        ]
+      },
+      "mood": {
+        "opis": "Drapieżna zasadzka — widzisz go z wewnątrz paszczy",
+        "cechy": [
+          "zasadzka",
+          "żarłoczność",
+          "bagienny strach"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, ciężko, drapieżnie",
+        "cechy": [
+          "mokry",
+          "ciężki",
+          "drapieżny"
+        ]
+      }
+    },
+    "343": {
+      "title": "Puppeteer Clique",
+      "background": {
+        "opis": "Cieniste gęstwiny wiecznego mroku — zniekształcona dolina, martwa cisza",
+        "cechy": [
+          "cienista gęstwina",
+          "wieczny mrok",
+          "martwa cisza",
+          "zniekształcone piękno"
+        ]
+      },
+      "hero": {
+        "opis": "Trzy faerie tkają nici wokół poległego — zgrzyt zbroi wstającej lalki",
+        "cechy": [
+          "trzepot skrzydełek",
+          "tkanie świetlistych nici",
+          "zgrzyt ołowianej zbroi",
+          "wstający poległy"
+        ]
+      },
+      "mood": {
+        "opis": "Okrutny kaprys — zmarły przeciw dawnym sojusznikom",
+        "cechy": [
+          "okrutny kaprys",
+          "profanacja",
+          "złośliwa lekkość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Drobno, upiornie, zgrzytliwie",
+        "cechy": [
+          "drobny",
+          "upiorny",
+          "zgrzytliwy"
+        ]
+      }
+    },
+    "344": {
+      "title": "Pain for All",
+      "background": {
+        "opis": "Skalista arena z pękniętymi płytami — kamienny krąg, napięcie starcia",
+        "cechy": [
+          "skalista arena",
+          "pęknięte płyty",
+          "kamienny krąg",
+          "napięcie starcia"
+        ]
+      },
+      "hero": {
+        "opis": "Skrzyżowanie ostrzy i wybuch fali energii we wszystkie strony — krąg bólu",
+        "cechy": [
+          "skrzyżowanie ostrzy",
+          "wybuch fali",
+          "krąg energii",
+          "cios bez rozróżnienia"
+        ],
+        "wymagane": [
+          "wybuch fali"
+        ]
+      },
+      "mood": {
+        "opis": "Ból rozdany równo — najuczciwsza forma walki",
+        "cechy": [
+          "bezwzględność",
+          "równy ból",
+          "surowa doktryna"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Twardo, wybuchowo, szeroko",
+        "cechy": [
+          "twardy",
+          "wybuchowy",
+          "szeroki"
+        ]
+      }
+    },
+    "345": {
+      "title": "Porcelain Legionnaire",
+      "background": {
+        "opis": "Sterylne żebrowane korytarze bazyliki — chłodne powietrze, cisza podziwu kapłana",
+        "cechy": [
+          "żebrowane korytarze",
+          "sterylna cisza",
+          "chłodne powietrze",
+          "heksagonalne sklepienia"
+        ]
+      },
+      "hero": {
+        "opis": "Legionista zeskakuje ze sklepień — bezszelestne cięcia asymetrycznych ostrzy",
+        "cechy": [
+          "cichy zeskok",
+          "bezszelestne cięcia",
+          "porcelanowa lekkość",
+          "błyskawiczna eliminacja"
+        ]
+      },
+      "mood": {
+        "opis": "Gracja zabójcy — wola wykonana zanim padnie opór",
+        "cechy": [
+          "zabójcza gracja",
+          "zimna doskonałość",
+          "groza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Zimno, gładko, ostro",
+        "cechy": [
+          "zimny",
+          "gładki",
+          "ostry"
+        ]
+      }
+    },
+    "346": {
+      "title": "Necrosquito",
+      "background": {
+        "opis": "Komory lęgowe skażonego świata — organiczno-metalowe wnętrze, kapiący olej",
+        "cechy": [
+          "komory lęgowe",
+          "kapiący olej",
+          "organiczny metal",
+          "wylęg"
+        ]
+      },
+      "hero": {
+        "opis": "Owad zbiera wyciek z poległych i rośnie — brzęczenie roju niosącego skażenie",
+        "cechy": [
+          "brzęczenie owada",
+          "zbieranie wycieku",
+          "rosnący odwłok",
+          "rój nad poległymi"
+        ],
+        "wymagane": [
+          "brzęczenie owada"
+        ]
+      },
+      "mood": {
+        "opis": "Pasożytniczy przyrost — każda śmierć karmi rój",
+        "cechy": [
+          "pasożytnictwo",
+          "nieubłagany przyrost",
+          "odraza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Brzęcząco, oleisto, niepokojąco",
+        "cechy": [
+          "brzęczący",
+          "oleisty",
+          "niepokojący"
+        ]
+      }
+    },
+    "347": {
+      "title": "Pristine Talisman",
+      "background": {
+        "opis": "Sterylna biała kuźnia-świątynia — mlecznobiałe światło z oculusu, gładki metal",
+        "cechy": [
+          "biała kuźnia",
+          "światło z oculusu",
+          "gładkie ściany",
+          "świątynna czystość"
+        ]
+      },
+      "hero": {
+        "opis": "Talizman unosi się w stabilnym polu mocy — cienkie linie energii krążą i leczą",
+        "cechy": [
+          "stabilne pole mocy",
+          "krążące linie energii",
+          "czysty rezonans",
+          "uzdrawiający dotyk"
+        ]
+      },
+      "mood": {
+        "opis": "Metal, który nie kłamie — czystość wśród skażenia",
+        "cechy": [
+          "czystość",
+          "nadzieja oporu",
+          "równowaga"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Czysto, świetliście, spokojnie",
+        "cechy": [
+          "czysty",
+          "świetlisty",
+          "spokojny"
+        ]
+      }
+    },
+    "349": {
+      "title": "Enduring Sliver",
+      "background": {
+        "opis": "Rozległa bladoróżowa pustynia — wiatr tnący wydmy, sypki piasek",
+        "cechy": [
+          "rozległa pustynia",
+          "tnący wiatr",
+          "sypkie wydmy",
+          "pusty horyzont"
+        ]
+      },
+      "hero": {
+        "opis": "Sliver wynurza się z piasku na zakotwiczonych kończynach — pancerz grubieje warstwami",
+        "cechy": [
+          "wynurzenie z piasku",
+          "kotwiczące kończyny",
+          "narastający pancerz",
+          "spokojne trwanie"
+        ]
+      },
+      "mood": {
+        "opis": "Przetrwanie bez agresji — wystarczy trwać",
+        "cechy": [
+          "przetrwanie",
+          "cierpliwość",
+          "obca wytrwałość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Sucho, powoli, obco",
+        "cechy": [
+          "suchy",
+          "powolny",
+          "obcy"
+        ]
+      }
+    },
+    "352": {
+      "title": "Evangel of Synthesis",
+      "background": {
+        "opis": "Podziemne sanktuarium kultu — echo krypty, zgromadzeni kultyści, kapiący olej",
+        "cechy": [
+          "podziemne sanktuarium",
+          "echo krypty",
+          "zgromadzeni kultyści",
+          "półmrok świec"
+        ]
+      },
+      "hero": {
+        "opis": "Błogosławieństwo metalu i oleju — krople pieczętują pakt, ciało ustępuje maszynie",
+        "cechy": [
+          "kapiące krople oleju",
+          "szept błogosławieństwa",
+          "pieczętowanie paktu",
+          "początek transformacji"
+        ]
+      },
+      "mood": {
+        "opis": "Upiorne narodziny — synteza boskiego i śmiertelnego",
+        "cechy": [
+          "upiorna nabożność",
+          "transformacja",
+          "oddanie kultu"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, oleisto, uroczyście",
+        "cechy": [
+          "ciemny",
+          "oleisty",
+          "uroczysty"
+        ]
+      }
+    },
+    "354": {
+      "title": "Wretched Banquet",
+      "background": {
+        "opis": "Wielka sala biesiadna w półmroku świec — długi stół, ciemne kotary, dworska cisza",
+        "cechy": [
+          "sala biesiadna",
+          "przyćmione świece",
+          "długi stół",
+          "dworska cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Gest wyroku nad stołem — najsłabszy rozpada się w ciemne cząstki między daniami",
+        "cechy": [
+          "gest wyroku",
+          "rozpad w cząstki",
+          "smuga ciemnej energii",
+          "zamarli biesiadnicy"
+        ]
+      },
+      "mood": {
+        "opis": "Sąd zamiast uczty — jeden gest i ktoś przestaje istnieć",
+        "cechy": [
+          "okrutny sąd",
+          "dworski strach",
+          "kaprys władcy"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, dostojnie, złowieszczo",
+        "cechy": [
+          "ciemny",
+          "dostojny",
+          "złowieszczy"
+        ]
+      }
+    },
+    "355": {
+      "title": "Cathartic Reunion",
+      "background": {
+        "opis": "Tajny warsztat renegatów w trzewiach miasta — cichy stół roboczy, plany rebelii",
+        "cechy": [
+          "tajny warsztat",
+          "cichy stół roboczy",
+          "plany rebelii",
+          "lśnienie eteru"
+        ]
+      },
+      "hero": {
+        "opis": "Matka i córka po latach — odłożona zbroja, cichy szloch ulgi i wspólny plan",
+        "cechy": [
+          "odłożona zbroja",
+          "cichy szloch ulgi",
+          "spotkanie po latach",
+          "wspólny zamysł"
+        ]
+      },
+      "mood": {
+        "opis": "Katharsis pojednania — gniew ustępuje obietnicy",
+        "cechy": [
+          "pojednanie",
+          "ulga",
+          "nowa nadzieja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciepło, cicho, wzruszająco",
+        "cechy": [
+          "ciepły",
+          "cichy",
+          "wzruszający"
+        ]
+      }
+    },
+    "358": {
+      "title": "Frontline War-Rager",
+      "background": {
+        "opis": "Skalisty grzbiet pod kosmicznym niebem — płonący pierścień energii, zmęczeni towarzysze",
+        "cechy": [
+          "skalisty grzbiet",
+          "kosmiczne niebo",
+          "płonący pierścień",
+          "zmęczona drużyna"
+        ]
+      },
+      "hero": {
+        "opis": "Wojownik unosi trójzębną broń i zbiera ciosy na siebie — twarda postawa na najcieńszej linii",
+        "cechy": [
+          "uniesiona broń",
+          "przyjmowanie ciosów",
+          "twarda postawa",
+          "osłona towarzyszy"
+        ]
+      },
+      "mood": {
+        "opis": "Ofiarna wytrzymałość — kryza zniesie więcej niż czyjaś szyja",
+        "cechy": [
+          "ofiarność",
+          "wytrzymałość",
+          "braterstwo boju"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciężko, twardo, heroicznie",
+        "cechy": [
+          "ciężki",
+          "twardy",
+          "heroiczny"
+        ]
+      }
+    },
+    "360": {
+      "title": "Inspiration",
+      "background": {
+        "opis": "Ciasna pracownia naukowa — mapy nieba, mosiężne przyrządy, cisza skupienia",
+        "cechy": [
+          "ciasna pracownia",
+          "mosiężne przyrządy",
+          "mapy nieba",
+          "cisza skupienia"
+        ]
+      },
+      "hero": {
+        "opis": "Pióro samo zapisuje runy na świecących arkuszach — skrobanie olśnienia",
+        "cechy": [
+          "samopiszące pióro",
+          "skrobanie po pergaminie",
+          "świecące arkusze",
+          "nagłe olśnienie"
+        ]
+      },
+      "mood": {
+        "opis": "Chwila natchnienia — sześć godzin, których nie wolno przerwać",
+        "cechy": [
+          "natchnienie",
+          "olśnienie",
+          "cicha euforia"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Drobno, cicho, jasno",
+        "cechy": [
+          "drobny",
+          "cichy",
+          "jasny"
+        ]
+      }
+    },
+    "362": {
+      "title": "Simian Simulacrum",
+      "background": {
+        "opis": "Porzucona strefa wykopalisk w lesie — popękane płyty, przewrócone rusztowania",
+        "cechy": [
+          "porzucone wykopaliska",
+          "popękane płyty",
+          "metalowe rusztowania",
+          "zarosła strefa"
+        ]
+      },
+      "hero": {
+        "opis": "Małpi konstrukt wydobywa się z wnęki i montuje moduły na sojuszniku — mechaniczne łatanie",
+        "cechy": [
+          "wydobycie z wnęki",
+          "strumienie energii",
+          "montaż modułów",
+          "mechaniczne łatanie"
+        ]
+      },
+      "mood": {
+        "opis": "Wierność bez rozkazu — wojna się skończyła, one nie wiedzą",
+        "cechy": [
+          "melancholia maszyn",
+          "wytrwałość",
+          "osierocona służba"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Metalicznie, drobno, melancholijnie",
+        "cechy": [
+          "metaliczny",
+          "drobny",
+          "melancholijny"
+        ]
+      }
+    },
+    "366": {
+      "title": "Assert Perfection",
+      "background": {
+        "opis": "Jasna polana pod wapiennym klifem — trawa, białe kwiaty, smukłe menhiry",
+        "cechy": [
+          "jasna polana",
+          "wapienny klif",
+          "białe kwiaty",
+          "menhiry"
+        ]
+      },
+      "hero": {
+        "opis": "Perfekcyjnie uformowany cios włócznią — rozbłysk zielonej energii i liście-iskry",
+        "cechy": [
+          "cios włócznią",
+          "rozbłysk energii",
+          "liście-iskry",
+          "szmaragdowa aura"
+        ]
+      },
+      "mood": {
+        "opis": "Elegancja walki — każdy cios jak liść",
+        "cechy": [
+          "elegancja",
+          "perfekcja",
+          "wyniosła pewność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Zwinne, dźwięcznie, elegancko",
+        "cechy": [
+          "zwinny",
+          "dźwięczny",
+          "elegancki"
+        ]
+      }
+    },
+    "367": {
+      "title": "Battle-Rattle Shaman",
+      "background": {
+        "opis": "Nocny zniszczony zagajnik — lewitujące odłamki nad drzewami, niespokojna ziemia",
+        "cechy": [
+          "nocny zagajnik",
+          "lewitujące odłamki",
+          "niespokojna ziemia",
+          "połamane drzewa"
+        ]
+      },
+      "hero": {
+        "opis": "Taniec z wielką grzechotką — rytmiczne grzechotanie i dzwoneczki pompujące furię",
+        "cechy": [
+          "rytmiczne grzechotanie",
+          "dzwoneczki",
+          "taniec na kamieniu",
+          "rozpalana furia"
+        ],
+        "wymagane": [
+          "rytmiczne grzechotanie"
+        ]
+      },
+      "mood": {
+        "opis": "Rytm, który daje siłę ponad miarę",
+        "cechy": [
+          "rytualna furia",
+          "pobudzenie",
+          "dzika energia"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Grzechotliwie, rytmicznie, dziko",
+        "cechy": [
+          "grzechotliwy",
+          "rytmiczny",
+          "dziki"
+        ]
+      }
+    },
+    "370": {
+      "title": "Consume Spirit",
+      "background": {
+        "opis": "Metaliczne bagno z oleistą wodą — żelazne drzewa, gęsta martwa cisza",
+        "cechy": [
+          "metaliczne bagno",
+          "oleista woda",
+          "żelazne drzewa",
+          "martwa cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Wstęgi energii wysysają duszę — świetliste punkty spływają do rozjaśniającego się amuletu",
+        "cechy": [
+          "wysysanie duszy",
+          "wstęgi energii",
+          "spływające punkty światła",
+          "rozjaśniający się amulet"
+        ]
+      },
+      "mood": {
+        "opis": "Pasożytnicze przedłużanie życia — wypić, ile zostało",
+        "cechy": [
+          "pasożytnictwo",
+          "chłodna chciwość",
+          "mroczny rytuał"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, oleisto, sącząco",
+        "cechy": [
+          "ciemny",
+          "oleisty",
+          "sączący"
+        ]
+      }
+    },
+    "372": {
+      "title": "Dragonbroods' Relic",
+      "background": {
+        "opis": "Skalisty płaskowyż przy ruinach sanktuarium — wiatr w ruinach, runiczny krąg",
+        "cechy": [
+          "płaskowyż z ruinami",
+          "wiatr w ruinach",
+          "runiczny krąg",
+          "kamienne sanktuarium"
+        ]
+      },
+      "hero": {
+        "opis": "Trzy strumienie energii zbiegają się nad smoczą szczęką — z wirującej kuli formuje się zarys smoka",
+        "cechy": [
+          "zbiegające się strumienie",
+          "wirująca kula światła",
+          "formujący się smok",
+          "wspólny dotyk klanów"
+        ]
+      },
+      "mood": {
+        "opis": "Brama przodków — klany razem przywołują praojca",
+        "cechy": [
+          "podniosłość",
+          "pojednanie klanów",
+          "budząca się potęga"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Narastająco, uroczyście, potężnie",
+        "cechy": [
+          "narastający",
+          "uroczysty",
+          "potężny"
+        ]
+      }
+    },
+    "373": {
+      "title": "Fear of Abduction",
+      "background": {
+        "opis": "Sypialnia opustoszałych przedmieść — echo dziecięcego strachu nad pustym łóżkiem",
+        "cechy": [
+          "opustoszała sypialnia",
+          "puste łóżko",
+          "echo strachu",
+          "cienka bariera snu"
+        ]
+      },
+      "hero": {
+        "opis": "Koszmar unosi żołnierza ku wirującemu obliczu w suficie — wciągnięcie w nicość",
+        "cechy": [
+          "unoszenie ofiary",
+          "wirujące oblicze",
+          "wciągnięcie w nicość",
+          "manifestacja strachu"
+        ]
+      },
+      "mood": {
+        "opis": "Groza uprowadzenia — powrót na zawsze naznaczony",
+        "cechy": [
+          "groza",
+          "bezsilność",
+          "trwałe naznaczenie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Upiornie, wirująco, dusząco",
+        "cechy": [
+          "upiorny",
+          "wirujący",
+          "duszący"
+        ]
+      }
+    },
+    "374": {
+      "title": "Thistledown Players",
+      "background": {
+        "opis": "Leśna polana w południowym świetle — szlak z latarniami-sygnałami, przyjazny las",
+        "cechy": [
+          "polana w południe",
+          "latarnie szlaku",
+          "przyjazny las",
+          "southern światło"
+        ]
+      },
+      "hero": {
+        "opis": "Mysia trupa gra w marszu — skrzypce, bęben i fujarka rozświetlają znaki szlaku",
+        "cechy": [
+          "skrzypce w marszu",
+          "bęben i fujarka",
+          "maszerująca trupa",
+          "rozbłyskujące latarnie"
+        ],
+        "wymagane": [
+          "skrzypce w marszu"
+        ]
+      },
+      "mood": {
+        "opis": "Radosny pochód — cały las słyszy, że idą",
+        "cechy": [
+          "radość pochodu",
+          "muzyczna brawura",
+          "wspólnota"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Skocznie, dźwięcznie, pogodnie",
+        "cechy": [
+          "skoczny",
+          "dźwięczny",
+          "pogodny"
+        ]
+      }
+    },
+    "375": {
+      "title": "Deadly Recluse",
+      "background": {
+        "opis": "Duszący się las pod splątanym sklepieniem — cień twierdzy, martwa głusza",
+        "cechy": [
+          "splątane sklepienie",
+          "duszący las",
+          "martwa głusza",
+          "cień twierdzy"
+        ]
+      },
+      "hero": {
+        "opis": "Pająk opuszcza się bezgłośnie na nici do zdobyczy — ostatnie uderzenia potężnych skrzydeł",
+        "cechy": [
+          "bezgłośne opadanie na nici",
+          "oplatanie zdobyczy",
+          "słabnące uderzenia skrzydeł",
+          "szybki jad"
+        ]
+      },
+      "mood": {
+        "opis": "Cierpliwa śmierć w ciszy — las jest sprzymierzeńcem",
+        "cechy": [
+          "cierpliwa groza",
+          "cisza zasadzki",
+          "nieuchronność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, ciemno, pełzająco",
+        "cechy": [
+          "cichy",
+          "ciemny",
+          "pełzający"
+        ]
+      }
+    },
+    "376": {
+      "title": "Doomed Dissenter",
+      "background": {
+        "opis": "Leśna ścieżka we mgle — mokre liście, oddalające się pochodnie karawany",
+        "cechy": [
+          "ścieżka we mgle",
+          "mokre liście",
+          "oddalające się pochodnie",
+          "zapadający zmrok"
+        ]
+      },
+      "hero": {
+        "opis": "Nabrzmiałe ciało dźwiga się z błota — trzask szwów koszuli, ciężkie mokre powstawanie",
+        "cechy": [
+          "ciężkie powstawanie",
+          "trzask szwów",
+          "mlaśnięcie błota",
+          "zerwany amulet"
+        ]
+      },
+      "mood": {
+        "opis": "Tragiczny powrót — ciężar tego, czym się stał",
+        "cechy": [
+          "tragizm",
+          "upiorna przemiana",
+          "samotna zguba"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, ciężko, posępnie",
+        "cechy": [
+          "mokry",
+          "ciężki",
+          "posępny"
+        ]
+      }
     }
   }
 }
