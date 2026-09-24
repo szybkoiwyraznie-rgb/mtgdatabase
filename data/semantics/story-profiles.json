@@ -16156,6 +16156,967 @@
           "teatralny"
         ]
       }
+    },
+    "533": {
+      "title": "Death-Hood Cobra",
+      "background": {
+        "opis": "Miedziane ostępy lasu — patynowane kable, metalowe paprocie, czatująca cisza",
+        "cechy": [
+          "miedziane ostępy",
+          "metalowe paprocie",
+          "patynowane kable",
+          "czatująca cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Nagłe pionowe wybicie kobry ku uciekającej ofierze — syk i korodujący jad",
+        "cechy": [
+          "syk kobry",
+          "pionowe wybicie",
+          "chwyt w powietrzu",
+          "korodujący jad"
+        ]
+      },
+      "mood": {
+        "opis": "Zabójcza selekcja — słabość nie przetrwa",
+        "cechy": [
+          "drapieżna precyzja",
+          "bezlitosna doktryna",
+          "zaskoczenie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Sycząco, metalicznie, nagle",
+        "cechy": [
+          "syczący",
+          "metaliczny",
+          "nagły"
+        ]
+      }
+    },
+    "534": {
+      "title": "Terminal Agony",
+      "background": {
+        "opis": "Rubieże pustkowi chaosu — wyjący demoniczny wiatr, spękana ziemia",
+        "cechy": [
+          "pustkowia chaosu",
+          "wyjący wiatr",
+          "spękana ziemia",
+          "złowroga aura"
+        ]
+      },
+      "hero": {
+        "opis": "Pancerz rozgrzany do magmy zalewa wojownika — nieludzki ryk zza zaspawanego wizjera",
+        "cechy": [
+          "nieludzki ryk",
+          "bulgoczący żużel",
+          "syk topionej stali",
+          "zaspawany wizjer"
+        ],
+        "wymagane": [
+          "nieludzki ryk"
+        ]
+      },
+      "mood": {
+        "opis": "Agonia bez ucieczki — klątwa doskonale okrutna",
+        "cechy": [
+          "agonia",
+          "okrucieństwo klątwy",
+          "groza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Gorąco, rozdzierająco, ciemno",
+        "cechy": [
+          "gorący",
+          "rozdzierający",
+          "ciemny"
+        ]
+      }
+    },
+    "535": {
+      "title": "Lab Rats",
+      "background": {
+        "opis": "Czeluści podziemnego miasta szczuroludzi — pleśń, klekot klatek, makabryczne stoły",
+        "cechy": [
+          "podziemne laboratorium",
+          "klekot klatek",
+          "pleśń",
+          "nieskończony cykl"
+        ]
+      },
+      "hero": {
+        "opis": "Pisk tysięcy gryzoni i brzęk mechanizmów — mioty mutantów wypuszczane do tuneli",
+        "cechy": [
+          "pisk gryzoni",
+          "brzęk mechanizmów",
+          "wypuszczany miot",
+          "kolejne osobniki z klatek"
+        ],
+        "wymagane": [
+          "pisk gryzoni"
+        ]
+      },
+      "mood": {
+        "opis": "Taśmowa makabra — życie jako surowiec",
+        "cechy": [
+          "makabra",
+          "masowość",
+          "obłąkana inżynieria"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Piskliwie, mechanicznie, niepokojąco",
+        "cechy": [
+          "piskliwy",
+          "mechaniczny",
+          "niepokojący"
+        ]
+      }
+    },
+    "536": {
+      "title": "Ethersworn Shieldmage",
+      "background": {
+        "opis": "Krystaliczne mosty pod deszczem kościanych włóczni — zgiełk najazdu",
+        "cechy": [
+          "krystaliczne mosty",
+          "deszcz włóczni",
+          "zgiełk najazdu",
+          "chłodna geometria"
+        ]
+      },
+      "hero": {
+        "opis": "Geometryczna bariera z many — oręż wroga kruszy się o tarczę bez wysiłku",
+        "cechy": [
+          "manifestacja bariery",
+          "kruszący się oręż",
+          "precyzyjny gest",
+          "spokój pod ostrzałem"
+        ],
+        "wymagane": [
+          "kruszący się oręż"
+        ]
+      },
+      "mood": {
+        "opis": "Wyższość perfekcji — obrona jako dowód",
+        "cechy": [
+          "chłodna perfekcja",
+          "opanowanie",
+          "wyższość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Krystalicznie, chłodno, gładko",
+        "cechy": [
+          "krystaliczny",
+          "chłodny",
+          "gładki"
+        ]
+      }
+    },
+    "537": {
+      "title": "Kor Cartographer",
+      "background": {
+        "opis": "Lewitujące płaskowyże nad kanionami — smagający wiatr wysokości, skrzypiące liny",
+        "cechy": [
+          "lewitujące płaskowyże",
+          "wiatr wysokości",
+          "skrzypiące liny",
+          "przepaść pod stopami"
+        ]
+      },
+      "hero": {
+        "opis": "Zawieszona nad przepaścią kartografka nanosi układ skał — skrobanie rylca na wietrze",
+        "cechy": [
+          "skrobanie rylca",
+          "praca na linach",
+          "nanoszenie mapy",
+          "wyznaczona przeprawa"
+        ]
+      },
+      "mood": {
+        "opis": "Odtwarzanie dróg do utraconych ojczyzn",
+        "cechy": [
+          "skupiona odwaga",
+          "pamięć ludu",
+          "wytrwałość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Wietrznie, cicho, skupienie",
+        "cechy": [
+          "wietrzny",
+          "cichy",
+          "skupiony"
+        ]
+      }
+    },
+    "538": {
+      "title": "Ojutai's Breath",
+      "background": {
+        "opis": "Góry nad klasztorem — patrol pierzastych smoków, święte mury w chmurach",
+        "cechy": [
+          "góry nad klasztorem",
+          "patrol w chmurach",
+          "święte mury",
+          "zimne niebo"
+        ]
+      },
+      "hero": {
+        "opis": "Strumień krystalicznego zimna więzi najeźdźcę w lodowej skorupie — trzask narastającego szronu",
+        "cechy": [
+          "strumień zimna",
+          "trzask narastającego szronu",
+          "uwięzienie w locie",
+          "samoodnawiający się lód"
+        ],
+        "wymagane": [
+          "strumień zimna"
+        ]
+      },
+      "mood": {
+        "opis": "Nieubłagana straż świętego terytorium",
+        "cechy": [
+          "mroźny wyrok",
+          "święta straż",
+          "bezruch pułapki"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Lodowato, krystalicznie, przenikliwie",
+        "cechy": [
+          "lodowaty",
+          "krystaliczny",
+          "przenikliwy"
+        ]
+      }
+    },
+    "539": {
+      "title": "Silvanus's Invoker",
+      "background": {
+        "opis": "Cieniste prastare ostępy — żyły natury pod glebą, cisza przed przebudzeniem",
+        "cechy": [
+          "prastare ostępy",
+          "żyły natury",
+          "cisza kniei",
+          "zielony cień"
+        ]
+      },
+      "hero": {
+        "opis": "Szpony w glebie budzą żywiołaka — pękająca ziemia formuje kolosa ze skał i drewna",
+        "cechy": [
+          "pękająca ziemia",
+          "formowanie kolosa",
+          "trzask korzeni",
+          "furia awatara"
+        ],
+        "wymagane": [
+          "pękająca ziemia"
+        ]
+      },
+      "mood": {
+        "opis": "Ziemia sama staje do obrony",
+        "cechy": [
+          "przebudzenie natury",
+          "pierwotna furia",
+          "obrona kniei"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, dudniąco, potężnie",
+        "cechy": [
+          "organiczny",
+          "dudniący",
+          "potężny"
+        ]
+      }
+    },
+    "540": {
+      "title": "Chittering Rats",
+      "background": {
+        "opis": "Labirynt miejskich kanałów bez słońca — kapiące rynsztoki, ciemne tunele",
+        "cechy": [
+          "miejskie kanały",
+          "kapiące rynsztoki",
+          "ciemne tunele",
+          "podziemny labirynt"
+        ]
+      },
+      "hero": {
+        "opis": "Stado zmutowanych szczurów odcina drogę — chrobot pazurków i osaczający pisk",
+        "cechy": [
+          "chrobot pazurków",
+          "osaczający pisk",
+          "odcięta ucieczka",
+          "obrona zdobyczy"
+        ],
+        "wymagane": [
+          "osaczający pisk"
+        ]
+      },
+      "mood": {
+        "opis": "Osaczenie w ciemności — plany wstrzymane przez rój",
+        "cechy": [
+          "osaczenie",
+          "obrzydzenie",
+          "wymuszona pauza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Chrobotliwie, piskliwie, ciemno",
+        "cechy": [
+          "chrobotliwy",
+          "piskliwy",
+          "ciemny"
+        ]
+      }
+    },
+    "541": {
+      "title": "Bomat Bazaar Barge",
+      "background": {
+        "opis": "Rzemieślniczy dystrykt nad kanałem — gwar targu, praca warsztatów",
+        "cechy": [
+          "gwar dystryktu",
+          "kanał miejski",
+          "praca warsztatów",
+          "targ wynalazców"
+        ]
+      },
+      "hero": {
+        "opis": "Mosiężny kadłub wbija się w wody kanału — plusk dziobu i skrzyp sterów pod ciężarem rdzeni",
+        "cechy": [
+          "plusk ciężkiego kadłuba",
+          "skrzyp sterów",
+          "buczenie eteru",
+          "rozładunek zasobów"
+        ]
+      },
+      "mood": {
+        "opis": "Tętno miasta rzemiosła — dostawa napędza projekty",
+        "cechy": [
+          "pracowitość",
+          "miejski entuzjazm",
+          "solidność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mosiężnie, gwarnie, miarowo",
+        "cechy": [
+          "mosiężny",
+          "gwarny",
+          "miarowy"
+        ]
+      }
+    },
+    "542": {
+      "title": "Panic Spellbomb",
+      "background": {
+        "opis": "Przepastne korytarze wnętrza świata — stalowe pokłady, party naprzód opór",
+        "cechy": [
+          "przepastne korytarze",
+          "stalowe pokłady",
+          "zgiełk natarcia",
+          "podziemna wojna"
+        ]
+      },
+      "hero": {
+        "opis": "Bomba rozrywa się karmazynowym światłem — wstrząs sensoryczny i upuszczona włócznia strażnika",
+        "cechy": [
+          "rozerwanie bomby",
+          "oślepiający błysk",
+          "brzęk upuszczonej włóczni",
+          "chwila paniki wroga"
+        ],
+        "wymagane": [
+          "rozerwanie bomby"
+        ]
+      },
+      "mood": {
+        "opis": "Sekunda dezorientacji otwiera natarcie",
+        "cechy": [
+          "dywersja",
+          "precyzyjny chaos",
+          "otwarta droga"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Wybuchowo, jaskrawo, nagle",
+        "cechy": [
+          "wybuchowy",
+          "jaskrawy",
+          "nagły"
+        ]
+      }
+    },
+    "543": {
+      "title": "Wooden Stake",
+      "background": {
+        "opis": "Spowite mgłą cmentarze — omszałe grobowce, kroki łowców w ciszy",
+        "cechy": [
+          "cmentarna mgła",
+          "omszałe grobowce",
+          "kroki łowców",
+          "nocna cisza"
+        ]
+      },
+      "hero": {
+        "opis": "Dębowy kołek przygważdża skulonego wampira — proste, precyzyjne uderzenie kończy wieki",
+        "cechy": [
+          "uderzenie kołka",
+          "skulony wampir",
+          "utracona pewność siebie",
+          "kres krwiopijcy"
+        ]
+      },
+      "mood": {
+        "opis": "Prostota kontra wieczność — sprawdzone narzędzie",
+        "cechy": [
+          "nieubłagany profesjonalizm",
+          "kres zła",
+          "surowa satysfakcja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Twardo, sucho, stanowczo",
+        "cechy": [
+          "twardy",
+          "suchy",
+          "stanowczy"
+        ]
+      }
+    },
+    "544": {
+      "title": "Thraben Valiant",
+      "background": {
+        "opis": "Krawędź wulkanicznego wąwozu — dym z rozpadlin, żarzący się dół",
+        "cechy": [
+          "wulkaniczny wąwóz",
+          "dym z rozpadlin",
+          "żarzący się dół",
+          "gorące podmuchy"
+        ]
+      },
+      "hero": {
+        "opis": "Łowczyni z mieczem i wielorzemiennym biczem sonduje ciemność — świst rzemieni w gotowości",
+        "cechy": [
+          "świst rzemieni bicza",
+          "czujne sondowanie",
+          "srebrny miecz w dłoni",
+          "determinacja łowów"
+        ]
+      },
+      "mood": {
+        "opis": "Zawodowa odwaga na progu piekła",
+        "cechy": [
+          "nieustraszoność",
+          "łowiecka determinacja",
+          "ponura rutyna"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Gorąco, napięcie, twardo",
+        "cechy": [
+          "gorący",
+          "napięty",
+          "twardy"
+        ]
+      }
+    },
+    "545": {
+      "title": "Fuel for the Cause",
+      "background": {
+        "opis": "Zmetalizowane laboratoria głębin — szklane przewody, bulgot lśniącego oleju",
+        "cechy": [
+          "zmetalizowane laboratoria",
+          "szklane przewody",
+          "bulgot oleju",
+          "chłodna aparatura"
+        ]
+      },
+      "hero": {
+        "opis": "Zaklęcie przechwycone w mechaniczną dłoń — energia przekierowana do rozrastającego się oleju",
+        "cechy": [
+          "przechwycenie zaklęcia",
+          "syk neutralizacji",
+          "przekierowana energia",
+          "rozrost oleju"
+        ]
+      },
+      "mood": {
+        "opis": "Bunt jako paliwo — każdy opór zasila wroga",
+        "cechy": [
+          "daremność oporu",
+          "zimna kalkulacja",
+          "przewrotność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Chłodno, bulgocząco, złowrogo",
+        "cechy": [
+          "chłodny",
+          "bulgoczący",
+          "złowrogi"
+        ]
+      }
+    },
+    "546": {
+      "title": "Clawing Torment",
+      "background": {
+        "opis": "Ociekające deszczem zaułki neonowej metropolii — kapiąca woda, głębokie cienie",
+        "cechy": [
+          "deszczowe zaułki",
+          "neonowe odbicia",
+          "kapiąca woda",
+          "głębokie cienie"
+        ]
+      },
+      "hero": {
+        "opis": "Widmowe dłonie z mroku wbijają szpony w pancerz — zgrzyt blokowanych stawów i jęk bólu",
+        "cechy": [
+          "widmowe dłonie",
+          "zgrzyt blokowanych stawów",
+          "wbijające się szpony",
+          "jęk egzekutora"
+        ]
+      },
+      "mood": {
+        "opis": "Gniew ducha nie słabnie — technologia bezradna",
+        "cechy": [
+          "mściwy gniew",
+          "duchowa kara",
+          "bezradność techniki"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Mokro, zgrzytliwie, upiornie",
+        "cechy": [
+          "mokry",
+          "zgrzytliwy",
+          "upiorny"
+        ]
+      }
+    },
+    "547": {
+      "title": "Quicksilver Fisher",
+      "background": {
+        "opis": "Bezkresna rtęciowa tafla — lustrzana powierzchnia, martwa cisza metalicznego morza",
+        "cechy": [
+          "rtęciowa tafla",
+          "lustrzana cisza",
+          "metaliczne morze",
+          "puste niebo"
+        ]
+      },
+      "hero": {
+        "opis": "Smok nurkuje nad płynny metal — chromowane szpony rozcinają ciężką ciecz i wyrywają zdobycz",
+        "cechy": [
+          "świst nurkowania",
+          "rozcinanie ciężkiej cieczy",
+          "wyrwana zdobycz",
+          "łopot chromowanych skrzydeł"
+        ]
+      },
+      "mood": {
+        "opis": "Łowy bez wytchnienia — żadna sfera nie ucieknie",
+        "cechy": [
+          "mechaniczna drapieżność",
+          "nieuchronność",
+          "zimna skuteczność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Metalicznie, płynnie, drapieżnie",
+        "cechy": [
+          "metaliczny",
+          "płynny",
+          "drapieżny"
+        ]
+      }
+    },
+    "548": {
+      "title": "Steelclaw Lance",
+      "background": {
+        "opis": "Prastary las dziczy za murami — mrok gęstwiny, czające się bestie",
+        "cechy": [
+          "prastary las",
+          "mrok gęstwiny",
+          "czające się bestie",
+          "porzucone szlaki"
+        ]
+      },
+      "hero": {
+        "opis": "Szarża z zębatą lancą — rozrywanie pancerzy i krwiożerczych pnączy",
+        "cechy": [
+          "tętent szarży",
+          "rozrywanie pnączy",
+          "zgrzyt zębatego grotu",
+          "odwaga rycerza"
+        ]
+      },
+      "mood": {
+        "opis": "Dowód odwagi w starciu z pierwotnym chaosem",
+        "cechy": [
+          "brawura",
+          "rycerska próba",
+          "surowa dzicz"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Twardo, dynamicznie, zgrzytliwie",
+        "cechy": [
+          "twardy",
+          "dynamiczny",
+          "zgrzytliwy"
+        ]
+      }
+    },
+    "549": {
+      "title": "Stampeding Elk Herd",
+      "background": {
+        "opis": "Mroźne górskie doliny — głębokie zaspy, wojenne szlaki w śniegu",
+        "cechy": [
+          "mroźne doliny",
+          "głębokie zaspy",
+          "wojenne szlaki",
+          "surowe bezdroża"
+        ]
+      },
+      "hero": {
+        "opis": "Stado kolosalnych łosi pędzi przez zaspy — poroża obracają przeszkody w pył",
+        "cechy": [
+          "tętent stada",
+          "rozbijane pnie",
+          "dudnienie w śniegu",
+          "żywa lawina"
+        ],
+        "wymagane": [
+          "tętent stada"
+        ]
+      },
+      "mood": {
+        "opis": "Niepowstrzymana lawina mięśni i kopyt",
+        "cechy": [
+          "niepowstrzymany pęd",
+          "potęga stada",
+          "tor wojenny"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dudniąco, mroźnie, potężnie",
+        "cechy": [
+          "dudniący",
+          "mroźny",
+          "potężny"
+        ]
+      }
+    },
+    "550": {
+      "title": "Frost Lynx",
+      "background": {
+        "opis": "Skute zmarzliną ostępy północy — skrzypiący śnieg, cisza u stóp gór",
+        "cechy": [
+          "wieczna zmarzlina",
+          "skrzypiący śnieg",
+          "cisza północy",
+          "lodowe pustkowia"
+        ]
+      },
+      "hero": {
+        "opis": "Kryształowy ryś skacze i mrozi ofiarę jednym dotknięciem — trzask lodowej bryły",
+        "cechy": [
+          "bezszelestny skok",
+          "trzask zamarzania",
+          "uwięziona ofiara",
+          "kryształowe ciało"
+        ],
+        "wymagane": [
+          "trzask zamarzania"
+        ]
+      },
+      "mood": {
+        "opis": "Elegancka groza żywiołu — łowca ponad masą",
+        "cechy": [
+          "mroźna elegancja",
+          "drapieżna pewność",
+          "bezgłośna groza"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Lodowato, cicho, krystalicznie",
+        "cechy": [
+          "lodowaty",
+          "cichy",
+          "krystaliczny"
+        ]
+      }
+    },
+    "551": {
+      "title": "Contested Game Ball",
+      "background": {
+        "opis": "Kamienny dziedziniec miasta-świątyni — duszna dżungla wokół, wrzawa rytualnego meczu",
+        "cechy": [
+          "dziedziniec świątyni",
+          "wrzawa meczu",
+          "duszna dżungla",
+          "piaszczysta arena"
+        ]
+      },
+      "hero": {
+        "opis": "Dwaj gracze wyskakują po obsydianową kulę — zderzenie w powietrzu i rzut przez kamienną obręcz",
+        "cechy": [
+          "zderzenie w powietrzu",
+          "walka o kulę",
+          "rzut przez obręcz",
+          "okrzyki rywalizacji"
+        ]
+      },
+      "mood": {
+        "opis": "Święta rywalizacja — mecz o łaskę bogów",
+        "cechy": [
+          "rywalizacja",
+          "rytualny zapał",
+          "sportowa zaciętość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dynamicznie, rytmicznie, gwarnie",
+        "cechy": [
+          "dynamiczny",
+          "rytmiczny",
+          "gwarny"
+        ]
+      }
+    },
+    "552": {
+      "title": "Ettercap",
+      "background": {
+        "opis": "Mroczne korony starych dębów — czatująca cisza, lepkie nici w mroku",
+        "cechy": [
+          "mroczne korony",
+          "czatująca cisza",
+          "stare dęby",
+          "lepkie nici"
+        ]
+      },
+      "hero": {
+        "opis": "Strumień lepkiej pajęczyny wystrzelony z gardzieli — skrępowany lot ściągnięty w dół",
+        "cechy": [
+          "wystrzał pajęczyny",
+          "oplecione skrzydła",
+          "ściągnięcie w dół",
+          "chitynowe kły"
+        ]
+      },
+      "mood": {
+        "opis": "Mistrz zasadzek — niebo nie jest barierą",
+        "cechy": [
+          "zasadzka",
+          "obrzydliwa skuteczność",
+          "groza koron"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Lepko, nagle, ciemno",
+        "cechy": [
+          "lepki",
+          "nagły",
+          "ciemny"
+        ]
+      }
+    },
+    "553": {
+      "title": "Coat with Venom",
+      "background": {
+        "opis": "Pałacowe świątynie wśród bagien — kapiąca wilgoć, ceremonialny półmrok",
+        "cechy": [
+          "pałacowe świątynie",
+          "kapiąca wilgoć",
+          "ceremonialny półmrok",
+          "bagienne opary"
+        ]
+      },
+      "hero": {
+        "opis": "Ostrza zanurzane w czarze żrącej trucizny — syk jadu na klindze i cichy rytuał namaszczenia",
+        "cechy": [
+          "syk jadu na klindze",
+          "zanurzenie ostrza",
+          "cichy rytuał",
+          "smolista wydzielina"
+        ]
+      },
+      "mood": {
+        "opis": "Błogosławieństwo skrytobójców — dar śmierci",
+        "cechy": [
+          "mroczny ceremoniał",
+          "skrytobójcza precyzja",
+          "jadowita łaska"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Sycząco, ciemno, ceremonialnie",
+        "cechy": [
+          "syczący",
+          "ciemny",
+          "ceremonialny"
+        ]
+      }
+    },
+    "554": {
+      "title": "Cherished Hatchling",
+      "background": {
+        "opis": "Pierwotne ostępy dżungli — gniazdo w paprociach, parna gęstwina",
+        "cechy": [
+          "pierwotna dżungla",
+          "gniazdo w paprociach",
+          "parna gęstwina",
+          "ukryte ścieżki"
+        ]
+      },
+      "hero": {
+        "opis": "Ostrzegawczy syk pisklęcia i ryk wyłaniającej się kolosalnej samicy — natychmiastowy kontratak",
+        "cechy": [
+          "syk pisklęcia",
+          "ryk samicy",
+          "wyłonienie z gęstwiny",
+          "szarża obronna"
+        ],
+        "wymagane": [
+          "ryk samicy"
+        ]
+      },
+      "mood": {
+        "opis": "Matczyna furia — młode nigdy nie jest samo",
+        "cechy": [
+          "opiekuńcza furia",
+          "natychmiastowa kara",
+          "potęga stada"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Organicznie, gwałtownie, potężnie",
+        "cechy": [
+          "organiczny",
+          "gwałtowny",
+          "potężny"
+        ]
+      }
+    },
+    "555": {
+      "title": "Bedhead Beastie",
+      "background": {
+        "opis": "Opuszczona chata na bagnach — skrzypiące deski, próg z dwoma milicjantami",
+        "cechy": [
+          "opuszczona chata",
+          "skrzypiące deski",
+          "bagienne obejście",
+          "napięty próg"
+        ]
+      },
+      "hero": {
+        "opis": "Kudłaty stwór z zaklinowanym łóżkiem na łbie — łypiące ślepia i głuchy pomruk spod słomy",
+        "cechy": [
+          "głuchy pomruk",
+          "trzask klinowanego łóżka",
+          "łypiące ślepia",
+          "niezgrabne cielsko"
+        ]
+      },
+      "mood": {
+        "opis": "Groteskowa groza z wiejskich opowieści",
+        "cechy": [
+          "groteska",
+          "ludowy strach",
+          "absurdalny urok"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciężko, niezgrabnie, zabawnie",
+        "cechy": [
+          "ciężki",
+          "niezgrabny",
+          "figlarny"
+        ]
+      }
+    },
+    "556": {
+      "title": "Ruthless Invasion",
+      "background": {
+        "opis": "Spalone żelazem pustkowia — ostatnie barykady, dym nad łańcuchem gór",
+        "cechy": [
+          "spalone pustkowia",
+          "ostatnie barykady",
+          "dym nad górami",
+          "odwrót obrońców"
+        ]
+      },
+      "hero": {
+        "opis": "Kolos taranuje barykadę — grad iskier, pogięta stal i ucieczka wojowników",
+        "cechy": [
+          "taran w barykadę",
+          "grad iskier",
+          "pogięta stal",
+          "ucieczka obrońców"
+        ],
+        "wymagane": [
+          "taran w barykadę"
+        ]
+      },
+      "mood": {
+        "opis": "Przytłaczająca inwazja — odwrót jedyną szansą",
+        "cechy": [
+          "przytłoczenie",
+          "nieubłagany napór",
+          "desperacja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciężko, metalicznie, miażdżąco",
+        "cechy": [
+          "ciężki",
+          "metaliczny",
+          "miażdżący"
+        ]
+      }
+    },
+    "557": {
+      "title": "Kishla Village",
+      "background": {
+        "opis": "Wioska na palach w delcie rzek — gwar nadrzecznego targu, cumujące łodzie",
+        "cechy": [
+          "wioska na palach",
+          "gwar targu",
+          "cumujące łodzie",
+          "mętne kanały"
+        ],
+        "wymagane": [
+          "gwar targu"
+        ]
+      },
+      "hero": {
+        "opis": "Szpiedzy bezszelestnie zbierają sekrety wśród kupców — szept transakcji i czujne spojrzenia",
+        "cechy": [
+          "szept transakcji",
+          "bezszelestne kroki",
+          "czujne spojrzenia",
+          "cena informacji"
+        ]
+      },
+      "mood": {
+        "opis": "Spokój na powierzchni, nasłuch pod spodem",
+        "cechy": [
+          "pozorny spokój",
+          "czujność",
+          "targ sekretów"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Gwarnie, wilgotno, tajemniczo",
+        "cechy": [
+          "gwarny",
+          "mokry",
+          "tajemniczy"
+        ]
+      }
     }
   }
 }
