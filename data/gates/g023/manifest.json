@@ -1,0 +1,339 @@
+{
+  "id": "g023",
+  "created": "2026-09-24",
+  "story_id": "222",
+  "note": "Fabuła 222 Maritime Guard: dwa braki naraz (hero i koda już w bazie: stealth_move_03 + g6c_sentry_return). `mroczna` to najczęściej wołany brak katalogu (90 fabuł), `morze-wybrzeze` woła 21 fabuł — ten sam duet braków ma też fabuła 28. Instrumenty grają frazę demo w realnym niskim rejestrze (kodowa aranżuada C4–B4 przenosi się w dół).",
+  "entries": [
+    {
+      "slug": "morze-wybrzeze",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `morze-wybrzeze` (21 fabuł; slot d fabuły 222)",
+      "candidates": [
+        {
+          "label": "m.1",
+          "title": "seria przypływu o skały",
+          "file": "candidates/m_surf_surge.mp3",
+          "desc": "kolejne fale przewalają się jedna po drugiej — głęboki nurkujący pomruk i pienisty atak, jak uderzenia o czarne skały",
+          "source": "Ocean Waves Crashing... Big Lagoon, Redwood — CC0 / Public Domain",
+          "entry": {
+            "id": "sea_storm_01",
+            "setting": "morze / sztormowe wybrzeże",
+            "desc": "kolejne fale przewalają się jedna po drugiej — głęboki nurkujący pomruk i pienisty atak, jak uderzenia o czarne skały",
+            "file": "audio/library/backgrounds/sea_storm_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "morze-wybrzeze",
+              "traits": [
+                "fale",
+                "przybój",
+                "szum morza",
+                "wichura"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "martwa cisza",
+                "suchy krajobraz"
+              ]
+            },
+            "source": {
+              "title": "Ocean Waves Crashing... Big Lagoon, Redwood (Freesound)",
+              "author": "CVLTIV8R",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/CVLTIV8R/sounds/803679/",
+              "channel": "sample-scout run 36007698060 (preview-hq-mp3); manifest sha256: data/gates/g022/source-manifest.json",
+              "notes": "okno 7.5–15.5 s nagrania 01 (najbardziej energetyczna seria); poziom, fade"
+            }
+          }
+        },
+        {
+          "label": "m.2",
+          "title": "ciężki toczący się przypływ",
+          "file": "candidates/m_heavy_roll.mp3",
+          "desc": "ciężka, tocząca masa wody — wolniejszy rytm, głębszy rejestr, jak przypływ w nocy pod klifem",
+          "source": "Ocean Waves Crashing... Big Lagoon, Redwood — CC0 / Public Domain",
+          "entry": {
+            "id": "sea_storm_02",
+            "setting": "morze / sztormowe wybrzeże",
+            "desc": "ciężka, tocząca masa wody — wolniejszy rytm, głębszy rejestr, jak przypływ w nocy pod klifem",
+            "file": "audio/library/backgrounds/sea_storm_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "morze-wybrzeze",
+              "traits": [
+                "fale",
+                "przybój",
+                "szum morza",
+                "wichura"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "martwa cisza",
+                "suchy krajobraz"
+              ]
+            },
+            "source": {
+              "title": "Ocean Waves Crashing... Big Lagoon, Redwood (Freesound)",
+              "author": "CVLTIV8R",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/CVLTIV8R/sounds/803679/",
+              "channel": "sample-scout run 36007698060 (preview-hq-mp3); manifest sha256: data/gates/g022/source-manifest.json",
+              "notes": "okno 55.5–63.5 s nagrania 01; poziom, fade"
+            }
+          }
+        },
+        {
+          "label": "m.3",
+          "title": "spokojniejsza toń z łękami",
+          "file": "candidates/m_far_breakers.mp3",
+          "desc": "równiejszy szum toni z pojedynczymi łękami fal — przestrzeń między uderzeniami, surowa i szeroka",
+          "source": "Ocean Waves Crashing... Big Lagoon, Redwood — CC0 / Public Domain",
+          "entry": {
+            "id": "sea_storm_03",
+            "setting": "morze / sztormowe wybrzeże",
+            "desc": "równiejszy szum toni z pojedynczymi łękami fal — przestrzeń między uderzeniami, surowa i szeroka",
+            "file": "audio/library/backgrounds/sea_storm_03.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "morze-wybrzeze",
+              "traits": [
+                "fale",
+                "przybój",
+                "szum morza",
+                "wichura"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "martwa cisza",
+                "suchy krajobraz"
+              ]
+            },
+            "source": {
+              "title": "Ocean Waves Crashing... Big Lagoon, Redwood (Freesound)",
+              "author": "CVLTIV8R",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/CVLTIV8R/sounds/803679/",
+              "channel": "sample-scout run 36007698060 (preview-hq-mp3); manifest sha256: data/gates/g022/source-manifest.json",
+              "notes": "okno 19.5–27.5 s nagrania 01; poziom, fade"
+            }
+          }
+        },
+        {
+          "label": "m.4",
+          "title": "wichura nad przypływem (zwiad)",
+          "file": "candidates/m_gale_surf.mp3",
+          "desc": "nadmorska wichura ponad szumiącym przypływem — wiatr dominuje, fale słychać głęboko pod spodem; najbardziej sztormowy z kandydatów",
+          "source": "Penmon wind 11-11-2025 — CC0",
+          "entry": {
+            "id": "sea_storm_04",
+            "setting": "morze / sztormowe wybrzeże",
+            "desc": "nadmorska wichura ponad szumiącym przypływem — wiatr dominuje, fale słychać głęboko pod spodem; najbardziej sztormowy z kandydatów",
+            "file": "audio/library/backgrounds/sea_storm_04.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "morze-wybrzeze",
+              "traits": [
+                "fale",
+                "przybój",
+                "szum morza",
+                "wichura"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "martwa cisza",
+                "suchy krajobraz"
+              ]
+            },
+            "source": {
+              "title": "Penmon wind 11-11-2025 (Freesound)",
+              "author": "Noisyjones",
+              "license": "CC0 (wg API Freesound)",
+              "url": "https://freesound.org/people/Noisyjones/sounds/857837/",
+              "channel": "sample-scout run 36012073697 (preview-hq-mp3); manifest sha256: data/gates/g023/source-manifest.json",
+              "notes": "okno 61.0–69.0 s (najsilniejszy podmuch); CC0 wg API Freesound"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "instr-mroczna",
+      "kind": "instruments",
+      "role": "jedyny klocek typu instrumentacji `mroczna` (90 fabuł; slot b fabuły 222)",
+      "candidates": [
+        {
+          "label": "b.1",
+          "title": "cichy pedał organowy",
+          "file": "candidates/b_pipeorgan_pedal_demo.mp3",
+          "desc": "najniższe piszczałki organów w cichej dyspozycji — ciemny, dudniący fundament bez blasku",
+          "source": "VCSL — CC0 (fraza demonstracyjna, realny rejestr)",
+          "entry": {
+            "id": "b_pipeorgan_pedal",
+            "semantic": "głęboki, posępny pedał — przygaszony pomruk organów",
+            "family": "aerophone-organ",
+            "samples": {
+              "24": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_C1_rr1.mp3",
+              "27": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_Ds1_rr1.mp3",
+              "30": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_Fs1_rr1.mp3",
+              "33": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_A1_rr1.mp3",
+              "36": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_C2_rr1.mp3",
+              "39": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_Ds2_rr1.mp3",
+              "42": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_Fs2_rr1.mp3",
+              "45": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_A2_rr1.mp3",
+              "48": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_C3_rr1.mp3",
+              "51": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_Ds3_rr1.mp3",
+              "54": "audio/library/instruments/pipeorgan_pedal/b_pipeorgan_pedal_NT5_PedalQuiet_Fs3_rr1.mp3"
+            },
+            "gate_sources": {
+              "24": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_C1_rr1.mp3",
+              "27": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_Ds1_rr1.mp3",
+              "30": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_Fs1_rr1.mp3",
+              "33": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_A1_rr1.mp3",
+              "36": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_C2_rr1.mp3",
+              "39": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_Ds2_rr1.mp3",
+              "42": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_Fs2_rr1.mp3",
+              "45": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_A2_rr1.mp3",
+              "48": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_C3_rr1.mp3",
+              "51": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_Ds3_rr1.mp3",
+              "54": "instr_notes/b_pipeorgan_pedal_NT5_PedalQuiet_Fs3_rr1.mp3"
+            },
+            "semantics": {
+              "type": "mroczna",
+              "traits": [
+                "ciemny",
+                "niski",
+                "dudniący",
+                "posępny"
+              ],
+              "bad_for": [
+                "jasny",
+                "srebrzysty",
+                "lekki",
+                "figlarny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "11 nut; wybór PedalQuiet; trim 8.0 s"
+            }
+          }
+        },
+        {
+          "label": "b.2",
+          "title": "gong",
+          "file": "candidates/b_gong_demo.mp3",
+          "desc": "głęboki huk gongu — metaliczny cień, który długo nie umiera",
+          "source": "VCSL — CC0 (fraza demonstracyjna, realny rejestr)",
+          "entry": {
+            "id": "b_gong",
+            "semantic": "ciemny, metaliczny huk z długim ciemnym pogłosem",
+            "family": "idiophone-struck",
+            "samples": {
+              "38": "audio/library/instruments/gong/b_gong_gong_p.mp3",
+              "39": "audio/library/instruments/gong/b_gong_gong_mf.mp3",
+              "41": "audio/library/instruments/gong/b_gong_gong_f.mp3"
+            },
+            "gate_sources": {
+              "38": "instr_notes/b_gong_gong_p.mp3",
+              "39": "instr_notes/b_gong_gong_mf.mp3",
+              "41": "instr_notes/b_gong_gong_f.mp3"
+            },
+            "semantics": {
+              "type": "mroczna",
+              "traits": [
+                "ciemny",
+                "metaliczny",
+                "złowieszczy",
+                "długi pogłos"
+              ],
+              "bad_for": [
+                "melodyczny",
+                "figlarny",
+                "jasny",
+                "staccato"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "3 nut; wybór gong_; trim 6.0 s"
+            }
+          }
+        },
+        {
+          "label": "b.3",
+          "title": "niska marimba",
+          "file": "candidates/b_marimba_demo.mp3",
+          "desc": "dolny rejestr marimby — drzewny, przytłumiony, poważny",
+          "source": "VCSL — CC0 (fraza demonstracyjna, realny rejestr)",
+          "entry": {
+            "id": "b_marimba",
+            "semantic": "ciemny, głucho-drzewny, miękki atak",
+            "family": "idiophone-struck",
+            "samples": {
+              "29": "audio/library/instruments/marimba/b_marimba_Marimba_hit_Outrigger_F1_med_01.mp3",
+              "36": "audio/library/instruments/marimba/b_marimba_Marimba_hit_Outrigger_C2_med_01.mp3",
+              "43": "audio/library/instruments/marimba/b_marimba_Marimba_hit_Outrigger_G2_med_01.mp3",
+              "47": "audio/library/instruments/marimba/b_marimba_Marimba_hit_Outrigger_B2_med_01.mp3",
+              "53": "audio/library/instruments/marimba/b_marimba_Marimba_hit_Outrigger_F3_med_01.mp3",
+              "60": "audio/library/instruments/marimba/b_marimba_Marimba_hit_Outrigger_C4_med_01.mp3",
+              "67": "audio/library/instruments/marimba/b_marimba_Marimba_hit_Outrigger_G4_med_01.mp3",
+              "71": "audio/library/instruments/marimba/b_marimba_Marimba_hit_Outrigger_B4_med_01.mp3",
+              "77": "audio/library/instruments/marimba/b_marimba_Marimba_hit_Outrigger_F5_med_01.mp3",
+              "84": "audio/library/instruments/marimba/b_marimba_Marimba_hit_Outrigger_C6_med_01.mp3"
+            },
+            "gate_sources": {
+              "29": "instr_notes/b_marimba_Marimba_hit_Outrigger_F1_med_01.mp3",
+              "36": "instr_notes/b_marimba_Marimba_hit_Outrigger_C2_med_01.mp3",
+              "43": "instr_notes/b_marimba_Marimba_hit_Outrigger_G2_med_01.mp3",
+              "47": "instr_notes/b_marimba_Marimba_hit_Outrigger_B2_med_01.mp3",
+              "53": "instr_notes/b_marimba_Marimba_hit_Outrigger_F3_med_01.mp3",
+              "60": "instr_notes/b_marimba_Marimba_hit_Outrigger_C4_med_01.mp3",
+              "67": "instr_notes/b_marimba_Marimba_hit_Outrigger_G4_med_01.mp3",
+              "71": "instr_notes/b_marimba_Marimba_hit_Outrigger_B4_med_01.mp3",
+              "77": "instr_notes/b_marimba_Marimba_hit_Outrigger_F5_med_01.mp3",
+              "84": "instr_notes/b_marimba_Marimba_hit_Outrigger_C6_med_01.mp3"
+            },
+            "semantics": {
+              "type": "mroczna",
+              "traits": [
+                "ciemny",
+                "drzewny",
+                "przytłumiony",
+                "miękki atak"
+              ],
+              "bad_for": [
+                "srebrzysty",
+                "jasny",
+                "metaliczny połysk",
+                "wysoki"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "10 nut; wybór _med_; trim 4.0 s"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
