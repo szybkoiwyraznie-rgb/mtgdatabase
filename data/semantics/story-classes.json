@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "taxonomy_version": "3",
+  "taxonomy_version": "4",
   "note": "Mapowanie fabuł na klasy taksonomii (Etap 2). Szkic do przeglądu; po akceptacji taksonomii v1 staje się wiążący.",
   "classes": {
     "1": {
@@ -17,7 +17,7 @@
     },
     "3": {
       "background": "dwor-komnaty",
-      "hero": "smiech",
+      "hero": "smiech-maniakalny",
       "mood": "triumf-chwala",
       "instrumentation": "mroczna"
     },
@@ -287,7 +287,7 @@
     },
     "48": {
       "background": "ruiny-pradawne",
-      "hero": "smiech",
+      "hero": "smiech-widmowy",
       "mood": "groza-przerazenie",
       "instrumentation": "mokro-organiczna"
     },
@@ -827,7 +827,7 @@
     },
     "138": {
       "background": "miasto-gwar",
-      "hero": "smiech",
+      "hero": "smiech-biesiadny",
       "mood": "wspolnota-wiez",
       "instrumentation": "jasno-swietlista"
     },
@@ -971,7 +971,7 @@
     },
     "187": {
       "background": "wioska-sielska",
-      "hero": "smiech",
+      "hero": "smiech-dzieciecy",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "jasno-swietlista"
     },

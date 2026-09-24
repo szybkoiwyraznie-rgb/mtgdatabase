@@ -230,16 +230,18 @@
         "date": "2026-09-23"
       },
       "semantics": {
-        "type": "smiech",
+        "type": "smiech-maniakalny",
         "traits": [
-          "diabelski chichot",
+          "męski",
           "maniakalny",
-          "dwufalowy"
+          "dwufalowy",
+          "diabelski chichot"
         ],
         "bad_for": [
+          "kobiecy głos",
+          "dziecięca niewinność",
           "komedia",
-          "sympatyczna psota",
-          "dziecięca niewinność"
+          "sympatyczna psota"
         ]
       }
     }

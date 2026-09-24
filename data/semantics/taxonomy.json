@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "version": "3",
-  "status": "v3 zaakceptowana 2026-09-24: +ognisko-palenisko (tło), +krakanie, +wrzask-bandy (hero) — korekty właściciela. Zmiany wyłącznie przez data/semantics/CHANGELOG.md",
+  "version": "4",
+  "status": "v4 zaakceptowana 2026-09-24: szeroki typ smiech rozbity na smiech-maniakalny / smiech-widmowy / smiech-biesiadny / smiech-dzieciecy (korekta właściciela). Zmiany wyłącznie przez data/semantics/CHANGELOG.md",
   "note": "Taksonomia akustyczna (klasy opisują CO SŁYCHAĆ, nie lore). Klasa = parametr kombinacji a·b·c·d; cechy z profilu fabuły pozostają doprecyzowaniem wewnątrz klasy (traits). Wzorce służą do wstępnego mapowania profili; ostateczne przypisanie podlega przeglądowi. Po akceptacji: zmiany tylko przez data/semantics/CHANGELOG.md.",
   "layers": {
     "background": {
@@ -631,7 +631,7 @@
     "hero": {
       "kod": "b",
       "nazwa": "hero / główne zdarzenie",
-      "liczba_klas": 56,
+      "liczba_klas": 59,
       "klasy": [
         {
           "id": "ryk-bestii",
@@ -748,17 +748,52 @@
           "fabul_w_szkicu": 7
         },
         {
-          "id": "smiech",
-          "nazwa": "Śmiech / chichot / rechot",
-          "co_slychac": "Śmiech, chichot, rechot — od psoty po demoniczność.",
+          "id": "smiech-maniakalny",
+          "nazwa": "Śmiech maniakalny / demoniczny",
+          "co_slychac": "Złośliwy, maniakalny chichot — diaboliczna satysfakcja; pojedynczy głos.",
           "wzorce": [
-            "śmiech",
-            "chichot",
-            "rechot",
-            "śmieje",
-            "zaśmia"
+            "złośliw\\w* chichot",
+            "maniakaln\\w* śmiech",
+            "diabolicz",
+            "diabelsk\\w* chichot",
+            "demonicz\\w* (?:śmiech|chichot)",
+            "szydercz\\w* chichot"
           ],
-          "fabul_w_szkicu": 4
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "smiech-widmowy",
+          "nazwa": "Widmowe echa śmiechu",
+          "co_slychac": "Bezcielesne, pogłosowe echa śmiechu krążące w przestrzeni — upiorne, bez źródła.",
+          "wzorce": [
+            "widmow\\w* (?:echa )?śmiech",
+            "echa śmiechu",
+            "bezcielesn\\w* śmiech",
+            "upiorn\\w* śmiech"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "smiech-biesiadny",
+          "nazwa": "Gromadny śmiech zabawy",
+          "co_slychac": "Wielogłosowy radosny śmiech wspólnej zabawy, z klaskaniem i gwarem korowodu.",
+          "wzorce": [
+            "klaskanie i śmiech",
+            "śmiech (?:zabawy|biesiad|tłumu|gromad)",
+            "wspóln\\w* śmiech",
+            "rozbawion\\w* (?:tłum|głosy)"
+          ],
+          "fabul_w_szkicu": 1
+        },
+        {
+          "id": "smiech-dzieciecy",
+          "nazwa": "Śmiech dziecięcy",
+          "co_slychac": "Jasny, wysoki śmiech dzieci przy zabawie — niewinny, spontaniczny.",
+          "wzorce": [
+            "dziecięc\\w* śmiech",
+            "śmiech dzieci"
+          ],
+          "fabul_w_szkicu": 1
         },
         {
           "id": "wrzask-bandy",

@@ -50,8 +50,8 @@ roadmapy, obsadzona od profilu semantycznego.
    `scripts/map_profiles.py`).
    **Korekta właściciela: jeden typ = jeden klocek (1:1)** — ADR 0006,
    aneks; `unique_combo` działa na poziomie typów; usage-policy ma
-   drugą twardą regułę `one_block_per_type`. Taksonomia **v3**
-   (30 teł / 56 hero / 20 nastrojów / 18 instrumentacji) — 510/510
+   drugą twardą regułę `one_block_per_type`. Taksonomia **v4**
+   (30 teł / 59 hero / 20 nastrojów / 18 instrumentacji) — 510/510
    kombinacji unikalnych, zero kolizji.
 3. **Etap 3 — WYKONANY**: 18/18 klocków ma `semantics: {type, traits,
    bad_for}` (typy 1:1, walidacja w `library_tool.py check`); 6/6

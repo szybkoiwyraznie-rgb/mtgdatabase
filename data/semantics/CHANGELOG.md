@@ -1,5 +1,22 @@
 # CHANGELOG taksonomii semantycznej
 
+## 2026-09-24 — v4: rozbicie szerokiego typu `smiech` (korekta właściciela)
+
+Właściciel: demonic_laugh_02 to nie szeroki „śmiech" — to śmiech
+maniakalny/demoniczny, w dodatku męski (nie obsłuży ról żeńskich).
+Typ `smiech` rozbity wg realnych odcieni w korpusie (4 fabuły → 4 typy):
+
+- `smiech-maniakalny` — złośliwy, diaboliczny chichot (fabuła 3;
+  klocek `demonic_laugh_02`, traits + „męski", bad_for + „kobiecy głos");
+- `smiech-widmowy` — bezcielesne echa śmiechu (fabuła 48; bez klocka);
+- `smiech-biesiadny` — gromadny śmiech zabawy z klaskaniem (fabuła 138;
+  bez klocka);
+- `smiech-dzieciecy` — jasny śmiech dzieci (fabuła 187; bez klocka).
+
+Hero: 56 → 59 typów. Po remapie: 510/510 kombinacji unikalnych, zero
+kolizji. Płeć/wiek głosu zapisujemy w traits/bad_for klocka — przyszły
+kobiecy śmiech dostanie własny typ, gdy zawoła go profil.
+
 ## 2026-09-24 — v3: decyzje właściciela (ognisko + krakanie + wrzask bandy)
 
 1. **Zaakceptowany** typ tła `ognisko-palenisko` (30 typów tła);
