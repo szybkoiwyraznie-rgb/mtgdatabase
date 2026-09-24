@@ -1,5 +1,35 @@
 # CHANGELOG taksonomii semantycznej
 
+## 2026-09-24 — korekta modelu: jeden typ = jeden klocek + propozycja 4 nowych typów hero (CZEKA NA AKCEPTACJĘ)
+
+**Korekta rozstrzygnięciem właściciela** (unieważnia pkt 3 wpisu
+o akceptacji v1 poniżej): każdy typ ma dokładnie jeden klocek audio (1:1),
+więc `unique_combo` działa już na poziomie typów. Powtórzona kombinacja
+czterech typów między fabułami JEST naruszeniem. Rozwiązaniem kolizji jest
+doprecyzowanie taksonomii (nowy typ wyprowadzony z cech profilu), nigdy
+drugi klocek w typie i nigdy naciąganie fabuły. Szczegóły: ADR 0006,
+aneks „Jeden typ = jeden klocek".
+
+**Propozycja rozszerzenia v1 → v2** (rozbija wszystkie 4 kolizje,
+zweryfikowano: 510/510 kombinacji unikalnych, zero nowych kolizji) —
+4 nowe typy hero:
+
+1. `slup-wody` — „Wzbierający słup wody": pionowa, narastająca kolumna
+   wody (nie uderzenie fali). Dla fabuły 508; `fala-rozbryzg` traci
+   wzorzec „słup wody". Kolizja 133↔508 rozbita.
+2. `szelest-papieru` — papier w ruchu: mapa, kartkowanie, zwój.
+   Przejmuje fabuły 65, 322, 377, 381, 580 z `chrobot-szelest`.
+   Kolizja 232↔580 rozbita.
+3. `budzenie-gleby` — praca gleby: ściółka, rozkład, kiełkujące
+   nasiona (bez strzelających pędów). Przejmuje 289, 438, 473, 491;
+   `wzrost-roslin` oddaje wzorce „nasion/kiełk/żyzn". Kolizja
+   438↔471 rozbita.
+4. `ciche-wrota` — bezgłośny mechanizm: uniesienie kraty, sunięcie
+   łodzi w ciszy. Dla fabuły 570. Kolizja 570↔586 rozbita.
+
+Hero: 50 → 54 typy. Status: propozycja — taksonomia pozostaje na
+`version: 1` do bramki tekstowej właściciela.
+
 Każda zmiana `taxonomy.json` po zamrożeniu v1 wymaga wpisu tutaj
 (data, co się zmieniło, dlaczego). Kontrolowane rozszerzanie — bez wpisu
 zmiana nie przechodzi przeglądu.

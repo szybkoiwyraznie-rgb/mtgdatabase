@@ -114,3 +114,40 @@ opcjonalnej bramki poszerzającej (decyzja świadoma, nie automat).
 - Bramka g014 (fabuła 18) jest **wycofana** — obsada fabuły 18 zostanie
   wyprowadzona od nowa z profilu semantycznego po zbudowaniu kafeterii.
 - Plan wdrożenia: `docs/roadmap-semantyka.md`.
+
+### Jeden typ = jeden klocek (rozstrzygnięcie właściciela, 2026-09-24)
+
+Właściciel skorygował interpretację modelu: **każdy typ (klasa)
+taksonomii ma w bazie dokładnie jeden klocek audio — zawsze.** Klocek
+jest fizyczną realizacją typu; relacja jest 1:1 w obu kierunkach.
+To jest główna zasada modularności i ma pierwszeństwo przed wcześniejszymi
+zapisami tego ADR.
+
+Konsekwencje (zastępują mechanikę „klasy rosną wewnętrznie"
+z uzupełnienia powyżej):
+
+1. **Zakaz drugiego klocka w typie.** Baza rośnie WYŁĄCZNIE przez
+   dodanie nowego typu wraz z jego jedynym klockiem. Dodanie typu to
+   kontrolowane rozszerzenie taksonomii: wpis w
+   `data/semantics/CHANGELOG.md` + akceptacja właściciela (bramka
+   tekstowa), potem bramka audio na jedyny klocek tego typu.
+2. **Reguła unikalności działa na poziomie typów.** Przy relacji 1:1
+   kombinacja czterech typów = kombinacja czterech klocków. Dwie fabuły
+   z identyczną czwórką typów łamią regułę.
+3. **Kolizja = sygnał, że taksonomia jest za gruba.** Rozwiązaniem jest
+   doprecyzowanie słownika: nowy typ dla jednej z fabuł, wyprowadzony
+   z cech JUŻ zapisanych w jej profilu (profil pochodzi z narracji
+   i nie wolno go naciągać). Nie zmienia się fabuły — precyzuje się
+   słownik.
+4. **Cechy `wymagane`, których typ nie realizuje**, prowadzą tą samą
+   drogą do nowego typu (nie do drugiego klocka). Weto `bad_for`
+   i cechy wymagane pozostają twardymi filtrami — rozstrzygają, czy
+   istniejący typ w ogóle obsługuje profil.
+5. **Ranking kandydatów** (deterministyczny, z uzasadnieniem w logu)
+   stosuje się przy bramce audio — do wyboru JEDYNEGO klocka typu
+   spośród zgromadzonych kandydatów — a nie do wyboru klocka per
+   fabuła. Kary różnorodności per produkcja tracą przedmiot: powtarzanie
+   klocka między fabułami to istota modularności, nie problem.
+6. **Migracja (Etap 3)**: 18 istniejących klocków musi dostać 18
+   RÓŻNYCH typów (przypisanie wzajemnie jednoznaczne). Audyt pilnuje
+   niezmiennika 1:1 w obie strony.

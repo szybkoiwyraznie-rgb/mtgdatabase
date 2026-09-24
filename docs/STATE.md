@@ -47,10 +47,14 @@ roadmapy, obsadzona od profilu semantycznego.
    50 hero / 20 nastrojów / 18 instrumentacji
    (`data/semantics/taxonomy.json`, `version: 1`). Mapowanie fabuł
    zapisane w `data/semantics/story-classes.json` (510/510;
-   `scripts/map_profiles.py`). Pozostały przegląd przypisań per fabuła
-   przy okazji produkcji; dalej: **Etap 3** — migracja bibliotek
-   (`semantics:{classes,traits,bad_for}` w `data/library/*.json`)
-   i receptur.
+   `scripts/map_profiles.py`).
+   **Korekta właściciela: jeden typ = jeden klocek (1:1)** — ADR 0006,
+   aneks; `unique_combo` działa na poziomie typów; usage-policy ma
+   drugą twardą regułę `one_block_per_type`. Cztery kolizje kombinacji
+   rozwiązuje propozycja 4 nowych typów hero (CHANGELOG taksonomii,
+   wpis „CZEKA NA AKCEPTACJĘ"). Po akceptacji: v2 taksonomii, remap,
+   potem **Etap 3** — migracja bibliotek (każdy z 18 klocków dostaje
+   RÓŻNY typ; przypisanie 1:1) i receptur.
 3. Etapy 3–5: migracja bibliotek, resolver, wznowienie produkcji od
    fabuły 18. Kandydaci-zapas z `docs/sources-and-licensing.md`
    (miecze, zombie, metal/drewno, bagna, woda) pozostają w odwodzie.

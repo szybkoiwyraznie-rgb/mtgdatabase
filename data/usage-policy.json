@@ -1,5 +1,8 @@
 {
   "schema": 2,
-  "hard_rules": ["unique_combo"],
-  "note": "Decyzja właściciela 2026-09-24 (ADR 0006): cofnięte wszystkie limity ilościowe, tryby wzrostowe i progi procentowe z ADR 0005. Klocki są reużywalne bez limitów. Jedyna twarda reguła: kombinacja czterech wpisów (tło, hero, koda, instrument) musi być unikalna między fabułami. Różnorodność zapewnia miękki ranking resolvera (docs/roadmap-semantyka.md, Etap 4), nie zakazy."
+  "hard_rules": [
+    "unique_combo",
+    "one_block_per_type"
+  ],
+  "note": "Decyzje właściciela 2026-09-24 (ADR 0006 + aneks „Jeden typ = jeden klocek\"): cofnięte limity ilościowe ADR 0005; klocki są reużywalne bez limitów między fabułami. Twarde reguły: (1) unique_combo — kombinacja czterech typów/klocków (tło, hero, koda, instrument) unikalna między fabułami; (2) one_block_per_type — każdy typ taksonomii ma dokładnie jeden klocek w bazie (1:1), wzrost bazy wyłącznie przez nowy typ (rozszerzenie taksonomii przez CHANGELOG + akceptacja właściciela)."
 }

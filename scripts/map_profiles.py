@@ -89,9 +89,11 @@ def main(argv):
     dup = {k: v for k, v in combos.items() if v > 1}
     print(f'kombinacje a·b·c·d: {len(combos)} unikalnych na {len(result)} fabuł; '
           f'powtórzonych: {len(dup)}')
-    print('UWAGA: powtórzone kombinacje KLAS są dozwolone, dopóki różnią się '
-          'cechami (traits) i finalnie przypisanymi blokami; twarda reguła '
-          'unique_combo dotyczy konkretnych bloków audio w recepturach.')
+    if dup:
+        print('NARUSZENIE unique_combo (typy 1:1 z klockami — ADR 0006, aneks '
+              '„Jeden typ = jeden klocek"). Rozwiązanie: doprecyzowanie '
+              'taksonomii — propozycja nowego typu dla jednej fabuły z pary '
+              '(bramka tekstowa właściciela), nigdy drugi klocek w typie.')
 
     if '--write' in argv:
         out = {
