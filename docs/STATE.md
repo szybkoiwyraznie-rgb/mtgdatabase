@@ -39,9 +39,10 @@ roadmapy, obsadzona od profilu semantycznego.
 
 ## Co dalej (kolejność z roadmapy, nie wymaga pytania właściciela)
 
-1. **Etap 1**: profile semantyczne wszystkich 510 fabuł
-   (`data/semantics/story-profiles.json`), partiami, bez patrzenia
-   do bibliotek.
+1. **Etap 1** (w toku, 250/510): profile semantyczne wszystkich 510 fabuł
+   (`data/semantics/story-profiles.json`), partiami po ~25, bez patrzenia
+   do bibliotek; walidacja `scripts/check_profiles.py` po każdej partii.
+   Następna partia zaczyna się od fabuły 300.
 2. **Etap 2**: kafeteria v1 (`data/semantics/taxonomy.json`) z analizy
    korpusu + bramka tekstowa właściciela (akceptacja listy klas).
 3. Etapy 3–5: migracja bibliotek, resolver, wznowienie produkcji od
