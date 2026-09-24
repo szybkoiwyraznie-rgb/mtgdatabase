@@ -28,7 +28,7 @@ Cofnięcie ślepej uliczki, zanim powstanie cokolwiek nowego.
 
 DoD: `library_tool.py check` i pełne testy zielone bez reguł ADR 0005.
 
-## Etap 1 — Profile semantyczne 510 fabuł
+## Etap 1 — Profile semantyczne 510 fabuł ✅ (ukończony)
 
 Opisanie **całego katalogu** czterema parametrami, bez patrzenia do
 bibliotek audio. To surowiec dla kafeterii — świadomie luźny słownik.

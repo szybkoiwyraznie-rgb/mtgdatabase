@@ -39,12 +39,12 @@ roadmapy, obsadzona od profilu semantycznego.
 
 ## Co dalej (kolejność z roadmapy, nie wymaga pytania właściciela)
 
-1. **Etap 1** (w toku, 375/510): profile semantyczne wszystkich 510 fabuł
-   (`data/semantics/story-profiles.json`), partiami po ~25, bez patrzenia
-   do bibliotek; walidacja `scripts/check_profiles.py` po każdej partii.
-   Następna partia zaczyna się od fabuły 483 (indeks katalogu 375).
-2. **Etap 2**: kafeteria v1 (`data/semantics/taxonomy.json`) z analizy
-   korpusu + bramka tekstowa właściciela (akceptacja listy klas).
+1. **Etap 1 — UKOŃCZONY (510/510)**: profile semantyczne całego katalogu
+   w `data/semantics/story-profiles.json`; walidator
+   `scripts/check_profiles.py --require-complete` przechodzi.
+2. **Etap 2** (następny krok): kafeteria v1 (`data/semantics/taxonomy.json`)
+   z analizy korpusu profili + bramka tekstowa właściciela (akceptacja
+   listy klas z licznikami wystąpień).
 3. Etapy 3–5: migracja bibliotek, resolver, wznowienie produkcji od
    fabuły 18. Kandydaci-zapas z `docs/sources-and-licensing.md`
    (miecze, zombie, metal/drewno, bagna, woda) pozostają w odwodzie.
