@@ -17117,6 +17117,958 @@
           "tajemniczy"
         ]
       }
+    },
+    "558": {
+      "title": "White Mage's Staff",
+      "background": {
+        "opis": "Mury kolegium podczas obrony — front żołnierzy, zgiełk walki w tle",
+        "cechy": [
+          "mury kolegium",
+          "zgiełk walki",
+          "frontowi żołnierze",
+          "obrona miasta"
+        ]
+      },
+      "hero": {
+        "opis": "Srebrne zwieńczenie laski rozbłyskuje uzdrawiającą energią — złociste iskry zasklepiają rany",
+        "cechy": [
+          "rozbłysk laski",
+          "spływające iskry",
+          "zasklepiane rany",
+          "przywrócona witalność"
+        ]
+      },
+      "mood": {
+        "opis": "Światło nadziei w środku bitwy",
+        "cechy": [
+          "nadzieja",
+          "uzdrowienie",
+          "natchnienie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Świetliście, ciepło, czysto",
+        "cechy": [
+          "świetlisty",
+          "ciepły",
+          "czysty"
+        ]
+      }
+    },
+    "559": {
+      "title": "Gaelicat",
+      "background": {
+        "opis": "Smagane wichrem zbocza góry — mgły nad przepaściami, kryształowe mechanizmy",
+        "cechy": [
+          "wichrowe zbocza",
+          "mgły nad przepaścią",
+          "kryształowe mechanizmy",
+          "podniebne szlaki"
+        ]
+      },
+      "hero": {
+        "opis": "Skrzydlaty kot zrywa się do lotu wyczuwając niebezpieczeństwo — trzepot nietoperzych skrzydeł",
+        "cechy": [
+          "trzepot skrzydeł",
+          "zerwanie do lotu",
+          "czujny wzrok",
+          "ostrzegawczy odruch"
+        ]
+      },
+      "mood": {
+        "opis": "Mały strażnik przestworzy — czujność przed burzą",
+        "cechy": [
+          "czujność",
+          "wierna straż",
+          "lekka przygoda"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Lekko, wietrznie, zwinne",
+        "cechy": [
+          "lekki",
+          "wietrzny",
+          "zwinny"
+        ]
+      }
+    },
+    "560": {
+      "title": "Dead Ringers",
+      "background": {
+        "opis": "Posępne sale twierdzy na bagnach — posadzka z płynokamienia, duszna aura najeźdźców",
+        "cechy": [
+          "posępne sale",
+          "płynokamień",
+          "bagienna twierdza",
+          "duszna aura"
+        ]
+      },
+      "hero": {
+        "opis": "Harmoniczna wstęga nekromancji paraliżuje dwoje obrońców — gasnące zbroje i zawisła broń",
+        "cechy": [
+          "harmoniczna wstęga magii",
+          "gasnące zbroje",
+          "zawisła broń",
+          "podwójny paraliż"
+        ]
+      },
+      "mood": {
+        "opis": "Bezduszny wyrok — wierność pochłonięta wspólnie",
+        "cechy": [
+          "bezduszność",
+          "wspólna zguba",
+          "przytłoczenie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, harmonicznie, złowieszczo",
+        "cechy": [
+          "ciemny",
+          "harmoniczny",
+          "złowieszczy"
+        ]
+      }
+    },
+    "561": {
+      "title": "Time to Feed",
+      "background": {
+        "opis": "Błotnisty trakt wojennych bezdroży — las nad drogą, niespokojna cisza żerowisk",
+        "cechy": [
+          "błotnisty trakt",
+          "las nad drogą",
+          "niespokojna cisza",
+          "zakłócone żerowiska"
+        ]
+      },
+      "hero": {
+        "opis": "Gryf spada z koron na zwiadowcę — uderzenie w błoto, rozpostarte skrzydła nad zdobyczą",
+        "cechy": [
+          "spadający atak",
+          "uderzenie w błoto",
+          "rozpostarte skrzydła",
+          "krzyk gryfa"
+        ],
+        "wymagane": [
+          "krzyk gryfa"
+        ]
+      },
+      "mood": {
+        "opis": "Surowe prawo łańcucha pokarmowego",
+        "cechy": [
+          "surowość natury",
+          "dominacja",
+          "nieuchronność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Gwałtownie, organicznie, ciemno",
+        "cechy": [
+          "gwałtowny",
+          "organiczny",
+          "ciemny"
+        ]
+      }
+    },
+    "562": {
+      "title": "Shock",
+      "background": {
+        "opis": "Nocny szturm na mury miasta — zgiełk obrony, wichura nad blankami",
+        "cechy": [
+          "nocny szturm",
+          "zgiełk obrony",
+          "wichura nad murami",
+          "blanki twierdzy"
+        ]
+      },
+      "hero": {
+        "opis": "Łuk błękitnej błyskawicy z ogłuszającym trzaskiem odrzuca wroga w przepaść",
+        "cechy": [
+          "trzask błyskawicy",
+          "oślepiający łuk",
+          "porażony napastnik",
+          "upadek w przepaść"
+        ],
+        "wymagane": [
+          "trzask błyskawicy"
+        ]
+      },
+      "mood": {
+        "opis": "Piorunująca skuteczność magii bitewnej",
+        "cechy": [
+          "nagła siła",
+          "obronny triumf",
+          "elektryzujące napięcie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Elektrycznie, ostro, nagle",
+        "cechy": [
+          "elektryczny",
+          "ostry",
+          "nagły"
+        ]
+      }
+    },
+    "563": {
+      "title": "Koilos Roc",
+      "background": {
+        "opis": "Wysuszone skaliste wąwozy z ruinami — wiatr w piaskowcach, pył wykopalisk",
+        "cechy": [
+          "skaliste wąwozy",
+          "wiatr w piaskowcach",
+          "starożytne ruiny",
+          "pył wykopalisk"
+        ]
+      },
+      "hero": {
+        "opis": "Wielki rok ląduje z impetem nad pulsującym kamieniem mocy — rozpostarte skrzydła strażnika",
+        "cechy": [
+          "impet lądowania",
+          "rozpostarte skrzydła",
+          "strzeżony relikt",
+          "krzyk drapieżnika"
+        ]
+      },
+      "mood": {
+        "opis": "Dzika straż nad reliktami wojny",
+        "cechy": [
+          "terytorialna straż",
+          "pradawna potęga",
+          "surowe pustkowie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Przestronnie, potężnie, sucho",
+        "cechy": [
+          "przestronny",
+          "potężny",
+          "suchy"
+        ]
+      }
+    },
+    "564": {
+      "title": "Razorfoot Griffin",
+      "background": {
+        "opis": "Słoneczne klify nad wybrzeżem — morska bryza, patrol przestworzy",
+        "cechy": [
+          "słoneczne klify",
+          "morska bryza",
+          "otwarte niebo",
+          "patrol wybrzeża"
+        ]
+      },
+      "hero": {
+        "opis": "Gryf pikuje na mechaniczny zwiad — stalowe szpony rozbijają intruza w locie",
+        "cechy": [
+          "świst pikowania",
+          "uderzenie szponów",
+          "rozbita konstrukcja",
+          "zwycięski krzyk"
+        ],
+        "wymagane": [
+          "świst pikowania"
+        ]
+      },
+      "mood": {
+        "opis": "Dumna obrona terytorium — naturalny odruch",
+        "cechy": [
+          "duma",
+          "zwinność",
+          "władza przestworzy"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Dynamicznie, jasno, ostro",
+        "cechy": [
+          "dynamiczny",
+          "jasny",
+          "ostry"
+        ]
+      }
+    },
+    "565": {
+      "title": "Mana Cylix",
+      "background": {
+        "opis": "Nienaruszone ostępy z zapomnianą kapliczką — omszały menhir, cisza starej wiary",
+        "cechy": [
+          "zapomniana kapliczka",
+          "omszały menhir",
+          "cisza kniei",
+          "stara wiara"
+        ]
+      },
+      "hero": {
+        "opis": "W prostej czarze harmonizują się wstęgi wszystkich magii — cichy rezonans świętej rosy",
+        "cechy": [
+          "cichy rezonans",
+          "harmonia wstęg mocy",
+          "święta rosa",
+          "niepozorny artefakt"
+        ]
+      },
+      "mood": {
+        "opis": "Potęga ukryta w prostocie",
+        "cechy": [
+          "ukryta potęga",
+          "kontemplacja",
+          "pokorna świętość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, harmonicznie, tajemniczo",
+        "cechy": [
+          "cichy",
+          "harmoniczny",
+          "tajemniczy"
+        ]
+      }
+    },
+    "566": {
+      "title": "Creakwood Safewright",
+      "background": {
+        "opis": "Wieczny półmrok spaczonego lasu — kłębowisko czarnych cierni, wilgotne poszycie",
+        "cechy": [
+          "wieczny półmrok",
+          "czarne ciernie",
+          "wilgotne poszycie",
+          "spaczony las"
+        ]
+      },
+      "hero": {
+        "opis": "Strażnik osłania ciałem świecący kwiat — trzask cierni na pancerzu i przełamana słabość",
+        "cechy": [
+          "trzask cierni o pancerz",
+          "osłonięty kwiat",
+          "zaparte racice",
+          "odzyskiwana siła"
+        ]
+      },
+      "mood": {
+        "opis": "Niezłomna ochrona ostatniego piękna",
+        "cechy": [
+          "poświęcenie",
+          "pamięć poległych",
+          "nadzieja w mroku"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ciemno, wytrwale, wzruszająco",
+        "cechy": [
+          "ciemny",
+          "wytrwały",
+          "wzruszający"
+        ]
+      }
+    },
+    "567": {
+      "title": "Jwar Isle Avenger",
+      "background": {
+        "opis": "Wzburzone wody wokół wyspy — lewitujące hedrony, chmury nad sztormem",
+        "cechy": [
+          "wzburzone wody",
+          "lewitujące hedrony",
+          "sztormowe chmury",
+          "podniebna linia obrony"
+        ]
+      },
+      "hero": {
+        "opis": "Sfinks wykonuje gwałtowny zwrot i rozbija pancerz pomiotu — uderzenie pazurów w locie",
+        "cechy": [
+          "gwałtowny zwrot",
+          "uderzenie pazurów",
+          "rozbity pancerz",
+          "łopot potężnych skrzydeł"
+        ]
+      },
+      "mood": {
+        "opis": "Duma przełamana dla wspólnej obrony",
+        "cechy": [
+          "przełamana nieufność",
+          "majestat",
+          "obrona świata"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Majestatycznie, dynamicznie, przestronnie",
+        "cechy": [
+          "majestatyczny",
+          "dynamiczny",
+          "przestronny"
+        ]
+      }
+    },
+    "568": {
+      "title": "Nanoform Sentinel",
+      "background": {
+        "opis": "Laboratoria orbitalne nad gazowym gigantem — bezgłośna próżnia, buczenie instalacji",
+        "cechy": [
+          "laboratoria orbitalne",
+          "buczenie instalacji",
+          "bezgłośna próżnia",
+          "obca technologia"
+        ]
+      },
+      "hero": {
+        "opis": "Rój mikroskopijnych cząstek zasklepia pęknięte przewody — cichy szum naprawczej chmury",
+        "cechy": [
+          "szum roju cząstek",
+          "zasklepiane przewody",
+          "bezgłośne unoszenie",
+          "przywrócona moc"
+        ]
+      },
+      "mood": {
+        "opis": "Bezbłędna czujność maszyn — spokój technologii",
+        "cechy": [
+          "precyzja",
+          "spokojna czujność",
+          "obca doskonałość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, elektronicznie, gładko",
+        "cechy": [
+          "cichy",
+          "elektroniczny",
+          "gładki"
+        ]
+      }
+    },
+    "569": {
+      "title": "Manifest Dread",
+      "background": {
+        "opis": "Zrujnowana oranżeria wypaczonego domu — popękana podłoga, gęsty dym",
+        "cechy": [
+          "zrujnowana oranżeria",
+          "popękana podłoga",
+          "gęsty dym",
+          "wypaczona przestrzeń"
+        ]
+      },
+      "hero": {
+        "opis": "Pęczniejący kokon formuje potwora — ryk miotacza ognia wypala rodzący się zarodnik",
+        "cechy": [
+          "pęczniejący kokon",
+          "ryk miotacza ognia",
+          "wypalany zarodnik",
+          "formujący się zarys"
+        ],
+        "wymagane": [
+          "ryk miotacza ognia"
+        ]
+      },
+      "mood": {
+        "opis": "Czujność albo śmierć — lęk nabiera ciała",
+        "cechy": [
+          "bezwzględna czujność",
+          "materializacja lęku",
+          "walka o przetrwanie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ogniście, duszno, niepokojąco",
+        "cechy": [
+          "ognisty",
+          "duszny",
+          "niepokojący"
+        ]
+      }
+    },
+    "570": {
+      "title": "Dimir Guildgate",
+      "background": {
+        "opis": "Zapomniane podziemne kanały — cicha tafla rzeki, wieczyste mgły",
+        "cechy": [
+          "podziemne kanały",
+          "cicha tafla",
+          "wieczyste mgły",
+          "ukryte wrota"
+        ],
+        "wymagane": [
+          "cicha tafla"
+        ]
+      },
+      "hero": {
+        "opis": "Żelazna krata unosi się bezgłośnie na umówiony znak — łódź wsuwa się w mgłę sanktuarium",
+        "cechy": [
+          "bezgłośne uniesienie kraty",
+          "sunąca łódź",
+          "umówiony znak",
+          "wpłynięcie w mgłę"
+        ]
+      },
+      "mood": {
+        "opis": "Próg cienia — nikt nie trafia tu przypadkiem",
+        "cechy": [
+          "konspiracja",
+          "cień gildii",
+          "bezpowrotny próg"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Cicho, mokro, konspiracyjnie",
+        "cechy": [
+          "cichy",
+          "mokry",
+          "tajemniczy"
+        ]
+      }
+    },
+    "571": {
+      "title": "Vow of Flight",
+      "background": {
+        "opis": "Smagane mgłą sale zamku nad jeziorem — dwór wiedzy, uroczysta cisza przysiąg",
+        "cechy": [
+          "zamkowe sale",
+          "mgła znad jeziora",
+          "uroczysta cisza",
+          "dwór wiedzy"
+        ]
+      },
+      "hero": {
+        "opis": "Eteryczne szafirowe skrzydła unoszą wojowniczkę — świetlista runa paktu pieczętuje ślubowanie",
+        "cechy": [
+          "rozwinięcie eterycznych skrzydeł",
+          "uniesienie nad posadzkę",
+          "rozbłysk runy paktu",
+          "złożone ślubowanie"
+        ]
+      },
+      "mood": {
+        "opis": "Dar za lojalność — przewaga opłacona przysięgą",
+        "cechy": [
+          "mistyczny pakt",
+          "podniosłość",
+          "nowa potęga"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Eterycznie, uroczyście, lekko",
+        "cechy": [
+          "eteryczny",
+          "uroczysty",
+          "lekki"
+        ]
+      }
+    },
+    "572": {
+      "title": "Skinbrand Goblin",
+      "background": {
+        "opis": "Zrujnowane, zarośnięte pasmo gruzów — dzika knieja nad ruinami miasta",
+        "cechy": [
+          "pasmo gruzów",
+          "dzika knieja",
+          "pęknięte kolumny",
+          "miejskie rumowisko"
+        ]
+      },
+      "hero": {
+        "opis": "Rozżarzone runy pompują furię — goblin zeskakuje z kolumny z maczugą z gruzu",
+        "cechy": [
+          "rozbłysk wypalonych run",
+          "bojowy wrzask",
+          "zeskok z kolumny",
+          "zamach maczugą"
+        ]
+      },
+      "mood": {
+        "opis": "Pierwotna furia gotowa rozbić barykadę",
+        "cechy": [
+          "dzika furia",
+          "brutalna prostota",
+          "plemienny zapał"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ogniście, dziko, gwałtownie",
+        "cechy": [
+          "ognisty",
+          "dziki",
+          "gwałtowny"
+        ]
+      }
+    },
+    "573": {
+      "title": "Typhoid Rats",
+      "background": {
+        "opis": "Warowna twierdza na pustynnych rubieżach — bogate dary w skrzyniach, dyplomatyczny spokój",
+        "cechy": [
+          "warowna twierdza",
+          "skrzynie darów",
+          "dyplomatyczny spokój",
+          "pustynne rubieże"
+        ]
+      },
+      "hero": {
+        "opis": "Zakażone gryzonie wymykają się z darów — chrobot w skrzyniach i ciche kąsanie zarazy",
+        "cechy": [
+          "chrobot w skrzyniach",
+          "wymykające się gryzonie",
+          "ciche kąsanie",
+          "pełznąca zaraza"
+        ]
+      },
+      "mood": {
+        "opis": "Podstęp w podarunku — cicha zagłada od środka",
+        "cechy": [
+          "podstęp",
+          "pełzająca zaraza",
+          "złamana dyscyplina"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Chrobotliwie, cicho, złowieszczo",
+        "cechy": [
+          "chrobotliwy",
+          "cichy",
+          "złowieszczy"
+        ]
+      }
+    },
+    "574": {
+      "title": "Invasive Species",
+      "background": {
+        "opis": "Leśna osada w cieniu boru — wozy pakowane w pośpiechu, trakt ucieczki",
+        "cechy": [
+          "leśna osada",
+          "pakowane wozy",
+          "trakt ucieczki",
+          "cień boru"
+        ]
+      },
+      "hero": {
+        "opis": "Rój olbrzymich chrząszczy pożera palisady i chaty — chrzęst tysięcy żuwaczek w drewnie",
+        "cechy": [
+          "chrzęst żuwaczek",
+          "pożerane drewno",
+          "sypiące się trociny",
+          "nadciągający rój"
+        ],
+        "wymagane": [
+          "chrzęst żuwaczek"
+        ]
+      },
+      "mood": {
+        "opis": "Nienasycona plaga — łatwiej odbudować niż zatrzymać",
+        "cechy": [
+          "plaga",
+          "wymuszona ucieczka",
+          "bezsilność"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Chrzęstliwie, masowo, niepokojąco",
+        "cechy": [
+          "chrzęstliwy",
+          "masowy",
+          "niepokojący"
+        ]
+      }
+    },
+    "575": {
+      "title": "Dromoka Warrior",
+      "background": {
+        "opis": "Spalone słońcem stepy przy pustynnej twierdzy — zwarte szyki, cień smoczycy nad wydmami",
+        "cechy": [
+          "spalone stepy",
+          "pustynna twierdza",
+          "zwarte szyki",
+          "cień smoczycy"
+        ]
+      },
+      "hero": {
+        "opis": "Dynamiczne pchnięcie włócznią toruje drogę oddziałowi — miarowy krok natarcia w łuskowym pancerzu",
+        "cechy": [
+          "pchnięcie włócznią",
+          "miarowy krok natarcia",
+          "szczęk łuskowego pancerza",
+          "zwarta falanga"
+        ]
+      },
+      "mood": {
+        "opis": "Dyscyplina pod skrzydłami władczyni",
+        "cechy": [
+          "dyscyplina",
+          "wierność rodowi",
+          "bojowa precyzja"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Miarowo, twardo, sucho",
+        "cechy": [
+          "miarowy",
+          "twardy",
+          "suchy"
+        ]
+      }
+    },
+    "576": {
+      "title": "Akroan Sergeant",
+      "background": {
+        "opis": "Słoneczne tarasy wojowniczej polis — formująca się falanga, przedbitewny gwar",
+        "cechy": [
+          "tarasy polis",
+          "formująca się falanga",
+          "przedbitewny gwar",
+          "słoneczny kamień"
+        ]
+      },
+      "hero": {
+        "opis": "Ceremonialny miecz uniesiony ku niebu — sygnał do natarcia i złocista aura na tarczy",
+        "cechy": [
+          "uniesiony miecz",
+          "okrzyk rozkazu",
+          "złocista aura",
+          "ruszający szyk"
+        ],
+        "wymagane": [
+          "okrzyk rozkazu"
+        ]
+      },
+      "mood": {
+        "opis": "Marsz ku nieśmiertelnej chwale",
+        "cechy": [
+          "chwała",
+          "dyscyplina",
+          "wojenny zapał"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Heroicznie, miarowo, jasno",
+        "cechy": [
+          "heroiczny",
+          "miarowy",
+          "jasny"
+        ]
+      }
+    },
+    "577": {
+      "title": "Thunderstaff",
+      "background": {
+        "opis": "Smagane wichrem wzgórza bitwy — zgiełk starcia, nadlatujące pociski",
+        "cechy": [
+          "wichrowe wzgórza",
+          "zgiełk bitwy",
+          "nadlatujące pociski",
+          "szyk obrońców"
+        ]
+      },
+      "hero": {
+        "opis": "Laska wbita w kamień roztacza barierę trzaskających wyładowań — snop energii w niebo",
+        "cechy": [
+          "trzask bariery",
+          "wbita laska",
+          "snop energii",
+          "naładowane ostrza"
+        ],
+        "wymagane": [
+          "trzask bariery"
+        ]
+      },
+      "mood": {
+        "opis": "Burza po stronie obrońców",
+        "cechy": [
+          "elektryzująca otucha",
+          "obronna potęga",
+          "zagrzanie szyku"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Elektrycznie, burzowo, potężnie",
+        "cechy": [
+          "elektryczny",
+          "burzowy",
+          "potężny"
+        ]
+      }
+    },
+    "578": {
+      "title": "Savage Surge",
+      "background": {
+        "opis": "Zdradliwa gęstwina podczas zasadzki — ciche podejście łowców, napięcie przed ciosem",
+        "cechy": [
+          "zdradliwa gęstwina",
+          "ciche podejście",
+          "napięcie zasadzki",
+          "leśny półmrok"
+        ]
+      },
+      "hero": {
+        "opis": "Bestia błyskawicznie obraca tors i kontratakuje kiścieniem — ryk szału i popłoch łowców",
+        "cechy": [
+          "błyskawiczny obrót",
+          "świst kiścienia",
+          "ryk szału",
+          "popłoch myśliwych"
+        ],
+        "wymagane": [
+          "ryk szału"
+        ]
+      },
+      "mood": {
+        "opis": "Odwrócona zasadzka — łowcy stają się ofiarami",
+        "cechy": [
+          "odwrócenie ról",
+          "pierwotny szał",
+          "nagłość"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Gwałtownie, dziko, ciężko",
+        "cechy": [
+          "gwałtowny",
+          "dziki",
+          "ciężki"
+        ]
+      }
+    },
+    "579": {
+      "title": "Kulrath Mystic",
+      "background": {
+        "opis": "Chłodne wyżyny na krawędzi urwiska — wiatr wysokości, echo dalekich czarów",
+        "cechy": [
+          "chłodne wyżyny",
+          "wiatr urwiska",
+          "echo czarów",
+          "górskie szlaki"
+        ]
+      },
+      "hero": {
+        "opis": "Płomień z korony ujarzmiony w skupieniu — nagłe przejście w stan najwyższej gotowości",
+        "cechy": [
+          "huk ujarzmianego płomienia",
+          "skupiony oddech",
+          "nagła gotowość",
+          "nasycenie energią"
+        ]
+      },
+      "mood": {
+        "opis": "Równowaga pasji i dyscypliny",
+        "cechy": [
+          "skupienie",
+          "wewnętrzny żar",
+          "opanowanie"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Ogniście, skupienie, chłodno",
+        "cechy": [
+          "ognisty",
+          "skupiony",
+          "chłodny"
+        ]
+      }
+    },
+    "580": {
+      "title": "Loporrit Scout",
+      "background": {
+        "opis": "Bujne leśne ostępy pierwszej wyprawy — śpiew ptaków, omszałe kamienie szlaku",
+        "cechy": [
+          "bujne ostępy",
+          "śpiew ptaków",
+          "omszałe kamienie",
+          "pierwsza wyprawa"
+        ]
+      },
+      "hero": {
+        "opis": "Mały zwiadowca rozkłada mapę, chocobo zerka zza pleców — radosny szelest pergaminu",
+        "cechy": [
+          "szelest mapy",
+          "ciekawskie gulgotanie chocobo",
+          "drobne kroki",
+          "zapał odkrywcy"
+        ]
+      },
+      "mood": {
+        "opis": "Radość odkrywania — przygoda ponad bibliotekę",
+        "cechy": [
+          "ciekawość",
+          "radość",
+          "towarzyska otucha"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Lekko, pogodnie, ciepło",
+        "cechy": [
+          "lekki",
+          "pogodny",
+          "ciepły"
+        ]
+      }
+    },
+    "581": {
+      "title": "Ulna Alley Shopkeep",
+      "background": {
+        "opis": "Cienisty wilgotny zaułek przy kampusie — kram z eliksirami, przytłumiony gwar studentów",
+        "cechy": [
+          "cienisty zaułek",
+          "kram z eliksirami",
+          "przytłumiony gwar",
+          "nieoficjalny handel"
+        ]
+      },
+      "hero": {
+        "opis": "Odkorkowany flakon uwalnia jarzącą się parę — szelmowska prezentacja bagiennego wywaru",
+        "cechy": [
+          "puknięcie korka",
+          "syk jarzącej się pary",
+          "szelmowski śmiech",
+          "podsunięty flakon"
+        ]
+      },
+      "mood": {
+        "opis": "Podejrzany urok czarnego rynku",
+        "cechy": [
+          "szelmostwo",
+          "pokusa",
+          "przymrużone oko"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Bulgocząco, chytrze, lekko",
+        "cechy": [
+          "bulgoczący",
+          "chytry",
+          "lekki"
+        ]
+      }
+    },
+    "582": {
+      "title": "Vaan, Street Thief",
+      "background": {
+        "opis": "Zatłoczone ulice i dachy okupowanego miasta — gwar targu, kroki patroli",
+        "cechy": [
+          "gwar targu",
+          "dachy miasta",
+          "kroki patroli",
+          "jaskrawe baldachimy"
+        ]
+      },
+      "hero": {
+        "opis": "Skok nad baldachimami między dachami — skradziony kamień w dłoni, zniknięcie w zaułkach",
+        "cechy": [
+          "skok między dachami",
+          "łopot baldachimów",
+          "zuchwały śmiech",
+          "zniknięcie w zaułkach"
+        ]
+      },
+      "mood": {
+        "opis": "Zuchwała wolność ulicznego marzyciela",
+        "cechy": [
+          "zuchwałość",
+          "marzenie o niebie",
+          "uliczny spryt"
+        ]
+      },
+      "instrumentation": {
+        "opis": "Zwinne, gwarnie, brawurowo",
+        "cechy": [
+          "zwinny",
+          "gwarny",
+          "brawurowy"
+        ]
+      }
     }
   }
 }
