@@ -515,5 +515,15 @@
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "tlo-bitwa-zgielk": "żaden",
+    "hero-lopot": "żaden",
+    "koda-nadzieja": "żadna",
+    "notes": {
+      "tlo-bitwa-zgielk": "Właściciel: „to wszystko są bitwy współczesne, z odgłosami wystrzałów, a chodzi zgiełk bitwy fantasy/średniowiecznej — szczęk oręża, krzyki rannych, żaden z kandydatów tego nie ma”. Diagnoza: fajerwerkowe dudnienie = proch, błędna epoka. Runda 2: WYŁĄCZNIE stal+ludzie, zero wybuchów (atomcut CC0: miecze/młoty + okrzyki i jęki ranion).",
+      "hero-lopot": "Właściciel: „potrzeba łopotu skrzydeł, wyraźnych odbić, a tutaj jest albo jakiś nieokreślony szum (ł.1), albo trele ptaka (ł.2), albo coś co przypomina łopot, ale jest tylko jedno i przechodzi w grzmot (ł.3)”. Diagnoza: spowolnienie rozmazało odbicia; terenowe śpiewy ptaków w tle. Runda 2: wyraźne odbicia foley, mniej lub zero pitch-down, HP przeciw grzmotowi, 3–5 czytelnych uderzeń.",
+      "koda-nadzieja": "Właściciel: „wszystkie są molowe, a nadzieja to składowe akordu durowego IMO”. Diagnoza: brak durowego składu. Runda 2: durowe arpeggia/lydyjskie rozświetlenia na siatce steinwaya (C-E / C-aug / D-F#), finał jasny."
+    }
+  }
 }

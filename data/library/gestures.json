@@ -356,6 +356,62 @@
         "choice": "koda-determinacja.2",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "g10c_humble_pulse",
+      "semantic": "spokój — pokorny puls kontemplacji",
+      "desc": "trzy ciche, równe dotknięcia tej samej nuty jak odliczanie oddechu, ostatni przygaszony jeszcze bardziej — myśl wraca do prostoty",
+      "notes": [
+        {
+          "midi": 56,
+          "on": 0.0,
+          "off": 0.6,
+          "vel": 0.34
+        },
+        {
+          "midi": 56,
+          "on": 0.95,
+          "off": 1.55,
+          "vel": 0.34
+        },
+        {
+          "midi": 56,
+          "on": 1.9,
+          "off": 2.8,
+          "vel": 0.28
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "struck-light",
+        "bowed-hard"
+      ],
+      "semantics": {
+        "type": "spokoj-kontemplacja",
+        "traits": [
+          "skupiona",
+          "oszczędna",
+          "pokorna",
+          "oddychająca"
+        ],
+        "bad_for": [
+          "triumfalna",
+          "taneczna",
+          "gwałtowna",
+          "jałowa"
+        ]
+      },
+      "approved": {
+        "gate": "g026",
+        "choice": "koda-spokoj.3",
+        "date": "2026-09-24"
+      }
     }
   ]
 }

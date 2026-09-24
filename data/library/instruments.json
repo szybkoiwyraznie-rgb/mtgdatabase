@@ -286,6 +286,56 @@
         "choice": "instr-mroczna.2",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "b_soloviol_spic",
+      "semantic": "solo kłucie smyczkiem — bliżej, ostrzej, bardziej brutalnie",
+      "family": "bowed-strings",
+      "samples": {
+        "45": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_A2_v2_rr1.mp3",
+        "57": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_A3_v2_rr1.mp3",
+        "69": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_A4_v2_rr1.mp3",
+        "81": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_A5_v2_rr1.mp3",
+        "48": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_C3_v2_rr1.mp3",
+        "60": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_C4_v2_rr1.mp3",
+        "72": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_C5_v2_rr1.mp3",
+        "84": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_C6_v2_rr1.mp3",
+        "52": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_E3_v2_rr1.mp3",
+        "64": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_E4_v2_rr1.mp3",
+        "76": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_E5_v2_rr1.mp3",
+        "43": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_G2_v2_rr1.mp3",
+        "55": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_G3_v2_rr1.mp3",
+        "67": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_G4_v2_rr1.mp3",
+        "79": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_G5_v2_rr1.mp3"
+      },
+      "semantics": {
+        "type": "ostro-gwaltowna",
+        "traits": [
+          "ostry",
+          "gwałtowny",
+          "solo",
+          "szorstki"
+        ],
+        "bad_for": [
+          "łagodny",
+          "masa orkiestry",
+          "miękki",
+          "śpiewny"
+        ]
+      },
+      "source": {
+        "title": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VSCO-2-CE",
+        "channel": "git clone sparse z github.com/sgossner/VSCO-2-CE",
+        "notes": "solo skrzypce — spiccato (wyszczerbiony atak); bank 15 nut G2–C6 (https://github.com/sgossner/VSCO-2-CE); wariacja v2 (najostrzejsza), rr1; trim 2.0 s"
+      },
+      "approved": {
+        "gate": "g026",
+        "choice": "instr-ostro.2",
+        "date": "2026-09-24"
+      }
     }
   ]
 }
