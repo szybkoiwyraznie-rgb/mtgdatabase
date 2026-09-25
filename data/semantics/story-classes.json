@@ -209,7 +209,7 @@
     },
     "35": {
       "background": "krypta-nekropolia",
-      "hero": "trzepot-drobnych-skrzydel",
+      "hero": "brzeczenie-roju",
       "mood": "tajemnica-obcosc",
       "instrumentation": "cicho-kameralna"
     },
@@ -515,7 +515,7 @@
     },
     "86": {
       "background": "niebo-przestworza",
-      "hero": "trzepot-drobnych-skrzydel",
+      "hero": "swist-lotu",
       "mood": "wspolnota-wiez",
       "instrumentation": "cicho-kameralna"
     },
@@ -587,7 +587,7 @@
     },
     "98": {
       "background": "miasto-nocne",
-      "hero": "trzepot-drobnych-skrzydel",
+      "hero": "brzeczenie-roju",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cicho-kameralna"
     },
@@ -659,7 +659,7 @@
     },
     "110": {
       "background": "bitwa-zgielk",
-      "hero": "lopot-skrzydel",
+      "hero": "rozblysk-swiatla",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "jasno-swietlista"
     },
@@ -683,7 +683,7 @@
     },
     "114": {
       "background": "bagno-moczary",
-      "hero": "trzepot-drobnych-skrzydel",
+      "hero": "swist-lotu",
       "mood": "radosc-beztroska",
       "instrumentation": "cicho-kameralna"
     },
@@ -2159,7 +2159,7 @@
     },
     "467": {
       "background": "gory-wichry",
-      "hero": "bariera-odbicie",
+      "hero": "trzepot-drobnych-skrzydel",
       "mood": "spokoj-kontemplacja",
       "instrumentation": "elektryczno-obca"
     },

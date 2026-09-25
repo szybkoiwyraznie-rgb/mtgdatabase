@@ -57,7 +57,11 @@ def render_candidate(cand: dict, gate_dir_uri: str) -> str:
     label = html.escape(cand["label"])
     name = html.escape(cand.get("title", cand["label"]))
     desc = html.escape(cand.get("desc", ""))
-    src = html.escape(cand.get("source", ""))
+    raw_src = cand.get("source", "")
+    if isinstance(raw_src, dict):
+        # proweniencja ustrukturyzowana (AGENTS.md #8) — zwięźle: tytuł, license, kanał
+        raw_src = " · ".join(str(raw_src[k]) for k in ("title", "license", "channel") if raw_src.get(k))
+    src = html.escape(str(raw_src))
     file_uri = f"{gate_dir_uri}/{cand['file']}" if gate_dir_uri else html.escape(cand["file"])
     return (
         f'<div class="cand"><div class="lab">{label}</div>'
@@ -67,10 +71,9 @@ def render_candidate(cand: dict, gate_dir_uri: str) -> str:
     )
 
 
-def build_page(gate_dir: Path) -> None:
-    manifest = json.loads((gate_dir / "manifest.json").read_text(encoding="utf-8"))
+def render_entry_sections(manifest: dict, file_prefix: str = "") -> list[str]:
+    """Sekcje HTML jednej bramki (tryb wpisowy lub fabułowy)."""
     parts: list[str] = []
-    entries_mode = bool(manifest.get("entries"))
     for entry_spec in manifest.get("entries", []):
         # tryb wpisowy (ADR 0004): dla KAŻDEGO wpisu bazy 3 kandydaci,
         # właściciel wybiera dokładnie jednego (albo „żaden").
@@ -78,7 +81,7 @@ def build_page(gate_dir: Path) -> None:
                      f"· baza {html.escape(entry_spec['kind'])}</h2>")
         parts.append(f'<p class="role">rola: {html.escape(entry_spec.get("role", ""))}</p>')
         for cand in entry_spec["candidates"]:
-            parts.append(render_candidate(cand, ""))
+            parts.append(render_candidate(cand, file_prefix))
     for story in manifest.get("stories", []):
         parts.append(f"<h2>Fabuła {story['story_id']} — {html.escape(story['title'])}</h2>")
         parts.append(f'<p class="story">{html.escape(story["story"])}</p>')
@@ -89,34 +92,73 @@ def build_page(gate_dir: Path) -> None:
             parts.append(f"<h3>{slot} · {SLOT_TITLE.get(slot, slot)}</h3>")
             parts.append(f'<p class="role">rola: {html.escape(block.get("role", ""))}</p>')
             for cand in block["candidates"]:
-                parts.append(render_candidate(cand, ""))
-    if entries_mode:
-        howto = ("Dla każdego wpisu wybierz <b>dokładnie jednego</b> kandydata albo wszystkich odrzuć.\n"
-                 "Tylko wybrany trafia do bazy; pozostali zostają w archiwum bramki.\n"
-                 "Odpowiedź napisz w czacie agenta, np.:<br><br>\n"
-                 "<code>jezioro: j.2 · krzyki-nurka: n.żaden-za-ostry · grandpiano: p.1</code><br><br>\n"
-                 "Po „żaden\" dopisz jedno słowo dlaczego (<code>za cichy</code>, <code>zły klimat</code>) — "
-                 "poprawi drugą rundę kandydatów.")
-    else:
-        howto = ("Wybierz dla każdego slotu <b>jednego</b> kandydata albo wszystkich odrzuć.\n"
-                 "Odpowiedź napisz w czacie agenta, np. dla dwóch fabuł:<br><br>\n"
-                 "<code>fabuła 1: d.1 c.2 a.1 b.2 &nbsp;·&nbsp; fabuła 4: d.1 c.1 a.2 b.3 d.żaden</code><br><br>\n"
-                 "Po „żaden\" dopisz jedno słowo dlaczego (<code>za cichy</code>, <code>zły klimat</code>) — poprawi drugą rundę kandydatów.")
+                parts.append(render_candidate(cand, file_prefix))
+    return parts
+
+
+def render_howto(manifest: dict) -> str:
+    if manifest.get("entries"):
+        return ("Dla każdego wpisu wybierz <b>dokładnie jednego</b> kandydata albo wszystkich odrzuć.\n"
+                "Tylko wybrany trafia do bazy; pozostali zostają w archiwum bramki.\n"
+                "Odpowiedź napisz w czacie agenta, np.:<br><br>\n"
+                "<code>jezioro: j.2 · krzyki-nurka: n.żaden-za-ostry · grandpiano: p.1</code><br><br>\n"
+                "Po „żaden\" dopisz jedno słowo dlaczego (<code>za cichy</code>, <code>zły klimat</code>) — "
+                "poprawi drugą rundę kandydatów.")
+    return ("Wybierz dla każdego slotu <b>jednego</b> kandydata albo wszystkich odrzuć.\n"
+            "Odpowiedź napisz w czacie agenta, np. dla dwóch fabuł:<br><br>\n"
+            "<code>fabuła 1: d.1 c.2 a.1 b.2 &nbsp;·&nbsp; fabuła 4: d.1 c.1 a.2 b.3 d.żaden</code><br><br>\n"
+            "Po „żaden\" dopisz jedno słowo dlaczego (<code>za cichy</code>, <code>zły klimat</code>) — poprawi drugą rundę kandydatów.")
+
+
+def build_page(gate_dir: Path) -> None:
+    manifest = json.loads((gate_dir / "manifest.json").read_text(encoding="utf-8"))
     page = (PAGE.replace("__GID__", html.escape(manifest["id"]))
-                .replace("__BODY__", "\n".join(parts))
-                .replace("__HOWTO__", howto))
+                .replace("__BODY__", "\n".join(render_entry_sections(manifest)))
+                .replace("__HOWTO__", render_howto(manifest)))
     (gate_dir / "index.html").write_text(page, encoding="utf-8")
     print(f"zbudowano {gate_dir / 'index.html'}")
 
 
+def build_merged(gate_dirs: list[Path], parent: Path) -> Path:
+    """Strona zbiorcza kilku bramek sesji — serwowana z katalogu nadrzędnego,
+    bo kandydaci zostają wewnątrz swoich bramek (ścieżki <bramka>/...)."""
+    parts: list[str] = []
+    howto = ""
+    for gd in gate_dirs:
+        manifest = json.loads((gd / "manifest.json").read_text(encoding="utf-8"))
+        note = html.escape(manifest.get("note", ""))
+        parts.append(f"<h2 style=\"border-top:3px solid #2c3a4f\">Bramka {manifest['id']}"
+                     f" — fabuła {manifest.get('story_id', '?')}</h2>")
+        if note:
+            parts.append(f'<p class="story">{note}</p>')
+        parts.extend(render_entry_sections(manifest, file_prefix=gd.name))
+        howto = render_howto(manifest)
+    ids = "-".join(g.name for g in gate_dirs)
+    page = (PAGE.replace("__GID__", " + ".join(g.name for g in gate_dirs))
+                .replace("__BODY__", "\n".join(parts))
+                .replace("__HOWTO__", howto))
+    out = parent / f"podglad-{ids}.html"
+    out.write_text(page, encoding="utf-8")
+    print(f"zbudowano {out}")
+    return out
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
-    parser.add_argument("gate_dir", type=Path)
+    parser.add_argument("gate_dirs", type=Path, nargs="+")
     parser.add_argument("--port", type=int, default=8080)
     parser.add_argument("--build-only", action="store_true")
     args = parser.parse_args()
-    gate_dir = args.gate_dir.resolve()
-    build_page(gate_dir)
+    gate_dirs = [d.resolve() for d in args.gate_dirs]
+    for gd in gate_dirs:
+        build_page(gd)
+    serve_dir = gate_dirs[0]
+    merged: Path | None = None
+    if len(gate_dirs) > 1:
+        parent = gate_dirs[0].parent
+        assert all(d.parent == parent for d in gate_dirs), "bramki muszą mieć wspólny katalog nadrzędny"
+        merged = build_merged(gate_dirs, parent)
+        serve_dir = parent
     if args.build_only:
         return
 
@@ -124,7 +166,7 @@ def main() -> None:
         protocol_version = "HTTP/1.1"
 
         def __init__(self, *a, **kw):
-            super().__init__(*a, directory=str(gate_dir), **kw)
+            super().__init__(*a, directory=str(serve_dir), **kw)
 
         def end_headers(self):
             self.send_header("Cache-Control", "no-store")
@@ -136,6 +178,8 @@ def main() -> None:
 
     server = ThreadingHTTPServer(("0.0.0.0", args.port), Handler)
     print(f"bramka na porcie {args.port} — Ctrl+C kończy")
+    if merged:
+        print(f"strona zbiorcza: /{merged.name}")
     server.serve_forever()
 
 

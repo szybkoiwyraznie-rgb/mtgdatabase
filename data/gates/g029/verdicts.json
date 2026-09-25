@@ -1,0 +1,12 @@
+{
+  "hero-lopot": "ł.1c",
+  "notes": {
+    "hero-lopot": "Właściciel: „ł.1 jako łopot skrzydeł małego ptaka jest ok, tylko pod koniec trzeciej sekundy jest strzał ze strzelby, trzeba go wyciąć”, po cięciu: „ł.1c – super”. Wersja ł.1c (łuk 0,60–2,65 s źródła 689998, bez wzmocnionego ogona z ukrytym trzaskiem -70 dB) przyjęta jako heroes/wingburst_takeoff_01. Lekcja: zwiniedowanewymykanowe ogonów field-nagrań przy dużym gainie — ukryte ostrzę piki eksplodują po normie.",
+    "tlo-bitwa-zgielk": "Łańcuch werdyktów: „brakuje szczęku oręża (delikatne uderzenia metalu o metal w losowych miejscach)” → v2: „jak uderzanie w kocioł” → v3 (paleta atomcut sword-clash, ring 2–6 kHz): „szczęk stali jest idealny, ale dałbym go ciut ciszej i częściej” → v4 (-42 ±1 dB, 8 starć co ~0,95 s z rotacją clash-1…10): „zg.3v4 IDEALNY”. Przyjęte jako tło tlo-bitwa-zgielk (backgrounds). Lekcja: prawdziwe starcia mieczy (24–37% energii w 2–6 kHz, ~0% <300 Hz) biją generic-metal; filtr HP 220 bez LP na górze; delikatny = cichy, nie przyciemniony.",
+    "zg.2": "odrzucony brakiem wyboru (właściciel wskazał wyłącznie zg.1 i zg.3).",
+    "zg.1v3": "wycofany po werdykcie „zg.3v4 IDEALNY” — wersja v4 odrzuczona brakiem wyboru.",
+    "zg.1v4": "odrzucony brakiem wyboru (właściciel wskazał zg.3v4 jako IDEALNY).",
+    "zg.3v4": "właściciel: „zg.3v4 IDEALNY”."
+  },
+  "tlo-bitwa-zgielk": "zg.3v4"
+}

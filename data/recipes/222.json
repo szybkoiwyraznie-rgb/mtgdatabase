@@ -1,0 +1,47 @@
+{
+  "story_id": "222",
+  "length_sec": 6.0,
+  "background": {
+    "id": "sea_storm_02",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "stealth_move_03",
+    "at_sec": 0.6,
+    "target_db": -19,
+    "length_sec": 2.5
+  },
+  "coda": {
+    "gesture": "g4b_mystery_tritone",
+    "instrument": "b_organ_loudpedal",
+    "at_sec": 3.4,
+    "target_db": -20
+  },
+  "seed": 222,
+  "gate": "g024",
+  "profile": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "skradanie-cisza",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "mroczna"
+    },
+    "note": "Model 1:1 (taksonomia v6). Tło werdyktem m.2 (g023), instrument werdyktem z.2 (g024, runda 2 — organy ciemne)."
+  },
+  "resolution": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "skradanie-cisza",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "mroczna"
+    },
+    "blocks": {
+      "background": "sea_storm_02",
+      "hero": "stealth_move_03",
+      "mood": "g6c_sentry_return",
+      "instrumentation": "b_organ_loudpedal"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; filtry twarde czyste; kombinacja unikalna"
+  }
+}

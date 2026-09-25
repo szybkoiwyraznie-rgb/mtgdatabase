@@ -1,0 +1,8 @@
+=== sample-scout 2026-09-24T20:31:51Z ===
+source=freesound query=medieval battle reenactment swords crowd count=8 sort=rating_desc
+FREESOUND_TOKEN: ustawiony (40 znaków)
+usage: sample_scout.py [-h] [--source {freesound,archive.org}] --query QUERY
+                       [--count COUNT]
+                       [--sort {rating_desc,downloads_desc,score}]
+                       [--free-only] [--out OUT]
+sample_scout.py: error: count musi być w zakresie 1–5

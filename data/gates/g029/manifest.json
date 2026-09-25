@@ -1,0 +1,415 @@
+{
+  "id": "g029",
+  "created": "2026-09-24",
+  "story_id": "110",
+  "note": "RUNDA 3 fabuły 110 — zg i ł z przegranego przetargu g027 (koda n.3 już przyjęta). Po werdykcie „generyczne / jak ustawiona scena” i „trzepanie dywanu”: wyłącznie realne, długie wzięcia — bitwa z urzeczywistnionych nagrań (charge, archiwalna taśma, agony), skrzydła z prawdziwych gołębi nagranych z bliska. Żadnej syntetycznej warstwy. POPRAWKI właściciela: zg.1s/zg.3s = wersje z domieszką szczęku oręża; ł.1c = ł.1 bez ukrytego strzału. STAL v3: nowa paleta atomcut sword-clash (jasny ring 2–6 kHz, HP 220, bez LP); v2 z kociołem wycofane z decyzji. STAL v4: werdykt „szczęk idealny, ciut ciszej i częściej” → -42 ±1 dB, 9/8 starć, rotacja 1…10; v3 wycofane z decyzji (zatwierdzony materiał zostaje w archiwum).",
+  "entries": [
+    {
+      "slug": "tlo-bitwa-zgielk",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `zgryw-bitwa` (slot d fabuły 110; ~14 fabuł z tej rodziny)",
+      "candidates": [
+        {
+          "label": "zg.1",
+          "title": "szarża — tłum nabiera tempa i wyje w jednym oddechu",
+          "file": "candidates/zg1_szarza.mp3",
+          "desc": "prawdziwa nagrana szarża (ambisoniczne FUMA): masa jedzie, warkot rośnie, bez słów i bez prochu; sama organiczna fala pola — nic nie jest pętlą",
+          "source": {
+            "title": "CRWDBatl_Battle Charge, No Words_ShaneVincent_GSC24_FUMA-AmbeoVR.wav (Freesound)",
+            "author": "ShangusBurger",
+            "license": "CC0 / Public Domain (wg scouta)",
+            "url": "https://freesound.org/people/ShangusBurger/sounds/764046/",
+            "channel": "sample-scout (freesound, preview); manifest: freesound_battle",
+            "notes": "okno 0,9–8,9 s; HP 55; -33 dB RMS; REALNE wzięcie; id 764046"
+          },
+          "entry": {
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "zgryw-bitwa",
+              "traits": [
+                "średniowiecze",
+                "krzyki",
+                "pole walki",
+                "tłum"
+              ],
+              "bad_for": [
+                "współczesna bitwa z prochami",
+                "cisza pustyni"
+              ]
+            },
+            "id": "battle_charge_01",
+            "setting": "otwarte pole — fala szarży",
+            "desc": "prawdziwy tłum w biegu: warkot masy, przypominający o szarży która nie pęta i nie liniuje — jeden oddech wojny",
+            "file": "audio/library/backgrounds/battle_charge_01.mp3",
+            "source": {
+              "title": "CRWDBatl_Battle Charge, No Words_ShaneVincent_GSC24_FUMA-AmbeoVR.wav (Freesound)",
+              "author": "ShangusBurger",
+              "license": "CC0 / Public Domain (wg scouta)",
+              "url": "https://freesound.org/people/ShangusBurger/sounds/764046/",
+              "channel": "sample-scout (freesound, preview); manifest: freesound_battle",
+              "notes": "okno 0,9–8,9 s; HP 55; -33 dB RMS; id 764046"
+            }
+          }
+        },
+        {
+          "label": "zg.2",
+          "title": "mieszanka frontu — krzyki i brzęki bitwy z prawdziwej taśmy",
+          "file": "candidates/zg2_mieszanka_frontu.mp3",
+          "desc": "nieudawana mieszanina: nagrane na set krzyki i brzęki broni, szum walki oddycha falami (taśma archiwalna 44 s) — brzmi jak pole, bo to pole",
+          "source": {
+            "title": "R29-39-Chinese Screams in Battle.wav (Freesound)",
+            "author": "craigsmith",
+            "license": "CC0 / Public Domain (wg scouta)",
+            "url": "https://freesound.org/people/craigsmith/sounds/479582/",
+            "channel": "sample-scout (freesound, preview); manifest: freesound_battle-screams",
+            "notes": "okno 24,5–32,5 s; HP 55; -33 dB RMS; REALNE wzięcie; id 479582"
+          },
+          "entry": {
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "zgryw-bitwa",
+              "traits": [
+                "średniowiecze",
+                "krzyki",
+                "pole walki",
+                "tłum"
+              ],
+              "bad_for": [
+                "współczesna bitwa z prochami",
+                "cisza pustyni"
+              ]
+            },
+            "id": "battle_screams_open_01",
+            "setting": "pole srodka frontu — krzyki, brzęki, wrzawa",
+            "desc": "archiwalna taśma prawdziwej siatki walki: krzyki załamują się wewnątrz brzęków broni i pomruków — niepoldą nic pętli",
+            "file": "audio/library/backgrounds/battle_screams_open_01.mp3",
+            "source": {
+              "title": "R29-39-Chinese Screams in Battle.wav (Freesound)",
+              "author": "craigsmith",
+              "license": "CC0 / Public Domain (wg scouta)",
+              "url": "https://freesound.org/people/craigsmith/sounds/479582/",
+              "channel": "sample-scout (freesound, preview); manifest: freesound_battle-screams",
+              "notes": "okno 24,5–32,5 s; HP 55; -33 dB RMS; id 479582"
+            }
+          }
+        },
+        {
+          "label": "zg.3",
+          "title": "przełamanie — agonia tego, że idzie się i nie wraca",
+          "file": "candidates/zg3_przełamanie.mp3",
+          "desc": "ludzie krzyczą w agonii w biegu do przodu — bardzo silne, niebenszone krzyki prawdziwych gardeł nagrane raz i na serio; dramat i popęd bez żadnej uporządkowanej sceny",
+          "source": {
+            "title": "People screaming in agony when charging into battle (Freesound)",
+            "author": "florianreichelt",
+            "license": "CC0 / Public Domain (wg scouta)",
+            "url": "https://freesound.org/people/florianreichelt/sounds/563011/",
+            "channel": "sample-scout (freesound, preview); manifest: freesound_battle-screams",
+            "notes": "okno 0,4–8,4 s; HP 55; -33 dB RMS; REALNE wzięcie; id 563011"
+          },
+          "entry": {
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "zgryw-bitwa",
+              "traits": [
+                "średniowiecze",
+                "krzyki",
+                "pole walki",
+                "tłum"
+              ],
+              "bad_for": [
+                "współczesna bitwa z prochami",
+                "cisza pustyni"
+              ]
+            },
+            "id": "battle_agony_01",
+            "setting": "punkt przełamania — krzyki w biegu",
+            "desc": "agonia w bieg — nagrane na serio gardła, które przylekują przez pole; sztywno tu nic nie jest ustawione",
+            "file": "audio/library/backgrounds/battle_agony_01.mp3",
+            "source": {
+              "title": "People screaming in agony when charging into battle (Freesound)",
+              "author": "florianreichelt",
+              "license": "CC0 / Public Domain (wg scouta)",
+              "url": "https://freesound.org/people/florianreichelt/sounds/563011/",
+              "channel": "sample-scout (freesound, preview); manifest: freesound_battle-screams",
+              "notes": "okno 0,4–8,4 s; HP 55; -33 dB RMS; id 563011"
+            }
+          }
+        },
+        {
+          "label": "zg.1v4",
+          "title": "szarża + stal jasna (v4) — ciszej i częściej",
+          "file": "candidates/zg1_szarza_stal4.mp3",
+          "desc": "dostrojenie werdyktu właściciela („szczęk idealny, ciut ciszej i częściej”): 9 starć mieczy co ~0,9 s, -42 ±1 dB; ring 2–6 kHz, zero niskiego brzęku; rotacja wszystkich 10 clash-i",
+          "source": {
+            "base": "zg1_szarza.mp3",
+            "title": "20 sword sound effects — attacks & clashes (OpenGameArt/CC0)",
+            "author": "OpenGameArt artists (pack w atomcut-library)",
+            "license": "CC0 1.0",
+            "url": "https://github.com/novincode/atomcut-library",
+            "channel": "git sparse-checkout /tmp/atomcut; skrypt build_gate_g029_fix4.py",
+            "notes": "sword-clash-1…10 w rotacji (jasność 24–37% w 2–6 kHz); HP 220; -42 ±1,0 dB; ziarno 110 (jitter ±0,12 s)"
+          }
+        },
+        {
+          "label": "zg.3v4",
+          "title": "przełamanie + stal jasna (v4) — ciszej i częściej",
+          "file": "candidates/zg3_przełamanie_stal4.mp3",
+          "desc": "ta sama strojenie na łóżku agonii: 8 starć co ~0,95 s, -42 ±1 dB; ring przebija krzyki, nie nadpisuje ich",
+          "source": {
+            "base": "zg3_przełamanie.mp3",
+            "title": "20 sword sound effects — attacks & clashes (OpenGameArt/CC0)",
+            "author": "OpenGameArt artists (pack w atomcut-library)",
+            "license": "CC0 1.0",
+            "url": "https://github.com/novincode/atomcut-library",
+            "channel": "git sparse-checkout /tmp/atomcut; skrypt build_gate_g029_fix4.py",
+            "notes": "sword-clash-1…10 w rotacji (jasność 24–37% w 2–6 kHz); HP 220; -42 ±1,0 dB; ziarno 110 (jitter ±0,12 s)"
+          },
+          "entry": {
+            "duration_sec": 8.2,
+            "level_ref_db": -33,
+            "loopable": false,
+            "semantics": {
+              "type": "bitwa-zgielk",
+              "traits": [
+                "bitwa",
+                "zgiełk",
+                "krzyki",
+                "agonia",
+                "przełamanie",
+                "stal",
+                "ring-miecza"
+              ],
+              "bad_for": [
+                "spokój",
+                "komnata",
+                "ciche sceny",
+                "las-dzienny"
+              ]
+            },
+            "id": "battle_clamor_01",
+            "setting": "pole bitwy — zgiełk przełamania, krzyki i agonie",
+            "desc": "gęste medio bitewne: rzeczywiste krzyki wojowników szarżujących na ostrzał (podchwyt) z jasnym ringiem stali położonym delikatnie pod spodem — 8 starć miecz o miecz w losowych punktach (~0,95 s), ring 2–6 kHz bez niskiego brzęku",
+            "file": "audio/library/backgrounds/battle_clamor_01.mp3",
+            "source": {
+              "title": "People screaming in agony when charging into battle (Freesound) + 20 sword sound effects — attacks & clashes (OpenGameArt/atomcut)",
+              "author": "florianreichelt (łóżko) + OpenGameArt artists (starcia)",
+              "license": "CC0 1.0 (oba składniki)",
+              "url": "https://freesound.org/people/florianreichelt/sounds/563011/ + https://github.com/novincode/atomcut-library",
+              "channel": "sample-scout preview (łóżko, id 563011, okno 0,4–8,4 s, HP 55, -33 dB) + git sparse-checkout /tmp/atomcut (starcia)",
+              "notes": "stal: sword-clash-1…10 w rotacji, HP 220, -42 ±1,0 dB, 8 punktów start 0,55 s co 0,95 s, jitter ±0,12 s, ziarno 110; skrypty build_gate_g029_fix3.py → fix4.py; werdykt „zg.3v4 IDEALNY”"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hero-lopot",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `łuk-wytrzymały` (slot c fabuły 110)",
+      "candidates": [
+        {
+          "label": "ł.1",
+          "title": "wstrzask odlotu — gołąb puszcza nogi i rwie w górę",
+          "file": "candidates/l1_wstrzask_odlotu.mp3",
+          "desc": "prawdziwy ptak z bliska: sześć osiem twardych, rozłącznych uderzeń jeden po drugim (60–180 ms), potem łokizna powietrza — to jest ten charakter, którego szukaliśmy",
+          "source": {
+            "title": "Pigeon, Flies Away, Flapping Wings (Freesound)",
+            "author": "Kinoton",
+            "license": "CC0 / Public Domain (wg scouta)",
+            "url": "https://freesound.org/people/Kinoton/sounds/689998/",
+            "channel": "sample-scout (freesound, preview); manifest: freesound_pigeon-wings",
+            "notes": "okno 0,85–2,75 s + ogon 2,75–4,4 s (-34 dB); HP 60; -19 dB peak; id 689998"
+          },
+          "entry": {
+            "duration_sec": 3.8,
+            "level_ref_db": -18,
+            "loopable": false,
+            "semantics": {
+              "type": "łuk-wytrzymały",
+              "traits": [
+                "odlot",
+                "skrzydła",
+                "uderzenia",
+                "ptak"
+              ],
+              "bad_for": [
+                "stacjonarny dron",
+                "ciężki merszenek"
+              ]
+            },
+            "id": "wingburst_takeoff_01",
+            "setting": "skrzydlaty odlot — gwałtowna seria uderzeń",
+            "desc": "prawdziwy odlot ptaka: rozłączne mocne łuncanie skrzydeł podnoszące cię ciało w powietrze",
+            "file": "audio/library/heroes/wingburst_takeoff_01.mp3",
+            "source": {
+              "title": "Pigeon, Flies Away, Flapping Wings (Freesound)",
+              "author": "Kinoton",
+              "license": "CC0 / Public Domain (wg scouta)",
+              "url": "https://freesound.org/people/Kinoton/sounds/689998/",
+              "channel": "sample-scout (freesound, preview); manifest: freesound_pigeon-wings",
+              "notes": "okno 0,85–2,75 s + ogon -34 dB; HP 60; id 689998"
+            }
+          }
+        },
+        {
+          "label": "ł.2",
+          "title": "pompa startowa — kłusowate łupanie z ziemi jak roztargniona",
+          "file": "candidates/l2_pompa_startowa.mp3",
+          "desc": "inny wzięcie, gęstsze pompowanie: burza 30+ rozłącznych uderzeń w 2 s — ciało skrzydłowe z zażenowaniem wyrzuca ptaka w góry; zero materiału, żadne trzepanie dywanu",
+          "source": {
+            "title": "Pigeons_Marseille_1 (Freesound)",
+            "author": "nicotep",
+            "license": "CC0 / Public Domain (wg scouta)",
+            "url": "https://freesound.org/people/nicotep/sounds/741562/",
+            "channel": "sample-scout (freesound, preview); manifest: freesound_pigeon-wings",
+            "notes": "okno 59,75–62,0 s; HP 60; -19 dB peak; id 741562"
+          },
+          "entry": {
+            "duration_sec": 3.8,
+            "level_ref_db": -18,
+            "loopable": false,
+            "semantics": {
+              "type": "łuk-wytrzymały",
+              "traits": [
+                "odlot",
+                "skrzydła",
+                "uderzenia",
+                "ptak"
+              ],
+              "bad_for": [
+                "stacjonarny dron",
+                "ciężki merszenek"
+              ]
+            },
+            "id": "wingburst_pump_01",
+            "setting": "skrzydlaty start — szybka pompa uderzeń",
+            "desc": "gwałtowne kłusowate pociskanie — pełne skrzydła biją tempo",
+            "file": "audio/library/heroes/wingburst_pump_01.mp3",
+            "source": {
+              "title": "Pigeons_Marseille_1 (Freesound)",
+              "author": "nicotep",
+              "license": "CC0 / Public Domain (wg scouta)",
+              "url": "https://freesound.org/people/nicotep/sounds/741562/",
+              "channel": "sample-scout (freesound, preview); manifest: freesound_pigeon-wings",
+              "notes": "okno 59,75–62,0 s; HP 60; id 741562"
+            }
+          }
+        },
+        {
+          "label": "ł.3",
+          "title": "łup-łup — dwa ciężkie podskoki i już go nie ma",
+          "file": "candidates/l3_lup_lup.mp3",
+          "desc": "dwa krótkie, tęteżne pęki jeden po drugim (realny park, duży ptak): uderzenie, oddech, uderzenie — skrzydła postawione jak razy mocarza, całkiem faktycznie nagrane",
+          "source": {
+            "title": "pigeons_jardinHopitalSaintLouis_Paris (Freesound)",
+            "author": "nicotep",
+            "license": "CC0 / Public Domain (wg scouta)",
+            "url": "https://freesound.org/people/nicotep/sounds/843933/",
+            "channel": "sample-scout (freesound, preview); manifest: freesound_pigeon-wings",
+            "notes": "pęki @104,55 s i 153,0 s; HP 60; -20/-20,5 dB; montaż 2 wzięć; id 843933"
+          },
+          "entry": {
+            "duration_sec": 3.8,
+            "level_ref_db": -18,
+            "loopable": false,
+            "semantics": {
+              "type": "łuk-wytrzymały",
+              "traits": [
+                "odlot",
+                "skrzydła",
+                "uderzenia",
+                "ptak"
+              ],
+              "bad_for": [
+                "stacjonarny dron",
+                "ciężki merszenek"
+              ]
+            },
+            "id": "wingburst_twohop_01",
+            "setting": "skrzydlata ucieczka — dwa ciężkie poruszki",
+            "desc": "dwa silne odruchowe poruszki skrzydła z oddechem pośrodku",
+            "file": "audio/library/heroes/wingburst_twohop_01.mp3",
+            "source": {
+              "title": "pigeons_jardinHopitalSaintLouis_Paris (Freesound)",
+              "author": "nicotep",
+              "license": "CC0 / Public Domain (wg scouta)",
+              "url": "https://freesound.org/people/nicotep/sounds/843933/",
+              "channel": "sample-scout (freesound, preview); manifest: freesound_pigeon-wings",
+              "notes": "pęki @104,55 s i 153,0 s; HP 60; id 843933"
+            }
+          }
+        },
+        {
+          "label": "ł.1c",
+          "title": "wstrzask odlotu (cięty) — bez strzału na końcu 3. sekundy",
+          "file": "candidates/l1_wstrzask_odlotu_ciecie.mp3",
+          "desc": "ł.1 bez wzmocnionego ogona, w którym siedział ukryty ostry trzask (-70 dB w źródle, po normie eksplodował do 0,66 peak): teraz sam odlot gołębia 0,60–2,65 s ze spokojnym naturalnym zanibem",
+          "source": {
+            "title": "Pigeon, Flies Away, Flapping Wings (Freesound)",
+            "author": "Kinoton",
+            "license": "CC0 / Public Domain (wg scouta)",
+            "url": "https://freesound.org/people/Kinoton/sounds/689998/",
+            "channel": "sample-scout; manifest: freesound_pigeon-wings",
+            "notes": "okno 0,60–2,65 s; HP 60; -19 dB peak; id 689998"
+          },
+          "entry": {
+            "id": "wingburst_takeoff_01",
+            "duration_sec": 2.1,
+            "level_ref_db": -18,
+            "loopable": false,
+            "setting": "skrzydlaty odlot — gwałtowna seria uderzeń małego ptaka",
+            "desc": "prawdziwy odlot małego ptaka z bliska: sześć-osiem twardych, rozłącznych uderzeń jedno po drugim, naturalny zanik — wersja bez ukrytego trzasku z ogona",
+            "semantics": {
+              "type": "trzepot-drobnych-skrzydel",
+              "traits": [
+                "mały ptak",
+                "traepot",
+                "odlot",
+                "rozłączny",
+                "gwałtowny"
+              ],
+              "bad_for": [
+                "smok",
+                "duże płóci",
+                "stacjonarny dron"
+              ]
+            },
+            "file": "audio/library/heroes/wingburst_takeoff_01.mp3",
+            "source": {
+              "title": "Pigeon, Flies Away, Flapping Wings (Freesound)",
+              "author": "Kinoton",
+              "license": "CC0 / Public Domain (wg scouta)",
+              "url": "https://freesound.org/people/Kinoton/sounds/689998/",
+              "channel": "sample-scout; manifest: freesound_pigeon-wings",
+              "notes": "okno 0,60–2,65 s (bez ogona z ukrytym trzaskiem); HP 60; -19 dB peak; id 689998"
+            },
+            "role": "łopot małego ptaka w gwałtownym starcie",
+            "character": "gwałtowny, rozłączny, żywy",
+            "distance": "bliski",
+            "energy": "wysoka",
+            "good_for": "start małego ptaka, skrzydlata istota odchodzi, życie wokół",
+            "bad_for": "smok, drak, wielkie skrzydła, stacjonarny dron"
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "hero-lopot": "ł.1c",
+    "notes": {
+      "hero-lopot": "Właściciel: „ł.1 jako łopot skrzydeł małego ptaka jest ok, tylko pod koniec trzeciej sekundy jest strzał ze strzelby, trzeba go wyciąć”, po cięciu: „ł.1c – super”. Wersja ł.1c (łuk 0,60–2,65 s źródła 689998, bez wzmocnionego ogona z ukrytym trzaskiem -70 dB) przyjęta jako heroes/wingburst_takeoff_01. Lekcja: zwiniedowanewymykanowe ogonów field-nagrań przy dużym gainie — ukryte ostrzę piki eksplodują po normie.",
+      "tlo-bitwa-zgielk": "Łańcuch werdyktów: „brakuje szczęku oręża (delikatne uderzenia metalu o metal w losowych miejscach)” → v2: „jak uderzanie w kocioł” → v3 (paleta atomcut sword-clash, ring 2–6 kHz): „szczęk stali jest idealny, ale dałbym go ciut ciszej i częściej” → v4 (-42 ±1 dB, 8 starć co ~0,95 s z rotacją clash-1…10): „zg.3v4 IDEALNY”. Przyjęte jako tło tlo-bitwa-zgielk (backgrounds). Lekcja: prawdziwe starcia mieczy (24–37% energii w 2–6 kHz, ~0% <300 Hz) biją generic-metal; filtr HP 220 bez LP na górze; delikatny = cichy, nie przyciemniony.",
+      "zg.2": "odrzucony brakiem wyboru (właściciel wskazał wyłącznie zg.1 i zg.3).",
+      "zg.1v3": "wycofany po werdykcie „zg.3v4 IDEALNY” — wersja v4 odrzuczona brakiem wyboru.",
+      "zg.1v4": "odrzucony brakiem wyboru (właściciel wskazał zg.3v4 jako IDEALNY).",
+      "zg.3v4": "właściciel: „zg.3v4 IDEALNY”."
+    },
+    "tlo-bitwa-zgielk": "zg.3v4"
+  }
+}

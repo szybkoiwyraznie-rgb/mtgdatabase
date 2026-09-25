@@ -1,0 +1,529 @@
+{
+  "id": "g025",
+  "created": "2026-09-24",
+  "story_id": "110",
+  "note": "Fabuła 110 z losowania sesji (ziarno 20260924; resolver: 3 typy bez klocka z 4 warstw). Instrumentacja `jasno-swietlista` obsadzona b_piano_steinway. Kandydaci tła: dudnienie oddalone (Freesound), wrzawa walczących przyciemniona, montaż stali i okrzyków (atomcut, technika g007). Hero: łopoty zwolnione 3-4 półtony (metryka g007: prawdziwe nagranie + właściwa technika). Kody: trzy autorskie gesty łaski na siatce steinwaya.",
+  "entries": [
+    {
+      "slug": "tlo-bitwa-zgielk",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `bitwa-zgielk` (15 fabuł; slot d fabuły 110)",
+      "candidates": [
+        {
+          "label": "zg.1",
+          "title": "dudnienie oblężnicze w oddali",
+          "file": "candidates/zg1_odlegle_dudnienie.mp3",
+          "desc": "samo głębokie dudnienie zza burz piasku — 63% energii < 250 Hz, równa masa bez pierwszoplanowych krzyków; cichnąca bitwa słyszana z dala",
+          "source": {
+            "title": "Fireworks/ Warzone 3 (Freesound)",
+            "author": "NearTheAtmoshphere",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/NearTheAtmoshphere/sounds/694371/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: battle/freesound_battle-ambience",
+            "notes": "okno 6–14 s; filtr dolnoprzepustowy 900 Hz; poziom -32 dB; freesound id 694371"
+          },
+          "entry": {
+            "id": "battle_distant_01",
+            "setting": "pole bitwy / oblężenie — oddalenie",
+            "desc": "głębokie dudnienie dalekiej bitwy: masa niskich częstotliwości, brak bliskich zdarzeń — zgiełk słyszany jak przez kurz zmierzchu",
+            "file": "audio/library/backgrounds/battle_distant_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "bitwa-zgielk",
+              "traits": [
+                "bitwa",
+                "zgiełk",
+                "oddalona",
+                "dudnienie"
+              ],
+              "bad_for": [
+                "spokojna komnata",
+                "sielanka",
+                "kameralna scena"
+              ]
+            },
+            "source": {
+              "title": "Fireworks/ Warzone 3 (Freesound)",
+              "author": "NearTheAtmoshphere",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/NearTheAtmoshphere/sounds/694371/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: battle/freesound_battle-ambience",
+              "notes": "okno 6–14 s; LP 900 Hz; -32 dB; freesound id 694371"
+            }
+          }
+        },
+        {
+          "label": "zg.2",
+          "title": "wrzawa walczących jak przez mgłę",
+          "file": "candidates/zg2_krzyki_w_oddali.mp3",
+          "desc": "ludzkie krzyki boju zamienione w oddaloną fakturę (filtr 800 Hz — słów nie da się rozpoznać) nad równym dudnieniem; ludzie + masa starcia",
+          "source": {
+            "title": "R29-39-Chinese Screams in Battle.wav (Freesound)",
+            "author": "craigsmith",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/craigsmith/sounds/479582/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: battle/freesound_battle-ambience",
+            "notes": "okno 8–16 s, LP 800 Hz (-36 dB) + warzone-3 20–28 s LP (-33 dB); freesound id 479582"
+          },
+          "entry": {
+            "id": "battle_distant_02",
+            "setting": "pole bitwy / oblężenie — oddalona wrzawa",
+            "desc": "daleka wrzawa wielu walczących nad niskim dudnieniem — ludzki zgiełk już po szczycie starcia, jak za zasłoną kurzu",
+            "file": "audio/library/backgrounds/battle_distant_02.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "bitwa-zgielk",
+              "traits": [
+                "bitwa",
+                "zgiełk",
+                "krzyki",
+                "oddalona",
+                "wrzawa"
+              ],
+              "bad_for": [
+                "spokojna komnata",
+                "sielanka",
+                "kameralna scena"
+              ]
+            },
+            "source": {
+              "title": "R29-39-Chinese Screams in Battle.wav (Freesound)",
+              "author": "craigsmith",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/craigsmith/sounds/479582/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: battle/freesound_battle-ambience",
+              "notes": "screams LP 800 Hz -36 dB + warzone-3 LP -33 dB; freesound id 479582"
+            }
+          }
+        },
+        {
+          "label": "zg.3",
+          "title": "zmontowane \"echo starcia\": stal, okrzyki, dudnienie",
+          "file": "candidates/zg3_montaz_pole_bitwy.mp3",
+          "desc": "konstrukcja z realnych sampli CC0: trzy dalekie szczęki broni, dwa okrzyki obniżone o 5 półtonów (filmowa technika pitch-down), podkład niskiego dudnienia — pełny obraz wygasającej bitwy",
+          "source": "atomcut CC0 (20 sword SFX; male-gruntyelling haeldb) + Freesound 694371; okrzyki -5 półtonów (resample), wszystkie warstwy LP 700-900 Hz",
+          "entry": {
+            "id": "battle_distant_03",
+            "setting": "pole bitwy / oblężenie — wygasające starcie",
+            "desc": "zmontowany zgiełk dalekiej bitwy: rzadkie szczęki stali, obniżone okrzyki wojenne, niski gwar — bitwa, która już cichnie",
+            "file": "audio/library/backgrounds/battle_distant_03.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "bitwa-zgielk",
+              "traits": [
+                "bitwa",
+                "zgiełk",
+                "szczęk broni",
+                "okrzyki",
+                "wygasająca"
+              ],
+              "bad_for": [
+                "spokojna komnata",
+                "sielanka",
+                "kameralna scena"
+              ]
+            },
+            "source": {
+              "title": "montaż: atomcut (CC0) + Freesound 694371 (CC0)",
+              "author": "Various (OGA) / BenjaminNelan (Freesound)",
+              "license": "CC0 1.0",
+              "url": "https://opengameart.org/ (packs 20 sword SFX; male gruntyelling)",
+              "channel": "git sparse-checkout atomcut + sample-scout; skrypt build_gate_g025.py",
+              "notes": "okrzyki -5 półtonów to_roar; LP 700-900 Hz warstwy"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hero-lopot",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `lopot-skrzydel` (18 fabuł; slot c fabuły 110)",
+      "candidates": [
+        {
+          "label": "ł.1",
+          "title": "trzy pełne zamachy — spokojne opadanie",
+          "file": "candidates/l1_flapwings_trojka.mp3",
+          "desc": "naturalna sekwencja trzech zamachów dużego ptaka, zwolniona o 3 półtony — miękki, głęboki łopot bez ostrości; jak opadanie z wysokości na polanę",
+          "source": {
+            "title": "FlapWings.aif (Freesound)",
+            "author": "framixo",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/framixo/sounds/463381/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: wings/freesound_wings-flapping",
+            "notes": "okno 40,0–46,8 s; -3 półtony (resample); LP 3200 Hz; freesound id 463381"
+          },
+          "entry": {
+            "id": "wing_flap_01",
+            "role": "łopot wielkich skrzydeł — zstąpienie",
+            "character": "miękki, głęboki, oddechowy",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 5.5,
+            "desc": "trzy pełne zamachy wielkich skrzydeł — miękka moc, spokojny rytm zstępowania",
+            "good_for": "zstąpienie istoty skrzydlatej, anioł, duży ptak, miękkie lądowanie",
+            "bad_for": "rozpacz, agresja, ptasi trzepot, małe skrzydła",
+            "file": "audio/library/heroes/wing_flap_01.mp3",
+            "semantics": {
+              "type": "lopot-skrzydel",
+              "traits": [
+                "łopot",
+                "wielkie skrzydła",
+                "miękki",
+                "zstąpienie"
+              ],
+              "bad_for": [
+                "trzepot",
+                "pisk",
+                "agresja"
+              ]
+            },
+            "source": {
+              "title": "FlapWings.aif (Freesound)",
+              "author": "framixo",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/framixo/sounds/463381/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: wings/freesound_wings-flapping",
+              "notes": "okno 40,0–46,8 s; -3 półtony; LP 3200 Hz; -18 dB; freesound id 463381"
+            }
+          }
+        },
+        {
+          "label": "ł.2",
+          "title": "ciężkie, szerokie zamachy — jak dwa trzepnięcia płócien",
+          "file": "candidates/l2_ciezkie_zamachy.mp3",
+          "desc": "najmocniejsze zamachy z nagrania terenowego, obniżone o 4 półtony — słychać masę powietrza spychana w dół; bardziej „chorągiew na wietrze” niż skrzydło wróbla",
+          "source": {
+            "title": "Bird wing flaps and leaves rustling close nature (Freesound)",
+            "author": "Matteo_Fusi",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/Matteo_Fusi/sounds/843855/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: wings/freesound_wings-flapping",
+            "notes": "okno 42,8–52,0 s; -4 półtony; LP 2600 Hz; freesound id 843855"
+          },
+          "entry": {
+            "id": "wing_flap_02",
+            "role": "łopot wielkich skrzydeł — ciężki zamach",
+            "character": "ciężki, szeroki, płócienny",
+            "distance": "bliski",
+            "energy": "średnio-wysoka",
+            "duration_sec": 9.2,
+            "desc": "ciężkie zamachy wielkich skrzydeł — spychana masa powietrza, szeroki dół",
+            "good_for": "duże skrzydła przy lądowaniu, anioł niosący ciężar obecności",
+            "bad_for": "trzepot owada, pisk, szybkie trzepotanie",
+            "file": "audio/library/heroes/wing_flap_02.mp3",
+            "semantics": {
+              "type": "lopot-skrzydel",
+              "traits": [
+                "łopot",
+                "wielkie skrzydła",
+                "ciężki",
+                "szeroki"
+              ],
+              "bad_for": [
+                "trzepot",
+                "lekkie skrzydła",
+                "szum całkowity"
+              ]
+            },
+            "source": {
+              "title": "Bird wing flaps and leaves rustling close nature (Freesound)",
+              "author": "Matteo_Fusi",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/Matteo_Fusi/sounds/843855/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: wings/freesound_wings-flapping",
+              "notes": "okno 42,8–52,0 s; -4 półtony; LP 2600 Hz; -18 dB; freesound id 843855"
+            }
+          }
+        },
+        {
+          "label": "ł.3",
+          "title": "zstąpienie z postojem — dwa zamachy i zawieszenie",
+          "file": "candidates/l3_montaz_zstapienie.mp3",
+          "desc": "aranżacja z dwóch nagrań jednego źródła (Clusman): zamach, zamach, potem dłuższe trzymanie powietrza — jak zwolnienie nad żołnierzem i nieruchome Trzymanie go w powietrzu",
+          "source": {
+            "title": "bird_flapping_1.wav (Freesound)",
+            "author": "Clusman",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/Clusman/sounds/543110/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: wings/freesound_wings-flapping",
+            "notes": "łączone z id 543117; -4/-5 półtonów; LP 2800 Hz; montaż 3 zdarzeń; freesound id 543110"
+          },
+          "entry": {
+            "id": "wing_flap_03",
+            "role": "łopot wielkich skrzydeł — zstąpienie z postojem",
+            "character": "skupiony, zwolniały, zawieszony",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 4.6,
+            "desc": "dwa zamachy i zwolnione trzymanie skrzydeł — obecność, która zatrzymuje się dokładnie nad człowiekiem",
+            "good_for": "zstąpienie i uniesienie, objawienie, opiekuńcza obecność",
+            "bad_for": "panika, tętent, agresja",
+            "file": "audio/library/heroes/wing_flap_03.mp3",
+            "semantics": {
+              "type": "lopot-skrzydel",
+              "traits": [
+                "łopot",
+                "wielkie skrzydła",
+                "zawieszenie",
+                "zstąpienie"
+              ],
+              "bad_for": [
+                "trzepot",
+                "pisk",
+                "agresja"
+              ]
+            },
+            "source": {
+              "title": "bird_flapping_1.wav (Freesound)",
+              "author": "Clusman",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/Clusman/sounds/543110/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: wings/freesound_wings-flapping",
+              "notes": "montaż id 543110 + 543117; -4/-5 półtonów; LP 2800 Hz; freesound id 543110"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-nadzieja",
+      "kind": "gestures",
+      "role": "jedyny klocek typu kody `nadzieja-ukojenie` (22 fabuły; slot a fabuły 110)",
+      "candidates": [
+        {
+          "label": "n.1",
+          "title": "ciepłe przyjęcie i uniesienie ku światłu",
+          "file": "candidates/g9a_grace_lift.mp3",
+          "desc": "niski ciepły dwudźwięk przyjmuje żołnierza, melodia wstępuje o krok i zostaje na górze — jak dłoń, która podnosi i trzyma",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g9a_grace_lift",
+            "semantic": "nadzieja — ciepłe przyjęcie i uniesienie ku światłu",
+            "desc": "niski ciepły dwudźwięk przyjmuje żołnierza, melodia wstępuje o krok i zostaje na górze — jak dłoń, która podnosi i trzyma",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 1.1,
+                "vel": 0.36
+              },
+              {
+                "midi": 64,
+                "on": 0.0,
+                "off": 1.1,
+                "vel": 0.34
+              },
+              {
+                "midi": 74,
+                "on": 0.65,
+                "off": 1.3,
+                "vel": 0.44
+              },
+              {
+                "midi": 76,
+                "on": 1.15,
+                "off": 2.6,
+                "vel": 0.48
+              },
+              {
+                "midi": 68,
+                "on": 1.15,
+                "off": 2.6,
+                "vel": 0.38
+              },
+              {
+                "midi": 56,
+                "on": 1.15,
+                "off": 2.6,
+                "vel": 0.34
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "warm-keys"
+            ],
+            "semantics": {
+              "type": "nadzieja-ukojenie",
+              "traits": [
+                "podniosła",
+                "ciepła",
+                "koiąca",
+                "łaskawa"
+              ],
+              "bad_for": [
+                "groza",
+                "przygnębienie",
+                "ironia",
+                "zniekształcenie"
+              ]
+            }
+          }
+        },
+        {
+          "label": "n.2",
+          "title": "wytrwałość nagrodzona rozkwitaniem",
+          "file": "candidates/g9b_steadfast_bloom.mp3",
+          "desc": "trzy ciche, równe uderzenia tej samej nuty — stanie mimo wszystko — a potem jasny dwudźwięk rozpala się nad nimi jak nagroda",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g9b_steadfast_bloom",
+            "semantic": "nadzieja — wytrwałość nagrodzona rozkwitaniem",
+            "desc": "trzy ciche, równe uderzenia tej samej nuty — stanie mimo wszystko — a potem jasny dwudźwięk rozpala się nad nimi jak nagroda",
+            "notes": [
+              {
+                "midi": 64,
+                "on": 0.0,
+                "off": 0.4,
+                "vel": 0.4
+              },
+              {
+                "midi": 64,
+                "on": 0.55,
+                "off": 0.95,
+                "vel": 0.4
+              },
+              {
+                "midi": 64,
+                "on": 1.1,
+                "off": 1.5,
+                "vel": 0.42
+              },
+              {
+                "midi": 72,
+                "on": 1.7,
+                "off": 2.6,
+                "vel": 0.46
+              },
+              {
+                "midi": 76,
+                "on": 1.7,
+                "off": 2.6,
+                "vel": 0.42
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "warm-keys"
+            ],
+            "semantics": {
+              "type": "nadzieja-ukojenie",
+              "traits": [
+                "podniosła",
+                "ciepła",
+                "koiąca",
+                "łaskawa"
+              ],
+              "bad_for": [
+                "groza",
+                "przygnębienie",
+                "ironia",
+                "zniekształcenie"
+              ]
+            }
+          }
+        },
+        {
+          "label": "n.3",
+          "title": "łaska, która zstępuje i zostaje",
+          "file": "candidates/g9c_blessing_descend.mp3",
+          "desc": "figura schodzi miękkimi skokami z góry — Gis-E-C — i zatrzymuje się w ciepłym dolnym dwudźwięku; niebo samo schodzi do człowieka",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g9c_blessing_descend",
+            "semantic": "nadzieja — łaska, która zstępuje i zostaje",
+            "desc": "figura schodzi miękkimi skokami z góry — Gis-E-C — i zatrzymuje się w ciepłym dolnym dwudźwięku; niebo samo schodzi do człowieka",
+            "notes": [
+              {
+                "midi": 80,
+                "on": 0.0,
+                "off": 0.45,
+                "vel": 0.42
+              },
+              {
+                "midi": 76,
+                "on": 0.4,
+                "off": 0.85,
+                "vel": 0.42
+              },
+              {
+                "midi": 72,
+                "on": 0.8,
+                "off": 1.35,
+                "vel": 0.44
+              },
+              {
+                "midi": 60,
+                "on": 1.3,
+                "off": 2.6,
+                "vel": 0.38
+              },
+              {
+                "midi": 64,
+                "on": 1.3,
+                "off": 2.6,
+                "vel": 0.36
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "warm-keys"
+            ],
+            "semantics": {
+              "type": "nadzieja-ukojenie",
+              "traits": [
+                "podniosła",
+                "ciepła",
+                "koiąca",
+                "łaskawa"
+              ],
+              "bad_for": [
+                "groza",
+                "przygnębienie",
+                "ironia",
+                "zniekształcenie"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "tlo-bitwa-zgielk": "żaden",
+    "hero-lopot": "żaden",
+    "koda-nadzieja": "żadna",
+    "notes": {
+      "tlo-bitwa-zgielk": "Właściciel: „to wszystko są bitwy współczesne, z odgłosami wystrzałów, a chodzi zgiełk bitwy fantasy/średniowiecznej — szczęk oręża, krzyki rannych, żaden z kandydatów tego nie ma”. Diagnoza: fajerwerkowe dudnienie = proch, błędna epoka. Runda 2: WYŁĄCZNIE stal+ludzie, zero wybuchów (atomcut CC0: miecze/młoty + okrzyki i jęki ranion).",
+      "hero-lopot": "Właściciel: „potrzeba łopotu skrzydeł, wyraźnych odbić, a tutaj jest albo jakiś nieokreślony szum (ł.1), albo trele ptaka (ł.2), albo coś co przypomina łopot, ale jest tylko jedno i przechodzi w grzmot (ł.3)”. Diagnoza: spowolnienie rozmazało odbicia; terenowe śpiewy ptaków w tle. Runda 2: wyraźne odbicia foley, mniej lub zero pitch-down, HP przeciw grzmotowi, 3–5 czytelnych uderzeń.",
+      "koda-nadzieja": "Właściciel: „wszystkie są molowe, a nadzieja to składowe akordu durowego IMO”. Diagnoza: brak durowego składu. Runda 2: durowe arpeggia/lydyjskie rozświetlenia na siatce steinwaya (C-E / C-aug / D-F#), finał jasny."
+    }
+  }
+}

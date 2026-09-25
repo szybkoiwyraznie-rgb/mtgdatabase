@@ -68,20 +68,20 @@
     },
     "35": {
       "hero": {
-        "typ": "trzepot-drobnych-skrzydel",
-        "powod": "trzepot owadzich skrzydeł wróżki"
+        "typ": "brzeczenie-roju",
+        "powod": "wróżka-łotrzyca trzepocze owadzimi skrzydłami W MIEJSCU nad otwartym grobem — brzęk owadzich skrzydeł, nie gwałtowny zryw gołębia (właściciel: „wróżki nie zrywają się do lotu jak stado gołębi”)"
       }
     },
     "86": {
       "hero": {
-        "typ": "trzepot-drobnych-skrzydel",
-        "powod": "trzepot małych skrzydełek"
+        "typ": "swist-lotu",
+        "powod": "moogle („rozpostarte w locie” nietoperzowe skrzydła) SZYBUJE i unosi — podniebny świst lotu, nie hałaśliwy zryw z ziemi"
       }
     },
     "114": {
       "hero": {
-        "typ": "trzepot-drobnych-skrzydel",
-        "powod": "niezdarny trzepot małego chochlika"
+        "typ": "swist-lotu",
+        "powod": "mały imp z rozpiętymi nietoperzymi skrzydłami uchwycony W PÓŁRUCHU lotu — podniebny świst, nie gwałtowny skoł z ziemi (właściciel: do impa zdecydowanie nie pasuje pęk)"
       }
     },
     "126": {
@@ -92,8 +92,8 @@
     },
     "98": {
       "hero": {
-        "typ": "trzepot-drobnych-skrzydel",
-        "powod": "wirowanie chmary motyli"
+        "typ": "brzeczenie-roju",
+        "powod": "chmara świetlistych motyli wiruje przed pyskiem wampira — dźwięk ROJU w miejscu, nie zryw ptaka"
       }
     },
     "304": {
@@ -292,8 +292,8 @@
     },
     "110": {
       "hero": {
-        "typ": "lopot-skrzydel",
-        "powod": "szum skrzydeł ze światła — to skrzydła, nie aura (rozbija kolizję z 558)"
+        "typ": "rozblysk-swiatla",
+        "powod": "skrzydła anioła Serry są z czystego światła — anielska aura jasna, nie fruwająca zwierzyna; blok heroes/wingburst_takeoff_01 (trzepot-drobnych-skrzydel) wg właściciela = wyłącznie małe ptaki (gołębie i mniejsze), nie orły/avensy/draki/smoki/anioły; kolizja ze 558 nie występuje (tam aura-lagodna); kombinacja unikalna"
       }
     },
     "190": {
@@ -856,6 +856,12 @@
       "hero": {
         "typ": "weszenie",
         "powod": "werdykt właściciela g020: hero to węszenie ogara, nie uderzenie wody (kapiące ciało zmyliło wzorce)"
+      }
+    },
+    "467": {
+      "hero": {
+        "typ": "trzepot-drobnych-skrzydel",
+        "powod": "ogromne stada górskich ptaków na dachach klasztoru — zryw ptasiej chmary przy ataku = dokładnie charakter zatwierdzonego bloku (właściciel: „ewentualnie do karty Monastery Flock”)"
       }
     }
   }

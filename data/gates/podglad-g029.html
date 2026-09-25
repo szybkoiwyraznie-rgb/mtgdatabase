@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bramka g029 — system sygnatur</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: ui-sans-serif, system-ui, sans-serif; background:#111418; color:#e6e9ee; margin:0 auto; max-width:880px; padding:24px 16px 120px; line-height:1.5; }
+  h1 { font-size:1.35rem; } h2 { font-size:1.15rem; margin-top:2.2em; border-top:1px solid #2a2f38; padding-top:1.2em;}
+  h3 { font-size:0.95rem; text-transform:uppercase; letter-spacing:.08em; color:#9fb3c8; margin:1.6em 0 .4em; }
+  .story { font-size:.9rem; color:#b8c2cc; }
+  .role { font-size:.9rem; color:#8bd3a8; margin:0 0 .6em; }
+  .cand { display:flex; align-items:center; gap:12px; background:#181c22; border:1px solid #262c36; border-radius:10px; padding:10px 14px; margin:.5em 0; }
+  .cand .lab { font-weight:700; font-size:1.05rem; min-width:2.6em; color:#f2c66d; }
+  .cand .meta { flex:1; min-width:0; }
+  .cand .name { font-weight:600; font-size:.95rem; }
+  .cand .desc { font-size:.82rem; color:#aeb9c4; }
+  .cand .src { font-size:.72rem; color:#6c7a89; margin-top:2px; }
+  audio { width:230px; height:36px; }
+  .howto { background:#1a2230; border:1px solid #2c3a4f; border-radius:10px; padding:12px 16px; font-size:.9rem; }
+  code { background:#0d1014; padding:1px 6px; border-radius:6px; color:#f2c66d; }
+</style></head><body>
+<h1>Bramka odsłuchowa <b>g029</b></h1>
+<div class="howto">Dla każdego wpisu wybierz <b>dokładnie jednego</b> kandydata albo wszystkich odrzuć.
+Tylko wybrany trafia do bazy; pozostali zostają w archiwum bramki.
+Odpowiedź napisz w czacie agenta, np.:<br><br>
+<code>jezioro: j.2 · krzyki-nurka: n.żaden-za-ostry · grandpiano: p.1</code><br><br>
+Po „żaden" dopisz jedno słowo dlaczego (<code>za cichy</code>, <code>zły klimat</code>) — poprawi drugą rundę kandydatów.</div>
+<h2>Wpis do bazy: <code>tlo-bitwa-zgielk</code> · baza backgrounds</h2>
+<p class="role">rola: jedyny klocek typu tła `zgryw-bitwa` (slot d fabuły 110; ~14 fabuł z tej rodziny)</p>
+<div class="cand"><div class="lab">zg.1</div><div class="meta"><div class="name">szarża — tłum nabiera tempa i wyje w jednym oddechu</div><div class="desc">prawdziwa nagrana szarża (ambisoniczne FUMA): masa jedzie, warkot rośnie, bez słów i bez prochu; sama organiczna fala pola — nic nie jest pętlą</div><div class="src">CRWDBatl_Battle Charge, No Words_ShaneVincent_GSC24_FUMA-AmbeoVR.wav (Freesound) · CC0 / Public Domain (wg scouta) · sample-scout (freesound, preview); manifest: freesound_battle</div></div><audio controls preload="none" src="g029/candidates/zg1_szarza.mp3"></audio></div>
+<div class="cand"><div class="lab">zg.2</div><div class="meta"><div class="name">mieszanka frontu — krzyki i brzęki bitwy z prawdziwej taśmy</div><div class="desc">nieudawana mieszanina: nagrane na set krzyki i brzęki broni, szum walki oddycha falami (taśma archiwalna 44 s) — brzmi jak pole, bo to pole</div><div class="src">R29-39-Chinese Screams in Battle.wav (Freesound) · CC0 / Public Domain (wg scouta) · sample-scout (freesound, preview); manifest: freesound_battle-screams</div></div><audio controls preload="none" src="g029/candidates/zg2_mieszanka_frontu.mp3"></audio></div>
+<div class="cand"><div class="lab">zg.3</div><div class="meta"><div class="name">przełamanie — agonia tego, że idzie się i nie wraca</div><div class="desc">ludzie krzyczą w agonii w biegu do przodu — bardzo silne, niebenszone krzyki prawdziwych gardeł nagrane raz i na serio; dramat i popęd bez żadnej uporządkowanej sceny</div><div class="src">People screaming in agony when charging into battle (Freesound) · CC0 / Public Domain (wg scouta) · sample-scout (freesound, preview); manifest: freesound_battle-screams</div></div><audio controls preload="none" src="g029/candidates/zg3_przełamanie.mp3"></audio></div>
+<div class="cand"><div class="lab">zg.1v4</div><div class="meta"><div class="name">szarża + stal jasna (v4) — ciszej i częściej</div><div class="desc">dostrojenie werdyktu właściciela („szczęk idealny, ciut ciszej i częściej”): 9 starć mieczy co ~0,9 s, -42 ±1 dB; ring 2–6 kHz, zero niskiego brzęku; rotacja wszystkich 10 clash-i</div><div class="src">20 sword sound effects — attacks &amp; clashes (OpenGameArt/CC0) · CC0 1.0 · git sparse-checkout /tmp/atomcut; skrypt build_gate_g029_fix4.py</div></div><audio controls preload="none" src="g029/candidates/zg1_szarza_stal4.mp3"></audio></div>
+<div class="cand"><div class="lab">zg.3v4</div><div class="meta"><div class="name">przełamanie + stal jasna (v4) — ciszej i częściej</div><div class="desc">ta sama strojenie na łóżku agonii: 8 starć co ~0,95 s, -42 ±1 dB; ring przebija krzyki, nie nadpisuje ich</div><div class="src">20 sword sound effects — attacks &amp; clashes (OpenGameArt/CC0) · CC0 1.0 · git sparse-checkout /tmp/atomcut; skrypt build_gate_g029_fix4.py</div></div><audio controls preload="none" src="g029/candidates/zg3_przełamanie_stal4.mp3"></audio></div>
+<h2>Wpis do bazy: <code>hero-lopot</code> · baza heroes</h2>
+<p class="role">rola: jedyny klocek typu hero `łuk-wytrzymały` (slot c fabuły 110)</p>
+<div class="cand"><div class="lab">ł.1</div><div class="meta"><div class="name">wstrzask odlotu — gołąb puszcza nogi i rwie w górę</div><div class="desc">prawdziwy ptak z bliska: sześć osiem twardych, rozłącznych uderzeń jeden po drugim (60–180 ms), potem łokizna powietrza — to jest ten charakter, którego szukaliśmy</div><div class="src">Pigeon, Flies Away, Flapping Wings (Freesound) · CC0 / Public Domain (wg scouta) · sample-scout (freesound, preview); manifest: freesound_pigeon-wings</div></div><audio controls preload="none" src="g029/candidates/l1_wstrzask_odlotu.mp3"></audio></div>
+<div class="cand"><div class="lab">ł.2</div><div class="meta"><div class="name">pompa startowa — kłusowate łupanie z ziemi jak roztargniona</div><div class="desc">inny wzięcie, gęstsze pompowanie: burza 30+ rozłącznych uderzeń w 2 s — ciało skrzydłowe z zażenowaniem wyrzuca ptaka w góry; zero materiału, żadne trzepanie dywanu</div><div class="src">Pigeons_Marseille_1 (Freesound) · CC0 / Public Domain (wg scouta) · sample-scout (freesound, preview); manifest: freesound_pigeon-wings</div></div><audio controls preload="none" src="g029/candidates/l2_pompa_startowa.mp3"></audio></div>
+<div class="cand"><div class="lab">ł.3</div><div class="meta"><div class="name">łup-łup — dwa ciężkie podskoki i już go nie ma</div><div class="desc">dwa krótkie, tęteżne pęki jeden po drugim (realny park, duży ptak): uderzenie, oddech, uderzenie — skrzydła postawione jak razy mocarza, całkiem faktycznie nagrane</div><div class="src">pigeons_jardinHopitalSaintLouis_Paris (Freesound) · CC0 / Public Domain (wg scouta) · sample-scout (freesound, preview); manifest: freesound_pigeon-wings</div></div><audio controls preload="none" src="g029/candidates/l3_lup_lup.mp3"></audio></div>
+<div class="cand"><div class="lab">ł.1c</div><div class="meta"><div class="name">wstrzask odlotu (cięty) — bez strzału na końcu 3. sekundy</div><div class="desc">ł.1 bez wzmocnionego ogona, w którym siedział ukryty ostry trzask (-70 dB w źródle, po normie eksplodował do 0,66 peak): teraz sam odlot gołębia 0,60–2,65 s ze spokojnym naturalnym zanibem</div><div class="src">Pigeon, Flies Away, Flapping Wings (Freesound) · CC0 / Public Domain (wg scouta) · sample-scout; manifest: freesound_pigeon-wings</div></div><audio controls preload="none" src="g029/candidates/l1_wstrzask_odlotu_ciecie.mp3"></audio></div>
+</body></html>

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bramka g027 + g028 — system sygnatur</title>
+<style>
+  :root { color-scheme: dark; }
+  body { font-family: ui-sans-serif, system-ui, sans-serif; background:#111418; color:#e6e9ee; margin:0 auto; max-width:880px; padding:24px 16px 120px; line-height:1.5; }
+  h1 { font-size:1.35rem; } h2 { font-size:1.15rem; margin-top:2.2em; border-top:1px solid #2a2f38; padding-top:1.2em;}
+  h3 { font-size:0.95rem; text-transform:uppercase; letter-spacing:.08em; color:#9fb3c8; margin:1.6em 0 .4em; }
+  .story { font-size:.9rem; color:#b8c2cc; }
+  .role { font-size:.9rem; color:#8bd3a8; margin:0 0 .6em; }
+  .cand { display:flex; align-items:center; gap:12px; background:#181c22; border:1px solid #262c36; border-radius:10px; padding:10px 14px; margin:.5em 0; }
+  .cand .lab { font-weight:700; font-size:1.05rem; min-width:2.6em; color:#f2c66d; }
+  .cand .meta { flex:1; min-width:0; }
+  .cand .name { font-weight:600; font-size:.95rem; }
+  .cand .desc { font-size:.82rem; color:#aeb9c4; }
+  .cand .src { font-size:.72rem; color:#6c7a89; margin-top:2px; }
+  audio { width:230px; height:36px; }
+  .howto { background:#1a2230; border:1px solid #2c3a4f; border-radius:10px; padding:12px 16px; font-size:.9rem; }
+  code { background:#0d1014; padding:1px 6px; border-radius:6px; color:#f2c66d; }
+</style></head><body>
+<h1>Bramka odsłuchowa <b>g027 + g028</b></h1>
+<div class="howto">Dla każdego wpisu wybierz <b>dokładnie jednego</b> kandydata albo wszystkich odrzuć.
+Tylko wybrany trafia do bazy; pozostali zostają w archiwum bramki.
+Odpowiedź napisz w czacie agenta, np.:<br><br>
+<code>jezioro: j.2 · krzyki-nurka: n.żaden-za-ostry · grandpiano: p.1</code><br><br>
+Po „żaden" dopisz jedno słowo dlaczego (<code>za cichy</code>, <code>zły klimat</code>) — poprawi drugą rundę kandydatów.</div>
+<h2 style="border-top:3px solid #2c3a4f">Bramka g027 — fabuła 110</h2>
+<p class="story">RUNDA 2 fabuły 110 po odrzuceniu g025 („żadne” ×3 z diagnozą właściciela). Bitwa: wyłącznie stal i ludzie z atomcut (CC0) — mediewalny zgiełk bez prochu; łopot: foley dużych skrzydeł (Freesound) z wyraźnymi odbiciami, bez pitch-down; nadzieja: gesty DUROWE (C-dur/lydyjski-D/powrót-C) na siatce steinwaya.</p>
+<h2>Wpis do bazy: <code>tlo-bitwa-zgielk</code> · baza backgrounds</h2>
+<p class="role">rola: jedyny klocek typu tła `bitwa-zgielk` (15 fabuł; slot d fabuły 110)</p>
+<div class="cand"><div class="lab">zg.1</div><div class="meta"><div class="name">front stali — szczęk oręża prowadzi</div><div class="desc">sześć zderzeń mieczy na pierwszym planie oddali, dwa wojenne okrzyki (−4 półtony), jeden jęk rannego i puste uderzenia tarcz; spód = gwar wielu ludzi, zero wybuchów — czysta średniowieczna bitwa</div><div class="src">atomcut-library — paczki OpenGameArt (CC0): 20 sword SFX, male-gruntyelling (haeldb), 15 vocal male strain/hurt (cc0), metal&amp;wood · CC0 1.0 · git sparse-checkout /tmp/atomcut; montaż skryptem build_gate_g027.py</div></div><audio controls preload="none" src="g027/candidates/zg1_front_stali.mp3"></audio></div>
+<div class="cand"><div class="lab">zg.2</div><div class="meta"><div class="name">pole rannych — krzyki i jęki ponad wygasającą stalą</div><div class="desc">cztery jęki i krzyki rannych (obniżone 3 półtony — ludzie, nie ptactwo) nad gasnącymi pojedynczymi zderzeniami mieczy; bitwa po szczycie, pole pełne ranionych</div><div class="src">atomcut-library — paczki OpenGameArt (CC0): 20 sword SFX, male-gruntyelling (haeldb), 15 vocal male strain/hurt (cc0), metal&amp;wood · CC0 1.0 · git sparse-checkout /tmp/atomcut; montaż skryptem build_gate_g027.py</div></div><audio controls preload="none" src="g027/candidates/zg2_pole_rannych.mp3"></audio></div>
+<div class="cand"><div class="lab">zg.3</div><div class="meta"><div class="name">wir walki — gęsty szczęk, machina uderzeniowa w tękcie</div><div class="desc">dziewięć zderzeń mieczy w przyspieszonym rytmie, potem rzadsze — plus trzy głuche uderzenia taranu/tarcz, okrzyk i jęk; ostatnie 2 s zamiera o 6 dB: cichnące pole bitwy o zmierzchu</div><div class="src">atomcut-library — paczki OpenGameArt (CC0): 20 sword SFX, male-gruntyelling (haeldb), 15 vocal male strain/hurt (cc0), metal&amp;wood · CC0 1.0 · git sparse-checkout /tmp/atomcut; montaż skryptem build_gate_g027.py</div></div><audio controls preload="none" src="g027/candidates/zg3_wir_walki.mp3"></audio></div>
+<h2>Wpis do bazy: <code>hero-lopot</code> · baza heroes</h2>
+<p class="role">rola: jedyny klocek typu hero `lopot-skrzydel` (18 fabuł; slot c fabuły 110)</p>
+<div class="cand"><div class="lab">ł.1</div><div class="meta"><div class="name">cztery potężne suwy peleryny — foley kinowy</div><div class="desc">filmowa technika (pękata peleryna superbohatera): cztery szerokie, silne odbicia jedno za drugim — czysty atak, bez treli, bez grzmota; brzmi jak powietrze spychane wielkim skrzydłem</div><div class="src">Large Wings / Superhero Cape Foley (Freesound) · CC0 / Public Domain (wg API Freesound) · sample-scout (preview-hq-mp3); manifest: wings-foley/freesound_wing-flap-foley</div></div><audio controls preload="none" src="g027/candidates/l1_suwy_peleryny.mp3"></audio></div>
+<div class="cand"><div class="lab">ł.2</div><div class="meta"><div class="name">seria łękotu — sześć szybkich odbić jak hamowanie w locie</div><div class="desc">gęsta seria czystych odbić skrzydeł (foley): wielka istota wyhamowuje tuż nad żołnierzem — żywe, wyraźne zamachy bez tła terenowego</div><div class="src">Flapping wings (foley) (Freesound) · CC0 / Public Domain (wg API Freesound) · sample-scout (preview-hq-mp3); manifest: wings-foley/freesound_wing-flap-foley</div></div><audio controls preload="none" src="g027/candidates/l2_lekot_seria.mp3"></audio></div>
+<div class="cand"><div class="lab">ł.3</div><div class="meta"><div class="name">trzy ciężkie odbicia tkaniny — jak uderzenia płócien</div><div class="desc">najcięższe zamachy z taśmy foley (dywan/tkanina), ułożone w rytm zstąpienia — potężne, pojedyncze trzepnięcia powietrza; aranżacja z jednego nagrania, bez spowolnienia</div><div class="src">Wing flap, flutter, carpet, fabric, foley (2012).wav (Freesound) · CC0 / Public Domain (wg API Freesound) · sample-scout (preview-hq-mp3); manifest: wings-foley/freesound_wing-flap-foley</div></div><audio controls preload="none" src="g027/candidates/l3_ciezkie_od_bicia.mp3"></audio></div>
+<h2>Wpis do bazy: <code>koda-nadzieja</code> · baza gestures</h2>
+<p class="role">rola: jedyny klocek typu kody `nadzieja-ukojenie` (22 fabuły; slot a fabuły 110)</p>
+<div class="cand"><div class="lab">n.1</div><div class="meta"><div class="name">durowa łuna rozświetlająca (C-dur z lydyjskim błyskiem)</div><div class="desc">ciepły durowy dwudźwięk nisko, nad nim rozjarza się aug (błysk), a na szczycie czyste C5+E5 — jak niebo otwierane warstwami światła</div><div class="src">gest autorski; podgląd na b_piano_steinway (render neutralny)</div></div><audio controls preload="none" src="g027/candidates/g11a_major_bloom.mp3"></audio></div>
+<div class="cand"><div class="lab">n.2</div><div class="meta"><div class="name">lydyjski wierzchołek nad durowym D</div><div class="desc">bas D-F# trzyma durowy grunt, a melodia wspina się przez lydyjską kwartę Gis — światło, które nie chce spaść; wznoszenie jak błogość</div><div class="src">gest autorski; podgląd na b_piano_steinway (render neutralny)</div></div><audio controls preload="none" src="g027/candidates/g11b_lydian_summit.mp3"></audio></div>
+<div class="cand"><div class="lab">n.3</div><div class="meta"><div class="name">powrót do domu: durowy dopływ w C</div><div class="desc">skoki radości E4→C5→E5 z lądowaniem na pełnym durowym dnie C3: melodia wraca tam, skąd wyszła — pociecha i należność</div><div class="src">gest autorski; podgląd na b_piano_steinway (render neutralny)</div></div><audio controls preload="none" src="g027/candidates/g11c_home_arrival.mp3"></audio></div>
+<h2 style="border-top:3px solid #2c3a4f">Bramka g028 — fabuła 249</h2>
+<p class="story">RUNDA 2 fabuły 249 — wyłącznie wpis `dwor-komnaty` (koda s.3 i instrument o.2 z g026 zaakceptowane). Diagnoza właściciela: cisza i szum niczego nie przypominają, komnata potrzebuje dźwięku-reprezentanta. Kandydaci: palenisko / rezonans znaków / życie gmachu.</p>
+<h2>Wpis do bazy: <code>tlo-dwor-komnaty</code> · baza backgrounds</h2>
+<p class="role">rola: jedyny klocek typu tła `dwor-komnaty` (17 fabuł; slot d fabuły 249)</p>
+<div class="cand"><div class="lab">k.1</div><div class="meta"><div class="name">palenisko trzaskające w komnacie</div><div class="desc">prawdziwy kominek w izbie: trzaski drzewa w pasmach 2-6 kHz nosi charakter, niski dół palenia daje ciepło; nad oddechem wnętrza — komnata, w której ktoś czuwa przy ogniu</div><div class="src">Fireplace.wav (Freesound) · CC0 / Public Domain (wg API Freesound) · sample-scout (preview-hq-mp3); manifest: fireplace/freesound_fireplace-crackle</div></div><audio controls preload="none" src="g028/candidates/k1_palenisko_trzaska.mp3"></audio></div>
+<div class="cand"><div class="lab">k.2</div><div class="meta"><div class="name">znaki pracują — cichy rezonans wypełnia komnatę</div><div class="desc">utrzymany, prawie niesłyszalny szklany rezonans (kieliszek z bazy wlożony nisko) z dwoma pojedynczymi pobrzękami — jak świecące znaki wisiorkujące w powietrzu komnaty maga</div><div class="src">b_wine_glasses z bazy (VSCO-2-CE, CC0): warkot D#4 w pętli -38.5 dB, pobrzęki F#4/A#4 -35.5 dB; podkład-powietrze -38 dB</div></div><audio controls preload="none" src="g028/candidates/k2_znaki_pracuja.mp3"></audio></div>
+<div class="cand"><div class="lab">k.3</div><div class="meta"><div class="name">życie gmachu za murami — kroki, drzwi, zwoje</div><div class="desc">cztery rzadkie kroki na kamieniu za ścianą, jedno dalekie domknięcie/otwarcie i cichy brzęk przekładanych przedmiotów — komnata w środku żyjącego Kolegium, gdzie praca trwa także gdzie indziej</div><div class="src">atomcut CC0 (metal&amp;wood: door-open-01, keys-02) + Sparkstream Kenney (footstep_concrete, CC0); wszystko LP 900-4500 Hz, -34..-39.5 dB; podkład -38 dB</div></div><audio controls preload="none" src="g028/candidates/k3_gmach_zyje.mp3"></audio></div>
+</body></html>

@@ -1,0 +1,533 @@
+{
+  "id": "g026",
+  "created": "2026-09-24",
+  "story_id": "249",
+  "note": "Fabuła 249 z losowania sesji (ziarno 20260924; resolver: 3 typy bez klocka z 4 warstw). Hero `rozblysk-swiatla` obsadzony klockiem light_bloom_01. Tła: trzy room tone z Freesound (czysta cisza / kamień / życie za murami). Kody: trzy autorskie gesty skupienia. Instrument: trzy artykulacje tnącej sekcji/solo smyczkowego z VSCO-2-CE (CC0) — każda z pełnym bankiem nut.",
+  "entries": [
+    {
+      "slug": "tlo-dwor-komnaty",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `dwor-komnaty` (17 fabuł; slot d fabuły 249)",
+      "candidates": [
+        {
+          "label": "k.1",
+          "title": "skupiona cisza — jednostajny oddech wnętrza",
+          "file": "candidates/k1_skupiona_cisza.mp3",
+          "desc": "najrówniejsze wnętrze w paczce (wahanie okienkowe < 1 dB): samo powietrze komnaty, zero ptaków i zdarzeń — cisza, w której słychać myśl",
+          "source": {
+            "title": "Calm Room Tone - India (Freesound)",
+            "author": "om.satalkar",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/om.satalkar/sounds/739159/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: roomtone",
+            "notes": "okno 120–128 s; HP 55 Hz; -32 dB; freesound id 739159"
+          },
+          "entry": {
+            "id": "chamber_quiet_01",
+            "setting": "gmach / komnata — skupiona cisza wnętrza",
+            "desc": "jednostajne powietrze cichej komnaty — bez zdarzeń, bez mowy; skupienie zawieszone w kamieniu",
+            "file": "audio/library/backgrounds/chamber_quiet_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "dwor-komnaty",
+              "traits": [
+                "wnętrze",
+                "cisza",
+                "komnata",
+                "skupienie"
+              ],
+              "bad_for": [
+                "plener",
+                "bitwa",
+                "tłum"
+              ]
+            },
+            "source": {
+              "title": "Calm Room Tone - India (Freesound)",
+              "author": "om.satalkar",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/om.satalkar/sounds/739159/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: roomtone",
+              "notes": "okno 120–128 s; HP 55 Hz; -32 dB; freesound id 739159"
+            }
+          }
+        },
+        {
+          "label": "k.2",
+          "title": "komnata spod kamienia — mruk murów, szumy za nimi",
+          "file": "candidates/k2_komnata_w_kamieniu.mp3",
+          "desc": "wnętrze otoczone grubą skałą: 87% energii poniżej 250 Hz — głęboki oddech murów z bardzo rzadkimi, oddalonymi szumami (zdarzenia wnętrza 250-2k)",
+          "source": {
+            "title": "room tone quiet cellar with distant noises.flac (Freesound)",
+            "author": "kyles",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/kyles/sounds/637805/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: roomtone",
+            "notes": "okno 30–38 s; HP 45 Hz; -32 dB; freesound id 637805"
+          },
+          "entry": {
+            "id": "chamber_stone_01",
+            "setting": "gmach / wieża — komnata otoczona kamieniem",
+            "desc": "niski mruk kamiennego wnętrza z oddalonymi szumami za murami — bierna, ciężka cisza architektury",
+            "file": "audio/library/backgrounds/chamber_stone_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "dwor-komnaty",
+              "traits": [
+                "wnętrze",
+                "kamień",
+                "mury",
+                "ciężka cisza"
+              ],
+              "bad_for": [
+                "plener",
+                "lekkie wnętrze",
+                "tłum"
+              ]
+            },
+            "source": {
+              "title": "room tone quiet cellar with distant noises.flac (Freesound)",
+              "author": "kyles",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/kyles/sounds/637805/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: roomtone",
+              "notes": "okno 30–38 s; HP 45 Hz; -32 dB; freesound id 637805"
+            }
+          }
+        },
+        {
+          "label": "k.3",
+          "title": "życie za murami — bardzo dalekie głosy, niski tętent maszyny",
+          "file": "candidates/k3_za_murami.mp3",
+          "desc": "komnata, gdzie „żyje” tylko budynek: znikome, niezrozumiałe głosy za ścianą i cichy niski rezonans — jak dalekie sale Kolegium za zamkniętymi drzwiami",
+          "source": {
+            "title": "room tone hotel room quiet very distant voices and low throbbing electric hum maybe heat on Gaza 2016.wav (Freesound)",
+            "author": "kyles",
+            "license": "CC0 / Public Domain (wg API Freesound)",
+            "url": "https://freesound.org/people/kyles/sounds/406507/",
+            "channel": "sample-scout (preview-hq-mp3); manifest: roomtone",
+            "notes": "okno 60–68 s; HP 45 Hz; -32 dB; freesound id 406507"
+          },
+          "entry": {
+            "id": "chamber_hall_01",
+            "setting": "gmach / komnaty — życie gmachu za murami",
+            "desc": "cisza komnaty z niezrozumiałym szeptem dalekich korytarzy i niskim tętnem instalacji gmachu",
+            "file": "audio/library/backgrounds/chamber_hall_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32,
+            "loopable": true,
+            "semantics": {
+              "type": "dwor-komnaty",
+              "traits": [
+                "wnętrze",
+                "dalekie głosy",
+                "gmach",
+                "rezonans"
+              ],
+              "bad_for": [
+                "plener",
+                "bitwa",
+                "martwa cisza"
+              ]
+            },
+            "source": {
+              "title": "room tone hotel room quiet very distant voices and low throbbing electric hum maybe heat on Gaza 2016.wav (Freesound)",
+              "author": "kyles",
+              "license": "CC0 / Public Domain (wg API Freesound)",
+              "url": "https://freesound.org/people/kyles/sounds/406507/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: roomtone",
+              "notes": "okno 60–68 s; HP 45 Hz; -32 dB; freesound id 406507"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-spokoj",
+      "kind": "gestures",
+      "role": "jedyny klocek typu kody `spokoj-kontemplacja` (21 fabuł; slot a fabuły 249)",
+      "candidates": [
+        {
+          "label": "s.1",
+          "title": "oddech z blizną; nauka, która zostaje",
+          "file": "candidates/g10a_scar_breath.mp3",
+          "desc": "jedna długa niska nuta trwa w skupieniu, pod nią jedno wzniesienie — jak wdech, który zabolał; kończy niżej, w pokorze",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g10a_scar_breath",
+            "semantic": "spokój — oddech z blizną; nauka, która zostaje",
+            "desc": "jedna długa niska nuta trwa w skupieniu, pod nią jedno wzniesienie — jak wdech, który zabolał; kończy niżej, w pokorze",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 2.4,
+                "vel": 0.34
+              },
+              {
+                "midi": 68,
+                "on": 0.9,
+                "off": 1.35,
+                "vel": 0.3
+              },
+              {
+                "midi": 50,
+                "on": 1.8,
+                "off": 2.8,
+                "vel": 0.32
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "bowed-hard"
+            ],
+            "semantics": {
+              "type": "spokoj-kontemplacja",
+              "traits": [
+                "skupiona",
+                "oszczędna",
+                "pokorna",
+                "oddychająca"
+              ],
+              "bad_for": [
+                "triumfalna",
+                "taneczna",
+                "gwałtowna",
+                "jałowa"
+              ]
+            }
+          }
+        },
+        {
+          "label": "s.2",
+          "title": "nauka spada w dół i nie podnosi się",
+          "file": "candidates/g10b_lesson_fall.mp3",
+          "desc": "dwie nuty: górna pyta, dolna odpowiada o nonę niżej i zostaje — ciężar, który zamienia się w ciszę",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g10b_lesson_fall",
+            "semantic": "spokój — nauka spada w dół i nie podnosi się",
+            "desc": "dwie nuty: górna pyta, dolna odpowiada o nonę niżej i zostaje — ciężar, który zamienia się w ciszę",
+            "notes": [
+              {
+                "midi": 64,
+                "on": 0.0,
+                "off": 0.8,
+                "vel": 0.36
+              },
+              {
+                "midi": 54,
+                "on": 0.85,
+                "off": 2.7,
+                "vel": 0.4
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "bowed-hard"
+            ],
+            "semantics": {
+              "type": "spokoj-kontemplacja",
+              "traits": [
+                "skupiona",
+                "oszczędna",
+                "pokorna",
+                "oddychająca"
+              ],
+              "bad_for": [
+                "triumfalna",
+                "taneczna",
+                "gwałtowna",
+                "jałowa"
+              ]
+            }
+          }
+        },
+        {
+          "label": "s.3",
+          "title": "pokorny puls kontemplacji",
+          "file": "candidates/g10c_humble_pulse.mp3",
+          "desc": "trzy ciche, równe dotknięcia tej samej nuty jak odliczanie oddechu, ostatni przygaszony jeszcze bardziej — myśl wraca do prostoty",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g10c_humble_pulse",
+            "semantic": "spokój — pokorny puls kontemplacji",
+            "desc": "trzy ciche, równe dotknięcia tej samej nuty jak odliczanie oddechu, ostatni przygaszony jeszcze bardziej — myśl wraca do prostoty",
+            "notes": [
+              {
+                "midi": 56,
+                "on": 0.0,
+                "off": 0.6,
+                "vel": 0.34
+              },
+              {
+                "midi": 56,
+                "on": 0.95,
+                "off": 1.55,
+                "vel": 0.34
+              },
+              {
+                "midi": 56,
+                "on": 1.9,
+                "off": 2.8,
+                "vel": 0.28
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "bowed-hard"
+            ],
+            "semantics": {
+              "type": "spokoj-kontemplacja",
+              "traits": [
+                "skupiona",
+                "oszczędna",
+                "pokorna",
+                "oddychająca"
+              ],
+              "bad_for": [
+                "triumfalna",
+                "taneczna",
+                "gwałtowna",
+                "jałowa"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "instr-ostro",
+      "kind": "instruments",
+      "role": "jedyny klocek typu instrumentacji `ostro-gwaltowna` (30 fabuł; slot b fabuły 249)",
+      "candidates": [
+        {
+          "label": "o.1",
+          "title": "sekcja skrzypiec — spiccato (odbijany smyczek)",
+          "file": "candidates/b_vlnens_spic_demo.mp3",
+          "desc": "odbicie smyczka w sekcji skrzypiec: każda nuta to kłucie z masą zbiorową — ostre, ale o krawędzi drewna i dętyki, nie metalu — bank 11 nut G2–D5, demo: sztychy na nutach wspólnych banków (zero podstawień rejestrowych)",
+          "source": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE) — CC0 1.0 (artykulacja jak w nazwie; wariacja v2)",
+          "entry": {
+            "id": "b_vlnens_spic",
+            "semantic": "tnące, odbite uderzenia smyczka — sekcja skrzypiec tnie rytm",
+            "family": "bowed-strings",
+            "samples": {
+              "45": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_A2_v2_rr1.mp3",
+              "57": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_A3_v2_rr1.mp3",
+              "47": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_B2_v2_rr1.mp3",
+              "71": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_B4_v2_rr1.mp3",
+              "60": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_C4_v2_rr1.mp3",
+              "50": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_D3_v2_rr1.mp3",
+              "74": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_D5_v2_rr1.mp3",
+              "64": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_E4_v2_rr1.mp3",
+              "54": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_F#3_v2_rr1.mp3",
+              "43": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_G2_v2_rr1.mp3",
+              "67": "audio/library/instruments/vlnens_spic/b_vlnens_spic_VlnEns_Spic_G4_v2_rr1.mp3"
+            },
+            "gate_sources": {
+              "45": "instr_notes/b_vlnens_spic_VlnEns_Spic_A2_v2_rr1.mp3",
+              "57": "instr_notes/b_vlnens_spic_VlnEns_Spic_A3_v2_rr1.mp3",
+              "47": "instr_notes/b_vlnens_spic_VlnEns_Spic_B2_v2_rr1.mp3",
+              "71": "instr_notes/b_vlnens_spic_VlnEns_Spic_B4_v2_rr1.mp3",
+              "60": "instr_notes/b_vlnens_spic_VlnEns_Spic_C4_v2_rr1.mp3",
+              "50": "instr_notes/b_vlnens_spic_VlnEns_Spic_D3_v2_rr1.mp3",
+              "74": "instr_notes/b_vlnens_spic_VlnEns_Spic_D5_v2_rr1.mp3",
+              "64": "instr_notes/b_vlnens_spic_VlnEns_Spic_E4_v2_rr1.mp3",
+              "54": "instr_notes/b_vlnens_spic_VlnEns_Spic_F#3_v2_rr1.mp3",
+              "43": "instr_notes/b_vlnens_spic_VlnEns_Spic_G2_v2_rr1.mp3",
+              "67": "instr_notes/b_vlnens_spic_VlnEns_Spic_G4_v2_rr1.mp3"
+            },
+            "semantics": {
+              "type": "ostro-gwaltowna",
+              "traits": [
+                "ostry",
+                "gwałtowny",
+                "tnący",
+                "perkusyjny smyczek"
+              ],
+              "bad_for": [
+                "łagodny",
+                "legato",
+                "śpiewny",
+                "mglisty"
+              ]
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VSCO-2-CE",
+              "channel": "git clone sparse z github.com/sgossner/VSCO-2-CE",
+              "notes": "sekcja skrzypiec — spiccato (odbijany smyczek); bank 11 nut G2–D5 (https://github.com/sgossner/VSCO-2-CE); wariacja v2 (najostrzejsza), rr1; trim 2.0 s"
+            }
+          }
+        },
+        {
+          "label": "o.2",
+          "title": "solo skrzypce — spiccato (wyszczerbiony atak)",
+          "file": "candidates/b_soloviol_spic_demo.mp3",
+          "desc": "jedno skrzypce, spiccato blisko mikrofonu: szczotkowana, wyszczerbiona kreska ataku — najostrzejszy z trzech, surowy — bank 15 nut G2–C6, demo: sztychy na nutach wspólnych banków (zero podstawień rejestrowych)",
+          "source": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE) — CC0 1.0 (artykulacja jak w nazwie; wariacja v2)",
+          "entry": {
+            "id": "b_soloviol_spic",
+            "semantic": "solo kłucie smyczkiem — bliżej, ostrzej, bardziej brutalnie",
+            "family": "bowed-strings",
+            "samples": {
+              "45": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_A2_v2_rr1.mp3",
+              "57": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_A3_v2_rr1.mp3",
+              "69": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_A4_v2_rr1.mp3",
+              "81": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_A5_v2_rr1.mp3",
+              "48": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_C3_v2_rr1.mp3",
+              "60": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_C4_v2_rr1.mp3",
+              "72": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_C5_v2_rr1.mp3",
+              "84": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_C6_v2_rr1.mp3",
+              "52": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_E3_v2_rr1.mp3",
+              "64": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_E4_v2_rr1.mp3",
+              "76": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_E5_v2_rr1.mp3",
+              "43": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_G2_v2_rr1.mp3",
+              "55": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_G3_v2_rr1.mp3",
+              "67": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_G4_v2_rr1.mp3",
+              "79": "audio/library/instruments/soloviol_spic/b_soloviol_spic_LLVln_spic_G5_v2_rr1.mp3"
+            },
+            "gate_sources": {
+              "45": "instr_notes/b_soloviol_spic_LLVln_spic_A2_v2_rr1.mp3",
+              "57": "instr_notes/b_soloviol_spic_LLVln_spic_A3_v2_rr1.mp3",
+              "69": "instr_notes/b_soloviol_spic_LLVln_spic_A4_v2_rr1.mp3",
+              "81": "instr_notes/b_soloviol_spic_LLVln_spic_A5_v2_rr1.mp3",
+              "48": "instr_notes/b_soloviol_spic_LLVln_spic_C3_v2_rr1.mp3",
+              "60": "instr_notes/b_soloviol_spic_LLVln_spic_C4_v2_rr1.mp3",
+              "72": "instr_notes/b_soloviol_spic_LLVln_spic_C5_v2_rr1.mp3",
+              "84": "instr_notes/b_soloviol_spic_LLVln_spic_C6_v2_rr1.mp3",
+              "52": "instr_notes/b_soloviol_spic_LLVln_spic_E3_v2_rr1.mp3",
+              "64": "instr_notes/b_soloviol_spic_LLVln_spic_E4_v2_rr1.mp3",
+              "76": "instr_notes/b_soloviol_spic_LLVln_spic_E5_v2_rr1.mp3",
+              "43": "instr_notes/b_soloviol_spic_LLVln_spic_G2_v2_rr1.mp3",
+              "55": "instr_notes/b_soloviol_spic_LLVln_spic_G3_v2_rr1.mp3",
+              "67": "instr_notes/b_soloviol_spic_LLVln_spic_G4_v2_rr1.mp3",
+              "79": "instr_notes/b_soloviol_spic_LLVln_spic_G5_v2_rr1.mp3"
+            },
+            "semantics": {
+              "type": "ostro-gwaltowna",
+              "traits": [
+                "ostry",
+                "gwałtowny",
+                "solo",
+                "szorstki"
+              ],
+              "bad_for": [
+                "łagodny",
+                "masa orkiestry",
+                "miękki",
+                "śpiewny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VSCO-2-CE",
+              "channel": "git clone sparse z github.com/sgossner/VSCO-2-CE",
+              "notes": "solo skrzypce — spiccato (wyszczerbiony atak); bank 15 nut G2–C6 (https://github.com/sgossner/VSCO-2-CE); wariacja v2 (najostrzejsza), rr1; trim 2.0 s"
+            }
+          }
+        },
+        {
+          "label": "o.3",
+          "title": "sekcja skrzypiec — pizzicato szarpane",
+          "file": "candidates/b_vlnens_pizz_demo.mp3",
+          "desc": "mocne pizzicato sekcji: sprężyste uderzenie palca w strunę — krótkie, migotliwe, o krawędzi jak warkocz trzaskającego pejcza — bank 11 nut G2–D5, demo: sztychy na nutach wspólnych banków (zero podstawień rejestrowych)",
+          "source": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE) — CC0 1.0 (artykulacja jak w nazwie; wariacja v2)",
+          "entry": {
+            "id": "b_vlnens_pizz",
+            "semantic": "szarpane struny — sprężyste kliknięcia tnące jak pejcz",
+            "family": "bowed-strings",
+            "samples": {
+              "45": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_A2_v2_rr1.mp3",
+              "57": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_A3_v2_rr1.mp3",
+              "47": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_B2_v2_rr1.mp3",
+              "71": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_B4_v2_rr1.mp3",
+              "60": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_C4_v2_rr1.mp3",
+              "50": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_D3_v2_rr1.mp3",
+              "74": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_D5_v2_rr1.mp3",
+              "64": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_E4_v2_rr1.mp3",
+              "54": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_F#3_v2_rr1.mp3",
+              "43": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_G2_v2_rr1.mp3",
+              "67": "audio/library/instruments/vlnens_pizz/b_vlnens_pizz_VlnEns_Pizz_G4_v2_rr1.mp3"
+            },
+            "gate_sources": {
+              "45": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_A2_v2_rr1.mp3",
+              "57": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_A3_v2_rr1.mp3",
+              "47": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_B2_v2_rr1.mp3",
+              "71": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_B4_v2_rr1.mp3",
+              "60": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_C4_v2_rr1.mp3",
+              "50": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_D3_v2_rr1.mp3",
+              "74": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_D5_v2_rr1.mp3",
+              "64": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_E4_v2_rr1.mp3",
+              "54": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_F#3_v2_rr1.mp3",
+              "43": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_G2_v2_rr1.mp3",
+              "67": "instr_notes/b_vlnens_pizz_VlnEns_Pizz_G4_v2_rr1.mp3"
+            },
+            "semantics": {
+              "type": "ostro-gwaltowna",
+              "traits": [
+                "ostry",
+                "gwałtowny",
+                "szarpany",
+                "migotliwy"
+              ],
+              "bad_for": [
+                "legato",
+                "ciężki dół",
+                "długi ton",
+                "miękki"
+              ]
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VSCO-2-CE",
+              "channel": "git clone sparse z github.com/sgossner/VSCO-2-CE",
+              "notes": "sekcja skrzypiec — pizzicato szarpane; bank 11 nut G2–D5 (https://github.com/sgossner/VSCO-2-CE); wariacja v2 (najostrzejsza), rr1; trim 2.0 s"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "tlo-dwor-komnaty": "żadna",
+    "koda-spokoj": "s.3",
+    "instr-ostro": "o.2",
+    "notes": {
+      "tlo-dwor-komnaty": "Właściciel: „musisz mieć jakiś pomysł na komnatę, a nie cisza i szum, to nie przypomina nic — musi być tam jakiś dźwięk kojarzący się z komnatą w zamku”. Diagnoza: czysty roomtone bez charakterystyki. Runda 2: komnata z sercem — (a) palenisko/ogórek komnaty, (b) „znaki pracują” — cichy rezonans szklany + pojedyncze pobrzęki b_wine_glasses, (c) życie gmachu: rzadkie kroki na kamieniu + daleki zgrzyt drzwi.",
+      "koda-spokoj": "Właściciel: „s.3 nadaje się”.",
+      "instr-ostro": "Właściciel: „o.2 pasuje”."
+    }
+  }
+}
