@@ -4,15 +4,15 @@ Ten plik odpowiada na pytanie „gdzie jesteśmy i co robić dalej”, żeby now
 sesja nie musiała rekonstruować kontekstu z historii gita. Reguły są
 w `AGENTS.md` i `docs/gate-protocol.md` — tutaj wyłącznie bieżący stan.
 
-Ostatnia aktualizacja: **2026-09-24** (sesja `arena/01a0d3b8-mtgdatabase`).
+Ostatnia aktualizacja: **2026-09-25** (sesja `arena/01a0d8c6-mtgdatabase`).
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **19**
-  (6 legacy + 13 z modelu 1:1: 18, 23, 28, 166, 169, 193, 222, 225, 451, 468, 519, 575, 578).
-- Baza klocków: **34 wpisy** (`library_tool.py check`: 9 tła / 12 hero /
-  7 instrumentów / 6 gestów), wszystkie z `semantics` (1:1, taksonomia v6).
-- Bramki rozegrane: **g001–g022** z werdyktami (g014 wycofana — archiwum).
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **21**
+  (6 legacy + 15 z modelu 1:1; najnowsze: 110 i 249).
+- Baza klocków: **40 wpisów** (`library_tool.py check`), wszystkie z
+  `semantics` (1:1, taksonomia v6).
+- Bramki rozegrane: **g001–g029** z werdyktami (g014 wycofana — archiwum).
 - Bramki: **g023 i g024 zamknięte**. g023: morze-wybrzeze = m.2 (`sea_storm_02`).
   g024 (runda 2 `mroczna`): werdykt właściciela **z.2** = głośny pedał 16'
   → `b_organ_loudpedal` w bazie (bank C1–D#3, po dwa bassudy na stopę).
@@ -45,6 +45,8 @@ Ostatnia aktualizacja: **2026-09-24** (sesja `arena/01a0d3b8-mtgdatabase`).
 | 451 | Downwind Ambusher | forest_day_01 × stealth_move_03 × g7a × handchimes | pełny reuse |
 | 28 | Stormwright Overtake | sea_storm_02 × wave_crash_03 × g4b × b_organ_loudpedal | g023/g024 |
 | 222 | Maritime Guard | sea_storm_02 × stealth_move_03 × g4b × b_organ_loudpedal | g023/g024 |
+| 110 | Serra's Embrace | battle_clamor_01 × light_bloom_01 × g11c × steinway | g025/g027/g029 |
+| 249 | Feedback | chamber_hearth_01 × light_bloom_01 × g10c × soloviol_spic | g026/g028 |
 
 169/225/451 (2026-09-24, sesja 01a0d3b8): pierwsze fabuły obsadzone BEZ
 bramki — resolver zgłosił pełną obsadę z istniejących klocków. QA renderów:
@@ -54,16 +56,12 @@ lekcja w LESSONS o ogonie hero maskującym nuty kody).
 
 ## W toku
 
-**Bramki g025 + g026 czekają na werdykt** (strona zbiorcza :8080,
-`data/gates/podglad-g025-g026.html`, 6 wpisów × 3 kandydatów).
-Losowanie fabuł ziarnem 20260924: **110 „Serra's Embrace”** i **249 „Feedback”**
-(po 3 typy bez klocka na fabułę — łącznie 6 bramek jednostkowych ≥ 5).
-- g025 (110): tlo-bitwa-zgielk (zg.1–3, Freesound + montaż atomcut g007-tech),
-  hero-lopot (ł.1–3, łopoty −3/−4 półt.), koda-nadzieja (n.1–3, gesty g9a–c).
-- g026 (249): tlo-dwor-komnaty (k.1–3, room tone), koda-spokoj (s.1–3, gesty
-  g10a–c), instr-ostro (o.1–3: spiccato sekcja / solo / pizz, VSCO-2-CE, CC0).
-Procedura jak zwykle: werdykt → `verdicts.json` → `library_tool.py accept
---gate gNNN` → receptury 110 i 249 → render --audit → raport. 28 i 222 (2026-09-24, sesja 01a0d3b8) — pierwsze
+**Brak otwartej bramki.** Fabuły 110 i 249 są ukończone. Dla 249 powstała
+receptura oraz render 7,0 s; QA: RMS −25,9 dB, hero +19,7 dB, HF 11,6%,
+ataki kody +10,5/+10,4/+7,5 dB. Zatwierdzone ostre spiccato i jasny rozbłysk
+wymagały jawnego filtra master LP 6,3 kHz; renderer obsługuje teraz opcjonalne
+`master.lowpass_hz`, zabezpieczone testem. Następny krok: `resolver.py --survey`
+i kompletna bramka dla fabuły kotwiczącej najczęstszy brak. 28 i 222 (2026-09-24, sesja 01a0d3b8) — pierwsze
 sygnatury na bloku rodzinnym g024. QA: 28 (RMS -22,6, hero +16,9, HF 10,8%,
 ataki 3,4/3,0), 222 (RMS -21,0, hero +21,1, HF 0,4%, ataki 5,7/3,3).
 Zmiany silnika przy okazji 222 (`coda_synth.py`):
@@ -92,13 +90,10 @@ i `data/semantics/CHANGELOG.md`.
 
 Bieżąca faza: **Etap 5 — produkcja katalogu**. Kolejka pracy:
 
-1. **Werdykt g023** → accept → receptura i render fabuły 222 (a przy okazji
-   resolver obsadzi 28 bez bramki) — opis w „W toku" wyżej.
-2. **Dalej `resolver.py --survey`**: po g023 najczęstszymi brakami zostaną
-   mood `groza-przerazenie` (59), mood `nadzieja-ukojenie` (47),
-   mood `wspolnota-wiez` (34), instrumentacja `cieplo-serdeczna` (33)
-   i `ostro-gwaltowna` (32). Bramkę kotwicz na fabule z małą liczbą
-   braków, a kandydatów dobierz pod DEFINICJĘ TYPU (lekcja g015).
+1. Uruchom **`resolver.py --survey`** na aktualnych 40 klockach i wybierz
+   fabułę kotwiczącą najczęstszy brak, preferując małą liczbę braków.
+2. Zbuduj jedną kompletną bramkę dla wszystkich brakujących typów wybranej
+   fabuły; kandydatów dobierz pod DEFINICJĘ TYPU (lekcja g015).
 3. Kandydaci-zapas z `docs/sources-and-licensing.md` (miecze, zombie,
    metal/drewno, bagna, woda) pozostają w odwodzie; zwiad działa
    (patrz niżej), lecz czyści katalog partii — patrz LESSONS 2026-09-24.

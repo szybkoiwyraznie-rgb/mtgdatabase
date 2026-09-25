@@ -1,0 +1,48 @@
+{
+  "story_id": "249",
+  "length_sec": 7.0,
+  "background": {
+    "id": "chamber_hearth_01",
+    "offset_sec": 1.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 1.1,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g10c_humble_pulse",
+    "instrument": "b_soloviol_spic",
+    "at_sec": 3.4,
+    "target_db": -18
+  },
+  "seed": 249,
+  "master": {
+    "lowpass_hz": 6300
+  },
+  "profile": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "rozblysk-swiatla",
+      "mood": "spokoj-kontemplacja",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "note": "Rola z narracji: palenisko osadza skupioną komnatę maga; niestabilny rozbłysk zaklęcia jest zdarzeniem hero; puls pokory domyka bolesną lekcję, a krótkie spiccato zachowuje ostrą, niestabilną artykulację. Klocki wybrane przez właściciela w g026 (s.3, o.2) i g028 (k.1)."
+  },
+  "resolution": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "rozblysk-swiatla",
+      "mood": "spokoj-kontemplacja",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "blocks": {
+      "background": "chamber_hearth_01",
+      "hero": "light_bloom_01",
+      "mood": "g10c_humble_pulse",
+      "instrumentation": "b_soloviol_spic"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne zatwierdzone klocki; komplet po bramkach g026 i g028; kombinacja unikalna"
+  }
+}

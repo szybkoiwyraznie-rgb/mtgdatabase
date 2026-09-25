@@ -13,6 +13,16 @@ SR = 44_100
 NOTE_NAMES = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
 
 
+def lowpass(audio: np.ndarray, cutoff_hz: float, order: int = 4) -> np.ndarray:
+    """Deterministyczny, bezfazowy filtr do łagodzenia zbyt ostrego masteru."""
+    if not 20.0 < cutoff_hz < SR / 2:
+        raise ValueError(f"lowpass_hz poza zakresem: {cutoff_hz}")
+    from scipy.signal import butter, sosfiltfilt
+
+    sos = butter(order, cutoff_hz, btype="lowpass", fs=SR, output="sos")
+    return sosfiltfilt(sos, audio, axis=1)
+
+
 def load_any(path: Path | str) -> tuple[np.ndarray, int]:
     """Wczytaj audio (MP3/WAV/M4A/FLAC) jako (float64[kanały, próbki], sr)."""
     path = Path(path)

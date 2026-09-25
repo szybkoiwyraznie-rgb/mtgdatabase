@@ -145,6 +145,16 @@ def test_loop_seam() -> None:
           f"max={win.max():.6f} base={base:.6f}")
 
 
+def test_master_lowpass() -> None:
+    sr = dsp.SR
+    t = np.linspace(0, 1.0, sr, endpoint=False)
+    wave = np.stack([np.sin(2 * np.pi * 1000 * t) + np.sin(2 * np.pi * 10000 * t)] * 2)
+    filtered = dsp.lowpass(wave, 6300)
+    check("master lowpass: długość zachowana", filtered.shape == wave.shape)
+    check("master lowpass: energia >6 kHz spada",
+          dsp.spectral_share(filtered, 6000) < dsp.spectral_share(wave, 6000) * 0.3)
+
+
 def test_coda_min_sustain() -> None:
     # krótka nuta (0.1 s) nie może zniknąć: render dźwięczy co najmniej ~MIN_NOTE_AUDIBLE_SEC
     import soundfile as sf
@@ -252,6 +262,7 @@ def main() -> None:
         test_coda_render(Path(td))
     test_coda_register_adapt()
     test_loop_seam()
+    test_master_lowpass()
     test_coda_min_sustain()
     test_note_attack_gate()
     test_qa_gates()

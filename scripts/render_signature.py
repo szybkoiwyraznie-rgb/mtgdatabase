@@ -155,6 +155,14 @@ def render(recipe: dict) -> tuple[np.ndarray, dict, list[str]]:
             mix = mix[:, :want].copy()
             mix = dsp.fade(mix, 0.0, min(1.6, length * 0.3))
             warnings.append(f"ogon kody ucięty o {over:.2f} s w master-fade do {length:.2f} s")
+
+    # Opcjonalna, jawna korekta barwy całego montażu. Jest częścią receptury,
+    # nie ukrytą normalizacją: przydaje się, gdy zatwierdzone ostre artykulacje
+    # sumują się z jasnym hero i przekraczają bramkę energii wysokiego pasma.
+    lowpass_hz = recipe.get("master", {}).get("lowpass_hz")
+    if lowpass_hz is not None:
+        mix = dsp.lowpass(mix, float(lowpass_hz))
+        warnings.append(f"master: filtr dolnoprzepustowy {float(lowpass_hz):g} Hz")
     return mix, audit, warnings
 
 
