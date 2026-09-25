@@ -1,0 +1,47 @@
+{
+  "story_id": "268",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "wave_crash_03",
+    "at_sec": 1.2,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g11c_home_arrival",
+    "instrument": "b_bassdrum",
+    "at_sec": 3.2,
+    "target_db": -21,
+    "damp_db": 4.0
+  },
+  "seed": 268,
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "fala-rozbryzg",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "note": "Rola z narracji: pradawny las Zendikaru pod sklepieniem lian jako tło (las-dzienny, jedyny klocek typu). Hero to klasa dźwięku, nie dosłowność: fale szmaragdowej aury spływające na trolla i nagłe uderzenie/rozbryzg energii najbliżej pasują do klasy fala-rozbryzg (krótkie, dynamiczne uderzenie — 'skumulowana wiara' uderza w cel jak fala); nadzieja-ukojenie dla 'siły mierzonej wiarą tych, którzy stoją obok' (wspólnota, nie triumf jednostki); monumentalno-potężna dla trolla pęczniejącego siłą — wielki bęben teatralny."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "fala-rozbryzg",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "wave_crash_03",
+      "mood": "g11c_home_arrival",
+      "instrumentation": "b_bassdrum"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki, wszystkie już w bazie (reuse pełny, resolver OBSADZONA bez bramki); filtry twarde czyste; kombinacja unikalna (receptura 25)",
+    "levels_note": "damp_db 4 na kodzie — wąski bank b_bassdrum (3 próbki, długie wybrzmienie) maskował ostatnią, pojedynczą nutę g11c_home_arrival (C4) tuż po dwóch nałożonych nutach niżej; skrócenie ogona rozwiązuje maskowanie bez utraty monumentalnego charakteru bębna."
+  }
+}

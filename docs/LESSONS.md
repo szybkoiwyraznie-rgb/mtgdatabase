@@ -459,3 +459,49 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Zasada: przy planowaniu rund zwiadu zakładaj, że przetrwa tylko
   ostatnia partia; skrypty bramek nie mogą zakładać obecności
   `legacy/source/sample_scout/<stara_partia>` w drzewie.
+
+## Jasny hero + cichy dwór/gest = bramka HF, nie wina kandydatów (fabuła 249, 2026-09-25)
+
+- Sytuacja: fabuła 249 (Feedback) OBSADZONA przez resolver bez nowej bramki
+  (`chamber_hearth_01` z g028, `g10c_humble_pulse`/`b_soloviol_spic` z g026,
+  `light_bloom_01` z g017 — reuse). Pierwszy render z poziomami „jak zawsze”
+  dla `light_bloom_01` (-17 dB, sprawdzone w 23/110/225) oblał bramkę >6 kHz:
+  **73,4%** przy limicie 20%.
+- Diagnoza: hero `light_bloom_01` (dzwonki wiatrowe) ma **86% energii
+  powyżej 6 kHz w izolacji** — w fabułach 23/110/225 „rozcieńcza” go głośny
+  fortepian kody (RMS kody ok. -10 dB, pełne akordy w średnicy). W 249 tło
+  to cichy roomtone komnaty (-32 dB), a koda `g10c_humble_pulse` to trzy
+  KRÓTKIE, ciche uderzenia (vel 0,28–0,34) rozstawione w 2,8 s — większość
+  trwania kody to cisza, więc jej realny wkład energii jest znikomy.
+  Bez masy niskopasmowej hero-dzwonki zdominowały całe widmo.
+- Zasada: bramka >6 kHz to właściwość **całego miksu**, nie hero z osobna —
+  przy doborze poziomów licz, że „cichy, oszczędny” gest (mało nut, długie
+  przerwy) nie zbalansuje jasnego hero tak jak gęsta koda fortepianowa.
+  Zanim zmienisz instrument/gest (niedostępne w modelu 1:1), zrób siatkę
+  `render_signature.py --force --audit` po hero×coda `target_db` i wybierz
+  punkt maksymalizujący `mix_rms` przy `hf_share ≤ 0,20` i marginesie hero
+  ≥ 6 dB — nie zakładaj z góry poziomów użytych w innych fabułach z tym
+  samym hero, każda koda ma inny profil widmowy i inny „koszt” rozcieńczenia.
+  W 249: hero -20 dB (margines 9,9 dB), koda -3 dB (RMS -13 dB, wciąż cichsza
+  niż fortepianowe kody -10 dB — bliżej charakteru „pokorny/spokojny” z
+  semantyki gestu), HF 16,9%, `mix_rms` -25,2 dB (praktyczny sufit tej
+  obsady to ok. -25,1 dB — krótka, cicha koda + cichy dwór nie dają więcej
+  bez złamania bramki HF; wciąż > limit -26 dB).
+
+## `build_gate_manifest.py` bez argumentów nadpisuje g001 (2026-09-25)
+
+- Sytuacja: uruchomienie `python scripts/build_gate_manifest.py --help` (bez
+  realnego `--help` w parserze) wykonało cały skrypt i **nadpisało**
+  `data/gates/g001/manifest.json` świeżo wygenerowaną wersją — bez pól
+  `amendments`/`verdicts` dopisanych ręcznie po werdykcie właściciela
+  (przycięty fragment żab fabuły 4, historia decyzji). `git checkout --`
+  odzyskało plik, bo nic nie zostało jeszcze zacommitowane.
+- Przyczyna: to jednorazowy, historyczny builder pilotażu (`G = Path("data/
+  gates/g001")` na sztywno w kodzie) — nie ma trybu `--help` ani ochrony
+  przed nadpisaniem, każde uruchomienie odtwarza g001 od zera z kodu źródłowego.
+- Zasada: **nie uruchamiaj `build_gate_manifest.py` „na sprawdzenie"** — to
+  nie jest ogólny builder bramek (tym jest `gate_preview.py` + `build_gate_
+  gNNN.py` per bramka). Jeśli trzeba sprawdzić manifest g001, czytaj plik
+  albo `git show HEAD:data/gates/g001/manifest.json`. Po każdym takim
+  eksperymencie sprawdź `git status` i odtwórz nietknięte pliki bramek przed
+  dalszą pracą.

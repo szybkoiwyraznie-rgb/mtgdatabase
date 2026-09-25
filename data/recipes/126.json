@@ -1,0 +1,45 @@
+{
+  "story_id": "126",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "wingburst_takeoff_01",
+    "at_sec": 0.8,
+    "target_db": -16
+  },
+  "coda": {
+    "gesture": "g6c_sentry_return",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.2,
+    "target_db": -19
+  },
+  "seed": 126,
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "trzepot-drobnych-skrzydel",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Rola z narracji: słoneczna leśna polana o poranku jako tło (las-dzienny); dzikie ptaki trzepoczące przy dłoni łuczniczki jako hero 1:1 (trzepot-drobnych-skrzydel — pierwsze użycie wingburst_takeoff_01 z g029); czujna, zawieszona koda dla 'łagodnego zachwytu z uśpioną klątwą pod skórą' (czujność-napięcie, nie triumf ani żałoba — coś się czai); jasny fortepian dla warstwy 'miękko, jasno, z przyciemnieniem' (jasność dominuje, przyciemnienie sygnalizuje sama koda bez rozwiązania)."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "trzepot-drobnych-skrzydel",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "wingburst_takeoff_01",
+      "mood": "g6c_sentry_return",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki, wszystkie już w bazie (reuse pełny, resolver OBSADZONA bez bramki); filtry twarde czyste; kombinacja unikalna (receptura 24); pierwsze zastosowanie wingburst_takeoff_01 (g029) w recepturze."
+  }
+}

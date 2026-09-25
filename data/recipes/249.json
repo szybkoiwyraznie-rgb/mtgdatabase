@@ -1,0 +1,46 @@
+{
+  "story_id": "249",
+  "length_sec": 7.0,
+  "background": {
+    "id": "chamber_hearth_01",
+    "offset_sec": 1.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 1.2,
+    "target_db": -20
+  },
+  "coda": {
+    "gesture": "g10c_humble_pulse",
+    "instrument": "b_soloviol_spic",
+    "at_sec": 3.8,
+    "target_db": -3
+  },
+  "seed": 249,
+  "profile": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "rozblysk-swiatla",
+      "mood": "spokoj-kontemplacja",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "note": "Rola z narracji: cicha komnata maga ze zwojami i świecącymi znakami jako tło wnętrza (chamber_hearth_01 — palenisko daje 'serce' komnaty); rozbłysk pieczęci zaklęcia jako hero 1:1 (kaskada światła, ta sama rola co w fabułach 23/110/225); pokorny, oddechowy puls kody jako bolesna lekcja/cena błędu (spokój po sprzężeniu zwrotnym, nie triumf); solowy spiccato jako ostry, gwałtowny cios magii oddany twórcy zaklęcia."
+  },
+  "resolution": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "rozblysk-swiatla",
+      "mood": "spokoj-kontemplacja",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "blocks": {
+      "background": "chamber_hearth_01",
+      "hero": "light_bloom_01",
+      "mood": "g10c_humble_pulse",
+      "instrumentation": "b_soloviol_spic"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki (chamber_hearth_01 z g028, g10c_humble_pulse i b_soloviol_spic z g026); filtry twarde czyste; kombinacja unikalna (receptura 21); resolver OBSADZONA bez dodatkowej bramki po zamknięciu g026/g028",
+    "levels_note": "hero light_bloom_01 ma w izolacji 86% energii >6 kHz (dzwonki wiatrowe) — przy pierwszym doborze poziomów (-17/-20 dB jak w innych fabułach z tym hero) sygnatura łapała bramkę >6 kHz (73%), bo tło (fireplace crackle, cichy komnatowy roomtone) i krótkie, w większości ciche impulsy g10c_humble_pulse nie dają dość niskopasmowej masy, by rozcieńczyć jasność hero. Zbadano siatkę hero×coda (grid search render_signature --force): hero -20 dB / coda -3 dB dają najlepszy kompromis — margines hero nad kontekstem 9,9 dB (limit 6), HF 16,9% (limit 20%), RMS całości -25,2 dB (limit -26, praktyczny sufit tej obsady to ok. -25,1 dB przy dowolnym poziomowaniu — krótka, w większości cicha koda i cichy dwór-komnaty nie pozwalają wyżej bez złamania bramki HF). Koda pozostaje przyciszona (RMS -13 dB) bliżej charakteru 'pokorny/cichy' z semantyki g10c, zamiast maksymalizować głośność do -10 dB jak w fabułach z fortepianem."
+  }
+}

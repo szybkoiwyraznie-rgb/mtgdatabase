@@ -1,0 +1,46 @@
+{
+  "story_id": "90",
+  "length_sec": 6.5,
+  "background": {
+    "id": "sea_storm_02",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "stealth_move_03",
+    "at_sec": 0.6,
+    "length_sec": 2.5,
+    "target_db": -19
+  },
+  "coda": {
+    "gesture": "g11c_home_arrival",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.3,
+    "target_db": -20
+  },
+  "seed": 90,
+  "profile": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "skradanie-cisza",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Rola z narracji: osłonięta zatoka z delikatnymi falami jako tło (morze-wybrzeże — reuse z 28/222, tu bez sztormu narracyjnie, ale jedyny klocek typu); bezszelestna, bezgłośna obecność świetlistych kami krążących wokół bramy torii jako hero 1:1 (cicha, powietrzna obecność = skradanie-cisza, reuse jak w 222); durowa, ciepła koda powrotu jako ukojenie i harmonia przystani (nadzieja-ukojenie); jasny fortepian jako 'miękko, jasno, płynnie'."
+  },
+  "resolution": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "skradanie-cisza",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "sea_storm_02",
+      "hero": "stealth_move_03",
+      "mood": "g11c_home_arrival",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki, wszystkie już w bazie (reuse pełny, resolver OBSADZONA bez bramki); filtry twarde czyste; kombinacja unikalna (receptura 23); hero przycięty (2,5 s) jak w 222 — ta sama sustainowana czynel maskująca środkowe nuty przy pełnej długości."
+  }
+}
