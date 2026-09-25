@@ -206,5 +206,11 @@
         }
       ]
     }
-  ]
+  ],
+  "verdicts": {
+    "koda-groza": "z.2",
+    "notes": {
+      "koda-groza": "Właściciel: „z.2”."
+    }
+  }
 }

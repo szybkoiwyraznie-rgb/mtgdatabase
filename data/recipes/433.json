@@ -1,0 +1,48 @@
+{
+  "story_id": "433",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -33
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 1.2,
+    "target_db": -17
+  },
+  "coda": {
+    "gesture": "g_dread_descent",
+    "instrument": "b_bassdrum",
+    "at_sec": 3.2,
+    "target_db": -21,
+    "damp_db": 4.0
+  },
+  "seed": 433,
+  "gate": "g030",
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "rozblysk-swiatla",
+      "mood": "groza-przerazenie",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "note": "Rola z narracji: ostępy Lasu Nessian jako tło (las-dzienny, jedyny klocek typu); eteryczne wyłonienie się bogini Nylei w gwiezdnym blasku jako hero 1:1 (rozbłysk-światła, reuse z 23/110/225/422); pierwsze użycie koda `g_dread_descent` (bramka g030, werdykt z.2) dla 'trwogi i zachwytu wobec bóstwa' — pełznące zejście w dysonansowy dół pasuje do paraliżu żołnierzy w obliczu boskiego majestatu; wielki bęben dla 'świetliście, potężnie, nabożnie'."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "rozblysk-swiatla",
+      "mood": "groza-przerazenie",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "light_bloom_01",
+      "mood": "g_dread_descent",
+      "instrumentation": "b_bassdrum"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; koda z bramki g030 (werdykt właściciela z.2); filtry twarde czyste; kombinacja unikalna (receptura 29)",
+    "levels_note": "damp_db 4 jak w 268/577 — ten sam wąski bank b_bassdrum (3 próbki) maskował ostatnią nutę g_dread_descent (D3, podszyta wielka sekunda) tuż po dwóch nałożonych, głośnych uderzeniach niżej."
+  }
+}

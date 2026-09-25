@@ -1,0 +1,854 @@
+{
+  "id": "g031",
+  "created": "2026-09-25",
+  "note": "PAKIET 5 zestawów naraz (na życzenie właściciela po g030: „większe paczki, przynajmniej pięć zestawów\"). 3 kody autorskie (mood: wspólnota-więź, duma-majestat, bezwzględność-drapieżność — podgląd na b_piano_steinway) + 2 zestawy prawdziwych instrumentów (instrumentacja: ciepło-serdeczna — marimba/waltornia/klarnet; metaliczno-mechaniczna — kowadło/tarcza hamulcowa/dzwony rurowe), wszystko VCSL/VSCO-2-CE CC0 1.0. Anchory: fabuły 585, 64, 437, 206, 191 (każda miała dokładnie jeden brak — reszta obsadzona przez resolver).",
+  "entries": [
+    {
+      "slug": "koda-wspolnota",
+      "kind": "gestures",
+      "role": "jedyny klocek typu kody `wspolnota-wiez` (34 fabuły; slot a fabuły 585)",
+      "candidates": [
+        {
+          "label": "w.1",
+          "title": "dystans, który zamyka się w jedność",
+          "file": "candidates/g_bond_converge.mp3",
+          "desc": "dwa oddalone głosy (tryton) najpierw brzmią osobno, potem oba schodzą się w czystą oktawę — różnica staje się jednością",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_bond_converge",
+            "semantic": "wspólnota — dystans, który zamyka się w jedność",
+            "desc": "dwa oddalone głosy (tryton) najpierw brzmią osobno, potem oba schodzą się w czystą oktawę — różnica staje się jednością",
+            "notes": [
+              {
+                "midi": 56,
+                "on": 0.0,
+                "off": 0.5,
+                "vel": 0.45
+              },
+              {
+                "midi": 50,
+                "on": 0.0,
+                "off": 0.5,
+                "vel": 0.45
+              },
+              {
+                "midi": 60,
+                "on": 0.7,
+                "off": 2.6,
+                "vel": 0.55
+              },
+              {
+                "midi": 48,
+                "on": 0.7,
+                "off": 2.6,
+                "vel": 0.5
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "strings",
+              "bells",
+              "organ"
+            ],
+            "semantics": {
+              "type": "wspolnota-wiez",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        },
+        {
+          "label": "w.2",
+          "title": "uścisk równoległych głosów",
+          "file": "candidates/g_bond_embrace.mp3",
+          "desc": "dwa głosy poruszają się razem w konsonansowych tercjach, jak dwoje idących tym samym krokiem — ciepło, bez napięcia",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_bond_embrace",
+            "semantic": "wspólnota — uścisk równoległych głosów",
+            "desc": "dwa głosy poruszają się razem w konsonansowych tercjach, jak dwoje idących tym samym krokiem — ciepło, bez napięcia",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 0.9,
+                "vel": 0.5
+              },
+              {
+                "midi": 64,
+                "on": 0.0,
+                "off": 0.9,
+                "vel": 0.45
+              },
+              {
+                "midi": 56,
+                "on": 0.85,
+                "off": 2.6,
+                "vel": 0.55
+              },
+              {
+                "midi": 60,
+                "on": 0.85,
+                "off": 2.6,
+                "vel": 0.5
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "strings",
+              "bells",
+              "organ"
+            ],
+            "semantics": {
+              "type": "wspolnota-wiez",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        },
+        {
+          "label": "w.3",
+          "title": "wezwanie i odpowiedź, potem razem",
+          "file": "candidates/g_bond_echo.mp3",
+          "desc": "jeden głos woła, drugi odpowiada tuż po nim tą samą barwą, na koniec oba trwają razem — więź potwierdzona",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_bond_echo",
+            "semantic": "wspólnota — wezwanie i odpowiedź, potem razem",
+            "desc": "jeden głos woła, drugi odpowiada tuż po nim tą samą barwą, na koniec oba trwają razem — więź potwierdzona",
+            "notes": [
+              {
+                "midi": 64,
+                "on": 0.0,
+                "off": 0.6,
+                "vel": 0.55
+              },
+              {
+                "midi": 60,
+                "on": 0.55,
+                "off": 1.3,
+                "vel": 0.5
+              },
+              {
+                "midi": 60,
+                "on": 1.6,
+                "off": 2.8,
+                "vel": 0.45
+              },
+              {
+                "midi": 64,
+                "on": 1.6,
+                "off": 2.8,
+                "vel": 0.4
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "strings",
+              "bells",
+              "organ"
+            ],
+            "semantics": {
+              "type": "wspolnota-wiez",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-duma",
+      "kind": "gestures",
+      "role": "jedyny klocek typu kody `duma-majestat` (31 fabuł; slot a fabuły 64)",
+      "candidates": [
+        {
+          "label": "d.1",
+          "title": "dwa kroki i rozstąpienie się na oścież",
+          "file": "candidates/g_pride_broadening.mp3",
+          "desc": "dwa krótkie stąpnięcia w górę, potem rejestr rozstępuje się naraz w dół i w górę — przestrzeń rośnie szeroko wokół jednego środka",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_pride_broadening",
+            "semantic": "duma — dwa kroki i rozstąpienie się na oścież",
+            "desc": "dwa krótkie stąpnięcia w górę, potem rejestr rozstępuje się naraz w dół i w górę — przestrzeń rośnie szeroko wokół jednego środka",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 0.45,
+                "vel": 0.5
+              },
+              {
+                "midi": 68,
+                "on": 0.4,
+                "off": 0.85,
+                "vel": 0.55
+              },
+              {
+                "midi": 48,
+                "on": 0.8,
+                "off": 2.6,
+                "vel": 0.6
+              },
+              {
+                "midi": 84,
+                "on": 0.8,
+                "off": 2.6,
+                "vel": 0.55
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "strings",
+              "bells",
+              "organ"
+            ],
+            "semantics": {
+              "type": "duma-majestat",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        },
+        {
+          "label": "d.2",
+          "title": "wspinaczka do pełnej wysokości",
+          "file": "candidates/g_pride_ascent.mp3",
+          "desc": "trzy kroki wspinają się oktawami do samego szczytu banku, gdzie ląduje pełny, szeroki akord — koronacja",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_pride_ascent",
+            "semantic": "duma — wspinaczka do pełnej wysokości",
+            "desc": "trzy kroki wspinają się oktawami do samego szczytu banku, gdzie ląduje pełny, szeroki akord — koronacja",
+            "notes": [
+              {
+                "midi": 48,
+                "on": 0.0,
+                "off": 0.4,
+                "vel": 0.55
+              },
+              {
+                "midi": 60,
+                "on": 0.35,
+                "off": 0.75,
+                "vel": 0.6
+              },
+              {
+                "midi": 72,
+                "on": 0.7,
+                "off": 1.15,
+                "vel": 0.65
+              },
+              {
+                "midi": 84,
+                "on": 1.1,
+                "off": 2.8,
+                "vel": 0.7
+              },
+              {
+                "midi": 48,
+                "on": 1.1,
+                "off": 2.8,
+                "vel": 0.5
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "strings",
+              "bells",
+              "organ"
+            ],
+            "semantics": {
+              "type": "duma-majestat",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        },
+        {
+          "label": "d.3",
+          "title": "środek trwa, ramiona się otwierają",
+          "file": "candidates/g_pride_spread.mp3",
+          "desc": "jedna centralna nuta trwa przez całą frazę, a wokół niej dokładane są kolejne głosy w górę i w dół — gest otwierających się ramion",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_pride_spread",
+            "semantic": "duma — środek trwa, ramiona się otwierają",
+            "desc": "jedna centralna nuta trwa przez całą frazę, a wokół niej dokładane są kolejne głosy w górę i w dół — gest otwierających się ramion",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 2.8,
+                "vel": 0.5
+              },
+              {
+                "midi": 68,
+                "on": 0.6,
+                "off": 2.8,
+                "vel": 0.5
+              },
+              {
+                "midi": 50,
+                "on": 1.2,
+                "off": 2.8,
+                "vel": 0.5
+              },
+              {
+                "midi": 84,
+                "on": 1.8,
+                "off": 2.8,
+                "vel": 0.55
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "strings",
+              "bells",
+              "organ"
+            ],
+            "semantics": {
+              "type": "duma-majestat",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-bezwzglednosc",
+      "kind": "gestures",
+      "role": "jedyny klocek typu kody `bezwzglednosc-drapieznosc` (31 fabuł; slot a fabuły 437)",
+      "candidates": [
+        {
+          "label": "b.1",
+          "title": "jedno zimne, ostateczne uderzenie",
+          "file": "candidates/g_ruthless_strike.mp3",
+          "desc": "pojedynczy twardy dysonansowy akord (tryton), bardzo krótki, bez wybrzmienia i bez odpowiedzi — cios i cisza",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_ruthless_strike",
+            "semantic": "bezwzględność — jedno zimne, ostateczne uderzenie",
+            "desc": "pojedynczy twardy dysonansowy akord (tryton), bardzo krótki, bez wybrzmienia i bez odpowiedzi — cios i cisza",
+            "notes": [
+              {
+                "midi": 48,
+                "on": 0.0,
+                "off": 0.3,
+                "vel": 0.8
+              },
+              {
+                "midi": 54,
+                "on": 0.0,
+                "off": 0.3,
+                "vel": 0.75
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "strings",
+              "bells",
+              "organ"
+            ],
+            "semantics": {
+              "type": "bezwzglednosc-drapieznosc",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        },
+        {
+          "label": "b.2",
+          "title": "narastający nacisk i finalny cios",
+          "file": "candidates/g_ruthless_press.mp3",
+          "desc": "trzy rosnące kroki napięcia, jak drapieżnik zamykający dystans, kończy się jednym twardym, niskim ciosem — bez litości",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_ruthless_press",
+            "semantic": "bezwzględność — narastający nacisk i finalny cios",
+            "desc": "trzy rosnące kroki napięcia, jak drapieżnik zamykający dystans, kończy się jednym twardym, niskim ciosem — bez litości",
+            "notes": [
+              {
+                "midi": 56,
+                "on": 0.0,
+                "off": 0.5,
+                "vel": 0.5
+              },
+              {
+                "midi": 60,
+                "on": 0.45,
+                "off": 0.95,
+                "vel": 0.6
+              },
+              {
+                "midi": 64,
+                "on": 0.85,
+                "off": 1.3,
+                "vel": 0.65
+              },
+              {
+                "midi": 48,
+                "on": 1.25,
+                "off": 1.55,
+                "vel": 0.85
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "strings",
+              "bells",
+              "organ"
+            ],
+            "semantics": {
+              "type": "bezwzglednosc-drapieznosc",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        },
+        {
+          "label": "b.3",
+          "title": "dwa identyczne, chłodne wyroki",
+          "file": "candidates/g_ruthless_verdict.mp3",
+          "desc": "dwa równe, twarde dysonansowe stuknięcia w równym odstępie — bez eskalacji, bez emocji, tylko powtórzony wyrok",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_ruthless_verdict",
+            "semantic": "bezwzględność — dwa identyczne, chłodne wyroki",
+            "desc": "dwa równe, twarde dysonansowe stuknięcia w równym odstępie — bez eskalacji, bez emocji, tylko powtórzony wyrok",
+            "notes": [
+              {
+                "midi": 54,
+                "on": 0.0,
+                "off": 0.25,
+                "vel": 0.8
+              },
+              {
+                "midi": 48,
+                "on": 0.0,
+                "off": 0.25,
+                "vel": 0.75
+              },
+              {
+                "midi": 54,
+                "on": 1.0,
+                "off": 1.25,
+                "vel": 0.85
+              },
+              {
+                "midi": 48,
+                "on": 1.0,
+                "off": 1.25,
+                "vel": 0.8
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "strings",
+              "bells",
+              "organ"
+            ],
+            "semantics": {
+              "type": "bezwzglednosc-drapieznosc",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "instr-cieplo",
+      "kind": "instruments",
+      "role": "jedyny klocek typu instrumentacji `cieplo-serdeczna` (33 fabuły; slot b fabuły 206)",
+      "candidates": [
+        {
+          "label": "c.1",
+          "title": "marimba — drewniany, ciepły mallet",
+          "file": "candidates/b_marimba_warm_demo.mp3",
+          "desc": "miękkie uderzenie w drewniane płytki, ciepły rezonans bez metalicznego błysku — 'lekko, drewniannie, pogodnie' — bank 10 nut F1–C6",
+          "source": "Versilian Community Sample Library (VCSL) — CC0 1.0",
+          "entry": {
+            "id": "b_marimba_warm",
+            "semantic": "drewniany rezonans marimby — ciepłe, zaokrąglone uderzenie",
+            "family": "idiophone-struck",
+            "samples": {
+              "29": "audio/library/instruments/marimba_warm/b_marimba_warm_Marimba_hit_Outrigger_F1_med_01.mp3",
+              "36": "audio/library/instruments/marimba_warm/b_marimba_warm_Marimba_hit_Outrigger_C2_med_01.mp3",
+              "43": "audio/library/instruments/marimba_warm/b_marimba_warm_Marimba_hit_Outrigger_G2_med_01.mp3",
+              "47": "audio/library/instruments/marimba_warm/b_marimba_warm_Marimba_hit_Outrigger_B2_med_01.mp3",
+              "53": "audio/library/instruments/marimba_warm/b_marimba_warm_Marimba_hit_Outrigger_F3_med_01.mp3",
+              "60": "audio/library/instruments/marimba_warm/b_marimba_warm_Marimba_hit_Outrigger_C4_med_01.mp3",
+              "67": "audio/library/instruments/marimba_warm/b_marimba_warm_Marimba_hit_Outrigger_G4_med_01.mp3",
+              "71": "audio/library/instruments/marimba_warm/b_marimba_warm_Marimba_hit_Outrigger_B4_med_01.mp3",
+              "77": "audio/library/instruments/marimba_warm/b_marimba_warm_Marimba_hit_Outrigger_F5_med_01.mp3",
+              "84": "audio/library/instruments/marimba_warm/b_marimba_warm_Marimba_hit_Outrigger_C6_med_01.mp3"
+            },
+            "gate_sources": {
+              "29": "instr_notes/b_marimba_warm_Marimba_hit_Outrigger_F1_med_01.mp3",
+              "36": "instr_notes/b_marimba_warm_Marimba_hit_Outrigger_C2_med_01.mp3",
+              "43": "instr_notes/b_marimba_warm_Marimba_hit_Outrigger_G2_med_01.mp3",
+              "47": "instr_notes/b_marimba_warm_Marimba_hit_Outrigger_B2_med_01.mp3",
+              "53": "instr_notes/b_marimba_warm_Marimba_hit_Outrigger_F3_med_01.mp3",
+              "60": "instr_notes/b_marimba_warm_Marimba_hit_Outrigger_C4_med_01.mp3",
+              "67": "instr_notes/b_marimba_warm_Marimba_hit_Outrigger_G4_med_01.mp3",
+              "71": "instr_notes/b_marimba_warm_Marimba_hit_Outrigger_B4_med_01.mp3",
+              "77": "instr_notes/b_marimba_warm_Marimba_hit_Outrigger_F5_med_01.mp3",
+              "84": "instr_notes/b_marimba_warm_Marimba_hit_Outrigger_C6_med_01.mp3"
+            },
+            "semantics": {
+              "type": "cieplo-serdeczna",
+              "traits": [
+                "ciepły",
+                "miękki",
+                "drewniany",
+                "organiczny"
+              ],
+              "bad_for": [
+                "ostry",
+                "zimny",
+                "metaliczny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Marimba, dynamika 'med' (VCSL); bank 10 nut F1–F5"
+            }
+          }
+        },
+        {
+          "label": "c.2",
+          "title": "waltornia — ciepła, sustainowana miedź",
+          "file": "candidates/b_frenchhorn_warm_demo.mp3",
+          "desc": "długie, ciepłe tony rogu bez ataku blachy — pełna, otulająca barwa — bank 11 nut A0–F4",
+          "source": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE) — CC0 1.0",
+          "entry": {
+            "id": "b_frenchhorn_warm",
+            "semantic": "spokojny, sustainowany oddech waltorni — miękka, aksamitna miedź",
+            "family": "aerophone-brass",
+            "samples": {
+              "21": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_A0_v1_1.mp3",
+              "24": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_C1_v1_1.mp3",
+              "27": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_D#1_v1_1.mp3",
+              "31": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_G1_v1_1.mp3",
+              "34": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_A#1_v1_1.mp3",
+              "38": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_D2_v1_1.mp3",
+              "41": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_F2_v1_1.mp3",
+              "45": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_A2_v1_1.mp3",
+              "48": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_C3_v1_1.mp3",
+              "62": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_D4_v1_1.mp3",
+              "65": "audio/library/instruments/frenchhorn_warm/b_frenchhorn_warm_MOHorn_sus_F4_v1_1.mp3"
+            },
+            "gate_sources": {
+              "21": "instr_notes/b_frenchhorn_warm_MOHorn_sus_A0_v1_1.mp3",
+              "24": "instr_notes/b_frenchhorn_warm_MOHorn_sus_C1_v1_1.mp3",
+              "27": "instr_notes/b_frenchhorn_warm_MOHorn_sus_D#1_v1_1.mp3",
+              "31": "instr_notes/b_frenchhorn_warm_MOHorn_sus_G1_v1_1.mp3",
+              "34": "instr_notes/b_frenchhorn_warm_MOHorn_sus_A#1_v1_1.mp3",
+              "38": "instr_notes/b_frenchhorn_warm_MOHorn_sus_D2_v1_1.mp3",
+              "41": "instr_notes/b_frenchhorn_warm_MOHorn_sus_F2_v1_1.mp3",
+              "45": "instr_notes/b_frenchhorn_warm_MOHorn_sus_A2_v1_1.mp3",
+              "48": "instr_notes/b_frenchhorn_warm_MOHorn_sus_C3_v1_1.mp3",
+              "62": "instr_notes/b_frenchhorn_warm_MOHorn_sus_D4_v1_1.mp3",
+              "65": "instr_notes/b_frenchhorn_warm_MOHorn_sus_F4_v1_1.mp3"
+            },
+            "semantics": {
+              "type": "cieplo-serdeczna",
+              "traits": [
+                "ciepły",
+                "miękki",
+                "aksamitny",
+                "sustain"
+              ],
+              "bad_for": [
+                "ostry",
+                "metaliczny",
+                "perkusyjny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VSCO-2-CE",
+              "channel": "git clone sparse z github.com/sgossner/VSCO-2-CE",
+              "notes": "F Horn, artykulacja 'sus', wariacja v1 (VSCO-2-CE); bank 11 nut A0–F4"
+            }
+          }
+        },
+        {
+          "label": "c.3",
+          "title": "klarnet — okrągły, ciepły drewniany dęty",
+          "file": "candidates/b_clarinet_warm_demo.mp3",
+          "desc": "ciepły, zaokrąglony ton drewnianego dętego — miękka alternatywa dla miedzi — bank 11 nut D2–F#5",
+          "source": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE) — CC0 1.0",
+          "entry": {
+            "id": "b_clarinet_warm",
+            "semantic": "gładki, sustainowany klarnet w rejestrze piersiowym — okrągły, bez świstu trzciny",
+            "family": "aerophone-reed",
+            "samples": {
+              "38": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_D2_v1_rr1_sum.mp3",
+              "41": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_F2_v1_rr1_sum.mp3",
+              "46": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_A#2_v1_rr1_sum.mp3",
+              "50": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_D3_v1_rr1_sum.mp3",
+              "53": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_F3_v1_rr1_sum.mp3",
+              "58": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_A#3_v1_rr1_sum.mp3",
+              "62": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_D4_v1_rr1_sum.mp3",
+              "65": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_F4_v1_rr1_sum.mp3",
+              "70": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_A#4_v1_rr1_sum.mp3",
+              "74": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_D5_v1_rr1_sum.mp3",
+              "78": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_F#5_v1_rr1_sum.mp3"
+            },
+            "gate_sources": {
+              "38": "instr_notes/b_clarinet_warm_DCClar_susLong_D2_v1_rr1_sum.mp3",
+              "41": "instr_notes/b_clarinet_warm_DCClar_susLong_F2_v1_rr1_sum.mp3",
+              "46": "instr_notes/b_clarinet_warm_DCClar_susLong_A#2_v1_rr1_sum.mp3",
+              "50": "instr_notes/b_clarinet_warm_DCClar_susLong_D3_v1_rr1_sum.mp3",
+              "53": "instr_notes/b_clarinet_warm_DCClar_susLong_F3_v1_rr1_sum.mp3",
+              "58": "instr_notes/b_clarinet_warm_DCClar_susLong_A#3_v1_rr1_sum.mp3",
+              "62": "instr_notes/b_clarinet_warm_DCClar_susLong_D4_v1_rr1_sum.mp3",
+              "65": "instr_notes/b_clarinet_warm_DCClar_susLong_F4_v1_rr1_sum.mp3",
+              "70": "instr_notes/b_clarinet_warm_DCClar_susLong_A#4_v1_rr1_sum.mp3",
+              "74": "instr_notes/b_clarinet_warm_DCClar_susLong_D5_v1_rr1_sum.mp3",
+              "78": "instr_notes/b_clarinet_warm_DCClar_susLong_F#5_v1_rr1_sum.mp3"
+            },
+            "semantics": {
+              "type": "cieplo-serdeczna",
+              "traits": [
+                "ciepły",
+                "miękki",
+                "okrągły",
+                "sustain"
+              ],
+              "bad_for": [
+                "ostry",
+                "metaliczny",
+                "chłodny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VSCO-2-CE",
+              "channel": "git clone sparse z github.com/sgossner/VSCO-2-CE",
+              "notes": "Clarinet, artykulacja 'susLong', wariacja v1 (VSCO-2-CE); bank 11 nut D2–F#5"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "instr-metal",
+      "kind": "instruments",
+      "role": "jedyny klocek typu instrumentacji `metaliczno-mechaniczna` (30 fabuł; slot b fabuły 191)",
+      "candidates": [
+        {
+          "label": "m.1",
+          "title": "kowadło — surowe, industrialne uderzenie metalu",
+          "file": "candidates/b_anvil_metal_demo.mp3",
+          "desc": "surowy metaliczny brzęk kucia, zero tonu muzycznego — najbardziej dosłowny 'metal' — bank 3 nut C2–C4",
+          "source": "Versilian Community Sample Library (VCSL) — CC0 1.0",
+          "entry": {
+            "id": "b_anvil_metal",
+            "semantic": "trzy realne kolory uderzenia w kowadło (bez tonalnej wysokości — czysta faktura)",
+            "family": "idiophone-struck",
+            "samples": {
+              "36": "audio/library/instruments/anvil_metal/b_anvil_metal_Anvil_Hit1_v1_rr1_Mid.mp3",
+              "48": "audio/library/instruments/anvil_metal/b_anvil_metal_Anvil_Hit2_v2_rr1_Mid.mp3",
+              "60": "audio/library/instruments/anvil_metal/b_anvil_metal_Anvil_Hit3_v3_rr1_Mid.mp3"
+            },
+            "gate_sources": {
+              "36": "instr_notes/b_anvil_metal_Anvil_Hit1_v1_rr1_Mid.mp3",
+              "48": "instr_notes/b_anvil_metal_Anvil_Hit2_v2_rr1_Mid.mp3",
+              "60": "instr_notes/b_anvil_metal_Anvil_Hit3_v3_rr1_Mid.mp3"
+            },
+            "semantics": {
+              "type": "metaliczno-mechaniczna",
+              "traits": [
+                "metaliczny",
+                "mechaniczny",
+                "surowy",
+                "przemysłowy"
+              ],
+              "bad_for": [
+                "ciepły",
+                "organiczny",
+                "miękki",
+                "melodyjny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Anvil, trzy kolory uderzenia Hit1/Hit2/Hit3 (VCSL); bank bez realnej wysokości (3 barwy przypisane umownym numerom MIDI)"
+            }
+          }
+        },
+        {
+          "label": "m.2",
+          "title": "tarcza hamulcowa — mechaniczny, warsztatowy metal",
+          "file": "candidates/b_brakedrum_metal_demo.mp3",
+          "desc": "krótki, suchy metaliczny brzęk warsztatu — bardziej 'techniczny' niż muzyczny kowal — bank 3 nut C2–C4",
+          "source": "Versilian Community Sample Library (VCSL) — CC0 1.0",
+          "entry": {
+            "id": "b_brakedrum_metal",
+            "semantic": "prawdziwa część samochodu (tarcza hamulcowa) uderzana młotkiem — dosłownie mechaniczne",
+            "family": "idiophone-struck",
+            "samples": {
+              "36": "audio/library/instruments/brakedrum_metal/b_brakedrum_metal_BrakeDrum1_Hammer_v1_rr1_Mid.mp3",
+              "48": "audio/library/instruments/brakedrum_metal/b_brakedrum_metal_BrakeDrum1_Hammer_v2_rr1_Mid.mp3",
+              "60": "audio/library/instruments/brakedrum_metal/b_brakedrum_metal_BrakeDrum1_Hammer_v3_rr1_Mid.mp3"
+            },
+            "gate_sources": {
+              "36": "instr_notes/b_brakedrum_metal_BrakeDrum1_Hammer_v1_rr1_Mid.mp3",
+              "48": "instr_notes/b_brakedrum_metal_BrakeDrum1_Hammer_v2_rr1_Mid.mp3",
+              "60": "instr_notes/b_brakedrum_metal_BrakeDrum1_Hammer_v3_rr1_Mid.mp3"
+            },
+            "semantics": {
+              "type": "metaliczno-mechaniczna",
+              "traits": [
+                "metaliczny",
+                "mechaniczny",
+                "warsztatowy",
+                "suchy"
+              ],
+              "bad_for": [
+                "ciepły",
+                "organiczny",
+                "miękki",
+                "melodyjny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Brake Drum 1, artykulacja Hammer, wariacje v1/v2/v3 (VCSL); bank bez realnej wysokości (3 barwy przypisane umownym numerom MIDI)"
+            }
+          }
+        },
+        {
+          "label": "m.3",
+          "title": "dzwony rurowe — metaliczne, ale tonalne",
+          "file": "candidates/b_tubularbells_metal_demo.mp3",
+          "desc": "jedyny tonalny kandydat metalu: prawdziwe dzwony rurowe, jasne i rezonujące — bank 8 nut D3–E4",
+          "source": "Versilian Community Sample Library (VCSL) — CC0 1.0",
+          "entry": {
+            "id": "b_tubularbells_metal",
+            "semantic": "całotonowy bieg po dzwonach rurowych, dynamika ff — metal z melodią",
+            "family": "idiophone-struck",
+            "samples": {
+              "50": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_D3_ff_rr1.mp3",
+              "52": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_E3_ff_rr2.mp3",
+              "54": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_F#3_fff_rr1.mp3",
+              "56": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_G#3_ff_rr1.mp3",
+              "58": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_A#3_ff_rr1.mp3",
+              "60": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_C4_ff_rr2.mp3",
+              "62": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_D4_ff_rr2.mp3",
+              "64": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_E4_ff_rr2.mp3"
+            },
+            "gate_sources": {
+              "50": "instr_notes/b_tubularbells_metal_chimes_D3_ff_rr1.mp3",
+              "52": "instr_notes/b_tubularbells_metal_chimes_E3_ff_rr2.mp3",
+              "54": "instr_notes/b_tubularbells_metal_chimes_F#3_fff_rr1.mp3",
+              "56": "instr_notes/b_tubularbells_metal_chimes_G#3_ff_rr1.mp3",
+              "58": "instr_notes/b_tubularbells_metal_chimes_A#3_ff_rr1.mp3",
+              "60": "instr_notes/b_tubularbells_metal_chimes_C4_ff_rr2.mp3",
+              "62": "instr_notes/b_tubularbells_metal_chimes_D4_ff_rr2.mp3",
+              "64": "instr_notes/b_tubularbells_metal_chimes_E4_ff_rr2.mp3"
+            },
+            "semantics": {
+              "type": "metaliczno-mechaniczna",
+              "traits": [
+                "metaliczny",
+                "mechaniczny",
+                "dzwoniący",
+                "rezonujący"
+              ],
+              "bad_for": [
+                "ciepły",
+                "organiczny",
+                "miękki",
+                "stłumiony"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Tubular Bells 1, dynamika ff/fff (VCSL); bank 8 nut D3–E4 (skala całotonowa)"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

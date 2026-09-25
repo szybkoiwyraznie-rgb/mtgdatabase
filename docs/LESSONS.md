@@ -532,3 +532,36 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   prezentacyjnych (daty, kolejność), musi zakładać, że CI może dać płytki
   klon — albo wymuś `fetch-depth: 0` w workflow, albo dodaj wykrywanie i
   głośne ostrzeżenie zamiast cichej degradacji.
+
+## Właściciel chce paczki bramek ≥5 zestawów naraz, nie po jednym (2026-09-25)
+
+- Po zamknięciu g030 (pojedynczy typ, mood `groza-przerazenie`) właściciel:
+  „Prosiłbym na przyszłość o przygotowywanie większych pakietów do oceny.
+  Nie jednego ale przynajmniej pięciu zestawów dźwięków/kod/instrumentów/teł”.
+- Zasada zapisana w `AGENTS.md` pkt 2: jedna runda bramki od teraz to
+  **≥5 wpisów bazy** (typy z `resolver.py --survey`), po 3 kandydatów każdy,
+  w jednym manifeście (`data/gates/gNNN/manifest.json` z wieloma `entries`)
+  i jednej stronie podglądu. Wzorzec: g031 (3 gesty mood + 2 zestawy
+  instrumentów, 5×3=15 kandydatów, jedna runda).
+- Dobór anchor-fabuły dla wielu typów naraz: dla każdego typu osobno znajdź
+  fabułę, dla której to JEDYNY brak (inaczej trzeba by rozstrzygać kilka
+  typów na tej samej fabule i tracić równoległość). Filtr w Pythonie
+  w `docs/STATE.md` sekcja „Co dalej” — do skopiowania w kolejnych sesjach.
+
+## `git clone`/`git ls-remote` z github.com działa z bash sandboksa — bez
+   dispatcha sample-scout (2026-09-25)
+
+- Wcześniejsze sesje zakładały, że jedynym kanałem na materiał audio jest
+  workflow **Sample scout** (GitHub Actions, osobny runner z internetem),
+  bo `docs/sources-and-licensing.md` opisuje „egress sandboksa tnie TLS do
+  Wikimedia/NPS/Freesound/raw.githubusercontent”. To prawda dla TYCH
+  hostów, ale **`git clone`/`git ls-remote` na `github.com` działa wprost
+  z bash tej sesji** (zweryfikowane: sparse-checkout VCSL i VSCO-2-CE, po
+  ~100 MB każdy, bez dispatcha). Więc gesty (bez sourcingu) i instrumenty
+  z repozytoriów na GitHubie (VCSL, VSCO-2-CE — oba CC0 1.0) można budować
+  bezpośrednio w sesji, bez czekania na workflow zewnętrzny. Sample-scout
+  (Freesound/archive.org/NPS) pozostaje jedyną drogą dla tła/hero, których
+  źródła NIE są na GitHubie.
+- Wniosek: przy planowaniu bramki najpierw sprawdź, czy potrzebny typ da się
+  obsłużyć materiałem z VCSL/VSCO (instant, w sesji) zanim odpalisz
+  sample-scout (async, wymaga merge do main + dispatch + oczekiwanie).

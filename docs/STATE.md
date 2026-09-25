@@ -8,97 +8,112 @@ Ostatnia aktualizacja: **2026-09-25** (sesja `arena/01a0d8ef-mtgdatabase`).
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **28**
-  (6 legacy + 22 z modelu 1:1: 18, 23, 28, 90, 110, 126, 166, 169, 193, 222,
-  225, 249, 268, 422, 451, 468, 511, 519, 562, 575, 577, 578).
-- Baza klocków: **40 wpisów** (`library_tool.py check`: 11 tła / 13 hero /
-  8 gestów / 8 instrumentów), wszystkie z `semantics` (1:1, taksonomia v6).
-- Bramki rozegrane z werdyktem: **g001–g029** (g014 wycofana — archiwum).
-  g023–g029: seria rund o tło-bitwa-zgielk / hero-lopot / koda-nadzieja /
-  tlo-dwor-komnaty / koda-spokoj / instr-ostro — wszystkie zamknięte,
-  wpisy w bazie: `battle_clamor_01`, `wingburst_takeoff_01`,
-  `g11c_home_arrival`, `chamber_hearth_01`, `g10c_humble_pulse`,
-  `b_soloviol_spic`.
-- **Bramka g030 OTWARTA** (patrz „W toku” niżej) — czeka na werdykt
-  właściciela, serwer podglądu działa na `:8080`.
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **30**
+  (6 legacy + 24 z modelu 1:1: 18, 23, 28, 90, 110, 126, 166, 169, 193, 222,
+  225, 249, 268, 422, **433, 451, 468, 506**, 511, 519, 562, 575, 577, 578).
+- Baza klocków: **41 wpisów** (`library_tool.py check`: 11 tła / 13 hero /
+  9 gestów / 8 instrumentów), wszystkie z `semantics` (1:1, taksonomia v6).
+- Bramki rozegrane z werdyktem: **g001–g030** (g014 wycofana — archiwum).
+  g030: mood `groza-przerazenie` → werdykt z.2 → `g_dread_descent` w bazie;
+  odblokowało fabuły 433 i 506 bez dodatkowej bramki.
+- **Bramka g031 OTWARTA** (patrz „W toku” niżej) — PAKIET 5 zestawów naraz
+  (na życzenie właściciela, patrz `AGENTS.md` pkt 2 „Rozmiar paczki”), serwer
+  podglądu na `:8080`.
 
 ## W toku
 
-**Bramka g030 czeka na werdykt** (`data/gates/g030/index.html`, serwer
-uruchomiony na porcie 8080 tego sandboksa — proces w tle „Bramka g030
-(podgląd)”). Priorytet z `resolver.py --survey`: mood `groza-przerazenie`
-blokuje **59 fabuł** — najczęstszy pojedynczy brak w całym katalogu.
-Zakotwiczone na fabule **433 „Inspire Awe”** (jedyny brak fabuły: koda;
-tło `forest_day_01`, hero `light_bloom_01`, instrumentacja `b_bassdrum`
-już obsadzone przez resolver). Trzej kandydaci — gesty autorskie pod
-definicję typu („Groza, strach, makabra — koda mrozi”), podgląd neutralny
-na `b_piano_steinway`:
+**Bramka g031 czeka na werdykt** (`data/gates/g031/index.html`, serwer na
+porcie 8080 — proces w tle „Bramka g031 (podgląd)”). Pierwsza bramka po
+zmianie zasady na **pakiety ≥5 zestawów naraz** (właściciel, 2026-09-25):
+5 wpisów, po 3 kandydatów każdy = 15 klipów do odsłuchu w jednej rundzie.
 
-- **z.1** `g_dread_freeze` — niski klaster (C3/D3) narasta i urywa się bez
-  wybrzmienia („mrozi”, nie gaśnie).
-- **z.2** `g_dread_descent` — trzy stąpnięcia w dół, potem nagły spadek
-  w dysonansowe dno z podszytą wielką sekundą.
-- **z.3** `g_dread_pulse` — ostry szturchaniec wysoko, cisza, niski powidok,
-  z którego budzi się późny dysonansowy podszept.
+1. **koda-wspolnota** (mood `wspolnota-wiez`, 34 fabuły, anchor: 585
+   „Jolrael, Mwonvuli Recluse”) — w.1 `g_bond_converge` (dystans→jedność),
+   w.2 `g_bond_embrace` (równoległe tercje), w.3 `g_bond_echo` (wezwanie
+   i odpowiedź).
+2. **koda-duma** (mood `duma-majestat`, 31 fabuł, anchor: 64 „Lightwalker”)
+   — d.1 `g_pride_broadening`, d.2 `g_pride_ascent`, d.3 `g_pride_spread`
+   (wszystkie: „koda rośnie szeroko”).
+3. **koda-bezwzglednosc** (mood `bezwzglednosc-drapieznosc`, 31 fabuł,
+   anchor: 437 „Giant Spider”) — b.1 `g_ruthless_strike` (jeden zimny cios),
+   b.2 `g_ruthless_press` (narastający nacisk + cios), b.3
+   `g_ruthless_verdict` (dwa identyczne wyroki).
+4. **instr-cieplo** (instrumentacja `cieplo-serdeczna`, 33 fabuły, anchor:
+   206 „High Stride”) — c.1 marimba (VCSL, drewniana, ciepła), c.2 waltornia
+   sus (VSCO-2-CE), c.3 klarnet susLong (VSCO-2-CE). Prawdziwe nagrania,
+   sparse-checkout z github.com/sgossner/{VCSL,VSCO-2-CE} (CC0 1.0).
+5. **instr-metal** (instrumentacja `metaliczno-mechaniczna`, 30 fabuł,
+   anchor: 191 „Esper Stormblade”) — m.1 kowadło/Anvil (VCSL, bez realnej
+   wysokości), m.2 tarcza hamulcowa/Brake Drum Hammer (VCSL, bez realnej
+   wysokości), m.3 dzwony rurowe/Tubular Bells 1 (VCSL, tonalne — jedyny
+   kandydat z melodią, skala całotonowa D3–E4).
 
-Po werdykcie właściciela (np. „z.2”): `library_tool.py accept --gate g030`,
-receptura fabuły 433 (background/hero/instrumentation już znane z resolvera),
-render `--audit`, potem `resolver.py --survey` ponownie — mood
-`groza-przerazenie` odblokuje od razu wszystkie fabuły, które mają go jako
-JEDYNY brak (sprawdzić przez `resolve_story` po zamknięciu bramki, podobnie
-jak zrobiono to w tej sesji dla `dwor-komnaty`/`spokoj-kontemplacja`/
-`ostro-gwaltowna` — 8 fabuł obsadzonych bez dodatkowej bramki po zamknięciu
-g026+g028).
+Po werdykcie: `library_tool.py accept --gate g031` → dla KAŻDEGO
+zaakceptowanego wpisu sprawdzić `resolver.py --survey`, czy odblokował
+fabuły z jedynym takim brakiem (jak zrobiono to dla 433/506 po g030) →
+receptura + render `--audit` dla wszystkich nowo obsadzonych.
 
-**Sesja 2026-09-25 (arena/01a0d8ef)**: po zamknięciu g025–g029 (odziedziczone
-z poprzedniej sesji z otwartymi werdyktami) `resolver.py --survey` pokazał
-**22 fabuły w pełni obsadzalne bez nowej bramki**. Zbudowano recepturę i
-render dla wszystkich 8 brakujących (249, 90, 126, 268, 422, 511, 562, 577);
-14 pozostałych było już gotowych z poprzednich sesji. Szczegóły poziomów
-i lekcje w `docs/LESSONS.md`:
-- **249 (Feedback)**: hero `light_bloom_01` (86% energii >6 kHz w izolacji)
-  + cichy `chamber_hearth_01` + krótka, w większości cicha koda
-  `g10c_humble_pulse` na `b_soloviol_spic` = pierwsza porażka bramki HF
-  (73,4%) mimo poziomów sprawdzonych w innych fabułach z tym samym hero.
-  Naprawione siatką `render_signature.py --force --audit` po poziomach
-  hero×coda (hero -20 dB, coda -3 dB → HF 16,9%, RMS -25,2 dB, margines
-  hero 9,9 dB) — praktyczny sufit RMS tej obsady to ok. -25,1 dB.
-- **511**: `stealth_move_03` (sustainowana czynela) + `b_handchimes`
-  (sustainowane próbki) na gest `g10c_humble_pulse` = samomaskowanie nut —
-  naprawione `damp_db: 12` (jak w fabule 451) + przycięcie hero do 2,6 s.
-- **268 / 577**: wąski bank `b_bassdrum` (3 próbki) na `g11c_home_arrival`
-  (5 nut, dwie nałożone) maskował ostatnią, pojedynczą nutę — naprawione
-  `damp_db: 4`.
-- **90, 126, 422, 562**: bez niespodzianek, poziomy z analogicznych fabuł
-  (222, 23/110, 5) przeniesione wprost.
+**Uwaga na przyszłość**: `/tmp/vcsl_probe` i `/tmp/vsco_probe` (sparse
+klony VCSL/VSCO-2-CE użyte do zbudowania kandydatów instrumentów g031) NIE
+przeżyją resetu sandboksa — jeśli werdykt wybierze m.1/m.2/m.3 lub c.1/c.2/c.3,
+`library_tool.py accept` kopiuje pliki z `data/gates/g031/instr_notes/`
+(już w gicie po commicie tej sesji), więc nie trzeba klonować ponownie.
 
-Wszystkie 28 receptur przechodzą `library_tool.py check` (kombinacje
+## Sesja 2026-09-25 — skrót przebiegu
+
+1. Odziedziczone po poprzedniej sesji zamknięte bramki g025–g029 →
+   `resolver.py --survey` pokazał 22 fabuły w pełni obsadzalne → zbudowano
+   8 brakujących receptur (249, 90, 126, 268, 422, 511, 562, 577).
+2. Naprawiono sortowanie gablotki Pages: oba workflowy `actions/checkout@v4`
+   robiły domyślny płytki klon (depth=1), przez co `git log` per plik widział
+   jeden commit dla wszystkich plików i sortowanie „najnowsze najwyżej”
+   degradowało się do kolejności numerycznej. Naprawa: `fetch-depth: 0`
+   w `pages.yml` i `pages-build.yml` + wykrywanie płytkiego repo w
+   `build_site.py` (głośne ostrzeżenie w logu builda).
+3. Bramka g030 (mood `groza-przerazenie`, 59 fabuł, anchor 433) — werdykt
+   właściciela **z.2** (`g_dread_descent`) → do bazy. Odblokowało od razu
+   fabuły **433** i **506** (obie miały ten mood jako jedyny brak) —
+   wyrenderowane bez dodatkowej bramki.
+4. Właściciel poprosił o **większe paczki bramek** (≥5 zestawów naraz,
+   nie jeden na raz) — zapisane w `AGENTS.md` pkt 2. Zbudowano bramkę
+   **g031** wg nowej zasady: 5 wpisów (3 mood + 2 instrumentacja) × 3
+   kandydatów, zakotwiczone na fabułach z dokładnie jednym brakiem
+   (585, 64, 437, 206, 191). Pierwszy raz w tej sesji instrumenty
+   sourcowane bezpośrednio (sparse-checkout VCSL/VSCO-2-CE z github.com —
+   bash MA dostęp do github.com, ale nie do Freesound/NPS/raw.githubusercontent,
+   patrz `docs/sources-and-licensing.md`).
+
+Wszystkie 30 receptur przechodzą `library_tool.py check` (kombinacje
 unikalne), `test_signature_system.py` (zielone), `build_pack.py` i
 `build_site.py` (bez błędów).
 
 ## Co dalej (kolejność pracy, nie wymaga pytania właściciela)
 
-1. **Werdykt g030** → `library_tool.py accept --gate g030` → receptura i
-   render fabuły 433 → `resolver.py --survey` ponownie, obsadzić od razu
-   każdą fabułę, dla której `groza-przerazenie` był JEDYNYM brakiem.
-2. Po g030 kolejne najczęstsze braki (z `resolver.py --survey` sprzed tej
-   sesji, do przeliczenia po g030): mood `wspolnota-wiez` (34),
-   instrumentacja `cieplo-serdeczna` (33), mood `duma-majestat` (31), mood
-   `bezwzglednosc-drapieznosc` (31), instrumentacja `metaliczno-mechaniczna`
-   (30), tło `gory-wichry` (28), tło `podziemia-jaskinia` (28), hero
-   `rezonans-magiczny` (24), mood `furia-dzikosc` (24). Bramkę kotwicz na
-   fabule z małą liczbą braków (użyj tego samego filtra co dla g030:
-   `resolve_story` z `braki` długości 1 na docelowy typ), kandydatów dobierz
-   pod DEFINICJĘ TYPU z `data/semantics/taxonomy.json` (`co_slychac`), nie
-   pod jedną narrację.
-3. Tła/hero (audio z zewnątrz) wymagają sample-scout (workflow GitHub,
-   internet) — patrz sekcja niżej. Gesty (koda) i przy okazji część
-   instrumentów już w bazie (VCSL/VSCO) nie wymagają nowego sourcingu —
-   dobieraj to, co tańsze/szybsze, chyba że definicja typu wymaga realnego
-   nagrania terenowego.
+1. **Werdykt g031** (5 wpisów naraz) → `library_tool.py accept --gate g031`
+   → dla każdego zaakceptowanego typu sprawdzić `resolver.py --survey` pod
+   kątem fabuł z jedynym takim brakiem → receptury + render.
+2. Kolejni kandydaci na następną PACZKĘ ≥5 (po odjęciu tego, co zamknie
+   g031): `hero:rezonans-magiczny` (24), `mood:furia-dzikosc` (24),
+   `hero:przemiana-materializacja` (23), `background:miasto-gwar` (23),
+   `instrumentacja:zimno-szklista` (21), `hero:potezny-cios` (21),
+   `background:swiatynia-sanktuarium` (21), `background:miasto-nocne` (21),
+   `background:gory-wichry` (28), `background:podziemia-jaskinia` (28) —
+   te dwa ostatnie zostały w kolejce z poprzedniej sesji, prawdopodobnie
+   wymagają prawdziwych nagrań terenowych (sample-scout / Freesound) zamiast
+   gestów/instrumentów z VCSL — sprawdź `docs/sources-and-licensing.md`.
+3. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
+   ```python
+   import sys, json
+   sys.path.insert(0, "scripts")
+   import resolver
+   data = resolver.load_data()
+   matches = [sid for sid in data["profiles"]
+              if len(resolver.resolve_story(sid, data)["braki"]) == 1
+              and resolver.resolve_story(sid, data)["braki"][0]["layer"] == "mood"  # lub inna warstwa
+              and resolver.resolve_story(sid, data)["braki"][0]["typ"] == "TYP"]
+   ```
 4. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
-   g001, nadpisuje ten katalog przy KAŻDYM uruchomieniu (patrz LESSONS
-   2026-09-25). Nie uruchamiać „na sprawdzenie”.
+   g001, nadpisuje ten katalog przy KAŻDYM uruchomieniu (LESSONS 2026-09-25).
 
 ## Sample scout — uruchomienie
 
@@ -131,9 +146,19 @@ dotyczy wyłącznie publicznej gablotki Pages i ZIP-a. Pełna polityka:
   (cache → właściciel słyszy stary montaż).
 - `pip install --break-system-packages numpy scipy pytest soundfile av
   lameenc` — świeży sandbox nie ma żadnej z tych zależności; bez nich
-  `render_signature.py`/testy padają na `ModuleNotFoundError`.
-- Źródła (`/tmp/ysl`, `/tmp/atomcut`, `/tmp/vcsl`, `/tmp/vsco2ce`) nie
-  przeżywają resetu; klonuj sparse ponownie wg `docs/sources-and-licensing.md`.
+  `render_signature.py`/testy padają na `ModuleNotFoundError`. **Uwaga**:
+  to trzeba robić PRZY KAŻDYM restarcie sandboksa w tej samej sesji też —
+  pakiety pip nie zawsze przeżywają nawet między turami.
+- **Lokalny git tej sesji bywa płytki/resetowany między turami** — sprawdź
+  `git log --oneline -5` na początku tury; jeśli HEAD wygląda staro mimo że
+  poprzednia tura commitowała, zrób `git fetch origin <branch>` i porównaj
+  z `FETCH_HEAD` (zwykle wystarczy `git reset --hard FETCH_HEAD`, bezpieczne
+  gdy `git diff FETCH_HEAD` na working tree wychodzi pusty).
+- Źródła (`/tmp/ysl`, `/tmp/atomcut`, `/tmp/vcsl_probe`, `/tmp/vsco_probe`)
+  nie przeżywają resetu; klonuj sparse ponownie wg
+  `docs/sources-and-licensing.md`. `git clone`/`git ls-remote` na
+  `github.com` działają z bash tego sandboksa; Freesound/NPS/
+  raw.githubusercontent — nie (stąd sample-scout przez GitHub Actions).
 - **Zwiad czyści `legacy/source/sample_scout/` przy każdym runie** —
   starsze partie znikają z HEAD; surowce trzymaj w `/tmp` albo odzyskaj
   `git show <baza>:<ścieżka>` (LESSONS 2026-09-24).
