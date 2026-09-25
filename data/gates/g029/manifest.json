@@ -2,7 +2,7 @@
   "id": "g029",
   "created": "2026-09-24",
   "story_id": "110",
-  "note": "RUNDA 3 fabuły 110 — zg i ł z przegranego przetargu g027 (koda n.3 już przyjęta). Po werdykcie „generyczne / jak ustawiona scena” i „trzepanie dywanu”: wyłącznie realne, długie wzięcia — bitwa z urzeczywistnionych nagrań (charge, archiwalna taśma, agony), skrzydła z prawdziwych gołębi nagranych z bliska. Żadnej syntetycznej warstwy. POPRAWKI właściciela: zg.1s/zg.3s = wersje z domieszką szczęku oręża; ł.1c = ł.1 bez ukrytego strzału. STAL v3: nowa paleta atomcut sword-clash (jasny ring 2–6 kHz, HP 220, bez LP); v2 z kociołem wycofane z decyzji.",
+  "note": "RUNDA 3 fabuły 110 — zg i ł z przegranego przetargu g027 (koda n.3 już przyjęta). Po werdykcie „generyczne / jak ustawiona scena” i „trzepanie dywanu”: wyłącznie realne, długie wzięcia — bitwa z urzeczywistnionych nagrań (charge, archiwalna taśma, agony), skrzydła z prawdziwych gołębi nagranych z bliska. Żadnej syntetycznej warstwy. POPRAWKI właściciela: zg.1s/zg.3s = wersje z domieszką szczęku oręża; ł.1c = ł.1 bez ukrytego strzału. STAL v3: nowa paleta atomcut sword-clash (jasny ring 2–6 kHz, HP 220, bez LP); v2 z kociołem wycofane z decyzji. STAL v4: werdykt „szczęk idealny, ciut ciszej i częściej” → -42 ±1 dB, 9/8 starć, rotacja 1…10; v3 wycofane z decyzji (zatwierdzony materiał zostaje w archiwum).",
   "entries": [
     {
       "slug": "tlo-bitwa-zgielk",
@@ -142,33 +142,33 @@
           }
         },
         {
-          "label": "zg.1v3",
-          "title": "szarża + stal jasna (v3) — miecz o miecz",
-          "file": "candidates/zg1_szarza_stal3.mp3",
-          "desc": "na prośbę właściciela: kocioł z v2 usunięty — teraz prawdziwe starcia mieczy atomcut (ring 2–6 kHz, zero niskiego brzęku), 5 rozróżnionych punktów 1,1 / 3,0 / 4,6 / 6,2 / 7,4 ± jitter; jasno, ale pod bedem",
+          "label": "zg.1v4",
+          "title": "szarża + stal jasna (v4) — ciszej i częściej",
+          "file": "candidates/zg1_szarza_stal4.mp3",
+          "desc": "dostrojenie werdyktu właściciela („szczęk idealny, ciut ciszej i częściej”): 9 starć mieczy co ~0,9 s, -42 ±1 dB; ring 2–6 kHz, zero niskiego brzęku; rotacja wszystkich 10 clash-i",
           "source": {
             "base": "zg1_szarza.mp3",
             "title": "20 sword sound effects — attacks & clashes (OpenGameArt/CC0)",
             "author": "OpenGameArt artists (pack w atomcut-library)",
             "license": "CC0 1.0",
             "url": "https://github.com/novincode/atomcut-library",
-            "channel": "git sparse-checkout /tmp/atomcut; skrypt build_gate_g029_fix3.py",
-            "notes": "5 starć sword-clash-4/6/8/9/10 (jasność 24–37% w 2–6 kHz); HP 220; -40 ±1,5 dB; ziarno 110 (jitter ±0,15 s)"
+            "channel": "git sparse-checkout /tmp/atomcut; skrypt build_gate_g029_fix4.py",
+            "notes": "sword-clash-1…10 w rotacji (jasność 24–37% w 2–6 kHz); HP 220; -42 ±1,0 dB; ziarno 110 (jitter ±0,12 s)"
           }
         },
         {
-          "label": "zg.3v3",
-          "title": "przełamanie + stal jasna (v3) — miecz o miecz",
-          "file": "candidates/zg3_przełamanie_stal3.mp3",
-          "desc": "ta sama jasna paleta na łóżku agonii: 5 starć 0,9 / 2,6 / 3,9 / 5,6 / 7,1 ± jitter; ring miecza przebija krzyki, niski brzęk usunięty HP 220",
+          "label": "zg.3v4",
+          "title": "przełamanie + stal jasna (v4) — ciszej i częściej",
+          "file": "candidates/zg3_przełamanie_stal4.mp3",
+          "desc": "ta sama strojenie na łóżku agonii: 8 starć co ~0,95 s, -42 ±1 dB; ring przebija krzyki, nie nadpisuje ich",
           "source": {
             "base": "zg3_przełamanie.mp3",
             "title": "20 sword sound effects — attacks & clashes (OpenGameArt/CC0)",
             "author": "OpenGameArt artists (pack w atomcut-library)",
             "license": "CC0 1.0",
             "url": "https://github.com/novincode/atomcut-library",
-            "channel": "git sparse-checkout /tmp/atomcut; skrypt build_gate_g029_fix3.py",
-            "notes": "5 starć sword-clash-4/6/8/9/10 (jasność 24–37% w 2–6 kHz); HP 220; -40 ±1,5 dB; ziarno 110 (jitter ±0,15 s)"
+            "channel": "git sparse-checkout /tmp/atomcut; skrypt build_gate_g029_fix4.py",
+            "notes": "sword-clash-1…10 w rotacji (jasność 24–37% w 2–6 kHz); HP 220; -42 ±1,0 dB; ziarno 110 (jitter ±0,12 s)"
           }
         }
       ]
