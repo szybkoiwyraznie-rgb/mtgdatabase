@@ -354,6 +354,46 @@
         "choice": "tlo-dwor-komnaty.1",
         "date": "2026-09-24"
       }
+    },
+    {
+      "duration_sec": 8.2,
+      "level_ref_db": -33,
+      "loopable": false,
+      "semantics": {
+        "type": "bitwa-zgielk",
+        "traits": [
+          "bitwa",
+          "zgiełk",
+          "krzyki",
+          "agonia",
+          "przełamanie",
+          "stal",
+          "ring-miecza"
+        ],
+        "bad_for": [
+          "spokój",
+          "komnata",
+          "ciche sceny",
+          "las-dzienny"
+        ]
+      },
+      "id": "battle_clamor_01",
+      "setting": "pole bitwy — zgiełk przełamania, krzyki i agonie",
+      "desc": "gęste medio bitewne: rzeczywiste krzyki wojowników szarżujących na ostrzał (podchwyt) z jasnym ringiem stali położonym delikatnie pod spodem — 8 starć miecz o miecz w losowych punktach (~0,95 s), ring 2–6 kHz bez niskiego brzęku",
+      "file": "audio/library/backgrounds/battle_clamor_01.mp3",
+      "source": {
+        "title": "People screaming in agony when charging into battle (Freesound) + 20 sword sound effects — attacks & clashes (OpenGameArt/atomcut)",
+        "author": "florianreichelt (łóżko) + OpenGameArt artists (starcia)",
+        "license": "CC0 1.0 (oba składniki)",
+        "url": "https://freesound.org/people/florianreichelt/sounds/563011/ + https://github.com/novincode/atomcut-library",
+        "channel": "sample-scout preview (łóżko, id 563011, okno 0,4–8,4 s, HP 55, -33 dB) + git sparse-checkout /tmp/atomcut (starcia)",
+        "notes": "stal: sword-clash-1…10 w rotacji, HP 220, -42 ±1,0 dB, 8 punktów start 0,55 s co 0,95 s, jitter ±0,12 s, ziarno 110; skrypty build_gate_g029_fix3.py → fix4.py; werdykt „zg.3v4 IDEALNY”"
+      },
+      "approved": {
+        "gate": "g029",
+        "choice": "tlo-bitwa-zgielk.3v4",
+        "date": "2026-09-25"
+      }
     }
   ]
 }

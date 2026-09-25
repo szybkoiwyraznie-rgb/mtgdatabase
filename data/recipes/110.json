@@ -1,0 +1,45 @@
+{
+  "story_id": "110",
+  "length_sec": 7.0,
+  "background": {
+    "id": "battle_clamor_01",
+    "offset_sec": 1.0,
+    "target_db": -33
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 1.4,
+    "target_db": -16
+  },
+  "coda": {
+    "gesture": "g11c_home_arrival",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.3,
+    "target_db": -20
+  },
+  "seed": 110,
+  "profile": {
+    "types": {
+      "background": "bitwa-zgielk",
+      "hero": "rozblysk-swiatla",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Rola z narracji: okrzyki przełamania jako tło bitwy (zanurzenie), rozbłysk skrzydeł ze światła jako hero 1:1 narracji („anielskie skrzydła z czystego światła”), durowa koda powrotu w C (nadzieja w durowej ktby), jasny anielski fortepian. Sygnatura bramki g029 stale v4: właściciel „zg.3v4 IDEALNY”."
+  },
+  "resolution": {
+    "types": {
+      "background": "bitwa-zgielk",
+      "hero": "rozblysk-swiatla",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "battle_clamor_01",
+      "hero": "light_bloom_01",
+      "mood": "g11c_home_arrival",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; tło bitwy przyjęte werdyktem właściciela z bramki g029 (zg.3v4 IDEALNY); kombinacja unikalna (receptura 20)"
+  }
+}

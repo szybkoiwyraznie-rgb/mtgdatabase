@@ -169,6 +169,41 @@
             "url": "https://github.com/novincode/atomcut-library",
             "channel": "git sparse-checkout /tmp/atomcut; skrypt build_gate_g029_fix4.py",
             "notes": "sword-clash-1…10 w rotacji (jasność 24–37% w 2–6 kHz); HP 220; -42 ±1,0 dB; ziarno 110 (jitter ±0,12 s)"
+          },
+          "entry": {
+            "duration_sec": 8.2,
+            "level_ref_db": -33,
+            "loopable": false,
+            "semantics": {
+              "type": "bitwa-zgielk",
+              "traits": [
+                "bitwa",
+                "zgiełk",
+                "krzyki",
+                "agonia",
+                "przełamanie",
+                "stal",
+                "ring-miecza"
+              ],
+              "bad_for": [
+                "spokój",
+                "komnata",
+                "ciche sceny",
+                "las-dzienny"
+              ]
+            },
+            "id": "battle_clamor_01",
+            "setting": "pole bitwy — zgiełk przełamania, krzyki i agonie",
+            "desc": "gęste medio bitewne: rzeczywiste krzyki wojowników szarżujących na ostrzał (podchwyt) z jasnym ringiem stali położonym delikatnie pod spodem — 8 starć miecz o miecz w losowych punktach (~0,95 s), ring 2–6 kHz bez niskiego brzęku",
+            "file": "audio/library/backgrounds/battle_clamor_01.mp3",
+            "source": {
+              "title": "People screaming in agony when charging into battle (Freesound) + 20 sword sound effects — attacks & clashes (OpenGameArt/atomcut)",
+              "author": "florianreichelt (łóżko) + OpenGameArt artists (starcia)",
+              "license": "CC0 1.0 (oba składniki)",
+              "url": "https://freesound.org/people/florianreichelt/sounds/563011/ + https://github.com/novincode/atomcut-library",
+              "channel": "sample-scout preview (łóżko, id 563011, okno 0,4–8,4 s, HP 55, -33 dB) + git sparse-checkout /tmp/atomcut (starcia)",
+              "notes": "stal: sword-clash-1…10 w rotacji, HP 220, -42 ±1,0 dB, 8 punktów start 0,55 s co 0,95 s, jitter ±0,12 s, ziarno 110; skrypty build_gate_g029_fix3.py → fix4.py; werdykt „zg.3v4 IDEALNY”"
+            }
           }
         }
       ]
@@ -369,8 +404,12 @@
     "hero-lopot": "ł.1c",
     "notes": {
       "hero-lopot": "Właściciel: „ł.1 jako łopot skrzydeł małego ptaka jest ok, tylko pod koniec trzeciej sekundy jest strzał ze strzelby, trzeba go wyciąć”, po cięciu: „ł.1c – super”. Wersja ł.1c (łuk 0,60–2,65 s źródła 689998, bez wzmocnionego ogona z ukrytym trzaskiem -70 dB) przyjęta jako heroes/wingburst_takeoff_01. Lekcja: zwiniedowanewymykanowe ogonów field-nagrań przy dużym gainie — ukryte ostrzę piki eksplodują po normie.",
-      "tlo-bitwa-zgielk": "Właściciel: „zg1 i zg3 są naprawdę super, tylko brakuje tam szczęku oręża (delikatne uderzenia metalu o metal w losowych miejscach)” → po wersji s: „stal brzmi jak uderzenia drewnianym młotkiem; szczęk mieczy o siebie albo o tarcze brzmi inaczej, wyżej, jaśniej”. Diagnoza: filtr LP 2400 + poziom -40,5 dB zabił ring metalu. Naprawa: jaśniejsza stal (HP 200 + LP ~8 k zamiast 2,4 k; ringi z pełnego pasma 486295 / atom-ciecia miecza), bez zmian w łóżkach. Weryfikacja w g030 w obecności właściciela.",
-      "zg.2": "odrzucony brakiem wyboru (właściciel wskazał wyłącznie zg.1 i zg.3)."
-    }
+      "tlo-bitwa-zgielk": "Łańcuch werdyktów: „brakuje szczęku oręża (delikatne uderzenia metalu o metal w losowych miejscach)” → v2: „jak uderzanie w kocioł” → v3 (paleta atomcut sword-clash, ring 2–6 kHz): „szczęk stali jest idealny, ale dałbym go ciut ciszej i częściej” → v4 (-42 ±1 dB, 8 starć co ~0,95 s z rotacją clash-1…10): „zg.3v4 IDEALNY”. Przyjęte jako tło tlo-bitwa-zgielk (backgrounds). Lekcja: prawdziwe starcia mieczy (24–37% energii w 2–6 kHz, ~0% <300 Hz) biją generic-metal; filtr HP 220 bez LP na górze; delikatny = cichy, nie przyciemniony.",
+      "zg.2": "odrzucony brakiem wyboru (właściciel wskazał wyłącznie zg.1 i zg.3).",
+      "zg.1v3": "wycofany po werdykcie „zg.3v4 IDEALNY” — wersja v4 odrzuczona brakiem wyboru.",
+      "zg.1v4": "odrzucony brakiem wyboru (właściciel wskazał zg.3v4 jako IDEALNY).",
+      "zg.3v4": "właściciel: „zg.3v4 IDEALNY”."
+    },
+    "tlo-bitwa-zgielk": "zg.3v4"
   }
 }
