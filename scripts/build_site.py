@@ -283,6 +283,23 @@ def main() -> None:
     # ---------- fabuły z sygnaturą ----------
     by_id = {int(s["id"]): s for s in catalog}
 
+    def _is_shallow_repo() -> bool:
+        """Płytki checkout (np. actions/checkout@v4 bez fetch-depth: 0) sprawia,
+        że `git log -1 -- path` widzi TYLKO jeden dostępny commit dla KAŻDEGO
+        pliku — sortowanie „najnowsze najwyżej” ciężko wtedy degraduje się do
+        czystej kolejności numerycznej (LESSONS 2026-09-25). Krzyczymy o tym
+        głośno w logu builda, żeby regresja configu CI była widoczna od razu."""
+        import subprocess
+        r = subprocess.run(["git", "rev-parse", "--is-shallow-repository"],
+                           capture_output=True, text=True, cwd=REPO, timeout=10)
+        return r.stdout.strip() == "true"
+
+    if _is_shallow_repo():
+        print("! UWAGA: płytki checkout (git shallow) — sortowanie fabuł „najnowsze "
+              "najwyżej” degraduje się do kolejności numerycznej, bo `git log` widzi "
+              "tylko jeden commit na plik. W CI ustaw `fetch-depth: 0` w "
+              "actions/checkout (patrz docs/LESSONS.md 2026-09-25).")
+
     def last_touch(sid: str) -> tuple[float, str]:
         """Czas ostatniej modyfikacji fabuły (żądanie właściciela: najnowsze
         najwyżej). Bierzemy nowszą z dat commitów sygnatury i receptury;

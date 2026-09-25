@@ -505,3 +505,30 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   albo `git show HEAD:data/gates/g001/manifest.json`. Po każdym takim
   eksperymencie sprawdź `git status` i odtwórz nietknięte pliki bramek przed
   dalszą pracą.
+
+## Gablotka Pages sortowała fabuły numerycznie zamiast „najnowsze najwyżej” (2026-09-25)
+
+- Zgłoszenie właściciela: strona biblioteki na Pages miała pokazywać gotowe
+  jingle-fabuły od najnowiej zmienionych, a pokazywała je wg numeru fabuły.
+- Kod sortujący (`build_site.py::last_touch`) był poprawny — bierze datę
+  ostatniego commita `git log -1 -- <plik>` dla receptury/sygnatury, z
+  fallbackiem na mtime dla plików niezacommitowanych. Problem był w CI:
+  oba workflowy Pages (`pages.yml`, `pages-build.yml`) robią
+  `actions/checkout@v4` **bez `fetch-depth`**, czyli domyślny płytki klon
+  (depth 1, jeden commit). W płytkim klonie `git log -1 -- path` widzi
+  TYLKO ten jeden dostępny commit dla KAŻDEGO pliku z drzewa — więc każda
+  fabuła dostaje tę samą datę i sortowanie `(-data, numer)` degraduje się
+  do czystego sortowania po numerze. Zweryfikowane lokalnie: pełne klony
+  (`git clone`) dają poprawną kolejność (najnowsza sesja na górze), płytki
+  klon (`git clone --depth 1 file://...`) odtwarza dokładnie zgłoszony błąd
+  (1, 2, 3, 4, 5, 8, 18, 23, 28, ...).
+- Naprawa: `fetch-depth: 0` w obu krokach `actions/checkout@v4` (pełna
+  historia, mały koszt przy tym rozmiarze repo). Dodatkowo `build_site.py`
+  teraz wykrywa płytki checkout (`git rev-parse --is-shallow-repository`)
+  i krzyczy o tym w logu builda, żeby regresja configu CI (np. po zmianie
+  workflow przez kogoś innego) była widoczna od razu, a nie cicho psuła
+  kolejność na gablotce.
+- Zasada: każda funkcja, która czyta `git log` per plik do celów
+  prezentacyjnych (daty, kolejność), musi zakładać, że CI może dać płytki
+  klon — albo wymuś `fetch-depth: 0` w workflow, albo dodaj wykrywanie i
+  głośne ostrzeżenie zamiast cichej degradacji.
