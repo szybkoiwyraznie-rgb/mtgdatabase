@@ -714,6 +714,116 @@
         "choice": "koda-bezwzglednosc.3",
         "date": "2026-09-26"
       }
+    },
+    {
+      "id": "g_feral_stampede",
+      "semantic": "furia — pęd, który się nie zatrzyma",
+      "desc": "pięć nisko pulsujących uderzeń przyspieszających bez kontroli, urywa się nagle na szczycie napięcia — żywioł, nie muzyka",
+      "notes": [
+        {
+          "midi": 48,
+          "on": 0.0,
+          "off": 0.3,
+          "vel": 0.6
+        },
+        {
+          "midi": 48,
+          "on": 0.42,
+          "off": 0.65,
+          "vel": 0.65
+        },
+        {
+          "midi": 48,
+          "on": 0.8,
+          "off": 1.0,
+          "vel": 0.7
+        },
+        {
+          "midi": 48,
+          "on": 1.12,
+          "off": 1.3,
+          "vel": 0.78
+        },
+        {
+          "midi": 61,
+          "on": 1.38,
+          "off": 1.6,
+          "vel": 0.85
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "struck-light",
+        "percussion_low"
+      ],
+      "semantics": {
+        "type": "furia-dzikosc",
+        "traits": [],
+        "bad_for": []
+      },
+      "approved": {
+        "gate": "g032",
+        "choice": "koda-furia.3",
+        "date": "2026-09-26"
+      }
+    },
+    {
+      "id": "g_brave_swagger",
+      "semantic": "brawura — pewny siebie krok z przytupem",
+      "desc": "kołyszący, synkopowany rytm średniego tempa — nie pędzi, tylko idzie tak, jakby świat już należał do niego",
+      "notes": [
+        {
+          "midi": 60,
+          "on": 0.0,
+          "off": 0.3,
+          "vel": 0.65
+        },
+        {
+          "midi": 60,
+          "on": 0.45,
+          "off": 0.6,
+          "vel": 0.5
+        },
+        {
+          "midi": 64,
+          "on": 0.65,
+          "off": 0.95,
+          "vel": 0.65
+        },
+        {
+          "midi": 67,
+          "on": 1.05,
+          "off": 1.9,
+          "vel": 0.7
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "struck-light",
+        "percussion_low"
+      ],
+      "semantics": {
+        "type": "zuchwalosc-brawura",
+        "traits": [],
+        "bad_for": []
+      },
+      "approved": {
+        "gate": "g032",
+        "choice": "koda-zuchwalosc.2",
+        "date": "2026-09-26"
+      }
     }
   ]
 }
