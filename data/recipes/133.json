@@ -1,0 +1,46 @@
+{
+  "story_id": "133",
+  "length_sec": 6.0,
+  "background": {
+    "id": "sea_storm_02",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "wave_crash_03",
+    "at_sec": 1.2,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g_pride_ascent",
+    "instrument": "b_bassdrum",
+    "at_sec": 3.2,
+    "target_db": -21
+  },
+  "seed": 133,
+  "gate": "g031",
+  "profile": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "fala-rozbryzg",
+      "mood": "duma-majestat",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "note": "Rola z narracji: wzburzone turkusowe morze u wybrzeży Theros jako tło (morze-wybrzeże, reuse z 28/90/222); gwałtowne wynurzenie hippokampa z kaskadą kropel jako hero 1:1 (fala-rozbryzg, reuse z 28/268 — 'potężny rozbryzg' pasuje wprost); koda `g_pride_ascent` (bramka g031, werdykt d.2) dla majestatu 'cudu nie dla śmiertelników' — trzy kroki do koronacji pasują do wynurzającej się, monumentalnej bestii; wielki bęben dla 'płynnie, potężnie, jasno'."
+  },
+  "resolution": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "fala-rozbryzg",
+      "mood": "duma-majestat",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "blocks": {
+      "background": "sea_storm_02",
+      "hero": "wave_crash_03",
+      "mood": "g_pride_ascent",
+      "instrumentation": "b_bassdrum"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; koda z bramki g031 (werdykt właściciela d.2); filtry twarde czyste; kombinacja unikalna"
+  }
+}

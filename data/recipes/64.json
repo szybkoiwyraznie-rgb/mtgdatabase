@@ -1,0 +1,46 @@
+{
+  "story_id": "64",
+  "length_sec": 6.0,
+  "background": {
+    "id": "sky_rush_02",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 1.2,
+    "target_db": -17
+  },
+  "coda": {
+    "gesture": "g_pride_ascent",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.2,
+    "target_db": -19
+  },
+  "seed": 64,
+  "gate": "g031",
+  "profile": {
+    "types": {
+      "background": "niebo-przestworza",
+      "hero": "rozblysk-swiatla",
+      "mood": "duma-majestat",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Rola z narracji: przestworza nad pustynnymi kanionami Tarkiru jako tło (niebo-przestworza, reuse z 18); szarża wojownika Dromoki po świetlistych, krystalicznych stopniach jako hero 1:1 (rozbłysk-światła, reuse z 23/110/225/422/433 — dosłowne 'dźwięczne kroki po świetle'); koda `g_pride_ascent` (bramka g031, werdykt d.2) dla dumy z boskiego daru — trzy kroki wspinające się do koronacji na szczycie pasują wprost do szarży po stopniach ku niebu; jasny fortepian dla 'jasno, dźwięcznie, wznosząco'."
+  },
+  "resolution": {
+    "types": {
+      "background": "niebo-przestworza",
+      "hero": "rozblysk-swiatla",
+      "mood": "duma-majestat",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "sky_rush_02",
+      "hero": "light_bloom_01",
+      "mood": "g_pride_ascent",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; koda z bramki g031 (werdykt właściciela d.2); filtry twarde czyste; kombinacja unikalna"
+  }
+}

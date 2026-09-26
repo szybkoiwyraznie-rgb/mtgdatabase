@@ -1,0 +1,47 @@
+{
+  "story_id": "437",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "stealth_move_03",
+    "at_sec": 0.8,
+    "length_sec": 2.5,
+    "target_db": -19
+  },
+  "coda": {
+    "gesture": "g_ruthless_verdict",
+    "instrument": "b_handchimes",
+    "at_sec": 3.2,
+    "target_db": -19
+  },
+  "seed": 437,
+  "gate": "g031",
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "skradanie-cisza",
+      "mood": "bezwzglednosc-drapieznosc",
+      "instrumentation": "cicho-kameralna"
+    },
+    "note": "Rola z narracji: gęste korony pradawnej puszczy Yavimaya jako tło (las-dzienny, reuse); pająk opuszczający się bez pośpiechu ku unieruchomionej zdobyczy jako hero 1:1 (skradanie-cisza, reuse z 90/166/169/451/506/511 — dosłowne 'bez pośpiechu, cierpliwie'); koda `g_ruthless_verdict` (bramka g031, werdykt b.3) dla 'naturalnego porządku łowów — bez zła, bez litości' — dwa równe, chłodne stuknięcia bez eskalacji pasują do metodycznego, beznamiętnego drapieżnika; ciche dzwoneczki dla 'cicho, pełzająco, naturalnie'."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "skradanie-cisza",
+      "mood": "bezwzglednosc-drapieznosc",
+      "instrumentation": "cicho-kameralna"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "stealth_move_03",
+      "mood": "g_ruthless_verdict",
+      "instrumentation": "b_handchimes"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; koda z bramki g031 (werdykt właściciela b.3); filtry twarde czyste; kombinacja unikalna"
+  }
+}

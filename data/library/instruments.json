@@ -336,6 +336,94 @@
         "choice": "instr-ostro.2",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "b_clarinet_warm",
+      "semantic": "gładki, sustainowany klarnet w rejestrze piersiowym — okrągły, bez świstu trzciny",
+      "family": "aerophone-reed",
+      "samples": {
+        "38": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_D2_v1_rr1_sum.mp3",
+        "41": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_F2_v1_rr1_sum.mp3",
+        "46": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_A#2_v1_rr1_sum.mp3",
+        "50": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_D3_v1_rr1_sum.mp3",
+        "53": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_F3_v1_rr1_sum.mp3",
+        "58": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_A#3_v1_rr1_sum.mp3",
+        "62": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_D4_v1_rr1_sum.mp3",
+        "65": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_F4_v1_rr1_sum.mp3",
+        "70": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_A#4_v1_rr1_sum.mp3",
+        "74": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_D5_v1_rr1_sum.mp3",
+        "78": "audio/library/instruments/clarinet_warm/b_clarinet_warm_DCClar_susLong_F#5_v1_rr1_sum.mp3"
+      },
+      "semantics": {
+        "type": "cieplo-serdeczna",
+        "traits": [
+          "ciepły",
+          "miękki",
+          "okrągły",
+          "sustain"
+        ],
+        "bad_for": [
+          "ostry",
+          "metaliczny",
+          "chłodny"
+        ]
+      },
+      "source": {
+        "title": "Versilian Studios Chamber Orchestra 2 CE (VSCO-2-CE)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VSCO-2-CE",
+        "channel": "git clone sparse z github.com/sgossner/VSCO-2-CE",
+        "notes": "Clarinet, artykulacja 'susLong', wariacja v1 (VSCO-2-CE); bank 11 nut D2–F#5"
+      },
+      "approved": {
+        "gate": "g031",
+        "choice": "instr-cieplo.3",
+        "date": "2026-09-26"
+      }
+    },
+    {
+      "id": "b_tubularbells_metal",
+      "semantic": "całotonowy bieg po dzwonach rurowych, dynamika ff — metal z melodią",
+      "family": "idiophone-struck",
+      "samples": {
+        "50": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_D3_ff_rr1.mp3",
+        "52": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_E3_ff_rr2.mp3",
+        "54": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_F#3_fff_rr1.mp3",
+        "56": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_G#3_ff_rr1.mp3",
+        "58": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_A#3_ff_rr1.mp3",
+        "60": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_C4_ff_rr2.mp3",
+        "62": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_D4_ff_rr2.mp3",
+        "64": "audio/library/instruments/tubularbells_metal/b_tubularbells_metal_chimes_E4_ff_rr2.mp3"
+      },
+      "semantics": {
+        "type": "metaliczno-mechaniczna",
+        "traits": [
+          "metaliczny",
+          "mechaniczny",
+          "dzwoniący",
+          "rezonujący"
+        ],
+        "bad_for": [
+          "ciepły",
+          "organiczny",
+          "miękki",
+          "stłumiony"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "Tubular Bells 1, dynamika ff/fff (VCSL); bank 8 nut D3–E4 (skala całotonowa)"
+      },
+      "approved": {
+        "gate": "g031",
+        "choice": "instr-metal.3",
+        "date": "2026-09-26"
+      }
     }
   ]
 }

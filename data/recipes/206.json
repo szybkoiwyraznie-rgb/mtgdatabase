@@ -1,0 +1,47 @@
+{
+  "story_id": "206",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "troop_march_05",
+    "at_sec": 1.0,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g5a_shimmer_up",
+    "instrument": "b_clarinet_warm",
+    "at_sec": 3.2,
+    "target_db": -12
+  },
+  "seed": 206,
+  "gate": "g031",
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "marsz-oddzialu",
+      "mood": "radosc-beztroska",
+      "instrumentation": "cieplo-serdeczna"
+    },
+    "note": "Rola z narracji: bujna miniaturowa dolina nad płytką rzeczką w Bloomburrow jako tło (las-dzienny, reuse); radosny marsz królika na drewnianych szczudłach ponad trawą jako hero 1:1 (marsz-oddziału, reuse z 575 — dosłowny 'stukot kroków w marszu'); koda `g5a_shimmer_up` (istniejący gest, model 1:1) dla 'pomysłowości i radości odkrycia' — szybka kaskada w górę pasuje do widoku z góry, jaki daje wysokość szczudeł; klarnet (bramka g031, werdykt c.3) dla 'lekko, drewnianie, pogodnie' — okrągły, ciepły dęty drewniany pasuje wprost do drewnianych szczudeł i pogodnej scenerii."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "marsz-oddzialu",
+      "mood": "radosc-beztroska",
+      "instrumentation": "cieplo-serdeczna"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "troop_march_05",
+      "mood": "g5a_shimmer_up",
+      "instrumentation": "b_clarinet_warm"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; instrumentacja z bramki g031 (werdykt właściciela c.3); filtry twarde czyste; kombinacja unikalna",
+    "levels_note": "target_db kody podniesiony do -12 (z domyślnego -19) — szybka kaskada g5a_shimmer_up (nuty co ~0,16 s) na sustainowanym klarnecie (wolny atak) wymagała więcej headroomu niż zwykle, żeby autokalibracja (+8 dB/nutę) domknęła margines ataku pierwszej i ostatniej nuty; damp_db nie pomagał (dotyczy tłumienia OGONA, nie natury ataku klarnetu)."
+  }
+}

@@ -4,113 +4,116 @@ Ten plik odpowiada na pytanie „gdzie jesteśmy i co robić dalej”, żeby now
 sesja nie musiała rekonstruować kontekstu z historii gita. Reguły są
 w `AGENTS.md` i `docs/gate-protocol.md` — tutaj wyłącznie bieżący stan.
 
-Ostatnia aktualizacja: **2026-09-25** (sesja `arena/01a0d8ef-mtgdatabase`).
+Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0d8ef-mtgdatabase`).
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **30**
-  (6 legacy + 24 z modelu 1:1: 18, 23, 28, 90, 110, 126, 166, 169, 193, 222,
-  225, 249, 268, 422, **433, 451, 468, 506**, 511, 519, 562, 575, 577, 578).
-- Baza klocków: **41 wpisów** (`library_tool.py check`: 11 tła / 13 hero /
-  9 gestów / 8 instrumentów), wszystkie z `semantics` (1:1, taksonomia v6).
-- Bramki rozegrane z werdyktem: **g001–g030** (g014 wycofana — archiwum).
-  g030: mood `groza-przerazenie` → werdykt z.2 → `g_dread_descent` w bazie;
-  odblokowało fabuły 433 i 506 bez dodatkowej bramki.
-- **Bramka g031 OTWARTA** (patrz „W toku” niżej) — PAKIET 5 zestawów naraz
-  (na życzenie właściciela, patrz `AGENTS.md` pkt 2 „Rozmiar paczki”), serwer
-  podglądu na `:8080`.
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **38**
+  (6 legacy + 32 z modelu 1:1: 18, 23, 28, 64, 90, 110, 126, 133, 166, 169,
+  191, 193, 206, 222, 225, 249, 268, 422, 433, 437, 451, 468, 498, 506, 511,
+  519, 562, 575, 577, 578, 585, 599).
+- Baza klocków: **46 wpisów** (`library_tool.py check`: 11 tła / 13 hero /
+  14 gestów / 9 instrumentów — wszystkie z `semantics`, model 1:1, taksonomia v6).
+- Bramki rozegrane z werdyktem: **g001–g031** (g014 wycofana — archiwum).
+  g030 (mood groza-przerazenie) → z.2 → `g_dread_descent`. **g031** (pakiet
+  5 wpisów naraz, pierwsza runda wg nowej zasady właściciela) → werdykt
+  w3/d2/b3/c3/m3 → `g_bond_echo`, `g_pride_ascent`, `g_ruthless_verdict`,
+  `b_clarinet_warm`, `b_tubularbells_metal` — wszystkie 5 przyjęte do biblioteki.
+- **Jedna fabuła zablokowana strukturalnie**: **253** (Inspiring Bard) —
+  `g11c_home_arrival` × `b_clarinet_warm` nie przechodzi bramki ataku nut przy
+  żadnej kombinacji parametrów (silnik `damp_db` konfliktuje z odstępem nut
+  <0,4 s — pełna diagnoza w `docs/LESSONS.md` 2026-09-26). Nie wyrenderowana,
+  `data/recipes/253.json` nie istnieje (świadomie usunięty, nie zapomniany).
 
 ## W toku
 
-**Bramka g031 czeka na werdykt** (`data/gates/g031/index.html`, serwer na
-porcie 8080 — proces w tle „Bramka g031 (podgląd)”). Pierwsza bramka po
-zmianie zasady na **pakiety ≥5 zestawów naraz** (właściciel, 2026-09-25):
-5 wpisów, po 3 kandydatów każdy = 15 klipów do odsłuchu w jednej rundzie.
+Brak otwartej bramki — g031 domknięta i w pełni wykorzystana (wszystkie 9
+odblokowanych fabuł sprawdzone, 8 wyrenderowanych, 1 udokumentowana blokada).
 
-1. **koda-wspolnota** (mood `wspolnota-wiez`, 34 fabuły, anchor: 585
-   „Jolrael, Mwonvuli Recluse”) — w.1 `g_bond_converge` (dystans→jedność),
-   w.2 `g_bond_embrace` (równoległe tercje), w.3 `g_bond_echo` (wezwanie
-   i odpowiedź).
-2. **koda-duma** (mood `duma-majestat`, 31 fabuł, anchor: 64 „Lightwalker”)
-   — d.1 `g_pride_broadening`, d.2 `g_pride_ascent`, d.3 `g_pride_spread`
-   (wszystkie: „koda rośnie szeroko”).
-3. **koda-bezwzglednosc** (mood `bezwzglednosc-drapieznosc`, 31 fabuł,
-   anchor: 437 „Giant Spider”) — b.1 `g_ruthless_strike` (jeden zimny cios),
-   b.2 `g_ruthless_press` (narastający nacisk + cios), b.3
-   `g_ruthless_verdict` (dwa identyczne wyroki).
-4. **instr-cieplo** (instrumentacja `cieplo-serdeczna`, 33 fabuły, anchor:
-   206 „High Stride”) — c.1 marimba (VCSL, drewniana, ciepła), c.2 waltornia
-   sus (VSCO-2-CE), c.3 klarnet susLong (VSCO-2-CE). Prawdziwe nagrania,
-   sparse-checkout z github.com/sgossner/{VCSL,VSCO-2-CE} (CC0 1.0).
-5. **instr-metal** (instrumentacja `metaliczno-mechaniczna`, 30 fabuł,
-   anchor: 191 „Esper Stormblade”) — m.1 kowadło/Anvil (VCSL, bez realnej
-   wysokości), m.2 tarcza hamulcowa/Brake Drum Hammer (VCSL, bez realnej
-   wysokości), m.3 dzwony rurowe/Tubular Bells 1 (VCSL, tonalne — jedyny
-   kandydat z melodią, skala całotonowa D3–E4).
+**Następny krok**: zbudować kolejną PACZKĘ ≥5 wpisów (zasada właściciela,
+patrz `AGENTS.md` pkt 2) z listy niżej. Serwer podglądu bramki (`:8080`) —
+jeśli poprzedni proces wygasł (środowisko czyści procesy w tle między turami),
+uruchom ponownie: `python3 scripts/gate_preview.py data/gates/gNNN --port 8080`.
 
-Po werdykcie: `library_tool.py accept --gate g031` → dla KAŻDEGO
-zaakceptowanego wpisu sprawdzić `resolver.py --survey`, czy odblokował
-fabuły z jedynym takim brakiem (jak zrobiono to dla 433/506 po g030) →
-receptura + render `--audit` dla wszystkich nowo obsadzonych.
+## Sesja 2026-09-25 → 2026-09-26 — skrót przebiegu
 
-**Uwaga na przyszłość**: `/tmp/vcsl_probe` i `/tmp/vsco_probe` (sparse
-klony VCSL/VSCO-2-CE użyte do zbudowania kandydatów instrumentów g031) NIE
-przeżyją resetu sandboksa — jeśli werdykt wybierze m.1/m.2/m.3 lub c.1/c.2/c.3,
-`library_tool.py accept` kopiuje pliki z `data/gates/g031/instr_notes/`
-(już w gicie po commicie tej sesji), więc nie trzeba klonować ponownie.
+1. Bramka g030 (mood `groza-przerazenie`) → werdykt właściciela **z.2**
+   (`g_dread_descent`) → do bazy. Odblokowało fabuły 433 i 506 — obie
+   wyrenderowane od razu (bez dodatkowej bramki).
+2. Właściciel poprosił o **większe paczki bramek** (≥5 zestawów naraz) —
+   zapisane trwale w `AGENTS.md` pkt 2.
+3. Zbudowana i rozegrana bramka **g031** wg nowej zasady: 5 wpisów × 3
+   kandydatów (15 klipów): 3 kody-nastroje (wspólnota-więź, duma-majestat,
+   bezwzględność-drapieżność) + 2 zestawy instrumentów (ciepło-serdeczna:
+   marimba/waltornia/klarnet z VCSL+VSCO-2-CE; metaliczno-mechaniczna:
+   kowadło/tarcza hamulcowa/dzwony rurowe z VCSL). Werdykt właściciela:
+   **w3, d2, b3, c3, m3** → `g_bond_echo`, `g_pride_ascent`,
+   `g_ruthless_verdict`, `b_clarinet_warm`, `b_tubularbells_metal` — 5/5
+   przyjęte (`library_tool.py accept --gate g031`).
+4. `resolver.py --survey` po przyjęciu → **9 nowych fabuł w pełni
+   obsadzalnych**: 64, 133, 191, 206, 253, 437, 498, 585, 599 (jednym
+   zaakceptowanym klockiem, bez kolejnej bramki).
+5. Zbudowano i wyrenderowano **8 z 9** (64, 133, 191, 206, 437, 498, 585,
+   599) — wszystkie PASS `--audit`. Dwie wymagały dostrojenia poziomów
+   (nie domyślnych): **206** `target_db=-12` (bez dampu — kaskada
+   `g5a_shimmer_up` na wolno atakującym klarnecie wymagała więcej
+   headroomu dla autokalibracji); **599** `target_db=-8` + `damp_db=1.0`
+   (bardzo mały damp — większy łamał próg HF).
+6. **253 pozostaje zablokowana** — `g11c_home_arrival` (akord E5+C3 + C4 w
+   odstępie 0,35 s, <0,4 s okna dampu w silniku) na sustainowanym klarnecie
+   nie przechodzi bramki ataku przy ŻADNEJ z >150 przeszukanych kombinacji
+   `target_db`/`damp_db`/`at_sec`. Pełna diagnoza silnika w
+   `docs/LESSONS.md` (sekcja „`damp_db` psuje się przy nutach <0,4 s”).
+   Nie użyto `--force` (workshop-only, nie dla finalnych sygnatur).
+7. Napotkano powtarzalną usterkę środowiska: **lokalny `.git` HEAD resetuje
+   się do starszego commita między turami**, mimo że pliki na dysku
+   pozostają aktualne i wypchnięte commity są na remote. Zweryfikowano
+   trzykrotnie w tej sesji: `git diff FETCH_HEAD` na śledzonych plikach
+   zawsze wychodził pusty (bezpieczne `git reset --hard FETCH_HEAD`).
+   Procedura opisana w sekcji „Rzeczy, które łatwo przeoczyć” niżej.
 
-## Sesja 2026-09-25 — skrót przebiegu
-
-1. Odziedziczone po poprzedniej sesji zamknięte bramki g025–g029 →
-   `resolver.py --survey` pokazał 22 fabuły w pełni obsadzalne → zbudowano
-   8 brakujących receptur (249, 90, 126, 268, 422, 511, 562, 577).
-2. Naprawiono sortowanie gablotki Pages: oba workflowy `actions/checkout@v4`
-   robiły domyślny płytki klon (depth=1), przez co `git log` per plik widział
-   jeden commit dla wszystkich plików i sortowanie „najnowsze najwyżej”
-   degradowało się do kolejności numerycznej. Naprawa: `fetch-depth: 0`
-   w `pages.yml` i `pages-build.yml` + wykrywanie płytkiego repo w
-   `build_site.py` (głośne ostrzeżenie w logu builda).
-3. Bramka g030 (mood `groza-przerazenie`, 59 fabuł, anchor 433) — werdykt
-   właściciela **z.2** (`g_dread_descent`) → do bazy. Odblokowało od razu
-   fabuły **433** i **506** (obie miały ten mood jako jedyny brak) —
-   wyrenderowane bez dodatkowej bramki.
-4. Właściciel poprosił o **większe paczki bramek** (≥5 zestawów naraz,
-   nie jeden na raz) — zapisane w `AGENTS.md` pkt 2. Zbudowano bramkę
-   **g031** wg nowej zasady: 5 wpisów (3 mood + 2 instrumentacja) × 3
-   kandydatów, zakotwiczone na fabułach z dokładnie jednym brakiem
-   (585, 64, 437, 206, 191). Pierwszy raz w tej sesji instrumenty
-   sourcowane bezpośrednio (sparse-checkout VCSL/VSCO-2-CE z github.com —
-   bash MA dostęp do github.com, ale nie do Freesound/NPS/raw.githubusercontent,
-   patrz `docs/sources-and-licensing.md`).
-
-Wszystkie 30 receptur przechodzą `library_tool.py check` (kombinacje
+Wszystkie 38 receptur przechodzą `library_tool.py check` (kombinacje
 unikalne), `test_signature_system.py` (zielone), `build_pack.py` i
-`build_site.py` (bez błędów).
+`build_site.py` (bez błędów; 46 wpisów baz, 38 sygnatur, 6 stron).
 
 ## Co dalej (kolejność pracy, nie wymaga pytania właściciela)
 
-1. **Werdykt g031** (5 wpisów naraz) → `library_tool.py accept --gate g031`
-   → dla każdego zaakceptowanego typu sprawdzić `resolver.py --survey` pod
-   kątem fabuł z jedynym takim brakiem → receptury + render.
-2. Kolejni kandydaci na następną PACZKĘ ≥5 (po odjęciu tego, co zamknie
-   g031): `hero:rezonans-magiczny` (24), `mood:furia-dzikosc` (24),
+1. **Zbuduj następną paczkę ≥5 wpisów** (zasada właściciela). Kandydaci wg
+   `resolver.py --survey` (po odjęciu tego, co zamknęła g031):
+   `background:gory-wichry` (28), `background:podziemia-jaskinia` (28),
+   `hero:rezonans-magiczny` (24), `mood:furia-dzikosc` (24),
    `hero:przemiana-materializacja` (23), `background:miasto-gwar` (23),
    `instrumentacja:zimno-szklista` (21), `hero:potezny-cios` (21),
    `background:swiatynia-sanktuarium` (21), `background:miasto-nocne` (21),
-   `background:gory-wichry` (28), `background:podziemia-jaskinia` (28) —
-   te dwa ostatnie zostały w kolejce z poprzedniej sesji, prawdopodobnie
-   wymagają prawdziwych nagrań terenowych (sample-scout / Freesound) zamiast
-   gestów/instrumentów z VCSL — sprawdź `docs/sources-and-licensing.md`.
+   `background:laboratorium-technika` (21), `background:wioska-sielska` (21),
+   `background:step-rownina` (19), `background:kuznia-warsztat` (19),
+   `mood:zuchwalosc-brawura` (18). Tła (`gory-wichry`, `podziemia-jaskinia`,
+   `miasto-gwar`, `swiatynia-sanktuarium`, `miasto-nocne`,
+   `laboratorium-technika`, `wioska-sielska`, `step-rownina`,
+   `kuznia-warsztat`) prawdopodobnie wymagają prawdziwych nagrań terenowych
+   (sample-scout / Freesound / archive.org), nie gestów autorskich — sprawdź
+   `docs/sources-and-licensing.md` i rozważ dispatch sample-scout wcześniej
+   (async, wymaga czasu), żeby materiał czekał gotowy na następną sesję.
+2. **253 do rewizytacji**: jeśli w przyszłości pojawi się DRUGI kandydat na
+   typ instrumentacji `cieplo-serdeczna` (obecnie tylko `b_clarinet_warm`),
+   sprawdź czy nowy klocek (np. waltornia z tej samej bramki g031, c.2,
+   niewybrana) przechodzi bramkę dla tej konkretnej fabuły — ale to wymaga
+   zmiany modelu 1:1 (dwa klocki tego samego typu), nie rób tego bez zgody
+   właściciela. Alternatywa: edycja `pre` w `coda_synth.py` (0,4 s →
+   mniej) — dotyka WSZYSTKICH receptur z `damp_db`, wymaga pełnej regresji
+   (`test_signature_system.py` + ręczny przegląd audytów istniejących
+   receptur z dampem: 268, 433, 506, 511, 575, 599).
 3. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
    ```python
    import sys, json
    sys.path.insert(0, "scripts")
    import resolver
    data = resolver.load_data()
-   matches = [sid for sid in data["profiles"]
-              if len(resolver.resolve_story(sid, data)["braki"]) == 1
-              and resolver.resolve_story(sid, data)["braki"][0]["layer"] == "mood"  # lub inna warstwa
-              and resolver.resolve_story(sid, data)["braki"][0]["typ"] == "TYP"]
+   for sid in data["profiles"]:
+       r = resolver.resolve_story(sid, data)
+       if len(r["braki"]) == 1 and r["braki"][0]["layer"] == "TYP_WARSTWY" \
+          and r["braki"][0]["typ"] == "TYP":
+           print(sid, r["title"])
    ```
 4. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
    g001, nadpisuje ten katalog przy KAŻDYM uruchomieniu (LESSONS 2026-09-25).
@@ -131,6 +134,12 @@ gh api repos/szybkoiwyraznie-rgb/mtgdatabase/dispatches \
 
 Pełna instrukcja pól i pułapki: `docs/sources-and-licensing.md`.
 
+**Nowość 2026-09-26**: `git clone`/`git ls-remote` na `github.com` działają
+BEZPOŚREDNIO z bash tej sesji (sparse-checkout VCSL/VSCO-2-CE użyty w g031,
+bez dispatcha) — sample-scout pozostaje potrzebny tylko dla hostów spoza
+GitHuba (Freesound/archive.org/NPS). Zanim odpalisz dispatch, sprawdź czy
+potrzebny dźwięk nie jest już dostępny w jakimś repo CC0 na GitHubie.
+
 ## Licencje — nie komplikuj
 
 Projekt prywatny, niekomercyjny, pliki na dysk właściciela: **brak licencji
@@ -149,11 +158,16 @@ dotyczy wyłącznie publicznej gablotki Pages i ZIP-a. Pełna polityka:
   `render_signature.py`/testy padają na `ModuleNotFoundError`. **Uwaga**:
   to trzeba robić PRZY KAŻDYM restarcie sandboksa w tej samej sesji też —
   pakiety pip nie zawsze przeżywają nawet między turami.
-- **Lokalny git tej sesji bywa płytki/resetowany między turami** — sprawdź
-  `git log --oneline -5` na początku tury; jeśli HEAD wygląda staro mimo że
-  poprzednia tura commitowała, zrób `git fetch origin <branch>` i porównaj
-  z `FETCH_HEAD` (zwykle wystarczy `git reset --hard FETCH_HEAD`, bezpieczne
-  gdy `git diff FETCH_HEAD` na working tree wychodzi pusty).
+- **Lokalny git tej sesji bywa płytki/resetowany między turami, a
+  procesy w tle (serwery podglądu) znikają między turami** — sprawdź
+  `git log --oneline -5` i `get_process_output` na początku tury; jeśli HEAD
+  wygląda staro mimo że poprzednia tura commitowała: `git fetch origin
+  <branch>`, sprawdź `diff -q <(git show FETCH_HEAD:plik) plik` dla kilku
+  śledzonych plików (jeśli SAME dla wszystkich — bezpiecznie
+  `git reset --hard FETCH_HEAD`, potwierdzone 3× w sesji 2026-09-26 bez
+  utraty danych). Serwery uruchom ponownie (`start_process`) — pliki
+  podglądu (`index.html`) trzeba czasem przebudować (`gate_preview.py
+  data/gates/gNNN --build-only`) jeśli też zniknęły z dysku.
 - Źródła (`/tmp/ysl`, `/tmp/atomcut`, `/tmp/vcsl_probe`, `/tmp/vsco_probe`)
   nie przeżywają resetu; klonuj sparse ponownie wg
   `docs/sources-and-licensing.md`. `git clone`/`git ls-remote` na
@@ -164,3 +178,6 @@ dotyczy wyłącznie publicznej gablotki Pages i ZIP-a. Pełna polityka:
   `git show <baza>:<ścieżka>` (LESSONS 2026-09-24).
 - **`build_gate_manifest.py` nie ma trybu podglądu** — każde uruchomienie
   nadpisuje `data/gates/g001/manifest.json` (LESSONS 2026-09-25).
+- **`damp_db` na sustainowanych instrumentach (klarnet/waltornia/organy)
+  psuje się, gdy nuty gestu są rozstawione <0,4 s** — sprawdź
+  `notes[].on` w geście przed użyciem dampu (LESSONS 2026-09-26).
