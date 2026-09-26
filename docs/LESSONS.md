@@ -625,3 +625,24 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   bramkę. Nie renderuj finalnie na „najbliższym” klocku. Po audycie 90, 206,
   268 i 599 zostały wycofane z gotowych; klasy skorygowane tak, by resolver
   zwracał BRAK zamiast ponownie tworzyć złą sygnaturę.
+
+## „OBSADZONA” po nowej bramce to hipoteza, nie zgoda na batch-render (audyt po g032, 2026-09-26)
+
+- Sytuacja: po przyjęciu g032 resolver wskazał 16 nowych fabuł jako w pełni
+  obsadzalne. Sanity check przed renderem wykrył sześć fałszywych trafień:
+  79 (popielate pustkowie mylone z ogniem), 253 (złote „fale” inspiracji
+  mylone z wodą), 309 (cień przemiany mylony z barierą), 428 (podziemia
+  akademii mylone z ciepłą komnatą), 560 (posępne sale twierdzy mylone z
+  obozem wojennym) i 607 (kontrola mylona z furią). Wyrenderowano tylko 10
+  pozostałych fabuł.
+- Wniosek: po każdej nowej bramce resolver może odblokować dużą paczkę, ale
+  odblokowanie wynika z typów tekstowych. Typy pochodzą z reguł/overridów i
+  mogą nieść stare słowa-klucze. Każda nowo „pełna” fabuła wymaga krótkiego
+  przeglądu semantycznego przed finalnym MP3.
+- Zasada / działanie zapobiegawcze: produkcja po bramce = (1) lista nowo
+  pełnych bez receptury, (2) sanity audit narracja→klasa→konkretny klocek,
+  (3) korekta klasy/profilu lub pending dla fałszywych trafień, (4) render
+  wyłącznie tych, które nie mają twardej sprzeczności. Wpis o fabule 253 jako
+  „zablokowanej technicznie” pozostaje lekcją o `damp_db`, ale dla samej
+  fabuły został uchylony semantycznie: nie wolno jej już prowadzić przez
+  `fala-rozbryzg`, bo złote fale inspiracji to `aura-lagodna`.

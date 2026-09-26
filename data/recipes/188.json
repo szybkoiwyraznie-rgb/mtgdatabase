@@ -1,0 +1,46 @@
+{
+  "story_id": "188",
+  "length_sec": 6.0,
+  "background": {
+    "id": "chamber_hearth_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "resonance_bowed_01",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g_pride_ascent",
+    "instrument": "b_handchimes",
+    "at_sec": 3.0,
+    "target_db": -9
+  },
+  "seed": 188,
+  "gate": "g032",
+  "profile": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "rezonans-magiczny",
+      "mood": "duma-majestat",
+      "instrumentation": "cicho-kameralna"
+    },
+    "note": "Rola z narracji po sanity audycie g032: tło — Kamienna komnata akademii o świcie — cisza nauki, trzepot stron od podmuchu; hero — Pierwsza samodzielna kula mocy między palcami — drżące skupienie i cichy pomruk energii; koda — Wysiłek i duma pierwszego sukcesu; instrumentacja — Cicho, skupienie, czysto. Obsada bloków wg resolvera po przyjęciu g032, z ręcznymi korektami klas zapobiegającymi naciąganiu słów-kluczy."
+  },
+  "resolution": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "rezonans-magiczny",
+      "mood": "duma-majestat",
+      "instrumentation": "cicho-kameralna"
+    },
+    "blocks": {
+      "background": "chamber_hearth_01",
+      "hero": "resonance_bowed_01",
+      "mood": "g_pride_ascent",
+      "instrumentation": "b_handchimes"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; sanity audit po g032 nie wykazał twardej sprzeczności; kombinacja unikalna; parametry poziomów dostrojone pod bramkę słyszalności nut (umiarkowany target, autokalibracja końcówek)"
+  }
+}

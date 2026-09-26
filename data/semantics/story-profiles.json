@@ -7257,11 +7257,12 @@
         ]
       },
       "mood": {
-        "opis": "Uśpiona wojna — groźba, która nie umarła",
+        "opis": "Uśpiona wojna i nieuchronna groźba, która może wrócić jednym wyrwanym ostrzem",
         "cechy": [
           "uśpiona wojna",
-          "groźba",
-          "pamięć bitew"
+          "nieuchronny powrót przemocy",
+          "broń wbita w kurhan",
+          "cisza przed zerwaniem ostrza"
         ]
       },
       "instrumentation": {
@@ -8117,9 +8118,9 @@
         ]
       },
       "hero": {
-        "opis": "Złote fale inspiracji z prostej lutni budzą drużynę do drogi",
+        "opis": "Złota aura inspiracji z prostej lutni budzi drużynę do drogi",
         "cechy": [
-          "fale inspiracji",
+          "złota aura inspiracji",
           "brzęk lutni",
           "budząca się drużyna",
           "napinana cięciwa"
@@ -9883,12 +9884,12 @@
         ]
       },
       "hero": {
-        "opis": "W lustrze odbija się cień bestii, atrament rozlewa się z przewróconego kałamarza",
+        "opis": "W lustrze formuje się cień drugiej natury — Homicidal Brute przebija przez uczonego",
         "cechy": [
-          "odbicie w lustrze",
+          "formowanie cienia",
+          "druga natura",
           "rozlany atrament",
-          "notowanie mimo grozy",
-          "czający się cień"
+          "czający się gniew"
         ]
       },
       "mood": {
@@ -12210,12 +12211,12 @@
     "428": {
       "title": "Curiosity",
       "background": {
-        "opis": "Mroczne podziemia akademii — cela eksperymentalna, skrobanie notującego pióra",
+        "opis": "Mroczne podziemia akademii — cela eksperymentalna pod ziemią, nie ciepła komnata z paleniskiem",
         "cechy": [
           "podziemia akademii",
           "cela eksperymentalna",
-          "skrobanie pióra",
-          "chłodna obserwacja"
+          "chłodny pogłos",
+          "skrobanie notującego pióra"
         ]
       },
       "hero": {
@@ -19021,9 +19022,10 @@
         ]
       },
       "mood": {
-        "opis": "Bezwzględna kontrola nad żywiołem",
+        "opis": "Bezwzględna kontrola nad uwięzionym żywiołem",
         "cechy": [
           "chłodna kontrola",
+          "władza nad bestią",
           "naukowa ciekawość",
           "stłumiona wściekłość"
         ]

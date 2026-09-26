@@ -1,5 +1,35 @@
 # CHANGELOG taksonomii semantycznej
 
+## 2026-09-26 — audyt po g032: 10 renderów, 6 fałszywie pełnych obsad
+
+Po przyjęciu g032 resolver wskazał 16 nowych fabuł jako w pełni obsadzalne.
+Każda przeszła sanity check narracja → klasa → klocek przed renderem.
+Wyrenderowano 10 fabuł: 55, 76, 84, 95, 179, 188, 224, 277, 282, 299.
+Zablokowano 6 fałszywych trafień: 79, 253, 309, 428, 560, 607.
+
+Korekty klas po audycie:
+
+- 76: `background dwor-komnaty` → `niebo-przestworza` (taras/wietrzne wieże,
+  nie wnętrze),
+- 79: `background kraina-ognia` → `pustkowie-cisza` (popielata martwa
+  równina po Eldrazi, nie ogień),
+- 179: `mood furia-dzikosc` → `radosc-beztroska` (komiczny chaos
+  bibliotekarza, nie furia),
+- 224: `mood czujnosc-napiecie` → `nieuchronnosc-fatum` (uśpiona wojna i
+  powrót przemocy, nie patrol),
+- 253: `hero fala-rozbryzg` → `aura-lagodna` (złota aura inspiracji z lutni,
+  nie fizyczna woda),
+- 309: `hero bariera-odbicie` → `przemiana-materializacja` (cień drugiej
+  natury/Homicidal Brute, nie bariera),
+- 428: `background dwor-komnaty` → `podziemia-jaskinia` (cela w mrocznych
+  podziemiach akademii, nie ciepła komnata z paleniskiem),
+- 560: `background oboz-wojenny` → pending `twierdza-posepna` (posępne sale
+  Twierdzy na Urborgu, nie tabor/warcamp),
+- 607: `mood furia-dzikosc` → `wladza-kontrola` (kontrola nad uwięzioną bestią,
+  nie dzika furia).
+
+Pełny zapis: `docs/audits/2026-09-26-audyt-po-g032.md`.
+
 ## 2026-09-26 — audyt gotowych: korekty przypisań i typy pending
 
 Po pytaniu właściciela „skąd w fabule 206 marsz wojsk?” przeprowadzono audyt

@@ -454,7 +454,7 @@
       "instrumentation": "mroczna"
     },
     "76": {
-      "background": "dwor-komnaty",
+      "background": "niebo-przestworza",
       "hero": "bariera-odbicie",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "zimno-szklista"
@@ -472,7 +472,7 @@
       "instrumentation": "mroczna"
     },
     "79": {
-      "background": "kraina-ognia",
+      "background": "pustkowie-cisza",
       "hero": "rezonans-magiczny",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "cicho-kameralna"
@@ -924,7 +924,7 @@
     "179": {
       "background": "dwor-komnaty",
       "hero": "trzask-blyskawicy",
-      "mood": "furia-dzikosc",
+      "mood": "radosc-beztroska",
       "instrumentation": "cicho-kameralna"
     },
     "180": {
@@ -1140,7 +1140,7 @@
     "224": {
       "background": "kraina-ognia",
       "hero": "potezny-cios",
-      "mood": "czujnosc-napiecie",
+      "mood": "nieuchronnosc-fatum",
       "instrumentation": "mroczna"
     },
     "225": {
@@ -1277,7 +1277,7 @@
     },
     "253": {
       "background": "las-dzienny",
-      "hero": "fala-rozbryzg",
+      "hero": "aura-lagodna",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -1559,7 +1559,7 @@
     },
     "309": {
       "background": "dwor-komnaty",
-      "hero": "bariera-odbicie",
+      "hero": "przemiana-materializacja",
       "mood": "furia-dzikosc",
       "instrumentation": "mroczna"
     },
@@ -1930,7 +1930,7 @@
       "instrumentation": "jasno-swietlista"
     },
     "428": {
-      "background": "dwor-komnaty",
+      "background": "podziemia-jaskinia",
       "hero": "potezny-cios",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "zimno-szklista"
@@ -2716,7 +2716,7 @@
       "instrumentation": "lekko-zwinna"
     },
     "560": {
-      "background": "oboz-wojenny",
+      "background": "twierdza-posepna",
       "hero": "rezonans-magiczny",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "mroczna"
@@ -3000,7 +3000,7 @@
     "607": {
       "background": "dwor-komnaty",
       "hero": "bariera-odbicie",
-      "mood": "furia-dzikosc",
+      "mood": "wladza-kontrola",
       "instrumentation": "zimno-szklista"
     },
     "608": {

@@ -1,0 +1,47 @@
+{
+  "story_id": "224",
+  "length_sec": 6.0,
+  "background": {
+    "id": "energy_steam_roar_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "heavyblow_gong_01",
+    "at_sec": 0.8,
+    "target_db": -18
+  },
+  "coda": {
+    "gesture": "g1b_march_pulse",
+    "instrument": "b_organ_loudpedal",
+    "at_sec": 3.6,
+    "target_db": -3,
+    "damp_db": 16.0
+  },
+  "seed": 224,
+  "gate": "g032",
+  "profile": {
+    "types": {
+      "background": "kraina-ognia",
+      "hero": "potezny-cios",
+      "mood": "nieuchronnosc-fatum",
+      "instrumentation": "mroczna"
+    },
+    "note": "Rola z narracji po sanity audycie g032: tło — żarzące się pole dawnego starcia; hero — pojedynczy potężny cios/ciężar broni wbitej w kurhan; koda — uśpiona wojna jako nieuchronna groźba; instrumentacja — mroczny organowy ciężar. Mood skorygowany z czujności na fatum, bo historia mówi o groźbie powrotu przemocy, nie o patrolowym nasłuchu."
+  },
+  "resolution": {
+    "types": {
+      "background": "kraina-ognia",
+      "hero": "potezny-cios",
+      "mood": "nieuchronnosc-fatum",
+      "instrumentation": "mroczna"
+    },
+    "blocks": {
+      "background": "energy_steam_roar_01",
+      "hero": "heavyblow_gong_01",
+      "mood": "g1b_march_pulse",
+      "instrumentation": "b_organ_loudpedal"
+    },
+    "reason": "model 1:1 po korekcie nastroju — nieuchronność lepiej opisuje uśpioną wojnę niż czujność; kombinacja unikalna"
+  }
+}
