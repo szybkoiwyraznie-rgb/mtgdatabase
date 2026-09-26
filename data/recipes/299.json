@@ -1,0 +1,47 @@
+{
+  "story_id": "299",
+  "length_sec": 6.0,
+  "background": {
+    "id": "frogs_night_01",
+    "offset_sec": 0.0,
+    "target_db": -33
+  },
+  "hero": {
+    "id": "wave_crash_03",
+    "at_sec": 1.0,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g_brave_swagger",
+    "instrument": "b_handchimes",
+    "at_sec": 3.3,
+    "target_db": -19,
+    "damp_db": 8.0
+  },
+  "seed": 299,
+  "gate": "g032",
+  "profile": {
+    "types": {
+      "background": "bagno-moczary",
+      "hero": "fala-rozbryzg",
+      "mood": "zuchwalosc-brawura",
+      "instrumentation": "cicho-kameralna"
+    },
+    "note": "Rola z narracji po sanity audycie g032: tło — Nocne bagno z martwymi drzewami — mgła nad wodą, mlaskanie błota, niejasne kształty; hero — Zwiadowczyni brodzi spokojnie z latarnią — ciepłe światło rozpędza mgłę, dłoń na amulecie; koda — Odwaga to iść do następnej świecy; instrumentacja — Mokro, cicho, napięcie. Obsada bloków wg resolvera po przyjęciu g032, z ręcznymi korektami klas zapobiegającymi naciąganiu słów-kluczy."
+  },
+  "resolution": {
+    "types": {
+      "background": "bagno-moczary",
+      "hero": "fala-rozbryzg",
+      "mood": "zuchwalosc-brawura",
+      "instrumentation": "cicho-kameralna"
+    },
+    "blocks": {
+      "background": "frogs_night_01",
+      "hero": "wave_crash_03",
+      "mood": "g_brave_swagger",
+      "instrumentation": "b_handchimes"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; sanity audit po g032 nie wykazał twardej sprzeczności; kombinacja unikalna"
+  }
+}

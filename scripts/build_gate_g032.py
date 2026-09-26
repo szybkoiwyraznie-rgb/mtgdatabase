@@ -241,22 +241,24 @@ def hero_rezonans_candidates() -> list[dict]:
     return [
         hero_from_file("m_vibes_bowed", "r.1", "smyczkowany wibrafon — ciepły rezonans",
                         "resonance_bowed_01", d / "Vibes_bowed_D4_rr1_Main.wav", sem,
-                        "Vibraphone Bowed D4 (VCSL); pierwsze 3.5 s, poziom, fade",
-                        t0=0.0, t1=3.5, rms=-16.0, fade_out=0.6,
+                        "Vibraphone Bowed D4 (VCSL); głośny fragment 1.15–4.65 s "
+                        "(źródło ma bardzo cichą głowę), poziom, fade",
+                        t0=1.15, t1=4.65, rms=-15.0, fade_out=0.6,
                         desc="smyczkowany talerz wibrafonu — długi, aksamitny rezonans, "
                              "jak brzęczenie zaklęcia dochodzące zewsząd naraz",
                         character="ciepły, wibrujący, aksamitny"),
         hero_from_file("m_flexatone", "r.2", "flexaton — falująca, nieziemska wibracja",
                         "resonance_flexatone_01", fx / "flexatone_extralong.wav", sem,
-                        "Flexatone extralong (VCSL); pierwsze 3.5 s, poziom, fade",
-                        t0=0.0, t1=3.5, rms=-17.0, fade_out=0.5,
+                        "Flexatone extralong (VCSL); głośniejszy fragment 8.0–11.5 s "
+                        "po audycji okien, poziom, fade",
+                        t0=8.0, t1=11.5, rms=-15.5, fade_out=0.5,
                         desc="metalowa płytka faluje w rękach — niepokojąca, żywa "
                              "wibracja, jakby powietrze samo drżało od magii",
                         character="falujący, niepokojący, żywy"),
         hero_from_file("m_belltree", "r.3", "drzewko dzwonków — kaskada glifów",
                         "resonance_belltree_01", bt / "Stroke/BellTree_Stroke_6_Mid.wav", sem,
-                        "Bell Tree stroke 6 (VCSL); pierwsze 3.2 s, poziom, fade",
-                        t0=0.0, t1=3.2, rms=-16.0, fade_out=0.6,
+                        "Bell Tree stroke 6 (VCSL); aktywny fragment 0.0–2.4 s, poziom, fade",
+                        t0=0.0, t1=2.4, rms=-15.0, fade_out=0.45,
                         desc="delikatna kaskada dzwonków — jak seria świecących glifów "
                              "zapalających się jeden po drugim",
                         character="kaskadowy, jasny, delikatny"),

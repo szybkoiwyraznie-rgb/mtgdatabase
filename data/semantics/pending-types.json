@@ -8,6 +8,27 @@
       "glosa": "łagodny lot pojedynczego ptaka — swobodne, rozłączne rozmajanie skrzydeł, nie wybuchowy skoł chmary/stada",
       "powod": "blok trzepot-drobnych-skrzydel (pęk gołębia) wg właściciela pasuje wyłącznie do dzikich ptaków (126) i ewentualnie Monastery Flock (467); do kilku innych fabuł pasuje „inny łopot — pojedynczego ptaka” (decyzja właściciela 2026-09-25)",
       "zrodlo": "właściciel przy weryfikacji g029"
+    },
+    {
+      "layer": "background",
+      "id": "zatoka-spokojna",
+      "glosa": "osłonięta, łagodna zatoka lub spokojne płytkie morze: delikatny przybój bez sztormowego ciężaru",
+      "powod": "audyt gotowych sygnatur 2026-09-26: 90 Tranquil Cove nie może używać sea_storm_02; scena wymaga spokojnej, uświęconej zatoki, nie nocnego sztormowego klifu",
+      "zrodlo": "audyt po pytaniu właściciela o błędną obsadę 206"
+    },
+    {
+      "layer": "hero",
+      "id": "stukot-szczudel",
+      "glosa": "pojedynczy lekki stukot drewnianych szczudeł lub szczudłowatych kroków; jeden mały bohater, nie formacja wielu nóg",
+      "powod": "audyt gotowych sygnatur 2026-09-26: 206 High Stride został błędnie zmapowany na marsz-oddzialu przez słowo „marsz”, choć narracja mówi o jednym króliku na szczudłach",
+      "zrodlo": "bezpośrednie pytanie właściciela: „skąd w fabule 206 marsz wojsk?”"
+    },
+    {
+      "layer": "background",
+      "id": "twierdza-posepna",
+      "glosa": "mroczne sale twierdzy lub okupowanego gmachu: kamień, chłodny pogłos, duszna aura przemocy; wnętrze bez ciepłego paleniska i bez obozowego taboru",
+      "powod": "audyt po g032: 560 Dead Ringers było mapowane na oboz-wojenny, choć narracja mówi o posępnych salach Twierdzy na Urborgu; warcamp_01 ma bad_for wnętrze",
+      "zrodlo": "sanity audit nowo odblokowanych fabuł po przyjęciu g032"
     }
   ]
 }

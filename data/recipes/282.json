@@ -1,0 +1,47 @@
+{
+  "story_id": "282",
+  "length_sec": 6.0,
+  "background": {
+    "id": "sea_storm_02",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 0.8,
+    "target_db": -24
+  },
+  "coda": {
+    "gesture": "g6c_sentry_return",
+    "instrument": "b_vibraphone_cold",
+    "at_sec": 3.2,
+    "target_db": -1,
+    "damp_db": 12.0
+  },
+  "seed": 282,
+  "gate": "g032",
+  "profile": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "rozblysk-swiatla",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "zimno-szklista"
+    },
+    "note": "Rola z narracji po sanity audycie g032: tło — Nocne wybrzeże z latarnią morską — fale, obrotowe światło we mgle; hero — Mgła eliksiru odbija księżyc i oślepia strażników — krzyki dezorientacji w ciemności; koda — Podejrzliwość po czarze — szukanie kozła ofiarnego; instrumentacja — Mgliście, zimno, niepokojąco. Obsada bloków wg resolvera po przyjęciu g032, z ręcznymi korektami klas zapobiegającymi naciąganiu słów-kluczy."
+  },
+  "resolution": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "rozblysk-swiatla",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "zimno-szklista"
+    },
+    "blocks": {
+      "background": "sea_storm_02",
+      "hero": "light_bloom_01",
+      "mood": "g6c_sentry_return",
+      "instrumentation": "b_vibraphone_cold"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; sanity audit po g032 nie wykazał twardej sprzeczności; kombinacja unikalna; parametry poziomów dostrojone pod bramkę słyszalności nut"
+  }
+}

@@ -424,6 +424,51 @@
         "choice": "instr-metal.3",
         "date": "2026-09-26"
       }
+    },
+    {
+      "id": "b_vibraphone_cold",
+      "semantic": "chłodny, metaliczny rezonans wibrafonu — szklisty połysk bez ciepła",
+      "family": "idiophone-struck",
+      "samples": {
+        "41": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_F2_v2_rr1_Main.mp3",
+        "45": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_A2_v2_rr1_Main.mp3",
+        "48": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_C3_v2_rr1_Main.mp3",
+        "52": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_E3_v2_rr1_Main.mp3",
+        "55": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_G3_v2_rr1_Main.mp3",
+        "59": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_B3_v2_rr1_Main.mp3",
+        "62": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_D4_v2_rr1_Main.mp3",
+        "65": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_F4_v2_rr1_Main.mp3",
+        "69": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_A4_v2_rr1_Main.mp3",
+        "72": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_C5_v2_rr1_Main.mp3",
+        "76": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_E5_v2_rr1_Main.mp3"
+      },
+      "semantics": {
+        "type": "zimno-szklista",
+        "traits": [
+          "zimny",
+          "metaliczny",
+          "szklisty",
+          "rezonujący"
+        ],
+        "bad_for": [
+          "ciepły",
+          "organiczny",
+          "matowy"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "Vibraphone, twarde pałeczki (mallets), wariacja v2 (VCSL); bank 11 nut F2–E5"
+      },
+      "approved": {
+        "gate": "g032",
+        "choice": "instr-zimno.1",
+        "date": "2026-09-26"
+      }
     }
   ]
 }

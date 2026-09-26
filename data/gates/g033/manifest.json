@@ -1,0 +1,790 @@
+{
+  "id": "g033",
+  "created": "2026-09-26",
+  "note": "PAKIET 5 zestawów po sanity audycie g032: topowe braki `background:podziemia-jaskinia`, `background:gory-wichry`, `hero:przemiana-materializacja` oraz dwie kody nastroju `podstep-intryga` i `wladza-kontrola`. Anchory: 428/85, 1/337, 309, 104/474, 607. Tła z Freesound/YSL, hero z atomcut/OpenGameArt CC0, gesty autorskie z neutralnym podglądem na b_piano_steinway.",
+  "entries": [
+    {
+      "slug": "tlo-podziemia",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `podziemia-jaskinia` (29 fabuł; anchor 428 Curiosity po korekcie z fałszywej komnaty)",
+      "candidates": [
+        {
+          "label": "p.1",
+          "title": "cicha piwnica z dalekimi szmerami",
+          "file": "candidates/bg_cave_cellar_01.mp3",
+          "desc": "niski room tone piwnicy: chłodne powietrze, daleki pogłos i pojedyncze nieokreślone szmery — dobre dla lochu bez wody (okno 12.0–20.0 s, RMS -32.0 dB, HF>6k 0.3%)",
+          "source": "room tone quiet cellar with distant noises.flac (Freesound)",
+          "entry": {
+            "id": "cave_cellar_01",
+            "setting": "podziemia / cicha piwnica",
+            "desc": "niski room tone piwnicy: chłodne powietrze, daleki pogłos i pojedyncze nieokreślone szmery — dobre dla lochu bez wody (okno 12.0–20.0 s, RMS -32.0 dB, HF>6k 0.3%)",
+            "file": "audio/library/backgrounds/cave_cellar_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "podziemia-jaskinia",
+              "traits": [
+                "podziemny pogłos",
+                "ciemne powietrze",
+                "kamień",
+                "niski szmer"
+              ],
+              "bad_for": [
+                "ciepłe wnętrze",
+                "otwarty plener",
+                "miasto",
+                "sielski las"
+              ]
+            },
+            "source": {
+              "title": "room tone quiet cellar with distant noises.flac (Freesound)",
+              "author": "kyles",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/kyles/sounds/637805/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 637805",
+              "notes": "quiet cellar: okno 12–20 s; wybrane dla podziemnego tła bez ludzi na pierwszym planie"
+            }
+          }
+        },
+        {
+          "label": "p.2",
+          "title": "tunel kamieniołomu z wilgotnym echem",
+          "file": "candidates/bg_cave_quarry_tunnel_01.mp3",
+          "desc": "wilgotny tunel: niski pogłos, oddech przestrzeni i daleki plusk — bardziej jaskinia niż pokój (okno 2.0–10.0 s, RMS -32.0 dB, HF>6k 4.4%)",
+          "source": "Quarry Tunnel Ambience 1, Large Splash (Freesound)",
+          "entry": {
+            "id": "cave_quarry_tunnel_01",
+            "setting": "podziemia / tunel kamieniołomu",
+            "desc": "wilgotny tunel: niski pogłos, oddech przestrzeni i daleki plusk — bardziej jaskinia niż pokój (okno 2.0–10.0 s, RMS -32.0 dB, HF>6k 4.4%)",
+            "file": "audio/library/backgrounds/cave_quarry_tunnel_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "podziemia-jaskinia",
+              "traits": [
+                "podziemny pogłos",
+                "ciemne powietrze",
+                "kamień",
+                "niski szmer"
+              ],
+              "bad_for": [
+                "ciepłe wnętrze",
+                "otwarty plener",
+                "miasto",
+                "sielski las"
+              ]
+            },
+            "source": {
+              "title": "Quarry Tunnel Ambience 1, Large Splash (Freesound)",
+              "author": "ecfike",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/ecfike/sounds/476318/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 476318",
+              "notes": "quarry tunnel ambience: okno 2–10 s; kandydat na wilgotne podziemia"
+            }
+          }
+        },
+        {
+          "label": "p.3",
+          "title": "głuchy przeciąg w grocie",
+          "file": "candidates/bg_cave_dragonsmouth_01.mp3",
+          "desc": "głęboki, gardłowy szum pary i kamiennego pogłosu; wcześniej nie nadawał się jako woda, ale działa jako mroczna, oddychająca grota (okno 58.0–66.0 s, RMS -33.0 dB, HF>6k 0.0%)",
+          "source": "Yellowstone Sound Library (NPS)",
+          "entry": {
+            "id": "cave_dragonsmouth_01",
+            "setting": "podziemia / gorąca grota",
+            "desc": "głęboki, gardłowy szum pary i kamiennego pogłosu; wcześniej nie nadawał się jako woda, ale działa jako mroczna, oddychająca grota (okno 58.0–66.0 s, RMS -33.0 dB, HF>6k 0.0%)",
+            "file": "audio/library/backgrounds/cave_dragonsmouth_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33.0,
+            "loopable": true,
+            "semantics": {
+              "type": "podziemia-jaskinia",
+              "traits": [
+                "podziemny pogłos",
+                "ciemne powietrze",
+                "kamień",
+                "niski szmer"
+              ],
+              "bad_for": [
+                "ciepłe wnętrze",
+                "otwarty plener",
+                "miasto",
+                "sielski las"
+              ]
+            },
+            "source": {
+              "title": "Yellowstone Sound Library (NPS)",
+              "author": "National Park Service",
+              "license": "Public Domain (utwór rządu USA)",
+              "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+              "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+              "notes": "The Dragon's Mouth: okno 58–66 s; użyte nie jako woda, tylko jako przeciąg/groto-pogłos"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tlo-gory",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `gory-wichry` (28 fabuł; anchory 1 Dunland Crebain / 337 Glaring Aegis)",
+      "candidates": [
+        {
+          "label": "g.1",
+          "title": "stały wiatr wysokości",
+          "file": "candidates/bg_mountain_wind_steady_01.mp3",
+          "desc": "ciągły, szeroki wiatr bez ptaków i bez miasta — neutralna grań albo przełęcz (okno 20.0–28.0 s, RMS -32.0 dB, HF>6k 0.1%)",
+          "source": "Mongolian film windblown steppe1.wav (Freesound)",
+          "entry": {
+            "id": "mountain_wind_steady_01",
+            "setting": "góry / stały wiatr na grani",
+            "desc": "ciągły, szeroki wiatr bez ptaków i bez miasta — neutralna grań albo przełęcz (okno 20.0–28.0 s, RMS -32.0 dB, HF>6k 0.1%)",
+            "file": "audio/library/backgrounds/mountain_wind_steady_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "gory-wichry",
+              "traits": [
+                "wiatr",
+                "otwarta wysokość",
+                "surowe powietrze",
+                "brak ludzi"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "miasto",
+                "las dzienny",
+                "ciepły spokój"
+              ]
+            },
+            "source": {
+              "title": "Mongolian film windblown steppe1.wav (Freesound)",
+              "author": "Jim-Bretherick",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+              "notes": "Mongolian windblown steppe: okno 20–28 s; interpretowane jako otwarta wysokość/grzbiet"
+            }
+          }
+        },
+        {
+          "label": "g.2",
+          "title": "porywy na odkrytym zboczu",
+          "file": "candidates/bg_mountain_wind_gusts_01.mp3",
+          "desc": "bardziej zmienny wiatr: krótkie porywy jak na odkrytym zboczu, bez ludzkiego planu (okno 54.0–62.0 s, RMS -32.0 dB, HF>6k 0.1%)",
+          "source": "Mongolian film windblown steppe1.wav (Freesound)",
+          "entry": {
+            "id": "mountain_wind_gusts_01",
+            "setting": "góry / porywy na zboczu",
+            "desc": "bardziej zmienny wiatr: krótkie porywy jak na odkrytym zboczu, bez ludzkiego planu (okno 54.0–62.0 s, RMS -32.0 dB, HF>6k 0.1%)",
+            "file": "audio/library/backgrounds/mountain_wind_gusts_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "gory-wichry",
+              "traits": [
+                "wiatr",
+                "otwarta wysokość",
+                "surowe powietrze",
+                "brak ludzi"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "miasto",
+                "las dzienny",
+                "ciepły spokój"
+              ]
+            },
+            "source": {
+              "title": "Mongolian film windblown steppe1.wav (Freesound)",
+              "author": "Jim-Bretherick",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+              "notes": "Mongolian windblown steppe: okno 54–62 s; porywy, bez mowy na pierwszym planie"
+            }
+          }
+        },
+        {
+          "label": "g.3",
+          "title": "surowa wichura na płaskowyżu",
+          "file": "candidates/bg_mountain_wind_plateau_01.mp3",
+          "desc": "najbardziej szorstkie okno: suchy wiatr po kamieniu, dobre dla wysokiego płaskowyżu lub kanionu (okno 96.0–104.0 s, RMS -32.0 dB, HF>6k 0.0%)",
+          "source": "Mongolian film windblown steppe1.wav (Freesound)",
+          "entry": {
+            "id": "mountain_wind_plateau_01",
+            "setting": "góry / surowy płaskowyż",
+            "desc": "najbardziej szorstkie okno: suchy wiatr po kamieniu, dobre dla wysokiego płaskowyżu lub kanionu (okno 96.0–104.0 s, RMS -32.0 dB, HF>6k 0.0%)",
+            "file": "audio/library/backgrounds/mountain_wind_plateau_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "gory-wichry",
+              "traits": [
+                "wiatr",
+                "otwarta wysokość",
+                "surowe powietrze",
+                "brak ludzi"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "miasto",
+                "las dzienny",
+                "ciepły spokój"
+              ]
+            },
+            "source": {
+              "title": "Mongolian film windblown steppe1.wav (Freesound)",
+              "author": "Jim-Bretherick",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+              "notes": "Mongolian windblown steppe: okno 96–104 s; szorstki pęd powietrza"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hero-przemiana",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `przemiana-materializacja` (24 fabuły; anchor 309 Civilized Scholar)",
+      "candidates": [
+        {
+          "label": "m.1",
+          "title": "formowanie świetlistej masy",
+          "file": "candidates/h_materialize_magic_swell_01.mp3",
+          "desc": "miękkie narastanie i rozbłysk, bardziej powstanie formy niż strzał zaklęcia (czas 1.83 s, RMS -15.0 dB, HF>6k 0.6%)",
+          "source": "Magic Spell SFX (OpenGameArt)",
+          "entry": {
+            "id": "materialize_magic_swell_01",
+            "role": "przemiana / materializacja / rozpad formy",
+            "character": "narastający, magiczny, zaokrąglony",
+            "distance": "średni",
+            "energy": "średnia",
+            "duration_sec": 1.83,
+            "desc": "miękkie narastanie i rozbłysk, bardziej powstanie formy niż strzał zaklęcia (czas 1.83 s, RMS -15.0 dB, HF>6k 0.6%)",
+            "good_for": "formowanie cienia, materializacja postaci, przeobrażenie, rozpłynięcie formy",
+            "bad_for": "zwykły pocisk magiczny, fizyczny cios, naturalistyczna fauna",
+            "file": "audio/library/heroes/materialize_magic_swell_01.mp3",
+            "semantics": {
+              "type": "przemiana-materializacja",
+              "traits": [
+                "narastanie",
+                "formowanie",
+                "magiczne",
+                "przejście formy"
+              ],
+              "bad_for": [
+                "zwykły pocisk",
+                "cios fizyczny",
+                "woda"
+              ]
+            },
+            "source": {
+              "title": "Magic Spell SFX (OpenGameArt)",
+              "author": "jaggedstone",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/magic-spell-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-magic-spell-sfx; magical-3.m4a; nie jest użytym już spell_cast_bolt_01"
+            }
+          }
+        },
+        {
+          "label": "m.2",
+          "title": "ciemne przejście przez formę",
+          "file": "candidates/h_materialize_dark_shift_01.mp3",
+          "desc": "dłuższy mroczny łuk energii: cień rozlewa się i składa w drugą postać (czas 2.67 s, RMS -15.0 dB, HF>6k 0.0%)",
+          "source": "Superpowers assets sound effects (OpenGameArt)",
+          "entry": {
+            "id": "materialize_dark_shift_01",
+            "role": "przemiana / materializacja / rozpad formy",
+            "character": "ciemny, przeciągły, transformacyjny",
+            "distance": "średni",
+            "energy": "średnia",
+            "duration_sec": 2.67,
+            "desc": "dłuższy mroczny łuk energii: cień rozlewa się i składa w drugą postać (czas 2.67 s, RMS -15.0 dB, HF>6k 0.0%)",
+            "good_for": "formowanie cienia, materializacja postaci, przeobrażenie, rozpłynięcie formy",
+            "bad_for": "zwykły pocisk magiczny, fizyczny cios, naturalistyczna fauna",
+            "file": "audio/library/heroes/materialize_dark_shift_01.mp3",
+            "semantics": {
+              "type": "przemiana-materializacja",
+              "traits": [
+                "narastanie",
+                "formowanie",
+                "magiczne",
+                "przejście formy"
+              ],
+              "bad_for": [
+                "zwykły pocisk",
+                "cios fizyczny",
+                "woda"
+              ]
+            },
+            "source": {
+              "title": "Superpowers assets sound effects (OpenGameArt)",
+              "author": "medicinestorm",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/superpowers-assets-sound-effects",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-superpowers-assets-sound-effects; magic/power-up; CC0 wg pack.json"
+            }
+          }
+        },
+        {
+          "label": "m.3",
+          "title": "krystalizacja/power-up formy",
+          "file": "candidates/h_materialize_powerup_01.mp3",
+          "desc": "długie wznoszenie jak przejście od mgły do kształtu; dobre dla materializacji lub przemiany w światło (czas 3.01 s, RMS -15.0 dB, HF>6k 0.0%)",
+          "source": "Superpowers assets sound effects (OpenGameArt)",
+          "entry": {
+            "id": "materialize_powerup_01",
+            "role": "przemiana / materializacja / rozpad formy",
+            "character": "jasny, wznoszący, krystalizujący",
+            "distance": "średni",
+            "energy": "średnia",
+            "duration_sec": 3.01,
+            "desc": "długie wznoszenie jak przejście od mgły do kształtu; dobre dla materializacji lub przemiany w światło (czas 3.01 s, RMS -15.0 dB, HF>6k 0.0%)",
+            "good_for": "formowanie cienia, materializacja postaci, przeobrażenie, rozpłynięcie formy",
+            "bad_for": "zwykły pocisk magiczny, fizyczny cios, naturalistyczna fauna",
+            "file": "audio/library/heroes/materialize_powerup_01.mp3",
+            "semantics": {
+              "type": "przemiana-materializacja",
+              "traits": [
+                "narastanie",
+                "formowanie",
+                "magiczne",
+                "przejście formy"
+              ],
+              "bad_for": [
+                "zwykły pocisk",
+                "cios fizyczny",
+                "woda"
+              ]
+            },
+            "source": {
+              "title": "Superpowers assets sound effects (OpenGameArt)",
+              "author": "medicinestorm",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/superpowers-assets-sound-effects",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "packs/opengameart-superpowers-assets-sound-effects; magic/power-up; CC0 wg pack.json"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-intryga",
+      "kind": "gestures",
+      "role": "jedyny klocek typu kody `podstep-intryga` (17 fabuł; anchory 104 Glitch Ghost Surveyor / 474 Scroll Thief)",
+      "candidates": [
+        {
+          "label": "i.1",
+          "title": "sekretne zejście półtonem",
+          "file": "candidates/g_intrigue_halfstep.mp3",
+          "desc": "cztery krótkie wejścia opadające w niepokojących krokach: mały znak zapytania, potem ukryte domknięcie",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_intrigue_halfstep",
+            "semantic": "podstęp — półtonowy cień za plecami",
+            "desc": "cztery krótkie wejścia opadające w niepokojących krokach: mały znak zapytania, potem ukryte domknięcie",
+            "notes": [
+              {
+                "midi": 64,
+                "on": 0.0,
+                "off": 0.28,
+                "vel": 0.55
+              },
+              {
+                "midi": 60,
+                "on": 0.46,
+                "off": 0.72,
+                "vel": 0.48
+              },
+              {
+                "midi": 56,
+                "on": 0.94,
+                "off": 1.18,
+                "vel": 0.52
+              },
+              {
+                "midi": 54,
+                "on": 1.42,
+                "off": 2.05,
+                "vel": 0.45
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 12,
+                "vel": 0.035
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low",
+              "bells"
+            ],
+            "semantics": {
+              "type": "podstep-intryga",
+              "traits": [
+                "opadający",
+                "sekret",
+                "cichy",
+                "pytający"
+              ],
+              "bad_for": [
+                "jawny triumf",
+                "otwarta furia"
+              ]
+            }
+          }
+        },
+        {
+          "label": "i.2",
+          "title": "fałszywy trop i nagły skręt",
+          "file": "candidates/g_intrigue_false_trail.mp3",
+          "desc": "dwie pozornie niewinne nuty, potem tritonowy skręt w bok — fortel zamiast otwartego konfliktu",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_intrigue_false_trail",
+            "semantic": "podstęp — fałszywy trop i skręt",
+            "desc": "dwie pozornie niewinne nuty, potem tritonowy skręt w bok — fortel zamiast otwartego konfliktu",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 0.25,
+                "vel": 0.48
+              },
+              {
+                "midi": 68,
+                "on": 0.48,
+                "off": 0.72,
+                "vel": 0.44
+              },
+              {
+                "midi": 54,
+                "on": 0.98,
+                "off": 1.28,
+                "vel": 0.6
+              },
+              {
+                "midi": 64,
+                "on": 1.48,
+                "off": 2.0,
+                "vel": 0.5
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 12,
+                "vel": 0.035
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low",
+              "bells"
+            ],
+            "semantics": {
+              "type": "podstep-intryga",
+              "traits": [
+                "triton",
+                "fortel",
+                "skręt",
+                "niepewność"
+              ],
+              "bad_for": [
+                "sielskość",
+                "prosty marsz"
+              ]
+            }
+          }
+        },
+        {
+          "label": "i.3",
+          "title": "mrugnięcie w cieniu",
+          "file": "candidates/g_intrigue_shadow_wink.mp3",
+          "desc": "lekka, punktowana figura z pauzami: brzmi jak ktoś, kto wie więcej niż mówi",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_intrigue_shadow_wink",
+            "semantic": "podstęp — mrugnięcie w cieniu",
+            "desc": "lekka, punktowana figura z pauzami: brzmi jak ktoś, kto wie więcej niż mówi",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 0.2,
+                "vel": 0.42
+              },
+              {
+                "midi": 64,
+                "on": 0.44,
+                "off": 0.6,
+                "vel": 0.48
+              },
+              {
+                "midi": 60,
+                "on": 0.92,
+                "off": 1.1,
+                "vel": 0.36
+              },
+              {
+                "midi": 54,
+                "on": 1.36,
+                "off": 1.95,
+                "vel": 0.5
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 12,
+                "vel": 0.035
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low",
+              "bells"
+            ],
+            "semantics": {
+              "type": "podstep-intryga",
+              "traits": [
+                "punktowany",
+                "pauzy",
+                "lekki cień",
+                "ironia"
+              ],
+              "bad_for": [
+                "makabra",
+                "monumentalność"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-wladza",
+      "kind": "gestures",
+      "role": "jedyny klocek typu kody `wladza-kontrola` (5 fabuł; anchor 607 Containment Membrane po sanity audycie g032)",
+      "candidates": [
+        {
+          "label": "w.1",
+          "title": "rozkaz opadający",
+          "file": "candidates/g_control_descending_order.mp3",
+          "desc": "trzy równe, coraz niższe uderzenia i długi finał: autorytet zamyka przestrzeń",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_control_descending_order",
+            "semantic": "kontrola — rozkaz opadający bez dyskusji",
+            "desc": "trzy równe, coraz niższe uderzenia i długi finał: autorytet zamyka przestrzeń",
+            "notes": [
+              {
+                "midi": 72,
+                "on": 0.0,
+                "off": 0.3,
+                "vel": 0.62
+              },
+              {
+                "midi": 68,
+                "on": 0.52,
+                "off": 0.82,
+                "vel": 0.68
+              },
+              {
+                "midi": 60,
+                "on": 1.05,
+                "off": 1.35,
+                "vel": 0.74
+              },
+              {
+                "midi": 54,
+                "on": 1.58,
+                "off": 2.35,
+                "vel": 0.7
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 12,
+                "vel": 0.035
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low",
+              "bells"
+            ],
+            "semantics": {
+              "type": "wladza-kontrola",
+              "traits": [
+                "autorytet",
+                "opadający",
+                "stanowczy",
+                "domknięcie"
+              ],
+              "bad_for": [
+                "beztroska",
+                "chaos"
+              ]
+            }
+          }
+        },
+        {
+          "label": "w.2",
+          "title": "klamra podporządkowania",
+          "file": "candidates/g_control_locking_frame.mp3",
+          "desc": "ten sam niski ton wraca jak rygiel, między nim krótkie odpowiedzi wyżej — kontrola trzyma wszystko w ramie",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_control_locking_frame",
+            "semantic": "kontrola — klamra podporządkowania",
+            "desc": "ten sam niski ton wraca jak rygiel, między nim krótkie odpowiedzi wyżej — kontrola trzyma wszystko w ramie",
+            "notes": [
+              {
+                "midi": 48,
+                "on": 0.0,
+                "off": 0.32,
+                "vel": 0.7
+              },
+              {
+                "midi": 60,
+                "on": 0.5,
+                "off": 0.76,
+                "vel": 0.45
+              },
+              {
+                "midi": 48,
+                "on": 1.0,
+                "off": 1.32,
+                "vel": 0.75
+              },
+              {
+                "midi": 64,
+                "on": 1.52,
+                "off": 1.78,
+                "vel": 0.42
+              },
+              {
+                "midi": 48,
+                "on": 2.02,
+                "off": 2.7,
+                "vel": 0.78
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 12,
+                "vel": 0.035
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low",
+              "bells"
+            ],
+            "semantics": {
+              "type": "wladza-kontrola",
+              "traits": [
+                "rygiel",
+                "powrót basu",
+                "ramy",
+                "nadzór"
+              ],
+              "bad_for": [
+                "swoboda",
+                "zuchwały pęd"
+              ]
+            }
+          }
+        },
+        {
+          "label": "w.3",
+          "title": "zimna pieczęć władzy",
+          "file": "candidates/g_control_cold_seal.mp3",
+          "desc": "krótki rozkaz, pauza i szerokie, nieruchome domknięcie: nie triumf, tylko pieczęć i zakaz ruchu",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_control_cold_seal",
+            "semantic": "kontrola — zimna pieczęć władzy",
+            "desc": "krótki rozkaz, pauza i szerokie, nieruchome domknięcie: nie triumf, tylko pieczęć i zakaz ruchu",
+            "notes": [
+              {
+                "midi": 54,
+                "on": 0.0,
+                "off": 0.26,
+                "vel": 0.58
+              },
+              {
+                "midi": 60,
+                "on": 0.48,
+                "off": 0.74,
+                "vel": 0.58
+              },
+              {
+                "midi": 50,
+                "on": 1.06,
+                "off": 1.36,
+                "vel": 0.7
+              },
+              {
+                "midi": 56,
+                "on": 1.06,
+                "off": 1.36,
+                "vel": 0.52
+              },
+              {
+                "midi": 54,
+                "on": 1.7,
+                "off": 2.55,
+                "vel": 0.64
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 12,
+                "vel": 0.035
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low",
+              "bells"
+            ],
+            "semantics": {
+              "type": "wladza-kontrola",
+              "traits": [
+                "zimny",
+                "pieczęć",
+                "zakaz",
+                "autorytet"
+              ],
+              "bad_for": [
+                "ciepła więź",
+                "furia"
+              ]
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {}
+}

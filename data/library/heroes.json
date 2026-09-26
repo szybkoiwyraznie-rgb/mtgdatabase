@@ -520,6 +520,84 @@
         "choice": "hero-lopot.1c",
         "date": "2026-09-25"
       }
+    },
+    {
+      "id": "resonance_bowed_01",
+      "role": "rezonans i wibracja magii — zaklęcia, runy, rytualne przepływy energii",
+      "character": "ciepły, wibrujący, aksamitny",
+      "distance": "bliski",
+      "energy": "średnia",
+      "duration_sec": 3.5,
+      "desc": "smyczkowany talerz wibrafonu — długi, aksamitny rezonans, jak brzęczenie zaklęcia dochodzące zewsząd naraz",
+      "good_for": "aktywacja zaklęcia, runy, portal, rytuał, przepływ mocy",
+      "bad_for": "walka wprost, uderzenia fizyczne, naturalistyczna fauna",
+      "file": "audio/library/heroes/resonance_bowed_01.mp3",
+      "semantics": {
+        "type": "rezonans-magiczny",
+        "traits": [
+          "rezonujący",
+          "wibrujący",
+          "eteryczny",
+          "sustain"
+        ],
+        "bad_for": [
+          "perkusyjny",
+          "suchy",
+          "organiczny"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "Vibraphone Bowed D4 (VCSL); głośny fragment 1.15–4.65 s (źródło ma bardzo cichą głowę), poziom, fade"
+      },
+      "approved": {
+        "gate": "g032",
+        "choice": "hero-rezonans.1",
+        "date": "2026-09-26"
+      }
+    },
+    {
+      "id": "heavyblow_gong_01",
+      "role": "pojedynczy ciężki cios, uderzenie, miażdżenie",
+      "character": "miażdżący, rozlewający się, metaliczny",
+      "distance": "bliski",
+      "energy": "średnia",
+      "duration_sec": 3.0,
+      "desc": "ogromny gong uderzony z całej siły — metaliczny huk rozlewający się i miażdżący wszystko dookoła",
+      "good_for": "uderzenie, zmiażdżenie przeszkody, potężny cios, powalenie",
+      "bad_for": "magia, subtelność, cichy ruch, delikatne sceny",
+      "file": "audio/library/heroes/heavyblow_gong_01.mp3",
+      "semantics": {
+        "type": "potezny-cios",
+        "traits": [
+          "ciężki",
+          "niski",
+          "jednorazowy",
+          "masywny"
+        ],
+        "bad_for": [
+          "subtelny",
+          "wysoki",
+          "delikatny"
+        ]
+      },
+      "source": {
+        "title": "Versilian Community Sample Library (VCSL)",
+        "author": "Sam Gossner / Versilian Studios + społeczność",
+        "license": "CC0 1.0",
+        "url": "https://github.com/sgossner/VCSL",
+        "channel": "git clone sparse z github.com/sgossner/VCSL",
+        "notes": "Gong 1 fff (VCSL); pierwsze 3 s, poziom, fade"
+      },
+      "approved": {
+        "gate": "g032",
+        "choice": "hero-potezny.2",
+        "date": "2026-09-26"
+      }
     }
   ]
 }
