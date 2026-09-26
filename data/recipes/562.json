@@ -1,0 +1,45 @@
+{
+  "story_id": "562",
+  "length_sec": 6.0,
+  "background": {
+    "id": "battle_clamor_01",
+    "offset_sec": 0.0,
+    "target_db": -33
+  },
+  "hero": {
+    "id": "spell_cast_bolt_01",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g6c_sentry_return",
+    "instrument": "b_soloviol_spic",
+    "at_sec": 3.0,
+    "target_db": -19
+  },
+  "seed": 562,
+  "profile": {
+    "types": {
+      "background": "bitwa-zgielk",
+      "hero": "trzask-blyskawicy",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "note": "Rola z narracji: nocny szturm na mury Altdorfu jako tło (bitwa-zgiełk — zgiełk obrony, jedyny klocek typu); oślepiający łuk błyskawicy z ogłuszającym trzaskiem, który odrzuca wroga, jako hero 1:1 (czysty, skupiony, wysoki pik = trzask-błyskawicy, reuse z fabuły 5); czujna, zawieszona koda dla 'piorunującej skuteczności magii bitewnej' bez pełnego rozwiązania triumfu (czujność-napięcie — obrona trwa dalej); ostry, solowy spiccato dla warstwy 'elektrycznie, ostro, nagle'."
+  },
+  "resolution": {
+    "types": {
+      "background": "bitwa-zgielk",
+      "hero": "trzask-blyskawicy",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "blocks": {
+      "background": "battle_clamor_01",
+      "hero": "spell_cast_bolt_01",
+      "mood": "g6c_sentry_return",
+      "instrumentation": "b_soloviol_spic"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki, wszystkie już w bazie (reuse pełny, resolver OBSADZONA bez bramki); filtry twarde czyste; kombinacja unikalna (receptura 27)"
+  }
+}

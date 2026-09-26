@@ -1,0 +1,47 @@
+{
+  "story_id": "577",
+  "length_sec": 6.0,
+  "background": {
+    "id": "battle_clamor_01",
+    "offset_sec": 0.0,
+    "target_db": -33
+  },
+  "hero": {
+    "id": "barrier_ring_01",
+    "at_sec": 1.0,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g11c_home_arrival",
+    "instrument": "b_bassdrum",
+    "at_sec": 3.2,
+    "target_db": -21,
+    "damp_db": 4.0
+  },
+  "seed": 577,
+  "profile": {
+    "types": {
+      "background": "bitwa-zgielk",
+      "hero": "bariera-odbicie",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "note": "Rola z narracji: zacięta bitwa na wichrowych wzgórzach Reiklandu jako tło (bitwa-zgiełk, jedyny klocek typu); trzaskająca bariera elektryczna Laski Gromu wokół obrońców jako hero 1:1 (dzwoniąca, jasna seria odbić = bariera-odbicie, reuse z 18); durowa koda powrotu dla 'burzy po stronie obrońców' (nadzieja-ukojenie — otucha i zagrzanie szyku, nie sama groza bitwy); wielki bęben dla 'elektrycznie, burzowo, potężnie' — monumentalny snop energii w niebo."
+  },
+  "resolution": {
+    "types": {
+      "background": "bitwa-zgielk",
+      "hero": "bariera-odbicie",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "blocks": {
+      "background": "battle_clamor_01",
+      "hero": "barrier_ring_01",
+      "mood": "g11c_home_arrival",
+      "instrumentation": "b_bassdrum"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki, wszystkie już w bazie (reuse pełny, resolver OBSADZONA bez bramki); filtry twarde czyste; kombinacja unikalna (receptura 28)",
+    "levels_note": "damp_db 4 na kodzie jak w 268 — ten sam wąski bank b_bassdrum maskujący ostatnią nutę g11c_home_arrival."
+  }
+}

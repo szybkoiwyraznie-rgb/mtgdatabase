@@ -4,104 +4,119 @@ Ten plik odpowiada na pytanie „gdzie jesteśmy i co robić dalej”, żeby now
 sesja nie musiała rekonstruować kontekstu z historii gita. Reguły są
 w `AGENTS.md` i `docs/gate-protocol.md` — tutaj wyłącznie bieżący stan.
 
-Ostatnia aktualizacja: **2026-09-24** (sesja `arena/01a0d3b8-mtgdatabase`).
+Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0d8ef-mtgdatabase`).
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **19**
-  (6 legacy + 13 z modelu 1:1: 18, 23, 28, 166, 169, 193, 222, 225, 451, 468, 519, 575, 578).
-- Baza klocków: **34 wpisy** (`library_tool.py check`: 9 tła / 12 hero /
-  7 instrumentów / 6 gestów), wszystkie z `semantics` (1:1, taksonomia v6).
-- Bramki rozegrane: **g001–g022** z werdyktami (g014 wycofana — archiwum).
-- Bramki: **g023 i g024 zamknięte**. g023: morze-wybrzeze = m.2 (`sea_storm_02`).
-  g024 (runda 2 `mroczna`): werdykt właściciela **z.2** = głośny pedał 16'
-  → `b_organ_loudpedal` w bazie (bank C1–D#3, po dwa bassudy na stopę).
-
-## Gotowe fabuły
-
-| # | Tytuł | tło (d) | hero (c) | koda a × b | uwagi właściciela |
-|---|---|---|---|---|---|
-| 1 | Dunland Crebain | thunder_far_01 | raven_yell_long_01 | g1b_march_pulse × timpani | „super 15/15”, zamrożona |
-| 4 | Mystic Sanctuary | frogs_night_01 | loon_wail_01 | g4b_mystery_tritone × wine_glasses | „super 15/15”, zamrożona |
-| 5 | Academy Journeymage | energy_steam_roar_01 | spell_cast_bolt_01 | g5a_shimmer_up × piano_steinway | v2 po uwadze „czar brzmi jak koda”; przyjęta jako „akceptowalna jakość” |
-| 8 | Goblin Deathraiders | fire_hearth_small_01 | warband_cry_03 | g1b_march_pulse × bassdrum | „fajna” |
-| 2 | Coralhelm Guide | flooded_canyon_03 | beast_roar_long_01 | g4b_mystery_tritone × timpani→steinway | tło r.3 „najzajebistsza z zajebistych” |
-| 3 | Nefarious Imp | fire_hearth_small_01 | demonic_laugh_02 | g4b_mystery_tritone × wine_glasses | g012 odrzucona jako kreskówkowa; g013 h.2 z prawdziwego wykonania |
-
-## Gotowe fabuły (model 1:1, Etap 5)
-
-| # | Tytuł | tło × hero × koda × instrument | bramka |
-|---|---|---|---|
-| 18 | Lotusguard Disciple | sky_rush_02 × barrier_ring_01 × g6c × steinway | g015 |
-| 23 | Brightwood Tracker | forest_day_01 × light_bloom_01 × g5a × steinway | g017 |
-| 166 | Talion's Messenger | forest_day_01 × stealth_move_03 × g6c × steinway | g017 |
-| 519 | Lurking Green Dragon | forest_day_01 × stealth_move_03 × g6c × timpani | g017 |
-| 468 | Cacophodon | forest_day_01 × beast_roar_01 × g6c × bassdrum | g016 |
-| 578 | Savage Surge | forest_day_01 × beast_roar_01 × g6c × timpani | g016 |
-| 575 | Dromoka Warrior | warcamp_01 × troop_march_05 × g7a × logdrum | g018/g019 |
-| 193 | Floodhound | thunder_far_01 × sniff_track_01 × g8b × handchimes | g020/g021 |
-| 169 | Greenwood Sentinel | forest_day_01 × stealth_move_03 × g6c × logdrum | pełny reuse |
-| 225 | Furious Forebear | forest_day_01 × light_bloom_01 × g8b × steinway | pełny reuse |
-| 451 | Downwind Ambusher | forest_day_01 × stealth_move_03 × g7a × handchimes | pełny reuse |
-| 28 | Stormwright Overtake | sea_storm_02 × wave_crash_03 × g4b × b_organ_loudpedal | g023/g024 |
-| 222 | Maritime Guard | sea_storm_02 × stealth_move_03 × g4b × b_organ_loudpedal | g023/g024 |
-
-169/225/451 (2026-09-24, sesja 01a0d3b8): pierwsze fabuły obsadzone BEZ
-bramki — resolver zgłosił pełną obsadę z istniejących klocków. QA renderów:
-169 (hero +14,4 dB, RMS -21,5), 225 (hero +22,5 dB, RMS -19,9, HF 18,2%),
-451 (hero +19,8 dB, RMS -22,1; po korekcie: hero przycięte do 2,6 s —
-lekcja w LESSONS o ogonie hero maskującym nuty kody).
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **38**
+  (6 legacy + 32 z modelu 1:1: 18, 23, 28, 64, 90, 110, 126, 133, 166, 169,
+  191, 193, 206, 222, 225, 249, 268, 422, 433, 437, 451, 468, 498, 506, 511,
+  519, 562, 575, 577, 578, 585, 599).
+- Baza klocków: **46 wpisów** (`library_tool.py check`: 11 tła / 13 hero /
+  14 gestów / 9 instrumentów — wszystkie z `semantics`, model 1:1, taksonomia v6).
+- Bramki rozegrane z werdyktem: **g001–g031** (g014 wycofana — archiwum).
+  g030 (mood groza-przerazenie) → z.2 → `g_dread_descent`. **g031** (pakiet
+  5 wpisów naraz, pierwsza runda wg nowej zasady właściciela) → werdykt
+  w3/d2/b3/c3/m3 → `g_bond_echo`, `g_pride_ascent`, `g_ruthless_verdict`,
+  `b_clarinet_warm`, `b_tubularbells_metal` — wszystkie 5 przyjęte do biblioteki.
+- **Jedna fabuła zablokowana strukturalnie**: **253** (Inspiring Bard) —
+  `g11c_home_arrival` × `b_clarinet_warm` nie przechodzi bramki ataku nut przy
+  żadnej kombinacji parametrów (silnik `damp_db` konfliktuje z odstępem nut
+  <0,4 s — pełna diagnoza w `docs/LESSONS.md` 2026-09-26). Nie wyrenderowana,
+  `data/recipes/253.json` nie istnieje (świadomie usunięty, nie zapomniany).
 
 ## W toku
 
-**Bramki g025 + g026 czekają na werdykt** (strona zbiorcza :8080,
-`data/gates/podglad-g025-g026.html`, 6 wpisów × 3 kandydatów).
-Losowanie fabuł ziarnem 20260924: **110 „Serra's Embrace”** i **249 „Feedback”**
-(po 3 typy bez klocka na fabułę — łącznie 6 bramek jednostkowych ≥ 5).
-- g025 (110): tlo-bitwa-zgielk (zg.1–3, Freesound + montaż atomcut g007-tech),
-  hero-lopot (ł.1–3, łopoty −3/−4 półt.), koda-nadzieja (n.1–3, gesty g9a–c).
-- g026 (249): tlo-dwor-komnaty (k.1–3, room tone), koda-spokoj (s.1–3, gesty
-  g10a–c), instr-ostro (o.1–3: spiccato sekcja / solo / pizz, VSCO-2-CE, CC0).
-Procedura jak zwykle: werdykt → `verdicts.json` → `library_tool.py accept
---gate gNNN` → receptury 110 i 249 → render --audit → raport. 28 i 222 (2026-09-24, sesja 01a0d3b8) — pierwsze
-sygnatury na bloku rodzinnym g024. QA: 28 (RMS -22,6, hero +16,9, HF 10,8%,
-ataki 3,4/3,0), 222 (RMS -21,0, hero +21,1, HF 0,4%, ataki 5,7/3,3).
-Zmiany silnika przy okazji 222 (`coda_synth.py`):
-(1) szczebel 3 drabiny adaptacji: okno transpozycji gestu ±24 → **±36**
-półtonów (spiczaste banki dźwiękochłonne gubiły nuty — w 222 gubiono G#5;
-poprawka nie rusza receptur zielonych, bo szczebel 3 odpala się tylko przy
-niedomiarze — regresja potwierdzona md5: 19/19 sygnatur identycznych);
-(2) dokumentacja granicy fizycznej: bank sustainowy (organy) nie wykona
-gestów z nutami nakładającymi się na siebie (g6c z akordowym finałem nie
-przechodzi progu ataków ≥2,5 dB; damp_db tłumi też własne okno ataku) —
-222 otrzymało **g4b_mystery_tritone** (semantyka „zjawy, których nie widać”;
-geometria sprawdzona na tym instrumencie w 28).
+Brak otwartej bramki — g031 domknięta i w pełni wykorzystana (wszystkie 9
+odblokowanych fabuł sprawdzone, 8 wyrenderowanych, 1 udokumentowana blokada).
 
-Przebudowa semantyczna (ADR 0006) ZAMKNIĘĄ: Etapy 0–4 wykonane,
-taksonomia v6 zamrożona, resolver produkcyjny. Bieżąca faza to **Etap 5 =
-produkcja katalogu**: priorytety bramek daje `resolver.py --survey`.
+**Następny krok**: zbudować kolejną PACZKĘ ≥5 wpisów (zasada właściciela,
+patrz `AGENTS.md` pkt 2) z listy niżej. Serwer podglądu bramki (`:8080`) —
+jeśli poprzedni proces wygasł (środowisko czyści procesy w tle między turami),
+uruchom ponownie: `python3 scripts/gate_preview.py data/gates/gNNN --port 8080`.
+
+## Sesja 2026-09-25 → 2026-09-26 — skrót przebiegu
+
+1. Bramka g030 (mood `groza-przerazenie`) → werdykt właściciela **z.2**
+   (`g_dread_descent`) → do bazy. Odblokowało fabuły 433 i 506 — obie
+   wyrenderowane od razu (bez dodatkowej bramki).
+2. Właściciel poprosił o **większe paczki bramek** (≥5 zestawów naraz) —
+   zapisane trwale w `AGENTS.md` pkt 2.
+3. Zbudowana i rozegrana bramka **g031** wg nowej zasady: 5 wpisów × 3
+   kandydatów (15 klipów): 3 kody-nastroje (wspólnota-więź, duma-majestat,
+   bezwzględność-drapieżność) + 2 zestawy instrumentów (ciepło-serdeczna:
+   marimba/waltornia/klarnet z VCSL+VSCO-2-CE; metaliczno-mechaniczna:
+   kowadło/tarcza hamulcowa/dzwony rurowe z VCSL). Werdykt właściciela:
+   **w3, d2, b3, c3, m3** → `g_bond_echo`, `g_pride_ascent`,
+   `g_ruthless_verdict`, `b_clarinet_warm`, `b_tubularbells_metal` — 5/5
+   przyjęte (`library_tool.py accept --gate g031`).
+4. `resolver.py --survey` po przyjęciu → **9 nowych fabuł w pełni
+   obsadzalnych**: 64, 133, 191, 206, 253, 437, 498, 585, 599 (jednym
+   zaakceptowanym klockiem, bez kolejnej bramki).
+5. Zbudowano i wyrenderowano **8 z 9** (64, 133, 191, 206, 437, 498, 585,
+   599) — wszystkie PASS `--audit`. Dwie wymagały dostrojenia poziomów
+   (nie domyślnych): **206** `target_db=-12` (bez dampu — kaskada
+   `g5a_shimmer_up` na wolno atakującym klarnecie wymagała więcej
+   headroomu dla autokalibracji); **599** `target_db=-8` + `damp_db=1.0`
+   (bardzo mały damp — większy łamał próg HF).
+6. **253 pozostaje zablokowana** — `g11c_home_arrival` (akord E5+C3 + C4 w
+   odstępie 0,35 s, <0,4 s okna dampu w silniku) na sustainowanym klarnecie
+   nie przechodzi bramki ataku przy ŻADNEJ z >150 przeszukanych kombinacji
+   `target_db`/`damp_db`/`at_sec`. Pełna diagnoza silnika w
+   `docs/LESSONS.md` (sekcja „`damp_db` psuje się przy nutach <0,4 s”).
+   Nie użyto `--force` (workshop-only, nie dla finalnych sygnatur).
+7. Napotkano powtarzalną usterkę środowiska: **lokalny `.git` HEAD resetuje
+   się do starszego commita między turami**, mimo że pliki na dysku
+   pozostają aktualne i wypchnięte commity są na remote. Zweryfikowano
+   trzykrotnie w tej sesji: `git diff FETCH_HEAD` na śledzonych plikach
+   zawsze wychodził pusty (bezpieczne `git reset --hard FETCH_HEAD`).
+   Procedura opisana w sekcji „Rzeczy, które łatwo przeoczyć” niżej.
+
+Wszystkie 38 receptur przechodzą `library_tool.py check` (kombinacje
+unikalne), `test_signature_system.py` (zielone), `build_pack.py` i
+`build_site.py` (bez błędów; 46 wpisów baz, 38 sygnatur, 6 stron).
 
 ## Co dalej (kolejność pracy, nie wymaga pytania właściciela)
 
-Roadmapa semantyczna (`docs/roadmap-semantyka.md`) domknięta: Etapy 0–4
-wykonane (profile 510/510, taksonomia zamrożona na **v6** — 32 tła / 75 hero
-/ 20 nastrojów / 18 instrumentacji, 146 nadpisań, 510/510 kombinacji
-unikalnych; klocki 32/32 otagowane 1:1; resolver + testy zielone).
-Szczegółowa historia etapów: poprzednie wersje tego pliku w gicie
-i `data/semantics/CHANGELOG.md`.
-
-Bieżąca faza: **Etap 5 — produkcja katalogu**. Kolejka pracy:
-
-1. **Werdykt g023** → accept → receptura i render fabuły 222 (a przy okazji
-   resolver obsadzi 28 bez bramki) — opis w „W toku" wyżej.
-2. **Dalej `resolver.py --survey`**: po g023 najczęstszymi brakami zostaną
-   mood `groza-przerazenie` (59), mood `nadzieja-ukojenie` (47),
-   mood `wspolnota-wiez` (34), instrumentacja `cieplo-serdeczna` (33)
-   i `ostro-gwaltowna` (32). Bramkę kotwicz na fabule z małą liczbą
-   braków, a kandydatów dobierz pod DEFINICJĘ TYPU (lekcja g015).
-3. Kandydaci-zapas z `docs/sources-and-licensing.md` (miecze, zombie,
-   metal/drewno, bagna, woda) pozostają w odwodzie; zwiad działa
-   (patrz niżej), lecz czyści katalog partii — patrz LESSONS 2026-09-24.
+1. **Zbuduj następną paczkę ≥5 wpisów** (zasada właściciela). Kandydaci wg
+   `resolver.py --survey` (po odjęciu tego, co zamknęła g031):
+   `background:gory-wichry` (28), `background:podziemia-jaskinia` (28),
+   `hero:rezonans-magiczny` (24), `mood:furia-dzikosc` (24),
+   `hero:przemiana-materializacja` (23), `background:miasto-gwar` (23),
+   `instrumentacja:zimno-szklista` (21), `hero:potezny-cios` (21),
+   `background:swiatynia-sanktuarium` (21), `background:miasto-nocne` (21),
+   `background:laboratorium-technika` (21), `background:wioska-sielska` (21),
+   `background:step-rownina` (19), `background:kuznia-warsztat` (19),
+   `mood:zuchwalosc-brawura` (18). Tła (`gory-wichry`, `podziemia-jaskinia`,
+   `miasto-gwar`, `swiatynia-sanktuarium`, `miasto-nocne`,
+   `laboratorium-technika`, `wioska-sielska`, `step-rownina`,
+   `kuznia-warsztat`) prawdopodobnie wymagają prawdziwych nagrań terenowych
+   (sample-scout / Freesound / archive.org), nie gestów autorskich — sprawdź
+   `docs/sources-and-licensing.md` i rozważ dispatch sample-scout wcześniej
+   (async, wymaga czasu), żeby materiał czekał gotowy na następną sesję.
+2. **253 do rewizytacji**: jeśli w przyszłości pojawi się DRUGI kandydat na
+   typ instrumentacji `cieplo-serdeczna` (obecnie tylko `b_clarinet_warm`),
+   sprawdź czy nowy klocek (np. waltornia z tej samej bramki g031, c.2,
+   niewybrana) przechodzi bramkę dla tej konkretnej fabuły — ale to wymaga
+   zmiany modelu 1:1 (dwa klocki tego samego typu), nie rób tego bez zgody
+   właściciela. Alternatywa: edycja `pre` w `coda_synth.py` (0,4 s →
+   mniej) — dotyka WSZYSTKICH receptur z `damp_db`, wymaga pełnej regresji
+   (`test_signature_system.py` + ręczny przegląd audytów istniejących
+   receptur z dampem: 268, 433, 506, 511, 575, 599).
+3. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
+   ```python
+   import sys, json
+   sys.path.insert(0, "scripts")
+   import resolver
+   data = resolver.load_data()
+   for sid in data["profiles"]:
+       r = resolver.resolve_story(sid, data)
+       if len(r["braki"]) == 1 and r["braki"][0]["layer"] == "TYP_WARSTWY" \
+          and r["braki"][0]["typ"] == "TYP":
+           print(sid, r["title"])
+   ```
+4. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
+   g001, nadpisuje ten katalog przy KAŻDYM uruchomieniu (LESSONS 2026-09-25).
 
 ## Sample scout — uruchomienie
 
@@ -119,6 +134,12 @@ gh api repos/szybkoiwyraznie-rgb/mtgdatabase/dispatches \
 
 Pełna instrukcja pól i pułapki: `docs/sources-and-licensing.md`.
 
+**Nowość 2026-09-26**: `git clone`/`git ls-remote` na `github.com` działają
+BEZPOŚREDNIO z bash tej sesji (sparse-checkout VCSL/VSCO-2-CE użyty w g031,
+bez dispatcha) — sample-scout pozostaje potrzebny tylko dla hostów spoza
+GitHuba (Freesound/archive.org/NPS). Zanim odpalisz dispatch, sprawdź czy
+potrzebny dźwięk nie jest już dostępny w jakimś repo CC0 na GitHubie.
+
 ## Licencje — nie komplikuj
 
 Projekt prywatny, niekomercyjny, pliki na dysk właściciela: **brak licencji
@@ -132,9 +153,31 @@ dotyczy wyłącznie publicznej gablotki Pages i ZIP-a. Pełna polityka:
   przed nową bramką zatrzymaj poprzedni proces na :8080.
 - Gablotkę serwuj `scripts/serve_site.py`, nie `python -m http.server`
   (cache → właściciel słyszy stary montaż).
-- `pip install ... scipy pytest` — bez tego skrypty bramek i testy padają.
-- Źródła (`/tmp/ysl`, `/tmp/atomcut`, `/tmp/vcsl`) nie przeżywają resetu;
-  klonuj sparse ponownie wg `docs/sources-and-licensing.md`.
+- `pip install --break-system-packages numpy scipy pytest soundfile av
+  lameenc` — świeży sandbox nie ma żadnej z tych zależności; bez nich
+  `render_signature.py`/testy padają na `ModuleNotFoundError`. **Uwaga**:
+  to trzeba robić PRZY KAŻDYM restarcie sandboksa w tej samej sesji też —
+  pakiety pip nie zawsze przeżywają nawet między turami.
+- **Lokalny git tej sesji bywa płytki/resetowany między turami, a
+  procesy w tle (serwery podglądu) znikają między turami** — sprawdź
+  `git log --oneline -5` i `get_process_output` na początku tury; jeśli HEAD
+  wygląda staro mimo że poprzednia tura commitowała: `git fetch origin
+  <branch>`, sprawdź `diff -q <(git show FETCH_HEAD:plik) plik` dla kilku
+  śledzonych plików (jeśli SAME dla wszystkich — bezpiecznie
+  `git reset --hard FETCH_HEAD`, potwierdzone 3× w sesji 2026-09-26 bez
+  utraty danych). Serwery uruchom ponownie (`start_process`) — pliki
+  podglądu (`index.html`) trzeba czasem przebudować (`gate_preview.py
+  data/gates/gNNN --build-only`) jeśli też zniknęły z dysku.
+- Źródła (`/tmp/ysl`, `/tmp/atomcut`, `/tmp/vcsl_probe`, `/tmp/vsco_probe`)
+  nie przeżywają resetu; klonuj sparse ponownie wg
+  `docs/sources-and-licensing.md`. `git clone`/`git ls-remote` na
+  `github.com` działają z bash tego sandboksa; Freesound/NPS/
+  raw.githubusercontent — nie (stąd sample-scout przez GitHub Actions).
 - **Zwiad czyści `legacy/source/sample_scout/` przy każdym runie** —
   starsze partie znikają z HEAD; surowce trzymaj w `/tmp` albo odzyskaj
   `git show <baza>:<ścieżka>` (LESSONS 2026-09-24).
+- **`build_gate_manifest.py` nie ma trybu podglądu** — każde uruchomienie
+  nadpisuje `data/gates/g001/manifest.json` (LESSONS 2026-09-25).
+- **`damp_db` na sustainowanych instrumentach (klarnet/waltornia/organy)
+  psuje się, gdy nuty gestu są rozstawione <0,4 s** — sprawdź
+  `notes[].on` w geście przed użyciem dampu (LESSONS 2026-09-26).

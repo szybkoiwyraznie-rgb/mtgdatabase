@@ -1,0 +1,45 @@
+{
+  "story_id": "422",
+  "length_sec": 7.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -33
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 1.2,
+    "target_db": -17
+  },
+  "coda": {
+    "gesture": "g11c_home_arrival",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.3,
+    "target_db": -20
+  },
+  "seed": 422,
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "rozblysk-swiatla",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Rola z narracji: granice złotego lasu jako tło (las-dzienny, jedyny klocek typu); kopuła światła gwiazd, która spopiela mroczną pajęczynę, jako hero 1:1 (nagły, jasny, kaskadowy rozbłysk = rozbłysk-światła, reuse jak w 23/110/225); durowa koda powrotu dla 'łaski starszej magii — ocalenie jednym gestem' (nadzieja-ukojenie, nie triumf bitewny); jasny fortepian dla 'świetliście, czysto, nagle'."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "rozblysk-swiatla",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "light_bloom_01",
+      "mood": "g11c_home_arrival",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki, wszystkie już w bazie (reuse pełny, resolver OBSADZONA bez bramki); filtry twarde czyste; kombinacja unikalna (receptura 26)"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "koda-wspolnota": "w.3",
+  "koda-duma": "d.2",
+  "koda-bezwzglednosc": "b.3",
+  "instr-cieplo": "c.3",
+  "instr-metal": "m.3",
+  "notes": {
+    "koda-wspolnota": "Właściciel: „w3”.",
+    "koda-duma": "Właściciel: „d2”.",
+    "koda-bezwzglednosc": "Właściciel: „b3”.",
+    "instr-cieplo": "Właściciel: „c3”.",
+    "instr-metal": "Właściciel: „m3”."
+  }
+}

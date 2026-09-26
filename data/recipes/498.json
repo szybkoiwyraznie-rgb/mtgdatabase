@@ -1,0 +1,46 @@
+{
+  "story_id": "498",
+  "length_sec": 6.0,
+  "background": {
+    "id": "sea_storm_02",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "wave_crash_03",
+    "at_sec": 1.2,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g_ruthless_verdict",
+    "instrument": "b_organ_loudpedal",
+    "at_sec": 3.4,
+    "target_db": -20
+  },
+  "seed": 498,
+  "gate": "g031",
+  "profile": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "fala-rozbryzg",
+      "mood": "bezwzglednosc-drapieznosc",
+      "instrumentation": "mroczna"
+    },
+    "note": "Rola z narracji: pokład okrętu Floty Otchłani po abordażu, spienione morze wokół jako tło (morze-wybrzeże, reuse z 28/90/133/222); zrzucanie broni i pokonanych wrogów za burtę z pluskiem jako hero 1:1 (fala-rozbryzg, reuse z 28/133/253/268 — plusk w głębinę); koda `g_ruthless_verdict` (bramka g031, werdykt b.3) dla 'bezlitosnego epilogu zwycięstwa' — dwa identyczne, chłodne stuknięcia bez emocji pasują do rutynowej egzekucji pokonanych i krążących rekinów; mroczne organy dla 'mokro, ciemno, bezlitośnie'."
+  },
+  "resolution": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "fala-rozbryzg",
+      "mood": "bezwzglednosc-drapieznosc",
+      "instrumentation": "mroczna"
+    },
+    "blocks": {
+      "background": "sea_storm_02",
+      "hero": "wave_crash_03",
+      "mood": "g_ruthless_verdict",
+      "instrumentation": "b_organ_loudpedal"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; koda z bramki g031 (werdykt właściciela b.3); filtry twarde czyste; kombinacja unikalna"
+  }
+}

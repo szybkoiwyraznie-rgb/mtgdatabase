@@ -62,6 +62,15 @@ i `docs/gate-protocol.md`.
    fabuły przez właściciela nie jest częścią pętli. **Agent sam decyduje,
    który wpis idzie do następnej bramki** i sam dobiera kandydatów — nie
    pytaj właściciela „co teraz?”, przedstaw gotową bramkę.
+   **Rozmiar paczki (decyzja właściciela 2026-09-25)**: nie proś o werdykt
+   dla jednego wpisu naraz — jedna runda bramki ma zawierać **co najmniej
+   pięć zestawów** (typy/wpisy bazy) z 3 kandydatami każdy, żeby właściciel
+   oceniał w jednej sesji, nie ratami. Dobieraj wpisy z `resolver.py
+   --survey`: dla każdego kandydującego typu znajdź fabułę, dla której to
+   JEDYNY brak (reszta warstw już obsadzona) i na niej zakotwicz wpis.
+   Buduj wszystkie wpisy razem w jednym manifeście
+   (`data/gates/gNNN/manifest.json` z wieloma `entries`), jedna wspólna
+   strona podglądu (`gate_preview.py data/gates/gNNN`).
 2a. **Rola wynika z narracji konkretnej fabuły**, nigdy z tego, co leży
    w bazie. Wpis o pasującej nazwie, ale nie pasujący do sceny, to BRAK →
    bramka. Powtórzenie hero między fabułami jest silnie karane w rankingu

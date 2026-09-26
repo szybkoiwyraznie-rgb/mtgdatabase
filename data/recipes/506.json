@@ -1,0 +1,49 @@
+{
+  "story_id": "506",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "stealth_move_03",
+    "at_sec": 0.9,
+    "length_sec": 2.6,
+    "target_db": -19
+  },
+  "coda": {
+    "gesture": "g_dread_descent",
+    "instrument": "b_handchimes",
+    "at_sec": 3.5,
+    "target_db": -19,
+    "damp_db": 12.0
+  },
+  "seed": 506,
+  "gate": "g030",
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "skradanie-cisza",
+      "mood": "groza-przerazenie",
+      "instrumentation": "cicho-kameralna"
+    },
+    "note": "Rola z narracji: miedziane ostępy lasu Tangle jako tło (las-dzienny, jedyny klocek typu); bezgłośna, pełznąca asymilacja kałuży oleju jako hero 1:1 (skradanie-cisza, reuse z 166/169/451/511 — 'bezgłośna asymilacja' pasuje wprost do 'cichy, powolny, napięty'); koda `g_dread_descent` (bramka g030, werdykt z.2) dla 'cichej fazy infekcji — zimnej grozy' (pełznące zejście w dysonans, bez rozwiązania — nieodwracalność skażenia); ciche, kameralne dzwoneczki dla 'oleiście, cicho, złowrogo'."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "skradanie-cisza",
+      "mood": "groza-przerazenie",
+      "instrumentation": "cicho-kameralna"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "stealth_move_03",
+      "mood": "g_dread_descent",
+      "instrumentation": "b_handchimes"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; koda z bramki g030 (werdykt właściciela z.2); filtry twarde czyste; kombinacja unikalna (receptura 30)",
+    "levels_note": "hero przycięty do 2,6 s (jak w 90/222/511) + damp_db 12 na kodzie (jak w 511) — ten sam sustainowany bank b_handchimes samomaskujący kolejne nuty; koda przesunięta na 3,5 s (z 3,2 s) — ogon hero (kończy się 3,5 s) maskował dwie pierwsze nuty kody."
+  }
+}

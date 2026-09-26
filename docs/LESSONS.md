@@ -459,3 +459,148 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Zasada: przy planowaniu rund zwiadu zakładaj, że przetrwa tylko
   ostatnia partia; skrypty bramek nie mogą zakładać obecności
   `legacy/source/sample_scout/<stara_partia>` w drzewie.
+
+## Jasny hero + cichy dwór/gest = bramka HF, nie wina kandydatów (fabuła 249, 2026-09-25)
+
+- Sytuacja: fabuła 249 (Feedback) OBSADZONA przez resolver bez nowej bramki
+  (`chamber_hearth_01` z g028, `g10c_humble_pulse`/`b_soloviol_spic` z g026,
+  `light_bloom_01` z g017 — reuse). Pierwszy render z poziomami „jak zawsze”
+  dla `light_bloom_01` (-17 dB, sprawdzone w 23/110/225) oblał bramkę >6 kHz:
+  **73,4%** przy limicie 20%.
+- Diagnoza: hero `light_bloom_01` (dzwonki wiatrowe) ma **86% energii
+  powyżej 6 kHz w izolacji** — w fabułach 23/110/225 „rozcieńcza” go głośny
+  fortepian kody (RMS kody ok. -10 dB, pełne akordy w średnicy). W 249 tło
+  to cichy roomtone komnaty (-32 dB), a koda `g10c_humble_pulse` to trzy
+  KRÓTKIE, ciche uderzenia (vel 0,28–0,34) rozstawione w 2,8 s — większość
+  trwania kody to cisza, więc jej realny wkład energii jest znikomy.
+  Bez masy niskopasmowej hero-dzwonki zdominowały całe widmo.
+- Zasada: bramka >6 kHz to właściwość **całego miksu**, nie hero z osobna —
+  przy doborze poziomów licz, że „cichy, oszczędny” gest (mało nut, długie
+  przerwy) nie zbalansuje jasnego hero tak jak gęsta koda fortepianowa.
+  Zanim zmienisz instrument/gest (niedostępne w modelu 1:1), zrób siatkę
+  `render_signature.py --force --audit` po hero×coda `target_db` i wybierz
+  punkt maksymalizujący `mix_rms` przy `hf_share ≤ 0,20` i marginesie hero
+  ≥ 6 dB — nie zakładaj z góry poziomów użytych w innych fabułach z tym
+  samym hero, każda koda ma inny profil widmowy i inny „koszt” rozcieńczenia.
+  W 249: hero -20 dB (margines 9,9 dB), koda -3 dB (RMS -13 dB, wciąż cichsza
+  niż fortepianowe kody -10 dB — bliżej charakteru „pokorny/spokojny” z
+  semantyki gestu), HF 16,9%, `mix_rms` -25,2 dB (praktyczny sufit tej
+  obsady to ok. -25,1 dB — krótka, cicha koda + cichy dwór nie dają więcej
+  bez złamania bramki HF; wciąż > limit -26 dB).
+
+## `build_gate_manifest.py` bez argumentów nadpisuje g001 (2026-09-25)
+
+- Sytuacja: uruchomienie `python scripts/build_gate_manifest.py --help` (bez
+  realnego `--help` w parserze) wykonało cały skrypt i **nadpisało**
+  `data/gates/g001/manifest.json` świeżo wygenerowaną wersją — bez pól
+  `amendments`/`verdicts` dopisanych ręcznie po werdykcie właściciela
+  (przycięty fragment żab fabuły 4, historia decyzji). `git checkout --`
+  odzyskało plik, bo nic nie zostało jeszcze zacommitowane.
+- Przyczyna: to jednorazowy, historyczny builder pilotażu (`G = Path("data/
+  gates/g001")` na sztywno w kodzie) — nie ma trybu `--help` ani ochrony
+  przed nadpisaniem, każde uruchomienie odtwarza g001 od zera z kodu źródłowego.
+- Zasada: **nie uruchamiaj `build_gate_manifest.py` „na sprawdzenie"** — to
+  nie jest ogólny builder bramek (tym jest `gate_preview.py` + `build_gate_
+  gNNN.py` per bramka). Jeśli trzeba sprawdzić manifest g001, czytaj plik
+  albo `git show HEAD:data/gates/g001/manifest.json`. Po każdym takim
+  eksperymencie sprawdź `git status` i odtwórz nietknięte pliki bramek przed
+  dalszą pracą.
+
+## Gablotka Pages sortowała fabuły numerycznie zamiast „najnowsze najwyżej” (2026-09-25)
+
+- Zgłoszenie właściciela: strona biblioteki na Pages miała pokazywać gotowe
+  jingle-fabuły od najnowiej zmienionych, a pokazywała je wg numeru fabuły.
+- Kod sortujący (`build_site.py::last_touch`) był poprawny — bierze datę
+  ostatniego commita `git log -1 -- <plik>` dla receptury/sygnatury, z
+  fallbackiem na mtime dla plików niezacommitowanych. Problem był w CI:
+  oba workflowy Pages (`pages.yml`, `pages-build.yml`) robią
+  `actions/checkout@v4` **bez `fetch-depth`**, czyli domyślny płytki klon
+  (depth 1, jeden commit). W płytkim klonie `git log -1 -- path` widzi
+  TYLKO ten jeden dostępny commit dla KAŻDEGO pliku z drzewa — więc każda
+  fabuła dostaje tę samą datę i sortowanie `(-data, numer)` degraduje się
+  do czystego sortowania po numerze. Zweryfikowane lokalnie: pełne klony
+  (`git clone`) dają poprawną kolejność (najnowsza sesja na górze), płytki
+  klon (`git clone --depth 1 file://...`) odtwarza dokładnie zgłoszony błąd
+  (1, 2, 3, 4, 5, 8, 18, 23, 28, ...).
+- Naprawa: `fetch-depth: 0` w obu krokach `actions/checkout@v4` (pełna
+  historia, mały koszt przy tym rozmiarze repo). Dodatkowo `build_site.py`
+  teraz wykrywa płytki checkout (`git rev-parse --is-shallow-repository`)
+  i krzyczy o tym w logu builda, żeby regresja configu CI (np. po zmianie
+  workflow przez kogoś innego) była widoczna od razu, a nie cicho psuła
+  kolejność na gablotce.
+- Zasada: każda funkcja, która czyta `git log` per plik do celów
+  prezentacyjnych (daty, kolejność), musi zakładać, że CI może dać płytki
+  klon — albo wymuś `fetch-depth: 0` w workflow, albo dodaj wykrywanie i
+  głośne ostrzeżenie zamiast cichej degradacji.
+
+## Właściciel chce paczki bramek ≥5 zestawów naraz, nie po jednym (2026-09-25)
+
+- Po zamknięciu g030 (pojedynczy typ, mood `groza-przerazenie`) właściciel:
+  „Prosiłbym na przyszłość o przygotowywanie większych pakietów do oceny.
+  Nie jednego ale przynajmniej pięciu zestawów dźwięków/kod/instrumentów/teł”.
+- Zasada zapisana w `AGENTS.md` pkt 2: jedna runda bramki od teraz to
+  **≥5 wpisów bazy** (typy z `resolver.py --survey`), po 3 kandydatów każdy,
+  w jednym manifeście (`data/gates/gNNN/manifest.json` z wieloma `entries`)
+  i jednej stronie podglądu. Wzorzec: g031 (3 gesty mood + 2 zestawy
+  instrumentów, 5×3=15 kandydatów, jedna runda).
+- Dobór anchor-fabuły dla wielu typów naraz: dla każdego typu osobno znajdź
+  fabułę, dla której to JEDYNY brak (inaczej trzeba by rozstrzygać kilka
+  typów na tej samej fabule i tracić równoległość). Filtr w Pythonie
+  w `docs/STATE.md` sekcja „Co dalej” — do skopiowania w kolejnych sesjach.
+
+## `git clone`/`git ls-remote` z github.com działa z bash sandboksa — bez
+   dispatcha sample-scout (2026-09-25)
+
+- Wcześniejsze sesje zakładały, że jedynym kanałem na materiał audio jest
+  workflow **Sample scout** (GitHub Actions, osobny runner z internetem),
+  bo `docs/sources-and-licensing.md` opisuje „egress sandboksa tnie TLS do
+  Wikimedia/NPS/Freesound/raw.githubusercontent”. To prawda dla TYCH
+  hostów, ale **`git clone`/`git ls-remote` na `github.com` działa wprost
+  z bash tej sesji** (zweryfikowane: sparse-checkout VCSL i VSCO-2-CE, po
+  ~100 MB każdy, bez dispatcha). Więc gesty (bez sourcingu) i instrumenty
+  z repozytoriów na GitHubie (VCSL, VSCO-2-CE — oba CC0 1.0) można budować
+  bezpośrednio w sesji, bez czekania na workflow zewnętrzny. Sample-scout
+  (Freesound/archive.org/NPS) pozostaje jedyną drogą dla tła/hero, których
+  źródła NIE są na GitHubie.
+- Wniosek: przy planowaniu bramki najpierw sprawdź, czy potrzebny typ da się
+  obsłużyć materiałem z VCSL/VSCO (instant, w sesji) zanim odpalisz
+  sample-scout (async, wymaga merge do main + dispatch + oczekiwanie).
+
+## `damp_db` psuje się przy nutach kody rozstawionych <0,4 s — fabuła 253 zablokowana (2026-09-26)
+
+- Sytuacja: po werdykcie bramki g031 (5 nowych klocków, w tym `b_clarinet_warm`)
+  odblokowały się od razu fabuły 64/133/191/206/253/437/498/585/599 (9 sztuk).
+  8 z nich wyrenderowano czysto. **Fabuła 253** (`g11c_home_arrival` na
+  `b_clarinet_warm`) nie przechodzi bramki ataku nut przy ŻADNEJ kombinacji
+  `target_db`/`damp_db`/`at_sec` (przeszukano siatkę >150 punktów).
+- Diagnoza: `coda_synth.render_coda` implementuje `damp_db` jako tłumienie
+  „dotychczasowego bufora” z rampą **zaczynającą się 0,4 s PRZED atakiem
+  KAŻDEJ kolejnej nuty** (`pre = 0.40 * SR` w `scripts/coda_synth.py`). Gdy
+  gest ma dwie nuty rozstawione o **mniej niż 0,4 s** (tu: akord E5+C3 w t=0,95 s,
+  potem C4 w t=1,3 s — odstęp 0,35 s), rampa tłumienia „dla następnej nuty”
+  zaczyna się jeszcze PRZED lub tuż po ataku poprzedniej — więc każde
+  `damp_db > 0` psuje właśnie tę wcześniejszą nutę zamiast pomóc kolejnej.
+  Bez dampu naturalny sustain klarnetu (VSCO susLong, wolny zanik) maskuje
+  cichszą nutę C4 do końca utworu (obie nuty grają do końca 6-sekundowego
+  okna) — autokalibracja dobija margines do ok. -0,6…+2,3 dB, twardy limit
+  to +2,5 dB, a sufit podbicia w silniku to +8 dB/nutę (już wykorzystany).
+- Kontrast: **fabuła 599** (`g1b_march_pulse`, nuty rozstawione 0,42 s i
+  0,53 s — obie ≥0,4 s) dała się naprawić kombinacją `target_db=-8` +
+  **bardzo mały** `damp_db=1.0` (większy `damp_db` ponad ~2 dB łamał bramkę
+  HF, bo szybkie rampy tłumienia dokładają energię >6 kHz). **Fabuła 206**
+  (`g5a_shimmer_up`, szybka kaskada) naprawiła się samym podbiciem
+  `target_db` do -12 (bez dampu w ogóle) — czysty przypadek sufitu
+  autokalibracji, nie interferencji dampu.
+- Zasada na przyszłość: przed użyciem `damp_db` na sustainowanym instrumencie
+  (klarnet/waltornia/organy — cokolwiek bez naturalnego opadania w
+  MIN_NOTE_AUDIBLE_SEC=1,2 s) sprawdź odstępy między nutami gestu
+  (`data/library/gestures.json` pole `notes[].on`). Jeśli najmniejszy odstęp
+  < 0,4 s: **nie próbuj `damp_db`** (pogorszy sytuację lub złamie HF) — szukaj
+  ratunku wyłącznie w `target_db` (siatka co ok. 2-3 dB). Jeśli nawet przy
+  ekstremalnym `target_db` (blisko 0 dB) margines nie przekracza sufitu
+  autokalibracji (+8 dB), kombinacja gest×instrument jest **strukturalnie
+  niemożliwa do zrealizowania w obecnym silniku** — nie używać `--force`
+  (tylko warsztat), tylko zostawić fabułę nieobsadzoną i odnotować blokadę
+  (jak tutaj, dla 253) do rozważenia w przyszłej bramce (inny kandydat na typ
+  instrumentacji, albo edycja silnika `pre` w `coda_synth.py` — nie robić
+  pochopnie, wpływa na WSZYSTKIE dotychczasowe receptury z `damp_db`).

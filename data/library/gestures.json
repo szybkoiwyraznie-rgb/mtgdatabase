@@ -480,6 +480,240 @@
         "choice": "koda-nadzieja.3",
         "date": "2026-09-24"
       }
+    },
+    {
+      "id": "g_dread_descent",
+      "semantic": "groza — pełznące zejście w makabryczny dół",
+      "desc": "trzy stąpnięcia w dół jak kroki czegoś, co się zbliża, po czym nagły spadek w dysonansowe dno i podszyty pod spodem ton wielkiej sekundy — bez rozwiązania",
+      "notes": [
+        {
+          "midi": 64,
+          "on": 0.0,
+          "off": 0.4,
+          "vel": 0.55
+        },
+        {
+          "midi": 60,
+          "on": 0.4,
+          "off": 0.8,
+          "vel": 0.58
+        },
+        {
+          "midi": 56,
+          "on": 0.8,
+          "off": 1.3,
+          "vel": 0.62
+        },
+        {
+          "midi": 48,
+          "on": 1.25,
+          "off": 3.0,
+          "vel": 0.7
+        },
+        {
+          "midi": 50,
+          "on": 2.0,
+          "off": 3.0,
+          "vel": 0.4
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "low_strings",
+        "percussion_low",
+        "organ"
+      ],
+      "semantics": {
+        "type": "groza-przerazenie",
+        "traits": [
+          "dysonans",
+          "niski",
+          "zawieszony",
+          "bez rozwiązania"
+        ],
+        "bad_for": [
+          "radość",
+          "triumf",
+          "sielanka",
+          "nadzieja"
+        ]
+      },
+      "approved": {
+        "gate": "g030",
+        "choice": "koda-groza.2",
+        "date": "2026-09-25"
+      }
+    },
+    {
+      "id": "g_bond_echo",
+      "semantic": "wspólnota — wezwanie i odpowiedź, potem razem",
+      "desc": "jeden głos woła, drugi odpowiada tuż po nim tą samą barwą, na koniec oba trwają razem — więź potwierdzona",
+      "notes": [
+        {
+          "midi": 64,
+          "on": 0.0,
+          "off": 0.6,
+          "vel": 0.55
+        },
+        {
+          "midi": 60,
+          "on": 0.55,
+          "off": 1.3,
+          "vel": 0.5
+        },
+        {
+          "midi": 60,
+          "on": 1.6,
+          "off": 2.8,
+          "vel": 0.45
+        },
+        {
+          "midi": 64,
+          "on": 1.6,
+          "off": 2.8,
+          "vel": 0.4
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "strings",
+        "bells",
+        "organ"
+      ],
+      "semantics": {
+        "type": "wspolnota-wiez",
+        "traits": [],
+        "bad_for": []
+      },
+      "approved": {
+        "gate": "g031",
+        "choice": "koda-wspolnota.3",
+        "date": "2026-09-26"
+      }
+    },
+    {
+      "id": "g_pride_ascent",
+      "semantic": "duma — wspinaczka do pełnej wysokości",
+      "desc": "trzy kroki wspinają się oktawami do samego szczytu banku, gdzie ląduje pełny, szeroki akord — koronacja",
+      "notes": [
+        {
+          "midi": 48,
+          "on": 0.0,
+          "off": 0.4,
+          "vel": 0.55
+        },
+        {
+          "midi": 60,
+          "on": 0.35,
+          "off": 0.75,
+          "vel": 0.6
+        },
+        {
+          "midi": 72,
+          "on": 0.7,
+          "off": 1.15,
+          "vel": 0.65
+        },
+        {
+          "midi": 84,
+          "on": 1.1,
+          "off": 2.8,
+          "vel": 0.7
+        },
+        {
+          "midi": 48,
+          "on": 1.1,
+          "off": 2.8,
+          "vel": 0.5
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "strings",
+        "bells",
+        "organ"
+      ],
+      "semantics": {
+        "type": "duma-majestat",
+        "traits": [],
+        "bad_for": []
+      },
+      "approved": {
+        "gate": "g031",
+        "choice": "koda-duma.2",
+        "date": "2026-09-26"
+      }
+    },
+    {
+      "id": "g_ruthless_verdict",
+      "semantic": "bezwzględność — dwa identyczne, chłodne wyroki",
+      "desc": "dwa równe, twarde dysonansowe stuknięcia w równym odstępie — bez eskalacji, bez emocji, tylko powtórzony wyrok",
+      "notes": [
+        {
+          "midi": 54,
+          "on": 0.0,
+          "off": 0.25,
+          "vel": 0.8
+        },
+        {
+          "midi": 48,
+          "on": 0.0,
+          "off": 0.25,
+          "vel": 0.75
+        },
+        {
+          "midi": 54,
+          "on": 1.0,
+          "off": 1.25,
+          "vel": 0.85
+        },
+        {
+          "midi": 48,
+          "on": 1.0,
+          "off": 1.25,
+          "vel": 0.8
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "strings",
+        "bells",
+        "organ"
+      ],
+      "semantics": {
+        "type": "bezwzglednosc-drapieznosc",
+        "traits": [],
+        "bad_for": []
+      },
+      "approved": {
+        "gate": "g031",
+        "choice": "koda-bezwzglednosc.3",
+        "date": "2026-09-26"
+      }
     }
   ]
 }

@@ -1,0 +1,46 @@
+{
+  "story_id": "585",
+  "length_sec": 6.0,
+  "background": {
+    "id": "flooded_canyon_03",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "beast_roar_long_01",
+    "at_sec": 1.2,
+    "target_db": -12
+  },
+  "coda": {
+    "gesture": "g_bond_echo",
+    "instrument": "b_logdrum",
+    "at_sec": 3.2,
+    "target_db": -19
+  },
+  "seed": 585,
+  "gate": "g031",
+  "profile": {
+    "types": {
+      "background": "rzeka-strumien",
+      "hero": "ryk-bestii",
+      "mood": "wspolnota-wiez",
+      "instrumentation": "sucho-surowa"
+    },
+    "note": "Rola z narracji: wilgotna dżungla Mwonvuli ze spienionym nurtem rzeki jako tło (rzeka-strumień, reuse z 2); pantery skaczące z rykiem ponad rzekę na niemy rozkaz druidki jako hero 1:1 (ryk-bestii, reuse z 2/468/578 — dosłowny 'ryk panter'); koda `g_bond_echo` (bramka g031, werdykt w.3) dla 'dzikiej więzi władczyni i drapieżników' — wezwanie i odpowiedź tą samą barwą, potem trwanie razem, pasuje wprost do niemego gestu Jolrael i posłusznej odpowiedzi stada; log-bęben dla 'organicznie, dziko, gęsto'."
+  },
+  "resolution": {
+    "types": {
+      "background": "rzeka-strumien",
+      "hero": "ryk-bestii",
+      "mood": "wspolnota-wiez",
+      "instrumentation": "sucho-surowa"
+    },
+    "blocks": {
+      "background": "flooded_canyon_03",
+      "hero": "beast_roar_long_01",
+      "mood": "g_bond_echo",
+      "instrumentation": "b_logdrum"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; koda z bramki g031 (werdykt właściciela w.3); filtry twarde czyste; kombinacja unikalna"
+  }
+}
