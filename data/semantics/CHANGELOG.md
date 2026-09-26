@@ -1,5 +1,25 @@
 # CHANGELOG taksonomii semantycznej
 
+## 2026-09-26 — audyt gotowych: korekty przypisań i typy pending
+
+Po pytaniu właściciela „skąd w fabule 206 marsz wojsk?” przeprowadzono audyt
+wszystkich gotowych sygnatur. Wycofano z gotowych 90, 206, 268 i 599
+(`data/recipes/` + `audio/signatures/`), bo obsady były naciągnięciem
+istniejących klocków zamiast prawdziwym brakiem.
+
+Korekty klas:
+
+- 90: `background morze-wybrzeze` → pending `zatoka-spokojna` (spokojna,
+  osłonięta zatoka ≠ sztormowy klif `sea_storm_02`),
+- 206: `hero marsz-oddzialu` → pending `stukot-szczudel` (pojedynczy królik
+  na drewnianych szczudłach ≠ marsz plutonu),
+- 268: `hero fala-rozbryzg` → `aura-lagodna` (metaforyczna fala aury ≠ plusk
+  wody),
+- 599: `background las-dzienny` → `las-mroczny` (noc równonocy i mrok ≠
+  poranny/dzienny chór ptaków).
+
+Pełny zapis: `docs/audits/2026-09-26-audyt-gotowych-sygnatur.md`.
+
 ## 2026-09-24 — v6: nowy typ hero `weszenie` (decyzja właściciela przy g020)
 
 Bramka g020 ujawniła błąd przypisania: hero fabuły 193 (Floodhound —

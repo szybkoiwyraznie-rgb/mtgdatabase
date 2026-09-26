@@ -604,3 +604,24 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   (jak tutaj, dla 253) do rozważenia w przyszłej bramce (inny kandydat na typ
   instrumentacji, albo edycja silnika `pre` w `coda_synth.py` — nie robić
   pochopnie, wpływa na WSZYSTKIE dotychczasowe receptury z `damp_db`).
+
+## Nie mapuj metafory ani pojedynczego ruchu na gotowy typ tylko dlatego, że zgadza się słowo (audyt 2026-09-26)
+
+- Sytuacja: właściciel zapytał, skąd w fabule 206 (`High Stride`) wziął się
+  marsz wojsk. Przyczyną było słowo „marsz” w profilu: pojedynczy królik na
+  drewnianych szczudłach został zmapowany na `marsz-oddzialu`, a resolver
+  użył `troop_march_05` (cztery warstwy kroków po żwirze jak pluton). Audyt
+  gotowych sygnatur znalazł trzy analogiczne naciągnięcia: 90 (spokojna
+  zatoka obsadzona sztormowym wybrzeżem), 268 (metaforyczna fala aury
+  obsadzona wodnym rozbryzgiem), 599 (nocny rytuał w mrocznym lesie obsadzony
+  dziennym chórem ptaków).
+- Wniosek: wzorzec tekstowy jest tylko hipotezą. Liczy się „co słychać”:
+  liczebność źródła (pojedynczy krok ≠ oddział), żywioł fizyczny (aura ≠ woda)
+  i pora/charakter środowiska (nocny rytuał ≠ las za dnia). Notatka typu
+  „to nie pasuje idealnie, ale jedyny klocek typu” jest sygnałem do BRAKU,
+  nie usprawiedliwieniem reuse.
+- Zasada / działanie zapobiegawcze: gdy opis klocka ma `bad_for` lub zdrowy
+  rozsądek przeczy scenie, popraw klasę fabuły albo zgłoś typ pending i
+  bramkę. Nie renderuj finalnie na „najbliższym” klocku. Po audycie 90, 206,
+  268 i 599 zostały wycofane z gotowych; klasy skorygowane tak, by resolver
+  zwracał BRAK zamiast ponownie tworzyć złą sygnaturę.

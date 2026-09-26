@@ -538,7 +538,7 @@
       "instrumentation": "lekko-zwinna"
     },
     "90": {
-      "background": "morze-wybrzeze",
+      "background": "zatoka-spokojna",
       "hero": "skradanie-cisza",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "jasno-swietlista"
@@ -1049,7 +1049,7 @@
     },
     "206": {
       "background": "las-dzienny",
-      "hero": "marsz-oddzialu",
+      "hero": "stukot-szczudel",
       "mood": "radosc-beztroska",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -1325,7 +1325,7 @@
     },
     "268": {
       "background": "las-dzienny",
-      "hero": "fala-rozbryzg",
+      "hero": "aura-lagodna",
       "mood": "nadzieja-ukojenie",
       "instrumentation": "monumentalno-potezna"
     },
@@ -2950,7 +2950,7 @@
       "instrumentation": "cieplo-serdeczna"
     },
     "599": {
-      "background": "las-dzienny",
+      "background": "las-mroczny",
       "hero": "rozblysk-swiatla",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "cieplo-serdeczna"

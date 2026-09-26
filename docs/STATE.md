@@ -4,21 +4,28 @@ Ten plik odpowiada na pytanie „gdzie jesteśmy i co robić dalej”, żeby now
 sesja nie musiała rekonstruować kontekstu z historii gita. Reguły są
 w `AGENTS.md` i `docs/gate-protocol.md` — tutaj wyłącznie bieżący stan.
 
-Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0d8ef-mtgdatabase`).
+Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **38**
-  (6 legacy + 32 z modelu 1:1: 18, 23, 28, 64, 90, 110, 126, 133, 166, 169,
-  191, 193, 206, 222, 225, 249, 268, 422, 433, 437, 451, 468, 498, 506, 511,
-  519, 562, 575, 577, 578, 585, 599).
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **34**
+  (6 legacy + 28 z modelu 1:1: 18, 23, 28, 64, 110, 126, 133, 166, 169,
+  191, 193, 222, 225, 249, 422, 433, 437, 451, 468, 498, 506, 511, 519,
+  562, 575, 577, 578, 585).
 - Baza klocków: **46 wpisów** (`library_tool.py check`: 11 tła / 13 hero /
   14 gestów / 9 instrumentów — wszystkie z `semantics`, model 1:1, taksonomia v6).
-- Bramki rozegrane z werdyktem: **g001–g031** (g014 wycofana — archiwum).
-  g030 (mood groza-przerazenie) → z.2 → `g_dread_descent`. **g031** (pakiet
-  5 wpisów naraz, pierwsza runda wg nowej zasady właściciela) → werdykt
-  w3/d2/b3/c3/m3 → `g_bond_echo`, `g_pride_ascent`, `g_ruthless_verdict`,
-  `b_clarinet_warm`, `b_tubularbells_metal` — wszystkie 5 przyjęte do biblioteki.
+- Bramki rozegrane z werdyktem i przyjęciem do biblioteki: **g001–g031**
+  (g014 wycofana — archiwum). **g032 jest otwarta**: właściciel podał
+  werdykt częściowy `f3, z2, p2, i1`; kandydaci `r.1–r.3` dla
+  `hero-rezonans` nie grały w odsłuchu, więc zostały przebudowane z
+  głośniejszych/aktywnych okien VCSL i czekają na ponowny wybór `r.*`.
+- **Wycofane po audycie semantycznym gotowych**: **90, 206, 268, 599**.
+  Usunięto ich receptury i MP3 z `audio/signatures/`; klasy skorygowano tak,
+  żeby resolver zwracał BRAK zamiast ponownie obsadzić zły klocek:
+  90→`background:zatoka-spokojna` (pending), 206→`hero:stukot-szczudel`
+  (pending), 268→`hero:aura-lagodna` (typ istniejący bez klocka),
+  599→`background:las-mroczny` (typ istniejący bez klocka). Pełny audyt:
+  `docs/audits/2026-09-26-audyt-gotowych-sygnatur.md`.
 - **Jedna fabuła zablokowana strukturalnie**: **253** (Inspiring Bard) —
   `g11c_home_arrival` × `b_clarinet_warm` nie przechodzi bramki ataku nut przy
   żadnej kombinacji parametrów (silnik `damp_db` konfliktuje z odstępem nut
@@ -27,13 +34,14 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0d8ef-mtgdatabase`).
 
 ## W toku
 
-Brak otwartej bramki — g031 domknięta i w pełni wykorzystana (wszystkie 9
-odblokowanych fabuł sprawdzone, 8 wyrenderowanych, 1 udokumentowana blokada).
-
-**Następny krok**: zbudować kolejną PACZKĘ ≥5 wpisów (zasada właściciela,
-patrz `AGENTS.md` pkt 2) z listy niżej. Serwer podglądu bramki (`:8080`) —
-jeśli poprzedni proces wygasł (środowisko czyści procesy w tle między turami),
-uruchom ponownie: `python3 scripts/gate_preview.py data/gates/gNNN --port 8080`.
+1. **Dokończyć g032** — podgląd działa na `:8080` po uruchomieniu:
+   `python3 scripts/gate_preview.py data/gates/g032 --port 8080`.
+   Brakuje tylko werdyktu dla `hero-rezonans` (`r.1`, `r.2`, `r.3` albo
+   „żaden — powód”). Po kompletnym werdykcie uruchomić
+   `python3 scripts/library_tool.py accept --gate g032`, potem `resolver.py --survey`
+   i renderować odblokowane fabuły.
+2. Po audycie gotowych nie wracać automatycznie do 90/206/268/599 na starych
+   typach. Ich naprawa wymaga brakujących klocków/typów wskazanych wyżej.
 
 ## Sesja 2026-09-25 → 2026-09-26 — skrót przebiegu
 
@@ -50,15 +58,14 @@ uruchom ponownie: `python3 scripts/gate_preview.py data/gates/gNNN --port 8080`.
    **w3, d2, b3, c3, m3** → `g_bond_echo`, `g_pride_ascent`,
    `g_ruthless_verdict`, `b_clarinet_warm`, `b_tubularbells_metal` — 5/5
    przyjęte (`library_tool.py accept --gate g031`).
-4. `resolver.py --survey` po przyjęciu → **9 nowych fabuł w pełni
-   obsadzalnych**: 64, 133, 191, 206, 253, 437, 498, 585, 599 (jednym
-   zaakceptowanym klockiem, bez kolejnej bramki).
-5. Zbudowano i wyrenderowano **8 z 9** (64, 133, 191, 206, 437, 498, 585,
-   599) — wszystkie PASS `--audit`. Dwie wymagały dostrojenia poziomów
-   (nie domyślnych): **206** `target_db=-12` (bez dampu — kaskada
-   `g5a_shimmer_up` na wolno atakującym klarnecie wymagała więcej
-   headroomu dla autokalibracji); **599** `target_db=-8` + `damp_db=1.0`
-   (bardzo mały damp — większy łamał próg HF).
+4. `resolver.py --survey` po przyjęciu → 9 nowych fabuł w pełni
+   obsadzalnych: 64, 133, 191, 206, 253, 437, 498, 585, 599. Wyrenderowano
+   8 z 9 (253 zablokowana technicznie).
+5. **Korekta po pytaniu właściciela 2026-09-26:** 206 była błędną obsadą
+   (`marsz-oddzialu`/`troop_march_05` dla pojedynczego królika na szczudłach).
+   Audyt wszystkich gotowych wykrył i wycofał analogiczne naciągnięcia:
+   90 (spokojna zatoka ≠ sztormowe wybrzeże), 268 (aura ≠ wodny rozbryzg),
+   599 (nocny rytuał ≠ las za dnia). Gotowe spadły z 38 do 34.
 6. **253 pozostaje zablokowana** — `g11c_home_arrival` (akord E5+C3 + C4 w
    odstępie 0,35 s, <0,4 s okna dampu w silniku) na sustainowanym klarnecie
    nie przechodzi bramki ataku przy ŻADNEJ z >150 przeszukanych kombinacji
@@ -72,38 +79,29 @@ uruchom ponownie: `python3 scripts/gate_preview.py data/gates/gNNN --port 8080`.
    zawsze wychodził pusty (bezpieczne `git reset --hard FETCH_HEAD`).
    Procedura opisana w sekcji „Rzeczy, które łatwo przeoczyć” niżej.
 
-Wszystkie 38 receptur przechodzą `library_tool.py check` (kombinacje
-unikalne), `test_signature_system.py` (zielone), `build_pack.py` i
-`build_site.py` (bez błędów; 46 wpisów baz, 38 sygnatur, 6 stron).
+Aktualnie 34 receptury przechodzą `library_tool.py check` (kombinacje
+unikalne). Po wycofaniu 90/206/268/599 trzeba ponownie budować pack/site
+przed publikacją końcową.
 
 ## Co dalej (kolejność pracy, nie wymaga pytania właściciela)
 
-1. **Zbuduj następną paczkę ≥5 wpisów** (zasada właściciela). Kandydaci wg
-   `resolver.py --survey` (po odjęciu tego, co zamknęła g031):
-   `background:gory-wichry` (28), `background:podziemia-jaskinia` (28),
-   `hero:rezonans-magiczny` (24), `mood:furia-dzikosc` (24),
-   `hero:przemiana-materializacja` (23), `background:miasto-gwar` (23),
-   `instrumentacja:zimno-szklista` (21), `hero:potezny-cios` (21),
-   `background:swiatynia-sanktuarium` (21), `background:miasto-nocne` (21),
-   `background:laboratorium-technika` (21), `background:wioska-sielska` (21),
-   `background:step-rownina` (19), `background:kuznia-warsztat` (19),
-   `mood:zuchwalosc-brawura` (18). Tła (`gory-wichry`, `podziemia-jaskinia`,
-   `miasto-gwar`, `swiatynia-sanktuarium`, `miasto-nocne`,
-   `laboratorium-technika`, `wioska-sielska`, `step-rownina`,
-   `kuznia-warsztat`) prawdopodobnie wymagają prawdziwych nagrań terenowych
-   (sample-scout / Freesound / archive.org), nie gestów autorskich — sprawdź
-   `docs/sources-and-licensing.md` i rozważ dispatch sample-scout wcześniej
-   (async, wymaga czasu), żeby materiał czekał gotowy na następną sesję.
-2. **253 do rewizytacji**: jeśli w przyszłości pojawi się DRUGI kandydat na
+1. **Najpierw domknij g032** — brakuje tylko wyboru `r.*` dla
+   `hero-rezonans`. Po `accept` od razu uruchom `resolver.py --survey` i
+   renderuj fabuły odblokowane przez `furia-dzikosc`, `zuchwalosc-brawura`,
+   `rezonans-magiczny`, `potezny-cios`, `zimno-szklista`.
+2. Następna paczka po g032 powinna uwzględniać również braki ujawnione
+   audytem: `background:zatoka-spokojna` (90), `hero:stukot-szczudel` (206),
+   `hero:aura-lagodna` (268; typ jest w taksonomii, brak klocka),
+   `background:las-mroczny` (599; typ jest w taksonomii, brak klocka).
+3. **253 do rewizytacji**: jeśli w przyszłości pojawi się DRUGI kandydat na
    typ instrumentacji `cieplo-serdeczna` (obecnie tylko `b_clarinet_warm`),
-   sprawdź czy nowy klocek (np. waltornia z tej samej bramki g031, c.2,
-   niewybrana) przechodzi bramkę dla tej konkretnej fabuły — ale to wymaga
-   zmiany modelu 1:1 (dwa klocki tego samego typu), nie rób tego bez zgody
-   właściciela. Alternatywa: edycja `pre` w `coda_synth.py` (0,4 s →
-   mniej) — dotyka WSZYSTKICH receptur z `damp_db`, wymaga pełnej regresji
+   sprawdź czy nowy klocek przechodzi bramkę dla tej konkretnej fabuły — ale
+   to wymaga zmiany modelu 1:1 (dwa klocki tego samego typu), nie rób tego
+   bez zgody właściciela. Alternatywa: edycja `pre` w `coda_synth.py` (0,4 s
+   → mniej) — dotyka WSZYSTKICH receptur z `damp_db`, wymaga pełnej regresji
    (`test_signature_system.py` + ręczny przegląd audytów istniejących
-   receptur z dampem: 268, 433, 506, 511, 575, 599).
-3. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
+   receptur z dampem: 433, 506, 511, 575).
+4. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
    ```python
    import sys, json
    sys.path.insert(0, "scripts")
@@ -115,7 +113,7 @@ unikalne), `test_signature_system.py` (zielone), `build_pack.py` i
           and r["braki"][0]["typ"] == "TYP":
            print(sid, r["title"])
    ```
-4. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
+5. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
    g001, nadpisuje ten katalog przy KAŻDYM uruchomieniu (LESSONS 2026-09-25).
 
 ## Sample scout — uruchomienie

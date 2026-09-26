@@ -6684,11 +6684,11 @@
         ]
       },
       "hero": {
-        "opis": "Radosny marsz na drewnianych szczudłach ponad trawami — stukot i szeroki uśmiech",
+        "opis": "Radosne kroczenie na drewnianych szczudłach ponad trawami — pojedynczy stukot i szeroki uśmiech",
         "cechy": [
           "stukot szczudeł",
-          "marsz ponad trawą",
-          "radosne kroki",
+          "pojedyncze drewniane kroki",
+          "kroczenie ponad trawą",
           "widok z góry"
         ]
       },
@@ -8425,12 +8425,12 @@
         ]
       },
       "hero": {
-        "opis": "Fale szmaragdowej aury sojuszników — troll pęcznieje i rośnie od wspólnej energii",
+        "opis": "Napływ szmaragdowej aury sojuszników — troll pęcznieje i rośnie od wspólnej energii",
         "cechy": [
-          "fale aury",
-          "rosnące ciało",
-          "napinające się mięśnie",
-          "skumulowana wiara"
+          "napływ szmaragdowej aury",
+          "wzmocnienie sojuszników",
+          "troll rośnie",
+          "wspólna energia"
         ]
       },
       "mood": {

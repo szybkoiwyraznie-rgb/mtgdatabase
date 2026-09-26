@@ -377,7 +377,7 @@
               "license": "CC0 1.0",
               "url": "https://github.com/sgossner/VCSL",
               "channel": "git clone sparse z github.com/sgossner/VCSL",
-              "notes": "Vibraphone Bowed D4 (VCSL); pierwsze 3.5 s, poziom, fade"
+              "notes": "Vibraphone Bowed D4 (VCSL); głośny fragment 1.15–4.65 s (źródło ma bardzo cichą głowę), poziom, fade"
             }
           }
         },
@@ -418,7 +418,7 @@
               "license": "CC0 1.0",
               "url": "https://github.com/sgossner/VCSL",
               "channel": "git clone sparse z github.com/sgossner/VCSL",
-              "notes": "Flexatone extralong (VCSL); pierwsze 3.5 s, poziom, fade"
+              "notes": "Flexatone extralong (VCSL); głośniejszy fragment 8.0–11.5 s po audycji okien, poziom, fade"
             }
           }
         },
@@ -434,7 +434,7 @@
             "character": "kaskadowy, jasny, delikatny",
             "distance": "bliski",
             "energy": "średnia",
-            "duration_sec": 3.2,
+            "duration_sec": 2.4,
             "desc": "delikatna kaskada dzwonków — jak seria świecących glifów zapalających się jeden po drugim",
             "good_for": "aktywacja zaklęcia, runy, portal, rytuał, przepływ mocy",
             "bad_for": "walka wprost, uderzenia fizyczne, naturalistyczna fauna",
@@ -459,7 +459,7 @@
               "license": "CC0 1.0",
               "url": "https://github.com/sgossner/VCSL",
               "channel": "git clone sparse z github.com/sgossner/VCSL",
-              "notes": "Bell Tree stroke 6 (VCSL); pierwsze 3.2 s, poziom, fade"
+              "notes": "Bell Tree stroke 6 (VCSL); aktywny fragment 0.0–2.4 s, poziom, fade"
             }
           }
         }
