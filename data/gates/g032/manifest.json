@@ -1,0 +1,762 @@
+{
+  "id": "g032",
+  "created": "2026-09-26",
+  "note": "PAKIET 5 zestawów naraz (zasada właściciela z 2026-09-25). 2 kody autorskie (mood: furia-dzikość, zuchwałość-brawura — podgląd na b_piano_steinway) + 2 hero (rezonans-magiczny: wibrafon smyczkowany/flexaton/drzewko dzwonków; potężny-cios: bęben/gong/kocioł) + 1 instrumentacja (zimno-szklista: wibrafon/dzwonki/kieliszki), wszystko VCSL CC0 1.0. Anchory: fabuły 179, 8, 5, 84, 76 (każda miała dokładnie jeden brak — reszta obsadzona przez resolver).",
+  "entries": [
+    {
+      "slug": "koda-furia",
+      "kind": "gestures",
+      "role": "jedyny klocek typu kody `furia-dzikosc` (24 fabuły; slot a fabuły 179)",
+      "candidates": [
+        {
+          "label": "f.1",
+          "title": "rozprysk bez porządku",
+          "file": "candidates/g_feral_scatter.mp3",
+          "desc": "cztery nuty w bardzo nierównych odstępach i różnych rejestrach, jakby coś wypadało z rąk w przypadkowej kolejności — żadnego rytmu, żadnej kontroli",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_feral_scatter",
+            "semantic": "furia — rozprysk bez porządku",
+            "desc": "cztery nuty w bardzo nierównych odstępach i różnych rejestrach, jakby coś wypadało z rąk w przypadkowej kolejności — żadnego rytmu, żadnej kontroli",
+            "notes": [
+              {
+                "midi": 66,
+                "on": 0.0,
+                "off": 0.2,
+                "vel": 0.75
+              },
+              {
+                "midi": 51,
+                "on": 0.14,
+                "off": 0.35,
+                "vel": 0.65
+              },
+              {
+                "midi": 78,
+                "on": 0.3,
+                "off": 0.55,
+                "vel": 0.7
+              },
+              {
+                "midi": 57,
+                "on": 0.62,
+                "off": 1.9,
+                "vel": 0.8
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low"
+            ],
+            "semantics": {
+              "type": "furia-dzikosc",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        },
+        {
+          "label": "f.2",
+          "title": "nagłe pęknięcie iskry",
+          "file": "candidates/g_feral_snap.mp3",
+          "desc": "ostry, dysonansowy trzask bez przygotowania i bez wybrzmienia, zaraz po nim drugi, cichszy — jak przeskok iskry między kartkami",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_feral_snap",
+            "semantic": "furia — nagłe pęknięcie iskry",
+            "desc": "ostry, dysonansowy trzask bez przygotowania i bez wybrzmienia, zaraz po nim drugi, cichszy — jak przeskok iskry między kartkami",
+            "notes": [
+              {
+                "midi": 78,
+                "on": 0.0,
+                "off": 0.12,
+                "vel": 0.85
+              },
+              {
+                "midi": 61,
+                "on": 0.0,
+                "off": 0.12,
+                "vel": 0.75
+              },
+              {
+                "midi": 82,
+                "on": 0.3,
+                "off": 0.45,
+                "vel": 0.55
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low"
+            ],
+            "semantics": {
+              "type": "furia-dzikosc",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        },
+        {
+          "label": "f.3",
+          "title": "pęd, który się nie zatrzyma",
+          "file": "candidates/g_feral_stampede.mp3",
+          "desc": "pięć nisko pulsujących uderzeń przyspieszających bez kontroli, urywa się nagle na szczycie napięcia — żywioł, nie muzyka",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_feral_stampede",
+            "semantic": "furia — pęd, który się nie zatrzyma",
+            "desc": "pięć nisko pulsujących uderzeń przyspieszających bez kontroli, urywa się nagle na szczycie napięcia — żywioł, nie muzyka",
+            "notes": [
+              {
+                "midi": 48,
+                "on": 0.0,
+                "off": 0.3,
+                "vel": 0.6
+              },
+              {
+                "midi": 48,
+                "on": 0.42,
+                "off": 0.65,
+                "vel": 0.65
+              },
+              {
+                "midi": 48,
+                "on": 0.8,
+                "off": 1.0,
+                "vel": 0.7
+              },
+              {
+                "midi": 48,
+                "on": 1.12,
+                "off": 1.3,
+                "vel": 0.78
+              },
+              {
+                "midi": 61,
+                "on": 1.38,
+                "off": 1.6,
+                "vel": 0.85
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low"
+            ],
+            "semantics": {
+              "type": "furia-dzikosc",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "koda-zuchwalosc",
+      "kind": "gestures",
+      "role": "jedyny klocek typu kody `zuchwalosc-brawura` (18 fabuł; slot a fabuły 8)",
+      "candidates": [
+        {
+          "label": "z.1",
+          "title": "szarża z uśmiechem",
+          "file": "candidates/g_brave_charge.mp3",
+          "desc": "trójdźwiękowy skok w górę z synkopowanym poślizgiem, ląduje na jasnym, pełnym akordzie — szarża, która się cieszy sobą",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_brave_charge",
+            "semantic": "brawura — szarża z uśmiechem",
+            "desc": "trójdźwiękowy skok w górę z synkopowanym poślizgiem, ląduje na jasnym, pełnym akordzie — szarża, która się cieszy sobą",
+            "notes": [
+              {
+                "midi": 55,
+                "on": 0.0,
+                "off": 0.22,
+                "vel": 0.6
+              },
+              {
+                "midi": 62,
+                "on": 0.2,
+                "off": 0.42,
+                "vel": 0.65
+              },
+              {
+                "midi": 67,
+                "on": 0.38,
+                "off": 0.6,
+                "vel": 0.7
+              },
+              {
+                "midi": 74,
+                "on": 0.58,
+                "off": 1.8,
+                "vel": 0.75
+              },
+              {
+                "midi": 62,
+                "on": 0.58,
+                "off": 1.8,
+                "vel": 0.55
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low"
+            ],
+            "semantics": {
+              "type": "zuchwalosc-brawura",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        },
+        {
+          "label": "z.2",
+          "title": "pewny siebie krok z przytupem",
+          "file": "candidates/g_brave_swagger.mp3",
+          "desc": "kołyszący, synkopowany rytm średniego tempa — nie pędzi, tylko idzie tak, jakby świat już należał do niego",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_brave_swagger",
+            "semantic": "brawura — pewny siebie krok z przytupem",
+            "desc": "kołyszący, synkopowany rytm średniego tempa — nie pędzi, tylko idzie tak, jakby świat już należał do niego",
+            "notes": [
+              {
+                "midi": 60,
+                "on": 0.0,
+                "off": 0.3,
+                "vel": 0.65
+              },
+              {
+                "midi": 60,
+                "on": 0.45,
+                "off": 0.6,
+                "vel": 0.5
+              },
+              {
+                "midi": 64,
+                "on": 0.65,
+                "off": 0.95,
+                "vel": 0.65
+              },
+              {
+                "midi": 67,
+                "on": 1.05,
+                "off": 1.9,
+                "vel": 0.7
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low"
+            ],
+            "semantics": {
+              "type": "zuchwalosc-brawura",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        },
+        {
+          "label": "z.3",
+          "title": "jeden zuchwały skok",
+          "file": "candidates/g_brave_leap.mp3",
+          "desc": "pojedynczy, szeroki skok w górę (dziesiąta), lądujący jasno i pewnie — jeden gest odwagi, bez wahania",
+          "source": "gest autorski; podgląd na b_piano_steinway (render neutralny)",
+          "entry": {
+            "id": "g_brave_leap",
+            "semantic": "brawura — jeden zuchwały skok",
+            "desc": "pojedynczy, szeroki skok w górę (dziesiąta), lądujący jasno i pewnie — jeden gest odwagi, bez wahania",
+            "notes": [
+              {
+                "midi": 55,
+                "on": 0.0,
+                "off": 0.25,
+                "vel": 0.65
+              },
+              {
+                "midi": 72,
+                "on": 0.2,
+                "off": 1.9,
+                "vel": 0.75
+              }
+            ],
+            "delivery": {
+              "humanize": {
+                "timing_ms": 15,
+                "vel": 0.04
+              }
+            },
+            "instrument_tags": [
+              "piano",
+              "struck-light",
+              "percussion_low"
+            ],
+            "semantics": {
+              "type": "zuchwalosc-brawura",
+              "traits": [],
+              "bad_for": []
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hero-rezonans",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `rezonans-magiczny` (24 fabuły; slot c fabuły 5)",
+      "candidates": [
+        {
+          "label": "r.1",
+          "title": "smyczkowany wibrafon — ciepły rezonans",
+          "file": "candidates/m_vibes_bowed.mp3",
+          "desc": "smyczkowany talerz wibrafonu — długi, aksamitny rezonans, jak brzęczenie zaklęcia dochodzące zewsząd naraz",
+          "source": "Versilian Community Sample Library (VCSL)",
+          "entry": {
+            "id": "resonance_bowed_01",
+            "role": "rezonans i wibracja magii — zaklęcia, runy, rytualne przepływy energii",
+            "character": "ciepły, wibrujący, aksamitny",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 3.5,
+            "desc": "smyczkowany talerz wibrafonu — długi, aksamitny rezonans, jak brzęczenie zaklęcia dochodzące zewsząd naraz",
+            "good_for": "aktywacja zaklęcia, runy, portal, rytuał, przepływ mocy",
+            "bad_for": "walka wprost, uderzenia fizyczne, naturalistyczna fauna",
+            "file": "audio/library/heroes/resonance_bowed_01.mp3",
+            "semantics": {
+              "type": "rezonans-magiczny",
+              "traits": [
+                "rezonujący",
+                "wibrujący",
+                "eteryczny",
+                "sustain"
+              ],
+              "bad_for": [
+                "perkusyjny",
+                "suchy",
+                "organiczny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Vibraphone Bowed D4 (VCSL); pierwsze 3.5 s, poziom, fade"
+            }
+          }
+        },
+        {
+          "label": "r.2",
+          "title": "flexaton — falująca, nieziemska wibracja",
+          "file": "candidates/m_flexatone.mp3",
+          "desc": "metalowa płytka faluje w rękach — niepokojąca, żywa wibracja, jakby powietrze samo drżało od magii",
+          "source": "Versilian Community Sample Library (VCSL)",
+          "entry": {
+            "id": "resonance_flexatone_01",
+            "role": "rezonans i wibracja magii — zaklęcia, runy, rytualne przepływy energii",
+            "character": "falujący, niepokojący, żywy",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 3.5,
+            "desc": "metalowa płytka faluje w rękach — niepokojąca, żywa wibracja, jakby powietrze samo drżało od magii",
+            "good_for": "aktywacja zaklęcia, runy, portal, rytuał, przepływ mocy",
+            "bad_for": "walka wprost, uderzenia fizyczne, naturalistyczna fauna",
+            "file": "audio/library/heroes/resonance_flexatone_01.mp3",
+            "semantics": {
+              "type": "rezonans-magiczny",
+              "traits": [
+                "rezonujący",
+                "wibrujący",
+                "eteryczny",
+                "sustain"
+              ],
+              "bad_for": [
+                "perkusyjny",
+                "suchy",
+                "organiczny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Flexatone extralong (VCSL); pierwsze 3.5 s, poziom, fade"
+            }
+          }
+        },
+        {
+          "label": "r.3",
+          "title": "drzewko dzwonków — kaskada glifów",
+          "file": "candidates/m_belltree.mp3",
+          "desc": "delikatna kaskada dzwonków — jak seria świecących glifów zapalających się jeden po drugim",
+          "source": "Versilian Community Sample Library (VCSL)",
+          "entry": {
+            "id": "resonance_belltree_01",
+            "role": "rezonans i wibracja magii — zaklęcia, runy, rytualne przepływy energii",
+            "character": "kaskadowy, jasny, delikatny",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 3.2,
+            "desc": "delikatna kaskada dzwonków — jak seria świecących glifów zapalających się jeden po drugim",
+            "good_for": "aktywacja zaklęcia, runy, portal, rytuał, przepływ mocy",
+            "bad_for": "walka wprost, uderzenia fizyczne, naturalistyczna fauna",
+            "file": "audio/library/heroes/resonance_belltree_01.mp3",
+            "semantics": {
+              "type": "rezonans-magiczny",
+              "traits": [
+                "rezonujący",
+                "wibrujący",
+                "eteryczny",
+                "sustain"
+              ],
+              "bad_for": [
+                "perkusyjny",
+                "suchy",
+                "organiczny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Bell Tree stroke 6 (VCSL); pierwsze 3.2 s, poziom, fade"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hero-potezny",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `potezny-cios` (21 fabuł; slot c fabuły 84)",
+      "candidates": [
+        {
+          "label": "p.1",
+          "title": "uderzenie w wielki bęben — głuchy łomot",
+          "file": "candidates/p_bassdrum_hit.mp3",
+          "desc": "jedno potężne uderzenie w wielki bęben — głuchy, masywny łomot bez wybrzmienia w wysokich tonach",
+          "source": "Versilian Community Sample Library (VCSL)",
+          "entry": {
+            "id": "heavyblow_bassdrum_01",
+            "role": "pojedynczy ciężki cios, uderzenie, miażdżenie",
+            "character": "głuchy, masywny, krótki",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 4.5,
+            "desc": "jedno potężne uderzenie w wielki bęben — głuchy, masywny łomot bez wybrzmienia w wysokich tonach",
+            "good_for": "uderzenie, zmiażdżenie przeszkody, potężny cios, powalenie",
+            "bad_for": "magia, subtelność, cichy ruch, delikatne sceny",
+            "file": "audio/library/heroes/heavyblow_bassdrum_01.mp3",
+            "semantics": {
+              "type": "potezny-cios",
+              "traits": [
+                "ciężki",
+                "niski",
+                "jednorazowy",
+                "masywny"
+              ],
+              "bad_for": [
+                "subtelny",
+                "wysoki",
+                "delikatny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Bass Drum 2 hit ff (VCSL); pierwsze 4.5 s (dalej cisza pomieszczenia), poziom, fade"
+            }
+          }
+        },
+        {
+          "label": "p.2",
+          "title": "uderzenie w gong — miażdżący rozdzwon",
+          "file": "candidates/p_gong_crush.mp3",
+          "desc": "ogromny gong uderzony z całej siły — metaliczny huk rozlewający się i miażdżący wszystko dookoła",
+          "source": "Versilian Community Sample Library (VCSL)",
+          "entry": {
+            "id": "heavyblow_gong_01",
+            "role": "pojedynczy ciężki cios, uderzenie, miażdżenie",
+            "character": "miażdżący, rozlewający się, metaliczny",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 3.0,
+            "desc": "ogromny gong uderzony z całej siły — metaliczny huk rozlewający się i miażdżący wszystko dookoła",
+            "good_for": "uderzenie, zmiażdżenie przeszkody, potężny cios, powalenie",
+            "bad_for": "magia, subtelność, cichy ruch, delikatne sceny",
+            "file": "audio/library/heroes/heavyblow_gong_01.mp3",
+            "semantics": {
+              "type": "potezny-cios",
+              "traits": [
+                "ciężki",
+                "niski",
+                "jednorazowy",
+                "masywny"
+              ],
+              "bad_for": [
+                "subtelny",
+                "wysoki",
+                "delikatny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Gong 1 fff (VCSL); pierwsze 3 s, poziom, fade"
+            }
+          }
+        },
+        {
+          "label": "p.3",
+          "title": "uderzenie w kocioł — grzmiące trzaśnięcie",
+          "file": "candidates/p_timpani_hit.mp3",
+          "desc": "grzmiące, napięte uderzenie w kocioł — twardszy atak niż bęben, wyraźny ton pod spodem",
+          "source": "Versilian Community Sample Library (VCSL)",
+          "entry": {
+            "id": "heavyblow_timpani_01",
+            "role": "pojedynczy ciężki cios, uderzenie, miażdżenie",
+            "character": "grzmiący, napięty, tonalny",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 3.5,
+            "desc": "grzmiące, napięte uderzenie w kocioł — twardszy atak niż bęben, wyraźny ton pod spodem",
+            "good_for": "uderzenie, zmiażdżenie przeszkody, potężny cios, powalenie",
+            "bad_for": "magia, subtelność, cichy ruch, delikatne sceny",
+            "file": "audio/library/heroes/heavyblow_timpani_01.mp3",
+            "semantics": {
+              "type": "potezny-cios",
+              "traits": [
+                "ciężki",
+                "niski",
+                "jednorazowy",
+                "masywny"
+              ],
+              "bad_for": [
+                "subtelny",
+                "wysoki",
+                "delikatny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Timpani 1, uderzenie v4 (VCSL); pierwsze 3.5 s (dalej cisza pomieszczenia), poziom, fade"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "instr-zimno",
+      "kind": "instruments",
+      "role": "jedyny klocek typu instrumentacji `zimno-szklista` (21 fabuł; slot b fabuły 76)",
+      "candidates": [
+        {
+          "label": "i.1",
+          "title": "wibrafon — zimny, metaliczny mallet",
+          "file": "candidates/b_vibraphone_cold_demo.mp3",
+          "desc": "twarde pałeczki uderzają w metalowe płytki, długie chłodne wybrzmienie — bank 11 nut F2–E5",
+          "source": "Versilian Community Sample Library (VCSL) — CC0 1.0",
+          "entry": {
+            "id": "b_vibraphone_cold",
+            "semantic": "chłodny, metaliczny rezonans wibrafonu — szklisty połysk bez ciepła",
+            "family": "idiophone-struck",
+            "samples": {
+              "41": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_F2_v2_rr1_Main.mp3",
+              "45": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_A2_v2_rr1_Main.mp3",
+              "48": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_C3_v2_rr1_Main.mp3",
+              "52": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_E3_v2_rr1_Main.mp3",
+              "55": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_G3_v2_rr1_Main.mp3",
+              "59": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_B3_v2_rr1_Main.mp3",
+              "62": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_D4_v2_rr1_Main.mp3",
+              "65": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_F4_v2_rr1_Main.mp3",
+              "69": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_A4_v2_rr1_Main.mp3",
+              "72": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_C5_v2_rr1_Main.mp3",
+              "76": "audio/library/instruments/vibraphone_cold/b_vibraphone_cold_Vibes_hard_E5_v2_rr1_Main.mp3"
+            },
+            "gate_sources": {
+              "41": "instr_notes/b_vibraphone_cold_Vibes_hard_F2_v2_rr1_Main.mp3",
+              "45": "instr_notes/b_vibraphone_cold_Vibes_hard_A2_v2_rr1_Main.mp3",
+              "48": "instr_notes/b_vibraphone_cold_Vibes_hard_C3_v2_rr1_Main.mp3",
+              "52": "instr_notes/b_vibraphone_cold_Vibes_hard_E3_v2_rr1_Main.mp3",
+              "55": "instr_notes/b_vibraphone_cold_Vibes_hard_G3_v2_rr1_Main.mp3",
+              "59": "instr_notes/b_vibraphone_cold_Vibes_hard_B3_v2_rr1_Main.mp3",
+              "62": "instr_notes/b_vibraphone_cold_Vibes_hard_D4_v2_rr1_Main.mp3",
+              "65": "instr_notes/b_vibraphone_cold_Vibes_hard_F4_v2_rr1_Main.mp3",
+              "69": "instr_notes/b_vibraphone_cold_Vibes_hard_A4_v2_rr1_Main.mp3",
+              "72": "instr_notes/b_vibraphone_cold_Vibes_hard_C5_v2_rr1_Main.mp3",
+              "76": "instr_notes/b_vibraphone_cold_Vibes_hard_E5_v2_rr1_Main.mp3"
+            },
+            "semantics": {
+              "type": "zimno-szklista",
+              "traits": [
+                "zimny",
+                "metaliczny",
+                "szklisty",
+                "rezonujący"
+              ],
+              "bad_for": [
+                "ciepły",
+                "organiczny",
+                "matowy"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Vibraphone, twarde pałeczki (mallets), wariacja v2 (VCSL); bank 11 nut F2–E5"
+            }
+          }
+        },
+        {
+          "label": "i.2",
+          "title": "dzwonki — jasne, lodowate uderzenie metalu",
+          "file": "candidates/b_glockenspiel_cold_demo.mp3",
+          "desc": "cienkie metalowe płytki, ostry, jasny atak i szybkie, zimne wybrzmienie — bank 6 nut G4–C7",
+          "source": "Versilian Community Sample Library (VCSL) — CC0 1.0",
+          "entry": {
+            "id": "b_glockenspiel_cold",
+            "semantic": "wysokie, krystalicznie czyste dzwonki — najbardziej dosłowny 'lód i szkło'",
+            "family": "idiophone-struck",
+            "samples": {
+              "67": "audio/library/instruments/glockenspiel_cold/b_glockenspiel_cold_glock_medium_G4_01.mp3",
+              "72": "audio/library/instruments/glockenspiel_cold/b_glockenspiel_cold_glock_medium_C5_01.mp3",
+              "79": "audio/library/instruments/glockenspiel_cold/b_glockenspiel_cold_glock_medium_G5_01.mp3",
+              "84": "audio/library/instruments/glockenspiel_cold/b_glockenspiel_cold_glock_medium_C6_01.mp3",
+              "91": "audio/library/instruments/glockenspiel_cold/b_glockenspiel_cold_glock_medium_G6_01.mp3",
+              "96": "audio/library/instruments/glockenspiel_cold/b_glockenspiel_cold_glock_medium_C7_01.mp3"
+            },
+            "gate_sources": {
+              "67": "instr_notes/b_glockenspiel_cold_glock_medium_G4_01.mp3",
+              "72": "instr_notes/b_glockenspiel_cold_glock_medium_C5_01.mp3",
+              "79": "instr_notes/b_glockenspiel_cold_glock_medium_G5_01.mp3",
+              "84": "instr_notes/b_glockenspiel_cold_glock_medium_C6_01.mp3",
+              "91": "instr_notes/b_glockenspiel_cold_glock_medium_G6_01.mp3",
+              "96": "instr_notes/b_glockenspiel_cold_glock_medium_C7_01.mp3"
+            },
+            "semantics": {
+              "type": "zimno-szklista",
+              "traits": [
+                "zimny",
+                "krystaliczny",
+                "jasny",
+                "cienki"
+              ],
+              "bad_for": [
+                "ciepły",
+                "niski",
+                "matowy"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Glockenspiel, dynamika 'medium' (VCSL); bank 6 nut G4–C7 (skala G/C na oktawę)"
+            }
+          }
+        },
+        {
+          "label": "i.3",
+          "title": "szklanki — dosłowne, kruche szkło",
+          "file": "candidates/b_wineglass_cold_demo.mp3",
+          "desc": "cienki, szklisty ton z lekkim drżeniem — kruchy, niemal przezroczysty — bank 4 nut D#4–D5",
+          "source": "Versilian Community Sample Library (VCSL) — CC0 1.0",
+          "entry": {
+            "id": "b_wineglass_cold",
+            "semantic": "prawdziwe kieliszki potarte mokrym palcem — najbardziej dosłowne 'szkło' z całej biblioteki",
+            "family": "idiophone-friction",
+            "samples": {
+              "63": "audio/library/instruments/wineglass_cold/b_wineglass_cold_glass1_D#4_Slow_1_Main.mp3",
+              "66": "audio/library/instruments/wineglass_cold/b_wineglass_cold_glass2_F#4_Slow_1_Main.mp3",
+              "70": "audio/library/instruments/wineglass_cold/b_wineglass_cold_glass3_A#4_Slow_1_Main.mp3",
+              "74": "audio/library/instruments/wineglass_cold/b_wineglass_cold_glass4_D5_Slow_2_Main.mp3"
+            },
+            "gate_sources": {
+              "63": "instr_notes/b_wineglass_cold_glass1_D#4_Slow_1_Main.mp3",
+              "66": "instr_notes/b_wineglass_cold_glass2_F#4_Slow_1_Main.mp3",
+              "70": "instr_notes/b_wineglass_cold_glass3_A#4_Slow_1_Main.mp3",
+              "74": "instr_notes/b_wineglass_cold_glass4_D5_Slow_2_Main.mp3"
+            },
+            "semantics": {
+              "type": "zimno-szklista",
+              "traits": [
+                "zimny",
+                "szklany",
+                "kruchy",
+                "cienki"
+              ],
+              "bad_for": [
+                "ciepły",
+                "masywny",
+                "perkusyjny"
+              ]
+            },
+            "source": {
+              "title": "Versilian Community Sample Library (VCSL)",
+              "author": "Sam Gossner / Versilian Studios + społeczność",
+              "license": "CC0 1.0",
+              "url": "https://github.com/sgossner/VCSL",
+              "channel": "git clone sparse z github.com/sgossner/VCSL",
+              "notes": "Wine Glasses, Sustains/Slow (VCSL); bank 4 nut D#4–D5 (wąski — realizacja rytmiczna)"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
