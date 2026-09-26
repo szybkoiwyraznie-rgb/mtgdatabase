@@ -21,7 +21,9 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
   `koda-furia=f.3`, `koda-zuchwalosc=z.2`, `hero-rezonans=r.1`,
   `hero-potezny=p.2`, `instr-zimno=i.1` → do bazy weszły:
   `g_feral_stampede`, `g_brave_swagger`, `resonance_bowed_01`,
-  `heavyblow_gong_01`, `b_vibraphone_cold`.
+  `heavyblow_gong_01`, `b_vibraphone_cold`. **g033 jest otwarta**:
+  5 wpisów × 3 kandydatów (`tlo-podziemia`, `tlo-gory`,
+  `hero-przemiana`, `koda-intryga`, `koda-wladza`), czeka na werdykty.
 - `resolver.py --survey` po sanity audycie po g032: **40** fabuł w pełni
   obsadzalnych dziś (lista z survey nie zawiera legacy 1–4), **467** z
   częściową obsadą. Największe braki: `background:podziemia-jaskinia`,
@@ -40,8 +42,12 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 ## W toku
 
 - PR: `https://github.com/szybkoiwyraznie-rgb/mtgdatabase/pull/38` na gałęzi
-  `arena/01a0dd2c-mtgdatabase`. Zawiera audyt gotowych, przyjęcie g032 oraz
-  produkcję po g032.
+  `arena/01a0dd2c-mtgdatabase`. Zawiera audyt gotowych, przyjęcie g032,
+  produkcję po g032 oraz otwartą bramkę g033.
+- **g033 do werdyktu właściciela**: `tlo-podziemia: p.1/p.2/p.3`,
+  `tlo-gory: g.1/g.2/g.3`, `hero-przemiana: m.1/m.2/m.3`,
+  `koda-intryga: i.1/i.2/i.3`, `koda-wladza: w.1/w.2/w.3` albo
+  `żaden` z powodem dla danego wpisu.
 - Przed oddaniem/mergem utrzymać pełną walidację: `check_required_reading`,
   `compileall`, `test_signature_system`, `library_tool.py check`,
   `build_pack`, `build_site`, `git diff --check`, a po pushu sprawdzić CI PR.
@@ -67,19 +73,22 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 ## Co dalej (kolejność pracy, nie wymaga pytania właściciela)
 
-1. Następna bramka powinna być paczką **≥5 wpisów** i brać typy z największych
-   realnych braków po audycie. Kandydaci priorytetowi:
-   `background:podziemia-jaskinia`, `background:gory-wichry`,
-   `hero:przemiana-materializacja`, `background:miasto-gwar`,
-   `background:swiatynia-sanktuarium` albo `background:miasto-nocne`.
-2. W tej samej kolejce uwzględniać braki ujawnione audytami właściciela:
+1. Najpierw zamknąć **g033** po werdykcie właściciela: wpisać wybory do
+   `data/gates/g033/verdicts.json`, uruchomić
+   `python3 scripts/library_tool.py accept --gate g033`, potem `resolver.py --survey`
+   i sanity audit nowo odblokowanych fabuł przed renderem.
+2. Następna bramka po g033 powinna dalej brać typy z największych realnych
+   braków, zwłaszcza te nieobjęte g033: `background:miasto-gwar`,
+   `background:swiatynia-sanktuarium`, `background:miasto-nocne`,
+   `background:laboratorium-technika`, `background:wioska-sielska`.
+3. W tej samej kolejce uwzględniać braki ujawnione audytami właściciela:
    `background:zatoka-spokojna` (90), `hero:stukot-szczudel` (206),
    `hero:aura-lagodna` (253/268), `background:las-mroczny` (599),
    `background:twierdza-posepna` (560), `mood:wladza-kontrola` (607).
-3. Po każdej nowej bramce NIE batch-renderować samej listy `OBSADZONA`.
+4. Po każdej nowej bramce NIE batch-renderować samej listy `OBSADZONA`.
    Najpierw wypisz nowo pełne bez receptury i wykonaj sanity audit narracja →
    klasa → konkretny klocek. Dopiero potem renderuj.
-4. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
+5. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
    ```python
    import sys
    sys.path.insert(0, "scripts")
@@ -87,10 +96,12 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
    data = resolver.load_data()
    for sid in data["profiles"]:
        r = resolver.resolve_story(sid, data)
-       if len(r["braki"]) == 1 and r["braki"][0]["layer"] == "TYP_WARSTWY"           and r["braki"][0]["typ"] == "TYP":
+       if (len(r["braki"]) == 1
+               and r["braki"][0]["layer"] == "TYP_WARSTWY"
+               and r["braki"][0]["typ"] == "TYP"):
            print(sid, r["title"])
    ```
-5. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
+6. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
    g001, nadpisuje ten katalog przy KAŻDYM uruchomieniu (LESSONS 2026-09-25).
 
 ## Sample scout — uruchomienie
