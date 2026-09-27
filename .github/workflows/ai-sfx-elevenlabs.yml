@@ -1,9 +1,15 @@
 name: Generate sample batch (ElevenLabs)
 
-# Manual only: consumes ElevenLabs quota. This workflow generates MP3s only for
+# Manual workflow: consumes ElevenLabs quota. It generates MP3s only for
 # already hand-written ready scenarios in data/samples/scenarios.jsonl.
+# During the b008 bootstrap it can also run from a guarded push commit
+# containing [generate-b008]; remove that guarded trigger after the batch
+# artifact is imported (the arena bot token cannot use workflow_dispatch).
 
 on:
+  push:
+    branches:
+      - arena/**
   workflow_dispatch:
     inputs:
       collection_csv:
@@ -43,7 +49,8 @@ on:
         required: true
 
 permissions:
-  contents: read
+  actions: read
+  contents: write
   pages: write
   id-token: write
 
@@ -51,9 +58,18 @@ env:
   SCENARIOS: data/samples/scenarios.jsonl
   OUT_DIR: audio/samples
   MANIFEST: data/samples/generated-manifest.jsonl
+  DEFAULT_COLLECTION_CSV: fabuły270926.csv
+  DEFAULT_BATCH: b008
+  DEFAULT_IDS: 61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85
+  DEFAULT_LIMIT: "25"
+  DEFAULT_PROMPT_INFLUENCE: "0.35"
+  GENERATED_ARTIFACT_RUN_ID: "pending"
 
 jobs:
   generate:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      contains(github.event.head_commit.message, '[generate-b008]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -63,27 +79,60 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Resolve generation inputs
+        id: vars
+        run: |
+          COLLECTION_CSV='${{ inputs.collection_csv }}'
+          BATCH='${{ inputs.batch }}'
+          IDS='${{ inputs.ids }}'
+          LIMIT='${{ inputs.limit }}'
+          PROMPT_INFLUENCE='${{ inputs.prompt_influence }}'
+          FORCE='${{ inputs.force }}'
+          PUBLISH_PAGES='${{ inputs.publish_pages }}'
+
+          if [ -z "$COLLECTION_CSV" ]; then COLLECTION_CSV="$DEFAULT_COLLECTION_CSV"; fi
+          if [ -z "$BATCH" ]; then BATCH="$DEFAULT_BATCH"; fi
+          if [ -z "$IDS" ]; then IDS="$DEFAULT_IDS"; fi
+          if [ -z "$LIMIT" ]; then LIMIT="$DEFAULT_LIMIT"; fi
+          if [ -z "$PROMPT_INFLUENCE" ]; then PROMPT_INFLUENCE="$DEFAULT_PROMPT_INFLUENCE"; fi
+          if [ -z "$FORCE" ]; then FORCE="false"; fi
+          if [ -z "$PUBLISH_PAGES" ]; then PUBLISH_PAGES="false"; fi
+
+          echo "collection_csv=$COLLECTION_CSV" >> "$GITHUB_OUTPUT"
+          echo "batch=$BATCH" >> "$GITHUB_OUTPUT"
+          echo "ids=$IDS" >> "$GITHUB_OUTPUT"
+          echo "limit=$LIMIT" >> "$GITHUB_OUTPUT"
+          echo "prompt_influence=$PROMPT_INFLUENCE" >> "$GITHUB_OUTPUT"
+          echo "force=$FORCE" >> "$GITHUB_OUTPUT"
+          echo "publish_pages=$PUBLISH_PAGES" >> "$GITHUB_OUTPUT"
+
       - name: Refresh catalog from collection
-        run: python scripts/import_collection.py "${{ inputs.collection_csv }}" --output data/catalog.json
+        run: python scripts/import_collection.py "${{ steps.vars.outputs.collection_csv }}" --output data/catalog.json
 
       - name: Validate scenarios
         run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
 
+      - name: Check ElevenLabs configuration
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+        run: test -n "$ELEVENLABS" || { echo "ELEVENLABS secret is empty or unavailable"; exit 1; }
+
       - name: Generate MP3s with ElevenLabs
+        continue-on-error: true
         env:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
           ARGS=()
-          if [ -n "${{ inputs.ids }}" ]; then ARGS+=(--ids "${{ inputs.ids }}"); fi
-          if [ -n "${{ inputs.batch }}" ]; then ARGS+=(--batch "${{ inputs.batch }}"); fi
-          if [ -n "${{ inputs.limit }}" ]; then ARGS+=(--limit "${{ inputs.limit }}"); fi
-          if [ "${{ inputs.force }}" = "true" ]; then ARGS+=(--force); fi
+          if [ -n "${{ steps.vars.outputs.ids }}" ]; then ARGS+=(--ids "${{ steps.vars.outputs.ids }}"); fi
+          if [ -n "${{ steps.vars.outputs.batch }}" ]; then ARGS+=(--batch "${{ steps.vars.outputs.batch }}"); fi
+          if [ -n "${{ steps.vars.outputs.limit }}" ]; then ARGS+=(--limit "${{ steps.vars.outputs.limit }}"); fi
+          if [ "${{ steps.vars.outputs.force }}" = "true" ]; then ARGS+=(--force); fi
           python scripts/elevenlabs_sample_scout.py \
             --scenarios "$SCENARIOS" \
             --out "$OUT_DIR" \
             --manifest "$MANIFEST" \
-            --prompt-influence "${{ inputs.prompt_influence }}" \
+            --prompt-influence "${{ steps.vars.outputs.prompt_influence }}" \
             "${ARGS[@]}"
 
       - name: Build flat ZIP
@@ -92,24 +141,66 @@ jobs:
       - name: Build HTML library
         run: python scripts/build_site.py --out site/generated
 
-      - name: Upload generated ZIP, manifest, and HTML library
+      - name: Upload generated ZIP, manifest, MP3s, and HTML library
         uses: actions/upload-artifact@v4
         with:
           name: samples-elevenlabs
           path: |
             build/samples-latest.zip
             data/samples/generated-manifest.jsonl
+            audio/samples
             site/generated
           if-no-files-found: error
 
       - name: Upload Pages artifact
-        if: ${{ inputs.publish_pages && github.ref == 'refs/heads/main' }}
+        if: ${{ steps.vars.outputs.publish_pages == 'true' && github.ref == 'refs/heads/main' }}
         uses: actions/upload-pages-artifact@v3
         with:
           path: site/generated
 
+  import-artifact:
+    if: >-
+      github.event_name == 'push' &&
+      contains(github.event.head_commit.message, '[import-samples-artifact]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download generated batch artifact from previous run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf _artifact
+          mkdir -p _artifact
+          gh run download "$GENERATED_ARTIFACT_RUN_ID" \
+            --repo "${{ github.repository }}" \
+            --name samples-elevenlabs \
+            --dir _artifact
+          find _artifact -maxdepth 5 -type f | sort
+      - name: Copy artifact outputs into the branch
+        run: |
+          mkdir -p audio/samples data/samples
+          cp _artifact/data/samples/generated-manifest.jsonl data/samples/generated-manifest.jsonl
+          cp _artifact/audio/samples/*.mp3 audio/samples/
+          ls -lh audio/samples/*.mp3 data/samples/generated-manifest.jsonl
+      - name: Commit generated batch outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Keep derived build/site artifacts out of Git; they are reproducible
+          # from audio/samples and the manifest.
+          git add audio/samples data/samples/generated-manifest.jsonl
+          if git diff --cached --quiet; then
+            echo "No generated outputs to commit."
+          else
+            git commit -m "Import generated b008 samples [skip ci]"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
+
   deploy-pages:
-    if: ${{ inputs.publish_pages && github.ref == 'refs/heads/main' }}
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish_pages && github.ref == 'refs/heads/main' }}
     needs: generate
     runs-on: ubuntu-latest
     environment:
