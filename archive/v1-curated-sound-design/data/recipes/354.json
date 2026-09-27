@@ -1,0 +1,47 @@
+{
+  "story_id": "354",
+  "length_sec": 6.0,
+  "background": {
+    "id": "chamber_hearth_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "materialize_magic_swell_01",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g_dread_descent",
+    "instrument": "b_organ_loudpedal",
+    "at_sec": 3.3,
+    "target_db": -3,
+    "damp_db": 12.0
+  },
+  "seed": 354,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "przemiana-materializacja",
+      "mood": "groza-przerazenie",
+      "instrumentation": "mroczna"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Wielka sala biesiadna w półmroku świec — długi stół, ciemne kotary, dworska cisza; hero — Gest wyroku nad stołem — najsłabszy rozpada się w ciemne cząstki między daniami; koda — Sąd zamiast uczty — jeden gest i ktoś przestaje istnieć; instrumentacja — Ciemno, dostojnie, złowieszczo."
+  },
+  "resolution": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "przemiana-materializacja",
+      "mood": "groza-przerazenie",
+      "instrumentation": "mroczna"
+    },
+    "blocks": {
+      "background": "chamber_hearth_01",
+      "hero": "materialize_magic_swell_01",
+      "mood": "g_dread_descent",
+      "instrumentation": "b_organ_loudpedal"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna; parametry dostrojone po QA renderu g033"
+  }
+}

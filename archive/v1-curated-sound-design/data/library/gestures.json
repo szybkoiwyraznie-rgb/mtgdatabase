@@ -1,0 +1,890 @@
+{
+  "schema": 1,
+  "description": "Baza gestures systemu sygnatór (docs/signature-system.md). Wpisy trafiają tu wyłącznie przez akceptację w bramce odsłuchowej.",
+  "entries": [
+    {
+      "id": "g1b_march_pulse",
+      "semantic": "marsz zagrożenia — dwa impulsy i cień kwinty",
+      "desc": "dwa krótkie uderzenia jak kroki formującej się armii, potem długi niski cień zagrożenia",
+      "notes": [
+        {
+          "midi": 33,
+          "on": 0.0,
+          "off": 0.32,
+          "vel": 0.85
+        },
+        {
+          "midi": 33,
+          "on": 0.42,
+          "off": 0.75,
+          "vel": 0.82
+        },
+        {
+          "midi": 38,
+          "on": 0.95,
+          "off": 2.5,
+          "vel": 0.9
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 20,
+          "vel": 0.05
+        }
+      },
+      "instrument_tags": [
+        "timpani",
+        "low_strings",
+        "percussion_low"
+      ],
+      "approved": {
+        "gate": "g001",
+        "choice": "a.2",
+        "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "nieuchronnosc-fatum",
+        "traits": [
+          "marszowy",
+          "dwa impulsy",
+          "niski cień"
+        ],
+        "bad_for": [
+          "radość",
+          "sielanka"
+        ]
+      }
+    },
+    {
+      "id": "g4b_mystery_tritone",
+      "semantic": "tajemnica — wysoka nuta nad nierozwiązanym niskim dźwiękiem",
+      "desc": "niski szmer i wiszącą nad nim bardzo wysoka nuta; nic się nie domyka, jak pytanie bez odpowiedzi",
+      "notes": [
+        {
+          "midi": 54,
+          "on": 0.0,
+          "off": 2.7,
+          "vel": 0.55
+        },
+        {
+          "midi": 72,
+          "on": 0.7,
+          "off": 2.7,
+          "vel": 0.5
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 20,
+          "vel": 0.05
+        }
+      },
+      "instrument_tags": [
+        "strings",
+        "glass",
+        "bells",
+        "flute"
+      ],
+      "approved": {
+        "gate": "g001",
+        "choice": "a.2",
+        "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "tajemnica-obcosc",
+        "traits": [
+          "tryton",
+          "zawieszony",
+          "bez rozwiązania"
+        ],
+        "bad_for": [
+          "triumf",
+          "domknięcie"
+        ]
+      }
+    },
+    {
+      "semantic": "jasny błysk wznoszący",
+      "desc": "szybka kaskada w górę przez kwinty — rozjarowienie, odkrycie",
+      "notes": [
+        {
+          "midi": 66,
+          "on": 0.0,
+          "off": 0.4,
+          "vel": 0.52
+        },
+        {
+          "midi": 72,
+          "on": 0.16,
+          "off": 0.6,
+          "vel": 0.55
+        },
+        {
+          "midi": 78,
+          "on": 0.32,
+          "off": 0.9,
+          "vel": 0.58
+        },
+        {
+          "midi": 84,
+          "on": 0.48,
+          "off": 1.9,
+          "vel": 0.62
+        }
+      ],
+      "instrument_tags": [
+        "struck-light",
+        "zither",
+        "piano"
+      ],
+      "id": "g5a_shimmer_up",
+      "approved": {
+        "gate": "g002",
+        "choice": "koda-swiatlo.1",
+        "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "radosc-beztroska",
+        "traits": [
+          "wznosząca kaskada",
+          "jasny",
+          "odkrycie"
+        ],
+        "bad_for": [
+          "groza",
+          "żałoba"
+        ]
+      }
+    },
+    {
+      "id": "g6c_sentry_return",
+      "semantic": "jasna czujność — obchód i powrót na posterunek",
+      "desc": "figura odchodzi o krok w górę i wraca na tę samą jasną nutę — sprawdzone, bezpiecznie, warta trwa",
+      "notes": [
+        {
+          "midi": 76,
+          "on": 0.0,
+          "off": 0.45,
+          "vel": 0.48
+        },
+        {
+          "midi": 80,
+          "on": 0.35,
+          "off": 0.85,
+          "vel": 0.46
+        },
+        {
+          "midi": 76,
+          "on": 0.75,
+          "off": 1.35,
+          "vel": 0.44
+        },
+        {
+          "midi": 60,
+          "on": 1.2,
+          "off": 2.5,
+          "vel": 0.38
+        },
+        {
+          "midi": 76,
+          "on": 1.6,
+          "off": 2.5,
+          "vel": 0.38
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "struck-light",
+        "zither",
+        "piano"
+      ],
+      "semantics": {
+        "type": "czujnosc-napiecie",
+        "traits": [
+          "jasna",
+          "zawieszona",
+          "pulsująca",
+          "bez rozwiązania"
+        ],
+        "bad_for": [
+          "żałobna",
+          "ciężka",
+          "triumfalna"
+        ]
+      },
+      "approved": {
+        "gate": "g015",
+        "choice": "koda-czujnosc.3",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "g7a_even_rank",
+      "semantic": "precyzja — równy szereg",
+      "desc": "cztery identyczne staccato w idealnych odstępach i czyste domknięcie — szereg wyrównany co do milimetra",
+      "notes": [
+        {
+          "midi": 72,
+          "on": 0.0,
+          "off": 0.22,
+          "vel": 0.5
+        },
+        {
+          "midi": 72,
+          "on": 0.4,
+          "off": 0.62,
+          "vel": 0.5
+        },
+        {
+          "midi": 72,
+          "on": 0.8,
+          "off": 1.02,
+          "vel": 0.5
+        },
+        {
+          "midi": 72,
+          "on": 1.2,
+          "off": 1.42,
+          "vel": 0.5
+        },
+        {
+          "midi": 60,
+          "on": 1.6,
+          "off": 2.4,
+          "vel": 0.46
+        },
+        {
+          "midi": 76,
+          "on": 1.6,
+          "off": 2.4,
+          "vel": 0.42
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 8,
+          "vel": 0.02
+        }
+      },
+      "instrument_tags": [
+        "struck-light",
+        "struck-dry",
+        "piano"
+      ],
+      "semantics": {
+        "type": "precyzja-dyscyplina",
+        "traits": [
+          "równy",
+          "kontrolowany",
+          "czysty",
+          "bez rubato"
+        ],
+        "bad_for": [
+          "rozlewny",
+          "chaotyczny",
+          "sentymentalny"
+        ]
+      },
+      "approved": {
+        "gate": "g018",
+        "choice": "koda-precyzja.1",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "g8b_knocked_returns",
+      "semantic": "determinacja — zbity, wraca wyżej",
+      "desc": "figura schodzi o stopień jak po ciosie i natychmiast wraca ponad punkt wyjścia — nieustępliwość w jednym geście",
+      "notes": [
+        {
+          "midi": 60,
+          "on": 0.0,
+          "off": 0.35,
+          "vel": 0.5
+        },
+        {
+          "midi": 56,
+          "on": 0.45,
+          "off": 0.8,
+          "vel": 0.44
+        },
+        {
+          "midi": 60,
+          "on": 0.9,
+          "off": 1.25,
+          "vel": 0.5
+        },
+        {
+          "midi": 64,
+          "on": 1.35,
+          "off": 2.3,
+          "vel": 0.52
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 12,
+          "vel": 0.03
+        }
+      },
+      "instrument_tags": [
+        "struck-light",
+        "plucked",
+        "piano"
+      ],
+      "semantics": {
+        "type": "determinacja-niezlomnosc",
+        "traits": [
+          "miarowy",
+          "nieustępliwy",
+          "prosty",
+          "bez wahania"
+        ],
+        "bad_for": [
+          "chwiejny",
+          "żałobny",
+          "figlarny"
+        ]
+      },
+      "approved": {
+        "gate": "g020",
+        "choice": "koda-determinacja.2",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "g10c_humble_pulse",
+      "semantic": "spokój — pokorny puls kontemplacji",
+      "desc": "trzy ciche, równe dotknięcia tej samej nuty jak odliczanie oddechu, ostatni przygaszony jeszcze bardziej — myśl wraca do prostoty",
+      "notes": [
+        {
+          "midi": 56,
+          "on": 0.0,
+          "off": 0.6,
+          "vel": 0.34
+        },
+        {
+          "midi": 56,
+          "on": 0.95,
+          "off": 1.55,
+          "vel": 0.34
+        },
+        {
+          "midi": 56,
+          "on": 1.9,
+          "off": 2.8,
+          "vel": 0.28
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "struck-light",
+        "bowed-hard"
+      ],
+      "semantics": {
+        "type": "spokoj-kontemplacja",
+        "traits": [
+          "skupiona",
+          "oszczędna",
+          "pokorna",
+          "oddychająca"
+        ],
+        "bad_for": [
+          "triumfalna",
+          "taneczna",
+          "gwałtowna",
+          "jałowa"
+        ]
+      },
+      "approved": {
+        "gate": "g026",
+        "choice": "koda-spokoj.3",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "g11c_home_arrival",
+      "semantic": "nadzieja — powrót do domu: durowy dopływ w C",
+      "desc": "skoki radości E4→C5→E5 z lądowaniem na pełnym durowym dnie C3: melodia wraca tam, skąd wyszła — pociecha i należność",
+      "notes": [
+        {
+          "midi": 64,
+          "on": 0.0,
+          "off": 0.5,
+          "vel": 0.44
+        },
+        {
+          "midi": 72,
+          "on": 0.45,
+          "off": 0.95,
+          "vel": 0.44
+        },
+        {
+          "midi": 76,
+          "on": 0.95,
+          "off": 2.7,
+          "vel": 0.46
+        },
+        {
+          "midi": 48,
+          "on": 0.95,
+          "off": 2.7,
+          "vel": 0.36
+        },
+        {
+          "midi": 60,
+          "on": 1.3,
+          "off": 2.7,
+          "vel": 0.34
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "struck-light",
+        "warm-keys"
+      ],
+      "semantics": {
+        "type": "nadzieja-ukojenie",
+        "traits": [
+          "podniosła",
+          "ciepła",
+          "durowa",
+          "rozświetlona"
+        ],
+        "bad_for": [
+          "groza",
+          "przygnębienie",
+          "ironia",
+          "molowa"
+        ]
+      },
+      "approved": {
+        "gate": "g027",
+        "choice": "koda-nadzieja.3",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "g_dread_descent",
+      "semantic": "groza — pełznące zejście w makabryczny dół",
+      "desc": "trzy stąpnięcia w dół jak kroki czegoś, co się zbliża, po czym nagły spadek w dysonansowe dno i podszyty pod spodem ton wielkiej sekundy — bez rozwiązania",
+      "notes": [
+        {
+          "midi": 64,
+          "on": 0.0,
+          "off": 0.4,
+          "vel": 0.55
+        },
+        {
+          "midi": 60,
+          "on": 0.4,
+          "off": 0.8,
+          "vel": 0.58
+        },
+        {
+          "midi": 56,
+          "on": 0.8,
+          "off": 1.3,
+          "vel": 0.62
+        },
+        {
+          "midi": 48,
+          "on": 1.25,
+          "off": 3.0,
+          "vel": 0.7
+        },
+        {
+          "midi": 50,
+          "on": 2.0,
+          "off": 3.0,
+          "vel": 0.4
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "low_strings",
+        "percussion_low",
+        "organ"
+      ],
+      "semantics": {
+        "type": "groza-przerazenie",
+        "traits": [
+          "dysonans",
+          "niski",
+          "zawieszony",
+          "bez rozwiązania"
+        ],
+        "bad_for": [
+          "radość",
+          "triumf",
+          "sielanka",
+          "nadzieja"
+        ]
+      },
+      "approved": {
+        "gate": "g030",
+        "choice": "koda-groza.2",
+        "date": "2026-09-25"
+      }
+    },
+    {
+      "id": "g_bond_echo",
+      "semantic": "wspólnota — wezwanie i odpowiedź, potem razem",
+      "desc": "jeden głos woła, drugi odpowiada tuż po nim tą samą barwą, na koniec oba trwają razem — więź potwierdzona",
+      "notes": [
+        {
+          "midi": 64,
+          "on": 0.0,
+          "off": 0.6,
+          "vel": 0.55
+        },
+        {
+          "midi": 60,
+          "on": 0.55,
+          "off": 1.3,
+          "vel": 0.5
+        },
+        {
+          "midi": 60,
+          "on": 1.6,
+          "off": 2.8,
+          "vel": 0.45
+        },
+        {
+          "midi": 64,
+          "on": 1.6,
+          "off": 2.8,
+          "vel": 0.4
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "strings",
+        "bells",
+        "organ"
+      ],
+      "semantics": {
+        "type": "wspolnota-wiez",
+        "traits": [],
+        "bad_for": []
+      },
+      "approved": {
+        "gate": "g031",
+        "choice": "koda-wspolnota.3",
+        "date": "2026-09-26"
+      }
+    },
+    {
+      "id": "g_pride_ascent",
+      "semantic": "duma — wspinaczka do pełnej wysokości",
+      "desc": "trzy kroki wspinają się oktawami do samego szczytu banku, gdzie ląduje pełny, szeroki akord — koronacja",
+      "notes": [
+        {
+          "midi": 48,
+          "on": 0.0,
+          "off": 0.4,
+          "vel": 0.55
+        },
+        {
+          "midi": 60,
+          "on": 0.35,
+          "off": 0.75,
+          "vel": 0.6
+        },
+        {
+          "midi": 72,
+          "on": 0.7,
+          "off": 1.15,
+          "vel": 0.65
+        },
+        {
+          "midi": 84,
+          "on": 1.1,
+          "off": 2.8,
+          "vel": 0.7
+        },
+        {
+          "midi": 48,
+          "on": 1.1,
+          "off": 2.8,
+          "vel": 0.5
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "strings",
+        "bells",
+        "organ"
+      ],
+      "semantics": {
+        "type": "duma-majestat",
+        "traits": [],
+        "bad_for": []
+      },
+      "approved": {
+        "gate": "g031",
+        "choice": "koda-duma.2",
+        "date": "2026-09-26"
+      }
+    },
+    {
+      "id": "g_ruthless_verdict",
+      "semantic": "bezwzględność — dwa identyczne, chłodne wyroki",
+      "desc": "dwa równe, twarde dysonansowe stuknięcia w równym odstępie — bez eskalacji, bez emocji, tylko powtórzony wyrok",
+      "notes": [
+        {
+          "midi": 54,
+          "on": 0.0,
+          "off": 0.25,
+          "vel": 0.8
+        },
+        {
+          "midi": 48,
+          "on": 0.0,
+          "off": 0.25,
+          "vel": 0.75
+        },
+        {
+          "midi": 54,
+          "on": 1.0,
+          "off": 1.25,
+          "vel": 0.85
+        },
+        {
+          "midi": 48,
+          "on": 1.0,
+          "off": 1.25,
+          "vel": 0.8
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "strings",
+        "bells",
+        "organ"
+      ],
+      "semantics": {
+        "type": "bezwzglednosc-drapieznosc",
+        "traits": [],
+        "bad_for": []
+      },
+      "approved": {
+        "gate": "g031",
+        "choice": "koda-bezwzglednosc.3",
+        "date": "2026-09-26"
+      }
+    },
+    {
+      "id": "g_feral_stampede",
+      "semantic": "furia — pęd, który się nie zatrzyma",
+      "desc": "pięć nisko pulsujących uderzeń przyspieszających bez kontroli, urywa się nagle na szczycie napięcia — żywioł, nie muzyka",
+      "notes": [
+        {
+          "midi": 48,
+          "on": 0.0,
+          "off": 0.3,
+          "vel": 0.6
+        },
+        {
+          "midi": 48,
+          "on": 0.42,
+          "off": 0.65,
+          "vel": 0.65
+        },
+        {
+          "midi": 48,
+          "on": 0.8,
+          "off": 1.0,
+          "vel": 0.7
+        },
+        {
+          "midi": 48,
+          "on": 1.12,
+          "off": 1.3,
+          "vel": 0.78
+        },
+        {
+          "midi": 61,
+          "on": 1.38,
+          "off": 1.6,
+          "vel": 0.85
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "struck-light",
+        "percussion_low"
+      ],
+      "semantics": {
+        "type": "furia-dzikosc",
+        "traits": [],
+        "bad_for": []
+      },
+      "approved": {
+        "gate": "g032",
+        "choice": "koda-furia.3",
+        "date": "2026-09-26"
+      }
+    },
+    {
+      "id": "g_brave_swagger",
+      "semantic": "brawura — pewny siebie krok z przytupem",
+      "desc": "kołyszący, synkopowany rytm średniego tempa — nie pędzi, tylko idzie tak, jakby świat już należał do niego",
+      "notes": [
+        {
+          "midi": 60,
+          "on": 0.0,
+          "off": 0.3,
+          "vel": 0.65
+        },
+        {
+          "midi": 60,
+          "on": 0.45,
+          "off": 0.6,
+          "vel": 0.5
+        },
+        {
+          "midi": 64,
+          "on": 0.65,
+          "off": 0.95,
+          "vel": 0.65
+        },
+        {
+          "midi": 67,
+          "on": 1.05,
+          "off": 1.9,
+          "vel": 0.7
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 15,
+          "vel": 0.04
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "struck-light",
+        "percussion_low"
+      ],
+      "semantics": {
+        "type": "zuchwalosc-brawura",
+        "traits": [],
+        "bad_for": []
+      },
+      "approved": {
+        "gate": "g032",
+        "choice": "koda-zuchwalosc.2",
+        "date": "2026-09-26"
+      }
+    },
+    {
+      "id": "g_intrigue_shadow_wink",
+      "semantic": "podstęp — mrugnięcie w cieniu",
+      "desc": "lekka, punktowana figura z pauzami: brzmi jak ktoś, kto wie więcej niż mówi",
+      "notes": [
+        {
+          "midi": 60,
+          "on": 0.0,
+          "off": 0.2,
+          "vel": 0.42
+        },
+        {
+          "midi": 64,
+          "on": 0.44,
+          "off": 0.6,
+          "vel": 0.48
+        },
+        {
+          "midi": 60,
+          "on": 0.92,
+          "off": 1.1,
+          "vel": 0.36
+        },
+        {
+          "midi": 54,
+          "on": 1.36,
+          "off": 1.95,
+          "vel": 0.5
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 12,
+          "vel": 0.035
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "struck-light",
+        "percussion_low",
+        "bells"
+      ],
+      "semantics": {
+        "type": "podstep-intryga",
+        "traits": [
+          "punktowany",
+          "pauzy",
+          "lekki cień",
+          "ironia"
+        ],
+        "bad_for": [
+          "makabra",
+          "monumentalność"
+        ]
+      },
+      "approved": {
+        "gate": "g033",
+        "choice": "koda-intryga.3",
+        "date": "2026-09-27"
+      }
+    }
+  ]
+}

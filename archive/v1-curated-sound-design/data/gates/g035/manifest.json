@@ -1,0 +1,670 @@
+{
+  "id": "g035",
+  "created": "2026-09-27",
+  "note": "PAKIET 5 zestawów po g034: corrected `background:step-rownina` (ciszej, bez muzyki), corrected `background:kuznia-warsztat` (miarowe kucie), oraz duże braki `background:noc-ksiezyc`, `background:laboratorium-technika`, `background:swiatynia-sanktuarium`. Anchory jedynego braku: step 10/230/396/492/616; kuźnia 16/113/168/285/355/487; noc 42/78/171/281/478/543/600; laboratorium 47/93/100/275/345/545; świątynia 121/273/308/352/435/440/480/565.",
+  "entries": [
+    {
+      "slug": "tlo-step",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `step-rownina` (19 fabuł) — poprawka po g034: dużo ciszej, bez muzyki",
+      "candidates": [
+        {
+          "label": "s.1",
+          "title": "bardzo cichy wiatr równiny",
+          "file": "candidates/bg_steppe_quiet_wind_01.mp3",
+          "desc": "subtelny wiatr i pusta przestrzeń, bez melodii i bez nagłych zdarzeń (czas 8.00 s, RMS -38.0 dB, HF>6k 0.0%)",
+          "source": "Mongolian film windblown steppe1.wav (Freesound)",
+          "entry": {
+            "id": "steppe_quiet_wind_01",
+            "setting": "step / otwarta równina",
+            "desc": "subtelny wiatr i pusta przestrzeń, bez melodii i bez nagłych zdarzeń (czas 8.00 s, RMS -38.0 dB, HF>6k 0.0%)",
+            "file": "audio/library/backgrounds/steppe_quiet_wind_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -38.0,
+            "loopable": true,
+            "semantics": {
+              "type": "step-rownina",
+              "traits": [
+                "otwarta przestrzeń",
+                "wiatr",
+                "suchy teren",
+                "równina",
+                "brak muzyki"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "miasto",
+                "gęsty las",
+                "podziemia",
+                "muzyka"
+              ]
+            },
+            "source": {
+              "title": "Mongolian film windblown steppe1.wav (Freesound)",
+              "author": "Jim-Bretherick",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+              "notes": "okna dobrane po g034: cicho, bez muzyki, poziom tła niższy niż poprzednio"
+            }
+          }
+        },
+        {
+          "label": "s.2",
+          "title": "suchy płaski wiatr",
+          "file": "candidates/bg_steppe_dry_wind_01.mp3",
+          "desc": "trochę bardziej ziarnisty szum traw, nadal niski poziom i bez muzyki (czas 8.00 s, RMS -39.0 dB, HF>6k 0.1%)",
+          "source": "Mongolian film windblown steppe1.wav (Freesound)",
+          "entry": {
+            "id": "steppe_dry_wind_01",
+            "setting": "step / sucha równina",
+            "desc": "trochę bardziej ziarnisty szum traw, nadal niski poziom i bez muzyki (czas 8.00 s, RMS -39.0 dB, HF>6k 0.1%)",
+            "file": "audio/library/backgrounds/steppe_dry_wind_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -39.0,
+            "loopable": true,
+            "semantics": {
+              "type": "step-rownina",
+              "traits": [
+                "otwarta przestrzeń",
+                "wiatr",
+                "suchy teren",
+                "równina",
+                "brak muzyki"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "miasto",
+                "gęsty las",
+                "podziemia",
+                "muzyka"
+              ]
+            },
+            "source": {
+              "title": "Mongolian film windblown steppe1.wav (Freesound)",
+              "author": "Jim-Bretherick",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+              "notes": "okna dobrane po g034: cicho, bez muzyki, poziom tła niższy niż poprzednio"
+            }
+          }
+        },
+        {
+          "label": "s.3",
+          "title": "daleki wiatr pustego traktu",
+          "file": "candidates/bg_steppe_distant_wind_01.mp3",
+          "desc": "najcichszy wariant: daleki, stabilny wiatr pod samotną równinę; bez warstwy muzycznej (czas 8.00 s, RMS -40.0 dB, HF>6k 0.0%)",
+          "source": "Mongolian film windblown steppe1.wav (Freesound)",
+          "entry": {
+            "id": "steppe_distant_wind_01",
+            "setting": "step / pusty trakt",
+            "desc": "najcichszy wariant: daleki, stabilny wiatr pod samotną równinę; bez warstwy muzycznej (czas 8.00 s, RMS -40.0 dB, HF>6k 0.0%)",
+            "file": "audio/library/backgrounds/steppe_distant_wind_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -40.0,
+            "loopable": true,
+            "semantics": {
+              "type": "step-rownina",
+              "traits": [
+                "otwarta przestrzeń",
+                "wiatr",
+                "suchy teren",
+                "równina",
+                "brak muzyki"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "miasto",
+                "gęsty las",
+                "podziemia",
+                "muzyka"
+              ]
+            },
+            "source": {
+              "title": "Mongolian film windblown steppe1.wav (Freesound)",
+              "author": "Jim-Bretherick",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+              "notes": "okna dobrane po g034: cicho, bez muzyki, poziom tła niższy niż poprzednio"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tlo-kuznia",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `kuznia-warsztat` (19 fabuł) — poprawka po g034: miarowe kucie w kuźni",
+      "candidates": [
+        {
+          "label": "k.1",
+          "title": "miarowy młot na kowadle",
+          "file": "candidates/bg_forge_even_hammer_01.mp3",
+          "desc": "równy rytm młota co około sekundę; nie przypadkowe trzaski metalu (czas 8.00 s, RMS -31.0 dB, HF>6k 55.0%)",
+          "source": "Miarowy forge mix — metal/wood CC0 + cellar room tone",
+          "entry": {
+            "id": "forge_even_hammer_01",
+            "setting": "kuźnia / kucie",
+            "desc": "równy rytm młota co około sekundę; nie przypadkowe trzaski metalu (czas 8.00 s, RMS -31.0 dB, HF>6k 55.0%)",
+            "file": "audio/library/backgrounds/forge_even_hammer_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -31.0,
+            "loopable": true,
+            "semantics": {
+              "type": "kuznia-warsztat",
+              "traits": [
+                "kuźnia",
+                "warsztat",
+                "miarowe kucie",
+                "młot",
+                "metal",
+                "rytm"
+              ],
+              "bad_for": [
+                "losowy hałas",
+                "muzyka",
+                "las",
+                "morze",
+                "cisza"
+              ]
+            },
+            "source": {
+              "title": "Miarowy forge mix — metal/wood CC0 + cellar room tone",
+              "author": "warstwowanie własne z próbek CC0",
+              "license": "CC0 1.0 (public domain; wszystkie warstwy źródłowe CC0)",
+              "url": "różne źródła CC0 — szczegóły w notes",
+              "channel": "lokalny montaż bramki z próbek sample-scout/atomcut",
+              "notes": "hammer na kowadle z lekkim pomieszczeniem | źródła: 100 metal and wood SFX (OpenGameArt/Kenney mirror) [miarowy montaż z pojedynczych uderzeń młota/metal-hit; pliki: hammer-01.m4a, hammer-03.m4a, metal-hit-02.m4a ] ; room tone quiet cellar with distant noises.flac (Freesound) [lekki room tone jako wnętrze ]"
+            }
+          }
+        },
+        {
+          "label": "k.2",
+          "title": "cięższe kucie warsztatowe",
+          "file": "candidates/bg_forge_heavy_hammer_01.mp3",
+          "desc": "wolniejsze, cięższe uderzenia; rytm pracy kowala zamiast chaotycznych klanków (czas 8.00 s, RMS -30.5 dB, HF>6k 0.4%)",
+          "source": "Miarowy forge mix — Kenney impacts CC0 + cellar room tone",
+          "entry": {
+            "id": "forge_heavy_hammer_01",
+            "setting": "kuźnia / ciężki młot",
+            "desc": "wolniejsze, cięższe uderzenia; rytm pracy kowala zamiast chaotycznych klanków (czas 8.00 s, RMS -30.5 dB, HF>6k 0.4%)",
+            "file": "audio/library/backgrounds/forge_heavy_hammer_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -30.5,
+            "loopable": true,
+            "semantics": {
+              "type": "kuznia-warsztat",
+              "traits": [
+                "kuźnia",
+                "warsztat",
+                "miarowe kucie",
+                "młot",
+                "metal",
+                "rytm"
+              ],
+              "bad_for": [
+                "losowy hałas",
+                "muzyka",
+                "las",
+                "morze",
+                "cisza"
+              ]
+            },
+            "source": {
+              "title": "Miarowy forge mix — Kenney impacts CC0 + cellar room tone",
+              "author": "warstwowanie własne z próbek CC0",
+              "license": "CC0 1.0 (public domain; wszystkie warstwy źródłowe CC0)",
+              "url": "różne źródła CC0 — szczegóły w notes",
+              "channel": "lokalny montaż bramki z próbek sample-scout/atomcut",
+              "notes": "cięższe miarowe uderzenia | źródła: Impact Sounds (OpenGameArt/Kenney mirror) [miarowy montaż z uderzeń mining/metal heavy; pliki: impact-mining-000.m4a, impact-metal-heavy-001.m4a ] ; room tone quiet cellar with distant noises.flac (Freesound) [lekki room tone jako wnętrze ]"
+            }
+          }
+        },
+        {
+          "label": "k.3",
+          "title": "szybsze drobne kucie",
+          "file": "candidates/bg_forge_quick_hammer_01.mp3",
+          "desc": "bardziej pracowity, ale nadal regularny wzór: dwa krótsze uderzenia i przerwa (czas 8.00 s, RMS -31.5 dB, HF>6k 55.5%)",
+          "source": "Miarowy forge mix — metal/wood CC0 + cellar room tone",
+          "entry": {
+            "id": "forge_quick_hammer_01",
+            "setting": "kuźnia / drobne kucie",
+            "desc": "bardziej pracowity, ale nadal regularny wzór: dwa krótsze uderzenia i przerwa (czas 8.00 s, RMS -31.5 dB, HF>6k 55.5%)",
+            "file": "audio/library/backgrounds/forge_quick_hammer_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -31.5,
+            "loopable": true,
+            "semantics": {
+              "type": "kuznia-warsztat",
+              "traits": [
+                "kuźnia",
+                "warsztat",
+                "miarowe kucie",
+                "młot",
+                "metal",
+                "rytm"
+              ],
+              "bad_for": [
+                "losowy hałas",
+                "muzyka",
+                "las",
+                "morze",
+                "cisza"
+              ]
+            },
+            "source": {
+              "title": "Miarowy forge mix — metal/wood CC0 + cellar room tone",
+              "author": "warstwowanie własne z próbek CC0",
+              "license": "CC0 1.0 (public domain; wszystkie warstwy źródłowe CC0)",
+              "url": "różne źródła CC0 — szczegóły w notes",
+              "channel": "lokalny montaż bramki z próbek sample-scout/atomcut",
+              "notes": "szybsze, powtarzalne kucie | źródła: 100 metal and wood SFX (OpenGameArt/Kenney mirror) [miarowy montaż z pojedynczych uderzeń młota/metal-hit; pliki: hammer-01.m4a, hammer-03.m4a, metal-hit-02.m4a ] ; room tone quiet cellar with distant noises.flac (Freesound) [lekki room tone jako wnętrze ]"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tlo-noc",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `noc-ksiezyc` (21 fabuł)",
+      "candidates": [
+        {
+          "label": "n.1",
+          "title": "księżycowe świerszcze",
+          "file": "candidates/bg_night_crickets_moon_01.mp3",
+          "desc": "stabilny nocny dywan świerszczy, bez dziennych ptaków i bez muzyki (czas 8.00 s, RMS -32.5 dB, HF>6k 0.0%)",
+          "source": "Swamp Environment Audio (OpenGameArt/Kenney mirror)",
+          "entry": {
+            "id": "night_crickets_moon_01",
+            "setting": "noc / księżycowa polana",
+            "desc": "stabilny nocny dywan świerszczy, bez dziennych ptaków i bez muzyki (czas 8.00 s, RMS -32.5 dB, HF>6k 0.0%)",
+            "file": "audio/library/backgrounds/night_crickets_moon_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.5,
+            "loopable": true,
+            "semantics": {
+              "type": "noc-ksiezyc",
+              "traits": [
+                "noc",
+                "księżyc",
+                "świerszcze",
+                "owady",
+                "ciemność",
+                "bez dnia"
+              ],
+              "bad_for": [
+                "dzień",
+                "ptaki dzienne",
+                "miasto",
+                "wnętrze",
+                "burza"
+              ]
+            },
+            "source": {
+              "title": "Swamp Environment Audio (OpenGameArt/Kenney mirror)",
+              "author": "lokif",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/swamp-environment-audio",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "nocne owady/atmosfera z paczki środowiskowej; użyte bez chlupotu wody; pliki: cricket-1.m4a, cricket-2.m4a, cicada-1.m4a, atmosphere-1.m4a"
+            }
+          }
+        },
+        {
+          "label": "n.2",
+          "title": "ciemna noc z owadami",
+          "file": "candidates/bg_night_insects_dark_01.mp3",
+          "desc": "niższy, ciemniejszy wariant: mniej jasnych cykad, więcej pustej nocy (czas 8.00 s, RMS -33.0 dB, HF>6k 0.0%)",
+          "source": "Swamp Environment Audio (OpenGameArt/Kenney mirror)",
+          "entry": {
+            "id": "night_insects_dark_01",
+            "setting": "noc / ciemny plener",
+            "desc": "niższy, ciemniejszy wariant: mniej jasnych cykad, więcej pustej nocy (czas 8.00 s, RMS -33.0 dB, HF>6k 0.0%)",
+            "file": "audio/library/backgrounds/night_insects_dark_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33.0,
+            "loopable": true,
+            "semantics": {
+              "type": "noc-ksiezyc",
+              "traits": [
+                "noc",
+                "księżyc",
+                "świerszcze",
+                "owady",
+                "ciemność",
+                "bez dnia"
+              ],
+              "bad_for": [
+                "dzień",
+                "ptaki dzienne",
+                "miasto",
+                "wnętrze",
+                "burza"
+              ]
+            },
+            "source": {
+              "title": "Swamp Environment Audio (OpenGameArt/Kenney mirror)",
+              "author": "lokif",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/swamp-environment-audio",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "nocne owady/atmosfera z paczki środowiskowej; użyte bez chlupotu wody; pliki: cricket-1.m4a, cricket-2.m4a, cicada-1.m4a, atmosphere-1.m4a"
+            }
+          }
+        },
+        {
+          "label": "n.3",
+          "title": "żywsza noc pod księżycem",
+          "file": "candidates/bg_night_cicada_moon_01.mp3",
+          "desc": "bardziej żywy nocny krajobraz owadów; nadal bez ptaków dziennych i bez wody jako motywu (czas 8.00 s, RMS -32.0 dB, HF>6k 42.9%)",
+          "source": "Swamp Environment Audio (OpenGameArt/Kenney mirror)",
+          "entry": {
+            "id": "night_cicada_moon_01",
+            "setting": "noc / żywszy plener",
+            "desc": "bardziej żywy nocny krajobraz owadów; nadal bez ptaków dziennych i bez wody jako motywu (czas 8.00 s, RMS -32.0 dB, HF>6k 42.9%)",
+            "file": "audio/library/backgrounds/night_cicada_moon_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "noc-ksiezyc",
+              "traits": [
+                "noc",
+                "księżyc",
+                "świerszcze",
+                "owady",
+                "ciemność",
+                "bez dnia"
+              ],
+              "bad_for": [
+                "dzień",
+                "ptaki dzienne",
+                "miasto",
+                "wnętrze",
+                "burza"
+              ]
+            },
+            "source": {
+              "title": "Swamp Environment Audio (OpenGameArt/Kenney mirror)",
+              "author": "lokif",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/swamp-environment-audio",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "nocne owady/atmosfera z paczki środowiskowej; użyte bez chlupotu wody; pliki: cricket-1.m4a, cricket-2.m4a, cicada-1.m4a, atmosphere-1.m4a"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tlo-laboratorium",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `laboratorium-technika` (21 fabuł)",
+      "candidates": [
+        {
+          "label": "l.1",
+          "title": "cichy terminal i aparatura",
+          "file": "candidates/bg_lab_terminal_hum_01.mp3",
+          "desc": "cichy elektroniczny hum i drobne komputerowe impulsy; nie muzyka (czas 8.00 s, RMS -31.5 dB, HF>6k 0.0%)",
+          "source": "Laboratorium mix — Kenney computer + OGA sci-fi machine",
+          "entry": {
+            "id": "lab_terminal_hum_01",
+            "setting": "laboratorium / terminale",
+            "desc": "cichy elektroniczny hum i drobne komputerowe impulsy; nie muzyka (czas 8.00 s, RMS -31.5 dB, HF>6k 0.0%)",
+            "file": "audio/library/backgrounds/lab_terminal_hum_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -31.5,
+            "loopable": true,
+            "semantics": {
+              "type": "laboratorium-technika",
+              "traits": [
+                "laboratorium",
+                "technika",
+                "aparatura",
+                "komputer",
+                "maszyna",
+                "terminal"
+              ],
+              "bad_for": [
+                "las",
+                "świątynia",
+                "wieś",
+                "ogień",
+                "woda"
+              ]
+            },
+            "source": {
+              "title": "Laboratorium mix — Kenney computer + OGA sci-fi machine",
+              "author": "warstwowanie własne z próbek CC0",
+              "license": "CC0 1.0 (public domain; wszystkie warstwy źródłowe CC0)",
+              "url": "różne źródła CC0 — szczegóły w notes",
+              "channel": "lokalny montaż bramki z próbek sample-scout/atomcut",
+              "notes": "terminal i aparatura | źródła: Sci-Fi Sounds (OpenGameArt/Kenney mirror) [komputerowe szumy i krótkie pikania jako aparatura; pliki: computer-noise-000.m4a, computer-noise-003.m4a ] ; 50 Sci-Fi SFX (OpenGameArt/Kenney mirror) [sci-fi machine loop pod terminale; pliki: loop-machine-01.m4a ]"
+            }
+          }
+        },
+        {
+          "label": "l.2",
+          "title": "maszyna badawcza w tle",
+          "file": "candidates/bg_lab_machine_pulse_01.mp3",
+          "desc": "równiejszy puls aparatury, dobry pod techniczną salę lub kapsułę (czas 8.00 s, RMS -31.0 dB, HF>6k 26.0%)",
+          "source": "Laboratorium mix — OGA machine + Kenney computer",
+          "entry": {
+            "id": "lab_machine_pulse_01",
+            "setting": "laboratorium / maszyna",
+            "desc": "równiejszy puls aparatury, dobry pod techniczną salę lub kapsułę (czas 8.00 s, RMS -31.0 dB, HF>6k 26.0%)",
+            "file": "audio/library/backgrounds/lab_machine_pulse_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -31.0,
+            "loopable": true,
+            "semantics": {
+              "type": "laboratorium-technika",
+              "traits": [
+                "laboratorium",
+                "technika",
+                "aparatura",
+                "komputer",
+                "maszyna",
+                "terminal"
+              ],
+              "bad_for": [
+                "las",
+                "świątynia",
+                "wieś",
+                "ogień",
+                "woda"
+              ]
+            },
+            "source": {
+              "title": "Laboratorium mix — OGA machine + Kenney computer",
+              "author": "warstwowanie własne z próbek CC0",
+              "license": "CC0 1.0 (public domain; wszystkie warstwy źródłowe CC0)",
+              "url": "różne źródła CC0 — szczegóły w notes",
+              "channel": "lokalny montaż bramki z próbek sample-scout/atomcut",
+              "notes": "maszyna badawcza | źródła: 30 SFX loops (OpenGameArt/Kenney mirror) [maszynowy loop pod laboratorium/technikę; pliki: machine-04.m4a ] ; Sci-Fi Sounds (OpenGameArt/Kenney mirror) [komputerowe szumy i krótkie pikania jako aparatura; pliki: computer-noise-000.m4a, computer-noise-003.m4a ]"
+            }
+          }
+        },
+        {
+          "label": "l.3",
+          "title": "zimna sala techniczna",
+          "file": "candidates/bg_lab_cold_equipment_01.mp3",
+          "desc": "bardziej chłodny, stały szum urządzeń bez wyraźnej melodii; SF/technika (czas 8.00 s, RMS -32.0 dB, HF>6k 0.3%)",
+          "source": "Laboratorium mix — OGA sci-fi machine + Kenney computer",
+          "entry": {
+            "id": "lab_cold_equipment_01",
+            "setting": "laboratorium / zimna aparatura",
+            "desc": "bardziej chłodny, stały szum urządzeń bez wyraźnej melodii; SF/technika (czas 8.00 s, RMS -32.0 dB, HF>6k 0.3%)",
+            "file": "audio/library/backgrounds/lab_cold_equipment_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "laboratorium-technika",
+              "traits": [
+                "laboratorium",
+                "technika",
+                "aparatura",
+                "komputer",
+                "maszyna",
+                "terminal"
+              ],
+              "bad_for": [
+                "las",
+                "świątynia",
+                "wieś",
+                "ogień",
+                "woda"
+              ]
+            },
+            "source": {
+              "title": "Laboratorium mix — OGA sci-fi machine + Kenney computer",
+              "author": "warstwowanie własne z próbek CC0",
+              "license": "CC0 1.0 (public domain; wszystkie warstwy źródłowe CC0)",
+              "url": "różne źródła CC0 — szczegóły w notes",
+              "channel": "lokalny montaż bramki z próbek sample-scout/atomcut",
+              "notes": "zimna aparatura | źródła: 50 Sci-Fi SFX (OpenGameArt/Kenney mirror) [sci-fi machine loop pod terminale; pliki: loop-machine-01.m4a ] ; Sci-Fi Sounds (OpenGameArt/Kenney mirror) [komputerowe szumy i krótkie pikania jako aparatura; pliki: computer-noise-000.m4a, computer-noise-003.m4a ]"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tlo-swiatynia",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `swiatynia-sanktuarium` (21 fabuł)",
+      "candidates": [
+        {
+          "label": "t.1",
+          "title": "cichy dzwon w sanktuarium",
+          "file": "candidates/bg_temple_soft_bell_01.mp3",
+          "desc": "cichy room tone i pojedyncze oddechy dzwonu; przestrzeń sakralna bez melodii (czas 8.00 s, RMS -33.0 dB, HF>6k 21.4%)",
+          "source": "Temple mix — room tone + OGA bell",
+          "entry": {
+            "id": "temple_soft_bell_01",
+            "setting": "świątynia / spokojne sanktuarium",
+            "desc": "cichy room tone i pojedyncze oddechy dzwonu; przestrzeń sakralna bez melodii (czas 8.00 s, RMS -33.0 dB, HF>6k 21.4%)",
+            "file": "audio/library/backgrounds/temple_soft_bell_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33.0,
+            "loopable": true,
+            "semantics": {
+              "type": "swiatynia-sanktuarium",
+              "traits": [
+                "świątynia",
+                "sanktuarium",
+                "dzwon",
+                "rezonans",
+                "cisza",
+                "kamień"
+              ],
+              "bad_for": [
+                "miasto",
+                "kuźnia",
+                "laboratorium",
+                "las dzienny",
+                "muzyka"
+              ]
+            },
+            "source": {
+              "title": "Temple mix — room tone + OGA bell",
+              "author": "warstwowanie własne z próbek CC0",
+              "license": "CC0 1.0 (public domain; wszystkie warstwy źródłowe CC0)",
+              "url": "różne źródła CC0 — szczegóły w notes",
+              "channel": "lokalny montaż bramki z próbek sample-scout/atomcut",
+              "notes": "spokojne sanktuarium | źródła: Calm Room Tone - India (Freesound) [cichy room tone ] ; 100 SFX (OpenGameArt/Kenney mirror) [pojedyncze dzwony/gong jako rezonans sakralny; pliki: bell-01.m4a, gong-01.m4a ]"
+            }
+          }
+        },
+        {
+          "label": "t.2",
+          "title": "kamienny rezonans gongu",
+          "file": "candidates/bg_temple_stone_gong_01.mp3",
+          "desc": "ciemniejszy wariant: głęboki gong i długa cisza kamiennej przestrzeni (czas 8.00 s, RMS -32.5 dB, HF>6k 3.0%)",
+          "source": "Temple mix — cellar tone + OGA gong",
+          "entry": {
+            "id": "temple_stone_gong_01",
+            "setting": "świątynia / kamienny rezonans",
+            "desc": "ciemniejszy wariant: głęboki gong i długa cisza kamiennej przestrzeni (czas 8.00 s, RMS -32.5 dB, HF>6k 3.0%)",
+            "file": "audio/library/backgrounds/temple_stone_gong_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.5,
+            "loopable": true,
+            "semantics": {
+              "type": "swiatynia-sanktuarium",
+              "traits": [
+                "świątynia",
+                "sanktuarium",
+                "dzwon",
+                "rezonans",
+                "cisza",
+                "kamień"
+              ],
+              "bad_for": [
+                "miasto",
+                "kuźnia",
+                "laboratorium",
+                "las dzienny",
+                "muzyka"
+              ]
+            },
+            "source": {
+              "title": "Temple mix — cellar tone + OGA gong",
+              "author": "warstwowanie własne z próbek CC0",
+              "license": "CC0 1.0 (public domain; wszystkie warstwy źródłowe CC0)",
+              "url": "różne źródła CC0 — szczegóły w notes",
+              "channel": "lokalny montaż bramki z próbek sample-scout/atomcut",
+              "notes": "kamienne sanktuarium | źródła: room tone quiet cellar with distant noises.flac (Freesound) [cichy room tone ] ; 100 SFX (OpenGameArt/Kenney mirror) [pojedyncze dzwony/gong jako rezonans sakralny; pliki: bell-01.m4a, gong-01.m4a ]"
+            }
+          }
+        },
+        {
+          "label": "t.3",
+          "title": "oddalony ciężki dzwon",
+          "file": "candidates/bg_temple_heavy_bell_01.mp3",
+          "desc": "najbardziej uroczysty wariant: ciężki dzwon z dużymi odstępami, bez ciągłej muzyki (czas 8.00 s, RMS -32.0 dB, HF>6k 0.0%)",
+          "source": "Temple mix — room tone + Kenney heavy bell",
+          "entry": {
+            "id": "temple_heavy_bell_01",
+            "setting": "świątynia / oddalony dzwon",
+            "desc": "najbardziej uroczysty wariant: ciężki dzwon z dużymi odstępami, bez ciągłej muzyki (czas 8.00 s, RMS -32.0 dB, HF>6k 0.0%)",
+            "file": "audio/library/backgrounds/temple_heavy_bell_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "swiatynia-sanktuarium",
+              "traits": [
+                "świątynia",
+                "sanktuarium",
+                "dzwon",
+                "rezonans",
+                "cisza",
+                "kamień"
+              ],
+              "bad_for": [
+                "miasto",
+                "kuźnia",
+                "laboratorium",
+                "las dzienny",
+                "muzyka"
+              ]
+            },
+            "source": {
+              "title": "Temple mix — room tone + Kenney heavy bell",
+              "author": "warstwowanie własne z próbek CC0",
+              "license": "CC0 1.0 (public domain; wszystkie warstwy źródłowe CC0)",
+              "url": "różne źródła CC0 — szczegóły w notes",
+              "channel": "lokalny montaż bramki z próbek sample-scout/atomcut",
+              "notes": "uroczysty oddalony dzwon | źródła: 240219_002_Tr1_2_Ambient_Roomtone_Bedroom_open_window_192kHz_32bit-float (Freesound) [cichy room tone ] ; Impact Sounds (OpenGameArt/Kenney mirror) [ciężki dzwon jako pojedynczy rezonans sanktuarium; pliki: impact-bell-heavy-000.m4a ]"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {}
+}

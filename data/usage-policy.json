@@ -1,8 +1,11 @@
 {
-  "schema": 2,
+  "schema": 3,
+  "product": "ai_sfx_samples_v2",
   "hard_rules": [
-    "unique_combo",
-    "one_block_per_type"
+    "one_story_one_sample",
+    "flat_id_mp3_names",
+    "no_music_no_speech_in_prompts",
+    "old_v1_archive_excluded_from_zip"
   ],
-  "note": "Decyzje właściciela 2026-09-24 (ADR 0006 + aneks „Jeden typ = jeden klocek\"): cofnięte limity ilościowe ADR 0005; klocki są reużywalne bez limitów między fabułami. Twarde reguły: (1) unique_combo — kombinacja czterech typów/klocków (tło, hero, koda, instrument) unikalna między fabułami; (2) one_block_per_type — każdy typ taksonomii ma dokładnie jeden klocek w bazie (1:1), wzrost bazy wyłącznie przez nowy typ (rozszerzenie taksonomii przez CHANGELOG + akceptacja właściciela)."
+  "note": "Decyzja właściciela 2026-09-27: zaczynamy od zera. Każda fabuła dostaje jeden krótki, jednorodny sample wygenerowany przez ElevenLabs z ręcznie pisanego scenariusza. Stary system tło/hero/koda/instrument jest archiwum i nie trafia do ZIP-a ani Pages."
 }

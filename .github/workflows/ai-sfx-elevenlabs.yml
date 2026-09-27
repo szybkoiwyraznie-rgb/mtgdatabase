@@ -1,0 +1,121 @@
+name: Generate sample batch (ElevenLabs)
+
+# Manual only: consumes ElevenLabs quota. This workflow generates MP3s only for
+# already hand-written ready scenarios in data/samples/scenarios.jsonl.
+
+on:
+  workflow_dispatch:
+    inputs:
+      collection_csv:
+        description: "Collection TSV/CSV path to import before building the library"
+        type: string
+        default: "fabuły270926.csv"
+        required: true
+      batch:
+        description: "Optional batch label, e.g. b001"
+        type: string
+        default: ""
+        required: false
+      ids:
+        description: "Optional comma-separated story IDs. Empty = all ready in selected batch."
+        type: string
+        default: ""
+        required: false
+      limit:
+        description: "Optional first N selected ready scenarios; recommended 10."
+        type: string
+        default: "10"
+        required: false
+      force:
+        description: "Regenerate files even if already present in the job workspace"
+        type: boolean
+        default: false
+        required: true
+      prompt_influence:
+        description: "ElevenLabs prompt_influence"
+        type: string
+        default: "0.35"
+        required: true
+      publish_pages:
+        description: "Deploy generated library to GitHub Pages (main only)"
+        type: boolean
+        default: false
+        required: true
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  SCENARIOS: data/samples/scenarios.jsonl
+  OUT_DIR: audio/samples
+  MANIFEST: data/samples/generated-manifest.jsonl
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh catalog from collection
+        run: python scripts/import_collection.py "${{ inputs.collection_csv }}" --output data/catalog.json
+
+      - name: Validate scenarios
+        run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
+
+      - name: Generate MP3s with ElevenLabs
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: |
+          ARGS=()
+          if [ -n "${{ inputs.ids }}" ]; then ARGS+=(--ids "${{ inputs.ids }}"); fi
+          if [ -n "${{ inputs.batch }}" ]; then ARGS+=(--batch "${{ inputs.batch }}"); fi
+          if [ -n "${{ inputs.limit }}" ]; then ARGS+=(--limit "${{ inputs.limit }}"); fi
+          if [ "${{ inputs.force }}" = "true" ]; then ARGS+=(--force); fi
+          python scripts/elevenlabs_sample_scout.py \
+            --scenarios "$SCENARIOS" \
+            --out "$OUT_DIR" \
+            --manifest "$MANIFEST" \
+            --prompt-influence "${{ inputs.prompt_influence }}" \
+            "${ARGS[@]}"
+
+      - name: Build flat ZIP
+        run: python scripts/build_pack.py --src "$OUT_DIR" --output build/samples-latest.zip
+
+      - name: Build HTML library
+        run: python scripts/build_site.py --out site/generated
+
+      - name: Upload generated ZIP, manifest, and HTML library
+        uses: actions/upload-artifact@v4
+        with:
+          name: samples-elevenlabs
+          path: |
+            build/samples-latest.zip
+            data/samples/generated-manifest.jsonl
+            site/generated
+          if-no-files-found: error
+
+      - name: Upload Pages artifact
+        if: ${{ inputs.publish_pages && github.ref == 'refs/heads/main' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/generated
+
+  deploy-pages:
+    if: ${{ inputs.publish_pages && github.ref == 'refs/heads/main' }}
+    needs: generate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

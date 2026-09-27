@@ -1,0 +1,473 @@
+{
+  "schema": 1,
+  "description": "Baza backgrounds systemu sygnatór (docs/signature-system.md). Wpisy trafiają tu wyłącznie przez akceptację w bramce odsłuchowej.",
+  "entries": [
+    {
+      "id": "thunder_far_01",
+      "setting": "wąwóz / burza w oddali",
+      "desc": "niski toczący się grzmot, złowieszcza pogoda",
+      "file": "audio/library/backgrounds/thunder_far_01.mp3",
+      "duration_sec": 8.05,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Thunder 24.0-32.0 s"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "d.2",
+        "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "burza-zywiol",
+        "traits": [
+          "daleki grzmot",
+          "toczący się",
+          "niski",
+          "złowieszczy"
+        ],
+        "bad_for": [
+          "pogodna sielanka",
+          "wnętrze"
+        ]
+      }
+    },
+    {
+      "id": "frogs_night_01",
+      "setting": "jezioro / noc",
+      "desc": "cichy chór żab nad wodą nocą",
+      "file": "audio/library/backgrounds/frogs_night_01.mp3",
+      "duration_sec": 5.9,
+      "level_ref_db": -34,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Chorus Frogs 106.0-111.9 s (cichy fragment; okno wybrane po werdykcie bramki g001)"
+      },
+      "approved": {
+        "gate": "g001",
+        "choice": "d.3",
+        "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "bagno-moczary",
+        "traits": [
+          "chór żab",
+          "stojąca woda",
+          "noc",
+          "spokojny"
+        ],
+        "bad_for": [
+          "suchy teren",
+          "miasto"
+        ]
+      }
+    },
+    {
+      "id": "fire_hearth_small_01",
+      "setting": "ogień / palenisko",
+      "desc": "małe ognisko — oszczędne trzaski",
+      "file": "audio/library/backgrounds/fire_hearth_small_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Fire 5.0-13.0 s"
+      },
+      "approved": {
+        "gate": "g002",
+        "choice": "ogien-palenisko.1",
+        "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "ognisko-palenisko",
+        "traits": [
+          "małe ognisko",
+          "oszczędne trzaski",
+          "kameralny"
+        ],
+        "bad_for": [
+          "pożar",
+          "wulkaniczny rozmach"
+        ]
+      }
+    },
+    {
+      "id": "energy_steam_roar_01",
+      "setting": "energia / rozdarcie",
+      "desc": "groźny ryk pary ze szczeliny — ciągły",
+      "file": "audio/library/backgrounds/energy_steam_roar_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Black Growler Steam Vent 4.0-12.0 s"
+      },
+      "approved": {
+        "gate": "g002",
+        "choice": "wir-energia.1",
+        "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "kraina-ognia",
+        "traits": [
+          "syk pary",
+          "geotermalny",
+          "ciągły",
+          "groźny"
+        ],
+        "bad_for": [
+          "sielski spokój",
+          "zimna cisza"
+        ]
+      }
+    },
+    {
+      "id": "flooded_canyon_03",
+      "setting": "zalany kanion / szeroki nurt",
+      "desc": "nagranie parkowego potoku: szerszy, równy nurt z drobnym pluskiem — najspokojniejszy wariant, dobry pod dialog sceny",
+      "file": "audio/library/backgrounds/flooded_canyon_03.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "source": {
+        "title": "Cedar Creek Park, Allentown PA — nagranie terenowe (aporee / Internet Archive)",
+        "author": "aporee maps (Jl.purposedart)",
+        "license": "Public Domain Mark 1.0",
+        "url": "https://archive.org/details/aporee_26411_30501",
+        "channel": "workflow Sample scout (GitHub Actions) → legacy/source/sample_scout",
+        "notes": "Cedar Creek Park (aporee), okno 16,0–24,0 s — najstabilniejszy fragment (wahanie 0,6 dB); filtr rumble 70 Hz, przymknięcie góry 6,5 kHz, poziom −33 dB"
+      },
+      "approved": {
+        "gate": "g011",
+        "choice": "zalany-kanion.3",
+        "date": "2026-09-23"
+      },
+      "semantics": {
+        "type": "rzeka-strumien",
+        "traits": [
+          "równy nurt",
+          "drobny plusk",
+          "spokojny"
+        ],
+        "bad_for": [
+          "sztorm",
+          "wodospadowy huk"
+        ]
+      }
+    },
+    {
+      "id": "sky_rush_02",
+      "setting": "przestworza / pęd powietrza",
+      "desc": "ten sam pęd z odjętym dołem — lżejszy, szybszy charakter toru",
+      "file": "audio/library/backgrounds/sky_rush_02.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "semantics": {
+        "type": "niebo-przestworza",
+        "traits": [
+          "pęd powietrza",
+          "wysokość",
+          "ciągły",
+          "bez gruntu"
+        ],
+        "bad_for": [
+          "wnętrze",
+          "sielski spokój"
+        ]
+      },
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Hurricane Vent, okno 76.0–84.0 s; highpass 180 Hz, poziom i fade"
+      },
+      "approved": {
+        "gate": "g015",
+        "choice": "niebo-przestworza.2",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "forest_day_01",
+      "setting": "las za dnia",
+      "desc": "gęsty poranny chór ptaków — las budzi się, wyraźne ptactwo blisko i w głębi",
+      "file": "audio/library/backgrounds/forest_day_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "semantics": {
+        "type": "las-dzienny",
+        "traits": [
+          "ptaki",
+          "szum liści",
+          "dzień",
+          "spokojny"
+        ],
+        "bad_for": [
+          "noc",
+          "wnętrze",
+          "martwa cisza"
+        ]
+      },
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Dawn Chorus, okno 38.0–46.0 s; poziom i fade"
+      },
+      "approved": {
+        "gate": "g016",
+        "choice": "las-dzienny.1",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "warcamp_01",
+      "setting": "obóz wojenny / porządek formacji",
+      "desc": "tabor obozu: skrzyp uprzęży, kroki koni, brzęk okuć — logistyka wojenna w ruchu",
+      "file": "audio/library/backgrounds/warcamp_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -33,
+      "loopable": true,
+      "semantics": {
+        "type": "oboz-wojenny",
+        "traits": [
+          "tabor",
+          "kroki",
+          "brzęk rynsztunku",
+          "porządek"
+        ],
+        "bad_for": [
+          "dzika natura",
+          "wnętrze",
+          "miasto"
+        ]
+      },
+      "source": {
+        "title": "Yellowstone Sound Library (NPS)",
+        "author": "National Park Service",
+        "license": "Public Domain (utwór rządu USA)",
+        "url": "https://www.nps.gov/yell/learn/photosmultimedia/soundlibrary.htm",
+        "channel": "git clone sparse z github.com/rosuH/YSL (mirror)",
+        "notes": "Horse-Drawn Wagon 2–10 s; poziom +~13 dB (ciche nagranie terenowe), fade"
+      },
+      "approved": {
+        "gate": "g018",
+        "choice": "oboz-wojenny.1",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "id": "sea_storm_02",
+      "setting": "morze / sztormowe wybrzeże",
+      "desc": "ciężka, tocząca masa wody — wolniejszy rytm, głębszy rejestr, jak przypływ w nocy pod klifem",
+      "file": "audio/library/backgrounds/sea_storm_02.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -32,
+      "loopable": true,
+      "semantics": {
+        "type": "morze-wybrzeze",
+        "traits": [
+          "fale",
+          "przybój",
+          "szum morza",
+          "wichura"
+        ],
+        "bad_for": [
+          "wnętrze",
+          "martwa cisza",
+          "suchy krajobraz"
+        ]
+      },
+      "source": {
+        "title": "Ocean Waves Crashing... Big Lagoon, Redwood (Freesound)",
+        "author": "CVLTIV8R",
+        "license": "CC0 / Public Domain (wg API Freesound)",
+        "url": "https://freesound.org/people/CVLTIV8R/sounds/803679/",
+        "channel": "sample-scout run 36007698060 (preview-hq-mp3); manifest sha256: data/gates/g022/source-manifest.json",
+        "notes": "okno 55.5–63.5 s nagrania 01; poziom, fade"
+      },
+      "approved": {
+        "gate": "g023",
+        "choice": "morze-wybrzeze.2",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "duration_sec": 8.0,
+      "level_ref_db": -32,
+      "loopable": true,
+      "semantics": {
+        "type": "dwor-komnaty",
+        "traits": [
+          "wnętrze",
+          "palenisko",
+          "trzask",
+          "komnata",
+          "ciepło"
+        ],
+        "bad_for": [
+          "plener",
+          "bitwa",
+          "mokre podziemia"
+        ]
+      },
+      "id": "chamber_hearth_01",
+      "setting": "gmach / komnata — palenisko w izbie",
+      "desc": "trzask paleniska nad powietrzem cichej komnaty — ciepłe, zamieszkałe wnętrze wieży",
+      "file": "audio/library/backgrounds/chamber_hearth_01.mp3",
+      "source": {
+        "title": "Fireplace.wav (Freesound)",
+        "author": "OwennewO",
+        "license": "CC0 / Public Domain (wg API Freesound)",
+        "url": "https://freesound.org/people/OwennewO/sounds/549208/",
+        "channel": "sample-scout (preview-hq-mp3); manifest: fireplace/freesound_fireplace-crackle",
+        "notes": "okno 4–12 s; HP 70; -32 dB; freesound id 549208"
+      },
+      "approved": {
+        "gate": "g028",
+        "choice": "tlo-dwor-komnaty.1",
+        "date": "2026-09-24"
+      }
+    },
+    {
+      "duration_sec": 8.2,
+      "level_ref_db": -33,
+      "loopable": false,
+      "semantics": {
+        "type": "bitwa-zgielk",
+        "traits": [
+          "bitwa",
+          "zgiełk",
+          "krzyki",
+          "agonia",
+          "przełamanie",
+          "stal",
+          "ring-miecza"
+        ],
+        "bad_for": [
+          "spokój",
+          "komnata",
+          "ciche sceny",
+          "las-dzienny"
+        ]
+      },
+      "id": "battle_clamor_01",
+      "setting": "pole bitwy — zgiełk przełamania, krzyki i agonie",
+      "desc": "gęste medio bitewne: rzeczywiste krzyki wojowników szarżujących na ostrzał (podchwyt) z jasnym ringiem stali położonym delikatnie pod spodem — 8 starć miecz o miecz w losowych punktach (~0,95 s), ring 2–6 kHz bez niskiego brzęku",
+      "file": "audio/library/backgrounds/battle_clamor_01.mp3",
+      "source": {
+        "title": "People screaming in agony when charging into battle (Freesound) + 20 sword sound effects — attacks & clashes (OpenGameArt/atomcut)",
+        "author": "florianreichelt (łóżko) + OpenGameArt artists (starcia)",
+        "license": "CC0 1.0 (oba składniki)",
+        "url": "https://freesound.org/people/florianreichelt/sounds/563011/ + https://github.com/novincode/atomcut-library",
+        "channel": "sample-scout preview (łóżko, id 563011, okno 0,4–8,4 s, HP 55, -33 dB) + git sparse-checkout /tmp/atomcut (starcia)",
+        "notes": "stal: sword-clash-1…10 w rotacji, HP 220, -42 ±1,0 dB, 8 punktów start 0,55 s co 0,95 s, jitter ±0,12 s, ziarno 110; skrypty build_gate_g029_fix3.py → fix4.py; werdykt „zg.3v4 IDEALNY”"
+      },
+      "approved": {
+        "gate": "g029",
+        "choice": "tlo-bitwa-zgielk.3v4",
+        "date": "2026-09-25"
+      }
+    },
+    {
+      "id": "cave_quarry_tunnel_01",
+      "setting": "podziemia / tunel kamieniołomu",
+      "desc": "wilgotny tunel: niski pogłos, oddech przestrzeni i daleki plusk — bardziej jaskinia niż pokój (okno 2.0–10.0 s, RMS -32.0 dB, HF>6k 4.4%)",
+      "file": "audio/library/backgrounds/cave_quarry_tunnel_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -32.0,
+      "loopable": true,
+      "semantics": {
+        "type": "podziemia-jaskinia",
+        "traits": [
+          "podziemny pogłos",
+          "ciemne powietrze",
+          "kamień",
+          "niski szmer"
+        ],
+        "bad_for": [
+          "ciepłe wnętrze",
+          "otwarty plener",
+          "miasto",
+          "sielski las"
+        ]
+      },
+      "source": {
+        "title": "Quarry Tunnel Ambience 1, Large Splash (Freesound)",
+        "author": "ecfike",
+        "license": "CC0 1.0 (public domain; wg API Freesound)",
+        "url": "https://freesound.org/people/ecfike/sounds/476318/",
+        "channel": "sample-scout (preview-hq-mp3); manifest: 476318",
+        "notes": "quarry tunnel ambience: okno 2–10 s; kandydat na wilgotne podziemia"
+      },
+      "approved": {
+        "gate": "g033",
+        "choice": "tlo-podziemia.2",
+        "date": "2026-09-27"
+      }
+    },
+    {
+      "id": "mountain_wind_plateau_01",
+      "setting": "góry / surowy płaskowyż",
+      "desc": "najbardziej szorstkie okno: suchy wiatr po kamieniu, dobre dla wysokiego płaskowyżu lub kanionu (okno 96.0–104.0 s, RMS -32.0 dB, HF>6k 0.0%)",
+      "file": "audio/library/backgrounds/mountain_wind_plateau_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -32.0,
+      "loopable": true,
+      "semantics": {
+        "type": "gory-wichry",
+        "traits": [
+          "wiatr",
+          "otwarta wysokość",
+          "surowe powietrze",
+          "brak ludzi"
+        ],
+        "bad_for": [
+          "wnętrze",
+          "miasto",
+          "las dzienny",
+          "ciepły spokój"
+        ]
+      },
+      "source": {
+        "title": "Mongolian film windblown steppe1.wav (Freesound)",
+        "author": "Jim-Bretherick",
+        "license": "CC0 1.0 (public domain; wg API Freesound)",
+        "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+        "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+        "notes": "Mongolian windblown steppe: okno 96–104 s; szorstki pęd powietrza"
+      },
+      "approved": {
+        "gate": "g033",
+        "choice": "tlo-gory.3",
+        "date": "2026-09-27"
+      }
+    }
+  ]
+}

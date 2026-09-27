@@ -1,0 +1,47 @@
+{
+  "story_id": "55",
+  "length_sec": 6.0,
+  "background": {
+    "id": "chamber_hearth_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "resonance_bowed_01",
+    "at_sec": 0.9,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g10c_humble_pulse",
+    "instrument": "b_tubularbells_metal",
+    "at_sec": 3.2,
+    "target_db": -3,
+    "damp_db": 8.0
+  },
+  "seed": 55,
+  "gate": "g032",
+  "profile": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "rezonans-magiczny",
+      "mood": "spokoj-kontemplacja",
+      "instrumentation": "metaliczno-mechaniczna"
+    },
+    "note": "Rola z narracji po sanity audycie g032: tło — Opuszczona komnata na pograniczu trzech światów — martwa krystaliczna cisza; hero — Obracająca się metalowa strona, na której walczą trzy wzory run — metaliczny rezonans zmian; koda — Chwiejna równowaga nierozstrzygniętego pytania; instrumentacja — Metalicznie, zmiennie, chłodno. Obsada bloków wg resolvera po przyjęciu g032, z ręcznymi korektami klas zapobiegającymi naciąganiu słów-kluczy."
+  },
+  "resolution": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "rezonans-magiczny",
+      "mood": "spokoj-kontemplacja",
+      "instrumentation": "metaliczno-mechaniczna"
+    },
+    "blocks": {
+      "background": "chamber_hearth_01",
+      "hero": "resonance_bowed_01",
+      "mood": "g10c_humble_pulse",
+      "instrumentation": "b_tubularbells_metal"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; sanity audit po g032 nie wykazał twardej sprzeczności; kombinacja unikalna; parametry poziomów dostrojone pod bramkę słyszalności nut"
+  }
+}

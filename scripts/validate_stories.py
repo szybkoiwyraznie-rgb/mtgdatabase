@@ -7,14 +7,23 @@ from pathlib import Path
 EXPECTED = ("Ilustracja", "Nazwa Karty", "Narracja")
 PATTERN = re.compile(r"^\d+[A-Za-z0-9_-]+$")
 
+
+def detect_delimiter(header_line: str) -> str:
+    # Existing repo file is TSV despite the .csv extension; new files may be
+    # real CSV. Detect from header only, because narrations contain commas.
+    return "\t" if "\t" in header_line else ","
+
+
 def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("csv_file", type=Path)
     args = parser.parse_args()
     with args.csv_file.open(encoding="utf-8-sig", newline="") as handle:
-        reader = csv.DictReader(handle, delimiter="\t")
+        header = handle.readline()
+        handle.seek(0)
+        reader = csv.DictReader(handle, delimiter=detect_delimiter(header))
         if reader.fieldnames != list(EXPECTED):
-            print(f"Expected tab-separated columns {EXPECTED}; got {reader.fieldnames}", file=sys.stderr)
+            print(f"Expected columns {EXPECTED}; got {reader.fieldnames}", file=sys.stderr)
             return 1
         seen = set()
         for line, row in enumerate(reader, 2):

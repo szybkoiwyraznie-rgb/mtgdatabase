@@ -1,0 +1,46 @@
+{
+  "story_id": "393",
+  "length_sec": 6.0,
+  "background": {
+    "id": "cave_quarry_tunnel_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "heavyblow_gong_01",
+    "at_sec": 0.8,
+    "target_db": -14
+  },
+  "coda": {
+    "gesture": "g_feral_stampede",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.2,
+    "target_db": -18
+  },
+  "seed": 393,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "potezny-cios",
+      "mood": "furia-dzikosc",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Podziemne archiwa katedry — dymiące korytarze, płonące stulecia wiedzy; hero — Diabeł rozbija filar żeliwnym prętem — chmury iskier i rykoszetujący gruz; koda — Bezmyślne niszczenie raniące wszystkich wokół; instrumentacja — Ostro, iskrząco, chaotycznie."
+  },
+  "resolution": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "potezny-cios",
+      "mood": "furia-dzikosc",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "cave_quarry_tunnel_01",
+      "hero": "heavyblow_gong_01",
+      "mood": "g_feral_stampede",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna"
+  }
+}

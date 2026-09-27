@@ -1,0 +1,47 @@
+{
+  "story_id": "179",
+  "length_sec": 6.0,
+  "background": {
+    "id": "chamber_hearth_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "spell_cast_bolt_01",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g5a_shimmer_up",
+    "instrument": "b_handchimes",
+    "at_sec": 3.4,
+    "target_db": -19,
+    "damp_db": 10.0
+  },
+  "seed": 179,
+  "gate": "g032",
+  "profile": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "trzask-blyskawicy",
+      "mood": "radosc-beztroska",
+      "instrumentation": "cicho-kameralna"
+    },
+    "note": "Rola z narracji po sanity audycie g032: tło — Chaotyczny gabinet bibliotekarza — szelest papierów, balansujące stosy tomów; hero — Błękitne błyskawice przeskakują między stronami indeksu, kartki fruwają w powietrzu; koda — Roztrzepana uczoność — wie, że wie, tylko nie wie gdzie; instrumentacja — Drobno, ruchliwie, migotliwie. Obsada bloków wg resolvera po przyjęciu g032, z ręcznymi korektami klas zapobiegającymi naciąganiu słów-kluczy."
+  },
+  "resolution": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "trzask-blyskawicy",
+      "mood": "radosc-beztroska",
+      "instrumentation": "cicho-kameralna"
+    },
+    "blocks": {
+      "background": "chamber_hearth_01",
+      "hero": "spell_cast_bolt_01",
+      "mood": "g5a_shimmer_up",
+      "instrumentation": "b_handchimes"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; sanity audit po g032 nie wykazał twardej sprzeczności; kombinacja unikalna"
+  }
+}

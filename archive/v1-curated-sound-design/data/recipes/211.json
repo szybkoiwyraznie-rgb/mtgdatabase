@@ -1,0 +1,47 @@
+{
+  "story_id": "211",
+  "length_sec": 6.0,
+  "background": {
+    "id": "cave_quarry_tunnel_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "beast_roar_long_01",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g_dread_descent",
+    "instrument": "b_organ_loudpedal",
+    "at_sec": 3.6,
+    "target_db": -3,
+    "damp_db": 16.0
+  },
+  "seed": 211,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "ryk-bestii",
+      "mood": "groza-przerazenie",
+      "instrumentation": "mroczna"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Zawalona podziemna komnata świątyni — wstrząsy, sypiący się kurz, ucieczka odkrywców; hero — Monstrozaur przebija się przez kamień — kruszenie posadzki i ryk dawnego głodu; koda — Obudzony pradawny głód i panika ucieczki; instrumentacja — Potężnie, dudniąco, ciemno."
+  },
+  "resolution": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "ryk-bestii",
+      "mood": "groza-przerazenie",
+      "instrumentation": "mroczna"
+    },
+    "blocks": {
+      "background": "cave_quarry_tunnel_01",
+      "hero": "beast_roar_long_01",
+      "mood": "g_dread_descent",
+      "instrumentation": "b_organ_loudpedal"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna; parametry dostrojone po QA renderu g033"
+  }
+}

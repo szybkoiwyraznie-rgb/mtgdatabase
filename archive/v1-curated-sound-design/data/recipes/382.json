@@ -1,0 +1,46 @@
+{
+  "story_id": "382",
+  "length_sec": 6.0,
+  "background": {
+    "id": "cave_quarry_tunnel_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 0.8,
+    "target_db": -20
+  },
+  "coda": {
+    "gesture": "g5a_shimmer_up",
+    "instrument": "b_timpani",
+    "at_sec": 3.3,
+    "target_db": -21
+  },
+  "seed": 382,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "rozblysk-swiatla",
+      "mood": "radosc-beztroska",
+      "instrumentation": "ciezka"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Niezbadane głębiny jaskiń — echo kilofa, pulsująca żyła kryształu; hero — Pęknięty kryształ uwalnia magię — z rozbłysku formuje się strażnik jaskini; koda — Skarby się odkrywa, nie wydobywa; instrumentacja — Krystalicznie, głęboko, narastająco."
+  },
+  "resolution": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "rozblysk-swiatla",
+      "mood": "radosc-beztroska",
+      "instrumentation": "ciezka"
+    },
+    "blocks": {
+      "background": "cave_quarry_tunnel_01",
+      "hero": "light_bloom_01",
+      "mood": "g5a_shimmer_up",
+      "instrumentation": "b_timpani"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna; parametry dostrojone po QA renderu g033"
+  }
+}

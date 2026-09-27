@@ -1,0 +1,46 @@
+{
+  "story_id": "215",
+  "length_sec": 6.0,
+  "background": {
+    "id": "cave_quarry_tunnel_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "materialize_magic_swell_01",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g6c_sentry_return",
+    "instrument": "b_timpani",
+    "at_sec": 3.2,
+    "target_db": -21
+  },
+  "seed": 215,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "przemiana-materializacja",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "ciezka"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Podziemna dolina jaskiń — kamienne echo, stele przodków; hero — Zielony glif jaguara formuje się w powietrzu przy słowach steli; koda — Strzeżona taktyka — rytualna czujność przed obcym; instrumentacja — Surowo, nisko, uroczyście."
+  },
+  "resolution": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "przemiana-materializacja",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "ciezka"
+    },
+    "blocks": {
+      "background": "cave_quarry_tunnel_01",
+      "hero": "materialize_magic_swell_01",
+      "mood": "g6c_sentry_return",
+      "instrumentation": "b_timpani"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna"
+  }
+}

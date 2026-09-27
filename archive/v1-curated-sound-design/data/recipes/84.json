@@ -1,0 +1,46 @@
+{
+  "story_id": "84",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "heavyblow_gong_01",
+    "at_sec": 0.8,
+    "target_db": -14
+  },
+  "coda": {
+    "gesture": "g_bond_echo",
+    "instrument": "b_timpani",
+    "at_sec": 3.3,
+    "target_db": -21
+  },
+  "seed": 84,
+  "gate": "g032",
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "potezny-cios",
+      "mood": "wspolnota-wiez",
+      "instrumentation": "ciezka"
+    },
+    "note": "Rola z narracji po sanity audycie g032: tło — Pradawna nieprzebyta gęstwina — głęboki las, bezdroża; hero — Bestia miażdży zwalone pnie torując drogę — trzask drewna pod masą mięśni; koda — Pierwotna więź i wspólne natarcie; instrumentacja — Potężnie, organicznie, nisko. Obsada bloków wg resolvera po przyjęciu g032, z ręcznymi korektami klas zapobiegającymi naciąganiu słów-kluczy."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "potezny-cios",
+      "mood": "wspolnota-wiez",
+      "instrumentation": "ciezka"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "heavyblow_gong_01",
+      "mood": "g_bond_echo",
+      "instrumentation": "b_timpani"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; sanity audit po g032 nie wykazał twardej sprzeczności; kombinacja unikalna"
+  }
+}

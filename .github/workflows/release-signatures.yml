@@ -1,11 +1,11 @@
-name: Build signatures release
+name: Build sample release
 
 on:
   workflow_dispatch:
   push:
     branches: [main]
     paths:
-      - 'audio/signatures/**'
+      - 'audio/samples/**'
       - 'scripts/build_pack.py'
       - '.github/workflows/release-signatures.yml'
 
@@ -14,7 +14,6 @@ permissions:
 
 jobs:
   release:
-    # Wydanie jest publikacją publiczną: tylko z main (LESSONS 2026-09-22).
     if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
@@ -23,19 +22,19 @@ jobs:
         with:
           python-version: '3.12'
       - name: Build flat ZIP
-        run: python scripts/build_pack.py --output signatures-latest.zip
+        run: python scripts/build_pack.py --output samples-latest.zip
       - name: Encrypt ZIP when password is configured
         env:
           ZIP_PASSWORD: ${{ secrets.JINGLE_ZIP_PASSWORD }}
         run: |
           if [ -n "$ZIP_PASSWORD" ]; then
             sudo apt-get update -qq && sudo apt-get install -y -qq p7zip-full
-            7z a -tzip -mem=AES256 -p"$ZIP_PASSWORD" signatures-latest-protected.zip signatures-latest.zip >/dev/null
-            mv signatures-latest-protected.zip signatures-latest.zip
+            7z a -tzip -mem=AES256 -p"$ZIP_PASSWORD" samples-latest-protected.zip samples-latest.zip >/dev/null
+            mv samples-latest-protected.zip samples-latest.zip
           fi
       - name: Publish rolling GitHub Release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh release view signatures-latest >/dev/null 2>&1 || gh release create signatures-latest --title "Story signatures (latest)" --notes "Płaski ZIP: <id>.mp3 z audio/signatures. Aktualizowany automatycznie."
-          gh release upload signatures-latest signatures-latest.zip --clobber
+          gh release view samples-latest >/dev/null 2>&1 || gh release create samples-latest --title "Story samples (latest)" --notes "Płaski ZIP: <id>.mp3 z audio/samples. Aktualizowany automatycznie."
+          gh release upload samples-latest samples-latest.zip --clobber

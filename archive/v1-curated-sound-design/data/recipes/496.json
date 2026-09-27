@@ -1,0 +1,46 @@
+{
+  "story_id": "496",
+  "length_sec": 6.0,
+  "background": {
+    "id": "energy_steam_roar_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "fire_roar_thruster_01",
+    "at_sec": 0.8,
+    "target_db": -14
+  },
+  "coda": {
+    "gesture": "g_bond_echo",
+    "instrument": "b_bassdrum",
+    "at_sec": 3.2,
+    "target_db": -20
+  },
+  "seed": 496,
+  "gate": "g034",
+  "profile": {
+    "types": {
+      "background": "kraina-ognia",
+      "hero": "huk-ognia",
+      "mood": "wspolnota-wiez",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "note": "Rola z narracji po sanity audycie g034: tło — Krawędź wielkiej kaldery — bulgot jeziora lawy, fale płynnego bazaltu; hero — Skrzydła z plazmy i ognia rozwijają się z ramion — wzlot nad wrzącym jeziorem; koda — Zjednoczenie z pradawnym ogniem; instrumentacja — Ogniście, potężnie, wzniośle."
+  },
+  "resolution": {
+    "types": {
+      "background": "kraina-ognia",
+      "hero": "huk-ognia",
+      "mood": "wspolnota-wiez",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "blocks": {
+      "background": "energy_steam_roar_01",
+      "hero": "fire_roar_thruster_01",
+      "mood": "g_bond_echo",
+      "instrumentation": "b_bassdrum"
+    },
+    "reason": "model 1:1 po sanity audycie g034 — brak twardej sprzeczności; kombinacja unikalna"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "story_id": "428",
+  "length_sec": 6.0,
+  "background": {
+    "id": "cave_quarry_tunnel_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "heavyblow_gong_01",
+    "at_sec": 0.8,
+    "target_db": -14
+  },
+  "coda": {
+    "gesture": "g_ruthless_verdict",
+    "instrument": "b_vibraphone_cold",
+    "at_sec": 3.3,
+    "target_db": -17
+  },
+  "seed": 428,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "potezny-cios",
+      "mood": "bezwzglednosc-drapieznosc",
+      "instrumentation": "zimno-szklista"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Mroczne podziemia akademii — cela eksperymentalna pod ziemią, nie ciepła komnata z paleniskiem; hero — Wilkołak wali w opancerzony cel — rezonujący błysk obroży przy każdym ciosie; koda — Nauka z brutalności — ciekawość bez litości; instrumentacja — Twardo, rezonująco, chłodno."
+  },
+  "resolution": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "potezny-cios",
+      "mood": "bezwzglednosc-drapieznosc",
+      "instrumentation": "zimno-szklista"
+    },
+    "blocks": {
+      "background": "cave_quarry_tunnel_01",
+      "hero": "heavyblow_gong_01",
+      "mood": "g_ruthless_verdict",
+      "instrumentation": "b_vibraphone_cold"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna"
+  }
+}

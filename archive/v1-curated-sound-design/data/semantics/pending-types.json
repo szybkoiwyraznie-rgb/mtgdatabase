@@ -1,0 +1,118 @@
+{
+  "schema": 1,
+  "note": "Propozycje nowych typów taksonomii czekające na akceptację właściciela (bramka tekstowa). Walidator traktuje typ z tej listy jako OSTRZEŻENIE, nie błąd. Po akceptacji typ przechodzi do taxonomy.json (wpis w CHANGELOG), a stąd znika.",
+  "pending": [
+    {
+      "layer": "hero",
+      "id": "trzepot-pojedynczy",
+      "glosa": "łagodny lot pojedynczego ptaka — swobodne, rozłączne rozmajanie skrzydeł, nie wybuchowy skoł chmary/stada",
+      "powod": "blok trzepot-drobnych-skrzydel (pęk gołębia) wg właściciela pasuje wyłącznie do dzikich ptaków (126) i ewentualnie Monastery Flock (467); do kilku innych fabuł pasuje „inny łopot — pojedynczego ptaka” (decyzja właściciela 2026-09-25)",
+      "zrodlo": "właściciel przy weryfikacji g029"
+    },
+    {
+      "layer": "background",
+      "id": "zatoka-spokojna",
+      "glosa": "osłonięta, łagodna zatoka lub spokojne płytkie morze: delikatny przybój bez sztormowego ciężaru",
+      "powod": "audyt gotowych sygnatur 2026-09-26: 90 Tranquil Cove nie może używać sea_storm_02; scena wymaga spokojnej, uświęconej zatoki, nie nocnego sztormowego klifu",
+      "zrodlo": "audyt po pytaniu właściciela o błędną obsadę 206"
+    },
+    {
+      "layer": "hero",
+      "id": "stukot-szczudel",
+      "glosa": "pojedynczy lekki stukot drewnianych szczudeł lub szczudłowatych kroków; jeden mały bohater, nie formacja wielu nóg",
+      "powod": "audyt gotowych sygnatur 2026-09-26: 206 High Stride został błędnie zmapowany na marsz-oddzialu przez słowo „marsz”, choć narracja mówi o jednym króliku na szczudłach",
+      "zrodlo": "bezpośrednie pytanie właściciela: „skąd w fabule 206 marsz wojsk?”"
+    },
+    {
+      "layer": "background",
+      "id": "twierdza-posepna",
+      "glosa": "mroczne sale twierdzy lub okupowanego gmachu: kamień, chłodny pogłos, duszna aura przemocy; wnętrze bez ciepłego paleniska i bez obozowego taboru",
+      "powod": "audyt po g032: 560 Dead Ringers było mapowane na oboz-wojenny, choć narracja mówi o posępnych salach Twierdzy na Urborgu; warcamp_01 ma bad_for wnętrze",
+      "zrodlo": "sanity audit nowo odblokowanych fabuł po przyjęciu g032"
+    },
+    {
+      "layer": "background",
+      "id": "dom-nawiedzony",
+      "glosa": "opresyjne wnętrze nawiedzonego lub nienaturalnego domu: klaustrofobiczne korytarze, skrzypienia, zbutwiałe pokoje, sztuczne/migotliwe światło; bez ciepłego paleniska i bez jaskiniowej wilgoci",
+      "powod": "sanity audit po g033: 528 Enter the Enigma było mapowane na podziemia-jaskinia przez słowo „korytarze”, choć narracja mówi o Domu na Duskmourn i wypaczonych pokojach, nie o grocie/tunelu",
+      "zrodlo": "sanity audit nowo odblokowanych fabuł po przyjęciu g033"
+    },
+    {
+      "layer": "hero",
+      "id": "ramiona-chwytaki",
+      "glosa": "mechaniczne ramiona/chwytaki sortujące lub przekładające skrzynie; słyszalne jako precyzyjne, wielopunktowe kliknięcia i przesunięcia manipulatorów",
+      "powod": "korekta właściciela po g034: uniwersalny furkot-mechanizmu jest zbyt szeroki; 12 Merchant’s Dockhand wymaga dźwięku chwytaków/sortownika",
+      "zrodlo": "werdykt g034"
+    },
+    {
+      "layer": "hero",
+      "id": "mechanizm-astrolabium",
+      "glosa": "mały astronomiczny mechanizm: obrót pierścieni, półobrót astrolabium, precyzyjne kliknięcie zapadek; nie każdy mechanizm",
+      "powod": "korekta właściciela po g034: rozbić uniwersalny mechanizm; 19 Twiddle i 452 Omenspeaker mają astrolabium/konstelacje",
+      "zrodlo": "werdykt g034"
+    },
+    {
+      "layer": "hero",
+      "id": "serwomechanizm-konstruktu",
+      "glosa": "cichy warkot serw i aktuatorów konstruktu w warcie lub skanowaniu; metaliczny, technologiczny, ale nie skrzydła/thopter",
+      "powod": "korekta właściciela po g034: Bladed Sentinel to konkretne serwa skanera, nie dowolny mechanizm",
+      "zrodlo": "werdykt g034"
+    },
+    {
+      "layer": "hero",
+      "id": "wirnik-thoptera",
+      "glosa": "mechaniczny lot thoptera: mały wirnik/skrzydła-żagle, lekki napęd i start z blatu; nie ogólne tryby",
+      "powod": "korekta właściciela po g034: thoptery 132 i 596 wymagają własnego dźwięku lotu/napędu",
+      "zrodlo": "werdykt g034"
+    },
+    {
+      "layer": "hero",
+      "id": "mechanizm-zebatki",
+      "glosa": "precyzyjne zębatki, kopiowanie konstruktu, brzęczenie wielu małych maszynek w pracowni; wyraźnie zegarmistrzowskie/gearwork",
+      "powod": "korekta właściciela po g034: Cogwork Assembler/Reclusive Artificer to zębatki i małe maszynki, nie uniwersalny mechanizm",
+      "zrodlo": "werdykt g034"
+    },
+    {
+      "layer": "hero",
+      "id": "rozruch-maszyny",
+      "glosa": "uruchomienie większej maszyny: syk włazu, kroki robota, impulsy ładowania i narastający napęd przed akcją",
+      "powod": "korekta właściciela po g034: 288 Wedgelight Rammer opisuje rozruch konkretnej maszyny/robota",
+      "zrodlo": "werdykt g034"
+    },
+    {
+      "layer": "hero",
+      "id": "montaz-modulow",
+      "glosa": "mechaniczne dopinanie modułów, naprawa i montaż części na sojuszniku; seria drobnych kliknięć/zatrzasków, nie stały furkot",
+      "powod": "korekta właściciela po g034: 362 Simian Simulacrum to montaż/łatanie modułów",
+      "zrodlo": "werdykt g034"
+    },
+    {
+      "layer": "hero",
+      "id": "obrot-pierscieni",
+      "glosa": "lewitujące pierścienie artefaktu obracają się i projektują mapę/hologram; okrężny szmer plus delikatny rezonans projekcji",
+      "powod": "korekta właściciela po g034: 484 Guidestone Compass ma pierścienie kompasu i projekcję mapy",
+      "zrodlo": "werdykt g034"
+    },
+    {
+      "layer": "hero",
+      "id": "szum-nanoroj",
+      "glosa": "cichy szum roju mikroskopijnych cząstek naprawiających lub zasklepiających przewody; ziarnista chmura technologiczna",
+      "powod": "korekta właściciela po g034: 568 Nanoform Sentinel to nanorój, nie mechanizm z trybami",
+      "zrodlo": "werdykt g034"
+    },
+    {
+      "layer": "hero",
+      "id": "plomien-kontrolowany",
+      "glosa": "mały, opanowany płomień na dłoni lub w geście prezentacji: cichy taniec ognia, skupienie, brak huku/strumienia",
+      "powod": "sanity audit po g034: 59 Mysidian Elder ma niewielki kontrolowany płomień, a przyjęty fire_roar_thruster_01 jest strumieniem płomienia/palnikiem",
+      "zrodlo": "werdykt g034 i audyt nowo pełnych"
+    },
+    {
+      "layer": "hero",
+      "id": "plomien-pochodni",
+      "glosa": "spokojny płomień pochodni lub owiniętego materiału, ogień egzaminu/treningu bez wybuchu i bez palnikowego ciągu",
+      "powod": "sanity audit po g034: 209 Burning-Yard Trainer opisuje płonący miecz treningowy jak pochodnię, nie huk ognia",
+      "zrodlo": "werdykt g034 i audyt nowo pełnych"
+    }
+  ]
+}

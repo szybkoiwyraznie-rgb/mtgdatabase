@@ -1,0 +1,47 @@
+{
+  "story_id": "474",
+  "length_sec": 6.0,
+  "background": {
+    "id": "sea_storm_02",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "stealth_move_03",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g_intrigue_shadow_wink",
+    "instrument": "b_handchimes",
+    "at_sec": 3.0,
+    "target_db": -12,
+    "damp_db": 12.0
+  },
+  "seed": 474,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "skradanie-cisza",
+      "mood": "podstep-intryga",
+      "instrumentation": "cicho-kameralna"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Sztormowe klify pod zamkiem czarodziejek — kipiel morska, śliskie marmurowe stopnie; hero — Tryton wynurza się bezszelestnie i znika z pergaminami w spienionych falach; koda — Kradzież sekretów — morze zabiera wiedzę; instrumentacja — Mokro, cicho, zwinnie."
+  },
+  "resolution": {
+    "types": {
+      "background": "morze-wybrzeze",
+      "hero": "skradanie-cisza",
+      "mood": "podstep-intryga",
+      "instrumentation": "cicho-kameralna"
+    },
+    "blocks": {
+      "background": "sea_storm_02",
+      "hero": "stealth_move_03",
+      "mood": "g_intrigue_shadow_wink",
+      "instrumentation": "b_handchimes"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna; parametry dostrojone po QA renderu g033"
+  }
+}

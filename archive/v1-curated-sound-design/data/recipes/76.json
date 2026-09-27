@@ -1,0 +1,46 @@
+{
+  "story_id": "76",
+  "length_sec": 6.0,
+  "background": {
+    "id": "sky_rush_02",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "barrier_ring_01",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g_ruthless_verdict",
+    "instrument": "b_vibraphone_cold",
+    "at_sec": 3.3,
+    "target_db": -17
+  },
+  "seed": 76,
+  "gate": "g032",
+  "profile": {
+    "types": {
+      "background": "niebo-przestworza",
+      "hero": "bariera-odbicie",
+      "mood": "bezwzglednosc-drapieznosc",
+      "instrumentation": "zimno-szklista"
+    },
+    "note": "Rola z narracji po sanity audycie g032: tło — Marmurowy taras wysokiej wieży smagany wiatrem — pojedynek na wysokości; hero — Wrogi strumień mocy rozbija się o niewidzialną barierę na miliony błękitnych okruchów; koda — Arystokratyczny spokój bezwzględnej negacji; instrumentacja — Chłodno, elegancko, przejrzyście. Obsada bloków wg resolvera po przyjęciu g032, z ręcznymi korektami klas zapobiegającymi naciąganiu słów-kluczy."
+  },
+  "resolution": {
+    "types": {
+      "background": "niebo-przestworza",
+      "hero": "bariera-odbicie",
+      "mood": "bezwzglednosc-drapieznosc",
+      "instrumentation": "zimno-szklista"
+    },
+    "blocks": {
+      "background": "sky_rush_02",
+      "hero": "barrier_ring_01",
+      "mood": "g_ruthless_verdict",
+      "instrumentation": "b_vibraphone_cold"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; sanity audit po g032 nie wykazał twardej sprzeczności; kombinacja unikalna"
+  }
+}

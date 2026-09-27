@@ -15,19 +15,17 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install test dependencies
-        run: pip install numpy soundfile lameenc av
       - name: Compile Python files
         run: python -m compileall -q scripts
-      - name: Test signature system
-        run: python scripts/test_signature_system.py
-      - name: Test Sample Scout connectors
-        run: python scripts/test_sample_scout.py
-      - name: Validate collection CSV
-        run: python scripts/validate_stories.py kolekcja.csv
-      - name: Test collection import
-        run: python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
-      - name: Build pack from signatures (smoke)
-        run: python scripts/build_pack.py --output /tmp/pack.zip
-      - name: Build gallery (smoke)
+      - name: Run v2 sample tests
+        run: python -m unittest discover -s scripts -p 'test_*.py'
+      - name: Validate collection CSV/TSV
+        run: python scripts/validate_stories.py fabuły270926.csv
+      - name: Refresh catalog from collection
+        run: python scripts/import_collection.py fabuły270926.csv --output data/catalog.json
+      - name: Validate sample scenarios
+        run: python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
+      - name: Build sample pack smoke
+        run: python scripts/build_pack.py --output /tmp/samples.zip
+      - name: Build sample library smoke
         run: python scripts/build_site.py --out /tmp/site-out

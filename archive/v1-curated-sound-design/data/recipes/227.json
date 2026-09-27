@@ -1,0 +1,47 @@
+{
+  "story_id": "227",
+  "length_sec": 6.0,
+  "background": {
+    "id": "mountain_wind_plateau_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "materialize_magic_swell_01",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g5a_shimmer_up",
+    "instrument": "b_vibraphone_cold",
+    "at_sec": 3.3,
+    "target_db": -3,
+    "damp_db": 12.0
+  },
+  "seed": 227,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "gory-wichry",
+      "hero": "przemiana-materializacja",
+      "mood": "radosc-beztroska",
+      "instrumentation": "zimno-szklista"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Wietrzny skalisty płaskowyż — wiatr niosący pył, ekspedycja w tle; hero — Z błękitnej mgły wyłania się idealna kopia — eteryczne podwojenie postaci; koda — Figlarna adaptacja — zostać każdym, kogo trzeba; instrumentacja — Chłodno, migotliwie, lekko."
+  },
+  "resolution": {
+    "types": {
+      "background": "gory-wichry",
+      "hero": "przemiana-materializacja",
+      "mood": "radosc-beztroska",
+      "instrumentation": "zimno-szklista"
+    },
+    "blocks": {
+      "background": "mountain_wind_plateau_01",
+      "hero": "materialize_magic_swell_01",
+      "mood": "g5a_shimmer_up",
+      "instrumentation": "b_vibraphone_cold"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "story_id": "95",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "resonance_bowed_01",
+    "at_sec": 0.8,
+    "target_db": -21
+  },
+  "coda": {
+    "gesture": "g_bond_echo",
+    "instrument": "b_clarinet_warm",
+    "at_sec": 3.6,
+    "target_db": -1,
+    "damp_db": 16.0
+  },
+  "seed": 95,
+  "gate": "g032",
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "rezonans-magiczny",
+      "mood": "wspolnota-wiez",
+      "instrumentation": "cieplo-serdeczna"
+    },
+    "note": "Rola z narracji po sanity audycie g032: tło — Pradawne drzewo przodków — cisza świętego miejsca, wyryte imiona; hero — Duchy przodków wyłaniają się z kory i dotykają inicjata — spiralne strumienie ciepłego światła; koda — Ciągłość rodu — ciepłe przyjęcie do wspólnoty; instrumentacja — Ciepło, uroczyście, miękko. Obsada bloków wg resolvera po przyjęciu g032, z ręcznymi korektami klas zapobiegającymi naciąganiu słów-kluczy."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "rezonans-magiczny",
+      "mood": "wspolnota-wiez",
+      "instrumentation": "cieplo-serdeczna"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "resonance_bowed_01",
+      "mood": "g_bond_echo",
+      "instrumentation": "b_clarinet_warm"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; sanity audit po g032 nie wykazał twardej sprzeczności; kombinacja unikalna; parametry poziomów dostrojone pod bramkę słyszalności nut"
+  }
+}

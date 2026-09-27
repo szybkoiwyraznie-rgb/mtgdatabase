@@ -967,10 +967,31 @@
       "versions": []
     },
     {
+      "id": "139",
+      "art_id": "139TMT",
+      "title": "Slithering Cryptid",
+      "story": "W zalanych, ciemnych kanałach pod Nowym Jorkiem opowieści o przerażającym Pełzaczu budzą grozę pośród najmłodszych mieszkańców podziemnego świata. Pozbawiony nóg, zmutowany drapieżnik o łuskowatym ciele ryby bezszelestnie przecina mętną toń, ciągnąc za sobą uprząż z pordzewiałego złomu. Na jego grzbiecie jarzy się skradziony z laboratoriów TCRI pojemnik ze świeżym mutagenem, którego jaskrawozielona poświata rozświetla ociekające wilgocią sklepienia ścieków. Jak ostrzega w swoich dziecięcych opowiadaniach mała Lita, to nienasycone monstrum nieustannie patroluje podziemia metropolii, gotowe wciągnąć w mrok każdego nieostrożnego intruza.",
+      "versions": []
+    },
+    {
       "id": "140",
       "art_id": "140GRN",
       "title": "Boros Challenger",
       "story": "Na placu treningowym koszar Sunhome Boros stoi doświadczona wojowniczka w lśniącej złotawej zbroi ze szkarłatnym płaszczem-peleryną, miecz uniesiony wysoko, lewa dłoń na biodrze w nonszalanckiej postawie. Przed nią trzy młodsze rekrutki gildii — jedna podnosi się z ziemi, otrzepując pył, druga masuje nadgarstek, trzecia wciąż kończy wypad, ale challengerka nawet na nią nie patrzy. Na kamieniach placu wirują jesienne liście w kolorystyce pomarańczy, złota i czerwieni, a na kolumnach siedzą inni legioniści obserwujący starcie z rozbawieniem. W Boros mentorstwo jest darem dla silniejszych — każde przegrane starcie z wyzywającą mistrzynią sprawia, że rekrutka następnego dnia staje silniejsza na nogach niż dzień wcześniej.",
+      "versions": []
+    },
+    {
+      "id": "141",
+      "art_id": "141RIX",
+      "title": "Sun-Collared Raptor",
+      "story": "W prastarych dżunglach Ixalanu kapłani Słonecznego Imperium powierzają obronę uświęconych traktów nawet najmniejszym ze swoich opierzonych podopiecznych. Ozdobiony rytualnym złotym kołnierzem raptor zrywa się do gwałtownego skoku ze schodów zrujnowanej świątyni, zaskakując patrol wampirzych najeźdźców. Pod wpływem płomiennego błogosławieństwa bóstwa Tilonalli pióropusz małej bestii rozbłyskuje słonecznym żarem, nasycając jej zwinne ciałko niszczycielską siłą ognia. Jak z dumą przypomina wojownicza poetka Huatli, pod czujnym okiem płonącego słońca nawet najbardziej niepozorne stworzenie potrafi dokonać heroicznych czynów.",
+      "versions": []
+    },
+    {
+      "id": "142",
+      "art_id": "142ALA",
+      "title": "Savage Hunger",
+      "story": "W mroźnych, bezlitosnych ostępach królestwa Bretagard na planie Kaldheim arktyczna zima budzi w leśnych drapieżnikach pierwotny, niepohamowany głód. Kolosalna bestia z tundry o potężnych szczękach z furią taranuje osadniczą palisadę, roztrzaskując zmarznięte sosnowe bale w drobny pył. Każde gwałtowne uderzenie jej ciężkich łap napędzane jest instynktem przetrwania, nasycającym mięśnie potwora niszczycielską, taranującą siłą. W obliczu tak rozpędzonego i zdesperowanego kolosa żadne drewniane umocnienia nie są w stanie powstrzymać szarży wygłodniałego drapieżnika.",
       "versions": []
     },
     {
@@ -981,10 +1002,45 @@
       "versions": []
     },
     {
+      "id": "144",
+      "art_id": "144EMN",
+      "title": "Stensia Innkeeper",
+      "story": "Na niebezpiecznych, smaganych lodowatym wichrem przełęczach prowincji Stensia na planie Innistrad samotna gospoda wydaje się udręczonym wędrowcom jedynym ratunkiem przed nocnym mrozem. Wytworna karczmarka w aksamitnym szkarłacie z czarującym uśmiechem wita zziębniętych gości, serwując grzany napój przy trzaskającym palenisku. W ułamku sekundy, za plecami nieświadomych podróżnych, dłoń drapieżcy bezszelestnie przekręca ciężki żelazny klucz w ryglu masywnych dębowych drzwi. Gdy droga powrotna na trakt zostaje bezpowrotnie odcięta, strudzeni tułacze zdają sobie sprawę, że obietnica wiecznego odpoczynku ma w tych górach dosłowne i przerażające znaczenie.",
+      "versions": []
+    },
+    {
+      "id": "145",
+      "art_id": "145SOM",
+      "title": "Clone Shell",
+      "story": "W opuszczonych kompleksach badawczych dryfujących w układzie Sothera w przestrzeni The Edge autonomiczne powłoki klonujące chronią bezcenne formy organicznego życia. Zaawansowany konstrukt ze zmiennokształtnego, płynnego chromu nieustannie przemierza opustoszałe korytarze, utrzymując uśpiony ładunek biologiczny w bezpiecznej stazie. Dopiero w chwili gdy zewnętrzny pancerz ulega krytycznemu uszkodzeniu, ciśnieniowa komora pęka, uwalniając dojrzałą bestię wprost w wir kosmicznego starcia. Ta doskonała fuzja nanotechnologii i inżynierii genetycznej sprawia, że zniszczenie mechanicznej powłoki jest w rzeczywistości jedynie narodzinami znacznie groźniejszego drapieżnika.",
+      "versions": []
+    },
+    {
       "id": "146",
       "art_id": "146DTK",
       "title": "Palace Familiar",
       "story": "W mrocznym luksusowym wnętrzu pałacu Silumgara na rzeźbionej jadeitowej żerdzi siedzi kruczoczarny ptak o upierzeniu połyskującym granatowym i fioletowym odcieniem. Jego lewe oko jest naturalne i czujne z bursztynową tęczówką, prawe zastąpione misternym mechanicznym implantem — małą złotą soczewką w filigranowej oprawie z onyksu, z której sączy się nikła fioletowa poświata. W głębi komnaty, między ciężkimi haftowanymi draperiami i dymem kadzidła, majaczy smukła sylwetka Sidisi — wezyrki Silumgara obserwującej w milczeniu. Na Tarkirze każdy pałacowy pupilek jest jednocześnie szpiegiem, a ten konkretny ma ucho pani, która nie zapomina nic, co widzi jego trzecia soczewka.",
+      "versions": []
+    },
+    {
+      "id": "147",
+      "art_id": "147CMR",
+      "title": "Renegade Tactics",
+      "story": "W bocznych uliczkach metropolii Ghirapur na planie Kaladesh renegaci unikają aresztowania dzięki improwizowanym wynalazkom. Młoda dywersantka ze spokojem mija unieruchomionego wroga, trzymając w dłoni miniaturowy detonator eterowy. Za jej plecami ciężkozbrojny strażnik Konsulatu bezskutecznie próbuje oderwać stopy od posadzki pokrytej lepką, paraliżującą pianą. Zabezpieczywszy skradzione plany techniczne, sprytna buntowniczka bez trudu uchodzi pościgowi w labiryncie miejskich traktów.",
+      "versions": []
+    },
+    {
+      "id": "148",
+      "art_id": "148EOE",
+      "title": "Xu-Ifit, Osteoharmonist",
+      "story": "W mrocznych, dryfujących przez układ Sothera kryptach na asteroidach przestrzeń The Edge staje się świadkiem niezwykłych eksperymentów z pogranicza technologii i nekromancji. Mistrz osteoharmonii Xu-Ifit wznosi zmechanizowane dłonie, emitując z kościanych rękawic precyzyjne fale fioletowego rezonansu akustycznego. Pod wpływem wibracji lewitujące w stanie nieważkości odłamki obcych kości łączą się w powietrzu, formując posłusznego, pozbawionego dawnych cech szkieletowego sługę. Podczas gdy inni widzą w tych bezgłośnych konstruktach jedynie potworne aberracje, nekromanta dostrzega w nich doskonałe narzędzia godne drugiego istnienia pośród gwiazd.",
+      "versions": []
+    },
+    {
+      "id": "149",
+      "art_id": "149M20",
+      "title": "Blossoming Sands",
+      "story": "Pośród prażących, bezkresnych piasków pustyni na planie Amonkhet święte oazy rodzą niezwykłe cuda natury. W dolinie pomiędzy złocistymi wydmami wytryskuje źródło krystalicznej wody, sprawiając, że jałowy grunt w ułamku sekundy pokrywa się dywanem białych lilii pustynnych i zielonych pędów. Każdy powiew gorącego wiatru roznosi pośród na wpół zasypanych obelisków kojący zapach kwitnących pąków, niosąc ocalenie i ukojenie dla strudzonych wędrowców. Ten życiodajny zakątek nasycony obecnością dobroczynnych bóstw udowadnia, że nawet w najbardziej bezlitosnej krainie życie potrafi spektakularnie zatriumfować nad pustynną spiekotą.",
       "versions": []
     },
     {
@@ -995,10 +1051,52 @@
       "versions": []
     },
     {
+      "id": "151",
+      "art_id": "151DTK",
+      "title": "Revealing Wind",
+      "story": "Na bezkresnych, smaganych wiatrem pustkowiach Tarkiru pustynne burze stanowią dla klanu Dromoki niezawodną linię obrony. Na rozkaz dowódcy Faiso potężny szkwał piaskowy uderza w nacierających skrytobójców, wznosząc przed linią obrońców nieprzeniknioną zaporę ze złotego pyłu. Porywisty wicher bez trudu wygasza impet wrogich ciosów, bezlitośnie zrywając iluzje i maskujące całuny z ciał zaskoczonych najeźdźców. Podczas gdy nieprzyjaciel błądzi w oślepiającej zawiei, wojownicy Dromoki zyskują absolutną przejrzystość pola bitwy, pewnie kontrolując przebieg całego starcia.",
+      "versions": []
+    },
+    {
+      "id": "152",
+      "art_id": "152DMU",
+      "title": "Timely Interference",
+      "story": "Gdy zmechanizowane legiony Nowej Phyrexii przedzierają się do serca Akademii Tolaryjskiej na planie Dominaria, korytarze wiedzy stają się areną dramatycznej ewakuacji. Młoda adeptka zbiega po marmurowych schodach z naręczem bezcennych zwojów badawczych, ścigana przez bezwzględnego biomechanicznego szpiega. Zanim ostrze najeźdźcy zdoła dosięgnąć uciekającej uczennicy, potężny kavu z rykiem wyskakuje zza kolumny, uderzając w napastnika w eksplozji błękitno-ognistych iskier. Ta niespodziewana interwencja i poświęcenie wiernej bestii całkowicie wiążą uwagę wroga, dając uczonym bezcenne chwile na ocalenie wielowiekowego dziedzictwa Tolarii.",
+      "versions": []
+    },
+    {
       "id": "153",
       "art_id": "153FIN",
       "title": "Balamb Garden, Airborne",
       "story": "Ta sama akademia SeeD, ale tym razem w powietrzu — Balamb Garden w trybie bojowym, ciemniejszy i groźniejszy niż na ziemi, przechylony lekko do przodu w kierunku lotu. Pod spodem konstrukcji odsłonięte ukryte systemy napędowe emitują skoncentrowane turkusowozielone światło ku dołowi, tworząc wirujący wir powietrzny, który odgina trawę, drzewa i wodę poniżej. Na ziemi pozostało wielkie okrągłe wgłębienie — miejsce, z którego Garden oderwał się od fundamentu, a za fortecą ciągnie się smuga skondensowanej pary i turkusowych iskier energii. Jeden kadet przy konsoli wystarczył, by podnieść w powietrze całą szkołę, a Squall i jego drużyna już wiedzą, że od tego momentu ich szkoła jest też ich okrętem wojennym.",
+      "versions": []
+    },
+    {
+      "id": "154",
+      "art_id": "154SOM",
+      "title": "Trigon of Thought",
+      "story": "W zalanych płynnym metalem podziemiach dawnego Lumengridu na planie Mirrodin partyzanci ruchu oporu gromadzą się wokół starożytnych artefaktów wiedzy. Trójkątna, wykuta ze srebra relikwia myśli unosi się nad konsolą sztabową, rozbłyskując kaskadami błękitnego eteru pod wpływem skupienia neurockiej badaczki. Ze szczelin metalowej płaskorzeźby wystrzeliwują trzy wiązki światła, rzutując w powietrze holograficzną mapę patroli wroga i odsłaniając bezpieczne szlaki ucieczki. Dla wyczerpanych obrońców świata ten przyrząd staje się bezcennym źródłem taktycznej mądrości, pozwalającym zaplanować kolejne uderzenie przeciwko przeważającym siłom Nowej Phyrexii.",
+      "versions": []
+    },
+    {
+      "id": "155",
+      "art_id": "155WAR",
+      "title": "Demolish",
+      "story": "Podczas dramatycznych walk o Dziesiąty Dystrykt w trakcie Wojny Iskry na planie Ravnica żołnierze Legionu Boros nie cofają się przed żadnym taktycznym poświęceniem. Na bezwzględny rozkaz samej archanielicy Aurelii obrońcy miasta wysadzają w powietrze potężną bramę, obracając strategiczny wiadukt w gruzowisko i morze ognia. Walące się z hukiem kamienne sklepienia w ułamku sekundy tworzą nieprzekraczalną barykadę, skutecznie odcinając drogę nacierającym oddziałom najeźdźców. W obliczu bezdusznej armii Wiecznych zniszczona ulica i płonące zgliszcza stają się jedyną gwarancją, że wróg nie posunie się ani o krok dalej.",
+      "versions": []
+    },
+    {
+      "id": "156",
+      "art_id": "156RNA",
+      "title": "Summary Judgment",
+      "story": "Na sterylnie czystych placach wokół Nowego Prahvu na planie Ravnica strażnicy Senatu Azorius bezwzględnie egzekwują nienaruszalność miejskiego prawa. Wytworna justycjariuszka w lśniącym srebrno-błękitnym pancerzu unosi ceremonialne berło, wywołując natychmiastowy proces doraźnego osądu. Z nieba opada potężna, geometryczna pieczęć ze złocistego światła, która z druzgocącą siłą przygniata wyczerpanego buntownika do marmurowego bruku. Zgodnie z surową doktryną sędziów z Prahvu, każde rzucenie wyzwania gildyjnemu porządkowi spotyka się z błyskawiczną i nieubłaganą karą.",
+      "versions": []
+    },
+    {
+      "id": "157",
+      "art_id": "157ORI",
+      "title": "Infectious Bloodlust",
+      "story": "W mroźnych wąwozach królestwa Bretagard na planie Kaldheim bitewny szał berserkerów rozprzestrzenia się pośród klanów niczym niepowstrzymany pożar. Gdy jeden z przodowników pada pod gradem strzał, spowijająca go krwawa aura natychmiast przeskakuje na kolejnego nacierającego wojownika. Opanowany nieludzką furią topornik z gorejącymi ślepiami bez cienia wahania rzuca się w najgłębszy wir walki, całkowicie ignorując własne bezpieczeństwo. W surowej tradycji klanów Północy ten zaraźliwy szał bojowy gwarantuje, że dopóki bije choć jedno serce w szyku, natarcie nigdy nie ulegnie zatrzymaniu.",
       "versions": []
     },
     {

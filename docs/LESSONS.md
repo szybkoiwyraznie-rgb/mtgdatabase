@@ -1,3 +1,10 @@
+# Lekcje projektu
+
+> Aktualny flow od 2026-09-27 to AI SFX v2: krótkie jednorodne sample w
+> `audio/samples/<id>.mp3`. Starsze lekcje o bramkach, klockach, recepturach,
+> kodach i warstwach dotyczą archiwalnego systemu v1 w
+> `archive/v1-curated-sound-design/`; nie przywracać ich jako głównego flow.
+
 # LESSONS — trwała wiedza projektu
 
 Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każdy wpis powinien odpowiadać na pytanie: co się wydarzyło, czego się nauczyliśmy i jak zapobiec powtórce.
@@ -604,3 +611,80 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   (jak tutaj, dla 253) do rozważenia w przyszłej bramce (inny kandydat na typ
   instrumentacji, albo edycja silnika `pre` w `coda_synth.py` — nie robić
   pochopnie, wpływa na WSZYSTKIE dotychczasowe receptury z `damp_db`).
+
+## Nie mapuj metafory ani pojedynczego ruchu na gotowy typ tylko dlatego, że zgadza się słowo (audyt 2026-09-26)
+
+- Sytuacja: właściciel zapytał, skąd w fabule 206 (`High Stride`) wziął się
+  marsz wojsk. Przyczyną było słowo „marsz” w profilu: pojedynczy królik na
+  drewnianych szczudłach został zmapowany na `marsz-oddzialu`, a resolver
+  użył `troop_march_05` (cztery warstwy kroków po żwirze jak pluton). Audyt
+  gotowych sygnatur znalazł trzy analogiczne naciągnięcia: 90 (spokojna
+  zatoka obsadzona sztormowym wybrzeżem), 268 (metaforyczna fala aury
+  obsadzona wodnym rozbryzgiem), 599 (nocny rytuał w mrocznym lesie obsadzony
+  dziennym chórem ptaków).
+- Wniosek: wzorzec tekstowy jest tylko hipotezą. Liczy się „co słychać”:
+  liczebność źródła (pojedynczy krok ≠ oddział), żywioł fizyczny (aura ≠ woda)
+  i pora/charakter środowiska (nocny rytuał ≠ las za dnia). Notatka typu
+  „to nie pasuje idealnie, ale jedyny klocek typu” jest sygnałem do BRAKU,
+  nie usprawiedliwieniem reuse.
+- Zasada / działanie zapobiegawcze: gdy opis klocka ma `bad_for` lub zdrowy
+  rozsądek przeczy scenie, popraw klasę fabuły albo zgłoś typ pending i
+  bramkę. Nie renderuj finalnie na „najbliższym” klocku. Po audycie 90, 206,
+  268 i 599 zostały wycofane z gotowych; klasy skorygowane tak, by resolver
+  zwracał BRAK zamiast ponownie tworzyć złą sygnaturę.
+
+## „OBSADZONA” po nowej bramce to hipoteza, nie zgoda na batch-render (audyt po g032, 2026-09-26)
+
+- Sytuacja: po przyjęciu g032 resolver wskazał 16 nowych fabuł jako w pełni
+  obsadzalne. Sanity check przed renderem wykrył sześć fałszywych trafień:
+  79 (popielate pustkowie mylone z ogniem), 253 (złote „fale” inspiracji
+  mylone z wodą), 309 (cień przemiany mylony z barierą), 428 (podziemia
+  akademii mylone z ciepłą komnatą), 560 (posępne sale twierdzy mylone z
+  obozem wojennym) i 607 (kontrola mylona z furią). Wyrenderowano tylko 10
+  pozostałych fabuł.
+- Wniosek: po każdej nowej bramce resolver może odblokować dużą paczkę, ale
+  odblokowanie wynika z typów tekstowych. Typy pochodzą z reguł/overridów i
+  mogą nieść stare słowa-klucze. Każda nowo „pełna” fabuła wymaga krótkiego
+  przeglądu semantycznego przed finalnym MP3.
+- Zasada / działanie zapobiegawcze: produkcja po bramce = (1) lista nowo
+  pełnych bez receptury, (2) sanity audit narracja→klasa→konkretny klocek,
+  (3) korekta klasy/profilu lub pending dla fałszywych trafień, (4) render
+  wyłącznie tych, które nie mają twardej sprzeczności. Wpis o fabule 253 jako
+  „zablokowanej technicznie” pozostaje lekcją o `damp_db`, ale dla samej
+  fabuły został uchylony semantycznie: nie wolno jej już prowadzić przez
+  `fala-rozbryzg`, bo złote fale inspiracji to `aura-lagodna`.
+
+## Nie rób targetu audio z ciszy ani z uniwersalnej abstrakcji (werdykt g034, 2026-09-27)
+
+- Sytuacja: bramka g034 próbowała obsłużyć `background:krypta-nekropolia`
+  oraz `hero:furkot-mechanizmu`. Właściciel odrzucił oba założenia, nie tylko
+  kandydatów: nekropolia/cmentarz „brzmi ciszą”, a cisza nie jest użytecznym
+  dźwiękiem w tej bibliotece; mechanizm nie ma jednego uniwersalnego brzmienia,
+  bo thopter, astrolabium, chwytak, zębatki i nanorój brzmią inaczej.
+- Wniosek: target audio musi być konkretnym słyszalnym zdarzeniem albo
+  środowiskiem, a nie narracyjną etykietą. Jeśli scena jest nekropolią, pytanie
+  brzmi „co tam faktycznie słychać?” (noc, wiatr, podziemia, las, morze,
+  bagno), nie „jak brzmi nekropolia?”. Jeśli scena zawiera mechanizm, najpierw
+  nazwij konkretny mechanizm i jego ruch.
+- Zasada / działanie zapobiegawcze: nie przywracać
+  `background:krypta-nekropolia` ani `hero:furkot-mechanizmu` jako typów
+  produkcyjnych. Po g034 oba mają 0 aktywnych użyć. Nowe bramki muszą dotyczyć
+  konkretnych wariantów, np. `wirnik-thoptera`, `mechanizm-astrolabium`,
+  `ramiona-chwytaki`, `mechanizm-zebatki`, `rozruch-maszyny`, albo realnego
+  tła słyszalnego w scenie.
+
+## Ogień: strumień/palnik ≠ mały płomień, pochodnia ani płonące oczy (g034, 2026-09-27)
+
+- Sytuacja: g034 przyjęła `fire_roar_thruster_01` jako `hero:huk-ognia` — mocny
+  strumień płomienia jak palnik lub magiczna smuga ognia. Sanity audit pokazał
+  jednak fałszywe pełne fabuły: 59 miała niewielki kontrolowany płomień na dłoni,
+  209 płonący miecz treningowy jak pochodnię, 314 runę i wirujące kartki, a 513
+  „płonące oczy” jako objaw opętania/buntu.
+- Wniosek: słowo „płomień/płonący/ognisty” nie wystarcza do użycia
+  `huk-ognia`. Trzeba rozróżniać fizyczny, mocny strumień/huk ognia od małych,
+  spokojnych lub metaforycznych zjawisk.
+- Zasada / działanie zapobiegawcze: po każdym nowym klocku hero z szerokim
+  słowem-kluczem wykonać sanity audit nowo pełnych. Jeśli scena mówi o małym
+  płomieniu, pochodni, ognisku albo samym efekcie wizualnym, utwórz osobny typ
+  pending (`plomien-kontrolowany`, `plomien-pochodni`, itd.) zamiast wciskać
+  `fire_roar_thruster_01`.

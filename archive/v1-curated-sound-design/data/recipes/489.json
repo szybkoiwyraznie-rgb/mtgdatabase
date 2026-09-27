@@ -1,0 +1,46 @@
+{
+  "story_id": "489",
+  "length_sec": 6.0,
+  "background": {
+    "id": "cave_quarry_tunnel_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "light_bloom_01",
+    "at_sec": 0.8,
+    "target_db": -20
+  },
+  "coda": {
+    "gesture": "g11c_home_arrival",
+    "instrument": "b_piano_steinway",
+    "at_sec": 3.0,
+    "target_db": -18
+  },
+  "seed": 489,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "rozblysk-swiatla",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Tunel wiecznego mroku w głębinach kopalni — martwa cisza, kamienne echo; hero — Gwiezdne światło latarni rozprasza ciemność — srebrzyste runy rozbłyskują na ścianach; koda — Zwiastun nadziei w krainie cienia; instrumentacja — Świetliście, cicho, czysto."
+  },
+  "resolution": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "rozblysk-swiatla",
+      "mood": "nadzieja-ukojenie",
+      "instrumentation": "jasno-swietlista"
+    },
+    "blocks": {
+      "background": "cave_quarry_tunnel_01",
+      "hero": "light_bloom_01",
+      "mood": "g11c_home_arrival",
+      "instrumentation": "b_piano_steinway"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna; parametry dostrojone po QA renderu g033"
+  }
+}

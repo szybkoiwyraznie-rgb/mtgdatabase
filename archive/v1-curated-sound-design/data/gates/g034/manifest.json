@@ -1,0 +1,671 @@
+{
+  "id": "g034",
+  "created": "2026-09-27",
+  "note": "PAKIET 5 zestawów po g033: `background:step-rownina`, `background:kuznia-warsztat`, `background:krypta-nekropolia`, `hero:furkot-mechanizmu`, `hero:huk-ognia`. Anchory: 10/230/396/492, 16/168/285/355/487, 42/72/543/600, 19/132/146/228/484, 59/102/209/287/290/314/436/496/507/513. Źródła: Freesound CC0 z wcześniejszych scoutów oraz atomcut/OpenGameArt/Kenney CC0.",
+  "entries": [
+    {
+      "slug": "tlo-step",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `step-rownina` (19 fabuł; anchory 10, 230, 396, 492)",
+      "candidates": [
+        {
+          "label": "s.1",
+          "title": "łagodny wiatr po równinie",
+          "file": "candidates/bg_steppe_wind_soft_01.mp3",
+          "desc": "szeroki wiatr bez ścian, ludzi i ptaków — neutralna otwarta przestrzeń (okno 8.0–16.0 s, RMS -32.0 dB, HF>6k 0.4%)",
+          "source": "Mongolian film windblown steppe1.wav (Freesound)",
+          "entry": {
+            "id": "steppe_wind_soft_01",
+            "setting": "step / otwarta równina",
+            "desc": "szeroki wiatr bez ścian, ludzi i ptaków — neutralna otwarta przestrzeń (okno 8.0–16.0 s, RMS -32.0 dB, HF>6k 0.4%)",
+            "file": "audio/library/backgrounds/steppe_wind_soft_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "step-rownina",
+              "traits": [
+                "otwarta przestrzeń",
+                "wiatr",
+                "suchy teren",
+                "brak wnętrza"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "miasto",
+                "gęsty las",
+                "podziemia"
+              ]
+            },
+            "source": {
+              "title": "Mongolian film windblown steppe1.wav (Freesound)",
+              "author": "Jim-Bretherick",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+              "notes": "Mongolian windblown steppe: okno 8–16 s"
+            }
+          }
+        },
+        {
+          "label": "s.2",
+          "title": "szorstki wiatr traw",
+          "file": "candidates/bg_steppe_wind_grass_01.mp3",
+          "desc": "bardziej ziarnisty pęd powietrza, jak sucha trawa na rozległym trakcie (okno 70.0–78.0 s, RMS -32.0 dB, HF>6k 0.2%)",
+          "source": "Mongolian film windblown steppe1.wav (Freesound)",
+          "entry": {
+            "id": "steppe_wind_grass_01",
+            "setting": "step / wiatr po trawach",
+            "desc": "bardziej ziarnisty pęd powietrza, jak sucha trawa na rozległym trakcie (okno 70.0–78.0 s, RMS -32.0 dB, HF>6k 0.2%)",
+            "file": "audio/library/backgrounds/steppe_wind_grass_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "step-rownina",
+              "traits": [
+                "otwarta przestrzeń",
+                "wiatr",
+                "suchy teren",
+                "brak wnętrza"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "miasto",
+                "gęsty las",
+                "podziemia"
+              ]
+            },
+            "source": {
+              "title": "Mongolian film windblown steppe1.wav (Freesound)",
+              "author": "Jim-Bretherick",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+              "notes": "Mongolian windblown steppe: okno 70–78 s"
+            }
+          }
+        },
+        {
+          "label": "s.3",
+          "title": "pusty płaskowyż w wietrze",
+          "file": "candidates/bg_steppe_wind_empty_01.mp3",
+          "desc": "najbardziej puste okno: stabilny wiatr bez zdarzeń, dobre pod samotną równinę (okno 126.0–134.0 s, RMS -32.0 dB, HF>6k 0.1%)",
+          "source": "Mongolian film windblown steppe1.wav (Freesound)",
+          "entry": {
+            "id": "steppe_wind_empty_01",
+            "setting": "step / pusty płaskowyż",
+            "desc": "najbardziej puste okno: stabilny wiatr bez zdarzeń, dobre pod samotną równinę (okno 126.0–134.0 s, RMS -32.0 dB, HF>6k 0.1%)",
+            "file": "audio/library/backgrounds/steppe_wind_empty_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "step-rownina",
+              "traits": [
+                "otwarta przestrzeń",
+                "wiatr",
+                "suchy teren",
+                "brak wnętrza"
+              ],
+              "bad_for": [
+                "wnętrze",
+                "miasto",
+                "gęsty las",
+                "podziemia"
+              ]
+            },
+            "source": {
+              "title": "Mongolian film windblown steppe1.wav (Freesound)",
+              "author": "Jim-Bretherick",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+              "notes": "Mongolian windblown steppe: okno 126–134 s"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tlo-kuznia",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `kuznia-warsztat` (19 fabuł; anchory 16, 168, 285, 355, 487)",
+      "candidates": [
+        {
+          "label": "k.1",
+          "title": "metalowe uderzenia warsztatu",
+          "file": "candidates/bg_workshop_metal_clanks_01.mp3",
+          "desc": "ciąg metalowych stuków i krótkich rezonansów — aktywny blat warsztatu lub kuźni (okno 1.0–9.0 s, RMS -32.0 dB, HF>6k 2.1%)",
+          "source": "R27-37-Metal Clanks and Hits.wav (Freesound)",
+          "entry": {
+            "id": "workshop_metal_clanks_01",
+            "setting": "warsztat / metalowe uderzenia",
+            "desc": "ciąg metalowych stuków i krótkich rezonansów — aktywny blat warsztatu lub kuźni (okno 1.0–9.0 s, RMS -32.0 dB, HF>6k 2.1%)",
+            "file": "audio/library/backgrounds/workshop_metal_clanks_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "kuznia-warsztat",
+              "traits": [
+                "metal",
+                "narzędzia",
+                "warsztat",
+                "uderzenia"
+              ],
+              "bad_for": [
+                "cisza rytuału",
+                "las",
+                "morze",
+                "sielski plener"
+              ]
+            },
+            "source": {
+              "title": "R27-37-Metal Clanks and Hits.wav (Freesound)",
+              "author": "craigsmith",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/craigsmith/sounds/486295/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 486295",
+              "notes": "metal clanks: okno 1–9 s"
+            }
+          }
+        },
+        {
+          "label": "k.2",
+          "title": "tarcie ostrzy i imadło",
+          "file": "candidates/bg_workshop_blade_grind_01.mp3",
+          "desc": "długie tarcie metalu i zgrzyt — bardziej precyzyjny warsztat niż bitwa (okno 1.0–9.0 s, RMS -35.0 dB, HF>6k 75.9%)",
+          "source": "WEAPSwrd_Sword Blades Grinding_HvD_OwSFX (Freesound)",
+          "entry": {
+            "id": "workshop_blade_grind_01",
+            "setting": "warsztat / tarcie metalu",
+            "desc": "długie tarcie metalu i zgrzyt — bardziej precyzyjny warsztat niż bitwa (okno 1.0–9.0 s, RMS -35.0 dB, HF>6k 75.9%)",
+            "file": "audio/library/backgrounds/workshop_blade_grind_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "kuznia-warsztat",
+              "traits": [
+                "metal",
+                "narzędzia",
+                "warsztat",
+                "uderzenia"
+              ],
+              "bad_for": [
+                "cisza rytuału",
+                "las",
+                "morze",
+                "sielski plener"
+              ]
+            },
+            "source": {
+              "title": "WEAPSwrd_Sword Blades Grinding_HvD_OwSFX (Freesound)",
+              "author": "Hano_van_Dalen",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Hano_van_Dalen/sounds/767323/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 767323",
+              "notes": "sword blades grinding: okno 1–9 s"
+            }
+          }
+        },
+        {
+          "label": "k.3",
+          "title": "piła/maszyna w pracowni",
+          "file": "candidates/bg_workshop_saw_loop_01.mp3",
+          "desc": "regularna praca piły/maszyny, surowa i przemysłowa — dobry warsztat bez tłumu (okno pełny/loop, RMS -33.0 dB, HF>6k 3.2%)",
+          "source": "30 SFX loops (OpenGameArt/Kenney mirror)",
+          "entry": {
+            "id": "workshop_saw_loop_01",
+            "setting": "warsztat / piła i maszyna",
+            "desc": "regularna praca piły/maszyny, surowa i przemysłowa — dobry warsztat bez tłumu (okno pełny/loop, RMS -33.0 dB, HF>6k 3.2%)",
+            "file": "audio/library/backgrounds/workshop_saw_loop_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "kuznia-warsztat",
+              "traits": [
+                "metal",
+                "narzędzia",
+                "warsztat",
+                "uderzenia",
+                "maszyna"
+              ],
+              "bad_for": [
+                "cisza rytuału",
+                "las",
+                "morze",
+                "sielski plener"
+              ]
+            },
+            "source": {
+              "title": "30 SFX loops (OpenGameArt/Kenney mirror)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/30-cc0-sfx-loops",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "audio/saw.m4a; loop warsztatowy"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "tlo-krypta",
+      "kind": "backgrounds",
+      "role": "jedyny klocek typu tła `krypta-nekropolia` (15 fabuł; anchory 42, 72, 543, 600)",
+      "candidates": [
+        {
+          "label": "n.1",
+          "title": "cicha piwnica jak krypta",
+          "file": "candidates/bg_crypt_cellar_still_01.mp3",
+          "desc": "grobowo spokojny room tone: odległe szmery, mało ruchu, dużo chłodnej pustki (okno 20.0–28.0 s, RMS -32.0 dB, HF>6k 0.2%)",
+          "source": "room tone quiet cellar with distant noises.flac (Freesound)",
+          "entry": {
+            "id": "crypt_cellar_still_01",
+            "setting": "krypta / nieruchome podziemie",
+            "desc": "grobowo spokojny room tone: odległe szmery, mało ruchu, dużo chłodnej pustki (okno 20.0–28.0 s, RMS -32.0 dB, HF>6k 0.2%)",
+            "file": "audio/library/backgrounds/crypt_cellar_still_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -32.0,
+            "loopable": true,
+            "semantics": {
+              "type": "krypta-nekropolia",
+              "traits": [
+                "grobowa cisza",
+                "kamień",
+                "niski pogłos",
+                "martwe wnętrze"
+              ],
+              "bad_for": [
+                "targ",
+                "dzień w lesie",
+                "ciepłe palenisko",
+                "otwarta równina"
+              ]
+            },
+            "source": {
+              "title": "room tone quiet cellar with distant noises.flac (Freesound)",
+              "author": "kyles",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/kyles/sounds/637805/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 637805",
+              "notes": "quiet cellar: okno 20–28 s"
+            }
+          }
+        },
+        {
+          "label": "n.2",
+          "title": "daleki hum w pustej sali",
+          "file": "candidates/bg_crypt_distant_hum_01.mp3",
+          "desc": "niski elektryczny/architektoniczny pomruk i pusta przestrzeń — chłodna sala grobowa bez życia (okno 8.0–16.0 s, RMS -33.0 dB, HF>6k 0.1%)",
+          "source": "room tone hotel room quiet very distant voices and low throbbing electric hum maybe heat on Gaza 2016.wav (Freesound)",
+          "entry": {
+            "id": "crypt_distant_hum_01",
+            "setting": "krypta / dalekie echo",
+            "desc": "niski elektryczny/architektoniczny pomruk i pusta przestrzeń — chłodna sala grobowa bez życia (okno 8.0–16.0 s, RMS -33.0 dB, HF>6k 0.1%)",
+            "file": "audio/library/backgrounds/crypt_distant_hum_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "krypta-nekropolia",
+              "traits": [
+                "grobowa cisza",
+                "kamień",
+                "niski pogłos",
+                "martwe wnętrze",
+                "daleki hum"
+              ],
+              "bad_for": [
+                "targ",
+                "dzień w lesie",
+                "ciepłe palenisko",
+                "otwarta równina"
+              ]
+            },
+            "source": {
+              "title": "room tone hotel room quiet very distant voices and low throbbing electric hum maybe heat on Gaza 2016.wav (Freesound)",
+              "author": "kyles",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/kyles/sounds/406507/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 406507",
+              "notes": "quiet room with distant voices/hum: okno 8–16 s; użyte dla martwego, dalekiego wnętrza"
+            }
+          }
+        },
+        {
+          "label": "n.3",
+          "title": "ciemny ambient nekropolii",
+          "file": "candidates/bg_crypt_dark_ambient_01.mp3",
+          "desc": "syntetyczno-terenowy ciemny szum: najmniej dosłowny, ale najbardziej grobowy i nieruchomy (okno pełny/loop, RMS -33.0 dB, HF>6k 1.0%)",
+          "source": "30 SFX loops (OpenGameArt/Kenney mirror)",
+          "entry": {
+            "id": "crypt_dark_ambient_01",
+            "setting": "krypta / ciemny ambient",
+            "desc": "syntetyczno-terenowy ciemny szum: najmniej dosłowny, ale najbardziej grobowy i nieruchomy (okno pełny/loop, RMS -33.0 dB, HF>6k 1.0%)",
+            "file": "audio/library/backgrounds/crypt_dark_ambient_01.mp3",
+            "duration_sec": 8.0,
+            "level_ref_db": -33,
+            "loopable": true,
+            "semantics": {
+              "type": "krypta-nekropolia",
+              "traits": [
+                "grobowa cisza",
+                "kamień",
+                "niski pogłos",
+                "martwe wnętrze",
+                "ciemny ambient"
+              ],
+              "bad_for": [
+                "targ",
+                "dzień w lesie",
+                "ciepłe palenisko",
+                "otwarta równina"
+              ]
+            },
+            "source": {
+              "title": "30 SFX loops (OpenGameArt/Kenney mirror)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/30-cc0-sfx-loops",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "audio/ambient-02.m4a; ciemny ambient loop"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hero-mechanizm",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `furkot-mechanizmu` (16 fabuł; anchory 19, 132, 146, 228, 484)",
+      "candidates": [
+        {
+          "label": "f.1",
+          "title": "kroczący mechanizm bojowy",
+          "file": "candidates/h_mechanism_mech_step_01.mp3",
+          "desc": "krótka sekwencja serw i ciężkiego mechanicznego kroku (okno 0.7–2.7 s, czas 2.00 s, RMS -15.0 dB, HF>6k 0.7%)",
+          "source": "Battle Mech walks (fast & slow sequence) (Freesound)",
+          "entry": {
+            "id": "mechanism_mech_step_01",
+            "role": "furkot/obrót mechanizmu",
+            "character": "ciężki, kroczący, metaliczny",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 2.0,
+            "desc": "krótka sekwencja serw i ciężkiego mechanicznego kroku (okno 0.7–2.7 s, czas 2.00 s, RMS -15.0 dB, HF>6k 0.7%)",
+            "good_for": "artefakty, automaty, tryby, mechaniczne stworzenia",
+            "bad_for": "żywe skrzydła, ogień, plusk wody",
+            "file": "audio/library/heroes/mechanism_mech_step_01.mp3",
+            "semantics": {
+              "type": "furkot-mechanizmu",
+              "traits": [
+                "mechanizm",
+                "furkot",
+                "metal",
+                "ruch obrotowy",
+                "serwo"
+              ],
+              "bad_for": [
+                "organiczne ciało",
+                "ogień",
+                "woda",
+                "głos"
+              ]
+            },
+            "source": {
+              "title": "Battle Mech walks (fast & slow sequence) (Freesound)",
+              "author": "Breviceps",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/Breviceps/sounds/557594/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 557594",
+              "notes": "Battle Mech walks: okno 0.7–2.7 s; rytmiczny metaliczny mechanizm"
+            }
+          }
+        },
+        {
+          "label": "f.2",
+          "title": "wirujący silnik/koło zębate",
+          "file": "candidates/h_mechanism_engine_circular_01.mp3",
+          "desc": "stabilny obrót jak mały silnik albo koło zębate nabierające tempa (okno pełny, czas 5.01 s, RMS -15.0 dB, HF>6k 4.5%)",
+          "source": "Sci-Fi Sounds (OpenGameArt/Kenney mirror)",
+          "entry": {
+            "id": "mechanism_engine_circular_01",
+            "role": "furkot/obrót mechanizmu",
+            "character": "okrągły, wirujący, równy",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 5.01,
+            "desc": "stabilny obrót jak mały silnik albo koło zębate nabierające tempa (okno pełny, czas 5.01 s, RMS -15.0 dB, HF>6k 4.5%)",
+            "good_for": "wirujące mechanizmy, artefakty, koła zębate",
+            "bad_for": "naturalne skrzydła, drewno, magia bez urządzeń",
+            "file": "audio/library/heroes/mechanism_engine_circular_01.mp3",
+            "semantics": {
+              "type": "furkot-mechanizmu",
+              "traits": [
+                "mechanizm",
+                "furkot",
+                "metal",
+                "ruch obrotowy",
+                "silnik"
+              ],
+              "bad_for": [
+                "organiczne ciało",
+                "ogień",
+                "woda",
+                "głos"
+              ]
+            },
+            "source": {
+              "title": "Sci-Fi Sounds (OpenGameArt/Kenney mirror)",
+              "author": "Kenney",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://kenney.nl/assets/category:Audio",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "engine-circular/space-engine; CC0 wg pack.json"
+            }
+          }
+        },
+        {
+          "label": "f.3",
+          "title": "sprężyna i zapadka",
+          "file": "candidates/h_mechanism_spring_click_01.mp3",
+          "desc": "metalowa sprężyna i zapadka — krótki mechaniczny gest, dobry dla małych urządzeń (okno pełny, czas 0.60 s, RMS -15.0 dB, HF>6k 53.3%)",
+          "source": "100 metal and wood SFX (OpenGameArt/Kenney mirror)",
+          "entry": {
+            "id": "mechanism_spring_click_01",
+            "role": "furkot/obrót mechanizmu",
+            "character": "sprężynowy, klikający, drobny",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 0.6,
+            "desc": "metalowa sprężyna i zapadka — krótki mechaniczny gest, dobry dla małych urządzeń (okno pełny, czas 0.60 s, RMS -15.0 dB, HF>6k 53.3%)",
+            "good_for": "małe mechanizmy, zamki, artefakty z trybami",
+            "bad_for": "kolos, eksplozja, żywe ciało",
+            "file": "audio/library/heroes/mechanism_spring_click_01.mp3",
+            "semantics": {
+              "type": "furkot-mechanizmu",
+              "traits": [
+                "mechanizm",
+                "furkot",
+                "metal",
+                "ruch obrotowy",
+                "sprężyna",
+                "zapadka"
+              ],
+              "bad_for": [
+                "organiczne ciało",
+                "ogień",
+                "woda",
+                "głos"
+              ]
+            },
+            "source": {
+              "title": "100 metal and wood SFX (OpenGameArt/Kenney mirror)",
+              "author": "rubberduck",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/100-cc0-metal-and-wood-sfx",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "metal-spring-01; CC0 wg pack.json"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "slug": "hero-ogien",
+      "kind": "heroes",
+      "role": "jedyny klocek typu hero `huk-ognia` (16 fabuł; anchory 59, 102, 209, 287, 290, 314, 436, 496, 507, 513)",
+      "candidates": [
+        {
+          "label": "o.1",
+          "title": "żywy trzask płomienia",
+          "file": "candidates/h_fire_roar_camp_01.mp3",
+          "desc": "krótki, realny podmuch ognia z trzaskającym drewnem (okno 0.3–2.3 s, czas 2.00 s, RMS -34.2 dB, HF>6k 5.3%)",
+          "source": "Camp fire #2 (Freesound)",
+          "entry": {
+            "id": "fire_roar_camp_01",
+            "role": "huk / gwałtowny płomień",
+            "character": "żywy, trzaskający, bliski",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 2.0,
+            "desc": "krótki, realny podmuch ognia z trzaskającym drewnem (okno 0.3–2.3 s, czas 2.00 s, RMS -34.2 dB, HF>6k 5.3%)",
+            "good_for": "płomień, pożoga, nagły rozbłysk ognia",
+            "bad_for": "ogień bez trzasku? woda, metal, głos",
+            "file": "audio/library/heroes/fire_roar_camp_01.mp3",
+            "semantics": {
+              "type": "huk-ognia",
+              "traits": [
+                "ogień",
+                "huk",
+                "gwałtowny",
+                "żar",
+                "trzask"
+              ],
+              "bad_for": [
+                "woda",
+                "metaliczny mechanizm",
+                "cichy szept",
+                "głos"
+              ]
+            },
+            "source": {
+              "title": "Camp fire #2 (Freesound)",
+              "author": "deleted_user_9900733",
+              "license": "CC0 1.0 (public domain; wg API Freesound)",
+              "url": "https://freesound.org/people/deleted_user_9900733/sounds/809834/",
+              "channel": "sample-scout (preview-hq-mp3); manifest: 809834",
+              "notes": "Camp fire 2: okno 0.3–2.3 s; żywy płomień z trzaskiem"
+            }
+          }
+        },
+        {
+          "label": "o.2",
+          "title": "ciąg palnika / strumień ognia",
+          "file": "candidates/h_fire_roar_thruster_01.mp3",
+          "desc": "mocny strumień płomienia jak palnik albo magiczna smuga ognia (okno pełny, czas 5.01 s, RMS -15.0 dB, HF>6k 0.3%)",
+          "source": "Sci-Fi Sounds (OpenGameArt/Kenney mirror)",
+          "entry": {
+            "id": "fire_roar_thruster_01",
+            "role": "huk / gwałtowny płomień",
+            "character": "ciągły, syczący, energetyczny",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 5.01,
+            "desc": "mocny strumień płomienia jak palnik albo magiczna smuga ognia (okno pełny, czas 5.01 s, RMS -15.0 dB, HF>6k 0.3%)",
+            "good_for": "smugi ognia, wybuch palnika, magiczny płomień",
+            "bad_for": "naturalne ognisko spokojne, metal, woda",
+            "file": "audio/library/heroes/fire_roar_thruster_01.mp3",
+            "semantics": {
+              "type": "huk-ognia",
+              "traits": [
+                "ogień",
+                "huk",
+                "gwałtowny",
+                "żar",
+                "ciąg",
+                "syk"
+              ],
+              "bad_for": [
+                "woda",
+                "metaliczny mechanizm",
+                "cichy szept",
+                "głos"
+              ]
+            },
+            "source": {
+              "title": "Sci-Fi Sounds (OpenGameArt/Kenney mirror)",
+              "author": "Kenney",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://kenney.nl/assets/category:Audio",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "thruster-fire-000; użyte jako mocny ciąg płomienia"
+            }
+          }
+        },
+        {
+          "label": "o.3",
+          "title": "miotacz płomieni",
+          "file": "candidates/h_fire_roar_flamethrower_01.mp3",
+          "desc": "najbardziej agresywny strumień ognia — huk i szum palącego powietrza (okno pełny, czas 0.81 s, RMS -15.0 dB, HF>6k 0.7%)",
+          "source": "Superpowers assets sound effects (OpenGameArt/Kenney mirror)",
+          "entry": {
+            "id": "fire_roar_flamethrower_01",
+            "role": "huk / gwałtowny płomień",
+            "character": "szeroki, agresywny, pożogowy",
+            "distance": "bliski",
+            "energy": "średnia",
+            "duration_sec": 0.81,
+            "desc": "najbardziej agresywny strumień ognia — huk i szum palącego powietrza (okno pełny, czas 0.81 s, RMS -15.0 dB, HF>6k 0.7%)",
+            "good_for": "duży płomień, smoczy oddech, pożoga, ognisty czar",
+            "bad_for": "małe ognisko, rytuał spokojny, woda",
+            "file": "audio/library/heroes/fire_roar_flamethrower_01.mp3",
+            "semantics": {
+              "type": "huk-ognia",
+              "traits": [
+                "ogień",
+                "huk",
+                "gwałtowny",
+                "żar",
+                "miotacz",
+                "pożoga"
+              ],
+              "bad_for": [
+                "woda",
+                "metaliczny mechanizm",
+                "cichy szept",
+                "głos"
+              ]
+            },
+            "source": {
+              "title": "Superpowers assets sound effects (OpenGameArt/Kenney mirror)",
+              "author": "medicinestorm",
+              "license": "CC0 1.0 (public domain)",
+              "url": "https://opengameart.org/content/superpowers-assets-sound-effects",
+              "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+              "notes": "flame-thrower.m4a; CC0 wg pack.json"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "verdicts": {
+    "tlo-step": "żaden",
+    "tlo-kuznia": "żaden",
+    "tlo-krypta": "żaden",
+    "hero-mechanizm": "żaden",
+    "hero-ogien": "o.2",
+    "notes": {
+      "tlo-step": "właściciel: wszystkie za głośne; s.3 dodatkowo ma muzykę w tle",
+      "tlo-kuznia": "właściciel: powinno być miarowe kucie w kuźni; żadna propozycja tego nie ma",
+      "tlo-krypta": "właściciel odrzuca samą ideę: nekropolia brzmi ciszą, a ciszy nie ma jako dźwięk; wymyślić sensowniejszy rodzaj tła",
+      "hero-mechanizm": "właściciel odrzuca samą ideę: każdy mechanizm brzmi inaczej, nie ma jednego uniwersalnego mechanizmu",
+      "hero-ogien": "wybrane o.2"
+    }
+  }
+}

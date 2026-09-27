@@ -1,0 +1,46 @@
+{
+  "story_id": "277",
+  "length_sec": 6.0,
+  "background": {
+    "id": "forest_day_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "heavyblow_gong_01",
+    "at_sec": 0.8,
+    "target_db": -14
+  },
+  "coda": {
+    "gesture": "g6c_sentry_return",
+    "instrument": "b_timpani",
+    "at_sec": 3.1,
+    "target_db": -21
+  },
+  "seed": 277,
+  "gate": "g032",
+  "profile": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "potezny-cios",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "ciezka"
+    },
+    "note": "Rola z narracji po sanity audycie g032: tło — Skraj kolczastego lasu o zachodzie — strumień, cisza pustkowia przed nocą; hero — Ciężki miecz-piła wbity w spękaną ziemię — wyznaczenie granicy, łoś pochyla łeb nad wodą; koda — Spokojna straż — posterunek przetrwa noc; instrumentacja — Ciężko, spokojnie, surowo. Obsada bloków wg resolvera po przyjęciu g032, z ręcznymi korektami klas zapobiegającymi naciąganiu słów-kluczy."
+  },
+  "resolution": {
+    "types": {
+      "background": "las-dzienny",
+      "hero": "potezny-cios",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "ciezka"
+    },
+    "blocks": {
+      "background": "forest_day_01",
+      "hero": "heavyblow_gong_01",
+      "mood": "g6c_sentry_return",
+      "instrumentation": "b_timpani"
+    },
+    "reason": "model 1:1 — typy profilu wskazały jedyne klocki; sanity audit po g032 nie wykazał twardej sprzeczności; kombinacja unikalna"
+  }
+}
