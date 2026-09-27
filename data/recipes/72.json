@@ -1,0 +1,46 @@
+{
+  "story_id": "72",
+  "length_sec": 6.0,
+  "background": {
+    "id": "cave_quarry_tunnel_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "materialize_magic_swell_01",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g6c_sentry_return",
+    "instrument": "b_soloviol_spic",
+    "at_sec": 3.2,
+    "target_db": -20
+  },
+  "seed": 72,
+  "gate": "g034",
+  "profile": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "przemiana-materializacja",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "note": "Rola z narracji po sanity audycie g034: tło — Podziemna krypta — kamienna cisza, osmalone ślady dawnych przywołań; hero — Portal w łuku pulsuje żarem, a z jego serca materializuje się smok — gorące przejście między światami; koda — Niebezpieczna obietnica: coś przejdzie; instrumentacja — Ostro, napięcie i narastanie portalu."
+  },
+  "resolution": {
+    "types": {
+      "background": "podziemia-jaskinia",
+      "hero": "przemiana-materializacja",
+      "mood": "czujnosc-napiecie",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "blocks": {
+      "background": "cave_quarry_tunnel_01",
+      "hero": "materialize_magic_swell_01",
+      "mood": "g6c_sentry_return",
+      "instrumentation": "b_soloviol_spic"
+    },
+    "reason": "model 1:1 po sanity audycie g034 — brak twardej sprzeczności; kombinacja unikalna"
+  }
+}

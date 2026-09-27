@@ -2272,12 +2272,12 @@
         ]
       },
       "hero": {
-        "opis": "Kontrolowany płomień tańczy na dłoni Starszego — cichy, opanowany ogień próby",
+        "opis": "Niewielki kontrolowany płomień tańczy na dłoni Starszego — próba skupienia, nie huk ognia",
         "cechy": [
-          "kontrolowany płomień",
-          "taniec ognia na dłoni",
-          "próba",
-          "opanowanie"
+          "mały kontrolowany płomień",
+          "gest prezentacji",
+          "próba zaklęcia",
+          "brak wybuchu"
         ]
       },
       "mood": {
@@ -2771,12 +2771,12 @@
         ]
       },
       "hero": {
-        "opis": "Portal w łuku pulsuje żarem, a z jego serca wyłania się smok — gorący pomruk przejścia",
+        "opis": "Portal w łuku pulsuje żarem, a z jego serca materializuje się smok — gorące przejście między światami",
         "cechy": [
-          "pulsujący portal",
-          "gorący pomruk",
-          "wyłanianie się smoka",
-          "narastający żar"
+          "portal w łuku",
+          "materializujący się smok",
+          "żar przejścia",
+          "pomruk portalu"
         ]
       },
       "mood": {
@@ -2788,11 +2788,12 @@
         ]
       },
       "instrumentation": {
-        "opis": "Głęboko, ciemno, narastająco",
+        "opis": "Ostro, napięcie i narastanie portalu",
         "cechy": [
-          "głęboki",
-          "ciemny",
-          "narastający"
+          "ostre napięcie",
+          "narastanie",
+          "portal",
+          "zagrożenie"
         ]
       }
     },
@@ -5416,11 +5417,12 @@
         ]
       },
       "instrumentation": {
-        "opis": "Ciemno, drobno, napięcie",
+        "opis": "Ostro, drobno, podstępne napięcie mechanicznego obserwatora",
         "cechy": [
-          "ciemny",
-          "drobny",
-          "napięty"
+          "ostre drobne ataki",
+          "podstęp",
+          "mechaniczne oko",
+          "napięcie"
         ]
       }
     },
@@ -6758,12 +6760,12 @@
         ]
       },
       "hero": {
-        "opis": "Płonący miecz treningowy i tor przeszkód w ogniu — spokojny płomień egzaminu",
+        "opis": "Płonący miecz treningowy jak spokojna pochodnia i obręcze z płonącą liną — ogień egzaminu bez huku",
         "cechy": [
-          "płonący miecz treningowy",
+          "pochodnia treningowa",
+          "płonąca lina",
           "spokojny ogień",
-          "tor przeszkód",
-          "egzamin odwagi"
+          "tor przeszkód"
         ]
       },
       "mood": {
@@ -10063,21 +10065,21 @@
     "314": {
       "title": "Revolutionist",
       "background": {
-        "opis": "Zrujnowana podziemna biblioteka — przewrócone regały, wirujące kartki",
+        "opis": "Zrujnowana podziemna biblioteka — przewrócone regały, wirujące kartki, chłodne echo ruin",
         "cechy": [
-          "zrujnowana biblioteka",
-          "wirujące kartki",
+          "podziemna biblioteka",
+          "ruiny",
           "przewrócone regały",
-          "podziemny pogłos"
+          "wirujące kartki"
         ]
       },
       "hero": {
-        "opis": "Gorączkowe rozrzucanie stron i rozbłysk ognistej runy — chaos jako paliwo",
+        "opis": "Gorączkowe rozrzucanie stron i rozbłysk czerwonej runy na kartce — papier i zaklęcie, nie strumień ognia",
         "cechy": [
-          "gorączkowe kartkowanie",
-          "rozrzucane strony",
-          "rozbłysk runy",
-          "spirale papieru"
+          "wirujące kartki",
+          "otwarta księga",
+          "czerwona runa",
+          "szelest papieru"
         ]
       },
       "mood": {
@@ -15412,12 +15414,12 @@
         ]
       },
       "hero": {
-        "opis": "Magia buntu przejmuje załogę — kordelas przy gardle kapitana, płonące oczy bosmana",
+        "opis": "Karmazynowa fala magii buntu przejmuje załogę — płonące oczy są skutkiem opętania, nie źródłem ognia",
         "cechy": [
-          "ostrze przy gardle",
+          "fala magii buntu",
+          "przejęcie umysłów",
           "płonące oczy",
-          "przejęte umysły",
-          "wybuch buntu"
+          "kordelas przy gardle"
         ]
       },
       "mood": {

@@ -1,0 +1,47 @@
+{
+  "story_id": "287",
+  "length_sec": 6.0,
+  "background": {
+    "id": "thunder_far_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "fire_roar_thruster_01",
+    "at_sec": 0.8,
+    "target_db": -14
+  },
+  "coda": {
+    "gesture": "g_feral_stampede",
+    "instrument": "b_bassdrum",
+    "at_sec": 3.2,
+    "target_db": -16,
+    "damp_db": 4.0
+  },
+  "seed": 287,
+  "gate": "g034",
+  "profile": {
+    "types": {
+      "background": "burza-zywiol",
+      "hero": "huk-ognia",
+      "mood": "furia-dzikosc",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "note": "Rola z narracji po sanity audycie g034: tło — Skaliste zbocze pod burzowym niebem — stepowy wiatr, nadciągająca burza; hero — Wybuch drakońskiej furii — wir ognia formuje skrzydła smoka za plecami; koda — Furia jako przypomnienie — smoki są odpowiedzią; instrumentacja — Ogniście, gwałtownie, potężnie. Technicznie: koda ma damp_db=4, bo szybkie bębny furii inaczej maskowały ostatni atak w QA."
+  },
+  "resolution": {
+    "types": {
+      "background": "burza-zywiol",
+      "hero": "huk-ognia",
+      "mood": "furia-dzikosc",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "blocks": {
+      "background": "thunder_far_01",
+      "hero": "fire_roar_thruster_01",
+      "mood": "g_feral_stampede",
+      "instrumentation": "b_bassdrum"
+    },
+    "reason": "model 1:1 po sanity audycie g034 — brak twardej sprzeczności; kombinacja unikalna"
+  }
+}

@@ -4,33 +4,33 @@ Ten plik odpowiada na pytanie „gdzie jesteśmy i co robić dalej”, żeby now
 sesja nie musiała rekonstruować kontekstu z historii gita. Reguły są
 w `AGENTS.md` i `docs/gate-protocol.md` — tutaj wyłącznie bieżący stan.
 
-Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
+Ostatnia aktualizacja: **2026-09-27** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **59**
-  (legacy 1–4 + model 1:1: 5, 8, 18, 23, 28, 55, 64, 76, 84, 85, 95,
-  110, 126, 133, 166, 169, 175, 179, 188, 191, 193, 211, 215, 222, 224,
-  225, 227, 249, 277, 282, 299, 337, 354, 382, 393, 401, 422, 428, 433,
-  437, 451, 468, 474, 489, 498, 499, 506, 511, 519, 562, 575, 577, 578,
-  579, 585).
-- Baza klocków: **55 wpisów** (`library_tool.py check`: 13 teł / 16 hero /
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **64**
+  (legacy 1–4 + model 1:1: 5, 8, 18, 23, 28, 55, 64, 72, 76, 84, 85, 95,
+  110, 126, 133, 146, 166, 169, 175, 179, 188, 191, 193, 211, 215, 222,
+  224, 225, 227, 249, 277, 282, 287, 290, 299, 337, 354, 382, 393, 401,
+  422, 428, 433, 437, 451, 468, 474, 489, 496, 498, 499, 506, 511, 519,
+  562, 575, 577, 578, 579, 585).
+- Baza klocków: **56 wpisów** (`library_tool.py check`: 13 teł / 17 hero /
   15 gestów / 11 instrumentów — wszystkie z `semantics`, model 1:1,
   taksonomia v6 + pending typy dla braków).
-- Bramki rozegrane z werdyktem i przyjęciem do biblioteki: **g001–g033**
-  (g014 wycofana — archiwum). g033 zamknięta częściowo decyzjami właściciela:
-  `tlo-podziemia=p.2`, `tlo-gory=g.3`, `hero-przemiana=m.1`,
-  `koda-intryga=i.3`; `koda-wladza=żaden` („żaden mi nie pasuje”). Do bazy
-  weszły: `cave_quarry_tunnel_01`, `mountain_wind_plateau_01`,
-  `materialize_magic_swell_01`, `g_intrigue_shadow_wink`.
-- `resolver.py --survey` po audycie/renderach po g033: **58** fabuł w pełni
-  obsadzalnych dziś (lista z survey nie zawiera części legacy), **450** z
+- Bramki rozegrane z werdyktem i przyjęciem do biblioteki: **g001–g034**
+  (g014 wycofana — archiwum). g034 zamknięta częściowo decyzjami właściciela:
+  przyjęte tylko `hero-ogien=o.2` → `fire_roar_thruster_01`; odrzucone
+  `tlo-step` (za głośne, `s.3` z muzyką), `tlo-kuznia` (brak miarowego kucia),
+  `tlo-krypta` (nekropolia = cisza, nie target audio) i `hero-mechanizm`
+  (nie ma uniwersalnego mechanizmu).
+- `resolver.py --survey` po audycie/renderach po g034: **63** fabuły w pełni
+  obsadzalne dziś (lista z survey nie zawiera części legacy), **445** z
   częściową obsadą. Bez receptury, mimo statusu `OBSADZONA`, zostają tylko
   **309** i **502** — technicznie nie przeszły QA renderu. Największe braki:
   `background:miasto-gwar`, `background:swiatynia-sanktuarium`,
-  `background:miasto-nocne`, `background:laboratorium-technika`,
-  `background:wioska-sielska`, `background:step-rownina`,
-  `background:kuznia-warsztat`.
+  `background:noc-ksiezyc`, `background:miasto-nocne`,
+  `background:laboratorium-technika`, `background:wioska-sielska`,
+  `background:step-rownina`, `background:kuznia-warsztat`.
 - **Wycofane po audycie semantycznym gotowych**: **90, 206, 268, 599**.
   Usunięto ich receptury i MP3; klasy skorygowano tak, żeby resolver zwracał
   BRAK zamiast ponownie obsadzić zły klocek. Pełny audyt:
@@ -42,21 +42,37 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 ## W toku
 
 - PR: `https://github.com/szybkoiwyraznie-rgb/mtgdatabase/pull/38` na gałęzi
-  `arena/01a0dd2c-mtgdatabase`. Zawiera audyt gotowych, przyjęcie g032,
-  produkcję po g032, przyjęcie 4/5 wpisów z g033, 15 renderów po g033 oraz
-  otwartą bramkę g034.
-- Po g033 wyrenderowano 15 fabuł; zablokowane są: `104` i `528` semantycznie
-  oraz `309` i `502` technicznie po QA. Pełny zapis:
-  `docs/audits/2026-09-27-audyt-po-g033.md`.
-- **g034 do werdyktu właściciela**: `tlo-step: s.1/s.2/s.3`,
-  `tlo-kuznia: k.1/k.2/k.3`, `tlo-krypta: n.1/n.2/n.3`,
-  `hero-mechanizm: f.1/f.2/f.3`, `hero-ogien: o.1/o.2/o.3` albo `żaden`
-  z powodem dla danego wpisu.
+  `arena/01a0dd2c-mtgdatabase`. Zawiera audyt gotowych, przyjęcie g032, produkcję po g032, przyjęcie 4/5
+  wpisów z g033, 15 renderów po g033, bramkę g034, werdykt g034 oraz 5
+  renderów po g034.
+- Po g034 wyrenderowano 5 fabuł: `72`, `146`, `287`, `290`, `496`.
+  Zablokowane pozostają: `104` i `528` semantycznie po g033 oraz `309` i `502`
+  technicznie po QA. Pełne zapisy: `docs/audits/2026-09-27-audyt-po-g033.md`
+  i `docs/audits/2026-09-27-audyt-po-g034.md`.
+- Po korekcie właściciela **nie używać** `background:krypta-nekropolia` ani
+  `hero:furkot-mechanizmu` jako targetów produkcyjnych. Oba mają 0 aktywnych
+  przypisań; mechanizmy rozbijane są na konkretne typy pending.
 - `mood:wladza-kontrola` nadal bez klocka — g033/w odrzucone przez właściciela;
   nie weszło do g034, trzeba wrócić w osobnej paczce.
 - Przed oddaniem/mergem utrzymać pełną walidację: `check_required_reading`,
   `compileall`, `test_signature_system`, `library_tool.py check`,
   `build_pack`, `build_site`, `git diff --check`, a po pushu sprawdzić CI PR.
+
+## Sesja 2026-09-27 — g034 i produkcja po audycie
+
+1. Właściciel zamknął g034: zaakceptował tylko `hero-ogien=o.2`, odrzucił
+   step, kuźnię, kryptę/nekropolię i uniwersalny mechanizm.
+2. Do biblioteki wszedł `heroes/fire_roar_thruster_01` (`hero:huk-ognia`).
+3. Po korekcie semantycznej usunięto wszystkie aktywne użycia
+   `background:krypta-nekropolia` i `hero:furkot-mechanizmu`. Nekropolie
+   zastąpiono konkretnymi słyszalnymi tłami; mechanizmy rozbito na typy per
+   mechanizm.
+4. Sanity audit nowo pełnych zablokował fałszywe ognie: `59`
+   (`plomien-kontrolowany`), `209` (`plomien-pochodni`), `314`
+   (`szelest-papieru` + podziemia) i `513` (`mroczna-fala`).
+5. Wyrenderowano bez `--force` pięć sygnatur: `72`, `146`, `287`, `290`,
+   `496`. `309` i `502` pozostają pełne semantycznie, ale bez receptur/MP3
+   przez techniczne QA.
 
 ## Sesja 2026-09-26 — skrót przebiegu
 
@@ -79,25 +95,23 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 ## Co dalej (kolejność pracy, nie wymaga pytania właściciela)
 
-1. Najpierw wrócić do blokad po g033 tylko świadomie: `309` i `502` są pełne
+1. Najpierw wrócić do blokad tylko świadomie: `309` i `502` są pełne
    semantycznie, ale nie mają receptur/MP3, bo obecne kombinacje gest×instrument
    nie przechodzą QA; `104` i `528` wymagają nowych teł (`miasto-neonowe`,
    `dom-nawiedzony`).
-2. Najpierw zamknąć **g034** po werdykcie właściciela: wpisać wybory do
-   `data/gates/g034/verdicts.json`, uruchomić `library_tool.py accept --gate g034`,
-   potem `resolver.py --survey` i sanity audit nowo odblokowanych fabuł przed renderem.
-3. Następna bramka po g034 powinna dalej brać typy z największych realnych
-   braków, zwłaszcza te nieobjęte g033/g034: `background:miasto-gwar`,
-   `background:swiatynia-sanktuarium`, `background:miasto-nocne`,
-   `background:laboratorium-technika`, `background:wioska-sielska`.
-4. W tej samej kolejce uwzględniać braki ujawnione audytami właściciela:
+2. Następna bramka po g034 powinna dalej brać typy z największych realnych
+   braków: `background:miasto-gwar`, `background:swiatynia-sanktuarium`,
+   `background:noc-ksiezyc`, `background:miasto-nocne`,
+   `background:laboratorium-technika`, `background:wioska-sielska`,
+   `background:step-rownina`, `background:kuznia-warsztat`.
+3. W tej samej kolejce uwzględniać braki ujawnione audytami właściciela:
    `background:zatoka-spokojna` (90), `hero:stukot-szczudel` (206),
    `hero:aura-lagodna` (253/268), `background:las-mroczny` (599),
    `background:twierdza-posepna` (560), `mood:wladza-kontrola` (607).
-5. Po każdej nowej bramce NIE batch-renderować samej listy `OBSADZONA`.
+4. Po każdej nowej bramce NIE batch-renderować samej listy `OBSADZONA`.
    Najpierw wypisz nowo pełne bez receptury i wykonaj sanity audit narracja →
    klasa → konkretny klocek. Dopiero potem renderuj.
-6. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
+5. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
    ```python
    import sys
    sys.path.insert(0, "scripts")
@@ -110,7 +124,7 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
                and r["braki"][0]["typ"] == "TYP"):
            print(sid, r["title"])
    ```
-7. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
+6. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
    g001, nadpisuje ten katalog przy KAŻDYM uruchomieniu (LESSONS 2026-09-25).
 
 ## Sample scout — uruchomienie

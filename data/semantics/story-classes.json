@@ -71,7 +71,7 @@
     },
     "12": {
       "background": "miasto-gwar",
-      "hero": "furkot-mechanizmu",
+      "hero": "ramiona-chwytaki",
       "mood": "radosc-beztroska",
       "instrumentation": "cicho-kameralna"
     },
@@ -100,7 +100,7 @@
       "instrumentation": "mroczna"
     },
     "17": {
-      "background": "krypta-nekropolia",
+      "background": "morze-wybrzeze",
       "hero": "swist-ostrza",
       "mood": "tajemnica-obcosc",
       "instrumentation": "cicho-kameralna"
@@ -113,7 +113,7 @@
     },
     "19": {
       "background": "dwor-komnaty",
-      "hero": "furkot-mechanizmu",
+      "hero": "mechanizm-astrolabium",
       "mood": "tajemnica-obcosc",
       "instrumentation": "cicho-kameralna"
     },
@@ -208,7 +208,7 @@
       "instrumentation": "monumentalno-potezna"
     },
     "35": {
-      "background": "krypta-nekropolia",
+      "background": "noc-ksiezyc",
       "hero": "brzeczenie-roju",
       "mood": "tajemnica-obcosc",
       "instrumentation": "cicho-kameralna"
@@ -250,7 +250,7 @@
       "instrumentation": "mroczna"
     },
     "42": {
-      "background": "krypta-nekropolia",
+      "background": "noc-ksiezyc",
       "hero": "krakanie",
       "mood": "tajemnica-obcosc",
       "instrumentation": "mroczna"
@@ -353,7 +353,7 @@
     },
     "59": {
       "background": "dwor-komnaty",
-      "hero": "huk-ognia",
+      "hero": "plomien-kontrolowany",
       "mood": "czujnosc-napiecie",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -430,14 +430,14 @@
       "instrumentation": "ciezka"
     },
     "72": {
-      "background": "krypta-nekropolia",
-      "hero": "rezonans-magiczny",
+      "background": "podziemia-jaskinia",
+      "hero": "przemiana-materializacja",
       "mood": "czujnosc-napiecie",
-      "instrumentation": "mroczna"
+      "instrumentation": "ostro-gwaltowna"
     },
     "73": {
       "background": "las-mroczny",
-      "hero": "furkot-mechanizmu",
+      "hero": "serwomechanizm-konstruktu",
       "mood": "czujnosc-napiecie",
       "instrumentation": "jasno-swietlista"
     },
@@ -479,7 +479,7 @@
     },
     "80": {
       "background": "laboratorium-technika",
-      "hero": "furkot-mechanizmu",
+      "hero": "zgrzyt-metalu",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "uroczysto-podniosla"
     },
@@ -604,7 +604,7 @@
       "instrumentation": "metaliczno-mechaniczna"
     },
     "101": {
-      "background": "krypta-nekropolia",
+      "background": "bagno-moczary",
       "hero": "brzek-drobiazgow",
       "mood": "tajemnica-obcosc",
       "instrumentation": "mroczna"
@@ -766,7 +766,7 @@
       "instrumentation": "ostro-gwaltowna"
     },
     "128": {
-      "background": "krypta-nekropolia",
+      "background": "noc-ksiezyc",
       "hero": "chrobot-szelest",
       "mood": "wladza-kontrola",
       "instrumentation": "mroczna"
@@ -791,7 +791,7 @@
     },
     "132": {
       "background": "niebo-przestworza",
-      "hero": "furkot-mechanizmu",
+      "hero": "wirnik-thoptera",
       "mood": "wspolnota-wiez",
       "instrumentation": "metaliczno-mechaniczna"
     },
@@ -845,9 +845,9 @@
     },
     "146": {
       "background": "dwor-komnaty",
-      "hero": "furkot-mechanizmu",
+      "hero": "krakanie",
       "mood": "podstep-intryga",
-      "instrumentation": "mroczna"
+      "instrumentation": "ostro-gwaltowna"
     },
     "150": {
       "background": "miasto-gwar",
@@ -965,7 +965,7 @@
     },
     "186": {
       "background": "kuznia-warsztat",
-      "hero": "furkot-mechanizmu",
+      "hero": "mechanizm-zebatki",
       "mood": "tajemnica-obcosc",
       "instrumentation": "metaliczno-mechaniczna"
     },
@@ -1061,7 +1061,7 @@
     },
     "209": {
       "background": "oboz-wojenny",
-      "hero": "huk-ognia",
+      "hero": "plomien-pochodni",
       "mood": "precyzja-dyscyplina",
       "instrumentation": "cieplo-serdeczna"
     },
@@ -1073,7 +1073,7 @@
     },
     "213": {
       "background": "kuznia-warsztat",
-      "hero": "furkot-mechanizmu",
+      "hero": "mechanizm-zebatki",
       "mood": "smutek-strata",
       "instrumentation": "cicho-kameralna"
     },
@@ -1163,7 +1163,7 @@
     },
     "228": {
       "background": "kraina-ognia",
-      "hero": "furkot-mechanizmu",
+      "hero": "stukot-szczudel",
       "mood": "czujnosc-napiecie",
       "instrumentation": "metaliczno-mechaniczna"
     },
@@ -1252,7 +1252,7 @@
       "instrumentation": "mroczna"
     },
     "248": {
-      "background": "krypta-nekropolia",
+      "background": "noc-ksiezyc",
       "hero": "grzechot-kosci",
       "mood": "groza-przerazenie",
       "instrumentation": "sucho-surowa"
@@ -1433,7 +1433,7 @@
     },
     "288": {
       "background": "laboratorium-technika",
-      "hero": "furkot-mechanizmu",
+      "hero": "rozruch-maszyny",
       "mood": "czujnosc-napiecie",
       "instrumentation": "metaliczno-mechaniczna"
     },
@@ -1588,8 +1588,8 @@
       "instrumentation": "zimno-szklista"
     },
     "314": {
-      "background": "dwor-komnaty",
-      "hero": "huk-ognia",
+      "background": "podziemia-jaskinia",
+      "hero": "szelest-papieru",
       "mood": "furia-dzikosc",
       "instrumentation": "ostro-gwaltowna"
     },
@@ -1751,7 +1751,7 @@
     },
     "362": {
       "background": "ruiny-pradawne",
-      "hero": "furkot-mechanizmu",
+      "hero": "montaz-modulow",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "cicho-kameralna"
     },
@@ -1828,7 +1828,7 @@
       "instrumentation": "ciezka"
     },
     "383": {
-      "background": "krypta-nekropolia",
+      "background": "noc-ksiezyc",
       "hero": "bariera-odbicie",
       "mood": "determinacja-niezlomnosc",
       "instrumentation": "napieto-niepokojaca"
@@ -2038,7 +2038,7 @@
       "instrumentation": "cieplo-serdeczna"
     },
     "447": {
-      "background": "krypta-nekropolia",
+      "background": "las-mroczny",
       "hero": "grzechot-kosci",
       "mood": "poswiecenie-ofiara",
       "instrumentation": "napieto-niepokojaca"
@@ -2069,7 +2069,7 @@
     },
     "452": {
       "background": "dwor-komnaty",
-      "hero": "furkot-mechanizmu",
+      "hero": "mechanizm-astrolabium",
       "mood": "bezsilnosc-osaczenie",
       "instrumentation": "metaliczno-mechaniczna"
     },
@@ -2128,7 +2128,7 @@
       "instrumentation": "ostro-gwaltowna"
     },
     "462": {
-      "background": "krypta-nekropolia",
+      "background": "podziemia-jaskinia",
       "hero": "kroki-kolosa",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "ciezka"
@@ -2261,7 +2261,7 @@
     },
     "484": {
       "background": "podziemia-jaskinia",
-      "hero": "furkot-mechanizmu",
+      "hero": "obrot-pierscieni",
       "mood": "tajemnica-obcosc",
       "instrumentation": "cicho-kameralna"
     },
@@ -2435,7 +2435,7 @@
     },
     "513": {
       "background": "morze-wybrzeze",
-      "hero": "huk-ognia",
+      "hero": "mroczna-fala",
       "mood": "wspolnota-wiez",
       "instrumentation": "mroczna"
     },
@@ -2476,7 +2476,7 @@
       "instrumentation": "ciezka"
     },
     "520": {
-      "background": "krypta-nekropolia",
+      "background": "podziemia-jaskinia",
       "hero": "przemowa-glos",
       "mood": "bezwzglednosc-drapieznosc",
       "instrumentation": "mroczna"
@@ -2614,7 +2614,7 @@
       "instrumentation": "monumentalno-potezna"
     },
     "543": {
-      "background": "krypta-nekropolia",
+      "background": "noc-ksiezyc",
       "hero": "potezny-cios",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "sucho-surowa"
@@ -2765,7 +2765,7 @@
     },
     "568": {
       "background": "laboratorium-technika",
-      "hero": "furkot-mechanizmu",
+      "hero": "szum-nanoroj",
       "mood": "czujnosc-napiecie",
       "instrumentation": "cicho-kameralna"
     },
@@ -2884,7 +2884,7 @@
       "instrumentation": "miarowo-rytmiczna"
     },
     "588": {
-      "background": "krypta-nekropolia",
+      "background": "noc-ksiezyc",
       "hero": "mroczna-fala",
       "mood": "wladza-kontrola",
       "instrumentation": "mroczna"
@@ -2933,7 +2933,7 @@
     },
     "596": {
       "background": "kuznia-warsztat",
-      "hero": "furkot-mechanizmu",
+      "hero": "wirnik-thoptera",
       "mood": "duma-majestat",
       "instrumentation": "cicho-kameralna"
     },
@@ -2956,7 +2956,7 @@
       "instrumentation": "cieplo-serdeczna"
     },
     "600": {
-      "background": "krypta-nekropolia",
+      "background": "noc-ksiezyc",
       "hero": "marsz-oddzialu",
       "mood": "groza-przerazenie",
       "instrumentation": "mroczna"
@@ -2974,7 +2974,7 @@
       "instrumentation": "elektryczno-obca"
     },
     "603": {
-      "background": "krypta-nekropolia",
+      "background": "podziemia-jaskinia",
       "hero": "chrzest-pozerania",
       "mood": "czujnosc-napiecie",
       "instrumentation": "mroczna"
@@ -3017,7 +3017,7 @@
     },
     "610": {
       "background": "miasto-gwar",
-      "hero": "furkot-mechanizmu",
+      "hero": "zwinny-skok",
       "mood": "duma-majestat",
       "instrumentation": "cicho-kameralna"
     },

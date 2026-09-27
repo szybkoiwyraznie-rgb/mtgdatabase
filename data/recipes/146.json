@@ -1,0 +1,46 @@
+{
+  "story_id": "146",
+  "length_sec": 6.0,
+  "background": {
+    "id": "chamber_hearth_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "raven_yell_long_01",
+    "at_sec": 0.8,
+    "target_db": -15
+  },
+  "coda": {
+    "gesture": "g_intrigue_shadow_wink",
+    "instrument": "b_soloviol_spic",
+    "at_sec": 3.2,
+    "target_db": -20
+  },
+  "seed": 146,
+  "gate": "g034",
+  "profile": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "krakanie",
+      "mood": "podstep-intryga",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "note": "Rola z narracji po sanity audycie g034: tło — Mroczne pałacowe wnętrze — dym kadzidła, ciężkie draperie, cisza dworu; hero — Kruk z mechanicznym okiem na żerdzi — kraknięcie i cykanie implantu obserwatora; koda — Dworski nadzór — nic nie umyka trzeciej soczewce; instrumentacja — Ostro, drobno, podstępne napięcie mechanicznego obserwatora."
+  },
+  "resolution": {
+    "types": {
+      "background": "dwor-komnaty",
+      "hero": "krakanie",
+      "mood": "podstep-intryga",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "blocks": {
+      "background": "chamber_hearth_01",
+      "hero": "raven_yell_long_01",
+      "mood": "g_intrigue_shadow_wink",
+      "instrumentation": "b_soloviol_spic"
+    },
+    "reason": "model 1:1 po sanity audycie g034 — brak twardej sprzeczności; kombinacja unikalna"
+  }
+}

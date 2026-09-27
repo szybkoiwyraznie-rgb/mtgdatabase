@@ -637,6 +637,48 @@
         "choice": "hero-przemiana.1",
         "date": "2026-09-27"
       }
+    },
+    {
+      "id": "fire_roar_thruster_01",
+      "role": "huk / gwałtowny płomień",
+      "character": "ciągły, syczący, energetyczny",
+      "distance": "bliski",
+      "energy": "średnia",
+      "duration_sec": 5.01,
+      "desc": "mocny strumień płomienia jak palnik albo magiczna smuga ognia (okno pełny, czas 5.01 s, RMS -15.0 dB, HF>6k 0.3%)",
+      "good_for": "smugi ognia, wybuch palnika, magiczny płomień",
+      "bad_for": "naturalne ognisko spokojne, metal, woda",
+      "file": "audio/library/heroes/fire_roar_thruster_01.mp3",
+      "semantics": {
+        "type": "huk-ognia",
+        "traits": [
+          "ogień",
+          "huk",
+          "gwałtowny",
+          "żar",
+          "ciąg",
+          "syk"
+        ],
+        "bad_for": [
+          "woda",
+          "metaliczny mechanizm",
+          "cichy szept",
+          "głos"
+        ]
+      },
+      "source": {
+        "title": "Sci-Fi Sounds (OpenGameArt/Kenney mirror)",
+        "author": "Kenney",
+        "license": "CC0 1.0 (public domain)",
+        "url": "https://kenney.nl/assets/category:Audio",
+        "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+        "notes": "thruster-fire-000; użyte jako mocny ciąg płomienia"
+      },
+      "approved": {
+        "gate": "g034",
+        "choice": "hero-ogien.2",
+        "date": "2026-09-27"
+      }
     }
   ]
 }

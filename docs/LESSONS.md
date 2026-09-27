@@ -646,3 +646,38 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   „zablokowanej technicznie” pozostaje lekcją o `damp_db`, ale dla samej
   fabuły został uchylony semantycznie: nie wolno jej już prowadzić przez
   `fala-rozbryzg`, bo złote fale inspiracji to `aura-lagodna`.
+
+## Nie rób targetu audio z ciszy ani z uniwersalnej abstrakcji (werdykt g034, 2026-09-27)
+
+- Sytuacja: bramka g034 próbowała obsłużyć `background:krypta-nekropolia`
+  oraz `hero:furkot-mechanizmu`. Właściciel odrzucił oba założenia, nie tylko
+  kandydatów: nekropolia/cmentarz „brzmi ciszą”, a cisza nie jest użytecznym
+  dźwiękiem w tej bibliotece; mechanizm nie ma jednego uniwersalnego brzmienia,
+  bo thopter, astrolabium, chwytak, zębatki i nanorój brzmią inaczej.
+- Wniosek: target audio musi być konkretnym słyszalnym zdarzeniem albo
+  środowiskiem, a nie narracyjną etykietą. Jeśli scena jest nekropolią, pytanie
+  brzmi „co tam faktycznie słychać?” (noc, wiatr, podziemia, las, morze,
+  bagno), nie „jak brzmi nekropolia?”. Jeśli scena zawiera mechanizm, najpierw
+  nazwij konkretny mechanizm i jego ruch.
+- Zasada / działanie zapobiegawcze: nie przywracać
+  `background:krypta-nekropolia` ani `hero:furkot-mechanizmu` jako typów
+  produkcyjnych. Po g034 oba mają 0 aktywnych użyć. Nowe bramki muszą dotyczyć
+  konkretnych wariantów, np. `wirnik-thoptera`, `mechanizm-astrolabium`,
+  `ramiona-chwytaki`, `mechanizm-zebatki`, `rozruch-maszyny`, albo realnego
+  tła słyszalnego w scenie.
+
+## Ogień: strumień/palnik ≠ mały płomień, pochodnia ani płonące oczy (g034, 2026-09-27)
+
+- Sytuacja: g034 przyjęła `fire_roar_thruster_01` jako `hero:huk-ognia` — mocny
+  strumień płomienia jak palnik lub magiczna smuga ognia. Sanity audit pokazał
+  jednak fałszywe pełne fabuły: 59 miała niewielki kontrolowany płomień na dłoni,
+  209 płonący miecz treningowy jak pochodnię, 314 runę i wirujące kartki, a 513
+  „płonące oczy” jako objaw opętania/buntu.
+- Wniosek: słowo „płomień/płonący/ognisty” nie wystarcza do użycia
+  `huk-ognia`. Trzeba rozróżniać fizyczny, mocny strumień/huk ognia od małych,
+  spokojnych lub metaforycznych zjawisk.
+- Zasada / działanie zapobiegawcze: po każdym nowym klocku hero z szerokim
+  słowem-kluczem wykonać sanity audit nowo pełnych. Jeśli scena mówi o małym
+  płomieniu, pochodni, ognisku albo samym efekcie wizualnym, utwórz osobny typ
+  pending (`plomien-kontrolowany`, `plomien-pochodni`, itd.) zamiast wciskać
+  `fire_roar_thruster_01`.
