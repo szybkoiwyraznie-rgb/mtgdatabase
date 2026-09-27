@@ -48,10 +48,13 @@ zużycie quota i tak trafiało do artefaktu. Klucz `ELEVENLABS` działał
 stabilnie dla wszystkich paczek — wszystkie 50 żądań zakończyło się
 statusem `generated`.
 
-**Quota: wykorzystano ok. 50 generacji** (5 + 10 + 10 + 25), czyli górny
-zakres szacunku z README. Przed kolejną paczką (`b007`, domyślnie ID
-`51–60`) klucz powinien zostać wymieniony; regeneracje pojedynczych ID
-też lepiej zaplanować po wymianie klucza.
+**Quota (korekta właściciela, 2026-09-27): konto ma budżet 10 000
+tokenów**, z czego po 50 wygenerowanych samplach wykorzystano **1 145**
+(~23 tokeny na sample). Zapas ~8 855 tokenów wystarcza na ~380 kolejnych
+sampli. Uwaga: pokrycie całego katalogu (524 fabuły) wymagałoby ~10 900
+tokenów, więc zmiana konta/klucza będzie potrzebna mniej więcej około
+ID ~435 — wcześniejszy szacunek „40–50 generacji" był mocno
+niedoszacowany.
 
 ## Aktywne ścieżki
 
@@ -91,7 +94,8 @@ Sekret GitHub/API nazywa się **`ELEVENLABS`**. Nie używać dawnej nazwy
 6. Po odsłuchu można iterować kolejną paczkę lub regenerować pojedyncze ID.
 
 Workflow GitHub Actions: **Generate sample batch (ElevenLabs)**. Jest manualny,
-bo token wystarcza mniej więcej na 40–50 generacji i klucz będzie wymieniany.
+żeby generacja zużywająca tokeny (budżet konta: 10 000 tokenów, ~23/sample)
+nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
@@ -104,10 +108,10 @@ bo token wystarcza mniej więcej na 40–50 generacji i klucz będzie wymieniany
 
 ## Co robić dalej
 
-- Odsłuchać paczkę `b004–b006` (ID `26–50`) w bibliotece HTML i zdecydować
+- Odsłuchać paczki `b002–b006` (ID `6–50`) w bibliotece HTML i zdecydować
   o merge'u PR.
-- Wymienić klucz `ELEVENLABS` przed kolejną generacją (quota wyczerpane).
-- Kolejna paczka: `b007`, domyślnie następne ID `51–60` z bieżącego katalogu.
+- Kolejna paczka: `b007`, domyślnie następne ID `51–60` z bieżącego katalogu
+  (zapas tokenów pozwala na ~380 kolejnych sampli).
 - Pisać scenariusze jako krótkie, jednorodne sample. Unikać słów i konstrukcji:
   `tło`, `hero`, `koda`, `warstwy`, `ambient bed`, `full scene`, `music`.
 - Każdy prompt ma zawierać zakaz muzyki i mowy.

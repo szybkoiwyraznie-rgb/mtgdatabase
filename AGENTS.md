@@ -29,8 +29,9 @@ Nie rozwijaj go jako głównego flow i nie pakuj jego MP3 do ZIP-a.
    `hero`, `koda`, `warstwa`, `ambient bed`, `full scene`, `cinematic trailer`.
 6. ElevenLabs API używa sekretu/env **`ELEVENLABS`**. Nie pytaj właściciela o
    klucz w czacie i nie zapisuj go w repo.
-7. Token wystarcza mniej więcej na 40–50 generacji, więc generuj małymi
-   paczkami i korzystaj z `--dry-run` przed właściwym scoutem.
+7. Budżet konta to 10 000 tokenów (~23 tokeny na sample; po 50 samplach
+   wykorzystano 1 145). Generuj paczkami i korzystaj z `--dry-run` przed
+   właściwym scoutem; pełny katalog wymaga ~10 900 tokenów.
 8. Pages i sandbox preview pokazują bibliotekę z `audio/samples`, budowaną przez
    `scripts/build_site.py`.
 9. ZIP buduje `scripts/build_pack.py`; domyślnie pakuje tylko `audio/samples`.

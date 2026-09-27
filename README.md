@@ -41,8 +41,9 @@ GitHub secret ma nazwę:
 ELEVENLABS
 ```
 
-Klucz nie jest zapisywany w repo ani w czacie. Ponieważ limit wystarcza mniej
-więcej na 40–50 generacji, workflow jest manualny i działa małymi paczkami.
+Klucz nie jest zapisywany w repo ani w czacie. Budżet konta to 10 000
+tokenów (~23 tokeny na sample), więc workflow jest manualny i działa
+paczkami, żeby właściciel kontrolował zużycie.
 
 ## Najważniejsze ścieżki
 
