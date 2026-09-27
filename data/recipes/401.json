@@ -1,0 +1,46 @@
+{
+  "story_id": "401",
+  "length_sec": 6.0,
+  "background": {
+    "id": "energy_steam_roar_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "heavyblow_gong_01",
+    "at_sec": 0.8,
+    "target_db": -14
+  },
+  "coda": {
+    "gesture": "g1b_march_pulse",
+    "instrument": "b_bassdrum",
+    "at_sec": 3.2,
+    "target_db": -20
+  },
+  "seed": 401,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "kraina-ognia",
+      "hero": "potezny-cios",
+      "mood": "nieuchronnosc-fatum",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Obrzeża polis pod górą kuźni — dudnienie wnętrza góry, stygnące kałuże brązu; hero — Rozżarzone boskie narzędzia spadają z nieba — topiące uderzenie, syk płynnej stali; koda — Nagły boski wyrok — gniew kuźni; instrumentacja — Ogniście, potężnie, metalicznie."
+  },
+  "resolution": {
+    "types": {
+      "background": "kraina-ognia",
+      "hero": "potezny-cios",
+      "mood": "nieuchronnosc-fatum",
+      "instrumentation": "monumentalno-potezna"
+    },
+    "blocks": {
+      "background": "energy_steam_roar_01",
+      "hero": "heavyblow_gong_01",
+      "mood": "g1b_march_pulse",
+      "instrumentation": "b_bassdrum"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna"
+  }
+}

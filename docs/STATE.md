@@ -8,11 +8,12 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 ## Liczby
 
-- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **44**
-  (legacy 1–4 + model 1:1: 5, 8, 18, 23, 28, 55, 64, 76, 84, 95, 110,
-  126, 133, 166, 169, 179, 188, 191, 193, 222, 224, 225, 249, 277, 282,
-  299, 422, 433, 437, 451, 468, 498, 506, 511, 519, 562, 575, 577, 578,
-  585).
+- Katalog: **510 fabuł** (`data/catalog.json`), gotowych sygnatur: **59**
+  (legacy 1–4 + model 1:1: 5, 8, 18, 23, 28, 55, 64, 76, 84, 85, 95,
+  110, 126, 133, 166, 169, 175, 179, 188, 191, 193, 211, 215, 222, 224,
+  225, 227, 249, 277, 282, 299, 337, 354, 382, 393, 401, 422, 428, 433,
+  437, 451, 468, 474, 489, 498, 499, 506, 511, 519, 562, 575, 577, 578,
+  579, 585).
 - Baza klocków: **55 wpisów** (`library_tool.py check`: 13 teł / 16 hero /
   15 gestów / 11 instrumentów — wszystkie z `semantics`, model 1:1,
   taksonomia v6 + pending typy dla braków).
@@ -22,9 +23,11 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
   `koda-intryga=i.3`; `koda-wladza=żaden` („żaden mi nie pasuje”). Do bazy
   weszły: `cave_quarry_tunnel_01`, `mountain_wind_plateau_01`,
   `materialize_magic_swell_01`, `g_intrigue_shadow_wink`.
-- `resolver.py --survey` po przyjęciu g033: **60** fabuł w pełni obsadzalnych
-  dziś (lista z survey nie zawiera części legacy), **448** z częściową obsadą.
-  Największe braki: `background:miasto-gwar`, `background:swiatynia-sanktuarium`,
+- `resolver.py --survey` po audycie/renderach po g033: **58** fabuł w pełni
+  obsadzalnych dziś (lista z survey nie zawiera części legacy), **450** z
+  częściową obsadą. Bez receptury, mimo statusu `OBSADZONA`, zostają tylko
+  **309** i **502** — technicznie nie przeszły QA renderu. Największe braki:
+  `background:miasto-gwar`, `background:swiatynia-sanktuarium`,
   `background:miasto-nocne`, `background:laboratorium-technika`,
   `background:wioska-sielska`, `background:step-rownina`,
   `background:kuznia-warsztat`.
@@ -40,9 +43,10 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 - PR: `https://github.com/szybkoiwyraznie-rgb/mtgdatabase/pull/38` na gałęzi
   `arena/01a0dd2c-mtgdatabase`. Zawiera audyt gotowych, przyjęcie g032,
-  produkcję po g032 oraz przyjęcie 4/5 wpisów z g033.
-- Po g033 jest **19 nowo pełnych fabuł bez receptury** do sanity audytu przed
-  renderem: `85,104,175,211,215,227,309,337,354,382,393,401,428,474,489,499,502,528,579`.
+  produkcję po g032, przyjęcie 4/5 wpisów z g033 oraz 15 renderów po g033.
+- Po g033 wyrenderowano 15 fabuł; zablokowane są: `104` i `528` semantycznie
+  oraz `309` i `502` technicznie po QA. Pełny zapis:
+  `docs/audits/2026-09-27-audyt-po-g033.md`.
 - `mood:wladza-kontrola` nadal bez klocka — g033/w odrzucone przez właściciela,
   przygotować nową rundę kandydatów w kolejnej paczce.
 - Przed oddaniem/mergem utrzymać pełną walidację: `check_required_reading`,
@@ -70,9 +74,10 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 ## Co dalej (kolejność pracy, nie wymaga pytania właściciela)
 
-1. Najpierw wykonać sanity audit 19 nowo pełnych fabuł po g033
-   (`85,104,175,211,215,227,309,337,354,382,393,401,428,474,489,499,502,528,579`)
-   i renderować wyłącznie te bez twardej sprzeczności.
+1. Najpierw wrócić do blokad po g033 tylko świadomie: `309` i `502` są pełne
+   semantycznie, ale nie mają receptur/MP3, bo obecne kombinacje gest×instrument
+   nie przechodzą QA; `104` i `528` wymagają nowych teł (`miasto-neonowe`,
+   `dom-nawiedzony`).
 2. Następna bramka powinna dalej brać typy z największych realnych
    braków, zwłaszcza te nieobjęte g033: `background:miasto-gwar`,
    `background:swiatynia-sanktuarium`, `background:miasto-nocne`,

@@ -622,7 +622,7 @@
       "instrumentation": "eteryczno-oniryczna"
     },
     "104": {
-      "background": "niebo-przestworza",
+      "background": "miasto-neonowe",
       "hero": "trzask-blyskawicy",
       "mood": "podstep-intryga",
       "instrumentation": "metaliczno-mechaniczna"
@@ -1894,7 +1894,7 @@
       "instrumentation": "mroczna"
     },
     "401": {
-      "background": "gory-wichry",
+      "background": "kraina-ognia",
       "hero": "potezny-cios",
       "mood": "nieuchronnosc-fatum",
       "instrumentation": "monumentalno-potezna"
@@ -2524,7 +2524,7 @@
       "instrumentation": "uroczysto-podniosla"
     },
     "528": {
-      "background": "podziemia-jaskinia",
+      "background": "dom-nawiedzony",
       "hero": "trzask-blyskawicy",
       "mood": "tajemnica-obcosc",
       "instrumentation": "zimno-szklista"
@@ -2831,7 +2831,7 @@
     },
     "579": {
       "background": "gory-wichry",
-      "hero": "skradanie-cisza",
+      "hero": "rezonans-magiczny",
       "mood": "spokoj-kontemplacja",
       "instrumentation": "zimno-szklista"
     },

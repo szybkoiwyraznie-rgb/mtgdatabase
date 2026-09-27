@@ -1,5 +1,26 @@
 # CHANGELOG taksonomii semantycznej
 
+## 2026-09-27 — audyt po g033: 15 renderów, 4 blokady
+
+Po częściowym przyjęciu g033 (4/5 wpisów; `mood:wladza-kontrola` odrzucone)
+resolver wskazał 19 nowych fabuł pełnych bez receptur. Sanity audit przed
+renderem wyrenderował 15 fabuł: 85, 175, 211, 215, 227, 337, 354, 382,
+393, 401, 428, 474, 489, 499, 579. Zablokowano 104 i 528 semantycznie oraz
+309 i 502 technicznie po QA renderu.
+
+Korekty klas:
+
+- 104: `background niebo-przestworza` → `miasto-neonowe` (mokry tor
+  wyścigowy Kaladeshu nocą ≠ otwarte przestworza),
+- 401: `background gory-wichry` → `kraina-ognia` (gniew boga kuźni,
+  rozżarzony metal i góra Velus jako żar/kuźnia, nie wiatr na grani),
+- 528: `background podziemia-jaskinia` → pending `dom-nawiedzony`
+  (opresyjne korytarze Domu na Duskmourn z pokojami/tapetą ≠ grota/tunel),
+- 579: `hero skradanie-cisza` → `rezonans-magiczny` (płomień korony i echo
+  czaru, nie skradanie).
+
+Pełny zapis: `docs/audits/2026-09-27-audyt-po-g033.md`.
+
 ## 2026-09-26 — audyt po g032: 10 renderów, 6 fałszywie pełnych obsad
 
 Po przyjęciu g032 resolver wskazał 16 nowych fabuł jako w pełni obsadzalne.

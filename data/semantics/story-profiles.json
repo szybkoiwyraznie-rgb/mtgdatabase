@@ -3976,12 +3976,12 @@
     "104": {
       "title": "Glitch Ghost Surveyor",
       "background": {
-        "opis": "Mokry tor wyścigowy nocą — cisza przed przejazdem, odbicia świateł",
+        "opis": "Mokry tor wyścigowy Kaladeshu nocą — odbicia świateł, techniczny/neonowy plener, nie otwarte przestworza",
         "cechy": [
-          "mokry tor",
-          "nocna cisza toru",
+          "mokry tor wyścigowy",
+          "Kaladesh",
           "odbicia świateł",
-          "pusta trasa"
+          "techniczny plener"
         ]
       },
       "hero": {
@@ -15973,12 +15973,12 @@
     "528": {
       "title": "Enter the Enigma",
       "background": {
-        "opis": "Nieskończone korytarze wypaczonego domu — zbutwiała tapeta, migoczące sztuczne światło",
+        "opis": "Opresyjne korytarze Domu na Duskmourn — zbutwiała tapeta, klaustrofobiczne pokoje, sztuczne migotliwe światło",
         "cechy": [
-          "wypaczone korytarze",
+          "nawiedzony dom",
+          "klaustrofobiczne korytarze",
           "zbutwiała tapeta",
-          "migoczące światło",
-          "opresyjna cisza"
+          "sztuczne światło"
         ]
       },
       "hero": {
@@ -17935,11 +17935,11 @@
         ]
       },
       "hero": {
-        "opis": "Płomień z korony ujarzmiony w skupieniu — nagłe przejście w stan najwyższej gotowości",
+        "opis": "Płomień z korony ujarzmiany w magiczny rezonans — echo czaru i nasycanie ciała energią",
         "cechy": [
-          "huk ujarzmianego płomienia",
-          "skupiony oddech",
-          "nagła gotowość",
+          "rezonans czaru",
+          "płomień korony",
+          "kontrola żywiołu",
           "nasycenie energią"
         ]
       },

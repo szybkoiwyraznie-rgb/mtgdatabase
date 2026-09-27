@@ -1,0 +1,46 @@
+{
+  "story_id": "499",
+  "length_sec": 6.0,
+  "background": {
+    "id": "mountain_wind_plateau_01",
+    "offset_sec": 0.0,
+    "target_db": -32
+  },
+  "hero": {
+    "id": "heavyblow_gong_01",
+    "at_sec": 0.8,
+    "target_db": -14
+  },
+  "coda": {
+    "gesture": "g_ruthless_verdict",
+    "instrument": "b_soloviol_spic",
+    "at_sec": 3.4,
+    "target_db": -3
+  },
+  "seed": 499,
+  "gate": "g033",
+  "profile": {
+    "types": {
+      "background": "gory-wichry",
+      "hero": "potezny-cios",
+      "mood": "bezwzglednosc-drapieznosc",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "note": "Rola z narracji po sanity audycie g033: tło — Wietrzne szczyty świętych gór — mgła w przepaści, starożytne monumenty; hero — Miażdżący cios rozrywa mosiężny monument — pękająca ziemia i bloki marmuru w przepaść; koda — Panowanie przez ruinę — nic poza gruzem; instrumentacja — Gwałtownie, ciężko, rozdzierająco."
+  },
+  "resolution": {
+    "types": {
+      "background": "gory-wichry",
+      "hero": "potezny-cios",
+      "mood": "bezwzglednosc-drapieznosc",
+      "instrumentation": "ostro-gwaltowna"
+    },
+    "blocks": {
+      "background": "mountain_wind_plateau_01",
+      "hero": "heavyblow_gong_01",
+      "mood": "g_ruthless_verdict",
+      "instrumentation": "b_soloviol_spic"
+    },
+    "reason": "model 1:1 po sanity audycie g033 — brak twardej sprzeczności; kombinacja unikalna"
+  }
+}

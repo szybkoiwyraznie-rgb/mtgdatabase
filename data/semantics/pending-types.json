@@ -29,6 +29,13 @@
       "glosa": "mroczne sale twierdzy lub okupowanego gmachu: kamień, chłodny pogłos, duszna aura przemocy; wnętrze bez ciepłego paleniska i bez obozowego taboru",
       "powod": "audyt po g032: 560 Dead Ringers było mapowane na oboz-wojenny, choć narracja mówi o posępnych salach Twierdzy na Urborgu; warcamp_01 ma bad_for wnętrze",
       "zrodlo": "sanity audit nowo odblokowanych fabuł po przyjęciu g032"
+    },
+    {
+      "layer": "background",
+      "id": "dom-nawiedzony",
+      "glosa": "opresyjne wnętrze nawiedzonego lub nienaturalnego domu: klaustrofobiczne korytarze, skrzypienia, zbutwiałe pokoje, sztuczne/migotliwe światło; bez ciepłego paleniska i bez jaskiniowej wilgoci",
+      "powod": "sanity audit po g033: 528 Enter the Enigma było mapowane na podziemia-jaskinia przez słowo „korytarze”, choć narracja mówi o Domu na Duskmourn i wypaczonych pokojach, nie o grocie/tunelu",
+      "zrodlo": "sanity audit nowo odblokowanych fabuł po przyjęciu g033"
     }
   ]
 }
