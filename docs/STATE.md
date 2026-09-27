@@ -87,8 +87,9 @@ Sekret GitHub/API nazywa się **`ELEVENLABS`**. Nie używać dawnej nazwy
 ## Workflow
 
 1. Właściciel commituję nowy `fabuły270926.csv` albo zatwierdza pracę na obecnym.
-2. Agent przygotowuje małą paczkę ok. 10 scenariuszy w
-   `data/samples/scenarios.jsonl`; nie iść na ilość kosztem jakości.
+2. Agent przygotowuje paczkę ok. 25 scenariuszy (decyzja właściciela)
+   w `data/samples/scenarios.jsonl`; jakość scenariuszy nienegocjowalna
+   — ręcznie pisane, unikalne i zróżnicowane brzmieniowo.
 3. Przed wydaniem quota agent uruchamia walidator i dry-run scouta.
 4. Po walidacji agent uruchamia scouta ElevenLabs dla tej paczki.
 5. Agent buduje/uruchamia bibliotekę HTML do odsłuchu.

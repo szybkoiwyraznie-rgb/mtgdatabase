@@ -23,8 +23,11 @@ Nie rozwijaj go jako głównego flow i nie pakuj jego MP3 do ZIP-a.
 2. Sample ma być jednorodny i rozpoznawalny: np. „krakanie wron”, „uderzenie
    dzwonu”, „szczęk bitwy”, „odgłos upadku”, „krótki trzask zaklęcia”.
 3. Każda fabuła dostaje unikalnie opisany i unikalnie wygenerowany sample.
-4. Scenariusze pisz małymi paczkami, zwykle ok. 10 sztuk, w
-   `data/samples/scenarios.jsonl`. Nie idź na ilość kosztem jakości.
+4. Scenariusze pisz paczkami po ok. 25 sztuk (decyzja właściciela
+   2026-09-27) w `data/samples/scenarios.jsonl`. Jakość jest
+   nienegocjowalna: każdy scenariusz pisany ręcznie pod konkretną
+   fabułę, jednorodny, unikalny i zróżnicowany brzmieniowo względem
+   pozostałych. Nie idź na ilość kosztem jakości.
 5. Każdy prompt musi zabraniać muzyki i mowy. Unikaj: `background`, `tło`,
    `hero`, `koda`, `warstwa`, `ambient bed`, `full scene`, `cinematic trailer`.
 6. ElevenLabs API używa sekretu/env **`ELEVENLABS`**. Nie pytaj właściciela o
