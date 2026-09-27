@@ -43,8 +43,8 @@ Ostatnia aktualizacja: **2026-09-27** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 - PR: `https://github.com/szybkoiwyraznie-rgb/mtgdatabase/pull/38` na gałęzi
   `arena/01a0dd2c-mtgdatabase`. Zawiera audyt gotowych, przyjęcie g032, produkcję po g032, przyjęcie 4/5
-  wpisów z g033, 15 renderów po g033, bramkę g034, werdykt g034 oraz 5
-  renderów po g034.
+  wpisów z g033, 15 renderów po g033, bramkę g034, werdykt g034, 5
+  renderów po g034 oraz otwartą bramkę g035.
 - Po g034 wyrenderowano 5 fabuł: `72`, `146`, `287`, `290`, `496`.
   Zablokowane pozostają: `104` i `528` semantycznie po g033 oraz `309` i `502`
   technicznie po QA. Pełne zapisy: `docs/audits/2026-09-27-audyt-po-g033.md`
@@ -52,11 +52,24 @@ Ostatnia aktualizacja: **2026-09-27** (sesja `arena/01a0dd2c-mtgdatabase`).
 - Po korekcie właściciela **nie używać** `background:krypta-nekropolia` ani
   `hero:furkot-mechanizmu` jako targetów produkcyjnych. Oba mają 0 aktywnych
   przypisań; mechanizmy rozbijane są na konkretne typy pending.
+- **g035 do werdyktu właściciela**: pięć wpisów tła po 3 kandydatów:
+  `tlo-step` (`s.1/s.2/s.3`) — poprawka po g034, dużo ciszej i bez muzyki;
+  `tlo-kuznia` (`k.1/k.2/k.3`) — miarowe kucie w kuźni;
+  `tlo-noc` (`n.1/n.2/n.3`) — noc/księżyc;
+  `tlo-laboratorium` (`l.1/l.2/l.3`) — aparatura/technika;
+  `tlo-swiatynia` (`t.1/t.2/t.3`) — sanktuarium/rezonans dzwonu.
 - `mood:wladza-kontrola` nadal bez klocka — g033/w odrzucone przez właściciela;
-  nie weszło do g034, trzeba wrócić w osobnej paczce.
+  nie weszło do g035, trzeba wrócić w osobnej paczce.
 - Przed oddaniem/mergem utrzymać pełną walidację: `check_required_reading`,
   `compileall`, `test_signature_system`, `library_tool.py check`,
   `build_pack`, `build_site`, `git diff --check`, a po pushu sprawdzić CI PR.
+
+## Sesja 2026-09-27 — g035 otwarta
+
+1. Przygotowano nową bramkę `g035` z pięcioma wpisami tła: cichy step,
+   miarowa kuźnia, noc księżycowa, laboratorium techniczne i sanktuarium.
+2. `g035` jest bramką do odsłuchu/werdyktu; nie przyjmować żadnego kandydata
+   bez decyzji właściciela.
 
 ## Sesja 2026-09-27 — g034 i produkcja po audycie
 
