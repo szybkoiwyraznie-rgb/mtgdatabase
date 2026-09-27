@@ -1,8 +1,4 @@
-name: Check gallery build
-
-# Gałęzie robocze: budujemy bez deploymentu (deployment wyłącznie z main,
-# LESSONS 2026-09-21/22). Osobny workflow, żeby checki PR nie miały wiecznie
-# „skipped" joba deploy.
+name: Check sample library build
 
 on:
   push:
@@ -20,14 +16,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
       - name: Refresh catalog
         run: python scripts/import_collection.py kolekcja.csv --output data/catalog.json
-      - name: Build gallery
+      - name: Validate scenarios
+        run: python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
+      - name: Build sample library
         run: python scripts/build_site.py --out site/generated
-      - name: Build pack
-        run: python scripts/build_pack.py --output /tmp/pack.zip
+      - name: Build sample pack
+        run: python scripts/build_pack.py --output /tmp/samples.zip

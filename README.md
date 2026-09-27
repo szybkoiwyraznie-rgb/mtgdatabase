@@ -1,45 +1,56 @@
-# Sygnatury fabularne
+# Krótkie sample fabularne
 
-Prywatny, niekomercyjny system warstwy dźwiękowej do gry fabularnej: każda
-fabuła z `kolekcja.csv` dostaje jedno „okno dźwiękowe" (do 10 s) złożone
-z czterech zatwierdzonych klocków — **tło + hero + koda muzyczna + instrument**.
+Nowy flow projektu: każda fabuła z `kolekcja.csv` dostaje **jeden krótki,
+jednorodny efekt dźwiękowy** wygenerowany przez ElevenLabs i zapisany jako
+`audio/samples/<id>.mp3`.
 
-## Jak to działa
+To nie jest już czterowarstwowy sound design z tłem, hero, kodą i instrumentem.
+Efekt ma być prostym samplem typu: „krakanie wron”, „uderzenie dzwonu”,
+„szczęk bitwy”, „odgłos upadku” — opisanym konkretnie dla danej fabuły, ale
+bez skomplikowanej sceny audio.
 
-1. Agent analizuje fabułę semantycznie i dobiera klocki z czterech baz
-   (`data/library/*.json`). Bazy **rosną organicznie** — zaczęły się puste.
-2. Brakujące klocki idą przez **bramkę odsłuchową**: 3 kandydaci będący
-   wariantami JEDNEJ roli (nie trzy różne pomysły), właściciel wybiera
-   jednego albo odrzuca wszystkich jednym słowem uzasadnienia, wybrany
-   trafia do bazy na stałe. To jedyny moment, w którym właściciel ocenia —
-   **jakość wpisów do bazy, nie fabuły**.
-3. Z zatwierdzonych klocków agent **samodzielnie** składa recepturę
-   i renderuje `audio/signatures/<id>.mp3` — deterministycznie, z bramkami
-   QA (montaż, nie „ocena gustu"). Obsada ról wynika z narracji danej
-   fabuły, a hero nie powtarza się między fabułami.
-4. Pages to gablotka gotowych sygnatur; ZIP w Releases to płaski pakiet
-   `<id>.mp3` budowany z `audio/signatures/`.
+Stary system v1 jest zachowany tylko jako archiwum w
+`archive/v1-curated-sound-design/` i nie trafia do aktualnego ZIP-a ani Pages.
 
-Dokumenty: [`docs/signature-system.md`](docs/signature-system.md) —
-architektura, [`docs/gate-protocol.md`](docs/gate-protocol.md) — protokół
-bramki, [`AGENTS.md`](AGENTS.md) — kontrakt pracy. Dawna „fabryka jingli"
-(zamieniona 2026-09-23) leży w `legacy/old-factory/`.
+## Aktualny workflow
 
-## Narzędzia
+1. Właściciel wrzuca nowy `kolekcja.csv` jako commit.
+2. Agent przygotowuje małą paczkę scenariuszy, zwykle około 10 sztuk, w
+   `data/samples/scenarios.jsonl`.
+3. Po paczce agent uruchamia scouta ElevenLabs:
 
-```bash
-pip install numpy soundfile lameenc av scipy pytest   # venv pod audio
+   ```bash
+   python scripts/validate_sample_scenarios.py
+   ELEVENLABS=... python scripts/elevenlabs_sample_scout.py --batch b001 --limit 10
+   ```
 
-python scripts/render_signature.py data/recipes/<id>.json --audit   # render sygnatury
-python scripts/gate_preview.py data/gates/gNNN --port 8080          # bramka odsłuchowa
-python scripts/library_tool.py check                                # walidacja baz + unikalność
-python scripts/library_tool.py accept --gate gNNN                   # po werdykcie właściciela
-python scripts/build_pack.py                                        # ZIP <id>.mp3
-python scripts/build_site.py                                        # gablotka Pages
-python scripts/serve_site.py --port 3000                            # podgląd gablotki (no-store)
-python scripts/stem_probe.py <nagranie>                             # audycja przed cięciem
-python scripts/make_stem.py <nagranie> --start S --end E --out ...  # stem kandydata
+4. Wygenerowane pliki lądują w `audio/samples/<id>.mp3`.
+5. Biblioteka HTML i ZIP:
+
+   ```bash
+   python scripts/build_site.py
+   python scripts/build_pack.py
+   python scripts/serve_site.py --port 3000 --dir site/generated
+   ```
+
+## Sekret API
+
+GitHub secret ma nazwę:
+
+```text
+ELEVENLABS
 ```
 
-Źródła sampli i licencje: `docs/sources-and-licensing.md`. Zweryfikowane
-pobieranie: `git clone` (sparse) z github.com; fallback: workflow Sample scout.
+Klucz nie jest zapisywany w repo ani w czacie. Ponieważ limit wystarcza mniej
+więcej na 40–50 generacji, workflow jest manualny i działa małymi paczkami.
+
+## Najważniejsze ścieżki
+
+- `data/catalog.json` — katalog importowany z `kolekcja.csv`,
+- `data/samples/scenarios.jsonl` — ręcznie pisane scenariusze sampli,
+- `data/samples/generated-manifest.jsonl` — manifest generacji scouta,
+- `audio/samples/<id>.mp3` — aktualne produkty,
+- `site/generated/` — lokalna/Pages biblioteka HTML,
+- `build/samples-latest.zip` — płaski ZIP z `<id>.mp3`.
+
+Pełny opis: [`docs/ai-sfx-pipeline.md`](docs/ai-sfx-pipeline.md).

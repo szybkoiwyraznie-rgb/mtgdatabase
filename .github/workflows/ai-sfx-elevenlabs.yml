@@ -1,26 +1,30 @@
-name: Generate AI sound effects (ElevenLabs)
+name: Generate sample batch (ElevenLabs)
 
-# Manual only: this spends external API quota. It reads the collection CSV,
-# creates exactly one prompt per story, generates exactly one MP3 per prompt,
-# and uploads a flat ZIP artifact with <id>.mp3 files.
+# Manual only: consumes ElevenLabs quota. This workflow generates MP3s only for
+# already hand-written ready scenarios in data/samples/scenarios.jsonl.
 
 on:
   workflow_dispatch:
     inputs:
       collection_csv:
-        description: "Collection TSV/CSV path to import before generating prompts"
+        description: "Collection TSV/CSV path to import before building the library"
         type: string
         default: "kolekcja.csv"
         required: true
+      batch:
+        description: "Optional batch label, e.g. b001"
+        type: string
+        default: ""
+        required: false
       ids:
-        description: "Optional comma-separated story IDs, e.g. 1,2,3. Empty = all."
+        description: "Optional comma-separated story IDs. Empty = all ready in selected batch."
         type: string
         default: ""
         required: false
       limit:
-        description: "Optional first N selected stories. Use for paid-api smoke tests."
+        description: "Optional first N selected ready scenarios; recommended 10."
         type: string
-        default: ""
+        default: "10"
         required: false
       force:
         description: "Regenerate files even if already present in the job workspace"
@@ -32,14 +36,21 @@ on:
         type: string
         default: "0.35"
         required: true
+      publish_pages:
+        description: "Deploy generated library to GitHub Pages (main only)"
+        type: boolean
+        default: false
+        required: true
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
 
 env:
-  PROMPTS: data/ai-sfx/prompts.jsonl
-  OUT_DIR: audio/ai-signatures
-  MANIFEST: data/ai-sfx/generated-manifest.jsonl
+  SCENARIOS: data/samples/scenarios.jsonl
+  OUT_DIR: audio/samples
+  MANIFEST: data/samples/generated-manifest.jsonl
 
 jobs:
   generate:
@@ -55,42 +66,56 @@ jobs:
       - name: Refresh catalog from collection
         run: python scripts/import_collection.py "${{ inputs.collection_csv }}" --output data/catalog.json
 
-      - name: Create one prompt per story
-        run: |
-          ARGS=()
-          if [ -n "${{ inputs.ids }}" ]; then ARGS+=(--ids "${{ inputs.ids }}"); fi
-          if [ -n "${{ inputs.limit }}" ]; then ARGS+=(--limit "${{ inputs.limit }}"); fi
-          python scripts/generate_ai_sound_prompts.py \
-            --catalog data/catalog.json \
-            --profiles data/semantics/story-profiles.json \
-            --out "$PROMPTS" \
-            "${ARGS[@]}"
+      - name: Validate scenarios
+        run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
 
       - name: Generate MP3s with ElevenLabs
         env:
-          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
           ARGS=()
           if [ -n "${{ inputs.ids }}" ]; then ARGS+=(--ids "${{ inputs.ids }}"); fi
+          if [ -n "${{ inputs.batch }}" ]; then ARGS+=(--batch "${{ inputs.batch }}"); fi
           if [ -n "${{ inputs.limit }}" ]; then ARGS+=(--limit "${{ inputs.limit }}"); fi
           if [ "${{ inputs.force }}" = "true" ]; then ARGS+=(--force); fi
-          python scripts/elevenlabs_soundgen.py \
-            --prompts "$PROMPTS" \
+          python scripts/elevenlabs_sample_scout.py \
+            --scenarios "$SCENARIOS" \
             --out "$OUT_DIR" \
             --manifest "$MANIFEST" \
             --prompt-influence "${{ inputs.prompt_influence }}" \
             "${ARGS[@]}"
 
       - name: Build flat ZIP
-        run: python scripts/build_pack.py --src "$OUT_DIR" --output build/ai-signatures-latest.zip
+        run: python scripts/build_pack.py --src "$OUT_DIR" --output build/samples-latest.zip
 
-      - name: Upload generated prompts, manifest, and ZIP
+      - name: Build HTML library
+        run: python scripts/build_site.py --out site/generated
+
+      - name: Upload generated ZIP, manifest, and HTML library
         uses: actions/upload-artifact@v4
         with:
-          name: ai-signatures-elevenlabs
+          name: samples-elevenlabs
           path: |
-            build/ai-signatures-latest.zip
-            data/ai-sfx/prompts.jsonl
-            data/ai-sfx/generated-manifest.jsonl
+            build/samples-latest.zip
+            data/samples/generated-manifest.jsonl
+            site/generated
           if-no-files-found: error
+
+      - name: Upload Pages artifact
+        if: ${{ inputs.publish_pages && github.ref == 'refs/heads/main' }}
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: site/generated
+
+  deploy-pages:
+    if: ${{ inputs.publish_pages && github.ref == 'refs/heads/main' }}
+    needs: generate
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

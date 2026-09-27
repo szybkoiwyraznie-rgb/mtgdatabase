@@ -1,22 +1,25 @@
 # Współpraca
 
-Przeczytaj `AGENTS.md` przed każdą zmianą. Zmiany małe, weryfikowalne,
-opisane w pull request.
+Przeczytaj `AGENTS.md` przed każdą zmianą. Aktualny produkt to krótkie sample
+v2 w `audio/samples/<id>.mp3`; stary system v1 jest archiwum.
 
 ## Przed rozpoczęciem
 
-Audyt ostatniego PR/diffu + walidacje (poniżej). Nie zaczynaj produkcji na
-niezweryfikowanym fundamencie.
+Sprawdź stan gałęzi i uruchom podstawowe walidacje. Nie wracaj do archiwalnych
+bramek/receptur jako głównego flow.
 
 ## Przed zakończeniem
 
-```
+```bash
 python -m compileall -q scripts
-python scripts/test_signature_system.py
-python scripts/library_tool.py check
-python scripts/build_pack.py --output /tmp/pack.zip
+python -m unittest discover -s scripts -p 'test_*.py'
+python scripts/validate_stories.py kolekcja.csv
+python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
+python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
+python scripts/build_pack.py --output /tmp/samples.zip
+python scripts/build_site.py --out /tmp/site-out
+git diff --check
 ```
 
-Nie commituj: sekretów/PIN/tokenów, plików `.env`, kandydatów bramkowych
-(`work/`), niezatwierdzonych sampli. Produkty idą na Release, nie do
-historycznych artefaktów.
+Nie commituj sekretów ani plików `.env`. Sekret API ElevenLabs nazywa się
+`ELEVENLABS` i ma być ustawiony w GitHub Secrets albo lokalnym środowisku.

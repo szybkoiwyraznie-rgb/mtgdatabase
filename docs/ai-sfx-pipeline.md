@@ -1,85 +1,132 @@
-# AI SFX pipeline v2 — jeden prompt, jeden MP3 na fabułę
+# AI SFX v2 — krótkie jednorodne sample
 
-Cel: uprościć produkcję 500+ unikalnych efektów dźwiękowych. Zamiast ręcznych
-bramek, bibliotek klocków i miksów warstwowych, każda fabuła dostaje dokładnie
-jeden scenariusz dźwięku i dokładnie jeden wygenerowany plik `<id>.mp3`.
+To jest aktualna ścieżka produkcji. Stary flow v1 z bibliotekami klocków,
+bramkami odsłuchowymi, recepturami, tłem/hero/kodą/instrumentem jest zachowany
+w `archive/v1-curated-sound-design/`, ale nie bierze udziału w ZIP-ie ani Pages.
 
-## Zasada produktu
+## Produkt
 
-Dla każdej fabuły:
+Dla każdej fabuły powstaje dokładnie jeden plik:
 
-1. czytamy narrację z katalogu (`data/catalog.json`, generowane z `kolekcja.csv`),
-2. jeśli istnieje profil semantyczny, używamy go jako jednej analizy sceny,
-3. budujemy jeden prompt SFX:
-   - miejsce / tło,
-   - jedno główne zdarzenie,
-   - nastrój,
-   - tekstura brzmienia,
-   - zakaz muzyki, melodii, narracji i mowy,
-4. wysyłamy prompt do ElevenLabs Sound Generation,
-5. zapisujemy odpowiedź jako `audio/ai-signatures/<id>.mp3`,
-6. budujemy płaski ZIP z plikami `<id>.mp3`.
+```text
+audio/samples/<id>.mp3
+```
 
-To jest ścieżka v2. Stary system bramek i ręcznych klocków zostaje w repo jako
-historia/prace v1, ale nie jest już konieczny do produkcji pełnej paczki.
+To ma być **krótki, jednorodny sample**, a nie złożona scena audio. Dobre
+przykłady:
 
-## Sekret API
+- „krakanie wron”,
+- „pojedyncze uderzenie dzwonu”,
+- „szczęk średniowiecznej bitwy”,
+- „odgłos upadku zbroi na kamień”,
+- „krótki trzask zaklęcia”,
+- „plusk wielkiego ciała w wodzie”.
 
-Nie wpisuj klucza w kodzie ani w czacie. W repozytorium GitHub dodaj secret:
+Opis może być unikalny i konkretny dla fabuły, ale prompt ma pilnować jednego
+źródła/zdarzenia. Nie prosimy o tło, kodę, muzykę ani pełną scenę.
 
-- `ELEVENLABS_API_KEY` — wymagany,
-- opcjonalnie `ELEVENLABS_SOUNDGEN_ENDPOINT` — tylko jeśli endpoint API się
-  zmieni; domyślnie skrypt używa `https://api.elevenlabs.io/v1/sound-generation`.
+## Dane scenariuszy
 
-## Ręczny run w GitHub Actions
+Scenariusze są ręcznie pisane małymi paczkami w:
 
-Workflow: **Generate AI sound effects (ElevenLabs)**
+```text
+data/samples/scenarios.jsonl
+```
 
-Parametry:
+Jeden wiersz JSON na fabułę:
 
-- `collection_csv` — domyślnie `kolekcja.csv`; po dosłaniu nowego zestawu CSV/TSV
-  można wskazać jego ścieżkę w repo,
-- `ids` — puste = wszystkie fabuły; można podać np. `1,2,3` do testu,
-- `limit` — pierwsze N wybranych fabuł; zalecane do pierwszego testu, np. `5`,
-- `force` — regeneruj istniejące pliki w workspace joba,
-- `prompt_influence` — przekazywane do ElevenLabs; domyślnie `0.35`.
+```json
+{"story_id":"1","title":"Dunland Crebain","sample_scenario":"ostre krakanie kruka pikującego nad skalnym wąwozem","prompt":"A single sharp raven caw diving over a rocky ravine, close and dark, 2 seconds, no music, no speech.","duration_seconds":2.0,"status":"ready","batch":"b001"}
+```
 
-Workflow publikuje artifact `ai-signatures-elevenlabs` zawierający:
+Pola:
 
-- `build/ai-signatures-latest.zip`,
-- `data/ai-sfx/prompts.jsonl`,
-- `data/ai-sfx/generated-manifest.jsonl`.
+- `story_id` — numeryczne ID z katalogu,
+- `title` — tytuł karty/fabuły,
+- `sample_scenario` — krótki polski opis jednego dźwięku,
+- `prompt` — prompt do ElevenLabs, najlepiej po angielsku,
+- `duration_seconds` — zwykle 1.5–3.0, dopuszczalnie 0.8–5.0,
+- `status` — `draft`, `ready`, `generated`, `rejected`,
+- `batch` — etykieta paczki, np. `b001`.
 
-## Lokalne przygotowanie promptów bez API
+Walidacja:
+
+```bash
+python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl
+```
+
+## Przygotowanie małej paczki do pisania
+
+Po wrzuceniu nowego CSV/TSV:
 
 ```bash
 python scripts/import_collection.py kolekcja.csv --output data/catalog.json
-python scripts/generate_ai_sound_prompts.py \
-  --catalog data/catalog.json \
-  --profiles data/semantics/story-profiles.json \
-  --out data/ai-sfx/prompts.jsonl \
-  --limit 10
-python scripts/elevenlabs_soundgen.py --prompts data/ai-sfx/prompts.jsonl --dry-run
+python scripts/prepare_sample_batch.py --limit 10
 ```
 
-## Lokalny run z API
+Druga komenda wypisze następne nieopisane fabuły z narracją. Agent na tej
+podstawie dopisuje 10 sensownych scenariuszy do `data/samples/scenarios.jsonl`.
 
-Tylko jeśli lokalne środowisko ma dostęp do internetu i ustawiony sekret:
+## Scout ElevenLabs
+
+Sekret/env nazywa się:
+
+```text
+ELEVENLABS
+```
+
+Dry-run bez API:
 
 ```bash
-ELEVENLABS_API_KEY=... python scripts/elevenlabs_soundgen.py \
-  --prompts data/ai-sfx/prompts.jsonl \
-  --out audio/ai-signatures \
-  --manifest data/ai-sfx/generated-manifest.jsonl \
-  --limit 5
-python scripts/build_pack.py --src audio/ai-signatures --output build/ai-signatures-latest.zip
+python scripts/elevenlabs_sample_scout.py --batch b001 --limit 10 --dry-run
 ```
 
-## Uwaga o kosztach i QA
+Generowanie paczki:
 
-Workflow jest manualny, bo każde uruchomienie zużywa zewnętrzny limit/koszt API.
-Najpierw robić krótki smoke test (`limit=5` albo kilka `ids`), potem pełną paczkę.
+```bash
+ELEVENLABS=... python scripts/elevenlabs_sample_scout.py --batch b001 --limit 10
+```
 
-QA w v2 jest uproszczone: sprawdzamy kompletność plików, nazwy `<id>.mp3`,
-manifest promptów i ewentualnie odsłuch próbkowy. Nie ma już ręcznej bramki
-akceptacji dla każdego typu dźwięku.
+Scout:
+
+- bierze tylko `status=ready`,
+- pomija istniejące `audio/samples/<id>.mp3`, chyba że podasz `--force`,
+- dopisuje manifest do `data/samples/generated-manifest.jsonl`,
+- zapisuje MP3 jako `<id>.mp3`.
+
+## HTML biblioteki i ZIP
+
+```bash
+python scripts/build_site.py --out site/generated
+python scripts/build_pack.py --output build/samples-latest.zip
+python scripts/serve_site.py --port 3000 --dir site/generated
+```
+
+`build_site.py` kopiuje `audio/samples/*.mp3` do `site/generated/samples/`, więc
+biblioteka działa lokalnie w sandboxie i na GitHub Pages.
+
+## GitHub Actions
+
+Workflow ręczny:
+
+```text
+Generate sample batch (ElevenLabs)
+```
+
+Parametry:
+
+- `batch` — np. `b001`,
+- `ids` — opcjonalna lista ID,
+- `limit` — domyślnie 10,
+- `force` — regeneracja,
+- `publish_pages` — deploy Pages tylko z `main`.
+
+Artifact workflow zawiera ZIP, manifest i gotową bibliotekę HTML.
+
+## Zasady jakości promptów
+
+- Jeden prompt = jeden dźwięk, nie scena.
+- Zakaz muzyki i mowy w każdym prompcie.
+- Unikać „ambient bed”, „cinematic trailer”, „full soundscape”.
+- Długość raczej 1.5–3 s; tylko wyjątkowo do 5 s.
+- Każdy sample ma być unikalny dla fabuły, ale prosty do rozpoznania.

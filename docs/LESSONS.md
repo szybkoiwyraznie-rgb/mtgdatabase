@@ -1,3 +1,10 @@
+# Lekcje projektu
+
+> Aktualny flow od 2026-09-27 to AI SFX v2: krótkie jednorodne sample w
+> `audio/samples/<id>.mp3`. Starsze lekcje o bramkach, klockach, recepturach,
+> kodach i warstwach dotyczą archiwalnego systemu v1 w
+> `archive/v1-curated-sound-design/`; nie przywracać ich jako głównego flow.
+
 # LESSONS — trwała wiedza projektu
 
 Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każdy wpis powinien odpowiadać na pytanie: co się wydarzyło, czego się nauczyliśmy i jak zapobiec powtórce.
