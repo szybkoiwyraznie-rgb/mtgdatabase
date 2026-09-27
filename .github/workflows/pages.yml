@@ -30,6 +30,14 @@ jobs:
         run: python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
       - name: Build sample library
         run: python scripts/build_site.py --out site/generated
+      - name: Verify Pages payload
+        run: |
+          test -f site/generated/index.html
+          test "$(find site/generated/samples -maxdepth 1 -type f -name '*.mp3' | wc -l)" -eq 5
+          test "$(find site/generated/samples -maxdepth 1 -type f -name '*.mp3' -printf '%f\n' | sort | tr '\n' ' ')" = "1.mp3 2.mp3 3.mp3 4.mp3 5.mp3 "
+          ! find site/generated -type f \( -path '*/audio/signatures/*' -o -path '*/audio/library/*' -o -path '*/data/gates/*' \) | grep -q .
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
