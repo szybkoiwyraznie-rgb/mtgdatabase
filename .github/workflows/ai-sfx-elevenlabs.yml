@@ -2,8 +2,10 @@ name: Generate sample batch (ElevenLabs)
 
 # Manual workflow: consumes ElevenLabs quota. It generates MP3s only for
 # already hand-written ready scenarios in data/samples/scenarios.jsonl.
-# During PR bootstrap it can also run from a guarded push commit containing
-# [generate-b001]; remove that guarded trigger after the POC artifact is built.
+# During PR bootstrap it can also run from guarded push commits:
+#   [generate-b001] imports ready scenarios through ElevenLabs,
+#   [import-samples-artifact] copies a generated artifact back to the branch.
+# Remove guarded push helpers after the POC artifact is in the branch.
 
 on:
   push:
@@ -48,7 +50,8 @@ on:
         required: true
 
 permissions:
-  contents: read
+  actions: read
+  contents: write
   pages: write
   id-token: write
 
@@ -61,6 +64,7 @@ env:
   DEFAULT_IDS: 1,2,3,4,5
   DEFAULT_LIMIT: "5"
   DEFAULT_PROMPT_INFLUENCE: "0.35"
+  GENERATED_ARTIFACT_RUN_ID: "36342007533"
 
 jobs:
   generate:
@@ -147,6 +151,47 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: site/generated
+
+  import-artifact:
+    if: >-
+      github.event_name == 'push' &&
+      contains(github.event.head_commit.message, '[import-samples-artifact]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Download generated POC artifact from previous run
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          rm -rf _artifact
+          mkdir -p _artifact
+          gh run download "$GENERATED_ARTIFACT_RUN_ID" \
+            --repo "${{ github.repository }}" \
+            --name samples-elevenlabs \
+            --dir _artifact
+          find _artifact -maxdepth 5 -type f | sort
+      - name: Copy artifact outputs into the branch
+        run: |
+          mkdir -p audio/samples data/samples site/generated build
+          cp -R _artifact/site/generated/. site/generated/
+          cp _artifact/data/samples/generated-manifest.jsonl data/samples/generated-manifest.jsonl
+          cp _artifact/build/samples-latest.zip build/samples-latest.zip
+          cp _artifact/site/generated/samples/*.mp3 audio/samples/
+          ls -lh audio/samples/*.mp3 build/samples-latest.zip data/samples/generated-manifest.jsonl
+      - name: Commit generated POC outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio/samples data/samples/generated-manifest.jsonl site/generated build/samples-latest.zip
+          if git diff --cached --quiet; then
+            echo "No generated outputs to commit."
+          else
+            git commit -m "Import generated POC samples [skip ci]"
+            git pull --rebase origin "${GITHUB_REF_NAME}"
+            git push origin "HEAD:${GITHUB_REF_NAME}"
+          fi
 
   deploy-pages:
     if: ${{ github.event_name == 'workflow_dispatch' && inputs.publish_pages && github.ref == 'refs/heads/main' }}
