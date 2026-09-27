@@ -25,3 +25,7 @@ workspace-*.zip
 
 # Bramki: manifest+kandydaci są commitowane (trwałość), strona podglądu jest generowana
 data/gates/*/index.html
+
+# AI SFX v2 generated artifacts (manual workflow uploads ZIP/artifacts)
+audio/ai-signatures/
+data/ai-sfx/*.jsonl

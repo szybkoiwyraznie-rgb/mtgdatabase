@@ -52,24 +52,34 @@ Ostatnia aktualizacja: **2026-09-27** (sesja `arena/01a0dd2c-mtgdatabase`).
 - Po korekcie właściciela **nie używać** `background:krypta-nekropolia` ani
   `hero:furkot-mechanizmu` jako targetów produkcyjnych. Oba mają 0 aktywnych
   przypisań; mechanizmy rozbijane są na konkretne typy pending.
-- **g035 do werdyktu właściciela**: pięć wpisów tła po 3 kandydatów:
-  `tlo-step` (`s.1/s.2/s.3`) — poprawka po g034, dużo ciszej i bez muzyki;
-  `tlo-kuznia` (`k.1/k.2/k.3`) — miarowe kucie w kuźni;
-  `tlo-noc` (`n.1/n.2/n.3`) — noc/księżyc;
-  `tlo-laboratorium` (`l.1/l.2/l.3`) — aparatura/technika;
-  `tlo-swiatynia` (`t.1/t.2/t.3`) — sanktuarium/rezonans dzwonu.
-- `mood:wladza-kontrola` nadal bez klocka — g033/w odrzucone przez właściciela;
-  nie weszło do g035, trzeba wrócić w osobnej paczce.
+- **Pivot po g035**: ręczne bramki nie są już główną ścieżką produkcji.
+  Nowy kierunek v2: jedna fabuła → jeden prompt SFX → jeden MP3 z ElevenLabs
+  → płaski ZIP. Szczegóły: `docs/ai-sfx-pipeline.md`.
+- `g035` istnieje w repo jako ostatnia przygotowana bramka, ale po decyzji o
+  pivocie nie jest blokującym etapem produkcji.
+- `mood:wladza-kontrola` nadal bez klocka w starym modelu v1; w v2 nie blokuje
+  produkcji, bo każda fabuła generuje własny efekt z promptu.
 - Przed oddaniem/mergem utrzymać pełną walidację: `check_required_reading`,
   `compileall`, `test_signature_system`, `library_tool.py check`,
   `build_pack`, `build_site`, `git diff --check`, a po pushu sprawdzić CI PR.
 
-## Sesja 2026-09-27 — g035 otwarta
+## Sesja 2026-09-27 — pivot do AI SFX v2
 
-1. Przygotowano nową bramkę `g035` z pięcioma wpisami tła: cichy step,
-   miarowa kuźnia, noc księżycowa, laboratorium techniczne i sanktuarium.
-2. `g035` jest bramką do odsłuchu/werdyktu; nie przyjmować żadnego kandydata
-   bez decyzji właściciela.
+1. Po decyzji właściciela zatrzymano manualny flow bramek jako główną ścieżkę.
+2. Dodano pipeline v2: `scripts/generate_ai_sound_prompts.py`,
+   `scripts/elevenlabs_soundgen.py` i workflow
+   `.github/workflows/ai-sfx-elevenlabs.yml`.
+3. Workflow jest manualny i wymaga repo secret `ELEVENLABS_API_KEY`; generuje
+   artifact z `ai-signatures-latest.zip`, promptami i manifestem generacji.
+4. `import_collection.py` i `validate_stories.py` przyjmują teraz obecny TSV
+   z rozszerzeniem `.csv` oraz prawdziwy CSV.
+
+## Sesja 2026-09-27 — g035 przygotowana przed pivotem
+
+1. Przygotowano bramkę `g035` z pięcioma wpisami tła: cichy step, miarowa
+   kuźnia, noc księżycowa, laboratorium techniczne i sanktuarium.
+2. Po decyzji o przejściu na AI SFX v2 `g035` traktować jako ostatni artefakt
+   starego flow, nie jako blokujący krok produkcji.
 
 ## Sesja 2026-09-27 — g034 i produkcja po audycie
 

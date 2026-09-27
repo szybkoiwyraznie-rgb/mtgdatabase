@@ -1,10 +1,19 @@
 #!/usr/bin/env python3
-"""Convert the tab-separated collection.csv into the site catalog format."""
+"""Convert the collection CSV/TSV into the site catalog format."""
 from __future__ import annotations
 import argparse, csv, json, re
 from pathlib import Path
 
 ART_ID = re.compile(r"^(\d+)([A-Za-z0-9_-]+)$")
+EXPECTED = ["Ilustracja", "Nazwa Karty", "Narracja"]
+
+
+def detect_delimiter(header_line: str) -> str:
+    # Existing repo file is TSV despite the .csv extension; new user files may
+    # be real comma-separated CSV. Use only the header, because narrations
+    # contain many commas.
+    return "\t" if "\t" in header_line else ","
+
 
 def main() -> None:
     parser = argparse.ArgumentParser()
@@ -12,10 +21,11 @@ def main() -> None:
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     with args.csv_file.open(encoding="utf-8-sig", newline="") as handle:
-        reader = csv.DictReader(handle, delimiter="\t")
-        expected = ["Ilustracja", "Nazwa Karty", "Narracja"]
-        if reader.fieldnames != expected:
-            raise SystemExit(f"Expected tab-separated columns {expected}; got {reader.fieldnames}")
+        header = handle.readline()
+        handle.seek(0)
+        reader = csv.DictReader(handle, delimiter=detect_delimiter(header))
+        if reader.fieldnames != EXPECTED:
+            raise SystemExit(f"Expected columns {EXPECTED}; got {reader.fieldnames}")
         stories, seen = [], set()
         for line, row in enumerate(reader, 2):
             if not any((value or "").strip() for value in row.values()):
