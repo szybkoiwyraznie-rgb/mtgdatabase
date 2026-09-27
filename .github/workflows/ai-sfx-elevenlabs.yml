@@ -184,7 +184,9 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add audio/samples data/samples/generated-manifest.jsonl site/generated build/samples-latest.zip
+          # Keep derived build/site artifacts out of Git; they are reproducible
+          # from audio/samples and the manifest.
+          git add audio/samples data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "No generated outputs to commit."
           else
