@@ -29,18 +29,20 @@ Gotowe są cztery fale paczek (łącznie 50 fabuł):
 - `b002`: scenariusze i sample ID `6–15`,
 - `b003`: scenariusze i sample ID `16–25`,
 - `b004`–`b006`: scenariusze i sample ID `26–50` (10 + 10 + 5),
-- `b007`: scenariusze i sample ID `51–60`.
+- `b007`: scenariusze i sample ID `51–60`,
+- `b008`: scenariusze i sample ID `61–85` (25 sztuk — pierwsza paczka
+  w nowym trybie ~25 scenariuszy, decyzja właściciela).
 
-Scenariusze: `data/samples/scenarios.jsonl` (60 wpisów, status `ready`).
-Wygenerowane sample: `audio/samples/1.mp3` … `60.mp3` (60 plików MP3).
-Manifest generacji: `data/samples/generated-manifest.jsonl` (60 wpisów
+Scenariusze: `data/samples/scenarios.jsonl` (85 wpisów, status `ready`).
+Wygenerowane sample: `audio/samples/1.mp3` … `85.mp3` (85 plików MP3).
+Manifest generacji: `data/samples/generated-manifest.jsonl` (85 wpisów
 `generated`).
 
 HTML listening gate buduje się z tych plików przez `scripts/build_site.py`
-(60 sampli), a ZIP przez `scripts/build_pack.py` (płaskie `1.mp3` … `60.mp3`).
+(85 sampli), a ZIP przez `scripts/build_pack.py` (płaskie `1.mp3` … `85.mp3`).
 
 Uwaga operacyjna: token bota Arena nie może użyć `workflow_dispatch`
-(HTTP 403), więc paczki `b002`–`b007` zostały wygenerowane
+(HTTP 403), więc paczki `b002`–`b008` zostały wygenerowane
 przez tymczasowe, markerowane triggery push (`[generate-b00X…]` /
 `[import-samples-artifact]`) w `ai-sfx-elevenlabs.yml`, usuwane po imporcie
 artefaktu. Workflow na `main` pozostaje manualny (`workflow_dispatch`).
@@ -51,8 +53,8 @@ statusem `generated`.
 
 **Quota (korekta właściciela, 2026-09-27): konto ma budżet 10 000
 tokenów**, z czego po 50 samplach wykorzystano **1 145** (~23 tokeny na
-sample). Po paczce `b007` (60 sampli) zużycie to szacunkowo ~1 375
-tokenów. Zapas wystarcza na ~370 kolejnych sampli. Uwaga: pokrycie
+sample). Po paczce `b008` (85 sampli) zużycie to szacunkowo ~1 950
+tokenów. Zapas wystarcza na ~350 kolejnych sampli. Uwaga: pokrycie
 całego katalogu (524 fabuły) wymagałoby łącznie ~12 000 tokenów, więc
 zmiana konta/klucza będzie potrzebna mniej więcej około ID ~430. Wcześniejszy
 szacunek „40–50 generacji" był mocno zaniżony.
@@ -102,18 +104,19 @@ nie odpalała się bez kontroli właściciela.
 ## Stan liczbowy
 
 - Katalog bieżący: 524 fabuły w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 60 gotowych wpisów (`b001` ID `1–5`, `b002` ID `6–15`,
-  `b003` ID `16–25`, `b004`–`b006` ID `26–50`, `b007` ID `51–60`).
-- Wygenerowane sample v2: 60 produkcyjnych MP3
-  (`audio/samples/1.mp3` … `60.mp3`).
+- Scenariusze v2: 85 gotowych wpisów (`b001` ID `1–5`, `b002` ID `6–15`,
+  `b003` ID `16–25`, `b004`–`b006` ID `26–50`, `b007` ID `51–60`,
+  `b008` ID `61–85`).
+- Wygenerowane sample v2: 85 produkcyjnych MP3
+  (`audio/samples/1.mp3` … `85.mp3`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## Co robić dalej
 
 - Odsłuchać paczki `b002–b006` (ID `6–50`) w bibliotece HTML i zdecydować
   o merge'u PR.
-- Kolejna paczka: `b008`, domyślnie następne ID `61–70` z bieżącego katalogu
-  (zapas tokenów pozwala na ~370 kolejnych sampli).
+- Kolejna paczka: `b009`, domyślnie następne ID `86–110` z bieżącego katalogu
+  (zapas tokenów pozwala na ~350 kolejnych sampli).
 - Pisać scenariusze jako krótkie, jednorodne sample. Unikać słów i konstrukcji:
   `tło`, `hero`, `koda`, `warstwy`, `ambient bed`, `full scene`, `music`.
 - Każdy prompt ma zawierać zakaz muzyki i mowy.
