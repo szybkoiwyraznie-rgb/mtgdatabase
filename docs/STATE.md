@@ -43,12 +43,17 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 - PR: `https://github.com/szybkoiwyraznie-rgb/mtgdatabase/pull/38` na gałęzi
   `arena/01a0dd2c-mtgdatabase`. Zawiera audyt gotowych, przyjęcie g032,
-  produkcję po g032, przyjęcie 4/5 wpisów z g033 oraz 15 renderów po g033.
+  produkcję po g032, przyjęcie 4/5 wpisów z g033, 15 renderów po g033 oraz
+  otwartą bramkę g034.
 - Po g033 wyrenderowano 15 fabuł; zablokowane są: `104` i `528` semantycznie
   oraz `309` i `502` technicznie po QA. Pełny zapis:
   `docs/audits/2026-09-27-audyt-po-g033.md`.
-- `mood:wladza-kontrola` nadal bez klocka — g033/w odrzucone przez właściciela,
-  przygotować nową rundę kandydatów w kolejnej paczce.
+- **g034 do werdyktu właściciela**: `tlo-step: s.1/s.2/s.3`,
+  `tlo-kuznia: k.1/k.2/k.3`, `tlo-krypta: n.1/n.2/n.3`,
+  `hero-mechanizm: f.1/f.2/f.3`, `hero-ogien: o.1/o.2/o.3` albo `żaden`
+  z powodem dla danego wpisu.
+- `mood:wladza-kontrola` nadal bez klocka — g033/w odrzucone przez właściciela;
+  nie weszło do g034, trzeba wrócić w osobnej paczce.
 - Przed oddaniem/mergem utrzymać pełną walidację: `check_required_reading`,
   `compileall`, `test_signature_system`, `library_tool.py check`,
   `build_pack`, `build_site`, `git diff --check`, a po pushu sprawdzić CI PR.
@@ -78,18 +83,21 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
    semantycznie, ale nie mają receptur/MP3, bo obecne kombinacje gest×instrument
    nie przechodzą QA; `104` i `528` wymagają nowych teł (`miasto-neonowe`,
    `dom-nawiedzony`).
-2. Następna bramka powinna dalej brać typy z największych realnych
-   braków, zwłaszcza te nieobjęte g033: `background:miasto-gwar`,
+2. Najpierw zamknąć **g034** po werdykcie właściciela: wpisać wybory do
+   `data/gates/g034/verdicts.json`, uruchomić `library_tool.py accept --gate g034`,
+   potem `resolver.py --survey` i sanity audit nowo odblokowanych fabuł przed renderem.
+3. Następna bramka po g034 powinna dalej brać typy z największych realnych
+   braków, zwłaszcza te nieobjęte g033/g034: `background:miasto-gwar`,
    `background:swiatynia-sanktuarium`, `background:miasto-nocne`,
    `background:laboratorium-technika`, `background:wioska-sielska`.
-3. W tej samej kolejce uwzględniać braki ujawnione audytami właściciela:
+4. W tej samej kolejce uwzględniać braki ujawnione audytami właściciela:
    `background:zatoka-spokojna` (90), `hero:stukot-szczudel` (206),
    `hero:aura-lagodna` (253/268), `background:las-mroczny` (599),
    `background:twierdza-posepna` (560), `mood:wladza-kontrola` (607).
-4. Po każdej nowej bramce NIE batch-renderować samej listy `OBSADZONA`.
+5. Po każdej nowej bramce NIE batch-renderować samej listy `OBSADZONA`.
    Najpierw wypisz nowo pełne bez receptury i wykonaj sanity audit narracja →
    klasa → konkretny klocek. Dopiero potem renderuj.
-5. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
+6. Filtr na anchor fabułę dla nowego typu (kopiuj-wklej do nowej sesji):
    ```python
    import sys
    sys.path.insert(0, "scripts")
@@ -102,7 +110,7 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
                and r["braki"][0]["typ"] == "TYP"):
            print(sid, r["title"])
    ```
-6. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
+7. Ostrożnie z `scripts/build_gate_manifest.py` — jednorazowy legacy builder
    g001, nadpisuje ten katalog przy KAŻDYM uruchomieniu (LESSONS 2026-09-25).
 
 ## Sample scout — uruchomienie
