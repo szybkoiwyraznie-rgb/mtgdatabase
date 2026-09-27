@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-09-27** (sesja `arena/01a0dd2c-mtgdatabase`).
+Ostatnia aktualizacja: **2026-09-27** (sesja `arena/01a0e45d-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
@@ -94,15 +94,16 @@ bo token wystarcza mniej więcej na 40–50 generacji i klucz będzie wymieniany
 ## Stan liczbowy
 
 - Katalog bieżący: 524 fabuły w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 15 gotowych wpisów (`b001` ID `1–5`, `b002` ID `6–15`).
-- Wygenerowane sample v2: 15 produkcyjnych MP3
-  (`audio/samples/1.mp3` … `15.mp3`).
+- Scenariusze v2: 25 gotowych wpisów (`b001` ID `1–5`, `b002` ID `6–15`,
+  `b003` ID `16–25`).
+- Wygenerowane sample v2: 25 produkcyjnych MP3
+  (`audio/samples/1.mp3` … `25.mp3`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## Co robić dalej
 
-- Przygotować kolejną małą paczkę scenariuszy `b003`, domyślnie następne
-  ID `16–25` z bieżącego katalogu.
+- Przygotować kolejną małą paczkę scenariuszy `b004`, domyślnie następne
+  ID `26–35` z bieżącego katalogu.
 - Pisać scenariusze jako krótkie, jednorodne sample. Unikać słów i konstrukcji:
   `tło`, `hero`, `koda`, `warstwy`, `ambient bed`, `full scene`, `music`.
 - Każdy prompt ma zawierać zakaz muzyki i mowy.
