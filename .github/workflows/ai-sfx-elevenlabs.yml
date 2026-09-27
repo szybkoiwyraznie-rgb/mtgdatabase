@@ -9,7 +9,7 @@ on:
       collection_csv:
         description: "Collection TSV/CSV path to import before building the library"
         type: string
-        default: "kolekcja.csv"
+        default: "fabuły270926.csv"
         required: true
       batch:
         description: "Optional batch label, e.g. b001"

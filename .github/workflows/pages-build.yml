@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Refresh catalog
-        run: python scripts/import_collection.py kolekcja.csv --output data/catalog.json
+        run: python scripts/import_collection.py fabuły270926.csv --output data/catalog.json
       - name: Validate scenarios
         run: python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
       - name: Build sample library

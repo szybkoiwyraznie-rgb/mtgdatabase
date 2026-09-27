@@ -1,6 +1,6 @@
 # Krótkie sample fabularne
 
-Nowy flow projektu: każda fabuła z `kolekcja.csv` dostaje **jeden krótki,
+Nowy flow projektu: każda fabuła z `fabuły270926.csv` dostaje **jeden krótki,
 jednorodny efekt dźwiękowy** wygenerowany przez ElevenLabs i zapisany jako
 `audio/samples/<id>.mp3`.
 
@@ -14,7 +14,7 @@ Stary system v1 jest zachowany tylko jako archiwum w
 
 ## Aktualny workflow
 
-1. Właściciel wrzuca nowy `kolekcja.csv` jako commit.
+1. Właściciel wrzuca nowy `fabuły270926.csv` jako commit.
 2. Agent przygotowuje małą paczkę scenariuszy, zwykle około 10 sztuk, w
    `data/samples/scenarios.jsonl`.
 3. Po paczce agent uruchamia scouta ElevenLabs:
@@ -46,7 +46,7 @@ więcej na 40–50 generacji, workflow jest manualny i działa małymi paczkami.
 
 ## Najważniejsze ścieżki
 
-- `data/catalog.json` — katalog importowany z `kolekcja.csv`,
+- `data/catalog.json` — katalog importowany z `fabuły270926.csv`,
 - `data/samples/scenarios.jsonl` — ręcznie pisane scenariusze sampli,
 - `data/samples/generated-manifest.jsonl` — manifest generacji scouta,
 - `audio/samples/<id>.mp3` — aktualne produkty,

@@ -51,7 +51,7 @@ class SampleV2Tests(unittest.TestCase):
             }, ensure_ascii=False) + "\n", encoding="utf-8")
             cp = run("scripts/elevenlabs_sample_scout.py", "--scenarios", str(scenarios), "--dry-run")
             self.assertIn("2.mp3", cp.stdout)
-            self.assertIn("No music", cp.stdout)
+            self.assertIn("no music", cp.stdout.lower())
 
     def test_elevenlabs_sample_scout_posts_to_mock_api_and_writes_mp3(self) -> None:
         class Handler(BaseHTTPRequestHandler):

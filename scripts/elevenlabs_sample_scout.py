@@ -70,8 +70,18 @@ def select_rows(rows: list[dict], ids: set[str] | None, batch: str | None, inclu
 
 def api_payload(row: dict, prompt_influence: float) -> dict:
     prompt = str(row["prompt"]).strip()
-    if NEGATIVE.lower() not in prompt.lower():
-        prompt = f"{prompt} {NEGATIVE}"
+    low = prompt.lower()
+    additions: list[str] = []
+    if "no music" not in low:
+        additions.append("No music.")
+    if "no speech" not in low and "no spoken" not in low:
+        additions.append("No speech.")
+    if "no ambience bed" not in low and "no ambient bed" not in low:
+        additions.append("No ambience bed.")
+    if "multi-layer" not in low and "full scene" not in low:
+        additions.append("No multi-layer cinematic scene.")
+    if additions:
+        prompt = f"{prompt} {' '.join(additions)}"
     return {
         "text": prompt,
         "duration_seconds": float(row.get("duration_seconds") or 2.5),

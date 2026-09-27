@@ -13,8 +13,8 @@ bramek/receptur jako głównego flow.
 ```bash
 python -m compileall -q scripts
 python -m unittest discover -s scripts -p 'test_*.py'
-python scripts/validate_stories.py kolekcja.csv
-python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
+python scripts/validate_stories.py fabuły270926.csv
+python scripts/import_collection.py fabuły270926.csv --output /tmp/catalog.json
 python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
 python scripts/build_pack.py --output /tmp/samples.zip
 python scripts/build_site.py --out /tmp/site-out

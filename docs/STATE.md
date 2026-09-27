@@ -20,7 +20,7 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktywne ścieżki
 
-- `kolekcja.csv` — właściciel wrzuca nową kolekcję jako commit.
+- `fabuły270926.csv` — właściciel wrzuca nową kolekcję jako commit.
 - `data/catalog.json` — katalog generowany z CSV/TSV przez `scripts/import_collection.py`.
 - `data/samples/scenarios.jsonl` — ręcznie pisane małe paczki scenariuszy sampli.
 - `data/samples/generated-manifest.jsonl` — manifest generacji scouta ElevenLabs.
@@ -31,8 +31,8 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 ## Aktywne narzędzia
 
 ```bash
-python scripts/validate_stories.py kolekcja.csv
-python scripts/import_collection.py kolekcja.csv --output data/catalog.json
+python scripts/validate_stories.py fabuły270926.csv
+python scripts/import_collection.py fabuły270926.csv --output data/catalog.json
 python scripts/prepare_sample_batch.py --limit 10
 python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl
 python scripts/elevenlabs_sample_scout.py --batch b001 --limit 10 --dry-run
@@ -47,7 +47,7 @@ Sekret GitHub/API nazywa się **`ELEVENLABS`**. Nie używać dawnej nazwy
 
 ## Workflow
 
-1. Właściciel commituję nowy `kolekcja.csv`.
+1. Właściciel commituję nowy `fabuły270926.csv`.
 2. Agent przygotowuje małą paczkę ok. 10 scenariuszy w
    `data/samples/scenarios.jsonl`; nie iść na ilość kosztem jakości.
 3. Po walidacji agent uruchamia scouta ElevenLabs dla tej paczki.

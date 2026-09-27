@@ -1,6 +1,6 @@
 # Instrukcje dla agentów — aktualny flow v2
 
-Repozytorium produkuje krótkie sample dźwiękowe do fabuł z `kolekcja.csv`.
+Repozytorium produkuje krótkie sample dźwiękowe do fabuł z `fabuły270926.csv`.
 Aktualny produkt to:
 
 ```text
@@ -40,8 +40,8 @@ Nie rozwijaj go jako głównego flow i nie pakuj jego MP3 do ZIP-a.
 Po nowym CSV/TSV:
 
 ```bash
-python scripts/validate_stories.py kolekcja.csv
-python scripts/import_collection.py kolekcja.csv --output data/catalog.json
+python scripts/validate_stories.py fabuły270926.csv
+python scripts/import_collection.py fabuły270926.csv --output data/catalog.json
 python scripts/prepare_sample_batch.py --limit 10
 ```
 
@@ -78,8 +78,8 @@ Walidacja przed commitem:
 ```bash
 python -m compileall -q scripts
 python -m unittest discover -s scripts -p 'test_*.py'
-python scripts/validate_stories.py kolekcja.csv
-python scripts/import_collection.py kolekcja.csv --output /tmp/catalog.json
+python scripts/validate_stories.py fabuły270926.csv
+python scripts/import_collection.py fabuły270926.csv --output /tmp/catalog.json
 python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
 python scripts/build_pack.py --output /tmp/samples.zip
 python scripts/build_site.py --out /tmp/site-out

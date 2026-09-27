@@ -60,7 +60,7 @@ python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl
 Po wrzuceniu nowego CSV/TSV:
 
 ```bash
-python scripts/import_collection.py kolekcja.csv --output data/catalog.json
+python scripts/import_collection.py fabuły270926.csv --output data/catalog.json
 python scripts/prepare_sample_batch.py --limit 10
 ```
 
