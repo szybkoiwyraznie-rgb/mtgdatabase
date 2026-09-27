@@ -18,28 +18,38 @@ Nowy produkt: dla każdej fabuły powstaje **jeden krótki, jednorodny sample**
 w stylu „krakanie wron”, „uderzenie dzwonu”, „szczęk bitwy”, „odgłos upadku”.
 To nie jest wielowarstwowa scena z tłem i kodą.
 
-## Aktualny stan POC
+## Aktualny stan produkcji
 
 Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **524 fabuły**
 i z niego wygenerowano `data/catalog.json`.
 
-Pierwszy proof of concept jest gotowy:
+Gotowe są dwie paczki:
 
-- batch scenariuszy: `b001`,
-- scenariusze: `data/samples/scenarios.jsonl`, ID `1–5`, status `ready`,
-- wygenerowane sample ElevenLabs:
-  - `audio/samples/1.mp3` — `Dunland Crebain`,
-  - `audio/samples/2.mp3` — `Coralhelm Guide`,
-  - `audio/samples/3.mp3` — `Nefarious Imp`,
-  - `audio/samples/4.mp3` — `Mystic Sanctuary`,
-  - `audio/samples/5.mp3` — `Academy Journeymage`,
-- manifest generacji: `data/samples/generated-manifest.jsonl`,
-- HTML listening gate buduje się z tych plików przez `scripts/build_site.py`,
-- ZIP buduje się przez `scripts/build_pack.py` i zawiera wyłącznie płaskie
-  `1.mp3` … `5.mp3` z `audio/samples`.
+- `b001` (POC): scenariusze i sample ID `1–5`,
+- `b002`: scenariusze i sample ID `6–15` —
+  `Azorius Justiciar`, `Mindstab`, `Goblin Deathraiders`,
+  `Toll of the Invasion`, `Servant of the Scale`, `Sleep of the Dead`,
+  `Merchant's Dockhand`, `Soulmender`, `Crew Captain`, `Tellah, Great Sage`.
 
-Po merge nowa sesja powinna kontynuować od kolejnej małej paczki, np. ID `6–15`,
-o ile właściciel nie wskaże innego wyboru.
+Scenariusze: `data/samples/scenarios.jsonl` (15 wpisów, status `ready`).
+Wygenerowane sample: `audio/samples/1.mp3` … `15.mp3` (15 plików MP3).
+Manifest generacji: `data/samples/generated-manifest.jsonl` (15 wpisów
+`generated`).
+
+HTML listening gate buduje się z tych plików przez `scripts/build_site.py`
+(15 sampli), a ZIP przez `scripts/build_pack.py` (płaskie `1.mp3` … `15.mp3`).
+
+Uwaga operacyjna: token bota Arena nie może użyć `workflow_dispatch`
+(HTTP 403), więc paczka `b002` została wygenerowana przez tymczasowy,
+markerowany trigger push (`[generate-b002]` / `[import-samples-artifact]`)
+w `ai-sfx-elevenlabs.yml`, usunięty po imporcie artefaktu. Workflow na
+`main` pozostaje manualny (`workflow_dispatch`). Wcześniejsze nieudane
+próby generacji `b002` (sesja `arena/01a0e450`) wynikały z braku
+wypchniętych scenariuszy, nie z awarii sekretu — klucz `ELEVENLABS`
+działał zarówno dla `b001`, jak i `b002`.
+
+Następna sesja powinna kontynuować od paczki `b003`, domyślnie ID `16–25`,
+o ile właściciel po odsłuchu nie zechce regenerować pojedynczych ID.
 
 ## Aktywne ścieżki
 
@@ -84,15 +94,15 @@ bo token wystarcza mniej więcej na 40–50 generacji i klucz będzie wymieniany
 ## Stan liczbowy
 
 - Katalog bieżący: 524 fabuły w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 5 gotowych wpisów POC (`b001`, ID `1–5`).
-- Wygenerowane sample v2: 5 produkcyjnych MP3 POC (`audio/samples/1.mp3` …
-  `audio/samples/5.mp3`).
+- Scenariusze v2: 15 gotowych wpisów (`b001` ID `1–5`, `b002` ID `6–15`).
+- Wygenerowane sample v2: 15 produkcyjnych MP3
+  (`audio/samples/1.mp3` … `15.mp3`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## Co robić dalej
 
-- Jeżeli właściciel zaakceptuje POC, przygotować kolejną małą paczkę scenariuszy,
-  domyślnie następne ID `6–15` z bieżącego katalogu.
+- Przygotować kolejną małą paczkę scenariuszy `b003`, domyślnie następne
+  ID `16–25` z bieżącego katalogu.
 - Pisać scenariusze jako krótkie, jednorodne sample. Unikać słów i konstrukcji:
   `tło`, `hero`, `koda`, `warstwy`, `ambient bed`, `full scene`, `music`.
 - Każdy prompt ma zawierać zakaz muzyki i mowy.
