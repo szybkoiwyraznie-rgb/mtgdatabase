@@ -4,6 +4,11 @@ name: Generate sample batch (ElevenLabs)
 # already hand-written ready scenarios in data/samples/scenarios.jsonl.
 
 on:
+  push:
+    branches: ['arena/**']
+    paths:
+      - 'data/samples/scenarios.jsonl'
+      - '.github/workflows/ai-sfx-elevenlabs.yml'
   workflow_dispatch:
     inputs:
       collection_csv:
@@ -64,10 +69,18 @@ jobs:
           python-version: "3.12"
 
       - name: Refresh catalog from collection
-        run: python scripts/import_collection.py "${{ inputs.collection_csv }}" --output data/catalog.json
+        run: python scripts/import_collection.py "${{ inputs.collection_csv || 'fabuły270926.csv' }}" --output data/catalog.json
 
       - name: Validate scenarios
         run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
+
+      - name: Check ElevenLabs configuration
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: |
+          test -n "$ELEVENLABS" || { echo "ELEVENLABS secret is empty or unavailable"; exit 1; }
+          if [ -n "$ELEVENLABS_SOUNDGEN_ENDPOINT" ]; then echo "Custom sound generation endpoint configured"; else echo "Using default ElevenLabs sound generation endpoint"; fi
 
       - name: Generate MP3s with ElevenLabs
         env:
@@ -75,15 +88,15 @@ jobs:
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
           ARGS=()
-          if [ -n "${{ inputs.ids }}" ]; then ARGS+=(--ids "${{ inputs.ids }}"); fi
-          if [ -n "${{ inputs.batch }}" ]; then ARGS+=(--batch "${{ inputs.batch }}"); fi
-          if [ -n "${{ inputs.limit }}" ]; then ARGS+=(--limit "${{ inputs.limit }}"); fi
+          if [ -n "${{ inputs.ids || '6,7,8,9,10,11,12,13,14,15' }}" ]; then ARGS+=(--ids "${{ inputs.ids || '6,7,8,9,10,11,12,13,14,15' }}"); fi
+          if [ -n "${{ inputs.batch || 'b002' }}" ]; then ARGS+=(--batch "${{ inputs.batch || 'b002' }}"); fi
+          if [ -n "${{ inputs.limit || '10' }}" ]; then ARGS+=(--limit "${{ inputs.limit || '10' }}"); fi
           if [ "${{ inputs.force }}" = "true" ]; then ARGS+=(--force); fi
           python scripts/elevenlabs_sample_scout.py \
             --scenarios "$SCENARIOS" \
             --out "$OUT_DIR" \
             --manifest "$MANIFEST" \
-            --prompt-influence "${{ inputs.prompt_influence }}" \
+            --prompt-influence "${{ inputs.prompt_influence || '0.35' }}" \
             "${ARGS[@]}"
 
       - name: Build flat ZIP
