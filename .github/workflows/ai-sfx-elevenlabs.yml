@@ -2,8 +2,8 @@ name: Generate sample batch (ElevenLabs)
 
 # Manual workflow: consumes ElevenLabs quota. It generates MP3s only for
 # already hand-written ready scenarios in data/samples/scenarios.jsonl.
-# During the b019 bootstrap it can also run from a guarded push commit
-# containing [generate-b019]; remove that guarded trigger after the batch
+# During the b020 bootstrap it can also run from a guarded push commit
+# containing [generate-b020]; remove that guarded trigger after the batch
 # artifact is imported (the arena bot token cannot use workflow_dispatch).
 
 on:
@@ -59,17 +59,17 @@ env:
   OUT_DIR: audio/samples
   MANIFEST: data/samples/generated-manifest.jsonl
   DEFAULT_COLLECTION_CSV: fabuły270926.csv
-  DEFAULT_BATCH: b019
-  DEFAULT_IDS: 201,202,204,206,207,209,211,213,214,215
+  DEFAULT_BATCH: b020
+  DEFAULT_IDS: 216,217,218,219,220,221,222,223,224,225
   DEFAULT_LIMIT: "10"
   DEFAULT_PROMPT_INFLUENCE: "0.35"
-  GENERATED_ARTIFACT_RUN_ID: "36351788959"
+  GENERATED_ARTIFACT_RUN_ID: "pending"
 
 jobs:
   generate:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      contains(github.event.head_commit.message, '[generate-b019]')
+      contains(github.event.head_commit.message, '[generate-b020]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -194,7 +194,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No generated outputs to commit."
           else
-            git commit -m "Import generated b019 samples [skip ci]"
+            git commit -m "Import generated b020 samples [skip ci]"
             git pull --rebase origin "${GITHUB_REF_NAME}"
             git push origin "HEAD:${GITHUB_REF_NAME}"
           fi
