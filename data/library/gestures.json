@@ -824,6 +824,67 @@
         "choice": "koda-zuchwalosc.2",
         "date": "2026-09-26"
       }
+    },
+    {
+      "id": "g_intrigue_shadow_wink",
+      "semantic": "podstęp — mrugnięcie w cieniu",
+      "desc": "lekka, punktowana figura z pauzami: brzmi jak ktoś, kto wie więcej niż mówi",
+      "notes": [
+        {
+          "midi": 60,
+          "on": 0.0,
+          "off": 0.2,
+          "vel": 0.42
+        },
+        {
+          "midi": 64,
+          "on": 0.44,
+          "off": 0.6,
+          "vel": 0.48
+        },
+        {
+          "midi": 60,
+          "on": 0.92,
+          "off": 1.1,
+          "vel": 0.36
+        },
+        {
+          "midi": 54,
+          "on": 1.36,
+          "off": 1.95,
+          "vel": 0.5
+        }
+      ],
+      "delivery": {
+        "humanize": {
+          "timing_ms": 12,
+          "vel": 0.035
+        }
+      },
+      "instrument_tags": [
+        "piano",
+        "struck-light",
+        "percussion_low",
+        "bells"
+      ],
+      "semantics": {
+        "type": "podstep-intryga",
+        "traits": [
+          "punktowany",
+          "pauzy",
+          "lekki cień",
+          "ironia"
+        ],
+        "bad_for": [
+          "makabra",
+          "monumentalność"
+        ]
+      },
+      "approved": {
+        "gate": "g033",
+        "choice": "koda-intryga.3",
+        "date": "2026-09-27"
+      }
     }
   ]
 }

@@ -394,6 +394,80 @@
         "choice": "tlo-bitwa-zgielk.3v4",
         "date": "2026-09-25"
       }
+    },
+    {
+      "id": "cave_quarry_tunnel_01",
+      "setting": "podziemia / tunel kamieniołomu",
+      "desc": "wilgotny tunel: niski pogłos, oddech przestrzeni i daleki plusk — bardziej jaskinia niż pokój (okno 2.0–10.0 s, RMS -32.0 dB, HF>6k 4.4%)",
+      "file": "audio/library/backgrounds/cave_quarry_tunnel_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -32.0,
+      "loopable": true,
+      "semantics": {
+        "type": "podziemia-jaskinia",
+        "traits": [
+          "podziemny pogłos",
+          "ciemne powietrze",
+          "kamień",
+          "niski szmer"
+        ],
+        "bad_for": [
+          "ciepłe wnętrze",
+          "otwarty plener",
+          "miasto",
+          "sielski las"
+        ]
+      },
+      "source": {
+        "title": "Quarry Tunnel Ambience 1, Large Splash (Freesound)",
+        "author": "ecfike",
+        "license": "CC0 1.0 (public domain; wg API Freesound)",
+        "url": "https://freesound.org/people/ecfike/sounds/476318/",
+        "channel": "sample-scout (preview-hq-mp3); manifest: 476318",
+        "notes": "quarry tunnel ambience: okno 2–10 s; kandydat na wilgotne podziemia"
+      },
+      "approved": {
+        "gate": "g033",
+        "choice": "tlo-podziemia.2",
+        "date": "2026-09-27"
+      }
+    },
+    {
+      "id": "mountain_wind_plateau_01",
+      "setting": "góry / surowy płaskowyż",
+      "desc": "najbardziej szorstkie okno: suchy wiatr po kamieniu, dobre dla wysokiego płaskowyżu lub kanionu (okno 96.0–104.0 s, RMS -32.0 dB, HF>6k 0.0%)",
+      "file": "audio/library/backgrounds/mountain_wind_plateau_01.mp3",
+      "duration_sec": 8.0,
+      "level_ref_db": -32.0,
+      "loopable": true,
+      "semantics": {
+        "type": "gory-wichry",
+        "traits": [
+          "wiatr",
+          "otwarta wysokość",
+          "surowe powietrze",
+          "brak ludzi"
+        ],
+        "bad_for": [
+          "wnętrze",
+          "miasto",
+          "las dzienny",
+          "ciepły spokój"
+        ]
+      },
+      "source": {
+        "title": "Mongolian film windblown steppe1.wav (Freesound)",
+        "author": "Jim-Bretherick",
+        "license": "CC0 1.0 (public domain; wg API Freesound)",
+        "url": "https://freesound.org/people/Jim-Bretherick/sounds/667115/",
+        "channel": "sample-scout (preview-hq-mp3); manifest: 667115",
+        "notes": "Mongolian windblown steppe: okno 96–104 s; szorstki pęd powietrza"
+      },
+      "approved": {
+        "gate": "g033",
+        "choice": "tlo-gory.3",
+        "date": "2026-09-27"
+      }
     }
   ]
 }

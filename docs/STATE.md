@@ -13,24 +13,21 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
   126, 133, 166, 169, 179, 188, 191, 193, 222, 224, 225, 249, 277, 282,
   299, 422, 433, 437, 451, 468, 498, 506, 511, 519, 562, 575, 577, 578,
   585).
-- Baza klocków: **51 wpisów** (`library_tool.py check`: 11 teł / 15 hero /
-  14 gestów / 11 instrumentów — wszystkie z `semantics`, model 1:1,
+- Baza klocków: **55 wpisów** (`library_tool.py check`: 13 teł / 16 hero /
+  15 gestów / 11 instrumentów — wszystkie z `semantics`, model 1:1,
   taksonomia v6 + pending typy dla braków).
-- Bramki rozegrane z werdyktem i przyjęciem do biblioteki: **g001–g032**
-  (g014 wycofana — archiwum). g032 zamknięta decyzjami właściciela:
-  `koda-furia=f.3`, `koda-zuchwalosc=z.2`, `hero-rezonans=r.1`,
-  `hero-potezny=p.2`, `instr-zimno=i.1` → do bazy weszły:
-  `g_feral_stampede`, `g_brave_swagger`, `resonance_bowed_01`,
-  `heavyblow_gong_01`, `b_vibraphone_cold`. **g033 jest otwarta**:
-  5 wpisów × 3 kandydatów (`tlo-podziemia`, `tlo-gory`,
-  `hero-przemiana`, `koda-intryga`, `koda-wladza`), czeka na werdykty.
-- `resolver.py --survey` po sanity audycie po g032: **40** fabuł w pełni
-  obsadzalnych dziś (lista z survey nie zawiera legacy 1–4), **467** z
-  częściową obsadą. Największe braki: `background:podziemia-jaskinia`,
-  `background:gory-wichry`, `hero:przemiana-materializacja`,
-  `background:miasto-gwar`, `background:swiatynia-sanktuarium`,
+- Bramki rozegrane z werdyktem i przyjęciem do biblioteki: **g001–g033**
+  (g014 wycofana — archiwum). g033 zamknięta częściowo decyzjami właściciela:
+  `tlo-podziemia=p.2`, `tlo-gory=g.3`, `hero-przemiana=m.1`,
+  `koda-intryga=i.3`; `koda-wladza=żaden` („żaden mi nie pasuje”). Do bazy
+  weszły: `cave_quarry_tunnel_01`, `mountain_wind_plateau_01`,
+  `materialize_magic_swell_01`, `g_intrigue_shadow_wink`.
+- `resolver.py --survey` po przyjęciu g033: **60** fabuł w pełni obsadzalnych
+  dziś (lista z survey nie zawiera części legacy), **448** z częściową obsadą.
+  Największe braki: `background:miasto-gwar`, `background:swiatynia-sanktuarium`,
   `background:miasto-nocne`, `background:laboratorium-technika`,
-  `background:wioska-sielska`.
+  `background:wioska-sielska`, `background:step-rownina`,
+  `background:kuznia-warsztat`.
 - **Wycofane po audycie semantycznym gotowych**: **90, 206, 268, 599**.
   Usunięto ich receptury i MP3; klasy skorygowano tak, żeby resolver zwracał
   BRAK zamiast ponownie obsadzić zły klocek. Pełny audyt:
@@ -43,11 +40,11 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 - PR: `https://github.com/szybkoiwyraznie-rgb/mtgdatabase/pull/38` na gałęzi
   `arena/01a0dd2c-mtgdatabase`. Zawiera audyt gotowych, przyjęcie g032,
-  produkcję po g032 oraz otwartą bramkę g033.
-- **g033 do werdyktu właściciela**: `tlo-podziemia: p.1/p.2/p.3`,
-  `tlo-gory: g.1/g.2/g.3`, `hero-przemiana: m.1/m.2/m.3`,
-  `koda-intryga: i.1/i.2/i.3`, `koda-wladza: w.1/w.2/w.3` albo
-  `żaden` z powodem dla danego wpisu.
+  produkcję po g032 oraz przyjęcie 4/5 wpisów z g033.
+- Po g033 jest **19 nowo pełnych fabuł bez receptury** do sanity audytu przed
+  renderem: `85,104,175,211,215,227,309,337,354,382,393,401,428,474,489,499,502,528,579`.
+- `mood:wladza-kontrola` nadal bez klocka — g033/w odrzucone przez właściciela,
+  przygotować nową rundę kandydatów w kolejnej paczce.
 - Przed oddaniem/mergem utrzymać pełną walidację: `check_required_reading`,
   `compileall`, `test_signature_system`, `library_tool.py check`,
   `build_pack`, `build_site`, `git diff --check`, a po pushu sprawdzić CI PR.
@@ -73,11 +70,10 @@ Ostatnia aktualizacja: **2026-09-26** (sesja `arena/01a0dd2c-mtgdatabase`).
 
 ## Co dalej (kolejność pracy, nie wymaga pytania właściciela)
 
-1. Najpierw zamknąć **g033** po werdykcie właściciela: wpisać wybory do
-   `data/gates/g033/verdicts.json`, uruchomić
-   `python3 scripts/library_tool.py accept --gate g033`, potem `resolver.py --survey`
-   i sanity audit nowo odblokowanych fabuł przed renderem.
-2. Następna bramka po g033 powinna dalej brać typy z największych realnych
+1. Najpierw wykonać sanity audit 19 nowo pełnych fabuł po g033
+   (`85,104,175,211,215,227,309,337,354,382,393,401,428,474,489,499,502,528,579`)
+   i renderować wyłącznie te bez twardej sprzeczności.
+2. Następna bramka powinna dalej brać typy z największych realnych
    braków, zwłaszcza te nieobjęte g033: `background:miasto-gwar`,
    `background:swiatynia-sanktuarium`, `background:miasto-nocne`,
    `background:laboratorium-technika`, `background:wioska-sielska`.

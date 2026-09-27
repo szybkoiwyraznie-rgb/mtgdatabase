@@ -598,6 +598,45 @@
         "choice": "hero-potezny.2",
         "date": "2026-09-26"
       }
+    },
+    {
+      "id": "materialize_magic_swell_01",
+      "role": "przemiana / materializacja / rozpad formy",
+      "character": "narastający, magiczny, zaokrąglony",
+      "distance": "średni",
+      "energy": "średnia",
+      "duration_sec": 1.83,
+      "desc": "miękkie narastanie i rozbłysk, bardziej powstanie formy niż strzał zaklęcia (czas 1.83 s, RMS -15.0 dB, HF>6k 0.6%)",
+      "good_for": "formowanie cienia, materializacja postaci, przeobrażenie, rozpłynięcie formy",
+      "bad_for": "zwykły pocisk magiczny, fizyczny cios, naturalistyczna fauna",
+      "file": "audio/library/heroes/materialize_magic_swell_01.mp3",
+      "semantics": {
+        "type": "przemiana-materializacja",
+        "traits": [
+          "narastanie",
+          "formowanie",
+          "magiczne",
+          "przejście formy"
+        ],
+        "bad_for": [
+          "zwykły pocisk",
+          "cios fizyczny",
+          "woda"
+        ]
+      },
+      "source": {
+        "title": "Magic Spell SFX (OpenGameArt)",
+        "author": "jaggedstone",
+        "license": "CC0 1.0 (public domain)",
+        "url": "https://opengameart.org/content/magic-spell-sfx",
+        "channel": "git clone sparse z github.com/novincode/atomcut-library (mirror)",
+        "notes": "packs/opengameart-magic-spell-sfx; magical-3.m4a; nie jest użytym już spell_cast_bolt_01"
+      },
+      "approved": {
+        "gate": "g033",
+        "choice": "hero-przemiana.1",
+        "date": "2026-09-27"
+      }
     }
   ]
 }
