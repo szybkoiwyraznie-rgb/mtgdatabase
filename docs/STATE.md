@@ -23,33 +23,35 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **524 fabuły**
 i z niego wygenerowano `data/catalog.json`.
 
-Gotowe są dwie paczki:
+Gotowe są cztery fale paczek (łącznie 50 fabuł):
 
 - `b001` (POC): scenariusze i sample ID `1–5`,
-- `b002`: scenariusze i sample ID `6–15` —
-  `Azorius Justiciar`, `Mindstab`, `Goblin Deathraiders`,
-  `Toll of the Invasion`, `Servant of the Scale`, `Sleep of the Dead`,
-  `Merchant's Dockhand`, `Soulmender`, `Crew Captain`, `Tellah, Great Sage`.
+- `b002`: scenariusze i sample ID `6–15`,
+- `b003`: scenariusze i sample ID `16–25`,
+- `b004`–`b006`: scenariusze i sample ID `26–50` (10 + 10 + 5).
 
-Scenariusze: `data/samples/scenarios.jsonl` (15 wpisów, status `ready`).
-Wygenerowane sample: `audio/samples/1.mp3` … `15.mp3` (15 plików MP3).
-Manifest generacji: `data/samples/generated-manifest.jsonl` (15 wpisów
+Scenariusze: `data/samples/scenarios.jsonl` (50 wpisów, status `ready`).
+Wygenerowane sample: `audio/samples/1.mp3` … `50.mp3` (50 plików MP3).
+Manifest generacji: `data/samples/generated-manifest.jsonl` (50 wpisów
 `generated`).
 
 HTML listening gate buduje się z tych plików przez `scripts/build_site.py`
-(15 sampli), a ZIP przez `scripts/build_pack.py` (płaskie `1.mp3` … `15.mp3`).
+(50 sampli), a ZIP przez `scripts/build_pack.py` (płaskie `1.mp3` … `50.mp3`).
 
 Uwaga operacyjna: token bota Arena nie może użyć `workflow_dispatch`
-(HTTP 403), więc paczka `b002` została wygenerowana przez tymczasowy,
-markerowany trigger push (`[generate-b002]` / `[import-samples-artifact]`)
-w `ai-sfx-elevenlabs.yml`, usunięty po imporcie artefaktu. Workflow na
-`main` pozostaje manualny (`workflow_dispatch`). Wcześniejsze nieudane
-próby generacji `b002` (sesja `arena/01a0e450`) wynikały z braku
-wypchniętych scenariuszy, nie z awarii sekretu — klucz `ELEVENLABS`
-działał zarówno dla `b001`, jak i `b002`.
+(HTTP 403), więc paczki `b002`, `b003` i `b004–b006` zostały wygenerowane
+przez tymczasowe, markerowane triggery push (`[generate-b00X…]` /
+`[import-samples-artifact]`) w `ai-sfx-elevenlabs.yml`, usuwane po imporcie
+artefaktu. Workflow na `main` pozostaje manualny (`workflow_dispatch`).
+Krok generacji przy `b004–b006` był `continue-on-error`, żeby częściowe
+zużycie quota i tak trafiało do artefaktu. Klucz `ELEVENLABS` działał
+stabilnie dla wszystkich paczek — wszystkie 50 żądań zakończyło się
+statusem `generated`.
 
-Następna sesja powinna kontynuować od paczki `b003`, domyślnie ID `16–25`,
-o ile właściciel po odsłuchu nie zechce regenerować pojedynczych ID.
+**Quota: wykorzystano ok. 50 generacji** (5 + 10 + 10 + 25), czyli górny
+zakres szacunku z README. Przed kolejną paczką (`b007`, domyślnie ID
+`51–60`) klucz powinien zostać wymieniony; regeneracje pojedynczych ID
+też lepiej zaplanować po wymianie klucza.
 
 ## Aktywne ścieżki
 
@@ -94,16 +96,18 @@ bo token wystarcza mniej więcej na 40–50 generacji i klucz będzie wymieniany
 ## Stan liczbowy
 
 - Katalog bieżący: 524 fabuły w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 25 gotowych wpisów (`b001` ID `1–5`, `b002` ID `6–15`,
-  `b003` ID `16–25`).
-- Wygenerowane sample v2: 25 produkcyjnych MP3
-  (`audio/samples/1.mp3` … `25.mp3`).
+- Scenariusze v2: 50 gotowych wpisów (`b001` ID `1–5`, `b002` ID `6–15`,
+  `b003` ID `16–25`, `b004`–`b006` ID `26–50`).
+- Wygenerowane sample v2: 50 produkcyjnych MP3
+  (`audio/samples/1.mp3` … `50.mp3`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## Co robić dalej
 
-- Przygotować kolejną małą paczkę scenariuszy `b004`, domyślnie następne
-  ID `26–35` z bieżącego katalogu.
+- Odsłuchać paczkę `b004–b006` (ID `26–50`) w bibliotece HTML i zdecydować
+  o merge'u PR.
+- Wymienić klucz `ELEVENLABS` przed kolejną generacją (quota wyczerpane).
+- Kolejna paczka: `b007`, domyślnie następne ID `51–60` z bieżącego katalogu.
 - Pisać scenariusze jako krótkie, jednorodne sample. Unikać słów i konstrukcji:
   `tło`, `hero`, `koda`, `warstwy`, `ambient bed`, `full scene`, `music`.
 - Każdy prompt ma zawierać zakaz muzyki i mowy.
