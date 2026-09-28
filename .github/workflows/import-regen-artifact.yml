@@ -1,8 +1,8 @@
 name: Import regen artifact (TEMP)
 
 # TEMP (do usunięcia po imporcie): sandbox agenta nie ma dostępu do
-# *.blob.core.windows.net, więc artefakt regeneracji r001 (run 36411204847)
-# importuje na branch ten workflow, uruchamiany markerem [import-regen-r001].
+# *.blob.core.windows.net, więc artefakt regeneracji r002 (run 36411895113)
+# importuje na branch ten workflow, uruchamiany markerem [import-regen-r002].
 # Push przez GITHUB_TOKEN nie wyzwala kolejnych workflow (brak pętli).
 
 on:
@@ -15,12 +15,12 @@ permissions:
   actions: read
 
 env:
-  RUN_ID: "36411204847"
-  REGEN_IDS: "76,77,88,93,108,115,124,149,150,159,169,172,181,186,191,200,202,204,213,243,264,281,287,288,301,302,303,306,309,331,346,347,349,352,373,377,388,401,434,435,448,454,461,492,493,494,496,501,504,511,517,542,560,576,582,585,606,615"
+  RUN_ID: "36411895113"
+  REGEN_IDS: "76,115,124,150,181,191,243,287,302,303,347,377,461,493,504,511,615"
 
 jobs:
   import:
-    if: contains(github.event.head_commit.message, '[import-regen-r001]')
+    if: contains(github.event.head_commit.message, '[import-regen-r002]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -47,5 +47,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add audio/samples data/samples/generated-manifest.jsonl
-          git commit -m "Import sampli regeneracji r001 z artefaktu (run ${RUN_ID})"
+          git commit -m "Import sampli regeneracji r002 z artefaktu (run ${RUN_ID})"
           git push origin HEAD:arena/01a0e78c-mtgdatabase
