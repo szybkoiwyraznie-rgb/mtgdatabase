@@ -41,8 +41,9 @@ GitHub secret ma nazwę:
 ELEVENLABS
 ```
 
-Klucz nie jest zapisywany w repo ani w czacie. Ponieważ limit wystarcza mniej
-więcej na 40–50 generacji, workflow jest manualny i działa małymi paczkami.
+Klucz nie jest zapisywany w repo ani w czacie. Budżet konta to 10 000
+tokenów (~23 tokeny na sample), więc workflow jest manualny i działa
+paczkami, żeby właściciel kontrolował zużycie.
 
 ## Najważniejsze ścieżki
 
@@ -52,5 +53,9 @@ więcej na 40–50 generacji, workflow jest manualny i działa małymi paczkami.
 - `audio/samples/<id>.mp3` — aktualne produkty,
 - `site/generated/` — lokalna/Pages biblioteka HTML,
 - `build/samples-latest.zip` — płaski ZIP z `<id>.mp3`.
+
+ID fabuł to numeryczna część ID karty z kolumny `Ilustracja` — sufiks setu
+wycinamy przy imporcie (`158OGW` → `158`). Scenariusze, nazwy plików MP3
+i manifest posługują się wyłącznie numerem.
 
 Pełny opis: [`docs/ai-sfx-pipeline.md`](docs/ai-sfx-pipeline.md).
