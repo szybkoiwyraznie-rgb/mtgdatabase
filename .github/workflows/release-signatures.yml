@@ -1,5 +1,5 @@
-# Nudge push 2026-09-28: re-trigger after a dropped push-to-main event on PR #40
-# (GitHub Actions push-webhook throttling after a high-volume push burst; see docs/STATE.md).
+# Nudge push 2026-09-28 (again): re-trigger after a dropped push-to-main event on PR #44
+# (same GitHub Actions push-webhook throttling as PR #40; see docs/STATE.md).
 name: Build sample release
 
 on:
