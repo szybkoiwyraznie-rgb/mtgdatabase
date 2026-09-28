@@ -168,6 +168,19 @@ nie odpalała się bez kontroli właściciela.
   (batche `b001`–`b053`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
+## Incydent #2: brak auto-deployu po merge PR #44 (2026-09-28)
+
+Ten sam objaw jak przy PR #40: po zmergowaniu PR #44 (merge commit `a6de024`,
+13:37:19 UTC, 527 MP3 dotkniętych postprodukcją r006) żaden workflow
+uruchamiany przez `push` na `main` (`Publish sample library`,
+`Build sample release`) się nie odpalił — potwierdzone przez
+`gh run list`, ostatni run obu workflowów wciąż wskazywał na poprzedni
+commit `76889d55` sprzed mergu. Ten sam korzeń: seria pushy do brancha PR
+tuż przed mergem. `gh workflow run` zwraca HTTP 403 (bot nie ma
+`workflow_dispatch`), więc naprawa jak poprzednio — nowy push do `main`
+(ten commit, dotykający `release-signatures.yml`, co odpala też
+bezwarunkowy `pages.yml`).
+
 ## Incydent: brak auto-deployu po merge PR #40 (2026-09-28)
 
 Po zmergowaniu PR #40 do `main` (squash-merge, commit `4b39a35`, 10:13:11 UTC)
