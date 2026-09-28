@@ -87,6 +87,9 @@ podmiana sekretu `ELEVENLABS`.** Po podmianie: regeneracja `b051`
 
 - `fabuły270926.csv` — bieżąca kolekcja właściciela.
 - `data/catalog.json` — katalog generowany z CSV/TSV przez `scripts/import_collection.py`.
+  ID fabuły = numeryczna część `Ilustracja` (sufiks setu wycinany przy
+  imporcie: `158OGW` → fabuła `158`); scenariusze, MP3 i manifest używają
+  wyłącznie numeru.
 - `data/samples/scenarios.jsonl` — ręcznie pisane małe paczki scenariuszy sampli.
 - `data/samples/generated-manifest.jsonl` — manifest generacji scouta ElevenLabs.
 - `audio/samples/<id>.mp3` — aktualne wygenerowane sample produkcyjne.

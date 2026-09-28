@@ -41,7 +41,9 @@ Nie rozwijaj go jako głównego flow i nie pakuj jego MP3 do ZIP-a.
 
 ## Pętla pracy
 
-Po nowym CSV/TSV:
+Po nowym CSV/TSV (ID fabuły = **numeryczna część** wartości z kolumny
+`Ilustracja`; sufiks setu jest wycinany przy imporcie, np. `158OGW` →
+fabuła `158` — scenariusze, nazwy MP3 i manifest używają wyłącznie numeru):
 
 ```bash
 python scripts/validate_stories.py fabuły270926.csv

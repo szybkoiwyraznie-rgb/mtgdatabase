@@ -54,4 +54,8 @@ paczkami, żeby właściciel kontrolował zużycie.
 - `site/generated/` — lokalna/Pages biblioteka HTML,
 - `build/samples-latest.zip` — płaski ZIP z `<id>.mp3`.
 
+ID fabuł to numeryczna część ID karty z kolumny `Ilustracja` — sufiks setu
+wycinamy przy imporcie (`158OGW` → `158`). Scenariusze, nazwy plików MP3
+i manifest posługują się wyłącznie numerem.
+
 Pełny opis: [`docs/ai-sfx-pipeline.md`](docs/ai-sfx-pipeline.md).
