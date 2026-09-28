@@ -20,7 +20,9 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **524 fabuły**
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **525 fabuł**
+(2026-09-28 doszła fabuła `158OGW` *Kozilek's Shrieker*; ID fabuły to
+numeryczna część `Ilustracja`, sufiks setu wycinany przy imporcie)
 i z niego wygenerowano `data/catalog.json`.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
@@ -45,21 +47,23 @@ Gotowe są cztery fale paczek (łącznie 50 fabuł):
 - `b045`–`b050` (slice `[445:505]`, ID `539–598`): 60 sampli wygenerowanych
   bez zarzutu na drugim kluczu (runy 36400032628, 36400324397, 36400615067,
   36400913153, 36401185630, 36401494004).
-- `b051` (ID `599–608`): scenariusze gotowe (`ready`), ale cała paczka padła
-  na HTTP 401 `quota_exceeded` drugiego klucza (10 nowych wpisów `failed`
-  w manifeście) — do regeneracji po kolejnej podmianie sekretu.
+- `b051` (ID `599–608`): pierwsza próba padła na HTTP 401 `quota_exceeded`
+  drugiego klucza (10 wpisów `failed` w manifeście, archiwum); po podmianie
+  sekretu paczka zregenerowana w całości (run 36403513599, trzeci klucz).
+- `b052` (ID `609–617` + `158`): ostatnia paczka, domykająca cały katalog —
+  9 ostatnich fabuł plus nowa `158OGW` *Kozilek's Shrieker* (run 36405549320).
+  Od tej pory scenariusze pokrywają 100% katalogu (525/525).
 
-Scenariusze: `data/samples/scenarios.jsonl` (515 wpisów, status `ready`).
-Wygenerowane sample: 505 plików MP3 w `audio/samples/` (nazwy plików
-to `<id>.mp3`) — paczki `b001`–`b050`.
-Manifest generacji: `data/samples/generated-manifest.jsonl` (525 wpisów:
-505 `generated` + 20 `failed`: 10 archiwalnych z próby `b031` przy
-wyczerpaniu quota pierwszego klucza i 10 z próby `b051` przy wyczerpaniu
-quota drugiego klucza — ta druga paczka czeka na regenerację po podmianie
-sekretu).
+Scenariusze: `data/samples/scenarios.jsonl` (525 wpisów, status `ready` —
+pokrywają cały katalog). Wygenerowane sample: 525 plików MP3
+w `audio/samples/` (nazwy plików to `<id>.mp3`) — paczki `b001`–`b052`.
+Manifest generacji: `data/samples/generated-manifest.jsonl` (545 wpisów:
+525 `generated` + 20 archiwalnych `failed`: 10 z próby `b031` przy
+wyczerpaniu quota pierwszego klucza i 10 z pierwszej próby `b051` przy
+wyczerpaniu quota drugiego klucza).
 
 HTML listening gate buduje się z tych plików przez `scripts/build_site.py`
-(505 sampli), a ZIP przez `scripts/build_pack.py` (505 płaskich MP3).
+(525 sampli), a ZIP przez `scripts/build_pack.py` (525 płaskich MP3).
 
 Uwaga operacyjna: token bota Arena nie może użyć `workflow_dispatch`
 (HTTP 403), więc paczki `b002`–`b044` zostały wygenerowane
@@ -71,16 +75,13 @@ zużycie quota i tak trafiało do artefaktu. Klucz `ELEVENLABS` działał
 stabilnie dla wszystkich paczek — wszystkie 50 żądań zakończyło się
 statusem `generated`.
 
-**Quota (2026-09-28): OBA klucze WYCZERPANE.** Pierwszy klucz skończył się
-dokładnie na 305 samplach. Drugi klucz wygenerował `b031`–`b050` (200 sampli;
-runy 36394940045 … 36401494004, 10/10 sukcesów każdorazowo) i wyczerpał się
-dokładnie na granicy `b050`/`b051`: próba `b051` zwróciła 10× HTTP 401
-`quota_exceeded` („0 credits remaining, while 25 credits are required").
-Realny koszt okazał się ~50 kredytów/sample (nie ~33), więc 10 000 kredytów
-starczyło dokładnie na 200 sampli. **Pętla zatrzymana — potrzebna kolejna
-podmiana sekretu `ELEVENLABS`.** Po podmianie: regeneracja `b051`
-(scenariusze już gotowe) + `b052` = ostatnie 9 fabuł katalogu (slice
-`[515:524]`). Po każdym imporcie sprawdzać w manifeście statusy
+**Quota (2026-09-28): katalog DOMKNIĘTY na trzecim kluczu.** Pierwszy klucz
+skończył się na 305 samplach, drugi — na 200 (b031–b050; realny koszt
+~50 kredytów/sample, więc 10 000 kredytów = 200 sampli; pierwsza próba `b051`
+zwróciła 10× HTTP 401 `quota_exceeded`). Po drugiej podmianie sekretu trzeci
+klucz wygenerował regenerację `b051` (run 36403513599) i finalną paczkę
+`b052` (run 36405549320) — 20 sampli ≈ 1 000 kredytów. **Wszystkie 525 fabuł
+katalogu ma sample.** Po każdym imporcie sprawdzać w manifeście statusy
 `failed`/`quota_exceeded`.
 
 ## Aktywne ścieżki
@@ -131,23 +132,22 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: 524 fabuły w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 515 gotowych wpisów (batche `b001`–`b051`).
-- Wygenerowane sample v2: 505 produkcyjnych MP3 w `audio/samples/`
-  (batche `b001`–`b050`; `b051` czeka na regenerację po podmianie klucza).
+- Katalog bieżący: 525 fabuł w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 525 gotowych wpisów (batche `b001`–`b052`) — 100% katalogu.
+- Wygenerowane sample v2: 525 produkcyjnych MP3 w `audio/samples/`
+  (batche `b001`–`b052`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## Co robić dalej
 
-- Odsłuchać paczki `b002–b050` (ID `6–598`) w bibliotece HTML i zdecydować
-  o merge'u PR.
-- **Drugi klucz `ELEVENLABS` wyczerpany 2026-09-28 (próba `b051`:
-  10× `quota_exceeded`) — pętla wstrzymana do podmiany sekretu
-  przez właściciela.**
-- Po podmianie klucza: regeneracja `b051` (ID `599–608`, scenariusze gotowe,
-  wpisy `failed` w manifeście zostają jako archiwum) i ostatnia paczka
-  `b052` = 9 fabuł wg kolejności katalogu (slice `[515:524]`). Realny koszt
-  ~50 kredytów/sample → 19 sampli ≈ 950 kredytów na świeżym kluczu.
+- **Katalog domknięty: 525/525 fabuł ma scenariusz i sample (b001–b052).**
+- Odsłuchać całą bibliotekę (`b002–b052`, ID `6–617` + `158`) i zdecydować
+  o merge'u PR #40.
+- Nowe fabuły od właściciela (dostarczane jako `<numer><SET>`, np. `158OGW`)
+  dopisujemy do `fabuły270926.csv` (sufiks setu wycinany przy imporcie)
+  i obsługuje się je nowymi paczkami od `b053`.
+- Po każdym imporcie kontrolować statusy w manifeście: `failed`
+  z `quota_exceeded` = sygnał do ponownej wymiany klucza.
 - Po każdym imporcie kontrolować statusy w manifeście: `failed`
   z `quota_exceeded` = sygnał do ponownej wymiany klucza.
 - Pisać scenariusze jako krótkie, jednorodne sample. Unikać słów i konstrukcji:
