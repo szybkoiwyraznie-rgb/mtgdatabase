@@ -3,7 +3,7 @@ name: Generate sample batch (ElevenLabs)
 # Manual workflow: consumes ElevenLabs quota. It generates MP3s only for
 # already hand-written ready scenarios in data/samples/scenarios.jsonl.
 # During the b044 bootstrap it can also run from a guarded push commit
-# containing [generate-b044]; remove that guarded trigger after the batch
+# containing [import-samples-artifact]; remove that guarded trigger after the batch
 # artifact is imported (the arena bot token cannot use workflow_dispatch).
 
 on:
@@ -63,13 +63,13 @@ env:
   DEFAULT_IDS: 529,530,531,532,533,534,535,536,537,538
   DEFAULT_LIMIT: "10"
   DEFAULT_PROMPT_INFLUENCE: "0.35"
-  GENERATED_ARTIFACT_RUN_ID: "pending"
+  GENERATED_ARTIFACT_RUN_ID: "36399241351"
 
 jobs:
   generate:
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      contains(github.event.head_commit.message, '[generate-b044]')
+      contains(github.event.head_commit.message, '[import-samples-artifact]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
