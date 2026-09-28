@@ -112,7 +112,7 @@ Mechanizm generacji z sandboxa: tymczasowe markerowane triggery push
 (`[generate-regen-rXXX]`) w `ai-sfx-elevenlabs.yml` + tymczasowy workflow
 importu artefaktu (`[import-regen-rXXX]`), bo sandbox agenta nie ma dostępu
 do `*.blob.core.windows.net` (artefaktów nie da się pobrać lokalnie).
-Oba triggery usunięte po imporcie. Zużycie: 162 generacje ≈ 8 100 kredytów; na trzecim kluczu zostało ~800 — następna paczka wymaga nowego klucza.
+Oba triggery usunięte po imporcie. Zużycie: 162 generacje; stan quota po wszystkich generacjach (odczyt właściciela 2026-09-28): **5 315 kredytów** — realny koszt to ~29 kredytów/generację, nie ~50.
 
 ## Aktywne ścieżki
 

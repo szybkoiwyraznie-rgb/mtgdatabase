@@ -300,6 +300,5 @@ jednoźródłowe, fizycznie zakotwiczone dźwięki i zregenerowano w rundzie r00
 kosmetyczne (dłuższe cisze, szybkie starty ciągłych faktur) — zaakceptowane
 przez właściciela po odsłuchu.
 
-Zużycie quota: 162 generacje ≈ 8 100 kredytów; na trzecim kluczu zostało
-~800 — kolejna paczka będzie wymagała nowego klucza (konta bezpłatne,
-decyzja właściciela: bez ograniczeń).
+Zużycie quota: 162 generacje; stan po wszystkich generacjach (odczyt
+właściciela): 5 315 kredytów — realny koszt ~29 kredytów/generację.
