@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-09-28** (sesja `arena/01a0e45d-mtgdatabase`).
+Ostatnia aktualizacja: **2026-09-28** (sesja `arena/01a0e7f0-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
@@ -190,6 +190,10 @@ Actions w GitHubie (bot token nie ma `workflow_dispatch` — HTTP 403).
 
 ## Co robić dalej
 
+- **Audyt + postprodukcja + runda r006 zamknięte** — aktualny stan sygnałowy:
+  `docs/audits/2026-09-28-audio-audit-after-r006.md`. Następny krok należy do
+  właściciela: odsłuch wyrównanego korpusu w bibliotece HTML (filtry audytu)
+  i decyzja, czy któreś z 47 oflagowanych plików regenerować.
 - **Katalog domknięty: 527/527 fabuł ma scenariusz i sample (b001–b053).**
 - Odsłuchać całą bibliotekę (`b002–b053`, ID `6–617` + `158`, `160`, `161`)
   i zdecydować o merge'u PR #40.
@@ -221,3 +225,111 @@ Postprodukcja: 190/331 normalizacja do −1,5 dBFS, 489 tłumienie + fade-out
 (data/samples/audio-audit-2026-09-28-after-r005.json). Triggery TEMP
 usunięte po imporcie. Zużycie r005: 22 generacje ≈ 640 kredytów;
 szacunkowy stan quota: ~4 675.
+
+
+## Pełny audyt sygnałowy korpusu (2026-09-28, sesja `arena/01a0e7f0`)
+
+Nowy skrypt `scripts/audit_samples_full.py` przeliczył **wszystkie 527 MP3 od
+zera** i dołożył wymiary, których poprzednie audyty nie mierzyły: LUFS
+(BS.1770-4), true peak (4x nadpróbkowanie), rozkład energii w pasmach, offset
+DC, tonalność, heurystykę mowy, odciski log-mel (bliźniaki) i kontrolę
+unikalności tekstów. Raport: `docs/audits/2026-09-28-audio-audit-fullscan.md`,
+metryki per plik: `data/samples/audio-audit-2026-09-28-fullscan.json`.
+
+Najważniejsze ustalenia:
+
+- **Korpus nie ma wyrównanej głośności.** Rozpiętość 43,9 LU (od −46,6 do
+  −2,7 LUFS), mediana −15,5. Przy odsłuchu seryjnym część sampli ginie, część
+  wyrywa głośniki. Naprawa jest lokalna i darmowa (normalizacja + limiter
+  −1 dBTP); 41 plików wymaga > +10 dB, z tego 12 > +15 dB.
+- **28 sampli ma ponad 80 % energii poniżej 60 Hz** (`sub_dominant`), a **31
+  nie ma praktycznie nic powyżej 250 Hz** (`muffled`). Peak pokazuje „głośno”,
+  a na telefonie/laptopie nie słychać nic. Skrajny przypadek: 115
+  (peak −13,1 dBFS, −46,6 LUFS).
+- **58 plików ma true peak > +1 dBTP** (max +3,5) — twardego clippingu nie ma,
+  ale po transkodowaniu mogą zniekształcać. **19 plików ma offset DC** > 0,01.
+- **30 sampli ma realną treść krótszą niż 0,8 s** przy pliku 2,5 s.
+- **Regresji nie ma**: kategorie „ucięty koniec” i „prawie cisza”, naprawiane
+  w rundach r001–r005, są dziś puste (0 plików).
+- **Nie ma duplikatów**: 0 identycznych PCM, wszystkie 527 promptów i opisów
+  unikalne. 30 par przekracza 0,95 kosinusa odcisku log-mel — to „podobna
+  rodzina brzmieniowa”, nie kopie; tylko 2 pary ≥ 0,97 warte odsłuchu
+  (321/507, 470/527).
+- Muzyka i mowa: 6 plików tonalnych (w większości poprawnie — dzwony) i 3
+  mowopodobne. Do weryfikacji uchem, pewność niska.
+
+Biblioteka HTML ma teraz **warstwę audytu**: `build_site.py --audit <json>`
+dokleja do kart metryki i flagi oraz pasek filtrów (np. „infradźwięki 28”),
+więc odsłuch samych podejrzanych to jedno kliknięcie.
+
+Rekomendowana kolejność (z raportu): najpierw darmowa postprodukcja całego
+korpusu, potem odsłuch, dopiero na końcu kredyty na regenerację ~31 ID bez
+treści w paśmie słyszalnym. **Wykonane — patrz sekcja „Postprodukcja korpusu
++ runda r006" na końcu pliku.**
+
+
+## Postprodukcja korpusu + runda r006 (2026-09-28, sesja `arena/01a0e7f0`)
+
+Decyzja właściciela po pełnym audycie: **najpierw darmowa postprodukcja całego
+korpusu, potem kredyty na regenerację tego, co po niej nadal nie brzmi.**
+Oba kroki wykonane.
+
+### 1. Postprodukcja (`scripts/postprocess_samples.py`)
+
+Wszystkie 527 plików przetworzone w miejscu: filtr górnoprzepustowy (25 Hz,
+45 Hz dla `sub_dominant`), normalizacja do −20 LUFS (cap +15 dB), limiter true
+peak −1 dBTP, zapis MP3 VBR q0 z weryfikacją na zapisanym pliku. Raport:
+`data/samples/postprocess-2026-09-28.json`.
+
+Dwie pułapki, obie naprawione w skrypcie (szczegóły w `docs/LESSONS.md`):
+
+- koder MP3 podnosi true peak — limiter celuje w sufit minus 0,7 dB, a wynik
+  jest mierzony po zapisie (pierwszy przebieg dał 74 pliki nad sufitem),
+- sam limiter ściągał głośność transjentowych one-shotów 1,5–4 LU poniżej celu.
+  Dołożona pętla domierzania (maks. +4 dB ponad wzmocnienie z LUFS, budżet
+  średniej redukcji limitera 2 dB, szczytowej 12 dB) i ponowne przetworzenie
+  48 takich plików z oryginałów.
+
+### 2. Runda r006 — 34 nowe prompty
+
+Po wyrównaniu poziomów 34 fabuły nadal nie miały słyszalnej treści: 14 było za
+cicho nawet po +15 dB, 20 miało całą energię poniżej 250 Hz. Prompty napisane
+od zera (jedno fizyczne źródło, bliski plan, materiał dający detal w średnicy
+i górze) — wybór, nowe i poprzednie teksty: `data/samples/regen-r006.json`.
+Generacja: run 36427007464 (34/34 `generated`), domknięcie r006b: run
+36428302014 (125 z drugim promptem + 107/227/539/588 przetworzone ponownie
+z surowych plików). Koszt: 35 generacji ≈ 1 015 kredytów; szacowany stan
+quota ≈ 3 660.
+
+Celowo pominięte (dźwięk ma być głuchy): 51, 71, 181, 273, 301.
+
+### 3. Wynik (`docs/audits/2026-09-28-audio-audit-after-r006.md`)
+
+| Flaga | Oryginały | Po postprodukcji | Po r006 |
+|---|---|---|---|
+| too_quiet | 30 | 1 | **0** |
+| too_loud | 20 | 0 | **0** |
+| sub_dominant (podbas) | 28 | 0 | **0** |
+| true_peak_hot | 58 | 0 | **0** |
+| dc_offset | 19 | 0 | **0** |
+| muffled (nic powyżej 250 Hz) | 31 | 25 | **5** |
+| cut_start_hard | 37 | 12 | **11** |
+| short_content | 19 | 19 | **22** |
+| razem plików z flagą | 197 | 65 | **47** |
+
+Głośność: mediana −20,0 LUFS, rozrzut **σ 7,8 → 0,6 LU**, zakres −24,7…−18,8
+(było −46,6…−2,7). Duplikatów PCM nadal 0, par „bliźniaków” ≥ 0,95: 23.
+
+Pozostałe 5 plików `muffled` (51, 71, 181, 273, 301) to celowo głuche dźwięki.
+Trzy sample (107, 227, 588) są 3–5 LU poniżej celu mimo pełnej treści — to
+one-shoty o skrajnym współczynniku szczytu, gdzie dalsze pompowanie tylko
+spłaszcza atak, a nie podnosi głośności. `short_content` urosło o 3, bo nowe
+sample uderzeniowe mają krótkie zdarzenie i wybrzmienie w ciszy — to cecha
+materiału, nie usterka.
+
+Mechanizm generacji: dwa tymczasowe workflowy z triggerem push i markerem
+w opisie commita (`[generate-r006]`, `[generate-r006b]`), usunięte po użyciu.
+Surowe pliki przed postprodukcją leżą w artefaktach runów (`r006-raw`,
+`r006b-raw`, 30 dni) — sandbox agenta nie pobierze ich lokalnie (blokada
+`blob.core.windows.net`), ale CI potrafi je odczytać między runami
+(`actions/download-artifact` z `run-id`).

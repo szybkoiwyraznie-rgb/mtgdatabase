@@ -71,6 +71,26 @@ Generacja:
 ELEVENLABS=... python scripts/elevenlabs_sample_scout.py --batch b001 --limit 10
 ```
 
+Audyt korpusu (tylko raportuje, nic nie nadpisuje; wymaga lokalnego
+`.venv` z `numpy`, `scipy`, `soundfile`):
+
+```bash
+python scripts/audit_samples_full.py \
+    --json data/samples/audio-audit-<data>-fullscan.json \
+    --markdown docs/audits/<data>-audio-audit-fullscan.md
+```
+
+Postprodukcja (jedyny skrypt nadpisujący pliki; szczegóły w
+`docs/ai-sfx-pipeline.md`):
+
+```bash
+python scripts/postprocess_samples.py --dry-run
+python scripts/postprocess_samples.py --report data/samples/postprocess-<data>.json
+```
+
+Uruchamiaj ją **od oryginałów** (`git checkout -- audio/samples`), nigdy na
+plikach już przetworzonych — każde przejście to kolejne stratne kodowanie.
+
 Publikacja/test:
 
 ```bash

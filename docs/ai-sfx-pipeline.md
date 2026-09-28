@@ -130,3 +130,67 @@ Artifact workflow zawiera ZIP, manifest i gotową bibliotekę HTML.
 - Unikać „ambient bed”, „cinematic trailer”, „full soundscape”.
 - Długość raczej 1.5–3 s; tylko wyjątkowo do 5 s.
 - Każdy sample ma być unikalny dla fabuły, ale prosty do rozpoznania.
+
+## Audyt korpusu
+
+Dwa skrypty, oba tylko **raportują** — żaden nic nie nadpisuje:
+
+```bash
+python scripts/audit_samples_audio.py --output /tmp/audio-audit.json
+python scripts/audit_samples_full.py \
+    --json data/samples/audio-audit-<data>-fullscan.json \
+    --markdown docs/audits/<data>-audio-audit-fullscan.md \
+    --previous data/samples/audio-audit-<poprzedni>.json
+```
+
+- `audit_samples_audio.py` — szybki skan obwiedni: ucięty start/koniec, cisza,
+  peak, rozjazd długości.
+- `audit_samples_full.py` — pełny skan: LUFS (BS.1770-4), true peak,
+  rozkład energii w pasmach (infradźwięki, brak treści powyżej 250 Hz),
+  offset DC, tonalność i heurystyka mowy (prompty zabraniają muzyki i mowy),
+  odciski log-mel do wykrywania bliźniaków oraz kontrola unikalności tekstów
+  scenariuszy. Generuje JSON z metrykami i gotowy raport Markdown.
+
+Zależności audytu (`numpy`, `scipy`, `soundfile`) nie są potrzebne w CI —
+instaluje się je lokalnie:
+
+```bash
+python -m venv .venv && .venv/bin/pip install numpy scipy soundfile
+```
+
+## Postprodukcja korpusu
+
+```bash
+python scripts/postprocess_samples.py --dry-run
+python scripts/postprocess_samples.py --report data/samples/postprocess-<data>.json
+```
+
+Jedyny skrypt, który **nadpisuje** pliki w `audio/samples/` (albo pisze do
+`--out-dir`). Łańcuch na plik:
+
+1. filtr górnoprzepustowy Butterwortha 2. rzędu (zerofazowy `sosfiltfilt`):
+   25 Hz dla wszystkich, 45 Hz dla ID oflagowanych w audycie jako
+   `sub_dominant` — usuwa offset DC i infradźwięki, które zjadały headroom,
+2. pomiar LUFS (BS.1770-4) i wzmocnienie do wspólnego celu `--target-lufs`
+   (domyślnie −20) z limitem `--max-gain-db` (domyślnie +15 dB; wyżej wychodzi
+   szum tła zamiast treści),
+3. limiter true peak na obwiedni z nadpróbkowaniem 4× (sufit `--ceiling-dbtp`,
+   domyślnie −1 dBTP),
+4. zapis MP3 VBR jakość 0 i **weryfikacja na zapisanym pliku** (ponowny pomiar
+   LUFS/true peak + SNR transkodowania), do 3 prób z rosnącym zapasem.
+
+Ważne: koder MP3 podbija true peak o kilka dziesiątych dB, więc limiter celuje
+w sufit pomniejszony o `--encoder-headroom` (domyślnie 0,7 dB). Bez tego przy
+sufticie −1 dBTP część plików wychodzi nad sufit.
+
+Operacja jest odwracalna przez `git checkout -- audio/samples`. Nie wolno
+transkodować już przetworzonych plików ponownie — każda korekta parametrów
+zaczyna się od przywrócenia oryginałów z gita.
+
+### Warstwa audytu w bibliotece HTML
+
+`build_site.py --audit <plik.json>` (domyślnie ostatni fullscan) dokłada do
+każdej karty metryki (LUFS, peak, true peak, długość treści) i kolorowe flagi,
+a nad listą pasek filtrów. Dzięki temu odsłuch „tylko podejrzanych” to jedno
+kliknięcie zamiast szukania po ID. Brak pliku audytu = biblioteka bez flag,
+jak wcześniej.
