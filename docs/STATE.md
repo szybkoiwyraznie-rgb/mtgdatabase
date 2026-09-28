@@ -88,6 +88,32 @@ klucz wygenerował regenerację `b051` (run 36403513599), finalną paczkę
 ≈ 1 100 kredytów. **Wszystkie 527 fabuł katalogu ma sample.** Po każdym
 imporcie sprawdzać w manifeście statusy `failed`/`quota_exceeded`.
 
+## Audyt audio i regeneracja r001/r002 (2026-09-28)
+
+Sygnałowy audyt wszystkich 527 MP3 (`scripts/audit_samples_audio.py`,
+raport `docs/audits/2026-09-28-audio-audit.md`) wytypował 140 plików z flagami,
+z czego właściciel zatwierdził do regeneracji 58 (krytyczne + ucięty koniec +
+za cicho + przester). Dwie rundy regeneracji (r001: 58 sztuk, run 36411204847;
+r002: 17 sztuk, run 36411895113) naprawiły **49/58**; prompty tych fabuł mają
+teraz dopiski o obecności/wybrzmieniu/headroomie w `scenarios.jsonl`.
+Dla 9 opornych właściciel zlecił całkiem nowe, jednoźródłowe prompty
+(runda r003, run 36413153819): 6/9 naprawione. Pozostałe przypadki domknęła
+zatwierdzona postprodukcja (fade-out dla źródeł ciągłych, normalizacja do
+−1,5 dBFS dla cichych, tłumienie przesterów) — skrypt inline libsndfile.
+
+Ponadto audyt semantyczny scenariuszy (wyniki przekazane w czacie) wykrył
+78 promptów opisujących obraz/abstrakt (18), muzykę (6) lub wiele rozłącznych
+zdarzeń (54). Wszystkie przepisane od zera na jednoźródłowe fizyczne dźwięki
+i zregenerowane w rundzie r004 (run 36415052620, 78/78 generated); 6 plików
+doszlifowane postprodukcją. **Stan: 527/527 bez głównych flag sygnałowych.** Kategoria „start na pełnym poziomie"
+(39 plików) czeka na odsłuch właściciela; kosmetyczne pominięte.
+
+Mechanizm generacji z sandboxa: tymczasowe markerowane triggery push
+(`[generate-regen-rXXX]`) w `ai-sfx-elevenlabs.yml` + tymczasowy workflow
+importu artefaktu (`[import-regen-rXXX]`), bo sandbox agenta nie ma dostępu
+do `*.blob.core.windows.net` (artefaktów nie da się pobrać lokalnie).
+Oba triggery usunięte po imporcie. Zużycie: 162 generacje; stan quota po wszystkich generacjach (odczyt właściciela 2026-09-28): **5 315 kredytów** — realny koszt to ~29 kredytów/generację, nie ~50.
+
 ## Aktywne ścieżki
 
 - `fabuły270926.csv` — bieżąca kolekcja właściciela.
@@ -182,3 +208,16 @@ Actions w GitHubie (bot token nie ma `workflow_dispatch` — HTTP 403).
 - Nie wracać do ręcznych bramek v1 jako głównego flow.
 
 Szczegóły: `docs/ai-sfx-pipeline.md`.
+
+
+## Runda r005 (2026-09-28) — drugi audyt semantyczny
+
+22 prompty przepisane od zera (18 twardych flag niedźwiękowości + 3 „celowe
+cisze" 345/375/506 + 156 z literówką): 23, 33, 45, 51, 103, 110, 156, 166,
+190, 221, 227, 301, 331, 337, 345, 375, 446, 480, 489, 506, 532, 570.
+Generacja run 36418807314, import run 36418969433 (commit 5003ad6).
+Postprodukcja: 190/331 normalizacja do −1,5 dBFS, 489 tłumienie + fade-out
+0,35 s. Wynik: 527/527 bez głównych flag
+(data/samples/audio-audit-2026-09-28-after-r005.json). Triggery TEMP
+usunięte po imporcie. Zużycie r005: 22 generacje ≈ 640 kredytów;
+szacunkowy stan quota: ~4 675.
