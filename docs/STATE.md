@@ -42,16 +42,24 @@ Gotowe są cztery fale paczek (łącznie 50 fabuł):
 - `b031` (ID `362–377`): pierwsza próba padła na wyczerpanym quota starego
   klucza (10 wpisów `failed` w manifeście); po podmianie sekretu paczka
   zregenerowana w całości (run 36394940045).
+- `b045`–`b050` (slice `[445:505]`, ID `539–598`): 60 sampli wygenerowanych
+  bez zarzutu na drugim kluczu (runy 36400032628, 36400324397, 36400615067,
+  36400913153, 36401185630, 36401494004).
+- `b051` (ID `599–608`): scenariusze gotowe (`ready`), ale cała paczka padła
+  na HTTP 401 `quota_exceeded` drugiego klucza (10 nowych wpisów `failed`
+  w manifeście) — do regeneracji po kolejnej podmianie sekretu.
 
-Scenariusze: `data/samples/scenarios.jsonl` (445 wpisów, status `ready`).
-Wygenerowane sample: 445 plików MP3 w `audio/samples/` (nazwy plików
-to `<id>.mp3`).
-Manifest generacji: `data/samples/generated-manifest.jsonl` (455 wpisów:
-445 `generated` + 10 archiwalnych `failed` z próby `b031` przy
-wyczerpanym quota starego klucza).
+Scenariusze: `data/samples/scenarios.jsonl` (515 wpisów, status `ready`).
+Wygenerowane sample: 505 plików MP3 w `audio/samples/` (nazwy plików
+to `<id>.mp3`) — paczki `b001`–`b050`.
+Manifest generacji: `data/samples/generated-manifest.jsonl` (525 wpisów:
+505 `generated` + 20 `failed`: 10 archiwalnych z próby `b031` przy
+wyczerpaniu quota pierwszego klucza i 10 z próby `b051` przy wyczerpaniu
+quota drugiego klucza — ta druga paczka czeka na regenerację po podmianie
+sekretu).
 
 HTML listening gate buduje się z tych plików przez `scripts/build_site.py`
-(445 sampli), a ZIP przez `scripts/build_pack.py` (445 płaskich MP3).
+(505 sampli), a ZIP przez `scripts/build_pack.py` (505 płaskich MP3).
 
 Uwaga operacyjna: token bota Arena nie może użyć `workflow_dispatch`
 (HTTP 403), więc paczki `b002`–`b044` zostały wygenerowane
@@ -63,16 +71,17 @@ zużycie quota i tak trafiało do artefaktu. Klucz `ELEVENLABS` działał
 stabilnie dla wszystkich paczek — wszystkie 50 żądań zakończyło się
 statusem `generated`.
 
-**Quota (2026-09-28): stary klucz WYCZERPANY, nowy aktywny.** Pierwszy klucz
-skończył się dokładnie na 305 samplach (próba `b031`: HTTP 401 `quota_exceeded`,
-0 credits; realny koszt ~33 tokeny/sample). Po podmianie sekretu nowy klucz
-wygenerował `b031`–`b044` (140 sampli w dwóch sesjach; runy m.in. 36394940045,
-36395212997, 36395496890, 36395800823, 36396084609, 36396373022, 36397047684,
-36397325536, 36397576719, 36398063979, 36398385777, 36398667180, 36398932676,
-36399241351 — 10/10 sukcesów każdorazowo). Szacunkowo zużyto ~4 600 z 10 000
-tokenów; zapas ~5 400. Pozostały 79 fabuły ≈ 2 600 tokenów — reszta katalogu
-powinna zmieścić się w budżecie. Po każdym imporcie sprawdzać w manifeście
-statusy `failed`/`quota_exceeded`.
+**Quota (2026-09-28): OBA klucze WYCZERPANE.** Pierwszy klucz skończył się
+dokładnie na 305 samplach. Drugi klucz wygenerował `b031`–`b050` (200 sampli;
+runy 36394940045 … 36401494004, 10/10 sukcesów każdorazowo) i wyczerpał się
+dokładnie na granicy `b050`/`b051`: próba `b051` zwróciła 10× HTTP 401
+`quota_exceeded` („0 credits remaining, while 25 credits are required").
+Realny koszt okazał się ~50 kredytów/sample (nie ~33), więc 10 000 kredytów
+starczyło dokładnie na 200 sampli. **Pętla zatrzymana — potrzebna kolejna
+podmiana sekretu `ELEVENLABS`.** Po podmianie: regeneracja `b051`
+(scenariusze już gotowe) + `b052` = ostatnie 9 fabuł katalogu (slice
+`[515:524]`). Po każdym imporcie sprawdzać w manifeście statusy
+`failed`/`quota_exceeded`.
 
 ## Aktywne ścieżki
 
@@ -120,20 +129,22 @@ nie odpalała się bez kontroli właściciela.
 ## Stan liczbowy
 
 - Katalog bieżący: 524 fabuły w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 445 gotowych wpisów (batche `b001`–`b044`).
-- Wygenerowane sample v2: 445 produkcyjnych MP3 w `audio/samples/`
-  (batche `b001`–`b044`).
+- Scenariusze v2: 515 gotowych wpisów (batche `b001`–`b051`).
+- Wygenerowane sample v2: 505 produkcyjnych MP3 w `audio/samples/`
+  (batche `b001`–`b050`; `b051` czeka na regenerację po podmianie klucza).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## Co robić dalej
 
-- Odsłuchać paczki `b002–b044` (ID `6–538`) w bibliotece HTML i zdecydować
+- Odsłuchać paczki `b002–b050` (ID `6–598`) w bibliotece HTML i zdecydować
   o merge'u PR.
-- Klucz `ELEVENLABS` podmieniony przez właściciela 2026-09-28 — b031
-  zregenerowane, pętla wznowiona.
-- Dalej w pętli: `b045` = kolejne 10 fabuł wg kolejności katalogu
-  (slice `[445:455]`). W katalogu bez scenariusza zostały 79 fabuły
-  (~2 600 tokenów przy ~33/sample — powinno zmieścić się w budżecie).
+- **Drugi klucz `ELEVENLABS` wyczerpany 2026-09-28 (próba `b051`:
+  10× `quota_exceeded`) — pętla wstrzymana do podmiany sekretu
+  przez właściciela.**
+- Po podmianie klucza: regeneracja `b051` (ID `599–608`, scenariusze gotowe,
+  wpisy `failed` w manifeście zostają jako archiwum) i ostatnia paczka
+  `b052` = 9 fabuł wg kolejności katalogu (slice `[515:524]`). Realny koszt
+  ~50 kredytów/sample → 19 sampli ≈ 950 kredytów na świeżym kluczu.
 - Po każdym imporcie kontrolować statusy w manifeście: `failed`
   z `quota_exceeded` = sygnał do ponownej wymiany klucza.
 - Pisać scenariusze jako krótkie, jednorodne sample. Unikać słów i konstrukcji:
