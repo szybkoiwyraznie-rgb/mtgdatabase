@@ -278,3 +278,28 @@ w tym 377 z pustego pliku do zdrowego sampla, peak −1,85 dBFS). Zostały:
 na końcu klipu; wystarczy fade-out), `181` i `302` (model generuje je cicho
 mimo wymuszeń; wystarczy normalizacja). Łącznie po trzech rundach:
 **55/58 naprawione**, 3 do ewentualnej postprodukcji.
+
+---
+
+## Postprodukcja opornych + regeneracja semantyczna r004 (2026-09-28)
+
+**Postprodukcja (zatwierdzona przez właściciela):** deterministyczne poprawki
+zamiast kolejnych losowań — `150` i `74` (ciągłe źródła: fade-out 0,4–0,45 s),
+`181`, `302`, `195`, `223`, `279`, `322` (normalizacja szczytowa do −1,5 dBFS),
+`528` (tłumienie −3,5 dB). Narzędzie: dekodowanie/enkodowanie libsndfile.
+
+**Audyt semantyczny (wyniki w czacie, decyzja właściciela):** 78 fabuł miało
+prompty opisujące obraz/abstrakt zamiast dźwięku (18), muzykę (6) albo wiele
+rozłącznych zdarzeń naraz (54). Wszystkie 78 przepisano od zera na
+jednoźródłowe, fizycznie zakotwiczone dźwięki i zregenerowano w rundzie r004
+(run 36415052620, 78/78 `generated`). Audyt sygnałowy po r004: 72/78 czyste,
+6 poprawione postprodukcją jak wyżej.
+
+**Stan końcowy: 527/527 plików bez żadnej głównej flagi sygnałowej**
+(near_silent / too_quiet / clipping / cut_end). Pozostają wyłącznie flagi
+kosmetyczne (dłuższe cisze, szybkie starty ciągłych faktur) — zaakceptowane
+przez właściciela po odsłuchu.
+
+Zużycie quota: 162 generacje ≈ 8 100 kredytów; na trzecim kluczu zostało
+~800 — kolejna paczka będzie wymagała nowego klucza (konta bezpłatne,
+decyzja właściciela: bez ograniczeń).

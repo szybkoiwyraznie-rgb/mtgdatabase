@@ -4,11 +4,6 @@ name: Generate sample batch (ElevenLabs)
 # already hand-written ready scenarios in data/samples/scenarios.jsonl.
 
 on:
-  # TEMP TRIGGER (do usunięcia po imporcie): regeneracja r004 — audyt
-  # semantyczny, 78 przepisanych promptów; marker [generate-regen-r004].
-  push:
-    branches:
-      - arena/01a0e78c-mtgdatabase
   workflow_dispatch:
     inputs:
       collection_csv:
@@ -56,13 +51,9 @@ env:
   SCENARIOS: data/samples/scenarios.jsonl
   OUT_DIR: audio/samples
   MANIFEST: data/samples/generated-manifest.jsonl
-  # TEMP: regeneracja r004 (78 ID po audycie semantycznym)
-  REGEN_IDS: "8,9,28,29,42,46,47,52,55,58,71,74,75,95,107,109,111,114,121,124,140,144,154,168,195,213,223,224,246,251,252,253,275,276,279,292,295,298,305,306,308,309,311,322,330,335,358,367,370,372,374,381,383,386,388,428,442,471,478,481,484,490,513,515,517,523,528,531,537,551,557,560,580,590,593,595,605,616"
-
 
 jobs:
   generate:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[generate-regen-r004]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -73,7 +64,7 @@ jobs:
           python-version: "3.12"
 
       - name: Refresh catalog from collection
-        run: python scripts/import_collection.py "${{ inputs.collection_csv || 'fabuły270926.csv' }}" --output data/catalog.json
+        run: python scripts/import_collection.py "${{ inputs.collection_csv }}" --output data/catalog.json
 
       - name: Validate scenarios
         run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
@@ -84,9 +75,6 @@ jobs:
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
           ARGS=()
-          if [ "${{ github.event_name }}" = "push" ]; then
-            ARGS+=(--ids "$REGEN_IDS" --force)
-          fi
           if [ -n "${{ inputs.ids }}" ]; then ARGS+=(--ids "${{ inputs.ids }}"); fi
           if [ -n "${{ inputs.batch }}" ]; then ARGS+=(--batch "${{ inputs.batch }}"); fi
           if [ -n "${{ inputs.limit }}" ]; then ARGS+=(--limit "${{ inputs.limit }}"); fi
@@ -95,7 +83,7 @@ jobs:
             --scenarios "$SCENARIOS" \
             --out "$OUT_DIR" \
             --manifest "$MANIFEST" \
-            --prompt-influence "${{ inputs.prompt_influence || '0.35' }}" \
+            --prompt-influence "${{ inputs.prompt_influence }}" \
             "${ARGS[@]}"
 
       - name: Build flat ZIP
