@@ -210,7 +210,14 @@
    "sample_scenario": "ciężkie niedźwiedzie łapy tupiące po ubitej ziemi",
    "prompt": "Heavy bear paws thudding on packed earth in a slow steady rhythm, with dry soil grit and claw scuffs clearly audible on every step. Close, detailed, full level. No music, no speech, no ambience bed.",
    "previous_sample_scenario": "rytmiczny pradawny taniec niedźwiedzi w księżycowym kręgu",
-   "previous_prompt": "Bears dancing in a moonlit circle: heavy paws thudding a slow primal rhythm on packed earth, deep communal grunts answering in turn. No music, no speech, no ambience bed."
+   "previous_prompt": "Bears dancing in a moonlit circle: heavy paws thudding a slow primal rhythm on packed earth, deep communal grunts answering in turn. No music, no speech, no ambience bed.",
+   "attempt_2": {
+    "reason": "pierwsza próba dalej bez treści powyżej 250 Hz (audible_share 0.001) — źródłem dźwięku były same uderzenia łap; nowy prompt stawia na pazury i żwir",
+    "sample_scenario": "pazury niedźwiedzia szurające po suchym żwirze przy każdym kroku",
+    "prompt": "Bear claws scratching and scuffing across dry gravel in a slow walking rhythm: grit dragging under each paw, small stones flicking away, dry and bright. Close to the microphone, full level. No music, no speech, no ambience bed.",
+    "attempt_1_prompt": "Heavy bear paws thudding on packed earth in a slow steady rhythm, with dry soil grit and claw scuffs clearly audible on every step. Close, detailed, full level. No music, no speech, no ambience bed.",
+    "attempt_1_sample_scenario": "ciężkie niedźwiedzie łapy tupiące po ubitej ziemi"
+   }
   },
   {
    "story_id": "129",
@@ -388,5 +395,17 @@
    "previous_sample_scenario": "fioletowy blask Liliany wskrzeszający wojowników z mogił",
    "previous_prompt": "A necromancer raising the graves: violet light seeping from her fingers, sod shifting as old soldiers sit up, bones creaking into ranks behind her. No music, no speech, no ambience bed."
   }
- ]
+ ],
+ "followup": {
+  "regenerate": [
+   "125"
+  ],
+  "reprocess_from_raw": [
+   "107",
+   "227",
+   "539",
+   "588"
+  ],
+  "note": "4 pliki miały treść, ale po limitowaniu były 3–5 LU poniżej celu; poprawiony łańcuch (pętla domierzania) przetwarza je ponownie z surowych plików z artefaktu r006-raw (run 36427007464), bez drugiego transkodowania."
+ }
 }

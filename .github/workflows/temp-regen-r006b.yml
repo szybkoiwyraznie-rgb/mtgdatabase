@@ -1,0 +1,117 @@
+name: TEMP regen r006b
+
+# Druga, domykająca runda r006:
+#  - 125 dostaje nowy prompt (pierwsza próba nadal bez treści powyżej 250 Hz),
+#  - 107/227/539/588 mają treść, ale po limitowaniu wyszły 3–5 LU za cicho;
+#    poprawiony postprocess (pętla domierzania) przetwarza je ponownie
+#    z surowych plików z artefaktu `r006-raw` (run 36427007464), więc nie ma
+#    drugiego transkodowania.
+#
+# Marker w opisie commita: [generate-r006b]. Do usunięcia po użyciu.
+
+on:
+  push:
+    branches:
+      - arena/01a0e7f0-mtgdatabase
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: temp-regen-r006b
+  cancel-in-progress: false
+
+env:
+  SCENARIOS: data/samples/scenarios.jsonl
+  OUT_DIR: audio/samples
+  MANIFEST: data/samples/generated-manifest.jsonl
+  REGEN_IDS: "125"
+  REPROCESS_IDS: "107,227,539,588"
+  ALL_IDS: "107,125,227,539,588"
+  RAW_RUN_ID: "36427007464"
+
+jobs:
+  regen:
+    if: contains(github.event.head_commit.message, '[generate-r006b]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install audio deps
+        run: python -m pip install --upgrade pip numpy scipy soundfile
+
+      - name: Validate scenarios
+        run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
+
+      - name: Download raw files from r006
+        uses: actions/download-artifact@v4
+        with:
+          name: r006-raw
+          path: build/r006-raw
+          run-id: ${{ env.RAW_RUN_ID }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Regenerate 125 with ElevenLabs
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: |
+          python scripts/elevenlabs_sample_scout.py \
+            --scenarios "$SCENARIOS" \
+            --out "$OUT_DIR" \
+            --manifest "$MANIFEST" \
+            --ids "$REGEN_IDS" \
+            --force \
+            --prompt-influence 0.35
+
+      - name: Assemble raw working set
+        run: |
+          mkdir -p build/r006b-raw
+          IFS=',' read -ra LIST <<< "$REPROCESS_IDS"
+          for id in "${LIST[@]}"; do
+            cp "build/r006-raw/$id.mp3" "build/r006b-raw/$id.mp3"
+          done
+          IFS=',' read -ra NEW <<< "$REGEN_IDS"
+          for id in "${NEW[@]}"; do
+            cp "$OUT_DIR/$id.mp3" "build/r006b-raw/$id.mp3"
+          done
+          ls -l build/r006b-raw
+
+      - name: Upload raw working set
+        uses: actions/upload-artifact@v4
+        with:
+          name: r006b-raw
+          path: build/r006b-raw
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Audit raw files (for sub_dominant detection)
+        run: |
+          python scripts/audit_samples_full.py \
+            --samples-dir build/r006b-raw \
+            --json build/r006b-raw-audit.json
+
+      - name: Postprocess from raw
+        run: |
+          python scripts/postprocess_samples.py \
+            --samples-dir build/r006b-raw \
+            --out-dir "$OUT_DIR" \
+            --ids "$ALL_IDS" \
+            --audit build/r006b-raw-audit.json \
+            --report data/samples/postprocess-r006b.json
+
+      - name: Commit regenerated samples
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$OUT_DIR" "$MANIFEST" data/samples/postprocess-r006b.json
+          git commit -m "chore(samples): r006b — regen 125 + ponowna obróbka 107/227/539/588 [skip ci]"
+          git push origin HEAD:${{ github.ref_name }}

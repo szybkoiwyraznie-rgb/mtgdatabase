@@ -14,6 +14,11 @@ Required scenario fields:
 {"story_id":"1","title":"Dunland Crebain","sample_scenario":"ostre krakanie kruka pikującego nad skalnym wąwozem","prompt":"A single sharp raven caw diving over a rocky ravine, dark and close, 2 seconds, no music, no speech.","duration_seconds":2.5,"status":"ready","batch":"b001"}
 ```
 
+`postprocess-*.json` to raporty postprodukcji (`scripts/postprocess_samples.py`):
+per plik LUFS przed/po, zastosowane wzmocnienie, redukcja limitera, true peak
+i SNR transkodowania. `regen-r006.json` dokumentuje rundę regeneracji: dla
+każdego ID powód wyboru, nowy scenariusz i prompt oraz ich poprzednie wersje.
+
 Pliki `audio-audit-*.json` to wyniki audytów sygnałowych korpusu
 (`scripts/audit_samples_audio.py`, `scripts/audit_samples_full.py`).
 Najnowszy, `audio-audit-2026-09-28-fullscan.json`, zawiera też metryki

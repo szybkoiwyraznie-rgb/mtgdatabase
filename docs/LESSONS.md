@@ -707,3 +707,50 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   uchem najpierw wyrównać głośność całego korpusu (normalizacja + limiter
   −1 dBTP) — to operacja lokalna i darmowa, a bez niej ocena sampli jest
   zaburzona przez różnice poziomów.
+
+## 2026-09-28 — Progi ciszy w dBFS nie nadają się do porównań przed/po normalizacji
+
+- Sytuacja: audyt po wyrównaniu głośności całego korpusu do −20 LUFS pokazał
+  pozorną regresję: „krótka treść” 30 → 40 plików, „długa cisza na końcu”
+  38 → 47. Pliki nie zmieniły się jednak treściowo — korpus jako całość
+  zjechał o ~5 dB, więc ciche ogony, wcześniej tuż nad progiem −45 dBFS,
+  wpadły pod próg.
+- Wniosek: absolutny próg detekcji ciszy mierzy poziom pliku, nie jego
+  strukturę. Po każdej zmianie głośności taki próg przesuwa granicę „treści”
+  i generuje fałszywe flagi w obie strony.
+- Zasada / działanie zapobiegawcze: metryki opisujące *kształt* sampla
+  (długość treści, cisza na starcie/końcu) liczyć **względnie** — próg
+  `max(maksimum_ramki − 40 dB, −60 dBFS)`. Absolutny próg zostaje wyłącznie
+  jako informacja poglądowa. Porównania przed/po zawsze przeliczać tą samą
+  wersją skryptu na obu stronach (oryginały wypakować z gita:
+  `git archive HEAD audio/samples | tar -x -C /tmp/orig`).
+
+## 2026-09-28 — Limiter musi zostawić zapas na overshoot kodera MP3
+
+- Sytuacja: pierwszy przebieg postprodukcji limitował dokładnie do −1 dBTP,
+  a kontrola zapisanych plików wykazała 74 sztuki powyżej sufitu (do −0,3
+  dBTP). Limiter działał poprawnie — to koder MP3 (filtr polifazowy +
+  kwantyzacja) zmienia przebieg i podnosi międzypróbkowe szczyty.
+- Wniosek: true peak zmierzony na sygnale przed kodowaniem nie jest true
+  peakiem pliku wynikowego. Jedyny wiarygodny pomiar to dekodowanie zapisanego
+  MP3.
+- Zasada / działanie zapobiegawcze: limitować do `sufit − 0,7 dB`, a po
+  zapisie zmierzyć plik ponownie i powtórzyć z większym zapasem, jeśli trzeba
+  (`--encoder-headroom`, pętla do 3 prób w `postprocess_samples.py`).
+
+## 2026-09-28 — Prompt o świetle, energii i „narastaniu” wychodzi z generatora jako samo dudnienie
+
+- Sytuacja: po wyrównaniu głośności 34 sample nadal nie miały słyszalnej
+  treści. Ich prompty opisywały albo zjawiska wizualne („soft radiant pulses”,
+  „shimmering glow”, „hypnotic water tones”), albo bryłę bez materiału
+  („deep hollow swell”, „low resonant hum”). Generator renderował to jako
+  szum poniżej 60 Hz albo cichy ogon −30 LUFS.
+- Wniosek: model potrzebuje *materiału i kontaktu*, nie nastroju. „Głęboki,
+  pusty pomruk” nie mówi mu, co uderza o co — więc dostaje się sam dół pasma,
+  niesłyszalny na laptopie i telefonie.
+- Zasada / działanie zapobiegawcze: w prompcie zawsze nazwać fizyczne źródło
+  i kontakt (stal o stal, kropla o wodę, cierń o korę), dodać plan bliski
+  i pełny poziom, a przy dźwiękach „ciężkich” dopisać wprost, że ma być
+  słyszalny detal w średnicy i górze, nie sam rumble. Unikać słów
+  `soft`, `gentle`, `delicate`, `distant`, `faint` — po normalizacji i tak
+  trzeba je zregenerować.

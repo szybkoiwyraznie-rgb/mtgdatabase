@@ -158,6 +158,35 @@ instaluje się je lokalnie:
 python -m venv .venv && .venv/bin/pip install numpy scipy soundfile
 ```
 
+## Postprodukcja korpusu
+
+```bash
+python scripts/postprocess_samples.py --dry-run
+python scripts/postprocess_samples.py --report data/samples/postprocess-<data>.json
+```
+
+Jedyny skrypt, który **nadpisuje** pliki w `audio/samples/` (albo pisze do
+`--out-dir`). Łańcuch na plik:
+
+1. filtr górnoprzepustowy Butterwortha 2. rzędu (zerofazowy `sosfiltfilt`):
+   25 Hz dla wszystkich, 45 Hz dla ID oflagowanych w audycie jako
+   `sub_dominant` — usuwa offset DC i infradźwięki, które zjadały headroom,
+2. pomiar LUFS (BS.1770-4) i wzmocnienie do wspólnego celu `--target-lufs`
+   (domyślnie −20) z limitem `--max-gain-db` (domyślnie +15 dB; wyżej wychodzi
+   szum tła zamiast treści),
+3. limiter true peak na obwiedni z nadpróbkowaniem 4× (sufit `--ceiling-dbtp`,
+   domyślnie −1 dBTP),
+4. zapis MP3 VBR jakość 0 i **weryfikacja na zapisanym pliku** (ponowny pomiar
+   LUFS/true peak + SNR transkodowania), do 3 prób z rosnącym zapasem.
+
+Ważne: koder MP3 podbija true peak o kilka dziesiątych dB, więc limiter celuje
+w sufit pomniejszony o `--encoder-headroom` (domyślnie 0,7 dB). Bez tego przy
+sufticie −1 dBTP część plików wychodzi nad sufit.
+
+Operacja jest odwracalna przez `git checkout -- audio/samples`. Nie wolno
+transkodować już przetworzonych plików ponownie — każda korekta parametrów
+zaczyna się od przywrócenia oryginałów z gita.
+
 ### Warstwa audytu w bibliotece HTML
 
 `build_site.py --audit <plik.json>` (domyślnie ostatni fullscan) dokłada do
