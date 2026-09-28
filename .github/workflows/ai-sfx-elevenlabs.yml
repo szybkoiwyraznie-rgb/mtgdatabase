@@ -4,6 +4,11 @@ name: Generate sample batch (ElevenLabs)
 # already hand-written ready scenarios in data/samples/scenarios.jsonl.
 
 on:
+  # TEMP TRIGGER (do usunięcia po imporcie): regeneracja r005 — drugi audyt
+  # semantyczny, 22 przepisane prompty; marker [generate-regen-r005].
+  push:
+    branches:
+      - arena/01a0e78c-mtgdatabase
   workflow_dispatch:
     inputs:
       collection_csv:
@@ -51,9 +56,13 @@ env:
   SCENARIOS: data/samples/scenarios.jsonl
   OUT_DIR: audio/samples
   MANIFEST: data/samples/generated-manifest.jsonl
+  # TEMP: regeneracja r005 (22 ID po drugim audycie semantycznym)
+  REGEN_IDS: "23,33,45,51,103,110,156,166,190,221,227,301,331,337,345,375,446,480,489,506,532,570"
+
 
 jobs:
   generate:
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[generate-regen-r005]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -64,7 +73,7 @@ jobs:
           python-version: "3.12"
 
       - name: Refresh catalog from collection
-        run: python scripts/import_collection.py "${{ inputs.collection_csv }}" --output data/catalog.json
+        run: python scripts/import_collection.py "${{ inputs.collection_csv || 'fabuły270926.csv' }}" --output data/catalog.json
 
       - name: Validate scenarios
         run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
@@ -75,6 +84,9 @@ jobs:
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
           ARGS=()
+          if [ "${{ github.event_name }}" = "push" ]; then
+            ARGS+=(--ids "$REGEN_IDS" --force)
+          fi
           if [ -n "${{ inputs.ids }}" ]; then ARGS+=(--ids "${{ inputs.ids }}"); fi
           if [ -n "${{ inputs.batch }}" ]; then ARGS+=(--batch "${{ inputs.batch }}"); fi
           if [ -n "${{ inputs.limit }}" ]; then ARGS+=(--limit "${{ inputs.limit }}"); fi
@@ -83,7 +95,7 @@ jobs:
             --scenarios "$SCENARIOS" \
             --out "$OUT_DIR" \
             --manifest "$MANIFEST" \
-            --prompt-influence "${{ inputs.prompt_influence }}" \
+            --prompt-influence "${{ inputs.prompt_influence || '0.35' }}" \
             "${ARGS[@]}"
 
       - name: Build flat ZIP
