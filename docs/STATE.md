@@ -208,3 +208,16 @@ Actions w GitHubie (bot token nie ma `workflow_dispatch` — HTTP 403).
 - Nie wracać do ręcznych bramek v1 jako głównego flow.
 
 Szczegóły: `docs/ai-sfx-pipeline.md`.
+
+
+## Runda r005 (2026-09-28) — drugi audyt semantyczny
+
+22 prompty przepisane od zera (18 twardych flag niedźwiękowości + 3 „celowe
+cisze" 345/375/506 + 156 z literówką): 23, 33, 45, 51, 103, 110, 156, 166,
+190, 221, 227, 301, 331, 337, 345, 375, 446, 480, 489, 506, 532, 570.
+Generacja run 36418807314, import run 36418969433 (commit 5003ad6).
+Postprodukcja: 190/331 normalizacja do −1,5 dBFS, 489 tłumienie + fade-out
+0,35 s. Wynik: 527/527 bez głównych flag
+(data/samples/audio-audit-2026-09-28-after-r005.json). Triggery TEMP
+usunięte po imporcie. Zużycie r005: 22 generacje ≈ 640 kredytów;
+szacunkowy stan quota: ~4 675.

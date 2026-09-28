@@ -302,3 +302,23 @@ przez właściciela po odsłuchu.
 
 Zużycie quota: 162 generacje; stan po wszystkich generacjach (odczyt
 właściciela): 5 315 kredytów — realny koszt ~29 kredytów/generację.
+
+
+## Appendix r005 — drugi audyt semantyczny (2026-09-28)
+
+Drugi, ostrzejszy przebieg semantyczny całego korpusu (527 promptów) wykazał
+22 prompty do przepisania: 18 twardych flag (rdzeń niedźwiękowy: światło,
+abstrakcja, bezruch, deklarowana cisza), 3 prompty „celowej ciszy"
+(345, 375, 506) oraz 156 (literówka „legal chime" → nowy koncept z dzwonem).
+
+IDs r005: 23, 33, 45, 51, 103, 110, 156, 166, 190, 221, 227, 301, 331, 337,
+345, 375, 446, 480, 489, 506, 532, 570.
+
+Przebieg: generacja run 36418807314 (22/22), import run 36418969433
+(commit 5003ad6). Audyt sygnałowy: 19/22 czyste od razu; postprodukcja:
+190 i 331 normalizacja do −1,5 dBFS (ciche źródła: ognisko, liście),
+489 tłumienie do −1,5 dBFS + fade-out 0,35 s (narastający ton bez
+wybrzmienia). Stan końcowy: **527/527 bez głównych flag sygnałowych**
+(raport: data/samples/audio-audit-2026-09-28-after-r005.json).
+Pliki z postprodukcją (narastająco): 74, 150, 181, 190, 195, 223, 279,
+302, 322, 331, 489, 528.
