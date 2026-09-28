@@ -20,10 +20,11 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **525 fabuł**
-(2026-09-28 doszła fabuła `158OGW` *Kozilek's Shrieker*; ID fabuły to
-numeryczna część `Ilustracja`, sufiks setu wycinany przy imporcie)
-i z niego wygenerowano `data/catalog.json`.
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **527 fabuł**
+(2026-09-28 doszły fabuły `158OGW` *Kozilek's Shrieker*, `160M11`
+*Fiery Hellhound* i `161KTK` *Dragonscale Boon*; ID fabuły to numeryczna
+część `Ilustracja`, sufiks setu wycinany przy imporcie) i z niego
+wygenerowano `data/catalog.json`.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
 
@@ -50,20 +51,23 @@ Gotowe są cztery fale paczek (łącznie 50 fabuł):
 - `b051` (ID `599–608`): pierwsza próba padła na HTTP 401 `quota_exceeded`
   drugiego klucza (10 wpisów `failed` w manifeście, archiwum); po podmianie
   sekretu paczka zregenerowana w całości (run 36403513599, trzeci klucz).
-- `b052` (ID `609–617` + `158`): ostatnia paczka, domykająca cały katalog —
+- `b052` (ID `609–617` + `158`): paczka domykająca pierwotny katalog —
   9 ostatnich fabuł plus nowa `158OGW` *Kozilek's Shrieker* (run 36405549320).
-  Od tej pory scenariusze pokrywają 100% katalogu (525/525).
+  Od tej pory scenariusze pokrywają 100% katalogu.
+- `b053` (ID `160`, `161`): pierwsza paczka z dalszych dostaw właściciela —
+  `160M11` *Fiery Hellhound* i `161KTK` *Dragonscale Boon* (run 36407760852).
+  Katalog: 527 fabuł, wszystkie ze scenariuszem i samplem.
 
-Scenariusze: `data/samples/scenarios.jsonl` (525 wpisów, status `ready` —
-pokrywają cały katalog). Wygenerowane sample: 525 plików MP3
-w `audio/samples/` (nazwy plików to `<id>.mp3`) — paczki `b001`–`b052`.
-Manifest generacji: `data/samples/generated-manifest.jsonl` (545 wpisów:
-525 `generated` + 20 archiwalnych `failed`: 10 z próby `b031` przy
+Scenariusze: `data/samples/scenarios.jsonl` (527 wpisów, status `ready` —
+pokrywają cały katalog). Wygenerowane sample: 527 plików MP3
+w `audio/samples/` (nazwy plików to `<id>.mp3`) — paczki `b001`–`b053`.
+Manifest generacji: `data/samples/generated-manifest.jsonl` (547 wpisów:
+527 `generated` + 20 archiwalnych `failed`: 10 z próby `b031` przy
 wyczerpaniu quota pierwszego klucza i 10 z pierwszej próby `b051` przy
 wyczerpaniu quota drugiego klucza).
 
 HTML listening gate buduje się z tych plików przez `scripts/build_site.py`
-(525 sampli), a ZIP przez `scripts/build_pack.py` (525 płaskich MP3).
+(527 sampli), a ZIP przez `scripts/build_pack.py` (527 płaskich MP3).
 
 Uwaga operacyjna: token bota Arena nie może użyć `workflow_dispatch`
 (HTTP 403), więc paczki `b002`–`b044` zostały wygenerowane
@@ -75,14 +79,14 @@ zużycie quota i tak trafiało do artefaktu. Klucz `ELEVENLABS` działał
 stabilnie dla wszystkich paczek — wszystkie 50 żądań zakończyło się
 statusem `generated`.
 
-**Quota (2026-09-28): katalog DOMKNIĘTY na trzecim kluczu.** Pierwszy klucz
+**Quota (2026-09-28): katalog domknięty na trzecim kluczu.** Pierwszy klucz
 skończył się na 305 samplach, drugi — na 200 (b031–b050; realny koszt
 ~50 kredytów/sample, więc 10 000 kredytów = 200 sampli; pierwsza próba `b051`
 zwróciła 10× HTTP 401 `quota_exceeded`). Po drugiej podmianie sekretu trzeci
-klucz wygenerował regenerację `b051` (run 36403513599) i finalną paczkę
-`b052` (run 36405549320) — 20 sampli ≈ 1 000 kredytów. **Wszystkie 525 fabuł
-katalogu ma sample.** Po każdym imporcie sprawdzać w manifeście statusy
-`failed`/`quota_exceeded`.
+klucz wygenerował regenerację `b051` (run 36403513599), finalną paczkę
+`b052` (run 36405549320) i dostawę `b053` (run 36407760852) — 22 sample
+≈ 1 100 kredytów. **Wszystkie 527 fabuł katalogu ma sample.** Po każdym
+imporcie sprawdzać w manifeście statusy `failed`/`quota_exceeded`.
 
 ## Aktywne ścieżki
 
@@ -132,20 +136,20 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: 525 fabuł w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 525 gotowych wpisów (batche `b001`–`b052`) — 100% katalogu.
-- Wygenerowane sample v2: 525 produkcyjnych MP3 w `audio/samples/`
-  (batche `b001`–`b052`).
+- Katalog bieżący: 527 fabuł w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 527 gotowych wpisów (batche `b001`–`b053`) — 100% katalogu.
+- Wygenerowane sample v2: 527 produkcyjnych MP3 w `audio/samples/`
+  (batche `b001`–`b053`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## Co robić dalej
 
-- **Katalog domknięty: 525/525 fabuł ma scenariusz i sample (b001–b052).**
-- Odsłuchać całą bibliotekę (`b002–b052`, ID `6–617` + `158`) i zdecydować
-  o merge'u PR #40.
+- **Katalog domknięty: 527/527 fabuł ma scenariusz i sample (b001–b053).**
+- Odsłuchać całą bibliotekę (`b002–b053`, ID `6–617` + `158`, `160`, `161`)
+  i zdecydować o merge'u PR #40.
 - Nowe fabuły od właściciela (dostarczane jako `<numer><SET>`, np. `158OGW`)
   dopisujemy do `fabuły270926.csv` (sufiks setu wycinany przy imporcie)
-  i obsługuje się je nowymi paczkami od `b053`.
+  i obsługuje się je nowymi paczkami (kolejna: `b054`).
 - Po każdym imporcie kontrolować statusy w manifeście: `failed`
   z `quota_exceeded` = sygnał do ponownej wymiany klucza.
 - Po każdym imporcie kontrolować statusy w manifeście: `failed`
