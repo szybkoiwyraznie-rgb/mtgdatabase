@@ -688,3 +688,22 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   płomieniu, pochodni, ognisku albo samym efekcie wizualnym, utwórz osobny typ
   pending (`plomien-kontrolowany`, `plomien-pochodni`, itd.) zamiast wciskać
   `fire_roar_thruster_01`.
+
+## 2026-09-28 — Peak nie mówi nic o słyszalności; mierz LUFS i rozkład pasm
+
+- Sytuacja: po pięciu rundach regeneracji audyt obwiedniowy pokazywał
+  527/527 „bez głównych flag”. Pełny skan (LUFS wg BS.1770-4 + udziały pasm)
+  wykrył 28 sampli, w których ponad 80 % energii siedzi poniżej 60 Hz, i 31
+  bez treści powyżej 250 Hz. Skrajny przypadek: fabuła 115 z peakiem
+  −13 dBFS, ale głośnością −46,6 LUFS — plik formalnie „ma sygnał”, a na
+  laptopie i telefonie nie słychać z niego nic.
+- Wniosek: peak i RMS w dBFS opisują liczby w pliku, nie wrażenie słuchowe.
+  Filtr K w LUFS tłumi dół pasma dokładnie tak, jak robi to ucho i mały
+  głośnik, więc dopiero on pokazuje, co właściciel faktycznie usłyszy.
+  Dodatkowo cały korpus miał rozrzut głośności 43,9 LU (od −46,6 do −2,7),
+  co przy odsłuchu seryjnym myli „cichy” z „zły”.
+- Zasada / działanie zapobiegawcze: każdy audyt korpusu liczy LUFS, true peak
+  i udziały pasm (`scripts/audit_samples_full.py`). Przed oceną jakości
+  uchem najpierw wyrównać głośność całego korpusu (normalizacja + limiter
+  −1 dBTP) — to operacja lokalna i darmowa, a bez niej ocena sampli jest
+  zaburzona przez różnice poziomów.

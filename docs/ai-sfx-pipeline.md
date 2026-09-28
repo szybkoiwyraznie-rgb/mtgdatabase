@@ -130,3 +130,38 @@ Artifact workflow zawiera ZIP, manifest i gotową bibliotekę HTML.
 - Unikać „ambient bed”, „cinematic trailer”, „full soundscape”.
 - Długość raczej 1.5–3 s; tylko wyjątkowo do 5 s.
 - Każdy sample ma być unikalny dla fabuły, ale prosty do rozpoznania.
+
+## Audyt korpusu
+
+Dwa skrypty, oba tylko **raportują** — żaden nic nie nadpisuje:
+
+```bash
+python scripts/audit_samples_audio.py --output /tmp/audio-audit.json
+python scripts/audit_samples_full.py \
+    --json data/samples/audio-audit-<data>-fullscan.json \
+    --markdown docs/audits/<data>-audio-audit-fullscan.md \
+    --previous data/samples/audio-audit-<poprzedni>.json
+```
+
+- `audit_samples_audio.py` — szybki skan obwiedni: ucięty start/koniec, cisza,
+  peak, rozjazd długości.
+- `audit_samples_full.py` — pełny skan: LUFS (BS.1770-4), true peak,
+  rozkład energii w pasmach (infradźwięki, brak treści powyżej 250 Hz),
+  offset DC, tonalność i heurystyka mowy (prompty zabraniają muzyki i mowy),
+  odciski log-mel do wykrywania bliźniaków oraz kontrola unikalności tekstów
+  scenariuszy. Generuje JSON z metrykami i gotowy raport Markdown.
+
+Zależności audytu (`numpy`, `scipy`, `soundfile`) nie są potrzebne w CI —
+instaluje się je lokalnie:
+
+```bash
+python -m venv .venv && .venv/bin/pip install numpy scipy soundfile
+```
+
+### Warstwa audytu w bibliotece HTML
+
+`build_site.py --audit <plik.json>` (domyślnie ostatni fullscan) dokłada do
+każdej karty metryki (LUFS, peak, true peak, długość treści) i kolorowe flagi,
+a nad listą pasek filtrów. Dzięki temu odsłuch „tylko podejrzanych” to jedno
+kliknięcie zamiast szukania po ID. Brak pliku audytu = biblioteka bez flag,
+jak wcześniej.

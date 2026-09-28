@@ -131,11 +131,58 @@ class SampleV2Tests(unittest.TestCase):
             samples.mkdir()
             (samples / "1.mp3").write_bytes(b"fake mp3 bytes")
             out = tmp / "site"
-            run("scripts/build_site.py", "--catalog", str(catalog), "--scenarios", str(scenarios), "--samples", str(samples), "--out", str(out))
+            run("scripts/build_site.py", "--catalog", str(catalog), "--scenarios", str(scenarios),
+                "--samples", str(samples), "--out", str(out), "--audit", str(tmp / "no-audit.json"))
             html = (out / "index.html").read_text(encoding="utf-8")
             self.assertIn("Biblioteka sampli v2", html)
             self.assertIn("pojedyncze uderzenie", html)
             self.assertTrue((out / "samples" / "1.mp3").exists())
+            self.assertNotIn('class="chips"', html)
+
+    def test_build_site_renders_audit_flags_and_filters(self) -> None:
+        with tempfile.TemporaryDirectory() as td:
+            tmp = Path(td)
+            catalog = tmp / "catalog.json"
+            catalog.write_text(json.dumps({"stories": [
+                {"id": "1", "title": "Bell", "story": "A bell rings."},
+                {"id": "2", "title": "Crow", "story": "A crow caws."},
+            ]}), encoding="utf-8")
+            scenarios = tmp / "scenarios.jsonl"
+            scenarios.write_text("\n".join(json.dumps({
+                "story_id": sid,
+                "title": title,
+                "sample_scenario": scenario,
+                "prompt": "A short sound, no music, no speech.",
+                "duration_seconds": 2.0,
+                "status": "ready",
+                "batch": "b001",
+            }, ensure_ascii=False) for sid, title, scenario in [
+                ("1", "Bell", "pojedyncze uderzenie starego dzwonu"),
+                ("2", "Crow", "krótkie krakanie wrony"),
+            ]) + "\n", encoding="utf-8")
+            samples = tmp / "audio"
+            samples.mkdir()
+            (samples / "1.mp3").write_bytes(b"fake mp3 bytes")
+            (samples / "2.mp3").write_bytes(b"fake mp3 bytes")
+            audit = tmp / "audit.json"
+            audit.write_text(json.dumps({
+                "files": [
+                    {"id": "1", "flags": ["too_quiet", "sub_dominant"], "lufs": -40.0,
+                     "peak_db": -12.0, "true_peak_dbtp": -11.5, "content_s": 1.2},
+                    {"id": "2", "flags": [], "lufs": -16.0, "peak_db": -0.5,
+                     "true_peak_dbtp": 0.2, "content_s": 2.0},
+                ],
+                "similar_pairs": [{"a": "1", "b": "2", "cosine": 0.99}],
+            }), encoding="utf-8")
+            out = tmp / "site"
+            cp = run("scripts/build_site.py", "--catalog", str(catalog), "--scenarios", str(scenarios),
+                     "--samples", str(samples), "--out", str(out), "--audit", str(audit))
+            self.assertIn("audyt: 2", cp.stdout)
+            html = (out / "index.html").read_text(encoding="utf-8")
+            self.assertIn('data-flags="too_quiet sub_dominant twin"', html)
+            self.assertIn("-40.0 LUFS", html)
+            self.assertIn('data-flag="too_quiet"', html)  # filtr w pasku chipów
+            self.assertIn("bliźniak", html)
 
 
 if __name__ == "__main__":

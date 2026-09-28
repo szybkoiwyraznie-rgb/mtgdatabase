@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-09-28** (sesja `arena/01a0e45d-mtgdatabase`).
+Ostatnia aktualizacja: **2026-09-28** (sesja `arena/01a0e7f0-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
@@ -190,6 +190,8 @@ Actions w GitHubie (bot token nie ma `workflow_dispatch` — HTTP 403).
 
 ## Co robić dalej
 
+- **Decyzje po pełnym audycie sygnałowym z 2026-09-28** — patrz sekcja na końcu
+  pliku i `docs/audits/2026-09-28-audio-audit-fullscan.md`.
 - **Katalog domknięty: 527/527 fabuł ma scenariusz i sample (b001–b053).**
 - Odsłuchać całą bibliotekę (`b002–b053`, ID `6–617` + `158`, `160`, `161`)
   i zdecydować o merge'u PR #40.
@@ -221,3 +223,43 @@ Postprodukcja: 190/331 normalizacja do −1,5 dBFS, 489 tłumienie + fade-out
 (data/samples/audio-audit-2026-09-28-after-r005.json). Triggery TEMP
 usunięte po imporcie. Zużycie r005: 22 generacje ≈ 640 kredytów;
 szacunkowy stan quota: ~4 675.
+
+
+## Pełny audyt sygnałowy korpusu (2026-09-28, sesja `arena/01a0e7f0`)
+
+Nowy skrypt `scripts/audit_samples_full.py` przeliczył **wszystkie 527 MP3 od
+zera** i dołożył wymiary, których poprzednie audyty nie mierzyły: LUFS
+(BS.1770-4), true peak (4x nadpróbkowanie), rozkład energii w pasmach, offset
+DC, tonalność, heurystykę mowy, odciski log-mel (bliźniaki) i kontrolę
+unikalności tekstów. Raport: `docs/audits/2026-09-28-audio-audit-fullscan.md`,
+metryki per plik: `data/samples/audio-audit-2026-09-28-fullscan.json`.
+
+Najważniejsze ustalenia:
+
+- **Korpus nie ma wyrównanej głośności.** Rozpiętość 43,9 LU (od −46,6 do
+  −2,7 LUFS), mediana −15,5. Przy odsłuchu seryjnym część sampli ginie, część
+  wyrywa głośniki. Naprawa jest lokalna i darmowa (normalizacja + limiter
+  −1 dBTP); 41 plików wymaga > +10 dB, z tego 12 > +15 dB.
+- **28 sampli ma ponad 80 % energii poniżej 60 Hz** (`sub_dominant`), a **31
+  nie ma praktycznie nic powyżej 250 Hz** (`muffled`). Peak pokazuje „głośno”,
+  a na telefonie/laptopie nie słychać nic. Skrajny przypadek: 115
+  (peak −13,1 dBFS, −46,6 LUFS).
+- **58 plików ma true peak > +1 dBTP** (max +3,5) — twardego clippingu nie ma,
+  ale po transkodowaniu mogą zniekształcać. **19 plików ma offset DC** > 0,01.
+- **30 sampli ma realną treść krótszą niż 0,8 s** przy pliku 2,5 s.
+- **Regresji nie ma**: kategorie „ucięty koniec” i „prawie cisza”, naprawiane
+  w rundach r001–r005, są dziś puste (0 plików).
+- **Nie ma duplikatów**: 0 identycznych PCM, wszystkie 527 promptów i opisów
+  unikalne. 30 par przekracza 0,95 kosinusa odcisku log-mel — to „podobna
+  rodzina brzmieniowa”, nie kopie; tylko 2 pary ≥ 0,97 warte odsłuchu
+  (321/507, 470/527).
+- Muzyka i mowa: 6 plików tonalnych (w większości poprawnie — dzwony) i 3
+  mowopodobne. Do weryfikacji uchem, pewność niska.
+
+Biblioteka HTML ma teraz **warstwę audytu**: `build_site.py --audit <json>`
+dokleja do kart metryki i flagi oraz pasek filtrów (np. „infradźwięki 28”),
+więc odsłuch samych podejrzanych to jedno kliknięcie.
+
+Rekomendowana kolejność (z raportu): najpierw darmowa postprodukcja całego
+korpusu, potem odsłuch, dopiero na końcu kredyty na regenerację ~31 ID bez
+treści w paśmie słyszalnym. **Czeka na decyzję właściciela.**

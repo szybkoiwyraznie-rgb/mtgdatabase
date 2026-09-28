@@ -71,6 +71,15 @@ Generacja:
 ELEVENLABS=... python scripts/elevenlabs_sample_scout.py --batch b001 --limit 10
 ```
 
+Audyt korpusu (tylko raportuje, nic nie nadpisuje; wymaga lokalnego
+`.venv` z `numpy`, `scipy`, `soundfile`):
+
+```bash
+python scripts/audit_samples_full.py \
+    --json data/samples/audio-audit-<data>-fullscan.json \
+    --markdown docs/audits/<data>-audio-audit-fullscan.md
+```
+
 Publikacja/test:
 
 ```bash
