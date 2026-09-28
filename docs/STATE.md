@@ -142,6 +142,26 @@ nie odpalała się bez kontroli właściciela.
   (batche `b001`–`b053`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
+## Incydent: brak auto-deployu po merge PR #40 (2026-09-28)
+
+Po zmergowaniu PR #40 do `main` (squash-merge, commit `4b39a35`, 10:13:11 UTC)
+**żaden workflow uruchamiany przez `push`** (`Publish sample library`,
+`Build sample release`, nawet bezwarunkowy `Validate project`) się nie odpalił.
+Potwierdzone przez GitHub API: `actions/runs?branch=main` nie ma ani jednego
+wpisu nowszego niż merge PR #39 (2026-09-27 19:05 UTC).
+
+Najbardziej prawdopodobna przyczyna: bezpośrednio przed mergem wygenerowano
+~90 pushy na branchu PR w ciągu ~90 minut (pętla scenariusz→generacja→import
+dla paczek b045–b053), co odpaliło 150–250+ workflow runów w niecałe 2h.
+GitHub Actions throttluje/odrzuca webhooki wyzwalające nowe runy przy takich
+seriach, a zdarzenia push „gubią się" bez żadnego widocznego błędu (brak
+failed runa — po prostu nic nie powstaje). Merge do `main` trafił w ogon tej
+serii. Takich zdarzeń nie da się odtworzyć wstecz — jedyna naprawa to nowy
+push do `main` (np. ten commit) i weryfikacja, że Pages/release się odpaliły.
+Jeśli po następnym mergu znowu nic się nie odpali, właściciel może ręcznie
+uruchomić `Publish sample library` i `Build sample release` z zakładki
+Actions w GitHubie (bot token nie ma `workflow_dispatch` — HTTP 403).
+
 ## Co robić dalej
 
 - **Katalog domknięty: 527/527 fabuł ma scenariusz i sample (b001–b053).**
