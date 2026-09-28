@@ -1,0 +1,392 @@
+{
+ "round": "r006",
+ "date": "2026-09-28",
+ "reason": "Po wyrównaniu głośności całego korpusu (postprocess-2026-09-28.json) te fabuły nadal nie mają słyszalnej treści: albo plik jest pusty/za cichy nawet po +15 dB, albo cała energia siedzi poniżej 250 Hz. Prompty napisane od zera: jedno fizyczne źródło, bliski plan, pełny poziom, wymuszony detal w paśmie średnim i górnym.",
+ "groups": {
+  "A": "za cicho / prawie pusto — po normalizacji nadal poniżej -23 LUFS",
+  "B": "brak treści powyżej 250 Hz mimo że scenariusz zakłada słyszalny detal"
+ },
+ "skipped_on_purpose": {
+  "51": "głuchy drzewny puls — scenariusz celowo stłumiony",
+  "71": "głuche gumowate uderzenie — celowo bez detalu",
+  "181": "niski równy ton pola więziennego — celowo sam dół pasma",
+  "273": "oddychająca ziemia — celowo niskie pulsowanie",
+  "301": "podwójne tąpnięcie o membranę — celowo głuche"
+ },
+ "entries": [
+  {
+   "story_id": "115",
+   "title": "Merfolk Mesmerist",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b011",
+   "sample_scenario": "energiczny zamach dłoni przez wodę po pas z kłębiącym się pluskiem",
+   "prompt": "One hand sweeping hard through waist-deep lake water in a single fast swirl: loud churning and splashing right at the microphone, water streaming and dripping off at the end. Close, present, full level. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "hipnotyczne falowanie wody tkané trójoką syreną zaklinaczką",
+   "previous_prompt": "A merfolk mesmerist weaving: low hypnotic water tones bending and wobbling, gentle ripples lapping in slow circles around her hands. Recorded close-up, clearly audible, strong presence. The sound finishes with a quick natural decay, fully faded out before the clip ends. The sound is loud, prominent and in the close foreground. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "608",
+   "title": "Skymarch Bloodletter",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b051",
+   "sample_scenario": "uderzenie rapiera o stalowy napierśnik",
+   "prompt": "A thin rapier blade striking a steel breastplate once: a bright hard metallic clang with a short ringing tail and the plate rattling in its straps. Close and loud. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "gwardzista spadający z całunu mroku na posterunek",
+   "previous_prompt": "A bloodletter dropping from shadow: a mantle of black mist collapsing into a dive, a rapier ringing off a breastplate, one slow feed and a body folding. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "200",
+   "title": "Cloak of the Bat",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b018",
+   "sample_scenario": "gwałtowne rozwinięcie skórzanego płaszcza i świst powietrza",
+   "prompt": "A heavy leather cloak snapped wide open in one hard motion: a loud leathery crack followed by a fast air rush sweeping past the microphone. Dry, close, full level. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "świsz lotu złodzieja w płaszczu-nietoperzu między kominami",
+   "previous_prompt": "A cloak unfurling into bat wings: one snap of leather opening wide, a swift gliding rush between chimneys, air whistling at speed. Recorded close-up, clearly audible, strong presence. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "453",
+   "title": "Elgaud Inquisitor",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b036",
+   "sample_scenario": "ulewa bębniąca po płytowej zbroi",
+   "prompt": "Heavy rain drumming hard on steel plate armour: dense bright metallic pattering with water sheeting and running off the plates. Recorded very close, loud and present. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "błogosławiona energia wzmacniająca inkwizytora w deszczu",
+   "previous_prompt": "Blessed strength returning: rain drumming on plate armor, soft radiant pulses sinking into tired limbs, a mace grip creaking tight in a gauntlet. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "227",
+   "title": "Jwari Shapeshifter",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b021",
+   "sample_scenario": "seria mokrych trzasków stawów układających nowe ciało",
+   "prompt": "A fast sequence of wet joint cracks and knuckle pops, sharp and close, finishing with one firm dull settling thud. Dry, loud, full level. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "mokre trzaski stawów przemiennokształtnej układającej nowy kształt",
+   "previous_prompt": "Wet cartilage and joints shifting and popping in a fluid sequence, like knuckles cracking under stretched rubber, ending with one firm settling thump of a new body. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "223",
+   "title": "Angel's Feather",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b020",
+   "sample_scenario": "mocne machnięcie wielkim skrzydłem tuż przy uchu",
+   "prompt": "One large wing flapped hard past the microphone: a strong airy whoosh with the dry rustle of stiff feathers and a light air snap at the end. Close, loud, present. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "pojedyncze miękkie muśnięcie dużego pióra w nieruchomym powietrzu",
+   "previous_prompt": "One slow soft swish of a single large feather stroking through still air, delicate, airy and very close. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "294",
+   "title": "Tumbleweed Rising",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b026",
+   "sample_scenario": "suche chwasty wleczone i miażdżone po twardej ziemi",
+   "prompt": "Dry brittle tumbleweed branches dragged and crushed across hard ground: loud crackling, scraping and snapping of thin twigs with dust grit. Close to the microphone, full level. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "wiry suchych chwastów formujące żywiołaka-stróża prerii",
+   "previous_prompt": "Tumbleweeds rising into a guardian: dry shrubs scraping and clattering as wind heaps them together, green sparks crackling through the mass, claws of dust gripping the ground. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "559",
+   "title": "Gaelicat",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b047",
+   "sample_scenario": "ostry skrzek kota i trzask skórzastych skrzydeł",
+   "prompt": "One sharp screeching cat yowl very close to the microphone, followed immediately by a hard leathery wing snap as it launches. Bright, loud, full level. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "skrzydlaty kot zrywający się z półki w mgłę",
+   "previous_prompt": "A winged cat taking alarm: soft paws shifting on a stone shelf, leathery wings snapping open, a sharp yowl as it launches into the mist. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "197",
+   "title": "Dismal Backwater",
+   "group": "A",
+   "duration_seconds": 3.0,
+   "batch": "b018",
+   "sample_scenario": "pojedyncza ciężka kropla w nieruchomą wodę z bliska",
+   "prompt": "One heavy water drop falling into a still pool, recorded extremely close: a loud sharp plip with a deep hollow bloop and a short wet ring fading after it. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "pojedyncza kropla zaburzająca lustrzaną toń ponurej zatoki",
+   "previous_prompt": "A single drop breaking a mirror-still backwater: one plip into black water, slow rings spreading, wet moss dripping in the hush after. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "577",
+   "title": "Thunderstaff",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b048",
+   "sample_scenario": "trzask wyładowań wokół laski wbitej w kamień",
+   "prompt": "An iron staff butt struck hard into stone, then loud crackling electrical arcs snapping through the air around it: sharp bright zaps and spitting sparks. Close, full level. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "Laska Gromu wbita w kamień i bariera trzaskających wyładowań",
+   "previous_prompt": "A thunderstaff planted in stone: iron striking bedrock, a dome of crackling arcs snapping up, incoming shots bursting flat and spent against it. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "199",
+   "title": "Gloomfang Mauler",
+   "group": "A",
+   "duration_seconds": 3.0,
+   "batch": "b018",
+   "sample_scenario": "hakowate odnóża wbijające się w głębokie bagno",
+   "prompt": "Heavy hooked legs stabbing into deep wet mud one after another: thick squelching and sucking, with wet slaps as each is torn free. Close and loud. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "pełzanie kolosalnego pajęczaka po skażonym bagnie",
+   "previous_prompt": "A colossal chitin horror crawling through a bog: eight hooked legs punching into wet ground one after another, plates grinding, a slow wet breath. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "148",
+   "title": "Xu-Ifit, Osteoharmonist",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b015",
+   "sample_scenario": "kościane odłamki zatrzaskujące się w całość",
+   "prompt": "Dry bone fragments clacking and snapping together in a fast sequence: hard hollow clicks ending with one firm locking snap. Close, loud, dry. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "fioletowy rezonans akustyczny układający odłamki kości w nieważkości",
+   "previous_prompt": "An osteoharmonist at work: a precise violet acoustic resonance humming from bone gauntlets, alien bone fragments clicking and locking together midair. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "285",
+   "title": "Etherium Sculptor",
+   "group": "A",
+   "duration_seconds": 2.5,
+   "batch": "b025",
+   "sample_scenario": "strumień gorącego metalu lany do formy",
+   "prompt": "A thick stream of molten metal poured into a mould: heavy hissing and spattering, then a hard crystalline tick as the surface sets. Close and loud. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "formowanie etherium samą myślą rzemieślnika z Esperu",
+   "previous_prompt": "Etherium shaped by thought: liquid metal streaming between fingers like water, threads twisting into fine filigree, setting hard with a crystalline chime. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "85",
+   "title": "Phyrexian Rager",
+   "group": "A",
+   "duration_seconds": 3.0,
+   "batch": "b008",
+   "sample_scenario": "metalowa stopa stawiana na zardzewiałym pomoście",
+   "prompt": "A heavy metal-clawed foot stepping onto a rusted steel walkway: one hard clank with grating rattle and a loose plate rocking afterwards. Close, loud. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "krople oleju skapujące z żelaznych szponów w bezdenną otchłań kopalni",
+   "previous_prompt": "Oil dripping from iron claws into a deep shaft: slow viscous drops falling far and echoing, soft metallic footfalls prowling rusted walkways. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "72",
+   "title": "Dragon Arch",
+   "group": "B",
+   "duration_seconds": 3.0,
+   "batch": "b008",
+   "sample_scenario": "łuskowate cielsko szorujące o kamienny łuk z sypiącym gruzem",
+   "prompt": "Huge scaled wings and claws scraping hard against a stone archway as a massive body forces its way through: gritty stone rasping, sharp scale rattle and loose grit falling. Bright close detail, not a low rumble. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "wyłanianie się smoka z żarzącego portalu monumentalnego kamiennego łuku",
+   "previous_prompt": "A dragon emerging from a stone portal: a deep warm swell of fiery glow, stone vibrating low, then a huge winged shape pushing through with one heavy breath. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "107",
+   "title": "Somberwald Spider",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b011",
+   "sample_scenario": "szarpane grube nici pajęczej sieci",
+   "prompt": "Thick taut silk strands plucked and stretched hard: bright twanging fibrous snaps with creaking tension between them, very close to the microphone. Clear high-frequency detail. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "tąpnięcia i wibracje grubych nici pajęczej sieci szarpanej naprężeniem",
+   "previous_prompt": "Thick silk web strands twanging and stretching under sudden strain, taut fibrous vibrations, springy and tense. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "118",
+   "title": "Dire-Strain Brawler",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b012",
+   "sample_scenario": "chrapliwy pomruk wilkołaka tuż przy mikrofonie",
+   "prompt": "A huge wolf growling close to the microphone: raspy throat rattle and heavy breath with clear grain and detail in the growl, not a pure bass rumble. Present, full level. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "niski spokojny pomruk wilkołaka stojącego pod pełnią księżyca",
+   "previous_prompt": "A huge werewolf standing calm under a full moon: one long low rumbling growl rolling in its chest, fur shifting, a distant farm dog barking once. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "125",
+   "title": "Ordinary Bear",
+   "group": "B",
+   "duration_seconds": 3.0,
+   "batch": "b012",
+   "sample_scenario": "ciężkie niedźwiedzie łapy tupiące po ubitej ziemi",
+   "prompt": "Heavy bear paws thudding on packed earth in a slow steady rhythm, with dry soil grit and claw scuffs clearly audible on every step. Close, detailed, full level. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "rytmiczny pradawny taniec niedźwiedzi w księżycowym kręgu",
+   "previous_prompt": "Bears dancing in a moonlit circle: heavy paws thudding a slow primal rhythm on packed earth, deep communal grunts answering in turn. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "129",
+   "title": "Charismatic Vanguard",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b013",
+   "sample_scenario": "kuty młot uderzający o stalowy pancerz w geście uniesienia",
+   "prompt": "A heavy blacksmith hammer swung up and struck hard against steel plate: a bright metallic clang with ringing overtones and armour plates rattling afterwards. Close, loud, detailed. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "uniesienie święconego młota krasnoluda z falą wspólnego zapału",
+   "previous_prompt": "A vanguard commander raising a hallowed hammer: one surging swell of holy light rolling across armor, a deep wordless dwarven battle roar rising behind it. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "132",
+   "title": "Pilgrim's Eye",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b013",
+   "sample_scenario": "furkot płóciennych skrzydeł thoptera i klekot przekładni",
+   "prompt": "A small clockwork thopter fluttering close by: canvas wings beating fast, a thin brass gear ticking and a metal ring clicking as it turns. Bright, dry, detailed. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "mechaniczne oko pielgrzyma kreślące kręgi skanującego światła",
+   "previous_prompt": "A mechanical scout eye in flight: light clockwork flutter of patched canvas wings, a thin scanning beam humming in slow sweeping circles below. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "153",
+   "title": "Balamb Garden, Airborne",
+   "group": "B",
+   "duration_seconds": 3.0,
+   "batch": "b015",
+   "sample_scenario": "podmuch silnika odginający drzewa i wodę pod spodem",
+   "prompt": "A powerful thruster blasting overhead: a loud hissing roar of pressurised air with a sharp whistling edge, leaves and water spray whipping in the blast. Bright and detailed, close. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "turkusowe silniki latającej akademii odginające drzewa i wodę w dole",
+   "previous_prompt": "A flying academy passing overhead: a deep turquoise thruster glow humming low, a rotating column of air bending trees and water far below. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "182",
+   "title": "Stomping Slabs",
+   "group": "B",
+   "duration_seconds": 3.0,
+   "batch": "b017",
+   "sample_scenario": "kamienne płyty przelatujące nisko z sypiącym żwirem",
+   "prompt": "Enormous stone slabs sweeping low past the microphone: a fast heavy air whoosh with dry grit and small pebbles rattling and skittering off their surfaces. Keep the grit detail bright. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "oglącowe kamienne płyty przelatujące nisko nad osadą",
+   "previous_prompt": "Enormous stone slabs flying low over a village: deep hollow whoosh of each slab passing, air pressing down, a soft ground tremor trailing. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "207",
+   "title": "Feed the Infection",
+   "group": "B",
+   "duration_seconds": 3.0,
+   "batch": "b019",
+   "sample_scenario": "gęsty olej przeciskany przez wąską ranę",
+   "prompt": "Thick black oil forced through a narrow opening: wet slithering, squelching and fast spattering onto skin, bright and close to the microphone. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "czarne wici oleju przeszywające skórę wyznawców Rdzy",
+   "previous_prompt": "Black oil tendrils accepting new worshippers: thick viscous strands sliding and piercing skin, a wet union of minds, a low machine drone settling in. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "228",
+   "title": "Strandwalker",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b021",
+   "sample_scenario": "stukot cienkich metalowych szczudeł po spękanym kamieniu",
+   "prompt": "Four thin metal stilts stepping on cracked stone: sharp high clicks from tapered tips with dry metal sinews creaking between the steps. Close and bright. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "krok żywego ekwipunku na szczudlastych segmentowanych kończynach",
+   "previous_prompt": "A living equipment strider walking: four thin segmented stilts stepping in eerie unison, curved grippers flexing open, dry metal sinews stretching. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "235",
+   "title": "Trestle Troll",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b021",
+   "sample_scenario": "mokre dłonie olbrzyma odrywane od kamiennego filaru",
+   "prompt": "Huge wet hands peeling off damp stone: a thick suction squelch, wet skin dragging across rock and loose grit trickling down after. Close, detailed. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "przestępowanie olbrzymiego trolla po filarze mostu w podziemiach",
+   "previous_prompt": "A bridge troll shifting on its pillar: huge limbs peeling off wet stone, mossy scales flaking, deep slow breaths echoing under the arches. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "281",
+   "title": "Moonlit Meditation",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b025",
+   "sample_scenario": "koncentryczne fale rozchodzące się po płytkiej wodzie",
+   "prompt": "Concentric ripples spreading across shallow water: light rhythmic laps and small splashes right at the surface, bright and detailed, close to the microphone. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "koncentryczne fale w idealnym rytmie od medytującej postaci",
+   "previous_prompt": "Deep meditation on still water: soft concentric ripples pulsing in perfect rhythm, a pale ring of energy humming above, one slow breath. The sound finishes with a quick natural decay, fully faded out before the clip ends. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "289",
+   "title": "Rustvine Cultivator",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b025",
+   "sample_scenario": "kropla oleju spadająca na miedziany korzeń",
+   "prompt": "A thick oil drop falling onto a copper root: one wet slap with a bright metallic tick, then slow sticky dripping and a faint metal creak. Very close, detailed. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "kropla czarnego oleju karmiąca metaliczne korzenie",
+   "previous_prompt": "Oil feeding the soil: a thick black drop sliding from a wrist, earth darkening as it soaks in, copper roots creaking upright toward the light. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "330",
+   "title": "Invasion of the Giants",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b029",
+   "sample_scenario": "kroki olbrzyma z chrzęstem zmarzniętej ziemi",
+   "prompt": "Giant footfalls landing on frozen ground: each heavy impact with loud crunching frost, cracking soil and small stones skittering away. Keep the crunch bright and detailed. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "zbliżające się, coraz cięższe kroki olbrzymów wstrząsające ziemią",
+   "previous_prompt": "Immense slow giant footfalls approaching, each ground-shaking impact landing heavier and closer than the last. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "383",
+   "title": "Supernatural Stamina",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b032",
+   "sample_scenario": "napinane skórzane pasy i dwa głuche uderzenia ciała",
+   "prompt": "Tight leather straps creaking hard as they are pulled taut, with two dull body thumps underneath them. Bright leather creak in front, close to the microphone. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "dwa głębokie, powolne uderzenia serca z bliska ze skrzypnięciem napinanej skóry",
+   "previous_prompt": "Two deep slow heartbeats, very close and heavy, with a tight leathery creak of straining muscle between them. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "428",
+   "title": "Curiosity",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b034",
+   "sample_scenario": "pazury walące raz za razem w okuty słup",
+   "prompt": "Heavy claws hammering repeatedly on an iron-banded wooden post: hard booming impacts with a bright metal ring and splintering wood on every hit. Close, detailed. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "łomot ciężkich pazurów walących raz za razem w okuty słup",
+   "previous_prompt": "Heavy claws hammering again and again on a reinforced metal post, deep booming impacts with a slight ring. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "450",
+   "title": "Thornhide Wolves",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b036",
+   "sample_scenario": "ciernie szorujące po twardej jak kora skórze",
+   "prompt": "Thick thorn canes dragged across hard bark-like hide and springing back: dry scraping, sharp thorn snaps and rustling branches. Bright, close, detailed. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "wilk o skórze jak kora rozsuwający kolczasty mur obozowiska",
+   "previous_prompt": "A thornhide wolf pushing through a thorn wall: spiked canes dragging across bark-thick hide, canes springing apart, soft heavy paws entering the firelight. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "539",
+   "title": "Silvanus's Invoker",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b045",
+   "sample_scenario": "rozrywana ziemia i trzeszczące drewno wstającego żywiołaka",
+   "prompt": "Ground tearing open along root lines: soil ripping, roots snapping and heavy timber creaking as something hauls itself upward. Bright splintering detail up front. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "zew ziemi i wyłaniający się żywiołak skały i drewna",
+   "previous_prompt": "An earth elemental rising to a call: claws driven deep into soil, ground splitting along root-lines, a giant of rock and timber hauling itself up with a grinding roar. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "567",
+   "title": "Jwar Isle Avenger",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b047",
+   "sample_scenario": "szpony przebijające chitynowy pancerz w locie",
+   "prompt": "Sharp claws punching through chitin armour: a hard cracking impact with shell splintering and wet tearing, wing feathers snapping in the air just before it. Close and bright. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "zwrot sfinksy nad hedronami i cios w pancerz pomiotu",
+   "previous_prompt": "A sphinx wheeling into the attack: broad wings banking hard around a floating hedron, claws punching through spawned armor, tentacles spasming limp in its wake. No music, no speech, no ambience bed."
+  },
+  {
+   "story_id": "588",
+   "title": "Cemetery Recruitment",
+   "group": "B",
+   "duration_seconds": 2.5,
+   "batch": "b049",
+   "sample_scenario": "wypychana ziemia i trzeszczące kości nad grobem",
+   "prompt": "Graveyard soil pushed up and crumbling as bones creak and click their way out: dry earth spilling, small stones tumbling and joints cracking. Close, detailed, full level. No music, no speech, no ambience bed.",
+   "previous_sample_scenario": "fioletowy blask Liliany wskrzeszający wojowników z mogił",
+   "previous_prompt": "A necromancer raising the graves: violet light seeping from her fingers, sod shifting as old soldiers sit up, bones creaking into ranks behind her. No music, no speech, no ambience bed."
+  }
+ ]
+}

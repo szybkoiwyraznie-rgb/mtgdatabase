@@ -383,6 +383,17 @@ def analyze(path: Path, expected: float | None) -> FileResult:
     else:
         lead_sil = trail_sil = dur
 
+    # Próg absolutny (-45 dBFS) przesuwa się razem z poziomem pliku: po
+    # wyrównaniu głośności cichszy ogon wpada pod próg i wygląda jak „cisza".
+    # Dlatego drugi pomiar liczymy względem maksimum samego pliku.
+    rel_thr = max(max_frame_db - 40.0, -60.0)
+    above_rel = np.nonzero(frames > rel_thr)[0]
+    if above_rel.size:
+        lead_rel = above_rel[0] * 0.010
+        trail_rel = (len(frames) - 1 - above_rel[-1]) * 0.010
+    else:
+        lead_rel = trail_rel = dur
+
     spec = spectral_profile(mono, fs)
     pitch = pitch_profile(mono, fs)
     bands = spec.pop("bands")
@@ -411,6 +422,9 @@ def analyze(path: Path, expected: float | None) -> FileResult:
         "lead_silence_s": round(lead_sil, 3),
         "trail_silence_s": round(trail_sil, 3),
         "content_s": round(max(0.0, dur - lead_sil - trail_sil), 3),
+        "lead_silence_rel_s": round(lead_rel, 3),
+        "trail_silence_rel_s": round(trail_rel, 3),
+        "content_rel_s": round(max(0.0, dur - lead_rel - trail_rel), 3),
         "start_15ms_db": round(segment_rms_db(mono, fs, 0.0, 0.015), 2),
         "start_50ms_db": round(segment_rms_db(mono, fs, 0.0, 0.050), 2),
         "end_10ms_db": round(segment_rms_db(mono, fs, dur - 0.010, dur), 2),
@@ -461,7 +475,7 @@ def add_flags(metrics: list[dict]) -> dict:
             flags.append("sub_dominant")
         if m["audible_share"] < AUDIBLE_SHARE_MIN:
             flags.append("muffled")
-        if m["content_s"] < SHORT_CONTENT_S:
+        if m["content_rel_s"] < SHORT_CONTENT_S:
             flags.append("short_content")
         if (m["tonal_frame_fraction"] > TONAL_FRACTION and m["f0_semitone_std"] < TONAL_PITCH_STD
                 and m["voiced_fraction"] > TONAL_VOICED and m["audible_share"] > TONAL_AUDIBLE_MIN):
@@ -714,13 +728,14 @@ def build_markdown(metrics: list[dict], stats: dict, pairs: list[dict],
     # 5b. krótka treść
     add_section(
         "WYSOKIE — realna treść krótsza niż 0,8 s",
-        ["ID", "Tytuł", "Treść", "Długość pliku", "Cisza przód", "Cisza tył", "Scenariusz"],
-        [[m["id"], title(m["id"]), f'{m["content_s"]} s', f'{m["duration_s"]} s',
-          f'{m["lead_silence_s"]} s', f'{m["trail_silence_s"]} s',
-          scen.get(m["id"], {}).get("sample_scenario", "")[:45]]
-         for m in sorted(cat("short_content"), key=lambda x: x["content_s"])],
+        ["ID", "Tytuł", "Treść (próg wzgl.)", "Treść (próg −45 dBFS)", "Długość pliku", "Scenariusz"],
+        [[m["id"], title(m["id"]), f'{m["content_rel_s"]} s', f'{m["content_s"]} s',
+          f'{m["duration_s"]} s', scen.get(m["id"], {}).get("sample_scenario", "")[:45]]
+         for m in sorted(cat("short_content"), key=lambda x: x["content_rel_s"])],
         "Po odjęciu ciszy zostaje bardzo mało dźwięku. Czasem to poprawne (jedno "
-        "uderzenie), czasem generacja urwała temat.",
+        "uderzenie), czasem generacja urwała temat. Flaga liczona **progiem względnym** "
+        "(40 dB poniżej maksimum pliku), bo próg absolutny przesuwa się razem z "
+        "poziomem nagrania — kolumna obok pokazuje, ile wychodzi po staremu.",
     )
 
     # 5c. DC
@@ -942,12 +957,19 @@ def main() -> int:
 
     previous = None
     if args.previous and Path(args.previous).exists():
-        prev_rows = json.loads(Path(args.previous).read_text(encoding="utf-8"))
+        prev_raw = json.loads(Path(args.previous).read_text(encoding="utf-8"))
+        # starsze audyty to płaska lista wierszy, nowsze — słownik z kluczem "files"
+        prev_rows = prev_raw.get("files", []) if isinstance(prev_raw, dict) else prev_raw
         previous = {}
         for row in prev_rows:
-            fname = row.get("file")
-            if fname and fname.endswith(".mp3"):
-                previous[fname[:-4]] = row.get("flags", [])
+            if not isinstance(row, dict):
+                continue
+            sid = str(row.get("id") or "")
+            if not sid:
+                fname = row.get("file", "")
+                sid = fname[:-4] if fname.endswith(".mp3") else ""
+            if sid:
+                previous[sid] = row.get("flags", [])
 
     payload = {
         "generated_on": date.today().isoformat(),

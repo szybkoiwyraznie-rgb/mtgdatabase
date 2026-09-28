@@ -1,0 +1,99 @@
+name: TEMP regen r006
+
+# Tymczasowy workflow jednorazowej regeneracji rundy r006 (34 fabuły, których
+# sample po postprodukcji nadal nie mają słyszalnej treści).
+#
+# Odpala się TYLKO wtedy, gdy commit pchnięty na branch sesji ma w opisie
+# marker [generate-r006] — `workflow_dispatch` jest niedostępny dla tokenu
+# bota, a klucz ElevenLabs żyje w sekretach repozytorium.
+#
+# Do usunięcia natychmiast po udanej regeneracji.
+
+on:
+  push:
+    branches:
+      - arena/01a0e7f0-mtgdatabase
+
+permissions:
+  contents: write
+
+concurrency:
+  group: temp-regen-r006
+  cancel-in-progress: false
+
+env:
+  SCENARIOS: data/samples/scenarios.jsonl
+  OUT_DIR: audio/samples
+  MANIFEST: data/samples/generated-manifest.jsonl
+  IDS: "72,85,107,115,118,125,129,132,148,153,182,197,199,200,207,223,227,228,235,281,285,289,294,330,383,428,450,453,539,559,567,577,588,608"
+
+jobs:
+  regen:
+    if: contains(github.event.head_commit.message, '[generate-r006]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install audio deps
+        run: python -m pip install --upgrade pip numpy scipy soundfile
+
+      - name: Validate scenarios
+        run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
+
+      - name: Generate MP3s with ElevenLabs
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: |
+          python scripts/elevenlabs_sample_scout.py \
+            --scenarios "$SCENARIOS" \
+            --out "$OUT_DIR" \
+            --manifest "$MANIFEST" \
+            --ids "$IDS" \
+            --force \
+            --prompt-influence 0.35
+
+      - name: Stash raw (pre-postprocess) files
+        run: |
+          mkdir -p build/r006-raw
+          IFS=',' read -ra LIST <<< "$IDS"
+          for id in "${LIST[@]}"; do
+            cp "$OUT_DIR/$id.mp3" "build/r006-raw/$id.mp3"
+          done
+          ls -l build/r006-raw | head -5
+
+      - name: Upload raw generation artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: r006-raw
+          path: build/r006-raw
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Audit raw files (for sub_dominant detection)
+        run: |
+          python scripts/audit_samples_full.py \
+            --samples-dir build/r006-raw \
+            --json build/r006-raw-audit.json
+
+      - name: Postprocess new files
+        run: |
+          python scripts/postprocess_samples.py \
+            --ids "$IDS" \
+            --audit build/r006-raw-audit.json \
+            --report data/samples/postprocess-r006.json
+
+      - name: Commit regenerated samples
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add "$OUT_DIR" "$MANIFEST" data/samples/postprocess-r006.json
+          git commit -m "chore(samples): regenerate r006 (34 files) + postprocess [skip ci]"
+          git push origin HEAD:${{ github.ref_name }}
