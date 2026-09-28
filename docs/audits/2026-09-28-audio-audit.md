@@ -220,3 +220,51 @@ Możliwe wejście „w środek dźwięku”, ale dla ciągłych faktur to bywa n
 
 Surowe metryki wszystkich 527 plików: `data/samples/audio-audit-2026-09-28.json`
 (wyjście `scripts/audit_samples_audio.py`).
+
+---
+
+## Aktualizacja po regeneracji (2026-09-28, ta sama sesja)
+
+Właściciel zatwierdził regenerację kategorii: krytyczne (3) + ucięty koniec (21)
++ za cicho (13) + przester (21) = **58 plików**. Kategoria „start na pełnym
+poziomie" czeka na odsłuch właściciela; kosmetyczne pominięte.
+
+### Runda r001 — 58 plików (run 36411204847)
+
+Prompty podejrzanych dostały celowane dopiski (bez zmiany idei dźwięku):
+za ciche → `Recorded close-up, clearly audible, strong presence.`,
+ucięte → `The sound finishes with a quick natural decay, fully faded out
+before the clip ends.`, przester → `Clean recording at moderate level,
+no distortion.` Wszystkie 58 wygenerowane ze statusem `generated`.
+Ponowny audyt: **41/58 naprawione**, 17 nadal z flagą główną
+(w tym 1 regresja: `191` z uciętego końca na prawie niemy).
+
+### Runda r002 — 17 plików (run 36411895113)
+
+Mocniejsze dopiski (`loud, prominent, close foreground` / `generous
+headroom` / `decays completely to silence`). Ponowny audyt po imporcie:
+**łącznie 49/58 naprawione**. Zostało **9 opornych**:
+
+| ID | Było | Jest | Uwagi po r002 |
+|---|---|---|---|
+| 150 | ucięty koniec | za cicho | koniec naprawiony, poziom spadł (aktywny RMS −39,7) |
+| 181 | za cicho | za cicho | −41,3 dBFS mimo dwóch rund |
+| 302 | za cicho | za cicho | −39,6 dBFS |
+| 303 | prawie niemy | za cicho | duża poprawa (z −44,4 na −42,6; peak z −32 na −25) |
+| 347 | ucięty koniec | ucięty koniec | poprawa końcówki (−5 → −23 dBFS), wciąż za mało wybrzmienia |
+| 377 | PUSTY | za cicho | plik już nie jest pusty; nadal cichy (−42,2) |
+| 493 | przester | przester | peak +2,2 dBFS |
+| 504 | przester | przester | peak +1,35 dBFS |
+| 511 | ucięty koniec + cicho | za cicho | koniec naprawiony |
+
+### Wniosek
+
+Dla tych 9 plików możliwości promptu się wyczerpały — model uparcie generuje
+delikatne sceny cicho, a mastering ElevenLabs sam wbija szczyty ponad pełną
+skalę. Rzetelna rekomendacja: **deterministyczna postprodukcja** zamiast
+kolejnych losowań — normalizacja szczytowa do ok. −1,5 dBFS dla za cichych,
+tłumienie −3 dB dla przesterów, krótki fade-out 150 ms dla `347`. Decyzja
+właściciela.
+
+Metryki po regeneracji: `data/samples/audio-audit-2026-09-28-after-regen.json`.
+Zużycie quota: 75 generacji ≈ 3 750 kredytów (zostało ~5 150 na trzecim kluczu).

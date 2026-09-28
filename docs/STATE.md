@@ -88,6 +88,26 @@ klucz wygenerował regenerację `b051` (run 36403513599), finalną paczkę
 ≈ 1 100 kredytów. **Wszystkie 527 fabuł katalogu ma sample.** Po każdym
 imporcie sprawdzać w manifeście statusy `failed`/`quota_exceeded`.
 
+## Audyt audio i regeneracja r001/r002 (2026-09-28)
+
+Sygnałowy audyt wszystkich 527 MP3 (`scripts/audit_samples_audio.py`,
+raport `docs/audits/2026-09-28-audio-audit.md`) wytypował 140 plików z flagami,
+z czego właściciel zatwierdził do regeneracji 58 (krytyczne + ucięty koniec +
+za cicho + przester). Dwie rundy regeneracji (r001: 58 sztuk, run 36411204847;
+r002: 17 sztuk, run 36411895113) naprawiły **49/58**; prompty tych fabuł mają
+teraz dopiski o obecności/wybrzmieniu/headroomie w `scenarios.jsonl`.
+Zostało 9 opornych (150, 181, 302, 303, 347, 377, 493, 504, 511) —
+rekomendacja: deterministyczna postprodukcja zamiast kolejnych losowań
+(szczegóły w raporcie audytu). Kategoria „start na pełnym poziomie"
+(39 plików) czeka na odsłuch właściciela; kosmetyczne pominięte.
+
+Mechanizm generacji z sandboxa: tymczasowe markerowane triggery push
+(`[generate-regen-rXXX]`) w `ai-sfx-elevenlabs.yml` + tymczasowy workflow
+importu artefaktu (`[import-regen-rXXX]`), bo sandbox agenta nie ma dostępu
+do `*.blob.core.windows.net` (artefaktów nie da się pobrać lokalnie).
+Oba triggery usunięte po imporcie. Zużycie: 75 generacji ≈ 3 750 kredytów;
+na trzecim kluczu zostało ~5 150.
+
 ## Aktywne ścieżki
 
 - `fabuły270926.csv` — bieżąca kolekcja właściciela.

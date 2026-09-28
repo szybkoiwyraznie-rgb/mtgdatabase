@@ -4,12 +4,6 @@ name: Generate sample batch (ElevenLabs)
 # already hand-written ready scenarios in data/samples/scenarios.jsonl.
 
 on:
-  # TEMP TRIGGER (do usunięcia po imporcie artefaktu): regeneracja r002 po
-  # audycie audio 2026-09-28 — push z markerem [generate-regen-r002] na
-  # branchu roboczym. workflow_dispatch jest niedostępny dla tokena bota.
-  push:
-    branches:
-      - arena/01a0e78c-mtgdatabase
   workflow_dispatch:
     inputs:
       collection_csv:
@@ -57,13 +51,9 @@ env:
   SCENARIOS: data/samples/scenarios.jsonl
   OUT_DIR: audio/samples
   MANIFEST: data/samples/generated-manifest.jsonl
-  # TEMP: parametry regeneracji r002 (17 ID po rundzie 1)
-  REGEN_MARKER: "[generate-regen-r002]"
-  REGEN_IDS: "76,115,124,150,181,191,243,287,302,303,347,377,461,493,504,511,615"
 
 jobs:
   generate:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[generate-regen-r002]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -74,7 +64,7 @@ jobs:
           python-version: "3.12"
 
       - name: Refresh catalog from collection
-        run: python scripts/import_collection.py "${{ inputs.collection_csv || 'fabuły270926.csv' }}" --output data/catalog.json
+        run: python scripts/import_collection.py "${{ inputs.collection_csv }}" --output data/catalog.json
 
       - name: Validate scenarios
         run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
@@ -85,20 +75,15 @@ jobs:
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
           ARGS=()
-          if [ "${{ github.event_name }}" = "push" ]; then
-            # TEMP: regeneracja r002 po audycie audio 2026-09-28
-            ARGS+=(--ids "$REGEN_IDS" --force)
-          else
-            if [ -n "${{ inputs.ids }}" ]; then ARGS+=(--ids "${{ inputs.ids }}"); fi
-            if [ -n "${{ inputs.batch }}" ]; then ARGS+=(--batch "${{ inputs.batch }}"); fi
-            if [ -n "${{ inputs.limit }}" ]; then ARGS+=(--limit "${{ inputs.limit }}"); fi
-            if [ "${{ inputs.force }}" = "true" ]; then ARGS+=(--force); fi
-          fi
+          if [ -n "${{ inputs.ids }}" ]; then ARGS+=(--ids "${{ inputs.ids }}"); fi
+          if [ -n "${{ inputs.batch }}" ]; then ARGS+=(--batch "${{ inputs.batch }}"); fi
+          if [ -n "${{ inputs.limit }}" ]; then ARGS+=(--limit "${{ inputs.limit }}"); fi
+          if [ "${{ inputs.force }}" = "true" ]; then ARGS+=(--force); fi
           python scripts/elevenlabs_sample_scout.py \
             --scenarios "$SCENARIOS" \
             --out "$OUT_DIR" \
             --manifest "$MANIFEST" \
-            --prompt-influence "${{ inputs.prompt_influence || '0.35' }}" \
+            --prompt-influence "${{ inputs.prompt_influence }}" \
             "${ARGS[@]}"
 
       - name: Build flat ZIP
