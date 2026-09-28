@@ -31,25 +31,29 @@ Gotowe są cztery fale paczek (łącznie 50 fabuł):
 - `b004`–`b006`: scenariusze i sample ID `26–50` (10 + 10 + 5),
 - `b007`: scenariusze i sample ID `51–60`,
 - `b008`: scenariusze i sample ID `61–85` (25 sztuk),
-- `b009`–`b026`: 180 scenariuszy i sampli — pętla „10 scenariuszy →
-  generacja → następne 10…" (decyzja właściciela; trwa aż do wyczerpania
-  budżetu). Paczki `b021`–`b026` (ID `226–300`) domknęły 60 sampli w jednej
-  sesji. Uwaga: ID w katalogu **nie są ciągłe** (katalog: 524 fabuły,
+- `b009`–`b030`: 220 scenariuszy i sampli — pętla „10 scenariuszy →
+  generacja → następne 10…" (decyzja właściciela; trwała aż do wyczerpania
+  budżetu 2026-09-28). Paczki `b021`–`b026` (ID `226–300`) oraz `b027`–`b030`
+  (ID `301–360`) domknęły 100 sampli w dwóch sesjach. Uwaga: ID w katalogu **nie są ciągłe** (katalog: 524 fabuły,
   ID do 617), więc paczki biorą po prostu kolejne 10 fabuł wg kolejności
   katalogu — po `b014` (do ID 145) kolejne paczki obejmują już ID
-  z dziurami (np. b016: 156,157,159,163,166,168,169,171,172,173).
+  z dziurami (np. b029: 321,322,326,330,331,335,337,339,342,343).
+- `b031` (ID `362–377`): scenariusze napisane, ale generacja **nieudana —
+  budżet konta wyczerpany do zera** (0 credits); paczka czeka na
+  regenerację po zmianie klucza `ELEVENLABS`.
 
-Scenariusze: `data/samples/scenarios.jsonl` (265 wpisów, status `ready`).
-Wygenerowane sample: 265 plików MP3 w `audio/samples/` (wszystkie ID
-z manifestu; nazwy plików to `<id>.mp3`).
-Manifest generacji: `data/samples/generated-manifest.jsonl` (265 wpisów
-`generated`).
+Scenariusze: `data/samples/scenarios.jsonl` (315 wpisów, status `ready`;
+305 wygenerowanych + 10 paczki `b031` czekających na regenerację).
+Wygenerowane sample: 305 plików MP3 w `audio/samples/` (nazwy plików
+to `<id>.mp3`).
+Manifest generacji: `data/samples/generated-manifest.jsonl` (315 wpisów:
+305 `generated` + 10 `failed` z próby `b031` przy wyczerpanym quota).
 
 HTML listening gate buduje się z tych plików przez `scripts/build_site.py`
-(265 sampli), a ZIP przez `scripts/build_pack.py` (265 płaskich MP3).
+(305 sampli), a ZIP przez `scripts/build_pack.py` (305 płaskich MP3).
 
 Uwaga operacyjna: token bota Arena nie może użyć `workflow_dispatch`
-(HTTP 403), więc paczki `b002`–`b026` zostały wygenerowane
+(HTTP 403), więc paczki `b002`–`b030` zostały wygenerowane
 przez tymczasowe, markerowane triggery push (`[generate-b00X…]` /
 `[import-samples-artifact]`) w `ai-sfx-elevenlabs.yml`, usuwane po imporcie
 artefaktu. Workflow na `main` pozostaje manualny (`workflow_dispatch`).
@@ -58,14 +62,13 @@ zużycie quota i tak trafiało do artefaktu. Klucz `ELEVENLABS` działał
 stabilnie dla wszystkich paczek — wszystkie 50 żądań zakończyło się
 statusem `generated`.
 
-**Quota (korekta właściciela, 2026-09-27): konto ma budżet 10 000
-tokenów**, z czego po 50 samplach wykorzystano **1 145** (~23 tokeny na
-sample). Po paczce `b026` (265 sampli) zużycie to szacunkowo ~6 100
-tokenów. Zapas wystarcza na ~170 kolejnych sampli (w katalogu zostały
-259 fabuły). Uwaga: pokrycie
-całego katalogu (524 fabuły) wymagałoby łącznie ~12 000 tokenów, więc
-zmiana konta/klucza będzie potrzebna mniej więcej około ID ~430. Wcześniejszy
-szacunek „40–50 generacji" był mocno zaniżony.
+**Quota (2026-09-28): budżet 10 000 tokenów WYCZERPANY.** Próba paczki
+`b031` zwróciła HTTP 401 `quota_exceeded` („0 credits remaining,
+25 credits required”) dla wszystkich 10 ID. Realne średnie zużycie
+wyliczyło się na ~33 tokeny/sample (10 000 / 305 sampli), nie ~23
+jak po pierwszych 50 próbkach — dlatego budżet skończył się na 305
+samplach, wcześniej niż szacowane ~435. Dalsza generacja wymaga
+zmiany klucza/konta w sekrecie `ELEVENLABS`.
 
 ## Aktywne ścieżki
 
@@ -113,17 +116,23 @@ nie odpalała się bez kontroli właściciela.
 ## Stan liczbowy
 
 - Katalog bieżący: 524 fabuły w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 265 gotowych wpisów (batche `b001`–`b026`).
-- Wygenerowane sample v2: 265 produkcyjnych MP3 w `audio/samples/`.
+- Scenariusze v2: 315 gotowych wpisów (batche `b001`–`b031`; `b031` czeka
+  na regenerację po zmianie klucza).
+- Wygenerowane sample v2: 305 produkcyjnych MP3 w `audio/samples/`
+  (batche `b001`–`b030`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## Co robić dalej
 
-- Odsłuchać paczki `b002–b026` (ID `6–300`) w bibliotece HTML i zdecydować
+- Odsłuchać paczki `b002–b030` (ID `6–360`) w bibliotece HTML i zdecydować
   o merge'u PR.
-- Kolejna paczka: `b027` (kolejne 10 fabuł po `b026`, tj. ID `301–310`,
-  ciągłe) i dalej w pętli po 10 aż do wyczerpania budżetu (~170 sampli
-  zapasu; w katalogu zostały 259 fabuły; zmiana konta ok. ID ~430).
+- **Najpierw: zmiana klucza/konta `ELEVENLABS` przez właściciela** —
+  obecny budżet jest na zerze (0 credits).
+- Po podmianie sekretu: regeneracja paczki `b031` (scenariusze gotowe,
+  ID `362,366,367,370,372,373,374,375,376,377`; 10 wpisów `failed`
+  w manifeście dokumentuje nieudaną próbę).
+- Potem pętla dalej: `b032` = kolejne 10 fabuł wg kolejności katalogu
+  (slice `[315:325]`). W katalogu bez scenariusza zostały 209 fabuły.
 - Pisać scenariusze jako krótkie, jednorodne sample. Unikać słów i konstrukcji:
   `tło`, `hero`, `koda`, `warstwy`, `ambient bed`, `full scene`, `music`.
 - Każdy prompt ma zawierać zakaz muzyki i mowy.
