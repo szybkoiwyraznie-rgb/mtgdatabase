@@ -96,17 +96,18 @@ z czego właściciel zatwierdził do regeneracji 58 (krytyczne + ucięty koniec 
 za cicho + przester). Dwie rundy regeneracji (r001: 58 sztuk, run 36411204847;
 r002: 17 sztuk, run 36411895113) naprawiły **49/58**; prompty tych fabuł mają
 teraz dopiski o obecności/wybrzmieniu/headroomie w `scenarios.jsonl`.
-Zostało 9 opornych (150, 181, 302, 303, 347, 377, 493, 504, 511) —
-rekomendacja: deterministyczna postprodukcja zamiast kolejnych losowań
-(szczegóły w raporcie audytu). Kategoria „start na pełnym poziomie"
+Dla 9 opornych właściciel zlecił całkiem nowe, jednoźródłowe prompty
+(runda r003, run 36413153819): 6/9 naprawione (303, 347, 377, 493, 504, 511).
+Zostały 3 (150 — fontanna ciągła ucinana na końcu klipu, 181 i 302 — model
+uparcie generuje je cicho); rekomendacja: deterministyczna postprodukcja
+(fade-out / normalizacja) zamiast kolejnych losowań. Kategoria „start na pełnym poziomie"
 (39 plików) czeka na odsłuch właściciela; kosmetyczne pominięte.
 
 Mechanizm generacji z sandboxa: tymczasowe markerowane triggery push
 (`[generate-regen-rXXX]`) w `ai-sfx-elevenlabs.yml` + tymczasowy workflow
 importu artefaktu (`[import-regen-rXXX]`), bo sandbox agenta nie ma dostępu
 do `*.blob.core.windows.net` (artefaktów nie da się pobrać lokalnie).
-Oba triggery usunięte po imporcie. Zużycie: 75 generacji ≈ 3 750 kredytów;
-na trzecim kluczu zostało ~5 150.
+Oba triggery usunięte po imporcie. Zużycie: 84 generacje ≈ 4 200 kredytów; na trzecim kluczu zostało ~4 700.
 
 ## Aktywne ścieżki
 

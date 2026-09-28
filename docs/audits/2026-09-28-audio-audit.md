@@ -268,3 +268,13 @@ właściciela.
 
 Metryki po regeneracji: `data/samples/audio-audit-2026-09-28-after-regen.json`.
 Zużycie quota: 75 generacji ≈ 3 750 kredytów (zostało ~5 150 na trzecim kluczu).
+
+### Runda r003 — 9 opornych z całkiem nowymi promptami (run 36413153819)
+
+Właściciel zlecił przepisanie promptów od zera na jednoźródłowe, fizycznie
+zakotwiczone dźwięki. Wynik: **6/9 czystych** (303, 347, 377, 493, 504, 511 —
+w tym 377 z pustego pliku do zdrowego sampla, peak −1,85 dBFS). Zostały:
+`150` (ciągła fontanna — głośna i zdrowa, ale ciągłe źródło z natury urywa się
+na końcu klipu; wystarczy fade-out), `181` i `302` (model generuje je cicho
+mimo wymuszeń; wystarczy normalizacja). Łącznie po trzech rundach:
+**55/58 naprawione**, 3 do ewentualnej postprodukcji.
