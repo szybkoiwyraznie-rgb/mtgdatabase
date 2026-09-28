@@ -233,7 +233,7 @@ def main() -> None:
     parser.add_argument("--manifest", type=Path, default=ROOT / "data/samples/generated-manifest.jsonl")
     parser.add_argument("--samples", type=Path, default=ROOT / "audio/samples")
     parser.add_argument("--audit", type=Path,
-                        default=ROOT / "data/samples/audio-audit-2026-09-28-fullscan.json",
+                        default=ROOT / "data/samples/audio-audit-2026-09-28-after-r006.json",
                         help="JSON z audytu sygnałowego; brak pliku = biblioteka bez flag")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)

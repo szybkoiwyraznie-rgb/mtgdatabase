@@ -80,6 +80,17 @@ python scripts/audit_samples_full.py \
     --markdown docs/audits/<data>-audio-audit-fullscan.md
 ```
 
+Postprodukcja (jedyny skrypt nadpisujący pliki; szczegóły w
+`docs/ai-sfx-pipeline.md`):
+
+```bash
+python scripts/postprocess_samples.py --dry-run
+python scripts/postprocess_samples.py --report data/samples/postprocess-<data>.json
+```
+
+Uruchamiaj ją **od oryginałów** (`git checkout -- audio/samples`), nigdy na
+plikach już przetworzonych — każde przejście to kolejne stratne kodowanie.
+
 Publikacja/test:
 
 ```bash

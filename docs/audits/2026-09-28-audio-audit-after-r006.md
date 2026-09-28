@@ -47,7 +47,7 @@ Ten skan dokłada cztery wymiary, których wcześniej nie sprawdzaliśmy:
 | WYSOKIE — ucięty koniec | 1 | wysoka | odsłuch → regeneracja/fade |
 | WYSOKIE — za cicho (LUFS/peak) | 0 | wysoka | normalizacja w postprodukcji |
 | WYSOKIE — energia w infradźwiękach | 0 | wysoka | EQ+normalizacja albo regeneracja |
-| WYSOKIE — brak treści powyżej 250 Hz | 6 | średnia | odsłuch → regeneracja |
+| WYSOKIE — brak treści powyżej 250 Hz | 5 | średnia | odsłuch → regeneracja |
 | WYSOKIE — treść krótsza niż 0,8 s | 22 | wysoka | trym albo regeneracja |
 | ŚREDNIE — przester (clipping) | 0 | średnia | tłumienie + limiter |
 | ŚREDNIE — true peak > +1 dBTP | 0 | średnia | limiter w postprodukcji |
@@ -60,14 +60,14 @@ Ten skan dokłada cztery wymiary, których wcześniej nie sprawdzaliśmy:
 | KOSMETYCZNE — długa cisza wiodąca | 17 | wysoka | opcjonalny trym |
 | KOSMETYCZNE — długa cisza końcowa | 49 | wysoka | opcjonalny trym |
 
-Plików z co najmniej jedną flagą: **91** / 527.
+Plików z co najmniej jedną flagą: **90** / 527.
 Plików z flagą **merytoryczną** (bez kategorii kosmetycznych i „start na pełnym
-poziomie"): **29**.
+poziomie"): **28**.
 
 
 ## Najważniejszy wniosek: korpus nie ma wyrównanej głośności
 
-Rozkład głośności percepcyjnej: mediana **-20.0 LUFS**, p10 **-21.1**, p90 **-20.0**, σ **0.8 LU**, rozpiętość **6.3 LU** (od -25.1 do -18.8).
+Rozkład głośności percepcyjnej: mediana **-20.0 LUFS**, p10 **-20.5**, p90 **-20.0**, σ **0.6 LU**, rozpiętość **5.9 LU** (od -24.7 do -18.8).
 
 To nie jest kwestia pojedynczych odstających plików — **cały korpus jest nierówny**.
 Przy odsłuchu biblioteki po kolei jedne sample są ledwie słyszalne, inne wyrywają
@@ -77,7 +77,7 @@ Gdyby wyrównać wszystko do **-20 LUFS** z sufitem **−1 dBTP**:
 
 - plików wymagających wzmocnienia > +10 dB: **0** (z tego > +15 dB: 0 — tam wyjdzie szum tła, lepiej zregenerować),
 - plików wymagających wyciszenia > 6 dB: **0**,
-- plików w granicach ±3 dB od celu: **514**.
+- plików w granicach ±3 dB od celu: **523**.
 
 Operacja jest lokalna, odwracalna i **nie kosztuje kredytów**. Rekomendacja: zrobić ją
 jednym przebiegiem na całym korpusie, dopiero potem oceniać pojedyncze sample uchem —
@@ -95,7 +95,7 @@ Sortowane od najbrutalniejszego cięcia. Fade-out 0,2–0,35 s naprawia to bez k
 
 | ID | Tytuł | Koniec 10 ms | Maks. ramka | Różnica | Inne flagi |
 |---|---|---|---|---|---|
-| 445 | Locthwain Paladin | -29.3 dBFS | -10.57 dBFS | -18.7 dB | — |
+| 445 | Locthwain Paladin | -27.13 dBFS | -10.72 dBFS | -16.4 dB | — |
 
 ## 3. WYSOKIE — za cicho względem korpusu
 
@@ -116,7 +116,6 @@ Mniej niż 2 % energii powyżej 250 Hz — w paśmie, w którym ucho rozpoznaje 
 | ID | Tytuł | Udział > 250 Hz | Centroid | LUFS | Inne flagi | Scenariusz |
 |---|---|---|---|---|---|---|
 | 51 | Deepwood Denizen | 0.0008 | 65 Hz | -20.47 | — | głuchy drzewny puls jak stłumione serce  |
-| 125 | Ordinary Bear | 0.0008 | 65 Hz | -21.36 | — | ciężkie niedźwiedzie łapy tupiące po ubi |
 | 71 | Security Rhox | 0.0060 | 62 Hz | -20.09 | cut_start_hard | głuche, gumowate uderzenie ciała o niewi |
 | 301 | Guildscorn Ward | 0.0061 | 114 Hz | -20.15 | — | podwójne tąpnięcie ciał o napiętą niewid |
 | 273 | Fertile Thicket | 0.0138 | 153 Hz | -20.0 | — | oddychająca ziemia pulsująca maną pod dł |
@@ -154,7 +153,7 @@ Po odjęciu ciszy zostaje bardzo mało dźwięku. Czasem to poprawne (jedno uder
 | 608 | Skymarch Bloodletter | 0.63 s | 0.4 s | 2.48 s | uderzenie rapiera o stalowy napierśnik |
 | 223 | Angel's Feather | 0.65 s | 0.59 s | 2.48 s | mocne machnięcie wielkim skrzydłem tuż przy u |
 | 77 | Annie Flash, the Veteran | 0.66 s | 0.49 s | 2.48 s | wystrzał elektrycznej wiązki z trójlufowej rę |
-| 283 | Magic Damper | 0.67 s | 0.33 s | 2.48 s | tłumiąca kopuła heksagonów rozpryskująca poci |
+| 283 | Magic Damper | 0.67 s | 0.35 s | 2.48 s | tłumiąca kopuła heksagonów rozpryskująca poci |
 | 593 | Inspiring Captain | 0.78 s | 0.42 s | 2.48 s | tupnięcie i donośne rżenie rumaka bojowego pr |
 
 ## 8. ŚREDNIE — offset DC
@@ -231,16 +230,16 @@ Wszystkie prompty i opisy scenariuszy są unikalne (527/527).
 ## 14. KOSMETYCZNE — cisza w pliku
 
 - cisza wiodąca > 0.6 s: **17** plików (604, 460, 65, 289, 218, 140, 360, 403, 463, 578, 232, 500, 304, 382, 560, 561, 292)
-- cisza końcowa > 1.5 s: **49** plików (46, 175, 472, 129, 591, 251, 608, 283, 514, 610, 466, 197, 355, 520, 442, 17, 593, 616, 576, 592, 142, 14, 556, 567, 482 …)
+- cisza końcowa > 1.5 s: **49** plików (46, 175, 472, 129, 591, 251, 608, 514, 610, 466, 283, 197, 355, 520, 442, 17, 593, 616, 576, 592, 142, 14, 556, 567, 482 …)
 
 To nie jest błąd generacji — sample po prostu nie wypełnia całej zadeklarowanej
 długości. Trym/skrócenie pliku jest opcjonalne i bezkosztowe.
 
 ## 15. Różnice względem audytu po rundzie r005
 
-- flagi merytoryczne w poprzednim skanie: **46**, teraz: **29**
-- nowe (nie widział ich poprzedni zestaw metryk): 223, 608
-- zniknęły: 72, 107, 115, 118, 132, 153, 182, 207, 228, 235, 281, 289, 330, 383, 428, 450, 539, 567, 588
+- flagi merytoryczne w poprzednim skanie: **121**, teraz: **28**
+- nowe (nie widział ich poprzedni zestaw metryk): 46, 442, 445, 466, 520
+- zniknęły: 8, 11, 20, 24, 33, 37, 54, 55, 65, 66, 70, 72, 85, 88, 91, 93, 101, 107, 112, 115, 118, 119, 125, 132, 139, 141, 143, 151, 153, 155, 157, 160, 172, 175, 182, 191, 197, 200, 206, 207, 221, 227, 228, 235, 240, 251, 252, 258, 281, 285, 289, 292, 294, 303, 308, 311, 313, 330, 343, 345, 346, 352, 370, 383, 385, 396, 420, 422, 428, 435, 439, 444, 450, 453, 461, 468, 471, 492, 494, 509, 526, 529, 539, 548, 550, 559, 560, 562, 567, 572, 577, 578, 584, 588, 598, 600, 605, 615
 
 Uwaga: poprzedni skan nie mierzył LUFS, pasma, tonalności ani duplikatów,
 więc większość „nowych" pozycji to nie regresja plików, tylko nowe kryterium.
@@ -254,7 +253,7 @@ potem odsłuch i dopiero na końcu wydawanie kredytów.
 
 2. **Do odsłuchu przed decyzją** — 61 ID (tonalne, mowopodobne, bliźniaki, krótka treść): 1, 15, 17, 18, 39, 46, 58, 70, 72, 76, 77, 91, 122, 128, 129, 137, 142, 152, 155, 163, 185, 223, 236, 243, 270, 283, 300, 304, 306, 321, 347, 376, 403, 442, 459, 460, 466, 470, 472, 486, 489, 507, 510, 520, 521, 527, 535, 551, 567, 568, 576, 580, 585, 586, 591, 592, 593, 595, 601, 608, 610
 
-3. **Kandydaci do regeneracji (kredyty, po potwierdzeniu uchem)** — 6 ID bez treści w paśmie słyszalnym: 51, 71, 125, 181, 273, 301
+3. **Kandydaci do regeneracji (kredyty, po potwierdzeniu uchem)** — 5 ID bez treści w paśmie słyszalnym: 51, 71, 181, 273, 301
 
    Uwaga: część z nich to scenariusze **celowo** niskie (kroki olbrzymów, tąpnięcia,
    bicie serca). Jeśli po EQ i normalizacji brzmią poprawnie, regeneracja jest zbędna.
