@@ -4,8 +4,8 @@ name: Generate sample batch (ElevenLabs)
 # already hand-written ready scenarios in data/samples/scenarios.jsonl.
 
 on:
-  # TEMP TRIGGER (do usunięcia po imporcie artefaktu): regeneracja r001 po
-  # audycie audio 2026-09-28 — push z markerem [generate-regen-r001] na
+  # TEMP TRIGGER (do usunięcia po imporcie artefaktu): regeneracja r002 po
+  # audycie audio 2026-09-28 — push z markerem [generate-regen-r002] na
   # branchu roboczym. workflow_dispatch jest niedostępny dla tokena bota.
   push:
     branches:
@@ -57,13 +57,13 @@ env:
   SCENARIOS: data/samples/scenarios.jsonl
   OUT_DIR: audio/samples
   MANIFEST: data/samples/generated-manifest.jsonl
-  # TEMP: parametry regeneracji r001 (58 ID z audytu 2026-09-28)
-  REGEN_MARKER: "[generate-regen-r001]"
-  REGEN_IDS: "76,77,88,93,108,115,124,149,150,159,169,172,181,186,191,200,202,204,213,243,264,281,287,288,301,302,303,306,309,331,346,347,349,352,373,377,388,401,434,435,448,454,461,492,493,494,496,501,504,511,517,542,560,576,582,585,606,615"
+  # TEMP: parametry regeneracji r002 (17 ID po rundzie 1)
+  REGEN_MARKER: "[generate-regen-r002]"
+  REGEN_IDS: "76,115,124,150,181,191,243,287,302,303,347,377,461,493,504,511,615"
 
 jobs:
   generate:
-    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[generate-regen-r001]')
+    if: github.event_name == 'workflow_dispatch' || contains(github.event.head_commit.message, '[generate-regen-r002]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -86,7 +86,7 @@ jobs:
         run: |
           ARGS=()
           if [ "${{ github.event_name }}" = "push" ]; then
-            # TEMP: regeneracja r001 po audycie audio 2026-09-28
+            # TEMP: regeneracja r002 po audycie audio 2026-09-28
             ARGS+=(--ids "$REGEN_IDS" --force)
           else
             if [ -n "${{ inputs.ids }}" ]; then ARGS+=(--ids "${{ inputs.ids }}"); fi
