@@ -645,3 +645,32 @@ Raporty: `postprocess-mono.json`, `postprocess-mono2.json`,
 Dodatkowo `audio-audit-latest.json` jako kanoniczny wskaźnik na bieżący
 audyt — `build_site.py` brał wcześniej „najnowszy alfabetycznie”, przez co
 `after-mono` przegrywało z `after-r008` i strona pokazywała stare flagi.
+
+## 2026-09-29 — Dostawa b056: fabuła 176FIN Chocobo Kick
+
+Kolekcja urosła do **534 fabuł**. Sample: pojedyncze kopnięcie szponiastych
+łap w płytową zbroję — jedno ciężkie uderzenie, dudniąca fala i obsypujące
+się płyty pancerza. Jakość scenariusza 88,5 pkt (próg 40), audyt semantyczny
+0 pkt w klasach impact/metal/rumble, zero flag sygnałowych.
+
+Potrzebne były trzy podejścia i każde czegoś nauczyło:
+
+1. **b056 — odrzucone przez API.** Prompt po doklejeniu zakazów przez scouta
+   miał 453 znaki przy limicie 450 (`invalid_text_length`). Walidator
+   sprawdzał wyłącznie surowy prompt (limit 650) i tego nie widział.
+   Naprawione: `api_text_length()` liczy realny ładunek razem z doklejkami
+   i blokuje przekroczenie progu `API_TEXT_LIMIT = 450`.
+2. **b056 (2. próba) — 1,53 s ciszy na 3,0 s pliku.** Zdarzenie jest krótkie,
+   a generator dopełnia resztę ciszą.
+3. **b056b — pogorszenie.** Skrócenie do 2,0 s i prośba „zakończ zwarcie, bez
+   ciszy na końcu” dała 0,72 s treści. Model potraktował to jako polecenie
+   skrócenia dźwięku, nie wypełnienia czasu.
+4. **b056c — trafione.** Zamiast zakazywać ciszy, poproszono o *następstwo*
+   ciosu: dudniącą falę i obsypujące się płyty. Treść 1,71 s przy medianie
+   korpusu 1,87 s, cisza 0,76 s.
+
+Surowy plik miał +1,84 dBTP i dominujące podbasy — postprodukcja (filtr
+45 Hz, −6,6 dB, bez limitera) dała −20,07 LUFS i −4,81 dBTP.
+
+Korpus: 534 sample, 69 flag, 0 rażących sprzeczności semantycznych,
+0 scenariuszy poniżej progu jakości, 0 duplikatów PCM.

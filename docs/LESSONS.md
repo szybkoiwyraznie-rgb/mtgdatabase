@@ -850,3 +850,26 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   wskaźniku (`audio-audit-latest.json` zapisywanym przez sam audyt), a nie
   wyprowadzać go z sortowania nazw czy dat modyfikacji plików, które po
   świeżym `git checkout` są i tak identyczne.
+
+## 2026-09-29 — Limit API liczy się na ładunku, nie na polu w danych
+
+- Sytuacja: generacja padła na `invalid_text_length` — 453 znaki przy limicie
+  450. Walidator przepuścił wpis, bo mierzył surowy prompt (limit 650),
+  podczas gdy scout dokleja tuż przed wysłaniem zakazy mowy, ambience
+  i sceny wielowarstwowej.
+- Zasada / działanie zapobiegawcze: walidować dokładnie ten obiekt, który
+  poleci do usługi — tu przez wywołanie tej samej funkcji `api_payload()`,
+  której używa scout. Każdy limit zewnętrzny sprawdzać na wyniku pełnego
+  potoku, nie na surowym polu wejściowym.
+
+## 2026-09-29 — Generatorowi mówi się, co ma być, nie czego ma nie być
+
+- Sytuacja: sample miał 1,53 s ciszy na 3,0 s. Skrócenie do 2,0 s i dopisanie
+  „decay ends tight with no trailing silence” dało jeszcze gorszy wynik —
+  0,72 s treści, bo model skrócił dźwięk zamiast wypełnić czas.
+- Wniosek: zakaz ciszy nie jest opisem dźwięku. Dopiero nazwanie następstwa
+  zdarzenia (dudniąca fala uderzeniowa, obsypujące się płyty pancerza)
+  wypełniło czas treścią — 1,71 s przy medianie korpusu 1,87 s.
+- Zasada / działanie zapobiegawcze: gdy sample jest za krótki względem
+  zamówionego czasu, nie skracać i nie zakazywać ciszy, tylko dopisać
+  kolejną fizyczną fazę tego samego zdarzenia.

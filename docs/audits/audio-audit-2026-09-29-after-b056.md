@@ -58,9 +58,9 @@ Ten skan dokłada cztery wymiary, których wcześniej nie sprawdzaliśmy:
 | DO ODSŁUCHU — start na pełnym poziomie | 11 | niska | weryfikacja uchem / fade-in |
 | BLIŹNIAKI — para sampli ≥ 0.95 kosinusa | 15 | niska | odsłuch pary, ewentualnie nowy prompt |
 | KOSMETYCZNE — długa cisza wiodąca | 13 | wysoka | opcjonalny trym |
-| KOSMETYCZNE — długa cisza końcowa | 35 | wysoka | opcjonalny trym |
+| KOSMETYCZNE — długa cisza końcowa | 34 | wysoka | opcjonalny trym |
 
-Plików z co najmniej jedną flagą: **70** / 534.
+Plików z co najmniej jedną flagą: **69** / 534.
 Plików z flagą **merytoryczną** (bez kategorii kosmetycznych i „start na pełnym
 poziomie"): **16**.
 
@@ -208,7 +208,7 @@ Wszystkie prompty i opisy scenariuszy są unikalne (527/527).
 ## 14. KOSMETYCZNE — cisza w pliku
 
 - cisza wiodąca > 0.6 s: **13** plików (604, 65, 218, 140, 360, 403, 463, 578, 232, 500, 382, 560, 561)
-- cisza końcowa > 1.5 s: **35** plików (56, 129, 591, 608, 514, 610, 466, 197, 442, 593, 616, 142, 14, 576, 556, 567, 85, 544, 268, 337, 543, 82, 164, 185, 345 …)
+- cisza końcowa > 1.5 s: **34** plików (56, 129, 591, 608, 514, 610, 466, 197, 442, 593, 616, 142, 14, 576, 556, 567, 85, 544, 268, 337, 543, 82, 164, 185, 345 …)
 
 To nie jest błąd generacji — sample po prostu nie wypełnia całej zadeklarowanej
 długości. Trym/skrócenie pliku jest opcjonalne i bezkosztowe.

@@ -1,5 +1,5 @@
 {
-  "count": 533,
+  "count": 534,
   "median_score": 57.0,
   "below_threshold": 0,
   "threshold": 40.0,
@@ -7328,6 +7328,18 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 8,
+      "problems": []
+    },
+    {
+      "id": "176",
+      "title": "Chocobo Kick",
+      "scenario": "podwójne kopnięcie szponiastych łap w płytową zbroję — jedno ciężkie uderzenie, dudniąca fala i obsypujące się płyty pancerza",
+      "score": 88.5,
+      "sound_hits": 3,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 17,
       "problems": []
     },
     {
