@@ -278,7 +278,10 @@ def check(cls: str, m: dict, q: dict) -> list[tuple[str, float]]:
         if voiced > voiced_hi:
             bad.append((f"wyraźna wysokość dźwięku (voiced={voiced:.2f} > górny kwartyl {voiced_hi:.2f})", 1.5))
     elif cls == "water":
-        if mid + high < 0.4:
+        # dźwięk podwodny albo wprost opisany jako stłumiony jest ciemny
+        # z fizyki, nie z wady generacji — nie wymagamy od niego góry pasma
+        muffled_ok = m.get("_muffled_by_design", False)
+        if mid + high < 0.4 and not muffled_ok:
             bad.append((f"woda bez średnicy i góry (mid+high={mid + high:.1%})", 1.5))
         if tonal > tonal_hi:
             bad.append((f"dźwięk tonalny zamiast wody (tonal={tonal:.2f} > górny kwartyl {tonal_hi:.2f})", 1.5))
@@ -361,6 +364,10 @@ def main() -> int:
         if not cls:
             no_class.append(sid)
             continue
+        import re as _re
+        m["_muffled_by_design"] = bool(_re.search(
+            r"podwodn|pod wodą|w głębi|w toni|stłumion|zanurz|przez ścianę|zza ściany",
+            s["sample_scenario"].lower()))
         violations = []
         for c in cls:
             for reason, weight in check(c, m, q):

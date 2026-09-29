@@ -1,7 +1,7 @@
-name: TEMP r007 (remove after use)
+name: TEMP r007b (remove after use)
 
-# Tymczasowy workflow: regeneracja rundy r007 (42 sampli) przez ElevenLabs.
-# Marker w tresci commita: [generate-r007]
+# Tymczasowy workflow: regeneracja rundy r007b (6 sampli) przez ElevenLabs.
+# Marker w tresci commita: [generate-r007b]
 # Po imporcie i domknieciu PR ten plik zostaje usuniety.
 
 on:
@@ -12,8 +12,8 @@ permissions:
   contents: write
 
 jobs:
-  generate-r007:
-    if: startsWith(github.event.head_commit.message, '[generate-r007]')
+  generate-r007b:
+    if: startsWith(github.event.head_commit.message, '[generate-r007b]')
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -32,21 +32,21 @@ jobs:
         run: python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
 
       - name: Dry run scout
-        run: python scripts/elevenlabs_sample_scout.py --batch r007 --limit 42 --force --dry-run
+        run: python scripts/elevenlabs_sample_scout.py --batch r007b --limit 6 --force --dry-run
 
       - name: Regenerate MP3s with ElevenLabs
         env:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
-        run: python scripts/elevenlabs_sample_scout.py --batch r007 --limit 42 --force --prompt-influence 0.35
+        run: python scripts/elevenlabs_sample_scout.py --batch r007b --limit 6 --force --prompt-influence 0.35
 
       - name: Verify regenerated outputs
         run: |
           python3 - <<'PY'
           import json
-          want = {'32', '33', '34', '38', '41', '56', '63', '70', '87', '89', '91', '93', '102', '110', '122', '131', '188', '230', '245', '268', '286', '290', '292', '293', '366', '374', '401', '446', '451', '482', '492', '497', '507', '520', '565', '570', '576', '577', '590', '592', '595', '613'}
+          want = {'17', '40', '59', '286', '290', '497'}
           rows = [json.loads(l) for l in open('data/samples/generated-manifest.jsonl', encoding='utf-8') if l.strip()]
-          tail = rows[-42:]
+          tail = rows[-6:]
           got = {r.get('story_id') for r in tail}
           bad = [r for r in tail if r.get('status') != 'generated']
           print('wygenerowano:', len(tail), 'bledy:', len(bad))
@@ -54,18 +54,18 @@ jobs:
           assert got == want, f'brakuje: {want - got}, nadmiar: {got - want}'
           PY
 
-      - name: Upload raw artifact (r007-raw)
+      - name: Upload raw artifact (r007b-raw)
         uses: actions/upload-artifact@v4
         with:
-          name: r007-raw
+          name: r007b-raw
           path: audio/samples/
           if-no-files-found: error
           retention-days: 30
 
-      - name: Commit and push r007 samples
+      - name: Commit and push r007b samples
         run: |
           git config user.name "arena-ai-coding-agent[bot]"
           git config user.email "298482267+arena-ai-coding-agent[bot]@users.noreply.github.com"
           git add audio/samples data/samples/generated-manifest.jsonl
-          git commit -m "r007: regeneracja 42 sampli z runu ${GITHUB_RUN_ID}"
+          git commit -m "r007b: regeneracja 6 sampli z runu ${GITHUB_RUN_ID}"
           git push
