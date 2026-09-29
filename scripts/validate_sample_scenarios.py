@@ -19,6 +19,18 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 REQUIRED = {"story_id", "title", "sample_scenario", "prompt", "duration_seconds", "status", "batch"}
 STATUSES = {"draft", "ready", "generated", "rejected"}
+API_TEXT_LIMIT = 450         # twardy limit ElevenLabs na pole `text`
+
+
+def api_text_length(row: dict) -> int:
+    """Długość tekstu, który realnie poleci do API — razem z zakazami,
+    które dokleja scout tuż przed wysłaniem."""
+    try:
+        sys.path.insert(0, str(Path(__file__).resolve().parent))
+        from elevenlabs_sample_scout import api_payload
+        return len(api_payload(row, 0.35)["text"])
+    except Exception:  # noqa: BLE001 — walidator nie może paść przez import
+        return len(str(row.get("prompt", "")))
 BANNED_LAYER_WORDS = re.compile(r"\b(hero|coda|koda|background|tło|warstwa|layers?|mix)\b", re.I)
 # Źródła muzyczne dopuszczalne przy music_allowed — instrument musi być
 # nazwany, bo wyjątek dotyczy grania w kadrze, nie podkładu muzycznego.
@@ -84,6 +96,13 @@ def validate_row(row: dict, line_no: int, catalog: dict[str, dict]) -> list[str]
         errors.append("prompt too short")
     if len(prompt) > 650:
         errors.append("prompt too long; keep it focused on one sample")
+    # Liczy się długość ŁADUNKU wysyłanego do API, nie samego promptu:
+    # scout dokleja zakazy (mowa, ambience, scena wielowarstwowa), a API
+    # odrzuca tekst dłuższy niż 450 znaków błędem invalid_text_length.
+    payload_len = api_text_length(row)
+    if payload_len > API_TEXT_LIMIT:
+        errors.append(f"prompt + doklejone zakazy = {payload_len} znaków, "
+                      f"limit API to {API_TEXT_LIMIT}; skróć prompt")
     if BANNED_LAYER_WORDS.search(scenario) or BANNED_LAYER_WORDS.search(prompt):
         errors.append("scenario/prompt mentions layered v1 concepts; v2 must be one homogeneous sample")
     # Muzyka jest domyślnie zakazana, ale NIE jest zakazana bezwzględnie.
