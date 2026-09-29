@@ -1,7 +1,7 @@
-name: TEMP b056b (remove after use)
+name: TEMP b056c (remove after use)
 
 # Tymczasowy workflow: dostawa b056 — nowa fabula 176FIN Chocobo Kick.
-# Marker w tresci commita: [generate-b056b]
+# Marker w tresci commita: [generate-b056c]
 
 on:
   push:
@@ -11,8 +11,8 @@ permissions:
   contents: write
 
 jobs:
-  generate-b056b:
-    if: startsWith(github.event.head_commit.message, '[generate-b056b]')
+  generate-b056c:
+    if: startsWith(github.event.head_commit.message, '[generate-b056c]')
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -27,14 +27,14 @@ jobs:
       - name: Validate scenarios
         run: python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
       - name: Dry run scout
-        run: python scripts/elevenlabs_sample_scout.py --batch b056b --limit 1 --force --dry-run
+        run: python scripts/elevenlabs_sample_scout.py --batch b056c --limit 1 --force --dry-run
       - name: Generate MP3 with ElevenLabs
         env:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
           set +e
-          python scripts/elevenlabs_sample_scout.py --batch b056b --limit 1 --force \
+          python scripts/elevenlabs_sample_scout.py --batch b056c --limit 1 --force \
             --prompt-influence 0.35 > out.log 2> err.log
           code=$?
           set -e
@@ -64,10 +64,10 @@ jobs:
           assert Path('audio/samples/176.mp3').stat().st_size > 10000, 'plik 176.mp3 podejrzanie maly'
           print('OK', len(tail))
           PY
-      - name: Upload raw artifact (b056b-raw)
+      - name: Upload raw artifact (b056c-raw)
         uses: actions/upload-artifact@v4
         with:
-          name: b056b-raw
+          name: b056c-raw
           path: audio/samples/176.mp3
           if-no-files-found: error
           retention-days: 30
@@ -76,5 +76,5 @@ jobs:
           git config user.name "arena-ai-coding-agent[bot]"
           git config user.email "298482267+arena-ai-coding-agent[bot]@users.noreply.github.com"
           git add audio/samples data/samples/generated-manifest.jsonl
-          git commit -m "b056b: regeneracja sampla 176 Chocobo Kick z runu ${GITHUB_RUN_ID}"
+          git commit -m "b056c: regeneracja sampla 176 Chocobo Kick z runu ${GITHUB_RUN_ID}"
           git push
