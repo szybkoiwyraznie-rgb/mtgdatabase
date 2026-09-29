@@ -72,7 +72,10 @@ def api_payload(row: dict, prompt_influence: float) -> dict:
     prompt = str(row["prompt"]).strip()
     low = prompt.lower()
     additions: list[str] = []
-    if "no music" not in low:
+    # music_allowed = fabuła uzasadnia grę na instrumencie w kadrze
+    # (bard, myszy z fujarkami, róg bojowy). Wtedy NIE dopisujemy zakazu,
+    # bo skasowałby sens promptu. Zakaz mowy zostaje zawsze.
+    if not row.get("music_allowed") and "no music" not in low:
         additions.append("No music.")
     if "no speech" not in low and "no spoken" not in low:
         additions.append("No speech.")

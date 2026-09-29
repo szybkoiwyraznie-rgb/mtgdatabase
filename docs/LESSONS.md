@@ -754,3 +754,122 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   słyszalny detal w średnicy i górze, nie sam rumble. Unikać słów
   `soft`, `gentle`, `delicate`, `distant`, `faint` — po normalizacji i tak
   trzeba je zregenerować.
+
+## 2026-09-29 — Krótkie zdarzenie w długim pliku naprawia się postprodukcją, nie regeneracją
+
+- Sytuacja: 96 sampli miało wypełnienie treścią poniżej 45 %, a skrajne
+  przypadki (304 salwa, 46 pędy, 460 napierśnik) mieściły 0,09–0,14 s dźwięku
+  w pliku trwającym 2,48 s. Reszta to martwe powietrze — słuchacz dostawał
+  kliknięcie i ciszę.
+- Wniosek: to nie jest wada generacji, tylko niewykorzystany czas. Jeśli
+  fabuła mówi o wielokrotnym zdarzeniu (*stado* crebainów, salwa *trzech*
+  łuków, *trójlufowa* rękawica, płyty opadające *kolejno*), serię da się
+  zbudować z istniejącego nagrania za zero kredytów.
+- Zasada / działanie zapobiegawcze: multiplikować tylko przy uzasadnieniu
+  fabularnym i nigdy przez kopiuj-wklej — identyczna kopia natychmiast
+  brzmi jak pętla. Każde powtórzenie musi mieć własny varispeed (pitch+czas),
+  poziom, tilt barwy i pozycję w panoramie, a odstępy muszą być nierówne.
+  Ciche odbicia/oddalanie tego samego źródła wolno dodać, żeby domknąć ogon
+  pliku — to wciąż jedno jednorodne zdarzenie, nie druga warstwa sceny.
+  Po zabiegu zawsze pełny audyt: sprawdzić, czy nie przybyło par bliźniaków
+  brzmieniowych (u nas 23 → 20, więc zróżnicowanie zadziałało).
+
+## 2026-09-29 — Scenariusz opisujący obraz daje dźwięk, którego nie da się obronić
+
+- Sytuacja: audyt wyrazistości pokazał 24 scenariusze bez jednego słowa
+  opisującego dźwięk — „turkusowa mgła nekromancji wzmacniająca rakshasę”,
+  „podwójny błysk przekonań wracający siłą do zbroi”, „fale szmaragdowej
+  aury sojuszników”. To opisy kadru z ilustracji, nie zdarzenia akustyczne.
+- Wniosek: taki scenariusz nie ma jak się nie udać źle — nie istnieje
+  poprawny wynik, bo nie wiadomo, co miałoby zabrzmieć. Generator dostaje
+  przymiotniki wizualne i odsyła tonalny pomruk, a potem audyt sygnałowy
+  pokazuje, że „wszystko w normie”.
+- Zasada / działanie zapobiegawcze: każdy scenariusz musi nazwać fizyczne
+  zdarzenie (rzeczownik dźwiękowy) i materiał, który je wydaje. Zamiast
+  aury — pazur kładący klejnot na kamień. Zamiast energii — chrobot kredy
+  po posadzce. Fabuła zostaje bogata, scenariusz ma być ubogi i konkretny.
+
+## 2026-09-29 — Próg audytu trzeba kalibrować rozkładem, nie intuicją
+
+- Sytuacja: pierwsze wersje predykatów semantycznych („ogień musi mieć
+  flatness > 0,03”, „skrzydła muszą modulować 1,5-14 Hz”) odpalały się na
+  ponad połowie swojej klasy. Wyglądało to na masową wadę korpusu.
+- Wniosek: to nie sample były złe, tylko progi wzięte z sufitu. Mediana
+  flatness w korpusie wynosi 0,095, więc próg 0,03 oskarżał połowę zbioru.
+- Zasada / działanie zapobiegawcze: progi wyrażać jako percentyle rozkładu
+  mierzonego korpusu (dolny kwartyl cechy, której dana klasa wymaga)
+  i zawsze raportować, jaki odsetek klasy narusza dany predykat. Jeśli
+  przekracza ~50 %, błąd jest w progu, nie w plikach.
+
+## 2026-09-29 — Twarda reguła w narzędziu wymusza kłamliwe scenariusze
+
+- Sytuacja: zakaz muzyki był wpisany zarówno w walidator (błąd bez frazy
+  „no music”), jak i w scouta (automatyczna doklejka „No music.”). Nawet
+  świadomie muzyczny prompt był sabotowany tuż przed wysłaniem.
+- Wniosek: autor scenariusza zamiast walczyć z narzędziem zaczął pisać pod
+  nie — stąd „struny **bez szarpnięcia**” dla liry i „grzechotka **bez
+  rytmu**” dla szamana. Reguła nie poprawiała jakości, tylko produkowała
+  dźwięki zaprzeczające własnej karcie.
+- Zasada / działanie zapobiegawcze: reguła globalna musi mieć jawną,
+  nazwaną furtkę (tu `music_allowed`), która **wymienia jeden zakaz na
+  inny, mocniejszy** — zamiast „zakaz muzyki” obowiązuje „nazwij instrument
+  i nadal żadnej mowy”. Zakaz bez furtki prędzej czy później trafi na
+  fabułę, w której jest po prostu błędny.
+
+## 2026-09-29 — Detektor „podejrzanie muzyczne” musi znać zamiar
+
+- Sytuacja: po regeneracji sample muzyczne zapaliły flagi `tonal_sustained`
+  i `speech_like` — czyli dokładnie to, o co w nich chodziło.
+- Wniosek: ta sama metryka jest wadą albo cechą zależnie od intencji wpisu.
+  Bez znajomości zamiaru audyt karze za trafienie w cel.
+- Zasada / działanie zapobiegawcze: flagi heurystyczne wiązać z deklaracją
+  w danych (`music_allowed`), a nowe klasy leksykalne włączać tylko dla
+  wpisów, które je zadeklarowały — inaczej „ulewa bębniąca po zbroi”
+  zostaje uznana za nieudany instrument perkusyjny.
+
+## 2026-09-29 — Zanim ogłosisz wadę, sprawdź, czy to nie definicja miary
+
+- Sytuacja: pomiar zgodności mono pokazał, że **wszystkie 533 pliki** tracą
+  ponad 2 LU po zsumowaniu kanałów. Wyglądało to na awarię całego korpusu.
+- Wniosek: BS.1770 sumuje moc kanałów, więc zejście ze stereo do jednego
+  kanału odejmuje ~3,01 LU niezależnie od zawartości. Miara mierzyła własną
+  definicję, nie wadę. Po odjęciu bazy zostało 50 plików, a patologicznych
+  (przeciwfaza) — 11.
+- Zasada / działanie zapobiegawcze: każdą nową metrykę najpierw puścić na
+  sygnale wzorcowym o znanym wyniku (tu: identyczne kanały powinny dać
+  nadwyżkę 0). Jeśli flaga zapala się na całym zbiorze, podejrzanym jest
+  wzór, nie materiał.
+
+## 2026-09-29 — „Najnowszy plik” po nazwie to nie porządek chronologiczny
+
+- Sytuacja: `build_site.py` wybierał raport audytu jako ostatni alfabetycznie
+  z `audio-audit-*.json`. Po dodaniu rundy `after-mono` strona zaczęła czytać
+  `after-r008` i pokazywała nieaktualne flagi — dokładnie ten sam błąd, który
+  dzień wcześniej zamroził ją na raporcie z r006.
+- Zasada / działanie zapobiegawcze: stan „bieżący” trzymać w jawnym, stałym
+  wskaźniku (`audio-audit-latest.json` zapisywanym przez sam audyt), a nie
+  wyprowadzać go z sortowania nazw czy dat modyfikacji plików, które po
+  świeżym `git checkout` są i tak identyczne.
+
+## 2026-09-29 — Limit API liczy się na ładunku, nie na polu w danych
+
+- Sytuacja: generacja padła na `invalid_text_length` — 453 znaki przy limicie
+  450. Walidator przepuścił wpis, bo mierzył surowy prompt (limit 650),
+  podczas gdy scout dokleja tuż przed wysłaniem zakazy mowy, ambience
+  i sceny wielowarstwowej.
+- Zasada / działanie zapobiegawcze: walidować dokładnie ten obiekt, który
+  poleci do usługi — tu przez wywołanie tej samej funkcji `api_payload()`,
+  której używa scout. Każdy limit zewnętrzny sprawdzać na wyniku pełnego
+  potoku, nie na surowym polu wejściowym.
+
+## 2026-09-29 — Generatorowi mówi się, co ma być, nie czego ma nie być
+
+- Sytuacja: sample miał 1,53 s ciszy na 3,0 s. Skrócenie do 2,0 s i dopisanie
+  „decay ends tight with no trailing silence” dało jeszcze gorszy wynik —
+  0,72 s treści, bo model skrócił dźwięk zamiast wypełnić czas.
+- Wniosek: zakaz ciszy nie jest opisem dźwięku. Dopiero nazwanie następstwa
+  zdarzenia (dudniąca fala uderzeniowa, obsypujące się płyty pancerza)
+  wypełniło czas treścią — 1,71 s przy medianie korpusu 1,87 s.
+- Zasada / działanie zapobiegawcze: gdy sample jest za krótki względem
+  zamówionego czasu, nie skracać i nie zakazywać ciszy, tylko dopisać
+  kolejną fizyczną fazę tego samego zdarzenia.

@@ -61,6 +61,7 @@ LUFS_QUIET = -32.0           # sample ginie obok reszty biblioteki (~p5)
 LUFS_LOUD = -6.5             # sample wyrywa się z biblioteki (~p97)
 TRUE_PEAK_HOT = 1.0          # dBTP — realne ryzyko zniekształceń po transkodowaniu
 SUB_DOMINANT = 0.80          # udział energii poniżej 60 Hz
+MONO_EXCESS_LU = 2.0         # strata przy zejściu do mono PONAD bazowe 3,01 LU
 AUDIBLE_SHARE_MIN = 0.02     # udział energii powyżej 250 Hz
 TONAL_AUDIBLE_MIN = 0.10     # tonalność liczy się tylko przy realnej treści
 TONAL_FRACTION = 0.80        # udział ramek tonalnych
@@ -364,7 +365,29 @@ class FileResult:
     fp: np.ndarray = field(default_factory=lambda: np.zeros(1))
 
 
-def analyze(path: Path, expected: float | None) -> FileResult:
+def mono_compat(data: np.ndarray, fs: int, stereo_lufs: float) -> tuple[float, float, float]:
+    """Zwraca (LUFS po zejściu do mono, nadwyżka straty w LU, korelacja L/R).
+
+    Uwaga na pułapkę pomiarową: ITU-R BS.1770 sumuje moc kanałów, więc nawet
+    idealnie zgodne stereo po zsumowaniu do jednego kanału traci ~3,01 LU
+    z samej definicji. Wadą jest dopiero NADWYŻKA ponad tę bazę — bierze się
+    z przeciwfazy między kanałami i oznacza, że treść kasuje się przy
+    odtwarzaniu mono (telefon, Bluetooth, podgląd).
+    """
+    if data.shape[1] < 2:
+        return stereo_lufs, 0.0, 1.0
+    mono = data.mean(axis=1, keepdims=True)
+    mono_lufs = integrated_lufs(mono, fs)
+    excess = (stereo_lufs - mono_lufs) - 3.01
+    left, right = data[:, 0], data[:, 1]
+    if left.std() < 1e-9 or right.std() < 1e-9:
+        corr = 1.0
+    else:
+        corr = float(np.corrcoef(left, right)[0, 1])
+    return mono_lufs, excess, corr
+
+
+def analyze(path: Path, expected: float | None, music_allowed: bool = False) -> FileResult:
     data, fs = sf.read(str(path), always_2d=True)
     mono = data.mean(axis=1)
     dur = len(mono) / fs
@@ -408,11 +431,15 @@ def analyze(path: Path, expected: float | None) -> FileResult:
         "file": path.name,
         "duration_s": round(dur, 3),
         "expected_s": expected,
+        "music_allowed": music_allowed,
         "sr": fs,
         "channels": int(data.shape[1]),
         "peak_db": round(db(peak), 2),
         "true_peak_dbtp": true_peak_dbtp(data, fs),
         "lufs": integrated_lufs(data, fs),
+        "mono_lufs": 0.0,
+        "mono_excess_lu": 0.0,
+        "lr_correlation": 1.0,
         "clip_frac": round(clip_frac, 6),
         "dc_offset": round(float(np.mean(mono)), 5),
         "overall_rms_db": round(db(float(np.sqrt(np.mean(mono**2)))), 2),
@@ -436,6 +463,10 @@ def analyze(path: Path, expected: float | None) -> FileResult:
         **pitch,
         "bands": bands,
     }
+    m_lufs, m_excess, m_corr = mono_compat(data, fs, metrics["lufs"])
+    metrics["mono_lufs"] = round(m_lufs, 2)
+    metrics["mono_excess_lu"] = round(m_excess, 2)
+    metrics["lr_correlation"] = round(m_corr, 3)
     return FileResult(metrics=metrics, fp=fingerprint(mono, fs))
 
 
@@ -477,13 +508,21 @@ def add_flags(metrics: list[dict]) -> dict:
             flags.append("muffled")
         if m["content_rel_s"] < SHORT_CONTENT_S:
             flags.append("short_content")
-        if (m["tonal_frame_fraction"] > TONAL_FRACTION and m["f0_semitone_std"] < TONAL_PITCH_STD
+        # Sample z music_allowed MA być tonalny i harmoniczny — to sens karty
+        # (lira, lutnia, trąbka, bezsłowny chór), więc flagi „podejrzanie
+        # muzyczne” są dla nich cechą, nie wadą.
+        music_ok = bool(m.get("music_allowed"))
+        if (not music_ok and m["tonal_frame_fraction"] > TONAL_FRACTION
+                and m["f0_semitone_std"] < TONAL_PITCH_STD
                 and m["voiced_fraction"] > TONAL_VOICED and m["audible_share"] > TONAL_AUDIBLE_MIN):
             flags.append("tonal_sustained")
-        if m["mod_2_8hz_ratio"] > SPEECH_MOD_RATIO and m["voiced_fraction"] > 0.35 and 300.0 < m["spectral_centroid_hz"] < 3000.0:
+        if (not music_ok and m["mod_2_8hz_ratio"] > SPEECH_MOD_RATIO
+                and m["voiced_fraction"] > 0.35 and 300.0 < m["spectral_centroid_hz"] < 3000.0):
             flags.append("speech_like")
         if abs(m["dc_offset"]) > 0.01:
             flags.append("dc_offset")
+        if m["mono_excess_lu"] > MONO_EXCESS_LU:
+            flags.append("mono_collapse")
         # --- kosmetyka ------------------------------------------------------
         if m["lead_silence_s"] > LEAD_SILENCE_S:
             flags.append("long_lead_silence")
@@ -923,8 +962,9 @@ def main() -> int:
     for n, p in enumerate(files, 1):
         expected = scen.get(p.stem, {}).get("duration_seconds")
         expected = float(expected) if expected else None
+        music_allowed = bool(scen.get(p.stem, {}).get("music_allowed"))
         try:
-            res = analyze(p, expected)
+            res = analyze(p, expected, music_allowed)
         except Exception as exc:  # noqa: BLE001
             metrics.append({"id": p.stem, "file": p.name, "error": str(exc), "flags": ["decode_error"]})
             continue
@@ -985,6 +1025,12 @@ def main() -> int:
     out = Path(args.json_out)
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
+    # Kanoniczny wskaźnik na najświeższy audyt — strona i inne narzędzia nie
+    # muszą zgadywać z nazwy pliku (sortowanie alfabetyczne stawiało
+    # „after-mono” przed „after-r008”).
+    if out.parent.name == "samples" and out.name != "audio-audit-latest.json":
+        (out.parent / "audio-audit-latest.json").write_text(
+            json.dumps(payload, ensure_ascii=False, indent=1), encoding="utf-8")
 
     n_flagged = sum(1 for m in metrics if m.get("flags"))
     print(f"przeanalizowano {len(files)} plików, z flagą {n_flagged}, raport JSON: {out}")

@@ -1,0 +1,742 @@
+{
+  "description": "Plan multiplikacji pojedynczych zdarzeń. Każdy wpis ma uzasadnienie fabularne (liczba powtórzeń wynika z treści karty, nie z automatu). Kopie różnią się varispeedem (pitch+czas), poziomem, barwą i pozycją w panoramie, a odstępy są nierówne — dzięki temu seria nie brzmi jak pętla. UWAGA: plan uruchamiać wyłącznie na ORYGINAŁACH z commita podanego w polu `baseline` danego wpisu (git checkout <baseline> -- audio/samples/<id>.mp3). Puszczenie go na pliku już zmultiplikowanym nałoży serię na serię.",
+  "samples": [
+    {
+      "id": "1",
+      "note": "stado crebainów nad wąwozem — kruk odpowiada kruk, trzy okrzyki z różnych odległości",
+      "onsets": [
+        0.03,
+        0.55,
+        1.05
+      ],
+      "gains_db": [
+        0.0,
+        -3.5,
+        -6.5
+      ],
+      "speeds": [
+        1.0,
+        1.062,
+        0.951
+      ],
+      "tilt_hz": [
+        0,
+        9000,
+        6500
+      ],
+      "pan": [
+        0.0,
+        0.28,
+        -0.32
+      ],
+      "tail_s": 0.3,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "304",
+      "note": "salwa trzech sagittarów w jednym oddechu i jej odbicia gasnące nad tarasami Kasarna",
+      "onsets": [
+        0.18,
+        0.257,
+        0.345,
+        0.6,
+        0.74,
+        0.89,
+        1.16,
+        1.44,
+        1.73
+      ],
+      "gains_db": [
+        0.0,
+        -1.5,
+        -2.6,
+        -8.0,
+        -9.5,
+        -11.0,
+        -13.5,
+        -16.0,
+        -18.5
+      ],
+      "speeds": [
+        1.0,
+        1.048,
+        0.962,
+        0.993,
+        1.021,
+        0.974,
+        1.008,
+        0.981,
+        1.034
+      ],
+      "tilt_hz": [
+        0,
+        11000,
+        9000,
+        5200,
+        4600,
+        4000,
+        3600,
+        3200,
+        2800
+      ],
+      "pan": [
+        0.0,
+        0.3,
+        -0.26,
+        -0.35,
+        0.33,
+        -0.2,
+        0.28,
+        -0.3,
+        0.22
+      ],
+      "tail_s": 0.45,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "46",
+      "note": "trzy strumienie z tarczy, potem dalsze pędy i liście rozwijające się przy ziemi",
+      "onsets": [
+        0.07,
+        0.31,
+        0.58,
+        0.96,
+        1.28,
+        1.6
+      ],
+      "gains_db": [
+        0.0,
+        -1.6,
+        -3.2,
+        -8.5,
+        -11.0,
+        -14.0
+      ],
+      "speeds": [
+        1.0,
+        0.941,
+        1.074,
+        1.028,
+        0.918,
+        1.096
+      ],
+      "tilt_hz": [
+        0,
+        8000,
+        12000,
+        6000,
+        5000,
+        4400
+      ],
+      "pan": [
+        0.0,
+        -0.27,
+        0.24,
+        0.31,
+        -0.29,
+        0.18
+      ],
+      "tail_s": 0.5,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "251",
+      "note": "dwa ostre klaśnięcia i ich odbicia od kamiennych arkad strażnicy",
+      "onsets": [
+        0.02,
+        0.54,
+        1.06,
+        1.44
+      ],
+      "gains_db": [
+        0.0,
+        -2.0,
+        -10.5,
+        -15.0
+      ],
+      "speeds": [
+        1.0,
+        1.033,
+        0.996,
+        1.017
+      ],
+      "tilt_hz": [
+        0,
+        10000,
+        5000,
+        3900
+      ],
+      "pan": [
+        0.0,
+        0.16,
+        -0.3,
+        0.26
+      ],
+      "tail_s": 0.4,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "482",
+      "note": "podwójny błysk, a potem energia wracająca falami w zbroję",
+      "onsets": [
+        0.03,
+        0.63,
+        1.33,
+        1.74
+      ],
+      "gains_db": [
+        0.0,
+        -1.4,
+        -9.0,
+        -13.0
+      ],
+      "speeds": [
+        1.0,
+        0.971,
+        0.944,
+        0.922
+      ],
+      "tilt_hz": [
+        0,
+        11000,
+        5500,
+        4500
+      ],
+      "pan": [
+        0.0,
+        0.2,
+        -0.28,
+        0.24
+      ],
+      "tail_s": 0.45,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "77",
+      "note": "trójlufowa rękawica — seria trzech wyładowań i statyka cichnąca w głąb ulicy",
+      "onsets": [
+        0.33,
+        0.45,
+        0.58,
+        0.98,
+        1.3
+      ],
+      "gains_db": [
+        0.0,
+        -1.2,
+        -2.4,
+        -13.0,
+        -17.0
+      ],
+      "speeds": [
+        1.0,
+        1.041,
+        1.083,
+        0.962,
+        0.931
+      ],
+      "tilt_hz": [
+        0,
+        12000,
+        10000,
+        4500,
+        3800
+      ],
+      "pan": [
+        0.0,
+        0.22,
+        -0.2,
+        0.34,
+        -0.3
+      ],
+      "tail_s": 0.5,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "168",
+      "note": "stalowe płyty opadające kolejno na posadzkę — cztery, coraz dalej",
+      "source_event": 1,
+      "onsets": [
+        0.28,
+        0.57,
+        0.9,
+        1.18
+      ],
+      "gains_db": [
+        0.0,
+        -2.2,
+        -4.3,
+        -6.4
+      ],
+      "speeds": [
+        1.0,
+        1.052,
+        0.948,
+        1.091
+      ],
+      "tilt_hz": [
+        0,
+        10000,
+        7500,
+        6000
+      ],
+      "pan": [
+        0.0,
+        0.24,
+        -0.22,
+        0.3
+      ],
+      "tail_s": 0.25,
+      "preroll_s": 0.03,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "388",
+      "note": "goblin odrzuca kolejne blachy na pomost",
+      "onsets": [
+        0.07,
+        1.16
+      ],
+      "gains_db": [
+        0.0,
+        -2.6
+      ],
+      "speeds": [
+        1.0,
+        1.046
+      ],
+      "tilt_hz": [
+        0,
+        9000
+      ],
+      "pan": [
+        0.0,
+        -0.22
+      ],
+      "tail_s": 0.2,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "553",
+      "note": "każde ostrze zanurzane w czarze — dwa kolejne rytualne zanurzenia",
+      "onsets": [
+        0.03,
+        1.12
+      ],
+      "gains_db": [
+        0.0,
+        -2.0
+      ],
+      "speeds": [
+        1.0,
+        0.972
+      ],
+      "tilt_hz": [
+        0,
+        9500
+      ],
+      "pan": [
+        0.0,
+        0.2
+      ],
+      "tail_s": 0.22,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "585",
+      "note": "pantery (liczba mnoga) wyskakują nad rzeką — dwa skoki tuż po sobie",
+      "onsets": [
+        0.0,
+        0.92
+      ],
+      "gains_db": [
+        0.0,
+        -3.0
+      ],
+      "speeds": [
+        1.0,
+        0.944
+      ],
+      "tilt_hz": [
+        0,
+        8000
+      ],
+      "pan": [
+        0.0,
+        0.26
+      ],
+      "tail_s": 0.25,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "289",
+      "note": "olej spływa z nadgarstka kroplami — trzy krople na miedziany korzeń",
+      "onsets": [
+        0.3,
+        1.03,
+        1.74
+      ],
+      "gains_db": [
+        -3.0,
+        0.0,
+        -2.2
+      ],
+      "speeds": [
+        1.055,
+        1.0,
+        0.938
+      ],
+      "tilt_hz": [
+        9000,
+        0,
+        7000
+      ],
+      "pan": [
+        -0.24,
+        0.0,
+        0.26
+      ],
+      "tail_s": 0.45,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "460",
+      "note": "dopasowywanie napierśnika — trzy kolejne stuknięcia i dociągnięcia",
+      "onsets": [
+        0.44,
+        1.17,
+        1.79
+      ],
+      "gains_db": [
+        -2.2,
+        0.0,
+        -1.6
+      ],
+      "speeds": [
+        1.034,
+        1.0,
+        0.958
+      ],
+      "tilt_hz": [
+        10000,
+        0,
+        8000
+      ],
+      "pan": [
+        -0.25,
+        0.0,
+        0.22
+      ],
+      "tail_s": 0.4,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "472",
+      "note": "ogr obwiesza się kolejnymi sztukami zdobycznego oręża",
+      "onsets": [
+        0.05,
+        0.76,
+        1.46
+      ],
+      "gains_db": [
+        0.0,
+        -2.1,
+        -3.6
+      ],
+      "speeds": [
+        1.0,
+        0.951,
+        1.063
+      ],
+      "tilt_hz": [
+        0,
+        8500,
+        11000
+      ],
+      "pan": [
+        0.0,
+        0.27,
+        -0.24
+      ],
+      "tail_s": 0.4,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "355",
+      "note": "Chandra odkłada na stół kolejno zbroję i pamiątki",
+      "onsets": [
+        0.02,
+        0.81,
+        1.56
+      ],
+      "gains_db": [
+        0.0,
+        -2.6,
+        -4.2
+      ],
+      "speeds": [
+        1.0,
+        0.968,
+        1.051
+      ],
+      "tilt_hz": [
+        0,
+        8000,
+        10500
+      ],
+      "pan": [
+        0.0,
+        -0.23,
+        0.25
+      ],
+      "tail_s": 0.35,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "23",
+      "note": "szmaragdowe rozbłyski znaczące ślad — trzy dzwonkowe iskry oddalające się ścieżką",
+      "onsets": [
+        0.0,
+        0.63,
+        1.26
+      ],
+      "gains_db": [
+        0.0,
+        -3.2,
+        -6.0
+      ],
+      "speeds": [
+        1.0,
+        1.058,
+        1.117
+      ],
+      "tilt_hz": [
+        0,
+        12000,
+        10000
+      ],
+      "pan": [
+        0.0,
+        0.26,
+        -0.3
+      ],
+      "tail_s": 0.3,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "6",
+      "note": "runiczne kajdany zamykają się na dwojgu skazańcach",
+      "onsets": [
+        0.0,
+        0.71
+      ],
+      "gains_db": [
+        0.0,
+        -1.8
+      ],
+      "speeds": [
+        1.0,
+        1.043
+      ],
+      "tilt_hz": [
+        0,
+        10000
+      ],
+      "pan": [
+        0.0,
+        0.3
+      ],
+      "tail_s": 0.25,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "283",
+      "note": "ogniste pociski psionów rozpryskujące się na barierze — pięć trafień, słabnących",
+      "onsets": [
+        0.08,
+        0.61,
+        1.07,
+        1.46,
+        1.86
+      ],
+      "gains_db": [
+        0.0,
+        -2.0,
+        -3.4,
+        -6.5,
+        -9.5
+      ],
+      "speeds": [
+        1.0,
+        1.049,
+        0.957,
+        1.078,
+        0.936
+      ],
+      "tilt_hz": [
+        0,
+        11000,
+        8500,
+        7000,
+        6000
+      ],
+      "pan": [
+        0.0,
+        0.3,
+        -0.26,
+        0.22,
+        -0.31
+      ],
+      "tail_s": 0.45,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "270",
+      "note": "hedry pękają (liczba mnoga) — trzy pęknięcia bazaltu",
+      "onsets": [
+        0.25,
+        0.96,
+        1.57
+      ],
+      "gains_db": [
+        0.0,
+        -3.0,
+        -5.2
+      ],
+      "speeds": [
+        1.0,
+        0.962,
+        1.057
+      ],
+      "tilt_hz": [
+        0,
+        8500,
+        11000
+      ],
+      "pan": [
+        0.0,
+        -0.26,
+        0.23
+      ],
+      "tail_s": 0.35,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "175",
+      "note": "pęknięcie ściany, a potem monety sypiące się coraz drobniej",
+      "onsets": [
+        0.06,
+        0.52,
+        0.93,
+        1.25,
+        1.52,
+        1.79,
+        2.02
+      ],
+      "gains_db": [
+        0.0,
+        -4.0,
+        -7.0,
+        -9.5,
+        -11.5,
+        -13.5,
+        -15.5
+      ],
+      "speeds": [
+        1.0,
+        1.072,
+        1.131,
+        1.186,
+        1.094,
+        1.243,
+        1.152
+      ],
+      "tilt_hz": [
+        0,
+        12000,
+        11000,
+        9500,
+        10500,
+        8500,
+        9000
+      ],
+      "pan": [
+        0.0,
+        0.25,
+        -0.28,
+        0.32,
+        -0.22,
+        0.29,
+        -0.33
+      ],
+      "tail_s": 0.5,
+      "preroll_s": 0.05,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "535",
+      "note": "skaveński nieskończony cykl klatek — mechanizm powtarza się drugi raz",
+      "onsets": [
+        0.0,
+        1.06
+      ],
+      "gains_db": [
+        0.0,
+        -2.2
+      ],
+      "speeds": [
+        1.0,
+        1.029
+      ],
+      "tilt_hz": [
+        0,
+        9000
+      ],
+      "pan": [
+        0.0,
+        0.18
+      ],
+      "tail_s": 0.22,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "170",
+      "note": "kolosalny wij rozbija kramy i balustrady — gruz i odłamki opadające po wyłonieniu (wzbogacenie ogona, oryginał nietknięty)",
+      "source_event": 2,
+      "keep_original_head": true,
+      "preroll_s": 0.02,
+      "tail_s": 0.18,
+      "onsets": [
+        1.74,
+        2.02,
+        2.28,
+        2.52
+      ],
+      "gains_db": [
+        -8.5,
+        -11.0,
+        -13.5,
+        -16.5
+      ],
+      "speeds": [
+        1.18,
+        1.31,
+        1.44,
+        1.57
+      ],
+      "tilt_hz": [
+        7000,
+        8000,
+        9000,
+        9500
+      ],
+      "pan": [
+        0.28,
+        -0.26,
+        0.3,
+        -0.22
+      ],
+      "baseline": "50427df"
+    }
+  ]
+}

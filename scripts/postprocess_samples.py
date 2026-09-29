@@ -145,15 +145,65 @@ def gain_and_limit(filtered: np.ndarray, fs: int, *, gain_db: float, ceiling_db:
     return processed, round(total, 2), limiter_gr, limiter_gr_mean, lufs_now
 
 
+def mono_excess_lu(data: np.ndarray, fs: int) -> float:
+    """Strata przy zejściu do mono PONAD bazowe 3,01 LU wynikające z definicji
+    BS.1770 (suma mocy kanałów). Nadwyżka = treść kasująca się w przeciwfazie."""
+    if data.shape[1] < 2:
+        return 0.0
+    stereo = integrated_lufs(data, fs)
+    mono = integrated_lufs(data.mean(axis=1, keepdims=True), fs)
+    return (stereo - mono) - 3.01
+
+
+def narrow_sides(data: np.ndarray, fs: int, target_excess_lu: float,
+                 min_side_gain: float = 0.0) -> tuple[np.ndarray, float, float, float]:
+    """Zwęża składową boczną (S) tak, aby sample przetrwał zejście do mono.
+
+    L = M + S, R = M - S. Przyciszenie S nie rusza treści wspólnej (M), więc
+    w stereo zmienia się tylko szerokość obrazu, a w mono przestaje znikać
+    energia. Szukamy NAJWIĘKSZEJ szerokości spełniającej próg — czyli
+    ingerujemy tak mało, jak się da.
+    """
+    before = mono_excess_lu(data, fs)
+    if data.shape[1] < 2 or before <= target_excess_lu:
+        return data, 1.0, before, before
+
+    mid = data.mean(axis=1)
+    side = (data[:, 0] - data[:, 1]) / 2.0
+
+    def rebuild(g: float) -> np.ndarray:
+        return np.stack([mid + g * side, mid - g * side], axis=1)
+
+    lo, hi = min_side_gain, 1.0
+    if mono_excess_lu(rebuild(lo), fs) > target_excess_lu:
+        best = lo
+    else:
+        for _ in range(18):
+            gmid = (lo + hi) / 2.0
+            if mono_excess_lu(rebuild(gmid), fs) > target_excess_lu:
+                hi = gmid
+            else:
+                lo = gmid
+        best = lo
+    fixed = rebuild(best)
+    return fixed, best, before, mono_excess_lu(fixed, fs)
+
+
 def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: float,
                 max_gain_db: float, hp_hz: float, dry_run: bool,
                 encoder_headroom_db: float = 0.7, max_limiter_gr_db: float = 2.0,
                 makeup_tol_lu: float = 0.5, makeup_iters: int = 4,
-                max_makeup_db: float = 4.0, max_peak_gr_db: float = 12.0) -> dict:
+                max_makeup_db: float = 4.0, max_peak_gr_db: float = 12.0,
+                fix_mono: bool = False, mono_target_excess_lu: float = 1.0) -> dict:
     data, fs = sf.read(str(path), always_2d=True)
     lufs_before = integrated_lufs(data, fs)
     tp_before = true_peak_dbtp(data, fs)
     dc_before = float(np.mean(data))
+
+    side_gain, mono_excess_before, mono_excess_after = 1.0, mono_excess_lu(data, fs), None
+    if fix_mono:
+        data, side_gain, mono_excess_before, mono_excess_after = narrow_sides(
+            data, fs, mono_target_excess_lu)
 
     filtered = highpass(data, fs, hp_hz)
     lufs_filtered = integrated_lufs(filtered, fs)
@@ -180,6 +230,12 @@ def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: f
         "limiter_gr_mean_db": limiter_gr_mean,
         "true_peak_before": tp_before,
         "dc_before": round(dc_before, 5),
+        "side_gain": round(side_gain, 4),
+        "side_gain_db": (round(20.0 * math.log10(max(side_gain, 1e-6)), 2)
+                         if side_gain < 1.0 else 0.0),
+        "mono_excess_before_lu": round(mono_excess_before, 2),
+        "mono_excess_after_lu": (round(mono_excess_after, 2)
+                                 if mono_excess_after is not None else None),
     }
     if dry_run:
         result["lufs_after"] = integrated_lufs(processed, fs)
@@ -244,6 +300,10 @@ def main() -> int:
     ap.add_argument("--ids", default="", help="opcjonalna lista ID po przecinku")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--report", default="")
+    ap.add_argument("--fix-mono", action="store_true",
+                    help="zwęź składową boczną tam, gdzie sample traci energię w mono")
+    ap.add_argument("--mono-target-excess", type=float, default=1.0,
+                    help="dopuszczalna nadwyżka straty w mono ponad bazowe 3,01 LU")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
@@ -279,7 +339,9 @@ def main() -> int:
                                     makeup_tol_lu=args.makeup_tol,
                                     makeup_iters=args.makeup_iters,
                                     max_makeup_db=args.max_makeup,
-                                    max_peak_gr_db=args.max_peak_gr))
+                                    max_peak_gr_db=args.max_peak_gr,
+                                    fix_mono=args.fix_mono,
+                                    mono_target_excess_lu=args.mono_target_excess))
         except Exception as exc:  # noqa: BLE001
             rows.append({"id": path.stem, "error": str(exc)})
         if n % 50 == 0:

@@ -20,10 +20,12 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **527 fabuł**
-(2026-09-28 doszły fabuły `158OGW` *Kozilek's Shrieker*, `160M11`
-*Fiery Hellhound* i `161KTK` *Dragonscale Boon*; ID fabuły to numeryczna
-część `Ilustracja`, sufiks setu wycinany przy imporcie) i z niego
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **530 fabuł**
+(2026-09-29 doszły fabuły `162DMR` *Griffin Guide*, `164VOW` *Gryffwing
+Cavalry* i `165M20` *Captivating Gyre*; wcześniej 2026-09-28 doszły `158OGW`
+*Kozilek's Shrieker*, `160M11` *Fiery Hellhound* i `161KTK` *Dragonscale
+Boon*; ID fabuły to numeryczna część `Ilustracja`, sufiks setu wycinany
+przy imporcie) i z niego
 wygenerowano `data/catalog.json`.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
@@ -57,17 +59,24 @@ Gotowe są cztery fale paczek (łącznie 50 fabuł):
 - `b053` (ID `160`, `161`): pierwsza paczka z dalszych dostaw właściciela —
   `160M11` *Fiery Hellhound* i `161KTK` *Dragonscale Boon* (run 36407760852).
   Katalog: 527 fabuł, wszystkie ze scenariuszem i samplem.
+- `b054` (ID `162`, `164`, `165`): dostawa z 2026-09-29 — `162DMR` *Griffin
+  Guide*, `164VOW` *Gryffwing Cavalry*, `165M20` *Captivating Gyre*
+  (run 36543918843). Katalog: **530 fabuł**, wszystkie ze scenariuszem
+  i samplem. Po generacji pliki od razu wyrównane postprodukcją do −20 LUFS
+  (raport `data/samples/postprocess-b054.json`); surowe oryginały w artefakcie
+  `b054-raw` (run 36543918843, 30 dni).
 
-Scenariusze: `data/samples/scenarios.jsonl` (527 wpisów, status `ready` —
-pokrywają cały katalog). Wygenerowane sample: 527 plików MP3
-w `audio/samples/` (nazwy plików to `<id>.mp3`) — paczki `b001`–`b053`.
-Manifest generacji: `data/samples/generated-manifest.jsonl` (547 wpisów:
-527 `generated` + 20 archiwalnych `failed`: 10 z próby `b031` przy
+Scenariusze: `data/samples/scenarios.jsonl` (530 wpisów, status `ready` —
+pokrywają cały katalog). Wygenerowane sample: 530 plików MP3
+w `audio/samples/` (nazwy plików to `<id>.mp3`) — paczki `b001`–`b054`.
+Manifest generacji: `data/samples/generated-manifest.jsonl` (769 wpisów:
+749 `generated` + 20 archiwalnych `failed`: 10 z próby `b031` przy
 wyczerpaniu quota pierwszego klucza i 10 z pierwszej próby `b051` przy
-wyczerpaniu quota drugiego klucza).
+wyczerpaniu quota drugiego klucza; wpisy `generated` liczą również
+regeneracje r001–r006).
 
 HTML listening gate buduje się z tych plików przez `scripts/build_site.py`
-(527 sampli), a ZIP przez `scripts/build_pack.py` (527 płaskich MP3).
+(530 sampli), a ZIP przez `scripts/build_pack.py` (530 płaskich MP3).
 
 Uwaga operacyjna: token bota Arena nie może użyć `workflow_dispatch`
 (HTTP 403), więc paczki `b002`–`b044` zostały wygenerowane
@@ -139,6 +148,8 @@ ELEVENLABS=... python scripts/elevenlabs_sample_scout.py --batch b001 --limit 10
 python scripts/build_site.py --out site/generated
 python scripts/build_pack.py --output build/samples-latest.zip
 python scripts/serve_site.py --port 3000 --dir site/generated
+python scripts/multiply_samples.py --plan data/samples/multiply-plan.json \
+    --report data/samples/multiply-report.json
 ```
 
 Sekret GitHub/API nazywa się **`ELEVENLABS`**. Nie używać dawnej nazwy
@@ -162,10 +173,10 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: 527 fabuł w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 527 gotowych wpisów (batche `b001`–`b053`) — 100% katalogu.
-- Wygenerowane sample v2: 527 produkcyjnych MP3 w `audio/samples/`
-  (batche `b001`–`b053`).
+- Katalog bieżący: 533 fabuły w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 533 gotowe wpisy (batche `b001`–`b055`) — 100% katalogu.
+- Wygenerowane sample v2: 533 produkcyjne MP3 w `audio/samples/`
+  (batche `b001`–`b055`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## Incydent #2: brak auto-deployu po merge PR #44 (2026-09-28)
@@ -207,12 +218,12 @@ Actions w GitHubie (bot token nie ma `workflow_dispatch` — HTTP 403).
   `docs/audits/2026-09-28-audio-audit-after-r006.md`. Następny krok należy do
   właściciela: odsłuch wyrównanego korpusu w bibliotece HTML (filtry audytu)
   i decyzja, czy któreś z 47 oflagowanych plików regenerować.
-- **Katalog domknięty: 527/527 fabuł ma scenariusz i sample (b001–b053).**
-- Odsłuchać całą bibliotekę (`b002–b053`, ID `6–617` + `158`, `160`, `161`)
-  i zdecydować o merge'u PR #40.
-- Nowe fabuły od właściciela (dostarczane jako `<numer><SET>`, np. `158OGW`)
+- **Katalog domknięty: 530/530 fabuł ma scenariusz i sample (b001–b054).**
+- Odsłuchać nowości z b054 (ID `162`, `164`, `165`) w bibliotece HTML
+  (filtry audytu) razem z resztą wyrównanego korpusu i zdecydować o merge'u.
+- Nowe fabuły od właściciela (dostarczane jako `<numer><SET>`, np. `162DMR`)
   dopisujemy do `fabuły270926.csv` (sufiks setu wycinany przy imporcie)
-  i obsługuje się je nowymi paczkami (kolejna: `b054`).
+  i obsługuje się je nowymi paczkami (kolejna: `b055`).
 - Po każdym imporcie kontrolować statusy w manifeście: `failed`
   z `quota_exceeded` = sygnał do ponownej wymiany klucza.
 - Po każdym imporcie kontrolować statusy w manifeście: `failed`
@@ -346,3 +357,320 @@ Surowe pliki przed postprodukcją leżą w artefaktach runów (`r006-raw`,
 `r006b-raw`, 30 dni) — sandbox agenta nie pobierze ich lokalnie (blokada
 `blob.core.windows.net`), ale CI potrafi je odczytać między runami
 (`actions/download-artifact` z `run-id`).
+
+## Dostawa b054 (2026-09-29, sesja `arena/01a0e845`)
+
+Właściciel dostarczył trzy nowe fabuły: `162DMR` *Griffin Guide* (Eldraine,
+więź rycerza z gryfem nad Ardenvale), `164VOW` *Gryffwing Cavalry*
+(Innistrad, podniebna kawaleria nad wrzosowiskami Gavony) i `165M20`
+*Captivating Gyre* (Amonkhet, sfinks Atemsis i wir wody z rzeki Luxa).
+Dopisane do `fabuły270926.csv` (530 rekordów), katalog przebudowany,
+scenariusze b054 pisane ręcznie pod konkretne fabuły — trzy różne rodziny
+brzmieniowe, z dala od istniejących motywów ptaków/skrzydeł/wody
+(162: dzwonny podwójny okrzyk gryfa; 164: miarowy rytm skrzydeł patrolu;
+165: spiralny wir wody i piasku).
+
+Generacja uproszczona względem r006: **jeden tymczasowy workflow**
+(`temp-b054.yml`, trigger push + marker `[generate-b054]` w treści commita)
+robił całość w jednym runie — walidacja, dry-run, generacja scoutem,
+weryfikacja statusów w manifeście, upload surowych plików jako artefakt
+`b054-raw` i **commit+push sampli na branch w tym samym runie**
+(run 36543918843, 3/3 `generated`). Nie trzeba już importować artefaktu
+drugim workflowem — ten mechanizm zostaje wzorcem na kolejne paczki,
+jeśli bot nadal nie będzie miał `workflow_dispatch`.
+
+Audyt przed postprodukcją: 162 miał `too_loud` (−4,3 LUFS) i
+`cut_start_hard`, 164 i 165 bez flag (ale −10,9 / −8,8 LUFS — powyżej celu).
+Postprodukcja (`--ids 162,164,165`, raport
+`data/samples/postprocess-b054.json`): 162 −15,7 dB, 164 −9,0 dB,
+165 −11,2 dB → wszystkie w −20,0…−20,1 LUFS, 0 plików nad sufitem true peak.
+
+Audyt końcowy: `docs/audits/2026-09-29-audio-audit-after-b054.md`
+(metryki: `data/samples/audio-audit-2026-09-29-after-b054.json`).
+**530/530 plików, 0 poważnych flag sygnałowych** (too_quiet/too_loud/
+sub_dominant/true_peak_hot/dc_offset = 0). Korpus: mediana −20,0 LUFS,
+σ 0,56 LU, zakres −24,7…−18,8. Duplikaty PCM: 0. b054 po postprodukcji:
+162 i 165 bez flag, 164 tylko kosmetyczna `long_trail_silence` (0,8 s
+wybrzmienia po ostatnim uderzeniu skrzydeł). Ogółem z flagą: 91 plików
+(przed b054: 90) — wszystkie kategorie kosmetyczne, dominuje
+`long_trail_silence` (50).
+
+Quota: 3 generacje ≈ 90 kredytów (koszt ~29/generację); szacowany stan
+po b054: ~3 570 kredytów. Zużycie odnotowane do weryfikacji przez
+właściciela w panelu ElevenLabs.
+
+## Multiplikacja zdarzeń (2026-09-29, sesja `arena/01a0e845`)
+
+Audyt wykorzystania czasu wykazał, że część sampli marnowała czas trwania:
+pojedyncze krótkie zdarzenie (np. 0,09 s salwy) i ponad 2 s martwego
+powietrza. Przy 96 plikach wypełnienie treścią było poniżej 45 %.
+
+Rozwiązanie: **`scripts/multiply_samples.py`** — zamiana pojedynczego
+zdarzenia na serię 2–9 powtórzeń, ale wyłącznie tam, gdzie fabuła to
+uzasadnia (stado crebainów, salwa trzech sagittarów, trójlufowa rękawica,
+płyty opadające *kolejno*, monety sypiące się z pękniętej ściany).
+
+Żeby seria nie brzmiała jak zapętlony sampel, każda kopia dostaje własny
+mikro-charakter:
+
+- **varispeed** (resampling) — jednocześnie wysokość i długość, jak dwa
+  różne okrzyki tego samego zwierzęcia,
+- **własny poziom** — źródło bliżej/dalej,
+- **tilt barwy** (LP 2. rzędu) — dalsza kopia jest ciemniejsza,
+- **mikro-panorama** — kopie nie stoją w jednym punkcie,
+- **nierówne odstępy** — rytm organiczny zamiast metronomicznego.
+
+Ogon oryginału zostaje pod serią, a mastering do −20 LUFS robi sprawdzony
+łańcuch z `postprocess_samples.py` (ten sam limiter i zapas na koder).
+Plan jest deklaratywny (`data/samples/multiply-plan.json`), więc efekt jest
+w pełni odtwarzalny z oryginałów.
+
+Objęto 20 sampli: 1, 6, 23, 46, 77, 168, 175, 251, 270, 283, 289, 304, 355,
+388, 460, 472, 482, 535, 553, 585.
+
+Wynik (`docs/audits/2026-09-29-audio-audit-after-multiply.md`):
+
+- **20/20 multiplikowanych plików bez żadnej flagi** (przed zabiegiem miały
+  łącznie 22 flagi: `short_content`, `long_trail_silence`, `long_lead_silence`),
+- flagi w całym korpusie: **91 → 76**; `short_content` 22 → 14,
+  `long_trail_silence` 50 → 37, `long_lead_silence` 17 → 14,
+- średnie wypełnienie treścią w tej dwudziestce: **22 % → 48 %**,
+  rozpiętość zdarzeń (pierwsze→ostatnie) z 22 % na 66 %,
+- pary bliźniaków brzmieniowych ≥ 0,95: **23 → 20** (zróżnicowanie kopii
+  rozdzieliło trzy pary), duplikaty PCM nadal 0,
+- korpus: mediana −20,02 LUFS, σ 0,54 LU, max true peak −1,07 dBTP.
+
+Koszt: **0 kredytów ElevenLabs** — to czysta postprodukcja istniejących
+nagrań, bez regeneracji.
+
+Trzy opisy zsynchronizowano z nowym dźwiękiem (mówiły o pojedynczym
+zdarzeniu): `1` (krakanie → trzy krakania), `46` („naraz" → „jeden po
+drugim"), `289` (kropla → krople).
+
+## Dostawa b055 (2026-09-29, sesja `arena/01a0e845`)
+
+Właściciel dostarczył trzy fabuły: `167ISD` *Lost in the Mist* (Eldraine,
+posłanka Vantress tonie w jeziorze Loch Mere), `170MKM` *Riftburst Hellion*
+(Ravnica, piekielnik wyłamuje się z bruku Placu Zachodniego) i `174RTR`
+*Izzet Charm* (Ravnica, elektromantka w laboratorium Nivix).
+
+Scenariusze (każdy jeden krótki, jednorodny sample):
+
+- **167** (3,0 s) — zapadanie się w chłodną toń: ciężki plusk i pasmo baniek
+  gasnące w głębi,
+- **170** (3,0 s) — bruk pęka od spodu, płyty bazaltu wylatują w górę
+  i opadają z hukiem,
+- **174** (2,5 s) — gwałtowny upust gorącej pary z mizziumowego zaworu
+  z trzaskiem na starcie.
+
+`174` celowo poprowadzony stroną **pary**, nie kolejnej wiązki elektrycznej:
+w korpusie są już cztery sample elektryczne (45, 67, 77, 497), a piąty
+byłby powtórzeniem brzmienia.
+
+Generacja: run **36550544203** (TEMP b055, mechanizm jednego runu z b054),
+3/3 `generated`, commit `50427df` zrobiony przez workflow. Surowe oryginały
+w artefakcie `b055-raw` (30 dni).
+
+Postprodukcja (`data/samples/postprocess-b055.json`): wszystkie trzy
+przychodziły za głośne — 167 −14,8 LUFS, 170 −17,5 LUFS, a **174 było
+przesterowane (+1,46 dBTP, flaga `true_peak_hot`)**. Po wyrównaniu:
+−20,00 / −20,36 / −20,12 LUFS, **0 flag na całej trójce**.
+
+Dodatkowo `170` przeszło multiplikację ogona (tryb `keep_original_head`
+w `multiply_samples.py`): fabuła mówi o gruzie opadającym po wyłonieniu się
+bestii, a plik miał 1,18 s ciszy na końcu. Cztery odłamki w ogonie →
+wypełnienie treścią 15 % → 47 %, rozpiętość 55 % → 81 %, ogon 1,18 s →
+0,38 s.
+
+Stan po b055 (`docs/audits/2026-09-29-audio-audit-after-b055.md`):
+**533/533 plików, 0 poważnych flag**, 76 z flagą kosmetyczną (bez przyrostu
+wobec stanu sprzed dostawy), mediana −20,02 LUFS, σ 0,54 LU, max true peak
+−1,07 dBTP, duplikaty PCM 0, pary bliźniaków 20. Manifest: 772 wpisy
+(752 `generated` + 20 archiwalnych `failed`).
+
+Quota: 3 generacje ≈ 90 kredytów; szacowany stan po b055: **~3 480
+kredytów** (do weryfikacji w panelu ElevenLabs).
+
+## Audyt semantyczny i runda r007 (2026-09-29, sesja `arena/01a0e845`)
+
+Do tej pory wszystkie audyty były **sygnałowe**: mierzyły głośność, pasmo,
+ciszę i duplikaty, ale nie sprawdzały, *co* słychać. Sample mógł być
+wzorowo zmasterowany i nie mieć nic wspólnego ze swoim opisem.
+
+### Nowe narzędzie 1: `scripts/audit_semantic_match.py`
+
+Konkretne rodzaje dźwięku mają przewidywalny podpis akustyczny — dzwon jest
+tonalny i długo wybrzmiewa, syk to szerokopasmowy szum bez wysokości,
+uderzenie ma ostry atak. Skrypt wyciąga ze scenariusza oczekiwaną klasę
+(14 klas), liczy cechy pliku (atak, zanik, tonalność, harmoniczność,
+modulacja obwiedni, onsety, pasma) i sprawdza twarde predykaty.
+
+Dwie rzeczy decydują o wiarygodności:
+
+- **progi to percentyle rozkładu korpusu**, nie zgadywane stałe — audyt
+  kalibruje się sam, a zarzut brzmi „plik jest w dolnym kwartylu cechy,
+  której jego klasa wymaga”;
+- **filtr metafor** — „fale szmaragdowej aury” czy „strumień ognia” nie są
+  wodą, więc nie żądamy od nich brzmienia wody. Bez tego filtra detektor
+  produkował fałszywe alarmy; podobnie dźwięk podwodny jest ciemny
+  z fizyki, nie z wady generacji.
+
+Kalibracja wykryła też dwa moje własne błędy: progi dla skrzydeł i ognia
+odpalały się na ponad połowie klasy, czyli były po prostu źle ustawione.
+
+### Nowe narzędzie 2: `scripts/audit_scenario_quality.py`
+
+Punktuje, czy scenariusz **da się w ogóle nagrać**: czy ma nośnik dźwięku,
+czy podaje materiał i kontakt, i ile w nim balastu wizualnego
+(kolory, blask, aury) oraz abstrakcyjnego (przekonania, nadzieja, moc).
+„Turkusowa mgła nekromancji wzmacniająca rakshasę” to opis kadru, nie
+zlecenie dla realizatora dźwięku — generator dostaje przymiotniki
+wizualne i odsyła tonalny pomruk.
+
+### Runda r007 + r007b
+
+Przepisano **42 scenariusze** (rażące sprzeczności dźwięk/opis oraz
+opisy-kadry) na konkretne, jednorodne zdarzenia z materiałem i kontaktem,
+a następnie zregenerowano je (`--force`). Druga tura r007b poprawiła
+6 promptów pod konkretną zmierzoną wadę — głównie wymuszenie
+natychmiastowego ataku („starts instantly, no fade in”) tam, gdzie
+generator dawał narastanie.
+
+Runy: **36555125109** (r007, 42/42) i **36555697213** (r007b, 6/6).
+Postprodukcja: `postprocess-r007.json`, `postprocess-r007b.json` —
+z generatora wychodziło -33,4…-6,9 LUFS i 24 pliki ponad sufitem.
+
+Wynik:
+
+| Miara | Przed | Po |
+|---|---|---|
+| rażące sprzeczności dźwięk/opis | 18 | **0** |
+| podejrzane ogółem | 66 | 52 |
+| scenariusze poniżej progu jakości | 24 | **0** |
+| średnia jakość przepisanych scenariuszy | 48,6 | 72,3 |
+| flagi sygnałowe w korpusie | 76 | 71 |
+| pary bliźniaków brzmieniowych | 20 | 16 |
+
+Korpus: 533 sample, mediana -20 LUFS, duplikaty PCM 0.
+Koszt: 48 generacji (kredyty nieograniczone — właściciel zakłada konta
+bezpłatne, więc regeneracja przestała być czynnikiem ograniczającym).
+
+## 2026-09-29 — Runda r008: sample muzyczne (korekta zasady)
+
+Zasada „żadnej muzyki” była egzekwowana **twardo w dwóch miejscach naraz**:
+walidator odrzucał prompt bez frazy „no music”, a scout dodatkowo doklejał
+„No music.” do gotowego ładunku API. Skutkiem były scenariusze pisane wbrew
+fabule: Entrancing Lyre dostała „napinanie strun **bez szarpnięcia**”,
+Battle-Rattle Shaman „potrząśnięcie grzechotką **bez rytmu**”, a wędrowna
+kapela myszy — sam tupot łapek.
+
+Wprowadzono kontrolowany wyjątek: pole `music_allowed: true` w scenariuszu.
+Dla takich wpisów walidator nie żąda zakazu muzyki, ale **wymaga nazwania
+instrumentu** (regex `MUSICAL_SOURCE`) i nadal wymaga zakazu mowy; scout nie
+dokleja „No music.”. Zakaz mowy, ambience i scen wielowarstwowych obowiązuje
+bez zmian — śpiew tylko bezsłowny, na samogłosce.
+
+Skan 533 fabuł ścisłym leksykonem instrumentów dał 21 trafień, z czego
+**8 realnych** (instrument gra w kadrze) plus jedna poprawka treści (298 —
+dzwon alarmowy zamiast włóczni ze stojaka). Run **36558552097**, 9/9.
+
+| ID | Karta | Sample |
+|---|---|---|
+| 374 | Thistledown Players | kapela myszy: fujarka i skrzypce, bęben i dzwonki |
+| 251 | Stirring Bard | bojowy akord na lutni |
+| 253 | Inspiring Bard | szarpana fraza na lutni o świcie |
+| 195 | Entrancing Lyre | hipnotyzująca fraza na lirze |
+| 262 | Angel's Herald | fanfara trąbki herolda |
+| 367 | Battle-Rattle Shaman | rytmiczna grzechotka z dzwoneczkami |
+| 231 | Anthem of Champions | bezsłowny hymn czterech głosów |
+| 510 | Angel of the Dawn | bezsłowny chór anielski |
+| 298 | Raise the Alarm | szarpnięcie liny i bicie dzwonu (bez `music_allowed`) |
+
+Audyty nauczono odróżniać muzykę zamierzoną od przypadkowej:
+
+- `audit_samples_full.py` — flagi `tonal_sustained` i `speech_like` nie
+  powstają dla wpisów z `music_allowed` (dla nich tonalność to cecha).
+- `audit_semantic_match.py` — nowa klasa `musical` z odwróconym predykatem
+  (szum = wada, tonalność = wymóg), stosowana **tylko** przy `music_allowed`,
+  bo słownictwo muzyczne bywa metaforą („ulewa bębniąca po zbroi” w 453).
+- `build_site.py` — audyt wybierany automatycznie jako najnowszy
+  `audio-audit-*.json`; wcześniej strona zamarzła na raporcie z r006.
+
+Wynik: 9/9 bez flag sygnałowych, wszystkie po -20 LUFS, semantycznie 0 pkt
+(poza 298 — 2,0 pkt za brak wykrywalnej wysokości, co dla wielkiego dzwonu
+o nieharmonicznych składowych jest spodziewane). Korpus: 533 sample,
+71 flag, 0 rażących sprzeczności, 52 „wyraźne” pozostawione świadomie.
+
+## 2026-09-29 — P1: zgodność mono (0 kredytów, bez regeneracji)
+
+Audyt mierzył głośność wyłącznie w stereo, więc nie widział sampli, które
+kasują się przy sumowaniu kanałów. **181 tracił 11 LU ponad bazę** przy
+korelacji L/R −0,87 — kanały niemal w przeciwfazie, plik praktycznie znikał
+na głośniku telefonu, mimo równych −20 LUFS w raporcie.
+
+**Pułapka pomiarowa:** BS.1770 sumuje moc kanałów, więc zejście do jednego
+kanału obniża wynik o ~3,01 LU *z definicji*. Pierwszy pomiar dał „533 z 533
+plików traci ponad 2 LU”, co było artefaktem. Wadą jest dopiero **nadwyżka**
+ponad tę bazę i tak liczy ją teraz `mono_excess_lu`.
+
+Nowe metryki w `audit_samples_full.py`: `mono_lufs`, `mono_excess_lu`,
+`lr_correlation` + flaga `mono_collapse` (nadwyżka > 2 LU).
+
+Naprawa w `postprocess_samples.py --fix-mono`: zwężenie składowej bocznej
+(L = M + gS, R = M − gS) przez bisekcję do **największej** szerokości
+mieszczącej się w progu 1 LU, potem ponowne wyrównanie do −20 LUFS.
+Treść wspólna (M) pozostaje nietknięta — zmienia się tylko szerokość obrazu.
+
+Wykonano dwuetapowo: najpierw 11 plików patologicznych (nadwyżka > 3 LU lub
+ujemna korelacja), potem pozostałe 39 z flagą. Decyzja o drugim etapie
+zapadła po sprawdzeniu, że koszt ponownego transkodu (mediana 26,4 dB SNR)
+jest **taki sam** jak przy zwykłej postprodukcji r007 (26,8 dB), czyli nie
+dokłada kary ponad to, co i tak rutynowo akceptujemy.
+
+| Miara | Przed | Po |
+|---|---|---|
+| pliki z flagą `mono_collapse` | 50 | **0** |
+| pliki z ujemną korelacją L/R | 9 | **0** |
+| największa nadwyżka straty w mono | 11,00 LU | **1,96 LU** |
+| najcichszy plik w odsłuchu mono | −34,01 LUFS | **−28,84 LUFS** |
+| flagi sygnałowe ogółem | 117 | **69** |
+
+181 zyskał **+10 dB** w odtwarzaniu mono (−34,0 → −24,0 LUFS) przy centroidzie
+widma 131 → 146 Hz, czyli bez zmiany charakteru. Zero nowych flag w korpusie,
+mediana −20,02 LUFS, true peak max −1,07 dBTP, 0 duplikatów PCM.
+
+Raporty: `postprocess-mono.json`, `postprocess-mono2.json`,
+`audio-audit-2026-09-29-after-mono.md`.
+
+Dodatkowo `audio-audit-latest.json` jako kanoniczny wskaźnik na bieżący
+audyt — `build_site.py` brał wcześniej „najnowszy alfabetycznie”, przez co
+`after-mono` przegrywało z `after-r008` i strona pokazywała stare flagi.
+
+## 2026-09-29 — Dostawa b056: fabuła 176FIN Chocobo Kick
+
+Kolekcja urosła do **534 fabuł**. Sample: pojedyncze kopnięcie szponiastych
+łap w płytową zbroję — jedno ciężkie uderzenie, dudniąca fala i obsypujące
+się płyty pancerza. Jakość scenariusza 88,5 pkt (próg 40), audyt semantyczny
+0 pkt w klasach impact/metal/rumble, zero flag sygnałowych.
+
+Potrzebne były trzy podejścia i każde czegoś nauczyło:
+
+1. **b056 — odrzucone przez API.** Prompt po doklejeniu zakazów przez scouta
+   miał 453 znaki przy limicie 450 (`invalid_text_length`). Walidator
+   sprawdzał wyłącznie surowy prompt (limit 650) i tego nie widział.
+   Naprawione: `api_text_length()` liczy realny ładunek razem z doklejkami
+   i blokuje przekroczenie progu `API_TEXT_LIMIT = 450`.
+2. **b056 (2. próba) — 1,53 s ciszy na 3,0 s pliku.** Zdarzenie jest krótkie,
+   a generator dopełnia resztę ciszą.
+3. **b056b — pogorszenie.** Skrócenie do 2,0 s i prośba „zakończ zwarcie, bez
+   ciszy na końcu” dała 0,72 s treści. Model potraktował to jako polecenie
+   skrócenia dźwięku, nie wypełnienia czasu.
+4. **b056c — trafione.** Zamiast zakazywać ciszy, poproszono o *następstwo*
+   ciosu: dudniącą falę i obsypujące się płyty. Treść 1,71 s przy medianie
+   korpusu 1,87 s, cisza 0,76 s.
+
+Surowy plik miał +1,84 dBTP i dominujące podbasy — postprodukcja (filtr
+45 Hz, −6,6 dB, bez limitera) dała −20,07 LUFS i −4,81 dBTP.
+
+Korpus: 534 sample, 69 flag, 0 rażących sprzeczności semantycznych,
+0 scenariuszy poniżej progu jakości, 0 duplikatów PCM.
