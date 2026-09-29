@@ -20,10 +20,12 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **527 fabuł**
-(2026-09-28 doszły fabuły `158OGW` *Kozilek's Shrieker*, `160M11`
-*Fiery Hellhound* i `161KTK` *Dragonscale Boon*; ID fabuły to numeryczna
-część `Ilustracja`, sufiks setu wycinany przy imporcie) i z niego
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **530 fabuł**
+(2026-09-29 doszły fabuły `162DMR` *Griffin Guide*, `164VOW` *Gryffwing
+Cavalry* i `165M20` *Captivating Gyre*; wcześniej 2026-09-28 doszły `158OGW`
+*Kozilek's Shrieker*, `160M11` *Fiery Hellhound* i `161KTK` *Dragonscale
+Boon*; ID fabuły to numeryczna część `Ilustracja`, sufiks setu wycinany
+przy imporcie) i z niego
 wygenerowano `data/catalog.json`.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
@@ -57,17 +59,24 @@ Gotowe są cztery fale paczek (łącznie 50 fabuł):
 - `b053` (ID `160`, `161`): pierwsza paczka z dalszych dostaw właściciela —
   `160M11` *Fiery Hellhound* i `161KTK` *Dragonscale Boon* (run 36407760852).
   Katalog: 527 fabuł, wszystkie ze scenariuszem i samplem.
+- `b054` (ID `162`, `164`, `165`): dostawa z 2026-09-29 — `162DMR` *Griffin
+  Guide*, `164VOW` *Gryffwing Cavalry*, `165M20` *Captivating Gyre*
+  (run 36543918843). Katalog: **530 fabuł**, wszystkie ze scenariuszem
+  i samplem. Po generacji pliki od razu wyrównane postprodukcją do −20 LUFS
+  (raport `data/samples/postprocess-b054.json`); surowe oryginały w artefakcie
+  `b054-raw` (run 36543918843, 30 dni).
 
-Scenariusze: `data/samples/scenarios.jsonl` (527 wpisów, status `ready` —
-pokrywają cały katalog). Wygenerowane sample: 527 plików MP3
-w `audio/samples/` (nazwy plików to `<id>.mp3`) — paczki `b001`–`b053`.
-Manifest generacji: `data/samples/generated-manifest.jsonl` (547 wpisów:
-527 `generated` + 20 archiwalnych `failed`: 10 z próby `b031` przy
+Scenariusze: `data/samples/scenarios.jsonl` (530 wpisów, status `ready` —
+pokrywają cały katalog). Wygenerowane sample: 530 plików MP3
+w `audio/samples/` (nazwy plików to `<id>.mp3`) — paczki `b001`–`b054`.
+Manifest generacji: `data/samples/generated-manifest.jsonl` (769 wpisów:
+749 `generated` + 20 archiwalnych `failed`: 10 z próby `b031` przy
 wyczerpaniu quota pierwszego klucza i 10 z pierwszej próby `b051` przy
-wyczerpaniu quota drugiego klucza).
+wyczerpaniu quota drugiego klucza; wpisy `generated` liczą również
+regeneracje r001–r006).
 
 HTML listening gate buduje się z tych plików przez `scripts/build_site.py`
-(527 sampli), a ZIP przez `scripts/build_pack.py` (527 płaskich MP3).
+(530 sampli), a ZIP przez `scripts/build_pack.py` (530 płaskich MP3).
 
 Uwaga operacyjna: token bota Arena nie może użyć `workflow_dispatch`
 (HTTP 403), więc paczki `b002`–`b044` zostały wygenerowane
@@ -207,12 +216,12 @@ Actions w GitHubie (bot token nie ma `workflow_dispatch` — HTTP 403).
   `docs/audits/2026-09-28-audio-audit-after-r006.md`. Następny krok należy do
   właściciela: odsłuch wyrównanego korpusu w bibliotece HTML (filtry audytu)
   i decyzja, czy któreś z 47 oflagowanych plików regenerować.
-- **Katalog domknięty: 527/527 fabuł ma scenariusz i sample (b001–b053).**
-- Odsłuchać całą bibliotekę (`b002–b053`, ID `6–617` + `158`, `160`, `161`)
-  i zdecydować o merge'u PR #40.
-- Nowe fabuły od właściciela (dostarczane jako `<numer><SET>`, np. `158OGW`)
+- **Katalog domknięty: 530/530 fabuł ma scenariusz i sample (b001–b054).**
+- Odsłuchać nowości z b054 (ID `162`, `164`, `165`) w bibliotece HTML
+  (filtry audytu) razem z resztą wyrównanego korpusu i zdecydować o merge'u.
+- Nowe fabuły od właściciela (dostarczane jako `<numer><SET>`, np. `162DMR`)
   dopisujemy do `fabuły270926.csv` (sufiks setu wycinany przy imporcie)
-  i obsługuje się je nowymi paczkami (kolejna: `b054`).
+  i obsługuje się je nowymi paczkami (kolejna: `b055`).
 - Po każdym imporcie kontrolować statusy w manifeście: `failed`
   z `quota_exceeded` = sygnał do ponownej wymiany klucza.
 - Po każdym imporcie kontrolować statusy w manifeście: `failed`
@@ -346,3 +355,44 @@ Surowe pliki przed postprodukcją leżą w artefaktach runów (`r006-raw`,
 `r006b-raw`, 30 dni) — sandbox agenta nie pobierze ich lokalnie (blokada
 `blob.core.windows.net`), ale CI potrafi je odczytać między runami
 (`actions/download-artifact` z `run-id`).
+
+## Dostawa b054 (2026-09-29, sesja `arena/01a0e845`)
+
+Właściciel dostarczył trzy nowe fabuły: `162DMR` *Griffin Guide* (Eldraine,
+więź rycerza z gryfem nad Ardenvale), `164VOW` *Gryffwing Cavalry*
+(Innistrad, podniebna kawaleria nad wrzosowiskami Gavony) i `165M20`
+*Captivating Gyre* (Amonkhet, sfinks Atemsis i wir wody z rzeki Luxa).
+Dopisane do `fabuły270926.csv` (530 rekordów), katalog przebudowany,
+scenariusze b054 pisane ręcznie pod konkretne fabuły — trzy różne rodziny
+brzmieniowe, z dala od istniejących motywów ptaków/skrzydeł/wody
+(162: dzwonny podwójny okrzyk gryfa; 164: miarowy rytm skrzydeł patrolu;
+165: spiralny wir wody i piasku).
+
+Generacja uproszczona względem r006: **jeden tymczasowy workflow**
+(`temp-b054.yml`, trigger push + marker `[generate-b054]` w treści commita)
+robił całość w jednym runie — walidacja, dry-run, generacja scoutem,
+weryfikacja statusów w manifeście, upload surowych plików jako artefakt
+`b054-raw` i **commit+push sampli na branch w tym samym runie**
+(run 36543918843, 3/3 `generated`). Nie trzeba już importować artefaktu
+drugim workflowem — ten mechanizm zostaje wzorcem na kolejne paczki,
+jeśli bot nadal nie będzie miał `workflow_dispatch`.
+
+Audyt przed postprodukcją: 162 miał `too_loud` (−4,3 LUFS) i
+`cut_start_hard`, 164 i 165 bez flag (ale −10,9 / −8,8 LUFS — powyżej celu).
+Postprodukcja (`--ids 162,164,165`, raport
+`data/samples/postprocess-b054.json`): 162 −15,7 dB, 164 −9,0 dB,
+165 −11,2 dB → wszystkie w −20,0…−20,1 LUFS, 0 plików nad sufitem true peak.
+
+Audyt końcowy: `docs/audits/2026-09-29-audio-audit-after-b054.md`
+(metryki: `data/samples/audio-audit-2026-09-29-after-b054.json`).
+**530/530 plików, 0 poważnych flag sygnałowych** (too_quiet/too_loud/
+sub_dominant/true_peak_hot/dc_offset = 0). Korpus: mediana −20,0 LUFS,
+σ 0,56 LU, zakres −24,7…−18,8. Duplikaty PCM: 0. b054 po postprodukcji:
+162 i 165 bez flag, 164 tylko kosmetyczna `long_trail_silence` (0,8 s
+wybrzmienia po ostatnim uderzeniu skrzydeł). Ogółem z flagą: 91 plików
+(przed b054: 90) — wszystkie kategorie kosmetyczne, dominuje
+`long_trail_silence` (50).
+
+Quota: 3 generacje ≈ 90 kredytów (koszt ~29/generację); szacowany stan
+po b054: ~3 570 kredytów. Zużycie odnotowane do weryfikacji przez
+właściciela w panelu ElevenLabs.
