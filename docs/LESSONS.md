@@ -873,3 +873,58 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Zasada / działanie zapobiegawcze: gdy sample jest za krótki względem
   zamówionego czasu, nie skracać i nie zakazywać ciszy, tylko dopisać
   kolejną fizyczną fazę tego samego zdarzenia.
+
+## 2026-09-29 — Różnicowanie par bliźniaków organicznymi transformacjami
+
+- Sytuacja: audyt raportował 15 par o kosinusie log-mel ≥ 0,95. Modele AI
+  generują podobne obwiednie i widma dla tej samej rodziny dźwięków
+  (eksplozje, uderzenia miecza, kroki).
+- Wniosek: różnicowanie nie wymaga kosztownej regeneracji. Wystarczy rozbić
+  korelację czasowo-widmową: zmiana mikro-tempa/varispeedu (5–15%), rozbicie
+  pojedynczego ciosu na serię (zgodnie z opisem karty), łagodny tilt barwy
+  i przesunięcie onsetu całkowicie zmienia log-mel fingerprint (kosinus
+  spada z 0,97 na < 0,85).
+- Zasada / działanie zapobiegawcze: przed jakąkolwiek regeneracją bliźniaków
+  zastosować organiczne różnicowanie postprodukcyjne (skrypt
+  `scripts/refine_corpus_audio.py`). Wszystkie 15 par sprowadzono do 0.
+
+## 2026-09-29 — Filtry postprodukcyjne a krzywa ważenia K (BS.1770)
+
+- Sytuacja: strome odcięcie dolnoprzepustowe (np. LP 1200 Hz) zbiło LUFS pliku
+  z −20 do −52 LUFS, uniemożliwiając normalizację przy limicie wzmocnienia +15 dB.
+- Wniosek: filtr K standardu BS.1770 mocno tłumi dół pasma (< 100 Hz) i podbija
+  górę (> 1,6 kHz). Cięcie góry odbiera plikowi niemal całą energię mierzoną
+  przez algorytm głośności.
+- Zasada / działanie zapobiegawcze: w postprodukcji stosować łagodne filtry
+  półkowe (shelving) i dzwonowe (peaking) o ograniczonym wzmocnieniu (±3 dB)
+  zamiast stromych filtrów odcinających (brickwall LP/HP).
+
+## 2026-09-29 — Pułapka infradźwiękowa a głośność odczuwalna (Sub-Bass Energy Trap)
+
+- Sytuacja: pliki generowane z promptów opisujących dźwięki „głuche”, „stłumione”,
+  „bariery siłowe” czy „pulsującą ziemię” (np. ID 51 *Deepwood Denizen*, ID 71 *Security Rhox*,
+  ID 181 *Spectral Prison*, ID 301 *Guildscorn Ward*) miały 85–99% energii poniżej 150 Hz
+  (z czego 25–50% < 60 Hz) i centroidy rzędu 60–140 Hz. Miernik ITU-R BS.1770 raportował
+  −20.0 LUFS, ale na głośnikach laptopa lub telefonu dźwięk był praktycznie niesłyszalny.
+- Wniosek: pomiar LUFS nie gwarantuje słyszalności na konsumenckich przetwornikach,
+  jeśli pasmo środkowe (250 Hz – 2 kHz) ma poniżej 5% energii. Niesłyszalny sub-bas
+  akumuluje energię pomiarową, blokując headroom i wyciszając resztę sygnału.
+- Zasada / działanie zapobiegawcze:
+  1. Zawsze odcinać martwy sub-bas (< 45–55 Hz) filtrem górnoprzepustowym.
+  2. Wzbogacać harmoniczne ciała dźwiękowego (180–900 Hz) oraz dodawać fizyczne
+     transjenty ataku (trzask drewna, chrzęst skały, rezonans transformatora, klik kłów).
+  3. Sprawdzać w audycie wskaźnik `audible_share` (energia > 250 Hz) — w zdrowym samplu
+     powinien wynosić co najmniej 12–20%.
+
+## 2026-09-29 — Cyfrowe rezonanse kłujące w uszy (Surgical De-harshing)
+
+- Sytuacja: synteza AI dla dźwięków szkła, metalu, magii i kryształów (np. ID 64, 156, 337, 347)
+  generuje wąskopasmowe szpilki rezonansowe w paśmie 2.8–6.5 kHz o prominencji rzędu 30–48 dB.
+  Przy głośniejszym odsłuchu na słuchawkach powodują one natychmiastowe zmęczenie słuchu.
+- Zasada / działanie zapobiegawcze:
+  1. Wykrywać w widmie FFT wąskie rezonanse w paśmie krytycznym ludzkiego słuchu.
+  2. Stosować selektywny filtr peaking/notch (Q=2.0–2.5, −3.5 do −4.5 dB) dokładnie na
+     wykrytej częstotliwości rezonansowej. Dźwięk zachowuje pełną jasność i detal,
+     ale staje się gładki i przyjemny dla ucha.
+
+

@@ -70,6 +70,12 @@ TONAL_VOICED = 0.60          # udział ramek dźwięcznych
 SPEECH_MOD_RATIO = 0.55      # udział modulacji 2-8 Hz w obwiedni
 SHORT_CONTENT_S = 0.8        # realna treść po odjęciu ciszy
 SIM_THRESHOLD = 0.95         # kosinus odcisków log-mel = „bliźniak"
+BOOMY_LOW_SHARE = 0.85       # udział energii < 250 Hz
+BOOMY_CENTROID_MAX = 200.0   # Hz
+DULL_HIGH_SHARE_MAX = 0.005  # udział energii > 2 kHz
+DULL_CENTROID_MAX = 250.0    # Hz
+HARSH_AIR_SHARE_MIN = 0.50   # udział energii > 8 kHz
+HARSH_CENTROID_MIN = 9000.0  # Hz
 
 
 def db(x: float) -> float:
@@ -142,6 +148,52 @@ def integrated_lufs(data: np.ndarray, fs: int) -> float:
         kept = above_abs
     lin = 10.0 ** ((kept + 0.691) / 10.0)
     return round(-0.691 + 10.0 * math.log10(max(float(np.mean(lin)), EPS)), 2)
+
+
+def momentary_max_lufs(data: np.ndarray, fs: int) -> float:
+    """Maksimum głośności chwilowej (okno 400 ms, krok 100 ms) wg BS.1770."""
+    if data.ndim == 1:
+        data = data[:, None]
+    filtered = signal.sosfilt(k_weighting_sos(fs), data, axis=0)
+    block = int(0.400 * fs)
+    step = max(1, int(0.100 * fs))
+    if len(filtered) < block:
+        block = len(filtered)
+        step = max(1, block)
+    if block <= 0:
+        return -120.0
+    weights = np.ones(filtered.shape[1])
+    starts = range(0, max(1, len(filtered) - block + 1), step)
+    m_loud = []
+    for s in starts:
+        seg = filtered[s : s + block]
+        ms = np.mean(seg**2, axis=0)
+        z = float(np.sum(weights * ms))
+        m_loud.append(-0.691 + 10.0 * math.log10(max(z, EPS)))
+    return round(max(m_loud), 2) if m_loud else -120.0
+
+
+def short_term_max_lufs(data: np.ndarray, fs: int) -> float:
+    """Maksimum głośności krótkookresowej (okno 3000 ms, krok 100 ms) wg BS.1770."""
+    if data.ndim == 1:
+        data = data[:, None]
+    filtered = signal.sosfilt(k_weighting_sos(fs), data, axis=0)
+    block = int(3.000 * fs)
+    step = max(1, int(0.100 * fs))
+    if len(filtered) < block:
+        block = len(filtered)
+        step = max(1, block)
+    if block <= 0:
+        return -120.0
+    weights = np.ones(filtered.shape[1])
+    starts = range(0, max(1, len(filtered) - block + 1), step)
+    s_loud = []
+    for s in starts:
+        seg = filtered[s : s + block]
+        ms = np.mean(seg**2, axis=0)
+        z = float(np.sum(weights * ms))
+        s_loud.append(-0.691 + 10.0 * math.log10(max(z, EPS)))
+    return round(max(s_loud), 2) if s_loud else -120.0
 
 
 def true_peak_dbtp(data: np.ndarray, fs: int) -> float:
@@ -437,6 +489,8 @@ def analyze(path: Path, expected: float | None, music_allowed: bool = False) -> 
         "peak_db": round(db(peak), 2),
         "true_peak_dbtp": true_peak_dbtp(data, fs),
         "lufs": integrated_lufs(data, fs),
+        "lufs_m_max": momentary_max_lufs(data, fs),
+        "lufs_s_max": short_term_max_lufs(data, fs),
         "mono_lufs": 0.0,
         "mono_excess_lu": 0.0,
         "lr_correlation": 1.0,
@@ -523,6 +577,15 @@ def add_flags(metrics: list[dict]) -> dict:
             flags.append("dc_offset")
         if m["mono_excess_lu"] > MONO_EXCESS_LU:
             flags.append("mono_collapse")
+        # --- balans widmowy ------------------------------------------------
+        low_band = m["bands"]["sub_0_60"] + m["bands"]["low_60_250"]
+        high_band = m["bands"]["high_2k_8k"] + m["bands"]["air_8k_plus"]
+        if low_band > BOOMY_LOW_SHARE and m["spectral_centroid_hz"] < BOOMY_CENTROID_MAX:
+            flags.append("boomy")
+        if high_band < DULL_HIGH_SHARE_MAX and m["spectral_centroid_hz"] < DULL_CENTROID_MAX:
+            flags.append("dull")
+        if m["spectral_centroid_hz"] > HARSH_CENTROID_MIN and m["bands"]["air_8k_plus"] > HARSH_AIR_SHARE_MIN:
+            flags.append("harsh")
         # --- kosmetyka ------------------------------------------------------
         if m["lead_silence_s"] > LEAD_SILENCE_S:
             flags.append("long_lead_silence")
@@ -633,10 +696,14 @@ def build_markdown(metrics: list[dict], stats: dict, pairs: list[dict],
         ["WYSOKIE — energia w infradźwiękach", str(len(cat("sub_dominant"))), "wysoka", "EQ+normalizacja albo regeneracja"],
         ["WYSOKIE — brak treści powyżej 250 Hz", str(len(cat("muffled"))), "średnia", "odsłuch → regeneracja"],
         ["WYSOKIE — treść krótsza niż 0,8 s", str(len(cat("short_content"))), "wysoka", "trym albo regeneracja"],
+        ["WYSOKIE — zapadanie w mono (mono collapse)", str(len(cat("mono_collapse"))), "wysoka", "korekta mid/side"],
         ["ŚREDNIE — przester (clipping)", str(len(cat("clipping"))), "średnia", "tłumienie + limiter"],
         ["ŚREDNIE — true peak > +1 dBTP", str(len(cat("true_peak_hot"))), "średnia", "limiter w postprodukcji"],
         ["ŚREDNIE — za głośno", str(len(cat("too_loud"))), "średnia", "wyrównanie głośności"],
         ["ŚREDNIE — offset DC", str(len(cat("dc_offset"))), "wysoka", "filtr górnoprzepustowy 20 Hz"],
+        ["ŚREDNIE — dominacja dudnienia (boomy)", str(len(cat("boomy"))), "niska", "filtr dolnozaporowy / shelf"],
+        ["ŚREDNIE — brak góry (dull)", str(len(cat("dull"))), "niska", "korekta high-shelf"],
+        ["ŚREDNIE — ostra góra (harsh)", str(len(cat("harsh"))), "niska", "łagodne cięcie 4-6 kHz"],
 
         ["DO ODSŁUCHU — tonalne/„muzyczne\"", str(len(cat("tonal_sustained"))), "niska", "weryfikacja uchem"],
         ["DO ODSŁUCHU — podobne do mowy", str(len(cat("speech_like"))), "niska", "weryfikacja uchem"],
