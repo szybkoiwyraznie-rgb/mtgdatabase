@@ -1,10 +1,10 @@
 {
-  "generated_at": "2026-09-29T09:15:52+00:00",
+  "generated_at": "2026-09-29T09:43:08+00:00",
   "plan": "data/samples/multiply-plan.json",
   "dry_run": false,
   "target_lufs": -20.0,
-  "count": 20,
-  "ok": 20,
+  "count": 21,
+  "ok": 21,
   "samples": [
     {
       "id": "1",
@@ -1240,6 +1240,71 @@
         "limiter_gr_db": 0.0,
         "limiter_gr_mean_db": 0.0
       }
+    },
+    {
+      "id": "170",
+      "status": "ok",
+      "note": "kolosalny wij rozbija kramy i balustrady — gruz i odłamki opadające po wyłonieniu (wzbogacenie ogona, oryginał nietknięty)",
+      "repeats": 4,
+      "before": {
+        "lufs": -20.08,
+        "true_peak_dbtp": -2.63,
+        "duration_s": 3.0
+      },
+      "build": {
+        "source_event_s": [
+          1.01,
+          1.31
+        ],
+        "source_slice_s": 0.5,
+        "copies": [
+          {
+            "onset_s": 1.74,
+            "gain_db": -8.5,
+            "speed": 1.18,
+            "tilt_hz": 7000.0,
+            "pan": 0.28,
+            "len_s": 0.424,
+            "truncated": false
+          },
+          {
+            "onset_s": 2.02,
+            "gain_db": -11.0,
+            "speed": 1.31,
+            "tilt_hz": 8000.0,
+            "pan": -0.26,
+            "len_s": 0.382,
+            "truncated": false
+          },
+          {
+            "onset_s": 2.28,
+            "gain_db": -13.5,
+            "speed": 1.44,
+            "tilt_hz": 9000.0,
+            "pan": 0.3,
+            "len_s": 0.347,
+            "truncated": false
+          },
+          {
+            "onset_s": 2.52,
+            "gain_db": -16.5,
+            "speed": 1.57,
+            "tilt_hz": 9500.0,
+            "pan": -0.22,
+            "len_s": 0.318,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 5
+      },
+      "master": {
+        "gain_db": 1.78,
+        "lufs_after": -20.36,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": -0.82,
+        "limiter_gr_mean_db": -0.0
+      }
     }
-  ]
+  ],
+  "note": "Wpisy 1..585 zbudowane od oryginałów z commita 9e6eac8; wpis 170 od oryginału z 50427df (surowa generacja b055 po postprodukcji). Patrz pole `baseline` w planie."
 }

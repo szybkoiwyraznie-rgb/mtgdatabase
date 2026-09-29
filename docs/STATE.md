@@ -173,10 +173,10 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: 527 fabuł w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 527 gotowych wpisów (batche `b001`–`b053`) — 100% katalogu.
-- Wygenerowane sample v2: 527 produkcyjnych MP3 w `audio/samples/`
-  (batche `b001`–`b053`).
+- Katalog bieżący: 533 fabuły w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 533 gotowe wpisy (batche `b001`–`b055`) — 100% katalogu.
+- Wygenerowane sample v2: 533 produkcyjne MP3 w `audio/samples/`
+  (batche `b001`–`b055`).
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## Incydent #2: brak auto-deployu po merge PR #44 (2026-09-28)
@@ -446,3 +446,47 @@ nagrań, bez regeneracji.
 Trzy opisy zsynchronizowano z nowym dźwiękiem (mówiły o pojedynczym
 zdarzeniu): `1` (krakanie → trzy krakania), `46` („naraz" → „jeden po
 drugim"), `289` (kropla → krople).
+
+## Dostawa b055 (2026-09-29, sesja `arena/01a0e845`)
+
+Właściciel dostarczył trzy fabuły: `167ISD` *Lost in the Mist* (Eldraine,
+posłanka Vantress tonie w jeziorze Loch Mere), `170MKM` *Riftburst Hellion*
+(Ravnica, piekielnik wyłamuje się z bruku Placu Zachodniego) i `174RTR`
+*Izzet Charm* (Ravnica, elektromantka w laboratorium Nivix).
+
+Scenariusze (każdy jeden krótki, jednorodny sample):
+
+- **167** (3,0 s) — zapadanie się w chłodną toń: ciężki plusk i pasmo baniek
+  gasnące w głębi,
+- **170** (3,0 s) — bruk pęka od spodu, płyty bazaltu wylatują w górę
+  i opadają z hukiem,
+- **174** (2,5 s) — gwałtowny upust gorącej pary z mizziumowego zaworu
+  z trzaskiem na starcie.
+
+`174` celowo poprowadzony stroną **pary**, nie kolejnej wiązki elektrycznej:
+w korpusie są już cztery sample elektryczne (45, 67, 77, 497), a piąty
+byłby powtórzeniem brzmienia.
+
+Generacja: run **36550544203** (TEMP b055, mechanizm jednego runu z b054),
+3/3 `generated`, commit `50427df` zrobiony przez workflow. Surowe oryginały
+w artefakcie `b055-raw` (30 dni).
+
+Postprodukcja (`data/samples/postprocess-b055.json`): wszystkie trzy
+przychodziły za głośne — 167 −14,8 LUFS, 170 −17,5 LUFS, a **174 było
+przesterowane (+1,46 dBTP, flaga `true_peak_hot`)**. Po wyrównaniu:
+−20,00 / −20,36 / −20,12 LUFS, **0 flag na całej trójce**.
+
+Dodatkowo `170` przeszło multiplikację ogona (tryb `keep_original_head`
+w `multiply_samples.py`): fabuła mówi o gruzie opadającym po wyłonieniu się
+bestii, a plik miał 1,18 s ciszy na końcu. Cztery odłamki w ogonie →
+wypełnienie treścią 15 % → 47 %, rozpiętość 55 % → 81 %, ogon 1,18 s →
+0,38 s.
+
+Stan po b055 (`docs/audits/2026-09-29-audio-audit-after-b055.md`):
+**533/533 plików, 0 poważnych flag**, 76 z flagą kosmetyczną (bez przyrostu
+wobec stanu sprzed dostawy), mediana −20,02 LUFS, σ 0,54 LU, max true peak
+−1,07 dBTP, duplikaty PCM 0, pary bliźniaków 20. Manifest: 772 wpisy
+(752 `generated` + 20 archiwalnych `failed`).
+
+Quota: 3 generacje ≈ 90 kredytów; szacowany stan po b055: **~3 480
+kredytów** (do weryfikacji w panelu ElevenLabs).

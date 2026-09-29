@@ -153,11 +153,16 @@ def build_multiplied(data: np.ndarray, fs: int, spec: dict) -> tuple[np.ndarray,
 
     total = len(data)
     out = np.zeros((total, data.shape[1]), dtype=float)
+    tail_start = min(len(data), int((ev_end + tail_s) * fs))
+
+    # tryb „wzbogacenie ogona”: cały oryginał zostaje nietknięty, a kopie
+    # dokładamy wyłącznie w pustym ogonie (np. gruz opadający po uderzeniu).
+    if spec.get("keep_original_head", False):
+        out[:tail_start] += data[:tail_start]
 
     # ogon oryginału (pogłos/wybrzmienie po ostatnim zdarzeniu) zostaje w tle
     keep_tail = float(spec.get("keep_original_tail_db", -0.0))
     if spec.get("keep_original_tail", True):
-        tail_start = min(len(data), int((ev_end + tail_s) * fs))
         if tail_start < len(data):
             out[tail_start:] += data[tail_start:] * db_to_lin(keep_tail)
 

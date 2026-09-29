@@ -1,5 +1,5 @@
 {
-  "description": "Plan multiplikacji pojedynczych zdarzeń. Każdy wpis ma uzasadnienie fabularne (liczba powtórzeń wynika z treści karty, nie z automatu). Kopie różnią się varispeedem (pitch+czas), poziomem, barwą i pozycją w panoramie, a odstępy są nierówne — dzięki temu seria nie brzmi jak pętla.",
+  "description": "Plan multiplikacji pojedynczych zdarzeń. Każdy wpis ma uzasadnienie fabularne (liczba powtórzeń wynika z treści karty, nie z automatu). Kopie różnią się varispeedem (pitch+czas), poziomem, barwą i pozycją w panoramie, a odstępy są nierówne — dzięki temu seria nie brzmi jak pętla. UWAGA: plan uruchamiać wyłącznie na ORYGINAŁACH z commita podanego w polu `baseline` danego wpisu (git checkout <baseline> -- audio/samples/<id>.mp3). Puszczenie go na pliku już zmultiplikowanym nałoży serię na serię.",
   "samples": [
     {
       "id": "1",
@@ -29,7 +29,8 @@
         0.28,
         -0.32
       ],
-      "tail_s": 0.3
+      "tail_s": 0.3,
+      "baseline": "9e6eac8"
     },
     {
       "id": "304",
@@ -89,7 +90,8 @@
         -0.3,
         0.22
       ],
-      "tail_s": 0.45
+      "tail_s": 0.45,
+      "baseline": "9e6eac8"
     },
     {
       "id": "46",
@@ -134,7 +136,8 @@
         -0.29,
         0.18
       ],
-      "tail_s": 0.5
+      "tail_s": 0.5,
+      "baseline": "9e6eac8"
     },
     {
       "id": "251",
@@ -169,7 +172,8 @@
         -0.3,
         0.26
       ],
-      "tail_s": 0.4
+      "tail_s": 0.4,
+      "baseline": "9e6eac8"
     },
     {
       "id": "482",
@@ -204,7 +208,8 @@
         -0.28,
         0.24
       ],
-      "tail_s": 0.45
+      "tail_s": 0.45,
+      "baseline": "9e6eac8"
     },
     {
       "id": "77",
@@ -244,7 +249,8 @@
         0.34,
         -0.3
       ],
-      "tail_s": 0.5
+      "tail_s": 0.5,
+      "baseline": "9e6eac8"
     },
     {
       "id": "168",
@@ -281,7 +287,8 @@
         0.3
       ],
       "tail_s": 0.25,
-      "preroll_s": 0.03
+      "preroll_s": 0.03,
+      "baseline": "9e6eac8"
     },
     {
       "id": "388",
@@ -306,7 +313,8 @@
         0.0,
         -0.22
       ],
-      "tail_s": 0.2
+      "tail_s": 0.2,
+      "baseline": "9e6eac8"
     },
     {
       "id": "553",
@@ -331,7 +339,8 @@
         0.0,
         0.2
       ],
-      "tail_s": 0.22
+      "tail_s": 0.22,
+      "baseline": "9e6eac8"
     },
     {
       "id": "585",
@@ -356,7 +365,8 @@
         0.0,
         0.26
       ],
-      "tail_s": 0.25
+      "tail_s": 0.25,
+      "baseline": "9e6eac8"
     },
     {
       "id": "289",
@@ -386,7 +396,8 @@
         0.0,
         0.26
       ],
-      "tail_s": 0.45
+      "tail_s": 0.45,
+      "baseline": "9e6eac8"
     },
     {
       "id": "460",
@@ -416,7 +427,8 @@
         0.0,
         0.22
       ],
-      "tail_s": 0.4
+      "tail_s": 0.4,
+      "baseline": "9e6eac8"
     },
     {
       "id": "472",
@@ -446,7 +458,8 @@
         0.27,
         -0.24
       ],
-      "tail_s": 0.4
+      "tail_s": 0.4,
+      "baseline": "9e6eac8"
     },
     {
       "id": "355",
@@ -476,7 +489,8 @@
         -0.23,
         0.25
       ],
-      "tail_s": 0.35
+      "tail_s": 0.35,
+      "baseline": "9e6eac8"
     },
     {
       "id": "23",
@@ -506,7 +520,8 @@
         0.26,
         -0.3
       ],
-      "tail_s": 0.3
+      "tail_s": 0.3,
+      "baseline": "9e6eac8"
     },
     {
       "id": "6",
@@ -531,7 +546,8 @@
         0.0,
         0.3
       ],
-      "tail_s": 0.25
+      "tail_s": 0.25,
+      "baseline": "9e6eac8"
     },
     {
       "id": "283",
@@ -571,7 +587,8 @@
         0.22,
         -0.31
       ],
-      "tail_s": 0.45
+      "tail_s": 0.45,
+      "baseline": "9e6eac8"
     },
     {
       "id": "270",
@@ -601,7 +618,8 @@
         -0.26,
         0.23
       ],
-      "tail_s": 0.35
+      "tail_s": 0.35,
+      "baseline": "9e6eac8"
     },
     {
       "id": "175",
@@ -652,7 +670,8 @@
         -0.33
       ],
       "tail_s": 0.5,
-      "preroll_s": 0.05
+      "preroll_s": 0.05,
+      "baseline": "9e6eac8"
     },
     {
       "id": "535",
@@ -677,7 +696,47 @@
         0.0,
         0.18
       ],
-      "tail_s": 0.22
+      "tail_s": 0.22,
+      "baseline": "9e6eac8"
+    },
+    {
+      "id": "170",
+      "note": "kolosalny wij rozbija kramy i balustrady — gruz i odłamki opadające po wyłonieniu (wzbogacenie ogona, oryginał nietknięty)",
+      "source_event": 2,
+      "keep_original_head": true,
+      "preroll_s": 0.02,
+      "tail_s": 0.18,
+      "onsets": [
+        1.74,
+        2.02,
+        2.28,
+        2.52
+      ],
+      "gains_db": [
+        -8.5,
+        -11.0,
+        -13.5,
+        -16.5
+      ],
+      "speeds": [
+        1.18,
+        1.31,
+        1.44,
+        1.57
+      ],
+      "tilt_hz": [
+        7000,
+        8000,
+        9000,
+        9500
+      ],
+      "pan": [
+        0.28,
+        -0.26,
+        0.3,
+        -0.22
+      ],
+      "baseline": "50427df"
     }
   ]
 }
