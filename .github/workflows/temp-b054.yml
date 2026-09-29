@@ -1,0 +1,73 @@
+name: TEMP b054 (remove after use)
+
+# Tymczasowy workflow: generacja paczki b054 (162, 164, 165) przez ElevenLabs
+# bez workflow_dispatch (bot nie ma uprawnień). Marker w treści commita:
+#   [generate-b054] ...
+# Po imporcie sampli i domknięciu PR ten plik zostaje usunięty.
+
+on:
+  push:
+    branches: ["arena/**"]
+
+permissions:
+  contents: write
+
+jobs:
+  generate-b054:
+    if: startsWith(github.event.head_commit.message, '[generate-b054]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Refresh catalog from collection
+        run: python scripts/import_collection.py fabuły270926.csv --output data/catalog.json
+
+      - name: Validate scenarios
+        run: python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
+
+      - name: Dry run scout
+        run: python scripts/elevenlabs_sample_scout.py --batch b054 --limit 3 --dry-run
+
+      - name: Generate MP3s with ElevenLabs
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: python scripts/elevenlabs_sample_scout.py --batch b054 --limit 3 --prompt-influence 0.35
+
+      - name: Verify generated outputs
+        run: |
+          set -euo pipefail
+          ls -la audio/samples/162.mp3 audio/samples/164.mp3 audio/samples/165.mp3
+          python3 - <<'PY'
+          import json
+          rows = [json.loads(l) for l in open('data/samples/generated-manifest.jsonl', encoding='utf-8') if l.strip()]
+          tail = rows[-3:]
+          for r in tail:
+              print(r.get('story_id'), r.get('batch'), r.get('status'))
+          assert all(r.get('status') == 'generated' for r in tail), 'not all b054 rows generated'
+          assert {r.get('story_id') for r in tail} == {'162', '164', '165'}, 'unexpected manifest tail'
+          PY
+
+      - name: Upload raw artifact (b054-raw)
+        uses: actions/upload-artifact@v4
+        with:
+          name: b054-raw
+          path: |
+            audio/samples/162.mp3
+            audio/samples/164.mp3
+            audio/samples/165.mp3
+          if-no-files-found: error
+
+      - name: Commit and push b054 samples
+        run: |
+          git config user.name "arena-ai-coding-agent[bot]"
+          git config user.email "298482267+arena-ai-coding-agent[bot]@users.noreply.github.com"
+          git add audio/samples/162.mp3 audio/samples/164.mp3 audio/samples/165.mp3 data/samples/generated-manifest.jsonl
+          git commit -m "b054: import sampli 162/164/165 z runu ${GITHUB_RUN_ID}"
+          git push
