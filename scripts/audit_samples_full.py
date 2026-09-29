@@ -364,7 +364,7 @@ class FileResult:
     fp: np.ndarray = field(default_factory=lambda: np.zeros(1))
 
 
-def analyze(path: Path, expected: float | None) -> FileResult:
+def analyze(path: Path, expected: float | None, music_allowed: bool = False) -> FileResult:
     data, fs = sf.read(str(path), always_2d=True)
     mono = data.mean(axis=1)
     dur = len(mono) / fs
@@ -408,6 +408,7 @@ def analyze(path: Path, expected: float | None) -> FileResult:
         "file": path.name,
         "duration_s": round(dur, 3),
         "expected_s": expected,
+        "music_allowed": music_allowed,
         "sr": fs,
         "channels": int(data.shape[1]),
         "peak_db": round(db(peak), 2),
@@ -477,10 +478,16 @@ def add_flags(metrics: list[dict]) -> dict:
             flags.append("muffled")
         if m["content_rel_s"] < SHORT_CONTENT_S:
             flags.append("short_content")
-        if (m["tonal_frame_fraction"] > TONAL_FRACTION and m["f0_semitone_std"] < TONAL_PITCH_STD
+        # Sample z music_allowed MA być tonalny i harmoniczny — to sens karty
+        # (lira, lutnia, trąbka, bezsłowny chór), więc flagi „podejrzanie
+        # muzyczne” są dla nich cechą, nie wadą.
+        music_ok = bool(m.get("music_allowed"))
+        if (not music_ok and m["tonal_frame_fraction"] > TONAL_FRACTION
+                and m["f0_semitone_std"] < TONAL_PITCH_STD
                 and m["voiced_fraction"] > TONAL_VOICED and m["audible_share"] > TONAL_AUDIBLE_MIN):
             flags.append("tonal_sustained")
-        if m["mod_2_8hz_ratio"] > SPEECH_MOD_RATIO and m["voiced_fraction"] > 0.35 and 300.0 < m["spectral_centroid_hz"] < 3000.0:
+        if (not music_ok and m["mod_2_8hz_ratio"] > SPEECH_MOD_RATIO
+                and m["voiced_fraction"] > 0.35 and 300.0 < m["spectral_centroid_hz"] < 3000.0):
             flags.append("speech_like")
         if abs(m["dc_offset"]) > 0.01:
             flags.append("dc_offset")
@@ -923,8 +930,9 @@ def main() -> int:
     for n, p in enumerate(files, 1):
         expected = scen.get(p.stem, {}).get("duration_seconds")
         expected = float(expected) if expected else None
+        music_allowed = bool(scen.get(p.stem, {}).get("music_allowed"))
         try:
-            res = analyze(p, expected)
+            res = analyze(p, expected, music_allowed)
         except Exception as exc:  # noqa: BLE001
             metrics.append({"id": p.stem, "file": p.name, "error": str(exc), "flags": ["decode_error"]})
             continue

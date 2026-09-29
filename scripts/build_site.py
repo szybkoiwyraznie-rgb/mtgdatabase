@@ -129,6 +129,13 @@ def copy_samples(src: Path, out: Path) -> set[str]:
     return have
 
 
+def latest_audit() -> Path:
+    """Najnowszy raport audytu sygnałowego, żeby strona nie zamarzała na
+    starej rundzie po kolejnych regeneracjach."""
+    found = sorted((ROOT / "data/samples").glob("audio-audit-*.json"))
+    return found[-1] if found else ROOT / "data/samples/audio-audit.json"
+
+
 def load_audit(path: Path) -> tuple[dict[str, dict], dict[str, list[str]]]:
     """Zwraca (metryki per ID, pary bliźniaków per ID). Brak pliku = pusty audyt."""
     if not path or not path.exists():
@@ -232,9 +239,9 @@ def main() -> None:
     parser.add_argument("--scenarios", type=Path, default=ROOT / "data/samples/scenarios.jsonl")
     parser.add_argument("--manifest", type=Path, default=ROOT / "data/samples/generated-manifest.jsonl")
     parser.add_argument("--samples", type=Path, default=ROOT / "audio/samples")
-    parser.add_argument("--audit", type=Path,
-                        default=ROOT / "data/samples/audio-audit-2026-09-28-after-r006.json",
-                        help="JSON z audytu sygnałowego; brak pliku = biblioteka bez flag")
+    parser.add_argument("--audit", type=Path, default=latest_audit(),
+                        help="JSON z audytu sygnałowego; domyślnie najnowszy "
+                             "data/samples/audio-audit-*.json (brak pliku = biblioteka bez flag)")
     args = parser.parse_args()
     args.out.mkdir(parents=True, exist_ok=True)
     have_audio = copy_samples(args.samples, args.out)

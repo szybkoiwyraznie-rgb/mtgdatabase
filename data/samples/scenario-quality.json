@@ -3,8 +3,8 @@
   "median_score": 57.0,
   "below_threshold": 0,
   "threshold": 40.0,
-  "no_sound_word": 306,
-  "no_material": 303,
+  "no_sound_word": 307,
+  "no_material": 305,
   "results": [
     {
       "id": "13",
@@ -691,20 +691,6 @@
       ]
     },
     {
-      "id": "510",
-      "title": "Angel of the Dawn",
-      "scenario": "anielska zjawa o brzasku złotym pyłem nad murami",
-      "score": 48.0,
-      "sound_hits": 0,
-      "material_hits": 1,
-      "visual_hits": 1,
-      "abstract_hits": 0,
-      "words": 8,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk"
-      ]
-    },
-    {
       "id": "4",
       "title": "Mystic Sanctuary",
       "scenario": "pojedynczy szklisty puls magicznej fali rozchodzącej się po jeziorze sanktuarium",
@@ -1260,6 +1246,21 @@
       ]
     },
     {
+      "id": "195",
+      "title": "Entrancing Lyre",
+      "scenario": "hipnotyzująca fraza szarpana na strunach liry",
+      "score": 50.0,
+      "sound_hits": 0,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 6,
+      "problems": [
+        "brak słowa opisującego konkretny dźwięk",
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
       "id": "199",
       "title": "Gloomfang Mauler",
       "scenario": "hakowate odnóża wbijające się w głębokie bagno",
@@ -1412,13 +1413,13 @@
     {
       "id": "231",
       "title": "Anthem of Champions",
-      "scenario": "uniesienie czterech tarcz wojowniczek w jednym zwartym ruchu",
+      "scenario": "bezsłowny hymn czterech głosów w unisonie pod kolumnadą agory",
       "score": 50.0,
       "sound_hits": 0,
       "material_hits": 0,
       "visual_hits": 0,
       "abstract_hits": 0,
-      "words": 8,
+      "words": 9,
       "problems": [
         "brak słowa opisującego konkretny dźwięk",
         "brak materiału/kontaktu (co uderza o co)"
@@ -1485,6 +1486,21 @@
       ]
     },
     {
+      "id": "253",
+      "title": "Inspiring Bard",
+      "scenario": "szarpana fraza na lutni elfickiego barda o świcie w obozie",
+      "score": 50.0,
+      "sound_hits": 0,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": [
+        "brak słowa opisującego konkretny dźwięk",
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
       "id": "256",
       "title": "Frightful Delusion",
       "scenario": "koszmarne wizje sączące się do umysłu śpiącej kobiety",
@@ -1517,13 +1533,13 @@
     {
       "id": "262",
       "title": "Angel's Herald",
-      "scenario": "trąbka herolda wzywająca anioła słupem światła",
+      "scenario": "sygnał trąbki herolda — jasna, wznosząca się fanfara",
       "score": 50.0,
       "sound_hits": 0,
       "material_hits": 0,
       "visual_hits": 0,
       "abstract_hits": 0,
-      "words": 6,
+      "words": 7,
       "problems": [
         "brak słowa opisującego konkretny dźwięk",
         "brak materiału/kontaktu (co uderza o co)"
@@ -1869,21 +1885,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 8,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
-      "id": "374",
-      "title": "Thistledown Players",
-      "scenario": "drobne łapki mysich wędrowców tupiące w marszu po leśnym poszyciu",
-      "score": 50.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 10,
       "problems": [
         "brak słowa opisującego konkretny dźwięk",
         "brak materiału/kontaktu (co uderza o co)"
@@ -2409,6 +2410,21 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 9,
+      "problems": [
+        "brak słowa opisującego konkretny dźwięk",
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
+      "id": "510",
+      "title": "Angel of the Dawn",
+      "scenario": "bezsłowny anielski chór wznoszący się o brzasku",
+      "score": 50.0,
+      "sound_hits": 0,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 7,
       "problems": [
         "brak słowa opisującego konkretny dźwięk",
         "brak materiału/kontaktu (co uderza o co)"
@@ -5077,20 +5093,6 @@
       ]
     },
     {
-      "id": "253",
-      "title": "Inspiring Bard",
-      "scenario": "szybkie zerwanie posłania i rynsztunku z pojedynczym brzękiem klamer",
-      "score": 64.0,
-      "sound_hits": 1,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 9,
-      "problems": [
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "267",
       "title": "Hunter's Blowgun",
       "scenario": "zatruta strzałka z dmuchawki w dżungli Ixalanu",
@@ -5177,13 +5179,13 @@
     {
       "id": "298",
       "title": "Raise the Alarm",
-      "scenario": "łoskot drzewc włóczni wyrywanych naraz ze zbrojownianego stojaka",
+      "scenario": "szarpnięcie liny wielkiego dzwonu alarmowego i jego narastające bicie",
       "score": 64.0,
       "sound_hits": 1,
       "material_hits": 0,
       "visual_hits": 0,
       "abstract_hits": 0,
-      "words": 8,
+      "words": 9,
       "problems": [
         "brak materiału/kontaktu (co uderza o co)"
       ]
@@ -6075,13 +6077,13 @@
     {
       "id": "251",
       "title": "Stirring Bard",
-      "scenario": "dwa ostre klaśnięcia dłoni odbite echem od kamiennych ścian",
+      "scenario": "mocne uderzenie w struny lutni — bojowy akord z pogłosem kamiennej strażnicy",
       "score": 71.0,
       "sound_hits": 1,
       "material_hits": 1,
       "visual_hits": 0,
       "abstract_hits": 0,
-      "words": 9,
+      "words": 11,
       "problems": []
     },
     {
@@ -6505,6 +6507,20 @@
       "problems": []
     },
     {
+      "id": "374",
+      "title": "Thistledown Players",
+      "scenario": "wędrowna kapela myszy: fujarka i skrzypce prowadzą marszową melodię, bęben i dzwonki trzymają krok",
+      "score": 72.0,
+      "sound_hits": 2,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 14,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
       "id": "170",
       "title": "Riftburst Hellion",
       "scenario": "bruk placu pęka od spodu — płyty bazaltu wylatują w górę i opadają z hukiem",
@@ -6797,18 +6813,6 @@
       "problems": []
     },
     {
-      "id": "195",
-      "title": "Entrancing Lyre",
-      "scenario": "skrzypienie strun i drewnianej ramy liry napinanych powoli, bez szarpnięcia",
-      "score": 78.0,
-      "sound_hits": 1,
-      "material_hits": 2,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 10,
-      "problems": []
-    },
-    {
       "id": "228",
       "title": "Strandwalker",
       "scenario": "stukot cienkich metalowych szczudeł po spękanym kamieniu",
@@ -6939,13 +6943,13 @@
     {
       "id": "367",
       "title": "Battle-Rattle Shaman",
-      "scenario": "jedno mocne potrząśnięcie tykwową grzechotką z sykiem nasion, bez rytmu",
+      "scenario": "rytmiczne potrząsanie szamańską grzechotką z dzwoneczkami",
       "score": 78.0,
       "sound_hits": 2,
       "material_hits": 0,
       "visual_hits": 0,
       "abstract_hits": 0,
-      "words": 10,
+      "words": 6,
       "problems": [
         "brak materiału/kontaktu (co uderza o co)"
       ]

@@ -800,3 +800,29 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   mierzonego korpusu (dolny kwartyl cechy, której dana klasa wymaga)
   i zawsze raportować, jaki odsetek klasy narusza dany predykat. Jeśli
   przekracza ~50 %, błąd jest w progu, nie w plikach.
+
+## 2026-09-29 — Twarda reguła w narzędziu wymusza kłamliwe scenariusze
+
+- Sytuacja: zakaz muzyki był wpisany zarówno w walidator (błąd bez frazy
+  „no music”), jak i w scouta (automatyczna doklejka „No music.”). Nawet
+  świadomie muzyczny prompt był sabotowany tuż przed wysłaniem.
+- Wniosek: autor scenariusza zamiast walczyć z narzędziem zaczął pisać pod
+  nie — stąd „struny **bez szarpnięcia**” dla liry i „grzechotka **bez
+  rytmu**” dla szamana. Reguła nie poprawiała jakości, tylko produkowała
+  dźwięki zaprzeczające własnej karcie.
+- Zasada / działanie zapobiegawcze: reguła globalna musi mieć jawną,
+  nazwaną furtkę (tu `music_allowed`), która **wymienia jeden zakaz na
+  inny, mocniejszy** — zamiast „zakaz muzyki” obowiązuje „nazwij instrument
+  i nadal żadnej mowy”. Zakaz bez furtki prędzej czy później trafi na
+  fabułę, w której jest po prostu błędny.
+
+## 2026-09-29 — Detektor „podejrzanie muzyczne” musi znać zamiar
+
+- Sytuacja: po regeneracji sample muzyczne zapaliły flagi `tonal_sustained`
+  i `speech_like` — czyli dokładnie to, o co w nich chodziło.
+- Wniosek: ta sama metryka jest wadą albo cechą zależnie od intencji wpisu.
+  Bez znajomości zamiaru audyt karze za trafienie w cel.
+- Zasada / działanie zapobiegawcze: flagi heurystyczne wiązać z deklaracją
+  w danych (`music_allowed`), a nowe klasy leksykalne włączać tylko dla
+  wpisów, które je zadeklarowały — inaczej „ulewa bębniąca po zbroi”
+  zostaje uznana za nieudany instrument perkusyjny.

@@ -554,3 +554,49 @@ Wynik:
 Korpus: 533 sample, mediana -20 LUFS, duplikaty PCM 0.
 Koszt: 48 generacji (kredyty nieograniczone — właściciel zakłada konta
 bezpłatne, więc regeneracja przestała być czynnikiem ograniczającym).
+
+## 2026-09-29 — Runda r008: sample muzyczne (korekta zasady)
+
+Zasada „żadnej muzyki” była egzekwowana **twardo w dwóch miejscach naraz**:
+walidator odrzucał prompt bez frazy „no music”, a scout dodatkowo doklejał
+„No music.” do gotowego ładunku API. Skutkiem były scenariusze pisane wbrew
+fabule: Entrancing Lyre dostała „napinanie strun **bez szarpnięcia**”,
+Battle-Rattle Shaman „potrząśnięcie grzechotką **bez rytmu**”, a wędrowna
+kapela myszy — sam tupot łapek.
+
+Wprowadzono kontrolowany wyjątek: pole `music_allowed: true` w scenariuszu.
+Dla takich wpisów walidator nie żąda zakazu muzyki, ale **wymaga nazwania
+instrumentu** (regex `MUSICAL_SOURCE`) i nadal wymaga zakazu mowy; scout nie
+dokleja „No music.”. Zakaz mowy, ambience i scen wielowarstwowych obowiązuje
+bez zmian — śpiew tylko bezsłowny, na samogłosce.
+
+Skan 533 fabuł ścisłym leksykonem instrumentów dał 21 trafień, z czego
+**8 realnych** (instrument gra w kadrze) plus jedna poprawka treści (298 —
+dzwon alarmowy zamiast włóczni ze stojaka). Run **36558552097**, 9/9.
+
+| ID | Karta | Sample |
+|---|---|---|
+| 374 | Thistledown Players | kapela myszy: fujarka i skrzypce, bęben i dzwonki |
+| 251 | Stirring Bard | bojowy akord na lutni |
+| 253 | Inspiring Bard | szarpana fraza na lutni o świcie |
+| 195 | Entrancing Lyre | hipnotyzująca fraza na lirze |
+| 262 | Angel's Herald | fanfara trąbki herolda |
+| 367 | Battle-Rattle Shaman | rytmiczna grzechotka z dzwoneczkami |
+| 231 | Anthem of Champions | bezsłowny hymn czterech głosów |
+| 510 | Angel of the Dawn | bezsłowny chór anielski |
+| 298 | Raise the Alarm | szarpnięcie liny i bicie dzwonu (bez `music_allowed`) |
+
+Audyty nauczono odróżniać muzykę zamierzoną od przypadkowej:
+
+- `audit_samples_full.py` — flagi `tonal_sustained` i `speech_like` nie
+  powstają dla wpisów z `music_allowed` (dla nich tonalność to cecha).
+- `audit_semantic_match.py` — nowa klasa `musical` z odwróconym predykatem
+  (szum = wada, tonalność = wymóg), stosowana **tylko** przy `music_allowed`,
+  bo słownictwo muzyczne bywa metaforą („ulewa bębniąca po zbroi” w 453).
+- `build_site.py` — audyt wybierany automatycznie jako najnowszy
+  `audio-audit-*.json`; wcześniej strona zamarzła na raporcie z r006.
+
+Wynik: 9/9 bez flag sygnałowych, wszystkie po -20 LUFS, semantycznie 0 pkt
+(poza 298 — 2,0 pkt za brak wykrywalnej wysokości, co dla wielkiego dzwonu
+o nieharmonicznych składowych jest spodziewane). Korpus: 533 sample,
+71 flag, 0 rażących sprzeczności, 52 „wyraźne” pozostawione świadomie.

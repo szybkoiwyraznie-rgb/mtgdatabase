@@ -49,6 +49,9 @@ FRAME_S = 0.01
 # --------------------------------------------------------------------------
 LEXICON: dict[str, str] = {
     # tonalne, długo wybrzmiewające
+    # instrumenty i śpiew bezsłowny — sample muzyczne (music_allowed).
+    # Muszą być PRZED tonal_ring, bo "struna"/"harfa" złapałyby się tam pierwsze.
+    r"lutni|lir[aęyo]|fujark|piszczał|flet|skrzypc|trąbk|trąbi|fanfar|róg bojow|bęben|bębn|grzechotk|dzwoneczk|melodi|hymn|chór|chóral|nuc[ąi]|nucen|akord|fraz[aęy] muzyczn|kapel|gra na\\b": "musical",
     r"dzwon|gong|dzwonk|dzwonow|kurant|struna|harf|cymbał|rezonans krysz": "tonal_ring",
     r"krystaliczn\w* dźwięk|szklist\w* ton|czyst\w* ton": "tonal_ring",
     # uderzenia, transjenty
@@ -88,6 +91,7 @@ LEXICON: dict[str, str] = {
 # czytelne nazwy klas
 CLASS_PL = {
     "tonal_ring": "dźwięk tonalny z długim wybrzmieniem (dzwon, struna)",
+    "musical": "zamierzony sample muzyczny — instrument lub śpiew bezsłowny w kadrze",
     "impact": "uderzenie — ostry atak, szybki zanik",
     "metal": "metal — jasne pasmo i dzwoniący ogon",
     "noise_hiss": "szerokopasmowy szum/syk bez wyraźnej wysokości",
@@ -117,11 +121,16 @@ METAPHOR_GUARDS: dict[str, re.Pattern] = {
 }
 
 
-def classes_for(scenario: str) -> list[str]:
+def classes_for(scenario: str, music_allowed: bool = False) -> list[str]:
     text = scenario.lower()
     found: list[str] = []
     for pattern, cls in LEXICON.items():
         if not re.search(pattern, text) or cls in found:
+            continue
+        if cls == "musical" and not music_allowed:
+            # „ulewa bębniąca po zbroi”, „grzechot kości” — słownictwo muzyczne
+            # bywa metaforą. Klasę stosujemy tylko tam, gdzie sample MA być
+            # muzyczny z założenia (flaga w scenariuszu).
             continue
         guard = METAPHOR_GUARDS.get(cls)
         if guard and guard.search(text):
@@ -255,7 +264,14 @@ def check(cls: str, m: dict, q: dict) -> list[tuple[str, float]]:
     mod_hi = thr("mod_peak_hz", "p95", 13.7)
 
     bad: list[tuple[str, float]] = []
-    if cls == "tonal_ring":
+    if cls == "musical":
+        # Sample muzyczny ma być wysokościowy i harmoniczny. Odwrotnie niż
+        # w reszcie korpusu: tu szum jest wadą, a tonalność wymogiem.
+        if tonal < tonal_lo:
+            bad.append((f"instrument bez wysokości dźwięku (tonal={tonal:.2f} < dolny kwartyl {tonal_lo:.2f})", 2.0))
+        if flat > flat_hi:
+            bad.append((f"szum zamiast dźwięku instrumentu (flatness={flat:.2f} > górny kwartyl {flat_hi:.2f})", 2.0))
+    elif cls == "tonal_ring":
         if tonal < tonal_lo:
             bad.append((f"brak tonalności (tonal={tonal:.2f} < dolny kwartyl {tonal_lo:.2f})", 2.0))
         if flat > flat_hi:
@@ -360,7 +376,7 @@ def main() -> int:
         m = measured.get(sid)
         if m is None:
             continue
-        cls = classes_for(s["sample_scenario"])
+        cls = classes_for(s["sample_scenario"], bool(s.get("music_allowed")))
         if not cls:
             no_class.append(sid)
             continue
