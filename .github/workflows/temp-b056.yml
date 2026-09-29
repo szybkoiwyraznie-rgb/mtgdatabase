@@ -32,7 +32,24 @@ jobs:
         env:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
-        run: python scripts/elevenlabs_sample_scout.py --batch b056 --limit 1 --force --prompt-influence 0.35
+        run: |
+          set +e
+          python scripts/elevenlabs_sample_scout.py --batch b056 --limit 1 --force \
+            --prompt-influence 0.35 > out.log 2> err.log
+          code=$?
+          set -e
+          # Logi runu sa niepobieralne z piaskownicy, wiec przenosimy tresc
+          # bledu do adnotacji, ktora da sie odczytac przez API.
+          {
+            echo '### stdout'; tail -c 2000 out.log
+            echo '### stderr'; tail -c 2000 err.log
+          } >> "$GITHUB_STEP_SUMMARY"
+          if [ "$code" -ne 0 ]; then
+            msg=$(tail -c 900 err.log | tr '\n' ' ' | tr -d '\r')
+            echo "::error title=scout-failed::exit=$code $msg"
+            exit "$code"
+          fi
+          cat out.log
       - name: Verify generated output
         run: |
           python3 - <<'PY'
