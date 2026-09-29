@@ -55,6 +55,57 @@ def highpass(data: np.ndarray, fs: int, cutoff: float) -> np.ndarray:
     return signal.sosfiltfilt(sos, data, axis=0)
 
 
+def biquad_low_shelf(data: np.ndarray, fs: int, fc: float = 180.0, gain_db: float = -3.0, q: float = 0.707) -> np.ndarray:
+    A = 10.0 ** (gain_db / 40.0)
+    w0 = 2.0 * math.pi * fc / fs
+    cos_w0 = math.cos(w0)
+    sin_w0 = math.sin(w0)
+    alpha = sin_w0 / (2.0 * q)
+    b0 = A * ((A + 1.0) - (A - 1.0) * cos_w0 + 2.0 * math.sqrt(A) * alpha)
+    b1 = 2.0 * A * ((A - 1.0) - (A + 1.0) * cos_w0)
+    b2 = A * ((A + 1.0) - (A - 1.0) * cos_w0 - 2.0 * math.sqrt(A) * alpha)
+    a0 = (A + 1.0) + (A - 1.0) * cos_w0 + 2.0 * math.sqrt(A) * alpha
+    a1 = -2.0 * ((A - 1.0) + (A + 1.0) * cos_w0)
+    a2 = (A + 1.0) + (A - 1.0) * cos_w0 - 2.0 * math.sqrt(A) * alpha
+    b = np.array([b0, b1, b2]) / a0
+    a = np.array([a0, a1, a2]) / a0
+    return signal.lfilter(b, a, data, axis=0)
+
+
+def biquad_high_shelf(data: np.ndarray, fs: int, fc: float = 3500.0, gain_db: float = 3.5, q: float = 0.707) -> np.ndarray:
+    A = 10.0 ** (gain_db / 40.0)
+    w0 = 2.0 * math.pi * fc / fs
+    cos_w0 = math.cos(w0)
+    sin_w0 = math.sin(w0)
+    alpha = sin_w0 / (2.0 * q)
+    b0 = A * ((A + 1.0) + (A - 1.0) * cos_w0 + 2.0 * math.sqrt(A) * alpha)
+    b1 = -2.0 * A * ((A - 1.0) + (A + 1.0) * cos_w0)
+    b2 = A * ((A + 1.0) + (A - 1.0) * cos_w0 - 2.0 * math.sqrt(A) * alpha)
+    a0 = (A + 1.0) - (A - 1.0) * cos_w0 + 2.0 * math.sqrt(A) * alpha
+    a1 = 2.0 * ((A - 1.0) - (A + 1.0) * cos_w0)
+    a2 = (A + 1.0) - (A - 1.0) * cos_w0 - 2.0 * math.sqrt(A) * alpha
+    b = np.array([b0, b1, b2]) / a0
+    a = np.array([a0, a1, a2]) / a0
+    return signal.lfilter(b, a, data, axis=0)
+
+
+def biquad_peaking(data: np.ndarray, fs: int, fc: float = 4500.0, gain_db: float = -3.5, q: float = 1.2) -> np.ndarray:
+    A = 10.0 ** (gain_db / 40.0)
+    w0 = 2.0 * math.pi * fc / fs
+    cos_w0 = math.cos(w0)
+    sin_w0 = math.sin(w0)
+    alpha = sin_w0 / (2.0 * q)
+    b0 = 1.0 + alpha * A
+    b1 = -2.0 * cos_w0
+    b2 = 1.0 - alpha * A
+    a0 = 1.0 + alpha / A
+    a1 = -2.0 * cos_w0
+    a2 = 1.0 - alpha / A
+    b = np.array([b0, b1, b2]) / a0
+    a = np.array([a0, a1, a2]) / a0
+    return signal.lfilter(b, a, data, axis=0)
+
+
 def limit_true_peak(data: np.ndarray, fs: int, ceiling_db: float,
                     attack_ms: float = 1.5) -> tuple[np.ndarray, float]:
     """Limiter działający na obwiedni nadpróbkowanej 4x.
@@ -194,7 +245,11 @@ def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: f
                 encoder_headroom_db: float = 0.7, max_limiter_gr_db: float = 2.0,
                 makeup_tol_lu: float = 0.5, makeup_iters: int = 4,
                 max_makeup_db: float = 4.0, max_peak_gr_db: float = 12.0,
-                fix_mono: bool = False, mono_target_excess_lu: float = 1.0) -> dict:
+                fix_mono: bool = False, mono_target_excess_lu: float = 1.0,
+                fix_spectral: bool = False,
+                boomy_ids: set[str] | None = None,
+                dull_ids: set[str] | None = None,
+                harsh_ids: set[str] | None = None) -> dict:
     data, fs = sf.read(str(path), always_2d=True)
     lufs_before = integrated_lufs(data, fs)
     tp_before = true_peak_dbtp(data, fs)
@@ -204,6 +259,15 @@ def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: f
     if fix_mono:
         data, side_gain, mono_excess_before, mono_excess_after = narrow_sides(
             data, fs, mono_target_excess_lu)
+
+    if fix_spectral:
+        sid = path.stem
+        if boomy_ids and sid in boomy_ids:
+            data = biquad_low_shelf(data, fs, fc=180.0, gain_db=-3.0)
+        if dull_ids and sid in dull_ids:
+            data = biquad_high_shelf(data, fs, fc=3500.0, gain_db=3.5)
+        if harsh_ids and sid in harsh_ids:
+            data = biquad_peaking(data, fs, fc=4500.0, gain_db=-3.5, q=1.2)
 
     filtered = highpass(data, fs, hp_hz)
     lufs_filtered = integrated_lufs(filtered, fs)
@@ -279,8 +343,8 @@ def main() -> int:
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--samples-dir", default="audio/samples")
     ap.add_argument("--out-dir", default="", help="pusty = zapis w miejscu")
-    ap.add_argument("--audit", default="data/samples/audio-audit-2026-09-28-fullscan.json",
-                    help="JSON audytu — z niego bierzemy listę plików sub_dominant")
+    ap.add_argument("--audit", default="data/samples/audio-audit-latest.json",
+                    help="JSON audytu — z niego bierzemy listę plików sub_dominant i odchyleń widmowych")
     ap.add_argument("--target-lufs", type=float, default=-20.0)
     ap.add_argument("--ceiling-dbtp", type=float, default=-1.0)
     ap.add_argument("--max-gain-db", type=float, default=15.0)
@@ -304,15 +368,35 @@ def main() -> int:
                     help="zwęź składową boczną tam, gdzie sample traci energię w mono")
     ap.add_argument("--mono-target-excess", type=float, default=1.0,
                     help="dopuszczalna nadwyżka straty w mono ponad bazowe 3,01 LU")
+    ap.add_argument("--fix-spectral", action="store_true",
+                    help="łagodne profilowanie skrajnych odchyleń widmowych (boomy, dull, harsh)")
     ap.add_argument("--dry-run", action="store_true")
     args = ap.parse_args()
 
     sub_dominant: set[str] = set()
+    boomy_ids: set[str] = set()
+    dull_ids: set[str] = set()
+    harsh_ids: set[str] = set()
+
     audit_path = Path(args.audit)
+    if not audit_path.exists():
+        found = sorted((ROOT / "data/samples").glob("audio-audit-*.json"))
+        if found:
+            audit_path = found[-1]
+
     if audit_path.exists():
         audit = json.loads(audit_path.read_text(encoding="utf-8"))
-        sub_dominant = {str(r["id"]) for r in audit.get("files", [])
-                        if "sub_dominant" in r.get("flags", [])}
+        for r in audit.get("files", []):
+            sid = str(r.get("id"))
+            flags = r.get("flags", [])
+            if "sub_dominant" in flags:
+                sub_dominant.add(sid)
+            if "boomy" in flags:
+                boomy_ids.add(sid)
+            if "dull" in flags:
+                dull_ids.add(sid)
+            if "harsh" in flags:
+                harsh_ids.add(sid)
 
     src_dir = Path(args.samples_dir)
     out_dir = Path(args.out_dir) if args.out_dir else src_dir
@@ -341,7 +425,11 @@ def main() -> int:
                                     max_makeup_db=args.max_makeup,
                                     max_peak_gr_db=args.max_peak_gr,
                                     fix_mono=args.fix_mono,
-                                    mono_target_excess_lu=args.mono_target_excess))
+                                    mono_target_excess_lu=args.mono_target_excess,
+                                    fix_spectral=args.fix_spectral,
+                                    boomy_ids=boomy_ids,
+                                    dull_ids=dull_ids,
+                                    harsh_ids=harsh_ids))
         except Exception as exc:  # noqa: BLE001
             rows.append({"id": path.stem, "error": str(exc)})
         if n % 50 == 0:

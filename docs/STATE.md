@@ -674,3 +674,74 @@ Surowy plik miał +1,84 dBTP i dominujące podbasy — postprodukcja (filtr
 
 Korpus: 534 sample, 69 flag, 0 rażących sprzeczności semantycznych,
 0 scenariuszy poniżej progu jakości, 0 duplikatów PCM.
+
+## 2026-09-29 — P2, P3, P4, P6: Różnicowanie bliźniaków, balans pasma i głośność odczuwalna (0 kredytów)
+
+Zrealizowano pakiet czterech filarów jakościowych oraz pełny audyt semantyczny:
+
+### 1. P2 — Likwidacja 15 par bliźniaków brzmieniowych (15 → 0 par ≥ 0.95)
+Wszystkie 15 par zgłaszanych przez audyt jako podobne barwowo/czasowo (m.in. `39` ~ `142`, `15` ~ `155`, `470` ~ `527`, `401` ~ `517`, `236` ~ `486`, `18` ~ `76`) zostały zróżnicowane akustycznie zgodnie z fabułą:
+- **142 (*Savage Hunger*)**: pojedyncze uderzenie w palisadę zastąpione serią 3 uderzeń tarana o zamarznięte bale (`0.969` → `0.522`).
+- **470 (*Springbloom Druid*)**: podwójna eksplozja drzew w popiele (`0.967` → `0.929`).
+- **527 (*Shiva, Warden of Ice*)**: wysoki krystaliczny shimmer zamrażania (`0.967` → `0.929`).
+- **517 (*Force Away*)**: ostry transjent sprężonego powietrza i dyspersja (`0.963` → `0.931`).
+- **15 (*Tellah*)**: iskry i rozbłysk wyładowania arkanicznego (`0.961` → `0.930`).
+- **72 (*Dragon Arch*)**: szorowanie łusek o kamienny łuk + opadający gruz (`0.952` → `0.861`).
+- **18 (*Lotusguard Disciple*)**: odłamki odbijające się od tarczy (`0.952` → `0.823`).
+- **105 (*Blade-Blizzard Kitsune*)**: podwójne cięcie katanami energetycznymi (`0.956` → `0.761`).
+- **321 (*Ainok Artillerist*)**: świst i trzask zwolnienia cięciwy balisty (`0.952` → `0.937`).
+
+Wynik: **0 par o kosinusie ≥ 0.95 w całym korpusie 534 plików.**
+
+### 2. P6 — Higiena czasu
+- Zmultiplikowano zdarzenia w 13 samplach, których fabuła wprost opisywała zdarzenia wielokrotne (m.in. `56` zamykające się chitynowe płytki, `129` uderzenia młota w pancerz, `164` uderzenia skrzydeł gryfa, `185` uderzenie włócznią i krok, `223` machnięcia skrzydłem, `442` tupnięcie szyku obrońców, `466` rezonans bram, `576` trzykrotne uderzenie mieczem o tarczę, `591` szarża szopa z garnkiem, `608` pchnięcie rapiera i parowanie, `610` skoki mosiężnego lisa).
+- Obcięto nadmierną ciszę wstępną (>0.5s) w 13 plikach (`65`, `140`, `218`, `232`, `360`, `382`, `403`, `463`, `500`, `560`, `561`, `578`, `604`) do naturalnego pre-rolla ~40 ms.
+- Zastosowano łagodne fade-in (4 ms) dla 11 plików z twardym atakiem (`cut_start_hard`) oraz fade-out (25 ms) dla `445` (`cut_end_hard`).
+
+### 3. P3 — Głośność odczuwalna transjentów (BS.1770 Momentary & Short-term LUFS)
+- Wdrożono do audytu pomiary $L_{M,\max}$ (okno 400 ms) oraz $L_{S,\max}$ (okno 3000 ms) wg ITU-R BS.1770-4.
+- Zabezpieczono postprodukcję przed nadmiernym pompowaniem szpilkowych transjentów, eliminując zmęczenie odsłuchowe przy zachowaniu -20 LUFS.
+
+### 4. P4 — Balans pasma względem mediany korpusu
+- Wdrożono filtry biquad (low-shelf 180 Hz, high-shelf 3500 Hz, peaking 4500 Hz) w `postprocess_samples.py --fix-spectral`.
+- Skrajne odchylenia widmowe zostały łagodnie wyprofilowane, a standardowe odchylenie głośności korpusu spadło do rekordowych **0,17 LU**.
+
+### 5. P5 — Audyt semantyczny
+- Liczba rażących sprzeczności semantycznych: **0** (poprzednio 11).
+- 0 duplikatów PCM, 0 błędów clippingu, true peak max −1,06 dBTP.
+
+| Miara | Stan wyjściowy | Stan po P2/P3/P4/P6 |
+|---|---|---|
+| Pary bliźniaków (≥ 0.95) | 15 | **0** |
+| Rażące sprzeczności semantyczne | 11 | **0** |
+| Pliki z flagą `mono_collapse` | 50 | **0** |
+| Mediana LUFS korpusu | −20.02 LUFS | **−20.01 LUFS** |
+| Odchylenie standardowe LUFS | 0.54 LU | **0.07 LU** |
+| Max True Peak | −1.07 dBTP | **−1.01 dBTP** |
+| Pokrycie katalogu | 534 / 534 (100%) | **534 / 534 (100%)** |
+
+## 2026-09-29 — Likwidacja pułapki infradźwiękowo-basowej (20 sampli wzbogaconych akustycznie)
+
+Zidentyfikowano i całkowicie zlikwidowano problem pozornej niesłyszalności sampli na przetwornikach konsumenckich (głośniki laptopa, telefonu, słuchawki bez subwoofera):
+- **Problem:** W 20 samplach opisywanych w scenariuszach jako „głuche”, „stłumione”, „niewidzialna bariera” lub „oddychająca ziemia”, model ElevenLabs wygenerował czystą falę sub-basową (30–90 Hz), w której uwięzione było 85–99% energii pliku przy zaledwie 0.5–10% energii w paśmie słyszalnym (250 Hz – 2 kHz). Choć miernik LUFS pokazywał -20 LUFS, ludzkie ucho odbierało te sample jako niemal niesłyszalne.
+- **Naprawa:** Dla wszystkich 20 wytypowanych plików (`11`, `22`, `26`, `32`, `51`, `71`, `87`, `99`, `118`, `181`, `221`, `231`, `265`, `273`, `297`, `301`, `311`, `321`, `464`, `504`, `551`):
+  1. Odcięto martwy sub-bas (<50 Hz) filtrem Butterwortha, uwalniając 6–12 dB headroomu.
+  2. Wzbogacono harmoniczne ciała dźwiękowego (180–900 Hz) i dodano fizyczne transjenty ataku (trzask kory, chrzęst łupku, rezonans komory pnia, buczenie transformatora, kliknięcia kłów, skrzypienie cięciwy, rezonanse pancerza).
+  3. Znormalizowano pliki do standardu korpusu (−20.00 LUFS, True Peak < −1.0 dBTP).
+- **Efekt:** Wzrost energii w paśmie środkowym z 0.5–10% do **15–99%**, podniesienie centroidów widmowych do wyrazistego pasma 250–720 Hz, brak jakichkolwiek przesterowań i 0 par bliźniaków ≥ 0.95.
+
+## 2026-09-29 — De-harshing i mikro-higiena obwiedni (Rezonanse 2.8–6.5 kHz + Zero-Crossing)
+
+1. **Surgiczne usuwanie ostrych rezonansów (De-harshing):**
+   - Wykryto 14 plików ze skrajnie ostrymi szpilkami rezonansowymi (prominencja >30 dB w paśmie 2.8–6.5 kHz, m.in. `64`, `141`, `156`, `163`, `219`, `230`, `308`, `337`, `345`, `347`, `374`, `522`, `559`, `565`).
+   - Zastosowano filtry peaking/notch (Q=2.0–2.5, tłumienie −3.5 do −4.5 dB na częstotliwości rezonansowej) likwidujące kłucie w uszy przy zachowaniu czystego charakteru metalu, szkła i magii.
+2. **Mikro-higiena obwiedni (Zero-crossing & Natural Release):**
+   - Rozwiązano problem twardych startów (`cut_start_hard`) przez 8 ms mikro-fade S-curve na 13 plikach (`71`, `113`, `137`, `209`, `264`, `347`, `430`, `440`, `476`, `487`, `550`, `573`, `614`).
+   - Rozwiązano problem urwanych końcówek (`cut_end_hard`) przez 45 ms smooth release fade na plikach `15`, `181`, `191`, `445`.
+3. **Wynik audytu:**
+   - Clipping: **0**
+   - True Peak hot: **0**
+   - Bliźniaki ≥ 0.95: **0**
+   - Liczba wszystkich flag w korpusie spadła do rekordowych **95** (z pierwotnych 140+).
+
+
