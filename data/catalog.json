@@ -3709,6 +3709,27 @@
       "title": "Captivating Gyre",
       "story": "Na marmurowych tarasach Naktamun nad rzeką Luxa na planie Amonkhet wszechwidząca sfinks Atemsis strzeże nienaruszonego spokoju pałacowych dziedzińców. Gdy trzy niesforne dżinny pustynnego wiatru zakłócają powagę świątynnych obrzędów, skrzydlata strażniczka unosi skrzydło w geście chłodnej rezygnacji. W ułamku sekundy z rzeki wzbija się potężny, wirujący lej wody i piasku, który porywa awanturników w powietrzny wir i bez trudu zmiata ich z placu. Pojedynczy, lekceważący gest potężnej sfinks wystarczy, by w cieniu piramid na powrót zapanował nienaganny, doskonały ład.",
       "versions": []
+    },
+    {
+      "id": "167",
+      "art_id": "167ISD",
+      "title": "Lost in the Mist",
+      "story": "Na bezkresnych, wiecznie spowitych gęstym całunem mgły wodach jeziora Loch Mere na planie Eldraine spoczywają najmroczniejsze sekrety królestwa. Młoda posłanka dworu Vantress bezpowrotnie zapada się w chłodną toń, pociągając za sobą zapieczętowany zwój z tajnymi planami obrony zamku. Ze szczelin zniszczonego tubusa powoli ulatują w wodę świecące smugi magicznego atramentu, bezpowrotnie gasnąc pośród lilii wodnych i leśnego mułu. Pradawna, nasycona arkanami mgła bezlitośnie tłumi wszelkie próby ratunku i wygasza wrogie czary, grzebiąc ostatnią nadzieję obrońców w głębinach zapomnienia.",
+      "versions": []
+    },
+    {
+      "id": "170",
+      "art_id": "170MKM",
+      "title": "Riftburst Hellion",
+      "story": "W tętniącym życiem sercu Placu Zachodniego na planie Ravnica spokój handlowego popołudnia zostaje zniszczony w ułamku sekundy. Spomiędzy roztrzaskanych płyt chodnika i zdemolowanej fontanny gwałtownie wyłania się gigantyczny piekielnik o pancerzu z czarnego bazaltu, ziejąc płomieniami z przepastnej gardzieli. Kolosalny wij z łatwością rozbija kramy i kamienne balustrady, unosząc swoje cielsko wysoko ponad dachy gotyckich kamienic. Mieszkańcy metropolii w popłochu uciekają z placu, po raz kolejny przekonując się, że w czeluściach miejskich podziemi nawet zwykły spacer po obiad może okazać się śmiertelną pułapką.",
+      "versions": []
+    },
+    {
+      "id": "174",
+      "art_id": "174RTR",
+      "title": "Izzet Charm",
+      "story": "W iskrzących od ciągłych przeciążeń laboratoriach wieży Nivix na planie Ravnica czarodzieje Ligi Izzet niestrudzenie eksperymentują z niszczycielskimi siłami żywiołów. Wytrawna elektromantka z zuchwałym uśmiechem uruchamia aparaturę na swoim ramieniu, w ułamku sekundy łącząc precyzyjną kontrmagię z niszczycielskim uderzeniem skondensowanej błyskawicy. Błękitne łuki prądu i gorąca para z mizziumowego reaktora natychmiast neutralizują wrogie zaklęcia, podczas gdy nagły podmuch powietrza porywa ze stołu zwoje z nowo nakreślonymi równaniami. Ten gwałtowny pokaz gildyjnej inżynierii dowodzi, że w umysłach sług smoka Niv-Mizzeta granica między chaosem a czystym geniuszem całkowicie zaciera się w wirze walki.",
+      "versions": []
     }
   ]
 }
