@@ -148,6 +148,8 @@ ELEVENLABS=... python scripts/elevenlabs_sample_scout.py --batch b001 --limit 10
 python scripts/build_site.py --out site/generated
 python scripts/build_pack.py --output build/samples-latest.zip
 python scripts/serve_site.py --port 3000 --dir site/generated
+python scripts/multiply_samples.py --plan data/samples/multiply-plan.json \
+    --report data/samples/multiply-report.json
 ```
 
 Sekret GitHub/API nazywa się **`ELEVENLABS`**. Nie używać dawnej nazwy
@@ -396,3 +398,51 @@ wybrzmienia po ostatnim uderzeniu skrzydeł). Ogółem z flagą: 91 plików
 Quota: 3 generacje ≈ 90 kredytów (koszt ~29/generację); szacowany stan
 po b054: ~3 570 kredytów. Zużycie odnotowane do weryfikacji przez
 właściciela w panelu ElevenLabs.
+
+## Multiplikacja zdarzeń (2026-09-29, sesja `arena/01a0e845`)
+
+Audyt wykorzystania czasu wykazał, że część sampli marnowała czas trwania:
+pojedyncze krótkie zdarzenie (np. 0,09 s salwy) i ponad 2 s martwego
+powietrza. Przy 96 plikach wypełnienie treścią było poniżej 45 %.
+
+Rozwiązanie: **`scripts/multiply_samples.py`** — zamiana pojedynczego
+zdarzenia na serię 2–9 powtórzeń, ale wyłącznie tam, gdzie fabuła to
+uzasadnia (stado crebainów, salwa trzech sagittarów, trójlufowa rękawica,
+płyty opadające *kolejno*, monety sypiące się z pękniętej ściany).
+
+Żeby seria nie brzmiała jak zapętlony sampel, każda kopia dostaje własny
+mikro-charakter:
+
+- **varispeed** (resampling) — jednocześnie wysokość i długość, jak dwa
+  różne okrzyki tego samego zwierzęcia,
+- **własny poziom** — źródło bliżej/dalej,
+- **tilt barwy** (LP 2. rzędu) — dalsza kopia jest ciemniejsza,
+- **mikro-panorama** — kopie nie stoją w jednym punkcie,
+- **nierówne odstępy** — rytm organiczny zamiast metronomicznego.
+
+Ogon oryginału zostaje pod serią, a mastering do −20 LUFS robi sprawdzony
+łańcuch z `postprocess_samples.py` (ten sam limiter i zapas na koder).
+Plan jest deklaratywny (`data/samples/multiply-plan.json`), więc efekt jest
+w pełni odtwarzalny z oryginałów.
+
+Objęto 20 sampli: 1, 6, 23, 46, 77, 168, 175, 251, 270, 283, 289, 304, 355,
+388, 460, 472, 482, 535, 553, 585.
+
+Wynik (`docs/audits/2026-09-29-audio-audit-after-multiply.md`):
+
+- **20/20 multiplikowanych plików bez żadnej flagi** (przed zabiegiem miały
+  łącznie 22 flagi: `short_content`, `long_trail_silence`, `long_lead_silence`),
+- flagi w całym korpusie: **91 → 76**; `short_content` 22 → 14,
+  `long_trail_silence` 50 → 37, `long_lead_silence` 17 → 14,
+- średnie wypełnienie treścią w tej dwudziestce: **22 % → 48 %**,
+  rozpiętość zdarzeń (pierwsze→ostatnie) z 22 % na 66 %,
+- pary bliźniaków brzmieniowych ≥ 0,95: **23 → 20** (zróżnicowanie kopii
+  rozdzieliło trzy pary), duplikaty PCM nadal 0,
+- korpus: mediana −20,02 LUFS, σ 0,54 LU, max true peak −1,07 dBTP.
+
+Koszt: **0 kredytów ElevenLabs** — to czysta postprodukcja istniejących
+nagrań, bez regeneracji.
+
+Trzy opisy zsynchronizowano z nowym dźwiękiem (mówiły o pojedynczym
+zdarzeniu): `1` (krakanie → trzy krakania), `46` („naraz" → „jeden po
+drugim"), `289` (kropla → krople).

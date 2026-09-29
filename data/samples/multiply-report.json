@@ -1,0 +1,1245 @@
+{
+  "generated_at": "2026-09-29T09:15:52+00:00",
+  "plan": "data/samples/multiply-plan.json",
+  "dry_run": false,
+  "target_lufs": -20.0,
+  "count": 20,
+  "ok": 20,
+  "samples": [
+    {
+      "id": "1",
+      "status": "ok",
+      "note": "stado crebainów nad wąwozem — kruk odpowiada kruk, trzy okrzyki z różnych odległości",
+      "repeats": 3,
+      "before": {
+        "lufs": -19.99,
+        "true_peak_dbtp": -10.5,
+        "duration_s": 2.0
+      },
+      "build": {
+        "source_event_s": [
+          0.0,
+          0.27
+        ],
+        "source_slice_s": 0.57,
+        "copies": [
+          {
+            "onset_s": 0.03,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.57,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.55,
+            "gain_db": -3.5,
+            "speed": 1.062,
+            "tilt_hz": 9000.0,
+            "pan": 0.28,
+            "len_s": 0.537,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.05,
+            "gain_db": -6.5,
+            "speed": 0.951,
+            "tilt_hz": 6500.0,
+            "pan": -0.32,
+            "len_s": 0.599,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 2.38,
+        "lufs_after": -20.0,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "304",
+      "status": "ok",
+      "note": "salwa trzech sagittarów w jednym oddechu i jej odbicia gasnące nad tarasami Kasarna",
+      "repeats": 9,
+      "before": {
+        "lufs": -20.26,
+        "true_peak_dbtp": -1.67,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.65,
+          0.74
+        ],
+        "source_slice_s": 0.56,
+        "copies": [
+          {
+            "onset_s": 0.18,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.56,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.257,
+            "gain_db": -1.5,
+            "speed": 1.048,
+            "tilt_hz": 11000.0,
+            "pan": 0.3,
+            "len_s": 0.534,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.345,
+            "gain_db": -2.6,
+            "speed": 0.962,
+            "tilt_hz": 9000.0,
+            "pan": -0.26,
+            "len_s": 0.582,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.6,
+            "gain_db": -8.0,
+            "speed": 0.993,
+            "tilt_hz": 5200.0,
+            "pan": -0.35,
+            "len_s": 0.564,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.74,
+            "gain_db": -9.5,
+            "speed": 1.021,
+            "tilt_hz": 4600.0,
+            "pan": 0.33,
+            "len_s": 0.548,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.89,
+            "gain_db": -11.0,
+            "speed": 0.974,
+            "tilt_hz": 4000.0,
+            "pan": -0.2,
+            "len_s": 0.575,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.16,
+            "gain_db": -13.5,
+            "speed": 1.008,
+            "tilt_hz": 3600.0,
+            "pan": 0.28,
+            "len_s": 0.556,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.44,
+            "gain_db": -16.0,
+            "speed": 0.981,
+            "tilt_hz": 3200.0,
+            "pan": -0.3,
+            "len_s": 0.571,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.73,
+            "gain_db": -18.5,
+            "speed": 1.034,
+            "tilt_hz": 2800.0,
+            "pan": 0.22,
+            "len_s": 0.542,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 2.01,
+        "lufs_after": -20.2,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": -1.95,
+        "limiter_gr_mean_db": -0.01
+      }
+    },
+    {
+      "id": "46",
+      "status": "ok",
+      "note": "trzy strumienie z tarczy, potem dalsze pędy i liście rozwijające się przy ziemi",
+      "repeats": 6,
+      "before": {
+        "lufs": -19.89,
+        "true_peak_dbtp": -3.32,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.07,
+          0.21
+        ],
+        "source_slice_s": 0.66,
+        "copies": [
+          {
+            "onset_s": 0.07,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.66,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.31,
+            "gain_db": -1.6,
+            "speed": 0.941,
+            "tilt_hz": 8000.0,
+            "pan": -0.27,
+            "len_s": 0.701,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.58,
+            "gain_db": -3.2,
+            "speed": 1.074,
+            "tilt_hz": 12000.0,
+            "pan": 0.24,
+            "len_s": 0.615,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.96,
+            "gain_db": -8.5,
+            "speed": 1.028,
+            "tilt_hz": 6000.0,
+            "pan": 0.31,
+            "len_s": 0.642,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.28,
+            "gain_db": -11.0,
+            "speed": 0.918,
+            "tilt_hz": 5000.0,
+            "pan": -0.29,
+            "len_s": 0.719,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.6,
+            "gain_db": -14.0,
+            "speed": 1.096,
+            "tilt_hz": 4400.0,
+            "pan": 0.18,
+            "len_s": 0.602,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 2.33,
+        "lufs_after": -20.02,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": -0.51,
+        "limiter_gr_mean_db": -0.0
+      }
+    },
+    {
+      "id": "251",
+      "status": "ok",
+      "note": "dwa ostre klaśnięcia i ich odbicia od kamiennych arkad strażnicy",
+      "repeats": 4,
+      "before": {
+        "lufs": -20.85,
+        "true_peak_dbtp": -1.58,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.0,
+          0.38
+        ],
+        "source_slice_s": 0.78,
+        "copies": [
+          {
+            "onset_s": 0.02,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.78,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.54,
+            "gain_db": -2.0,
+            "speed": 1.033,
+            "tilt_hz": 10000.0,
+            "pan": 0.16,
+            "len_s": 0.755,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.06,
+            "gain_db": -10.5,
+            "speed": 0.996,
+            "tilt_hz": 5000.0,
+            "pan": -0.3,
+            "len_s": 0.783,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.44,
+            "gain_db": -15.0,
+            "speed": 1.017,
+            "tilt_hz": 3900.0,
+            "pan": 0.26,
+            "len_s": 0.767,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 2.76,
+        "lufs_after": -20.25,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": -2.84,
+        "limiter_gr_mean_db": -0.01
+      }
+    },
+    {
+      "id": "482",
+      "status": "ok",
+      "note": "podwójny błysk, a potem energia wracająca falami w zbroję",
+      "repeats": 4,
+      "before": {
+        "lufs": -18.96,
+        "true_peak_dbtp": -4.36,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.03,
+          0.67
+        ],
+        "source_slice_s": 1.11,
+        "copies": [
+          {
+            "onset_s": 0.03,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 1.11,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.63,
+            "gain_db": -1.4,
+            "speed": 0.971,
+            "tilt_hz": 11000.0,
+            "pan": 0.2,
+            "len_s": 1.143,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.33,
+            "gain_db": -9.0,
+            "speed": 0.944,
+            "tilt_hz": 5500.0,
+            "pan": -0.28,
+            "len_s": 1.176,
+            "truncated": true
+          },
+          {
+            "onset_s": 1.74,
+            "gain_db": -13.0,
+            "speed": 0.922,
+            "tilt_hz": 4500.0,
+            "pan": 0.24,
+            "len_s": 1.204,
+            "truncated": true
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 1.18,
+        "lufs_after": -20.01,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "77",
+      "status": "ok",
+      "note": "trójlufowa rękawica — seria trzech wyładowań i statyka cichnąca w głąb ulicy",
+      "repeats": 5,
+      "before": {
+        "lufs": -19.98,
+        "true_peak_dbtp": -7.49,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.33,
+          0.82
+        ],
+        "source_slice_s": 1.01,
+        "copies": [
+          {
+            "onset_s": 0.33,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 1.01,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.45,
+            "gain_db": -1.2,
+            "speed": 1.041,
+            "tilt_hz": 12000.0,
+            "pan": 0.22,
+            "len_s": 0.97,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.58,
+            "gain_db": -2.4,
+            "speed": 1.083,
+            "tilt_hz": 10000.0,
+            "pan": -0.2,
+            "len_s": 0.933,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.98,
+            "gain_db": -13.0,
+            "speed": 0.962,
+            "tilt_hz": 4500.0,
+            "pan": 0.34,
+            "len_s": 1.05,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.3,
+            "gain_db": -17.0,
+            "speed": 0.931,
+            "tilt_hz": 3800.0,
+            "pan": -0.3,
+            "len_s": 1.085,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": -1.4,
+        "lufs_after": -19.97,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "168",
+      "status": "ok",
+      "note": "stalowe płyty opadające kolejno na posadzkę — cztery, coraz dalej",
+      "repeats": 4,
+      "before": {
+        "lufs": -18.82,
+        "true_peak_dbtp": -5.47,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.77,
+          1.06
+        ],
+        "source_slice_s": 0.57,
+        "copies": [
+          {
+            "onset_s": 0.28,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.57,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.57,
+            "gain_db": -2.2,
+            "speed": 1.052,
+            "tilt_hz": 10000.0,
+            "pan": 0.24,
+            "len_s": 0.542,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.9,
+            "gain_db": -4.3,
+            "speed": 0.948,
+            "tilt_hz": 7500.0,
+            "pan": -0.22,
+            "len_s": 0.601,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.18,
+            "gain_db": -6.4,
+            "speed": 1.091,
+            "tilt_hz": 6000.0,
+            "pan": 0.3,
+            "len_s": 0.522,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 2
+      },
+      "master": {
+        "gain_db": -0.68,
+        "lufs_after": -20.0,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "388",
+      "status": "ok",
+      "note": "goblin odrzuca kolejne blachy na pomost",
+      "repeats": 2,
+      "before": {
+        "lufs": -20.08,
+        "true_peak_dbtp": -10.32,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.07,
+          1.03
+        ],
+        "source_slice_s": 1.18,
+        "copies": [
+          {
+            "onset_s": 0.07,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 1.18,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.16,
+            "gain_db": -2.6,
+            "speed": 1.046,
+            "tilt_hz": 9000.0,
+            "pan": -0.22,
+            "len_s": 1.128,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 1.85,
+        "lufs_after": -20.01,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "553",
+      "status": "ok",
+      "note": "każde ostrze zanurzane w czarze — dwa kolejne rytualne zanurzenia",
+      "repeats": 2,
+      "before": {
+        "lufs": -19.98,
+        "true_peak_dbtp": -9.47,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.03,
+          1.05
+        ],
+        "source_slice_s": 1.26,
+        "copies": [
+          {
+            "onset_s": 0.03,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 1.26,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.12,
+            "gain_db": -2.0,
+            "speed": 0.972,
+            "tilt_hz": 9500.0,
+            "pan": 0.2,
+            "len_s": 1.296,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 1.0,
+        "lufs_after": -19.99,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "585",
+      "status": "ok",
+      "note": "pantery (liczba mnoga) wyskakują nad rzeką — dwa skoki tuż po sobie",
+      "repeats": 2,
+      "before": {
+        "lufs": -20.01,
+        "true_peak_dbtp": -9.77,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.0,
+          1.02
+        ],
+        "source_slice_s": 1.27,
+        "copies": [
+          {
+            "onset_s": 0.0,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 1.27,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.92,
+            "gain_db": -3.0,
+            "speed": 0.944,
+            "tilt_hz": 8000.0,
+            "pan": 0.26,
+            "len_s": 1.345,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 1.01,
+        "lufs_after": -20.12,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "289",
+      "status": "ok",
+      "note": "olej spływa z nadgarstka kroplami — trzy krople na miedziany korzeń",
+      "repeats": 3,
+      "before": {
+        "lufs": -22.55,
+        "true_peak_dbtp": -1.63,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          1.03,
+          1.22
+        ],
+        "source_slice_s": 0.66,
+        "copies": [
+          {
+            "onset_s": 0.3,
+            "gain_db": -3.0,
+            "speed": 1.055,
+            "tilt_hz": 9000.0,
+            "pan": -0.24,
+            "len_s": 0.626,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.03,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.66,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.74,
+            "gain_db": -2.2,
+            "speed": 0.938,
+            "tilt_hz": 7000.0,
+            "pan": 0.26,
+            "len_s": 0.704,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 10.23,
+        "lufs_after": -20.53,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": -10.23,
+        "limiter_gr_mean_db": -0.05
+      }
+    },
+    {
+      "id": "460",
+      "status": "ok",
+      "note": "dopasowywanie napierśnika — trzy kolejne stuknięcia i dociągnięcia",
+      "repeats": 3,
+      "before": {
+        "lufs": -20.06,
+        "true_peak_dbtp": -4.8,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          1.17,
+          1.31
+        ],
+        "source_slice_s": 0.56,
+        "copies": [
+          {
+            "onset_s": 0.44,
+            "gain_db": -2.2,
+            "speed": 1.034,
+            "tilt_hz": 10000.0,
+            "pan": -0.25,
+            "len_s": 0.542,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.17,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.56,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.79,
+            "gain_db": -1.6,
+            "speed": 0.958,
+            "tilt_hz": 8000.0,
+            "pan": 0.22,
+            "len_s": 0.585,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 1.17,
+        "lufs_after": -19.97,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "472",
+      "status": "ok",
+      "note": "ogr obwiesza się kolejnymi sztukami zdobycznego oręża",
+      "repeats": 3,
+      "before": {
+        "lufs": -20.0,
+        "true_peak_dbtp": -8.84,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.01,
+          0.33
+        ],
+        "source_slice_s": 0.73,
+        "copies": [
+          {
+            "onset_s": 0.05,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.73,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.76,
+            "gain_db": -2.1,
+            "speed": 0.951,
+            "tilt_hz": 8500.0,
+            "pan": 0.27,
+            "len_s": 0.768,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.46,
+            "gain_db": -3.6,
+            "speed": 1.063,
+            "tilt_hz": 11000.0,
+            "pan": -0.24,
+            "len_s": 0.687,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 3.33,
+        "lufs_after": -20.0,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "355",
+      "status": "ok",
+      "note": "Chandra odkłada na stół kolejno zbroję i pamiątki",
+      "repeats": 3,
+      "before": {
+        "lufs": -20.02,
+        "true_peak_dbtp": -5.83,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.0,
+          0.47
+        ],
+        "source_slice_s": 0.82,
+        "copies": [
+          {
+            "onset_s": 0.02,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.82,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.81,
+            "gain_db": -2.6,
+            "speed": 0.968,
+            "tilt_hz": 8000.0,
+            "pan": -0.23,
+            "len_s": 0.847,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.56,
+            "gain_db": -4.2,
+            "speed": 1.051,
+            "tilt_hz": 10500.0,
+            "pan": 0.25,
+            "len_s": 0.78,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 2.69,
+        "lufs_after": -20.0,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "23",
+      "status": "ok",
+      "note": "szmaragdowe rozbłyski znaczące ślad — trzy dzwonkowe iskry oddalające się ścieżką",
+      "repeats": 3,
+      "before": {
+        "lufs": -19.97,
+        "true_peak_dbtp": -6.33,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.0,
+          0.85
+        ],
+        "source_slice_s": 1.15,
+        "copies": [
+          {
+            "onset_s": 0.0,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 1.15,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.63,
+            "gain_db": -3.2,
+            "speed": 1.058,
+            "tilt_hz": 12000.0,
+            "pan": 0.26,
+            "len_s": 1.087,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.26,
+            "gain_db": -6.0,
+            "speed": 1.117,
+            "tilt_hz": 10000.0,
+            "pan": -0.3,
+            "len_s": 1.03,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 1.89,
+        "lufs_after": -19.97,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "6",
+      "status": "ok",
+      "note": "runiczne kajdany zamykają się na dwojgu skazańcach",
+      "repeats": 2,
+      "before": {
+        "lufs": -19.92,
+        "true_peak_dbtp": -4.84,
+        "duration_s": 2.0
+      },
+      "build": {
+        "source_event_s": [
+          0.0,
+          0.77
+        ],
+        "source_slice_s": 1.02,
+        "copies": [
+          {
+            "onset_s": 0.0,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 1.02,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.71,
+            "gain_db": -1.8,
+            "speed": 1.043,
+            "tilt_hz": 10000.0,
+            "pan": 0.3,
+            "len_s": 0.978,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 0.49,
+        "lufs_after": -20.05,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "283",
+      "status": "ok",
+      "note": "ogniste pociski psionów rozpryskujące się na barierze — pięć trafień, słabnących",
+      "repeats": 5,
+      "before": {
+        "lufs": -20.14,
+        "true_peak_dbtp": -3.24,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.08,
+          0.43
+        ],
+        "source_slice_s": 0.82,
+        "copies": [
+          {
+            "onset_s": 0.08,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.82,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.61,
+            "gain_db": -2.0,
+            "speed": 1.049,
+            "tilt_hz": 11000.0,
+            "pan": 0.3,
+            "len_s": 0.782,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.07,
+            "gain_db": -3.4,
+            "speed": 0.957,
+            "tilt_hz": 8500.0,
+            "pan": -0.26,
+            "len_s": 0.857,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.46,
+            "gain_db": -6.5,
+            "speed": 1.078,
+            "tilt_hz": 7000.0,
+            "pan": 0.22,
+            "len_s": 0.761,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.86,
+            "gain_db": -9.5,
+            "speed": 0.936,
+            "tilt_hz": 6000.0,
+            "pan": -0.31,
+            "len_s": 0.876,
+            "truncated": true
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 2.46,
+        "lufs_after": -20.03,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": -0.81,
+        "limiter_gr_mean_db": -0.0
+      }
+    },
+    {
+      "id": "270",
+      "status": "ok",
+      "note": "hedry pękają (liczba mnoga) — trzy pęknięcia bazaltu",
+      "repeats": 3,
+      "before": {
+        "lufs": -21.42,
+        "true_peak_dbtp": -1.72,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.25,
+          0.73
+        ],
+        "source_slice_s": 0.85,
+        "copies": [
+          {
+            "onset_s": 0.25,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.85,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.96,
+            "gain_db": -3.0,
+            "speed": 0.962,
+            "tilt_hz": 8500.0,
+            "pan": -0.26,
+            "len_s": 0.884,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.57,
+            "gain_db": -5.2,
+            "speed": 1.057,
+            "tilt_hz": 11000.0,
+            "pan": 0.23,
+            "len_s": 0.804,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 3.96,
+        "lufs_after": -20.25,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": -3.9,
+        "limiter_gr_mean_db": -0.02
+      }
+    },
+    {
+      "id": "175",
+      "status": "ok",
+      "note": "pęknięcie ściany, a potem monety sypiące się coraz drobniej",
+      "repeats": 7,
+      "before": {
+        "lufs": -19.95,
+        "true_peak_dbtp": -6.82,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.0,
+          0.28
+        ],
+        "source_slice_s": 0.78,
+        "copies": [
+          {
+            "onset_s": 0.06,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 0.78,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.52,
+            "gain_db": -4.0,
+            "speed": 1.072,
+            "tilt_hz": 12000.0,
+            "pan": 0.25,
+            "len_s": 0.728,
+            "truncated": false
+          },
+          {
+            "onset_s": 0.93,
+            "gain_db": -7.0,
+            "speed": 1.131,
+            "tilt_hz": 11000.0,
+            "pan": -0.28,
+            "len_s": 0.69,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.25,
+            "gain_db": -9.5,
+            "speed": 1.186,
+            "tilt_hz": 9500.0,
+            "pan": 0.32,
+            "len_s": 0.658,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.52,
+            "gain_db": -11.5,
+            "speed": 1.094,
+            "tilt_hz": 10500.0,
+            "pan": -0.22,
+            "len_s": 0.713,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.79,
+            "gain_db": -13.5,
+            "speed": 1.243,
+            "tilt_hz": 8500.0,
+            "pan": 0.29,
+            "len_s": 0.628,
+            "truncated": false
+          },
+          {
+            "onset_s": 2.02,
+            "gain_db": -15.5,
+            "speed": 1.152,
+            "tilt_hz": 9000.0,
+            "pan": -0.33,
+            "len_s": 0.677,
+            "truncated": true
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 4.5,
+        "lufs_after": -20.0,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    },
+    {
+      "id": "535",
+      "status": "ok",
+      "note": "skaveński nieskończony cykl klatek — mechanizm powtarza się drugi raz",
+      "repeats": 2,
+      "before": {
+        "lufs": -20.15,
+        "true_peak_dbtp": -6.32,
+        "duration_s": 2.48
+      },
+      "build": {
+        "source_event_s": [
+          0.0,
+          0.86
+        ],
+        "source_slice_s": 1.08,
+        "copies": [
+          {
+            "onset_s": 0.0,
+            "gain_db": 0.0,
+            "speed": 1.0,
+            "tilt_hz": 0.0,
+            "pan": 0.0,
+            "len_s": 1.08,
+            "truncated": false
+          },
+          {
+            "onset_s": 1.06,
+            "gain_db": -2.2,
+            "speed": 1.029,
+            "tilt_hz": 9000.0,
+            "pan": 0.18,
+            "len_s": 1.05,
+            "truncated": false
+          }
+        ],
+        "events_in_source": 1
+      },
+      "master": {
+        "gain_db": 2.27,
+        "lufs_after": -19.94,
+        "true_peak_after_dbtp": null,
+        "limiter_gr_db": 0.0,
+        "limiter_gr_mean_db": 0.0
+      }
+    }
+  ]
+}

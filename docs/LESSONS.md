@@ -754,3 +754,22 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   słyszalny detal w średnicy i górze, nie sam rumble. Unikać słów
   `soft`, `gentle`, `delicate`, `distant`, `faint` — po normalizacji i tak
   trzeba je zregenerować.
+
+## 2026-09-29 — Krótkie zdarzenie w długim pliku naprawia się postprodukcją, nie regeneracją
+
+- Sytuacja: 96 sampli miało wypełnienie treścią poniżej 45 %, a skrajne
+  przypadki (304 salwa, 46 pędy, 460 napierśnik) mieściły 0,09–0,14 s dźwięku
+  w pliku trwającym 2,48 s. Reszta to martwe powietrze — słuchacz dostawał
+  kliknięcie i ciszę.
+- Wniosek: to nie jest wada generacji, tylko niewykorzystany czas. Jeśli
+  fabuła mówi o wielokrotnym zdarzeniu (*stado* crebainów, salwa *trzech*
+  łuków, *trójlufowa* rękawica, płyty opadające *kolejno*), serię da się
+  zbudować z istniejącego nagrania za zero kredytów.
+- Zasada / działanie zapobiegawcze: multiplikować tylko przy uzasadnieniu
+  fabularnym i nigdy przez kopiuj-wklej — identyczna kopia natychmiast
+  brzmi jak pętla. Każde powtórzenie musi mieć własny varispeed (pitch+czas),
+  poziom, tilt barwy i pozycję w panoramie, a odstępy muszą być nierówne.
+  Ciche odbicia/oddalanie tego samego źródła wolno dodać, żeby domknąć ogon
+  pliku — to wciąż jedno jednorodne zdarzenie, nie druga warstwa sceny.
+  Po zabiegu zawsze pełny audyt: sprawdzić, czy nie przybyło par bliźniaków
+  brzmieniowych (u nas 23 → 20, więc zróżnicowanie zadziałało).
