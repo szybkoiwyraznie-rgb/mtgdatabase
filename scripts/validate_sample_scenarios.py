@@ -20,6 +20,14 @@ ROOT = Path(__file__).resolve().parent.parent
 REQUIRED = {"story_id", "title", "sample_scenario", "prompt", "duration_seconds", "status", "batch"}
 STATUSES = {"draft", "ready", "generated", "rejected"}
 BANNED_LAYER_WORDS = re.compile(r"\b(hero|coda|koda|background|tło|warstwa|layers?|mix)\b", re.I)
+# Źródła muzyczne dopuszczalne przy music_allowed — instrument musi być
+# nazwany, bo wyjątek dotyczy grania w kadrze, nie podkładu muzycznego.
+MUSICAL_SOURCE = re.compile(
+    r"fujark|piszczał|flet|fife|skrzypc|fiddle|lutni|lute|harf|harp|"
+    r"bęb[ne]|drum|tambouryn|tambourine|cymbał|dulcimer|lir[aey]|lyre|"
+    r"róg\b|rogu\b|horn|trąb|trumpet|dzwon|bell|gong|organ|kobz|bagpipe|"
+    r"grzechotk|rattle|klekotk|struny|strings|instrument|melodi|melody|"
+    r"przyśpiew|nuc|hum\b|śpiew|chant|sing", re.I)
 
 
 def read_catalog(path: Path) -> dict[str, dict]:
@@ -78,7 +86,18 @@ def validate_row(row: dict, line_no: int, catalog: dict[str, dict]) -> list[str]
         errors.append("prompt too long; keep it focused on one sample")
     if BANNED_LAYER_WORDS.search(scenario) or BANNED_LAYER_WORDS.search(prompt):
         errors.append("scenario/prompt mentions layered v1 concepts; v2 must be one homogeneous sample")
-    if "music" not in prompt.lower() and "muzyk" not in prompt.lower():
+    # Muzyka jest domyślnie zakazana, ale NIE jest zakazana bezwzględnie.
+    # Jeśli fabuła stawia instrument w centrum zdarzenia (bard z lutnią,
+    # myszy grające w marszu, róg bojowy), to sample MA być muzyczny —
+    # jako źródło dźwięku w kadrze, nie jako podkład pod scenę.
+    # Wyjątek trzeba zadeklarować wprost polem music_allowed.
+    if row.get("music_allowed"):
+        if not MUSICAL_SOURCE.search(scenario) and not MUSICAL_SOURCE.search(prompt):
+            errors.append("music_allowed set but no instrument/musical source named; "
+                          "name the instrument that is played in frame")
+        if "no speech" not in prompt.lower() and "no narration" not in prompt.lower():
+            errors.append("music_allowed still requires forbidding speech in prompt")
+    elif "music" not in prompt.lower() and "muzyk" not in prompt.lower():
         errors.append("prompt should explicitly forbid music")
     return errors
 
