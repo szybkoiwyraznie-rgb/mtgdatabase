@@ -490,3 +490,67 @@ wobec stanu sprzed dostawy), mediana −20,02 LUFS, σ 0,54 LU, max true peak
 
 Quota: 3 generacje ≈ 90 kredytów; szacowany stan po b055: **~3 480
 kredytów** (do weryfikacji w panelu ElevenLabs).
+
+## Audyt semantyczny i runda r007 (2026-09-29, sesja `arena/01a0e845`)
+
+Do tej pory wszystkie audyty były **sygnałowe**: mierzyły głośność, pasmo,
+ciszę i duplikaty, ale nie sprawdzały, *co* słychać. Sample mógł być
+wzorowo zmasterowany i nie mieć nic wspólnego ze swoim opisem.
+
+### Nowe narzędzie 1: `scripts/audit_semantic_match.py`
+
+Konkretne rodzaje dźwięku mają przewidywalny podpis akustyczny — dzwon jest
+tonalny i długo wybrzmiewa, syk to szerokopasmowy szum bez wysokości,
+uderzenie ma ostry atak. Skrypt wyciąga ze scenariusza oczekiwaną klasę
+(14 klas), liczy cechy pliku (atak, zanik, tonalność, harmoniczność,
+modulacja obwiedni, onsety, pasma) i sprawdza twarde predykaty.
+
+Dwie rzeczy decydują o wiarygodności:
+
+- **progi to percentyle rozkładu korpusu**, nie zgadywane stałe — audyt
+  kalibruje się sam, a zarzut brzmi „plik jest w dolnym kwartylu cechy,
+  której jego klasa wymaga”;
+- **filtr metafor** — „fale szmaragdowej aury” czy „strumień ognia” nie są
+  wodą, więc nie żądamy od nich brzmienia wody. Bez tego filtra detektor
+  produkował fałszywe alarmy; podobnie dźwięk podwodny jest ciemny
+  z fizyki, nie z wady generacji.
+
+Kalibracja wykryła też dwa moje własne błędy: progi dla skrzydeł i ognia
+odpalały się na ponad połowie klasy, czyli były po prostu źle ustawione.
+
+### Nowe narzędzie 2: `scripts/audit_scenario_quality.py`
+
+Punktuje, czy scenariusz **da się w ogóle nagrać**: czy ma nośnik dźwięku,
+czy podaje materiał i kontakt, i ile w nim balastu wizualnego
+(kolory, blask, aury) oraz abstrakcyjnego (przekonania, nadzieja, moc).
+„Turkusowa mgła nekromancji wzmacniająca rakshasę” to opis kadru, nie
+zlecenie dla realizatora dźwięku — generator dostaje przymiotniki
+wizualne i odsyła tonalny pomruk.
+
+### Runda r007 + r007b
+
+Przepisano **42 scenariusze** (rażące sprzeczności dźwięk/opis oraz
+opisy-kadry) na konkretne, jednorodne zdarzenia z materiałem i kontaktem,
+a następnie zregenerowano je (`--force`). Druga tura r007b poprawiła
+6 promptów pod konkretną zmierzoną wadę — głównie wymuszenie
+natychmiastowego ataku („starts instantly, no fade in”) tam, gdzie
+generator dawał narastanie.
+
+Runy: **36555125109** (r007, 42/42) i **36555697213** (r007b, 6/6).
+Postprodukcja: `postprocess-r007.json`, `postprocess-r007b.json` —
+z generatora wychodziło -33,4…-6,9 LUFS i 24 pliki ponad sufitem.
+
+Wynik:
+
+| Miara | Przed | Po |
+|---|---|---|
+| rażące sprzeczności dźwięk/opis | 18 | **0** |
+| podejrzane ogółem | 66 | 52 |
+| scenariusze poniżej progu jakości | 24 | **0** |
+| średnia jakość przepisanych scenariuszy | 48,6 | 72,3 |
+| flagi sygnałowe w korpusie | 76 | 71 |
+| pary bliźniaków brzmieniowych | 20 | 16 |
+
+Korpus: 533 sample, mediana -20 LUFS, duplikaty PCM 0.
+Koszt: 48 generacji (kredyty nieograniczone — właściciel zakłada konta
+bezpłatne, więc regeneracja przestała być czynnikiem ograniczającym).

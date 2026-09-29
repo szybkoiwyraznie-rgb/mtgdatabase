@@ -773,3 +773,30 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   pliku — to wciąż jedno jednorodne zdarzenie, nie druga warstwa sceny.
   Po zabiegu zawsze pełny audyt: sprawdzić, czy nie przybyło par bliźniaków
   brzmieniowych (u nas 23 → 20, więc zróżnicowanie zadziałało).
+
+## 2026-09-29 — Scenariusz opisujący obraz daje dźwięk, którego nie da się obronić
+
+- Sytuacja: audyt wyrazistości pokazał 24 scenariusze bez jednego słowa
+  opisującego dźwięk — „turkusowa mgła nekromancji wzmacniająca rakshasę”,
+  „podwójny błysk przekonań wracający siłą do zbroi”, „fale szmaragdowej
+  aury sojuszników”. To opisy kadru z ilustracji, nie zdarzenia akustyczne.
+- Wniosek: taki scenariusz nie ma jak się nie udać źle — nie istnieje
+  poprawny wynik, bo nie wiadomo, co miałoby zabrzmieć. Generator dostaje
+  przymiotniki wizualne i odsyła tonalny pomruk, a potem audyt sygnałowy
+  pokazuje, że „wszystko w normie”.
+- Zasada / działanie zapobiegawcze: każdy scenariusz musi nazwać fizyczne
+  zdarzenie (rzeczownik dźwiękowy) i materiał, który je wydaje. Zamiast
+  aury — pazur kładący klejnot na kamień. Zamiast energii — chrobot kredy
+  po posadzce. Fabuła zostaje bogata, scenariusz ma być ubogi i konkretny.
+
+## 2026-09-29 — Próg audytu trzeba kalibrować rozkładem, nie intuicją
+
+- Sytuacja: pierwsze wersje predykatów semantycznych („ogień musi mieć
+  flatness > 0,03”, „skrzydła muszą modulować 1,5-14 Hz”) odpalały się na
+  ponad połowie swojej klasy. Wyglądało to na masową wadę korpusu.
+- Wniosek: to nie sample były złe, tylko progi wzięte z sufitu. Mediana
+  flatness w korpusie wynosi 0,095, więc próg 0,03 oskarżał połowę zbioru.
+- Zasada / działanie zapobiegawcze: progi wyrażać jako percentyle rozkładu
+  mierzonego korpusu (dolny kwartyl cechy, której dana klasa wymaga)
+  i zawsze raportować, jaki odsetek klasy narusza dany predykat. Jeśli
+  przekracza ~50 %, błąd jest w progu, nie w plikach.

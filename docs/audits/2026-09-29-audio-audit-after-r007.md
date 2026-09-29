@@ -48,7 +48,7 @@ Ten skan dokłada cztery wymiary, których wcześniej nie sprawdzaliśmy:
 | WYSOKIE — za cicho (LUFS/peak) | 0 | wysoka | normalizacja w postprodukcji |
 | WYSOKIE — energia w infradźwiękach | 0 | wysoka | EQ+normalizacja albo regeneracja |
 | WYSOKIE — brak treści powyżej 250 Hz | 5 | średnia | odsłuch → regeneracja |
-| WYSOKIE — treść krótsza niż 0,8 s | 12 | wysoka | trym albo regeneracja |
+| WYSOKIE — treść krótsza niż 0,8 s | 11 | wysoka | trym albo regeneracja |
 | ŚREDNIE — przester (clipping) | 0 | średnia | tłumienie + limiter |
 | ŚREDNIE — true peak > +1 dBTP | 0 | średnia | limiter w postprodukcji |
 | ŚREDNIE — za głośno | 0 | średnia | wyrównanie głośności |
@@ -56,18 +56,18 @@ Ten skan dokłada cztery wymiary, których wcześniej nie sprawdzaliśmy:
 | DO ODSŁUCHU — tonalne/„muzyczne" | 6 | niska | weryfikacja uchem |
 | DO ODSŁUCHU — podobne do mowy | 3 | niska | weryfikacja uchem |
 | DO ODSŁUCHU — start na pełnym poziomie | 11 | niska | weryfikacja uchem / fade-in |
-| BLIŹNIAKI — para sampli ≥ 0.95 kosinusa | 18 | niska | odsłuch pary, ewentualnie nowy prompt |
+| BLIŹNIAKI — para sampli ≥ 0.95 kosinusa | 16 | niska | odsłuch pary, ewentualnie nowy prompt |
 | KOSMETYCZNE — długa cisza wiodąca | 13 | wysoka | opcjonalny trym |
-| KOSMETYCZNE — długa cisza końcowa | 36 | wysoka | opcjonalny trym |
+| KOSMETYCZNE — długa cisza końcowa | 35 | wysoka | opcjonalny trym |
 
-Plików z co najmniej jedną flagą: **72** / 533.
+Plików z co najmniej jedną flagą: **71** / 533.
 Plików z flagą **merytoryczną** (bez kategorii kosmetycznych i „start na pełnym
-poziomie"): **18**.
+poziomie"): **17**.
 
 
 ## Najważniejszy wniosek: korpus nie ma wyrównanej głośności
 
-Rozkład głośności percepcyjnej: mediana **-20.0 LUFS**, p10 **-20.6**, p90 **-20.0**, σ **0.6 LU**, rozpiętość **5.4 LU** (od -24.7 do -19.3).
+Rozkład głośności percepcyjnej: mediana **-20.0 LUFS**, p10 **-20.6**, p90 **-20.0**, σ **0.6 LU**, rozpiętość **6.5 LU** (od -25.8 do -19.3).
 
 To nie jest kwestia pojedynczych odstających plików — **cały korpus jest nierówny**.
 Przy odsłuchu biblioteki po kolei jedne sample są ledwie słyszalne, inne wyrywają
@@ -77,7 +77,7 @@ Gdyby wyrównać wszystko do **-20 LUFS** z sufitem **−1 dBTP**:
 
 - plików wymagających wzmocnienia > +10 dB: **0** (z tego > +15 dB: 0 — tam wyjdzie szum tła, lepiej zregenerować),
 - plików wymagających wyciszenia > 6 dB: **0**,
-- plików w granicach ±3 dB od celu: **528**.
+- plików w granicach ±3 dB od celu: **527**.
 
 Operacja jest lokalna, odwracalna i **nie kosztuje kredytów**. Rekomendacja: zrobić ją
 jednym przebiegiem na całym korpusie, dopiero potem oceniać pojedyncze sample uchem —
@@ -140,7 +140,6 @@ Po odjęciu ciszy zostaje bardzo mało dźwięku. Czasem to poprawne (jedno uder
 | 591 | Rust-Shield Rampager | 0.47 s | 0.34 s | 2.48 s | szop z tarczą z garnka i szopię w hełmie w sz |
 | 466 | Basilisk Gate | 0.55 s | 0.42 s | 2.48 s | złoty rezonans bram miasta nasycający pancerz |
 | 129 | Charismatic Vanguard | 0.56 s | 0.33 s | 2.48 s | kuty młot uderzający o stalowy pancerz w geśc |
-| 17 | Selhoff Occultist | 0.57 s | 0.49 s | 2.48 s | ostry świst rytualnego sztyletu rozcinający z |
 | 442 | Cenn's Tactician | 0.58 s | 0.41 s | 2.48 s | jedno równoczesne tupnięcie szeregu obrońców  |
 | 608 | Skymarch Bloodletter | 0.63 s | 0.4 s | 2.48 s | uderzenie rapiera o stalowy napierśnik |
 | 223 | Angel's Feather | 0.65 s | 0.59 s | 2.48 s | mocne machnięcie wielkim skrzydłem tuż przy u |
@@ -193,14 +192,12 @@ Kosinus odcisków log-mel ≥ 0.95. Identyczny PCM (md5): **0** grup.
 | 0.962 | 401 | Rage of Purphoros | 517 | Force Away | syk rozgrzanego metalu i skwierczenie topiące | twarde uderzenie sprężonego powietrza rozpyla |
 | 0.961 | 15 | Tellah, Great Sage | 155 | Demolish | eksplozja ognia i błyskawic wyrywająca się z  | detonacja bramy i zawalenie wiaduktu w morze  |
 | 0.960 | 236 | Agate Assault | 486 | Krallenhorde Wantons | kaskada głazów z pękającej krawędzi urwiska w | trzask wrót gospody pod uderzeniem przywódcy  |
-| 0.960 | 72 | Dragon Arch | 290 | Soulbright Flamekin | łuskowate cielsko szorujące o kamienny łuk z  | buchnięcie płomienia z głuchym pomrukiem i tr |
-| 0.959 | 290 | Soulbright Flamekin | 542 | Panic Spellbomb | buchnięcie płomienia z głuchym pomrukiem i tr | karmazynowa eksplozja spellbomba wywołująca p |
 | 0.959 | 137 | Withstand | 155 | Demolish | strumień ognia rozpraszający się na krawędzia | detonacja bramy i zawalenie wiaduktu w morze  |
 | 0.955 | 15 | Tellah, Great Sage | 601 | Exploding Borders | eksplozja ognia i błyskawic wyrywająca się z  | zderzenie Jundu z Nayą — lawa pochłania prast |
-| 0.955 | 344 | Pain for All | 497 | Static Net | krzyżowe ostrza kavu i fala czerwonego bólu p | trzaskające wyładowania biegnące po zębatkach |
 | 0.955 | 306 | Mysteries of the Deep | 470 | Springbloom Druid | długi syk morskiej wody cofającej się po mokr | ofiara z żyznej gleby i wybuch dwóch drzew w  |
 | 0.954 | 155 | Demolish | 601 | Exploding Borders | detonacja bramy i zawalenie wiaduktu w morze  | zderzenie Jundu z Nayą — lawa pochłania prast |
 | 0.953 | 128 | Undead Servant | 152 | Timely Interference | wydobycie się nieumarłego z rozkopanego grobu | ryw i cios kavu wyskakującego zza kolumny w b |
+| 0.953 | 137 | Withstand | 290 | Soulbright Flamekin | strumień ognia rozpraszający się na krawędzia | buchnięcie płomienia z trzaskiem iskier na st |
 | 0.952 | 18 | Lotusguard Disciple | 76 | Negate | iskry i odłamki odbijające się od pulsującej  | rozbicie strumienia zaklęcia o niewidzialną b |
 | 0.952 | 15 | Tellah, Great Sage | 72 | Dragon Arch | eksplozja ognia i błyskawic wyrywająca się z  | łuskowate cielsko szorujące o kamienny łuk z  |
 | 0.952 | 243 | Willbender | 486 | Krallenhorde Wantons | zaklęcie skręcające ze swojego toru nad wodam | trzask wrót gospody pod uderzeniem przywódcy  |
@@ -213,16 +210,16 @@ Wszystkie prompty i opisy scenariuszy są unikalne (527/527).
 ## 14. KOSMETYCZNE — cisza w pliku
 
 - cisza wiodąca > 0.6 s: **13** plików (604, 65, 218, 140, 360, 403, 463, 578, 232, 500, 382, 560, 561)
-- cisza końcowa > 1.5 s: **36** plików (56, 129, 591, 608, 514, 610, 466, 197, 442, 17, 593, 616, 142, 14, 576, 556, 567, 85, 202, 544, 268, 337, 543, 82, 164 …)
+- cisza końcowa > 1.5 s: **35** plików (56, 129, 591, 608, 514, 610, 466, 197, 442, 593, 616, 142, 14, 576, 556, 567, 85, 202, 544, 268, 337, 543, 82, 164, 185 …)
 
 To nie jest błąd generacji — sample po prostu nie wypełnia całej zadeklarowanej
 długości. Trym/skrócenie pliku jest opcjonalne i bezkosztowe.
 
 ## 15. Różnice względem audytu po rundzie r005
 
-- flagi merytoryczne w poprzednim skanie: **20**, teraz: **18**
+- flagi merytoryczne w poprzednim skanie: **20**, teraz: **17**
 - nowe (nie widział ich poprzedni zestaw metryk): 56
-- zniknęły: 520, 576, 592
+- zniknęły: 17, 520, 576, 592
 
 Uwaga: poprzedni skan nie mierzył LUFS, pasma, tonalności ani duplikatów,
 więc większość „nowych" pozycji to nie regresja plików, tylko nowe kryterium.
@@ -234,7 +231,7 @@ potem odsłuch i dopiero na końcu wydawanie kredytów.
 
 1. **Postprodukcja lokalna, 0 kredytów** — wyrównanie głośności całego korpusu, limiter −1 dBTP, filtr DC. Bezpośrednio dotyczy 1 plików z flagami głośnościowymi: 445
 
-2. **Do odsłuchu przed decyzją** — 45 ID (tonalne, mowopodobne, bliźniaki, krótka treść): 15, 17, 18, 39, 56, 72, 76, 128, 129, 137, 142, 152, 155, 163, 185, 223, 236, 243, 290, 300, 306, 344, 347, 401, 403, 442, 466, 470, 486, 489, 497, 510, 517, 521, 527, 542, 551, 568, 580, 586, 591, 593, 601, 608, 610
+2. **Do odsłuchu przed decyzją** — 41 ID (tonalne, mowopodobne, bliźniaki, krótka treść): 15, 18, 39, 56, 72, 76, 128, 129, 137, 142, 152, 155, 163, 185, 223, 236, 243, 290, 300, 306, 347, 401, 403, 442, 466, 470, 486, 489, 510, 517, 521, 527, 551, 568, 580, 586, 591, 593, 601, 608, 610
 
 3. **Kandydaci do regeneracji (kredyty, po potwierdzeniu uchem)** — 5 ID bez treści w paśmie słyszalnym: 51, 71, 181, 273, 301
 
