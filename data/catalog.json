@@ -3730,6 +3730,13 @@
       "title": "Izzet Charm",
       "story": "W iskrzących od ciągłych przeciążeń laboratoriach wieży Nivix na planie Ravnica czarodzieje Ligi Izzet niestrudzenie eksperymentują z niszczycielskimi siłami żywiołów. Wytrawna elektromantka z zuchwałym uśmiechem uruchamia aparaturę na swoim ramieniu, w ułamku sekundy łącząc precyzyjną kontrmagię z niszczycielskim uderzeniem skondensowanej błyskawicy. Błękitne łuki prądu i gorąca para z mizziumowego reaktora natychmiast neutralizują wrogie zaklęcia, podczas gdy nagły podmuch powietrza porywa ze stołu zwoje z nowo nakreślonymi równaniami. Ten gwałtowny pokaz gildyjnej inżynierii dowodzi, że w umysłach sług smoka Niv-Mizzeta granica między chaosem a czystym geniuszem całkowicie zaciera się w wirze walki.",
       "versions": []
+    },
+    {
+      "id": "176",
+      "art_id": "176FIN",
+      "title": "Chocobo Kick",
+      "story": "Na bezkresnych, zielonych równinach w pobliżu Zamku Baron w uniwersum Final Fantasy opierzone wierzchowce chocobo słyną ze swojej niezwykłej zwinności i szybkości. Choć z natury wydają się łagodnymi towarzyszami podróży, w obliczu zagrożenia potrafią z zawrotną prędkością zerwać się do niszczycielskiego ataku. W ułamku sekundy żółty ptak wykonuje potężny wyskok, z impetem wbijając obie szponiaste łapy w pancerz wroga pośród oślepiającej fali uderzeniowej. Legendarna siła tego uderzenia bez trudu odrzuca najcięższego przeciwnika, dowodząc, że wierzchowce królestwa potrafią walczyć z równą furią, co najlepsi rycerze.",
+      "versions": []
     }
   ]
 }
