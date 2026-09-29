@@ -826,3 +826,27 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   w danych (`music_allowed`), a nowe klasy leksykalne włączać tylko dla
   wpisów, które je zadeklarowały — inaczej „ulewa bębniąca po zbroi”
   zostaje uznana za nieudany instrument perkusyjny.
+
+## 2026-09-29 — Zanim ogłosisz wadę, sprawdź, czy to nie definicja miary
+
+- Sytuacja: pomiar zgodności mono pokazał, że **wszystkie 533 pliki** tracą
+  ponad 2 LU po zsumowaniu kanałów. Wyglądało to na awarię całego korpusu.
+- Wniosek: BS.1770 sumuje moc kanałów, więc zejście ze stereo do jednego
+  kanału odejmuje ~3,01 LU niezależnie od zawartości. Miara mierzyła własną
+  definicję, nie wadę. Po odjęciu bazy zostało 50 plików, a patologicznych
+  (przeciwfaza) — 11.
+- Zasada / działanie zapobiegawcze: każdą nową metrykę najpierw puścić na
+  sygnale wzorcowym o znanym wyniku (tu: identyczne kanały powinny dać
+  nadwyżkę 0). Jeśli flaga zapala się na całym zbiorze, podejrzanym jest
+  wzór, nie materiał.
+
+## 2026-09-29 — „Najnowszy plik” po nazwie to nie porządek chronologiczny
+
+- Sytuacja: `build_site.py` wybierał raport audytu jako ostatni alfabetycznie
+  z `audio-audit-*.json`. Po dodaniu rundy `after-mono` strona zaczęła czytać
+  `after-r008` i pokazywała nieaktualne flagi — dokładnie ten sam błąd, który
+  dzień wcześniej zamroził ją na raporcie z r006.
+- Zasada / działanie zapobiegawcze: stan „bieżący” trzymać w jawnym, stałym
+  wskaźniku (`audio-audit-latest.json` zapisywanym przez sam audyt), a nie
+  wyprowadzać go z sortowania nazw czy dat modyfikacji plików, które po
+  świeżym `git checkout` są i tak identyczne.

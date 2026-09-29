@@ -130,8 +130,15 @@ def copy_samples(src: Path, out: Path) -> set[str]:
 
 
 def latest_audit() -> Path:
-    """Najnowszy raport audytu sygnałowego, żeby strona nie zamarzała na
-    starej rundzie po kolejnych regeneracjach."""
+    """Wskaźnik na aktualny raport audytu sygnałowego.
+
+    Nie zgadujemy z nazwy pliku: sortowanie alfabetyczne stawiało
+    `after-mono` przed `after-r008` i strona pokazywała nieaktualne flagi.
+    Kanoniczna kopia `audio-audit-latest.json` jest zapisywana przez
+    `audit_samples_full.py` przy każdym audycie do `data/samples/`."""
+    pointer = ROOT / "data/samples/audio-audit-latest.json"
+    if pointer.exists():
+        return pointer
     found = sorted((ROOT / "data/samples").glob("audio-audit-*.json"))
     return found[-1] if found else ROOT / "data/samples/audio-audit.json"
 

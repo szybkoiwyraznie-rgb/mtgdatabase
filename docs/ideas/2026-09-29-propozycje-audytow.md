@@ -9,7 +9,7 @@ duplikatów PCM, mediana −20,02 LUFS, σ 0,54 LU, max true peak −1,07 dBTP.
 
 ---
 
-## P1. Zgodność mono — sample, które znikają na telefonie ⭐ największy zysk
+## P1. Zgodność mono — sample, które znikają na telefonie ✅ ZREALIZOWANE 2026-09-29
 
 **Dowód:** po zsumowaniu kanałów do mono
 - **181 traci 11,0 LU** (−20,0 → −31,0 LUFS) — na głośniku telefonu praktycznie znika,
@@ -80,7 +80,7 @@ do wyraźnych odstających. Koszt: **0 kredytów**.
 
 ---
 
-## P5. Audyt semantyczny „czy sample brzmi jak opis"
+## P5. Audyt semantyczny „czy sample brzmi jak opis" ✅ ZREALIZOWANE
 
 Największa dziura w kontroli jakości: wszystkie dotychczasowe metryki są
 sygnałowe. Nikt nie weryfikuje maszynowo, czy `krakanie kruka` to naprawdę

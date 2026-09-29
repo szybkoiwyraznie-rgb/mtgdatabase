@@ -600,3 +600,48 @@ Wynik: 9/9 bez flag sygnałowych, wszystkie po -20 LUFS, semantycznie 0 pkt
 (poza 298 — 2,0 pkt za brak wykrywalnej wysokości, co dla wielkiego dzwonu
 o nieharmonicznych składowych jest spodziewane). Korpus: 533 sample,
 71 flag, 0 rażących sprzeczności, 52 „wyraźne” pozostawione świadomie.
+
+## 2026-09-29 — P1: zgodność mono (0 kredytów, bez regeneracji)
+
+Audyt mierzył głośność wyłącznie w stereo, więc nie widział sampli, które
+kasują się przy sumowaniu kanałów. **181 tracił 11 LU ponad bazę** przy
+korelacji L/R −0,87 — kanały niemal w przeciwfazie, plik praktycznie znikał
+na głośniku telefonu, mimo równych −20 LUFS w raporcie.
+
+**Pułapka pomiarowa:** BS.1770 sumuje moc kanałów, więc zejście do jednego
+kanału obniża wynik o ~3,01 LU *z definicji*. Pierwszy pomiar dał „533 z 533
+plików traci ponad 2 LU”, co było artefaktem. Wadą jest dopiero **nadwyżka**
+ponad tę bazę i tak liczy ją teraz `mono_excess_lu`.
+
+Nowe metryki w `audit_samples_full.py`: `mono_lufs`, `mono_excess_lu`,
+`lr_correlation` + flaga `mono_collapse` (nadwyżka > 2 LU).
+
+Naprawa w `postprocess_samples.py --fix-mono`: zwężenie składowej bocznej
+(L = M + gS, R = M − gS) przez bisekcję do **największej** szerokości
+mieszczącej się w progu 1 LU, potem ponowne wyrównanie do −20 LUFS.
+Treść wspólna (M) pozostaje nietknięta — zmienia się tylko szerokość obrazu.
+
+Wykonano dwuetapowo: najpierw 11 plików patologicznych (nadwyżka > 3 LU lub
+ujemna korelacja), potem pozostałe 39 z flagą. Decyzja o drugim etapie
+zapadła po sprawdzeniu, że koszt ponownego transkodu (mediana 26,4 dB SNR)
+jest **taki sam** jak przy zwykłej postprodukcji r007 (26,8 dB), czyli nie
+dokłada kary ponad to, co i tak rutynowo akceptujemy.
+
+| Miara | Przed | Po |
+|---|---|---|
+| pliki z flagą `mono_collapse` | 50 | **0** |
+| pliki z ujemną korelacją L/R | 9 | **0** |
+| największa nadwyżka straty w mono | 11,00 LU | **1,96 LU** |
+| najcichszy plik w odsłuchu mono | −34,01 LUFS | **−28,84 LUFS** |
+| flagi sygnałowe ogółem | 117 | **69** |
+
+181 zyskał **+10 dB** w odtwarzaniu mono (−34,0 → −24,0 LUFS) przy centroidzie
+widma 131 → 146 Hz, czyli bez zmiany charakteru. Zero nowych flag w korpusie,
+mediana −20,02 LUFS, true peak max −1,07 dBTP, 0 duplikatów PCM.
+
+Raporty: `postprocess-mono.json`, `postprocess-mono2.json`,
+`audio-audit-2026-09-29-after-mono.md`.
+
+Dodatkowo `audio-audit-latest.json` jako kanoniczny wskaźnik na bieżący
+audyt — `build_site.py` brał wcześniej „najnowszy alfabetycznie”, przez co
+`after-mono` przegrywało z `after-r008` i strona pokazywała stare flagi.
