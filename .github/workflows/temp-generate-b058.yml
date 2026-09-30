@@ -1,0 +1,51 @@
+name: TEMP generate b058 (ElevenLabs)
+
+on:
+  push:
+    branches: [arena/01a0f100-mtgdatabase]
+
+permissions:
+  contents: write
+
+jobs:
+  gen:
+    if: contains(github.event.head_commit.message, '[generate-b058]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: arena/01a0f100-mtgdatabase
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install audio deps
+        run: pip install --quiet numpy scipy soundfile
+      - name: Refresh catalog from collection
+        run: python scripts/import_collection.py fabuły270926.csv --output data/catalog.json
+      - name: Validate scenarios
+        run: python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
+      - name: Generate MP3s with ElevenLabs
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: python scripts/elevenlabs_sample_scout.py --ids 194 --force
+      - name: Archive raw original as artifact
+        run: |
+          mkdir -p raw_upload
+          cp audio/samples/194.mp3 raw_upload/194.mp3
+      - uses: actions/upload-artifact@v4
+        with:
+          name: b058-raw
+          path: raw_upload/
+          retention-days: 30
+          if-no-files-found: error
+      - name: Postprocess to -20 LUFS / -1 dBTP
+        run: python scripts/postprocess_samples.py --ids 194 --report data/samples/postprocess-b058.json
+      - name: Commit generated + processed file back to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio/samples/194.mp3 data/samples/generated-manifest.jsonl data/samples/postprocess-b058.json
+          git commit -m "CI: wygenerowany i wyrownany sample 194 (skip-generate)"
+          git push origin HEAD:arena/01a0f100-mtgdatabase
