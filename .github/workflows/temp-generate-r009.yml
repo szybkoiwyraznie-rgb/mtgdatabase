@@ -1,0 +1,73 @@
+name: TEMP generate r009+b057 (ElevenLabs)
+
+# Tymczasowy workflow: generuje sample dla ID 178,192,317,445 (regeneracja
+# 317/445 + nowe fabuły 178/192), wyrównuje je postprodukcją do -20 LUFS
+# i commituje gotowe pliki z powrotem na gałąź sesji. Marker w commicie:
+# [generate-r009-b057]. Do usunięcia po imporcie.
+
+on:
+  push:
+    branches: [arena/01a0f100-mtgdatabase]
+
+permissions:
+  contents: write
+
+jobs:
+  gen:
+    if: contains(github.event.head_commit.message, '[generate-r009-b057]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: arena/01a0f100-mtgdatabase
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install audio deps
+        run: pip install --quiet numpy scipy soundfile
+
+      - name: Refresh catalog from collection
+        run: python scripts/import_collection.py fabuły270926.csv --output data/catalog.json
+
+      - name: Validate scenarios
+        run: python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
+
+      - name: Generate MP3s with ElevenLabs
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: |
+          python scripts/elevenlabs_sample_scout.py \
+            --ids 178,192,317,445 --force
+
+      - name: Archive raw originals as artifact
+        run: |
+          mkdir -p raw_upload
+          for id in 178 192 317 445; do cp "audio/samples/$id.mp3" "raw_upload/$id.mp3"; done
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: r009-b057-raw
+          path: raw_upload/
+          retention-days: 30
+          if-no-files-found: error
+
+      - name: Postprocess to -20 LUFS / -1 dBTP
+        run: |
+          python scripts/postprocess_samples.py \
+            --ids 178,192,317,445 \
+            --report data/samples/postprocess-r009-b057.json
+
+      - name: Commit generated + processed files back to branch
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add audio/samples/178.mp3 audio/samples/192.mp3 \
+                  audio/samples/317.mp3 audio/samples/445.mp3 \
+                  data/samples/generated-manifest.jsonl \
+                  data/samples/postprocess-r009-b057.json
+          git commit -m "CI: wygenerowane i wyrownane sample 178,192,317,445 (skip-generate)"
+          git push origin HEAD:arena/01a0f100-mtgdatabase
