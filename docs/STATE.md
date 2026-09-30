@@ -173,10 +173,42 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **536 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 536 gotowych wpisów (batche `b001`–`b057`) — 100% katalogu.
-- Wygenerowane sample v2: 536 produkcyjnych MP3 w `audio/samples/`.
+- Katalog bieżący: **537 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 537 gotowych wpisów (batche `b001`–`b058`) — 100% katalogu.
+- Wygenerowane sample v2: 537 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
+
+## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
+
+Katalog urósł do **537 fabuł**. Nowa fabuła z Warhammer Old World (Marienburg):
+błędny rycerz na ciężkim rumaku zagradza drogę strażnikom cechowym. Ponieważ
+dobycie miecza (308) i tupnięcie+rżenie rumaka (593) były już zajęte, na sample
+wybrano odrębną barwowo sygnaturę: metaliczny grzechot stalowego kropierza
+i zbroi płytowej + stuknięcie kopyta o bruk.
+
+Dwie próby (obie generowane tymczasowym markerowanym workflow w Actions,
+generacja → postprodukcja → commit z powrotem; surowe oryginały w artefaktach
+`b058-raw`, 30 dni):
+
+1. **b058 — pułapka basowa.** Prompt „heavy hoof stomp / planting hard on stone"
+   dał głuchy boom: centroid **132 Hz**, audible_share **0,0287** (praktycznie
+   niesłyszalne), flagi boomy/cut_start_hard, metaliczny grzechot zniknął.
+2. **b058b — trafione.** Prompt przepisany na *dominantę metaliczną* (jasny,
+   wysoki grzechot i pobrzękiwanie, klekot płyt i kolczugi, lekki stuk kopyta;
+   bez „heavy/deep/hard stomp"). Efekt: audible_share **0,9918**, centroid
+   9301 Hz — ale za jasno (88% energii > 6,5 kHz), flaga `harsh`.
+
+Korekta barwy (jedno przejście EQ od oryginału b058b, lokalnie w `.venv`):
+high-shelf 5,5 kHz −12 dB + peaking 1,2 kHz i 400 Hz (odbudowa korpusu),
+renormalizacja i limiter. Wynik: centroid **5617 Hz**, energia > 6,5 kHz
+88% → 54%, audible_share 0,96, LUFS −20,54, true peak −1,25 dBTP, **0 flag**.
+Tekst scenariusza zgrany z faktycznym brzmieniem (grzechot/klekot zamiast
+„dzwoniącej" kolczugi) → audyt semantyczny **0 pkt** (impact/metal/steps).
+
+Stan końcowy: korpus **537 sampli / 95 flag / 0 par bliźniaków / 0 identycznego
+PCM**, **0 rażących sprzeczności semantycznych**. Raporty:
+`postprocess-b058.json`, `docs/audits/2026-09-30-audio-audit-after-b058b.md`,
+`docs/audits/2026-09-30-semantic-match-b058b.md`.
 
 ## 2026-09-30 — Dostawa b057 (178, 192) + regeneracja r009/r009b (317, 445)
 
