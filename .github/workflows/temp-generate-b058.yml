@@ -1,4 +1,4 @@
-name: TEMP generate b058 (ElevenLabs)
+name: TEMP generate b058b (ElevenLabs)
 
 on:
   push:
@@ -9,7 +9,7 @@ permissions:
 
 jobs:
   gen:
-    if: contains(github.event.head_commit.message, '[generate-b058]')
+    if: contains(github.event.head_commit.message, '[generate-b058b]')
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
