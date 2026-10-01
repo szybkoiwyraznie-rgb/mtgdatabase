@@ -173,11 +173,87 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: 533 fabuły w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 533 gotowe wpisy (batche `b001`–`b055`) — 100% katalogu.
-- Wygenerowane sample v2: 533 produkcyjne MP3 w `audio/samples/`
-  (batche `b001`–`b055`).
+- Katalog bieżący: **537 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 537 gotowych wpisów (batche `b001`–`b058`) — 100% katalogu.
+- Wygenerowane sample v2: 537 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
+
+## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
+
+Katalog urósł do **537 fabuł**. Nowa fabuła z Warhammer Old World (Marienburg):
+błędny rycerz na ciężkim rumaku zagradza drogę strażnikom cechowym. Ponieważ
+dobycie miecza (308) i tupnięcie+rżenie rumaka (593) były już zajęte, na sample
+wybrano odrębną barwowo sygnaturę: metaliczny grzechot stalowego kropierza
+i zbroi płytowej + stuknięcie kopyta o bruk.
+
+Dwie próby (obie generowane tymczasowym markerowanym workflow w Actions,
+generacja → postprodukcja → commit z powrotem; surowe oryginały w artefaktach
+`b058-raw`, 30 dni):
+
+1. **b058 — pułapka basowa.** Prompt „heavy hoof stomp / planting hard on stone"
+   dał głuchy boom: centroid **132 Hz**, audible_share **0,0287** (praktycznie
+   niesłyszalne), flagi boomy/cut_start_hard, metaliczny grzechot zniknął.
+2. **b058b — trafione.** Prompt przepisany na *dominantę metaliczną* (jasny,
+   wysoki grzechot i pobrzękiwanie, klekot płyt i kolczugi, lekki stuk kopyta;
+   bez „heavy/deep/hard stomp"). Efekt: audible_share **0,9918**, centroid
+   9301 Hz — ale za jasno (88% energii > 6,5 kHz), flaga `harsh`.
+
+Korekta barwy (jedno przejście EQ od oryginału b058b, lokalnie w `.venv`):
+high-shelf 5,5 kHz −12 dB + peaking 1,2 kHz i 400 Hz (odbudowa korpusu),
+renormalizacja i limiter. Wynik: centroid **5617 Hz**, energia > 6,5 kHz
+88% → 54%, audible_share 0,96, LUFS −20,54, true peak −1,25 dBTP, **0 flag**.
+Tekst scenariusza zgrany z faktycznym brzmieniem (grzechot/klekot zamiast
+„dzwoniącej" kolczugi) → audyt semantyczny **0 pkt** (impact/metal/steps).
+
+Stan końcowy: korpus **537 sampli / 95 flag / 0 par bliźniaków / 0 identycznego
+PCM**, **0 rażących sprzeczności semantycznych**. Raporty:
+`postprocess-b058.json`, `docs/audits/2026-09-30-audio-audit-after-b058b.md`,
+`docs/audits/2026-09-30-semantic-match-b058b.md`.
+
+## 2026-09-30 — Dostawa b057 (178, 192) + regeneracja r009/r009b (317, 445)
+
+Właściciel zgłosił, że **317** (*Village Bell-Ringer*) i **445** (*Locthwain
+Paladin*) brzmią dziwnie, oraz dostarczył dwie nowe fabuły z przestrzeni
+The Edge (układ Sothera): **178EOE** *Oreplate Pangolin* i **192OGW**
+*Crumbling Vestige*. Katalog urósł do **536 fabuł**.
+
+Diagnoza starych sampli (obie bez flag sygnałowych — problem percepcyjny):
+- **317**: prompt łączył trzy współbieżne zdarzenia (naprężenie liny +
+  skrzypienie dzwonnicy + dzwon); tonalność tylko 28% ramek, centroid 3235 Hz —
+  dzwon ginął w szarpaninie.
+- **445**: prompt mieszał kopyta + pękające pnącza + proporzec + wiatr;
+  centroid 6527 Hz, flatness 0,31, tonalność 0 — szerokopasmowy „szum
+  chrupania" bez rytmu.
+
+Przepisane prompty (jedno czytelne źródło) i generacja przez scouta w Actions
+(tymczasowy workflow markerowany, generuje → postprodukcja → commit z powrotem;
+surowe oryginały w artefaktach `r009-b057-raw`, `r009b-raw`, 30 dni):
+
+- **runda r009** (ids 178, 192, 317, 445): pierwsza generacja. 317 wyszedł jako
+  czysty, w pełni tonalny dzwon (tonal_frac 0,28 → **1,0**, centroid 1656 Hz),
+  178 czysto od razu. Ale **445 wpadło w pułapkę basową** (centroid 154 Hz,
+  audible_share **0,117**, flagi boomy/dull/mono_collapse — sprawca:
+  „deep muffled low thud"), a **192 utworzyło parę bliźniaczą z 401**
+  (*Rage of Purphoros*, syczący metal; cosine 0,962 — obie tekstury jasne,
+  szerokopasmowe, „syczące").
+- **runda r009b** (ids 192, 445): przepisane prompty — 445 na chrupanie/trzask
+  skorupy „crisp and present in the mid range" (bez „deep/low/muffled/thud"),
+  192 na dyskretne, perkusyjne brzęki kryształu zamiast ciągłego „shimmer swell".
+  Efekt: 445 centroid **3979 Hz**, audible_share **0,986**, 0 flag; 192
+  zróżnicowane od 401 — **0 par bliźniaków w całym korpusie**.
+
+Higiena czasu (przycięcie martwego ogona ciszy, deterministycznie, lokalnie):
+- **317**: 3,0 s → **2,23 s** (fade-out 200 ms), flaga `long_trail_silence`
+  zdjęta, `duration_seconds` scenariusza dostrojone do 2,25.
+- **192**: 2,48 s → **1,26 s**, `duration_seconds` → 1,25.
+
+Stan końcowy (audyt `2026-09-30-after-r009b`): wszystkie **4 pliki 0 flag**,
+korpus **536 sampli / 95 flag / 0 par bliźniaków / 0 identycznego PCM**,
+mediana LUFS ≈ −20. Audyt semantyczny: **0 rażących sprzeczności** (445 i 192
+po 0 pkt; 317 1,0; 178 1,5 — celowy build syk pneumatyki → uderzenie).
+Raporty: `postprocess-r009-b057.json`, `postprocess-r009b.json`,
+`docs/audits/2026-09-30-audio-audit-after-r009b.md`,
+`docs/audits/2026-09-30-semantic-match.md`.
 
 ## Incydent #2: brak auto-deployu po merge PR #44 (2026-09-28)
 

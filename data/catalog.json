@@ -1170,6 +1170,13 @@
       "versions": []
     },
     {
+      "id": "178",
+      "art_id": "178EOE",
+      "title": "Oreplate Pangolin",
+      "story": "W bezlitosnych, bogatych w minerały kopalniach na asteroidach układu Sothera w przestrzeni The Edge roboty przemysłowe są dla załogi czymś znacznie więcej niż zwykłym sprzętem. Masywny, opancerzony w surowe żelazo łuskowiec niestrudzenie kruszy pneumatycznymi szponami twardą skałę, odsłaniając bogate złoża rozżarzonej rudy. Każdy zespawany przez górników dodatkowy płat pancerza i nowe ogniwo zasilające zwiększają wytrzymałość tej niezgrabnej, lecz niezwykle pożytecznej maszyny. Choć nowocześniejsze konstrukcje dawno przewyższyły go wydajnością, asteroidowi robotnicy za nic w świecie nie pozwoliliby odesłać na złom swojego ulubionego mechanicznego druha.",
+      "versions": []
+    },
+    {
       "id": "179",
       "art_id": "179APC",
       "title": "Index",
@@ -1261,10 +1268,24 @@
       "versions": []
     },
     {
+      "id": "192",
+      "art_id": "192OGW",
+      "title": "Crumbling Vestige",
+      "story": "Na obrzeżach układu Sothera w przestrzeni The Edge niszczycielski wpływ grawitacyjny superpustki powoli rozrywa na strzępy całe ciała niebieskie. Dryfujący w próżni fragment obcego globu ulega ostatecznej dezintegracji, rozpadając się na miliony lewitujących odłamków bazaltu i krystalicznego pyłu. Ze szczelin pękającego jądra planety po raz ostatni wystrzeliwuje wielobarwny rozbłysk pierwotnej energii, rozświetlając ciemność kosmosu pryzmatyczną zorzą. Gdy to ostatnie tchnienie dawnego świata gaśnie bezpowrotnie, z martwego kosmicznego reliktu pozostaje jedynie zimna, bezbarwna skała obracająca się w wiecznym mroku.",
+      "versions": []
+    },
+    {
       "id": "193",
       "art_id": "193MH2",
       "title": "Floodhound",
       "story": "Na skalistym brzegu rzeki Pontaru w deszczowy mglisty poranek stoi na płaskim kamieniu pies gończy o wydłużonym pysku i długich zwisających uszach, w postawie węszącego ogara. Całe jego ciało uformowane jest z przejrzystej płynącej wody — przez przezroczysty tułów widać zarys kamieni za nim, z uszu i ogona okapują krople spływające z powrotem do rzeki. Nos wodnego ogara skierowany jest ku małemu świecącemu przedmiotowi między kamieniami — szklanej soczewce emitującej bladoniebieską poświatę, odnalezionemu tropowi. Na Wielkiej Wyspie albo na Kontynencie niektóre wiedźmy potrafią wezwać sługi, które nigdy nie zgubią śladu i nie zmęczą się — woda ma dobrą pamięć, a ta, która pamięta zapach, pamięta go aż do ujścia.",
+      "versions": []
+    },
+    {
+      "id": "194",
+      "art_id": "194GPT",
+      "title": "Lionheart Maverick",
+      "story": "Przed potężną bramą kupieckiego Marienburga błędny rycerz z Zakonu Lwiego Serca samotnie zagradza drogę zbrojnym strażnikom cechowym. Dosiadając ciężkiego rumaka w stalowym naczółku, wojownik mierzy obnażonym orężem w pachołków obwieszonych sygnetami bogatych faktorii handlowych. Dumny szlachcic gardzi zepsuciem miejskich urzędników, którzy własne tchórzostwo próbują maskować przewagą liczebną i gildiowym złotem. W surowych realiach Starego Świata to nie pieczęcie kupców stanowią o prawdziwej sile człowieka, lecz niezłomna odwaga i hart stali w samotnym starciu.",
       "versions": []
     },
     {
