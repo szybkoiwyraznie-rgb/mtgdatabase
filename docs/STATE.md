@@ -173,9 +173,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **539 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 539 gotowych wpisów (batche `b001`–`b059` + rundy korekt) — 100% katalogu.
-- Wygenerowane sample v2: 539 produkcyjnych MP3 w `audio/samples/`.
+- Katalog bieżący: **540 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 540 gotowych wpisów (batche `b001`–`b060` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 540 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -309,6 +309,30 @@ Raporty: `data/samples/postprocess-b059.json`, `data/samples/postprocess-b059b.j
 `data/samples/brighten-b059c.json`,
 `docs/audits/2026-10-01-audio-audit-after-b059c.md`,
 `docs/audits/2026-10-01-semantic-match-b059c.md`.
+
+## 2026-10-01 — Dostawa b060: Mnemonic Wall
+
+Właściciel dostarczył nową fabułę `196THS` *Mnemonic Wall* (Meletis/Theros:
+Perisophia dotyka muru pamięci z krystalicznego marmuru, a echo dawnych idei
+materializuje się jako świetlisty zwój zapomnianego czaru). Katalog urósł do
+**540 fabuł**.
+
+Scenariusz `196`: krótki brzęk krystalicznego marmuru i suchy szelest
+rozwijanego pergaminu — konkretny, akustyczny odpowiednik dotknięcia muru i
+pojawienia się zwoju, bez mowy/szeptów. Generacja `b060` dała 1/1 plik; sample
+był semantycznie trafiony, ale zbyt jasny (`harsh`: centroid 9510 Hz, 77%
+energii > 8 kHz). `b060b` przyciemniło go lokalnym high-shelfem 6 kHz −6 dB i
+renormalizacją. Wynik: centroid **7818 Hz**, air **58%**, LUFS −19,99,
+true peak −1,71 dBTP, **0 flag**. Po zsynchronizowaniu opisu z faktycznie
+krótkim brzękiem audyt semantyczny daje `196` **0 pkt**.
+
+Stan po `b060b`: **540 sampli**, **93 pliki z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+Nowe ID jest bez flag sygnałowych i ma 0 pkt w audycie semantycznym.
+
+Raporty: `data/samples/postprocess-b060.json`, `data/samples/deharsh-b060b.json`,
+`docs/audits/2026-10-01-audio-audit-after-b060b.md`,
+`docs/audits/2026-10-01-semantic-match-b060b.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 

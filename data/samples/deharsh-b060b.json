@@ -1,0 +1,29 @@
+{
+ "id": "196",
+ "operation": "deharsh_high_shelf",
+ "source": "postprocessed b060 mp3",
+ "high_shelf_hz": 6000.0,
+ "high_shelf_gain_db": -6.0,
+ "target_lufs": -20.0,
+ "total_gain_db_after_eq": 4.74,
+ "limiter_gr_db": 0.0,
+ "limiter_gr_mean_db": 0.0,
+ "before": {
+  "lufs": -20.0,
+  "true_peak_dbtp": -2.0,
+  "spectral_centroid_hz": 9510.1,
+  "air_8k_plus": 0.7748,
+  "audible_share": 0.9648,
+  "flags": [
+   "harsh"
+  ]
+ },
+ "after": {
+  "lufs": -19.99,
+  "true_peak_dbtp": -1.71,
+  "spectral_centroid_hz": 7817.5,
+  "air_8k_plus": 0.5791,
+  "audible_share": 0.8614,
+  "flags": []
+ }
+}
