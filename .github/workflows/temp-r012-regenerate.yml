@@ -1,0 +1,117 @@
+name: TEMP r012 regenerate reviewed samples
+
+on:
+  push:
+    branches:
+      - arena/01a0f64a-mtgdatabase
+
+permissions:
+  contents: write
+
+env:
+  IDS: "452,539"
+  BATCH: r012
+  AUDIO_AUDIT_JSON: data/samples/audio-audit-2026-10-01-after-r012.json
+  AUDIO_AUDIT_MD: docs/audits/2026-10-01-audio-audit-after-r012.md
+  SEMANTIC_JSON: data/samples/semantic-audit-2026-10-01-after-r012.json
+  SEMANTIC_MD: docs/audits/2026-10-01-semantic-match-r012.md
+
+jobs:
+  regenerate:
+    if: contains(github.event.head_commit.message, '[generate-r012]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install audio tooling
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy soundfile
+      - name: Refresh catalog and validate scenarios
+        run: |
+          python scripts/import_collection.py fabuły270926.csv --output data/catalog.json
+          python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
+          python scripts/elevenlabs_sample_scout.py --batch "$BATCH" --ids "$IDS" --force --dry-run
+      - name: Generate replacement MP3s with ElevenLabs
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: |
+          python scripts/elevenlabs_sample_scout.py \
+            --batch "$BATCH" \
+            --ids "$IDS" \
+            --force \
+            --prompt-influence 0.35
+          python - <<'PY'
+          import json, os, sys
+          ids = set(os.environ['IDS'].split(','))
+          batch = os.environ['BATCH']
+          latest = {}
+          with open('data/samples/generated-manifest.jsonl', encoding='utf-8') as f:
+              for line in f:
+                  if not line.strip():
+                      continue
+                  row = json.loads(line)
+                  sid = str(row.get('story_id'))
+                  if sid in ids and row.get('batch') == batch:
+                      latest[sid] = row
+          missing = sorted(ids - latest.keys(), key=int)
+          bad = {sid: latest[sid].get('status') for sid in latest if latest[sid].get('status') != 'generated'}
+          if missing or bad:
+              print('missing', missing)
+              print('bad', bad)
+              sys.exit(1)
+          print('verified generated:', ', '.join(sorted(latest, key=int)))
+          PY
+      - name: Upload raw r012 MP3s
+        uses: actions/upload-artifact@v4
+        with:
+          name: r012-raw
+          path: |
+            audio/samples/452.mp3
+            audio/samples/539.mp3
+          if-no-files-found: error
+      - name: Postprocess regenerated IDs
+        run: |
+          python scripts/postprocess_samples.py \
+            --ids "$IDS" \
+            --fix-mono \
+            --report data/samples/postprocess-r012.json
+      - name: Audit regenerated corpus
+        run: |
+          python scripts/audit_samples_full.py \
+            --json "$AUDIO_AUDIT_JSON" \
+            --markdown "$AUDIO_AUDIT_MD" \
+            --previous data/samples/audio-audit-latest.json
+          python scripts/audit_semantic_match.py \
+            --audit "$AUDIO_AUDIT_JSON" \
+            --json "$SEMANTIC_JSON" \
+            --markdown "$SEMANTIC_MD" \
+            --top 60
+      - name: Build smoke outputs
+        run: |
+          python scripts/build_pack.py --output /tmp/samples-r012.zip
+          python scripts/build_site.py --out /tmp/site-r012
+      - name: Commit generated files and remove temp workflow
+        run: |
+          rm -f .github/workflows/temp-r012-regenerate.yml
+          git config user.name "arena-ai[bot]"
+          git config user.email "arena-ai[bot]@users.noreply.github.com"
+          git add data/samples/scenarios.jsonl \
+                  data/samples/generated-manifest.jsonl \
+                  data/samples/postprocess-r012.json \
+                  data/samples/audio-audit-latest.json \
+                  "$AUDIO_AUDIT_JSON" "$SEMANTIC_JSON" \
+                  "$AUDIO_AUDIT_MD" "$SEMANTIC_MD" \
+                  audio/samples/452.mp3 audio/samples/539.mp3 \
+                  .github/workflows/temp-r012-regenerate.yml
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Regenerate reviewed r012 samples"
+            git push origin HEAD:arena/01a0f64a-mtgdatabase
+          fi
