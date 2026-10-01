@@ -1,0 +1,27 @@
+{
+ "id": "203",
+ "operation": "brighten_metal_high_shelf",
+ "source": "postprocessed b059b mp3",
+ "high_shelf_hz": 1500.0,
+ "high_shelf_gain_db": 9.0,
+ "target_lufs": -20.0,
+ "total_gain_db_after_eq": -4.17,
+ "limiter_gr_db": 0.0,
+ "limiter_gr_mean_db": 0.0,
+ "before": {
+  "lufs": -20.0,
+  "true_peak_dbtp": -7.05,
+  "spectral_centroid_hz": 570.6,
+  "rolloff95_hz": 2282.5,
+  "audible_share": 0.395,
+  "flags": []
+ },
+ "after": {
+  "lufs": -19.97,
+  "true_peak_dbtp": -5.58,
+  "spectral_centroid_hz": 1319.1,
+  "rolloff95_hz": 3746.8,
+  "audible_share": 0.6427,
+  "flags": []
+ }
+}

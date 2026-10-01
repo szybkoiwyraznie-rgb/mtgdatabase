@@ -173,9 +173,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **537 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 537 gotowych wpisów (batche `b001`–`b058`) — 100% katalogu.
-- Wygenerowane sample v2: 537 produkcyjnych MP3 w `audio/samples/`.
+- Katalog bieżący: **539 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 539 gotowych wpisów (batche `b001`–`b059` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 539 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -276,6 +276,39 @@ Oba wskazane ID są bez flag sygnałowych i mają 0 pkt w audycie semantycznym.
 Raporty: `data/samples/postprocess-r012.json`, `data/samples/deharsh-r012b.json`,
 `docs/audits/2026-10-01-audio-audit-after-r012b.md`,
 `docs/audits/2026-10-01-semantic-match-r012b.md`.
+
+## 2026-10-01 — Dostawa b059: Tackle Artist i Golem-Skin Gauntlets
+
+Właściciel dostarczył dwie nowe fabuły: `198SOS` *Tackle Artist* (Strixhaven,
+orkowy zawodnik Prismari taranuje linię obrony, a magia wyzwala eksplozję
+szkarłatnej farby) oraz `203_2XM` *Golem-Skin Gauntlets* (Axgard/Kaldheim,
+krasnoludzka rękawica z płyt pancerza pradawnego golema wzmacnia cios).
+Katalog urósł do **539 fabuł**.
+
+Scenariusze:
+
+- `198` — tupot korków po murawie, zderzenie ochraniaczy i mokry rozbryzg
+  szkarłatnej farby; bez tłumu/wiwatów, żeby nie wprowadzać mowy,
+- `203` — jasny szczęk żelaznych płyt rękawicy golema i dzwoniący metalowy
+  rezonans; prompt wymusza crisp metallic detail i unika głuchego tąpnięcia.
+
+Pierwsza generacja `b059` dała 2/2 pliki, ale `198` było tylko krótkim impulsem
+(0,22 s treści + długi ogon ciszy), a `203` wpadło w podobieństwo do `501` i
+było zbyt ciemne jak na metal. `b059b` przyniosło pełny, czytelny `198`
+(2,76 s treści, 0 flag, semantycznie 0 pkt) i usunęło parę bliźniaczą. `203`
+nadal było za ciemne w audycie semantycznym, więc `b059c` rozjaśniło metal
+lokalnym high-shelfem 1,5 kHz +9 dB z renormalizacją. Wynik `203`: centroid
+**571 → 1319 Hz**, rolloff95 **2283 → 3747 Hz**, audible_share **0,395 → 0,643**,
+0 flag i 0 pkt semantycznie.
+
+Stan po `b059c`: **539 sampli**, **93 pliki z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+Oba nowe ID są bez flag sygnałowych i mają 0 pkt w audycie semantycznym.
+
+Raporty: `data/samples/postprocess-b059.json`, `data/samples/postprocess-b059b.json`,
+`data/samples/brighten-b059c.json`,
+`docs/audits/2026-10-01-audio-audit-after-b059c.md`,
+`docs/audits/2026-10-01-semantic-match-b059c.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
