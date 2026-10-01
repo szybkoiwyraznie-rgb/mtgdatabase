@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-09-28** (sesja `arena/01a0e7f0-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-01** (sesja `arena/01a0f64a-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
@@ -177,6 +177,44 @@ nie odpalała się bez kontroli właściciela.
 - Scenariusze v2: 537 gotowych wpisów (batche `b001`–`b058`) — 100% katalogu.
 - Wygenerowane sample v2: 537 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
+
+## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
+
+Właściciel wskazał 9 sampli, których brzmienie było trudne do przypisania do
+karty/fabuły: `548` *Steelclaw Lance*, `558` *White Mage's Staff*, `500`
+*Instant Ramen*, `15` *Tellah, Great Sage*, `138` *Join the Dance*, `59`
+*Mysidian Elder*, `187` *Idyllic Grange*, `445` *Locthwain Paladin* i `29`
+*You're Not Alone*.
+
+Prompty przepisano na czytelniejsze, bardziej dosłowne źródła dźwięku:
+
+- `548` — zębaty grot lancy zgrzyta po pancerzu i rozrywa pnącza,
+- `558` — szklisty impuls kryształu laski i drobne iskry leczenia,
+- `500` — realne jedzenie ramenu: siorbanie z kubka i stuk pałeczek,
+- `15` — szelest starych kart pergaminu w magicznym podmuchu i iskry,
+- `138` — jawny wyjątek `music_allowed`: krótka wiejska muzyka do tańca
+  (skrzypce, bębenek, klaskanie),
+- `59` — jasny syk małego płomienia nad dłonią maga,
+- `187` — poranny okrzyk koguta na sielskim podwórzu,
+- `445` — ciężki pancerny rumak: kopyta w zlodzonym śniegu i pobrzęk uprzęży,
+- `29` — towarzysze stają w obronnym kręgu: buty na kamieniu i wspólny szczęk
+  dobywanych ostrzy.
+
+Generacja `r010` dała 9/9 plików. `59` wyszedł zbyt nisko/tonalnie, więc
+został przepisany i zregenerowany w `r010b`; `558` dostał 90 ms fade-out na
+ucięty ogon. W `r010c` plik `59` dodatkowo wygładzono high-shelfem 6 kHz
+−8 dB, bo po r010b był czytelny, ale za syczący (`harsh`).
+
+Stan po `r010c`: **537 sampli**, **93 pliki z flagą** (wszystkie flagi poza
+wskazaną dziewiątką), **0 par bliźniaków ≥ 0,95**, **0 identycznego PCM** i
+**0 rażących sprzeczności semantycznych**. Wszystkie 9 wskazanych ID jest bez
+flag sygnałowych; semantycznie 8/9 ma 0 pkt, a `15` ma tylko drobną heurystykę
+1,5 za minimalnie wolniejszy atak pergaminu/iskier.
+
+Raporty: `data/samples/postprocess-r010.json`, `data/samples/postprocess-r010b.json`,
+`data/samples/tail-fade-r010b.json`, `data/samples/deharsh-r010c.json`,
+`docs/audits/2026-10-01-audio-audit-after-r010c.md`,
+`docs/audits/2026-10-01-semantic-match-r010c.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
