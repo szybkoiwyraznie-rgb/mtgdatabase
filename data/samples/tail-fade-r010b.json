@@ -1,0 +1,7 @@
+{
+ "id": "558",
+ "operation": "tail_fade",
+ "fade_ms": 90.0,
+ "samples": 3969,
+ "tail_peak_before": 0.22992688417434692
+}
