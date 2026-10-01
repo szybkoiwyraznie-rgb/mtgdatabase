@@ -250,6 +250,33 @@ Raporty: `data/samples/postprocess-r011.json`, `data/samples/postprocess-r011b.j
 `docs/audits/2026-10-01-audio-audit-after-r011c.md`,
 `docs/audits/2026-10-01-semantic-match-r011c.md`.
 
+## 2026-10-01 — Runda r012/r012b: Omenspeaker i Silvanus's Invoker po odsłuchu
+
+Właściciel wskazał 2 kolejne sample jako nieczytelne: `452` *Omenspeaker*
+(brzmiało jak spuszczanie wody w toalecie) i `539` *Silvanus's Invoker*
+(brzmiało jak maszyna do pisania albo przekładanie kartek).
+
+Prompty przepisano tak, żeby jawnie zakazać błędnych skojarzeń:
+
+- `452` — brzęk pierścieni z mosiądzu astrolabium i czysty szklany dzwon
+  soczewki proroctwa; prompt ma `no water, no flushing, no whoosh`,
+- `539` — trzask korzeni, chrzęst ziemi i ciężki zgrzyt kamieni wstającego
+  żywiołaka; prompt ma `no paper, no typing clicks, no page turning`.
+
+Generacja `r012` dała 2/2 pliki i oba były semantycznie trafione. `452` miało
+jednak flagę `harsh` (centroid 10,6 kHz, 85% energii > 8 kHz), więc w `r012b`
+zrobiono lokalny de-harsh: high-shelf 6 kHz −16 dB + renormalizacja. Wynik:
+centroid **8621 Hz**, air **57%**, 0 flag, przy zachowaniu szklistego charakteru
+dzwonu soczewki.
+
+Stan po `r012b`: **537 sampli**, **93 pliki z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+Oba wskazane ID są bez flag sygnałowych i mają 0 pkt w audycie semantycznym.
+
+Raporty: `data/samples/postprocess-r012.json`, `data/samples/deharsh-r012b.json`,
+`docs/audits/2026-10-01-audio-audit-after-r012b.md`,
+`docs/audits/2026-10-01-semantic-match-r012b.md`.
+
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
 Katalog urósł do **537 fabuł**. Nowa fabuła z Warhammer Old World (Marienburg):
