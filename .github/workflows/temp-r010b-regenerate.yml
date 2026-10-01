@@ -1,0 +1,146 @@
+name: TEMP r010b regenerate Mysidian Elder
+
+on:
+  push:
+    branches:
+      - arena/01a0f64a-mtgdatabase
+
+permissions:
+  contents: write
+
+env:
+  IDS: "59"
+  BATCH: r010b
+  AUDIO_AUDIT_JSON: data/samples/audio-audit-2026-10-01-after-r010b.json
+  AUDIO_AUDIT_MD: docs/audits/2026-10-01-audio-audit-after-r010b.md
+  SEMANTIC_JSON: data/samples/semantic-audit-2026-10-01-after-r010b.json
+  SEMANTIC_MD: docs/audits/2026-10-01-semantic-match-r010b.md
+
+jobs:
+  regenerate:
+    if: contains(github.event.head_commit.message, '[generate-r010b]')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install audio tooling
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy scipy soundfile
+      - name: Refresh catalog and validate scenarios
+        run: |
+          python scripts/import_collection.py fabuły270926.csv --output data/catalog.json
+          python scripts/validate_sample_scenarios.py data/samples/scenarios.jsonl --catalog data/catalog.json
+          python scripts/elevenlabs_sample_scout.py --batch "$BATCH" --ids "$IDS" --force --dry-run
+      - name: Generate replacement MP3 with ElevenLabs
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: |
+          python scripts/elevenlabs_sample_scout.py \
+            --batch "$BATCH" \
+            --ids "$IDS" \
+            --force \
+            --prompt-influence 0.35
+          python - <<'PY'
+          import json, os, sys
+          ids = set(os.environ['IDS'].split(','))
+          batch = os.environ['BATCH']
+          latest = {}
+          with open('data/samples/generated-manifest.jsonl', encoding='utf-8') as f:
+              for line in f:
+                  if not line.strip():
+                      continue
+                  row = json.loads(line)
+                  sid = str(row.get('story_id'))
+                  if sid in ids and row.get('batch') == batch:
+                      latest[sid] = row
+          missing = sorted(ids - latest.keys(), key=int)
+          bad = {sid: latest[sid].get('status') for sid in latest if latest[sid].get('status') != 'generated'}
+          if missing or bad:
+              print('missing', missing)
+              print('bad', bad)
+              sys.exit(1)
+          print('verified generated:', ', '.join(sorted(latest, key=int)))
+          PY
+      - name: Upload raw r010b MP3
+        uses: actions/upload-artifact@v4
+        with:
+          name: r010b-raw
+          path: audio/samples/59.mp3
+          if-no-files-found: error
+      - name: Postprocess regenerated ID
+        run: |
+          python scripts/postprocess_samples.py \
+            --ids "$IDS" \
+            --report data/samples/postprocess-r010b.json
+      - name: Smooth White Mage Staff tail
+        run: |
+          python - <<'PY'
+          import json, math, os
+          from pathlib import Path
+          import numpy as np
+          import soundfile as sf
+          path = Path('audio/samples/558.mp3')
+          data, fs = sf.read(str(path), always_2d=True)
+          fade_ms = 90.0
+          n = min(len(data), int(fs * fade_ms / 1000.0))
+          before_tail_peak = float(np.max(np.abs(data[-n:]))) if n else 0.0
+          if n:
+              t = np.linspace(0.0, 1.0, n)
+              curve = 0.5 * (1.0 + np.cos(np.pi * t))
+              data[-n:] *= curve[:, None]
+          tmp = path.with_suffix('.tailfade.tmp.mp3')
+          sf.write(str(tmp), data, fs, format='MP3', subtype='MPEG_LAYER_III',
+                   bitrate_mode='VARIABLE', compression_level=0.0)
+          os.replace(tmp, path)
+          report = {
+              'id': '558',
+              'operation': 'tail_fade',
+              'fade_ms': fade_ms,
+              'samples': n,
+              'tail_peak_before': before_tail_peak,
+          }
+          Path('data/samples/tail-fade-r010b.json').write_text(
+              json.dumps(report, ensure_ascii=False, indent=1) + '\n', encoding='utf-8')
+          print(report)
+          PY
+      - name: Audit regenerated corpus
+        run: |
+          python scripts/audit_samples_full.py \
+            --json "$AUDIO_AUDIT_JSON" \
+            --markdown "$AUDIO_AUDIT_MD" \
+            --previous data/samples/audio-audit-latest.json
+          python scripts/audit_semantic_match.py \
+            --audit "$AUDIO_AUDIT_JSON" \
+            --json "$SEMANTIC_JSON" \
+            --markdown "$SEMANTIC_MD" \
+            --top 60
+      - name: Build smoke outputs
+        run: |
+          python scripts/build_pack.py --output /tmp/samples-r010b.zip
+          python scripts/build_site.py --out /tmp/site-r010b
+      - name: Commit generated files and remove temp workflow
+        run: |
+          rm -f .github/workflows/temp-r010b-regenerate.yml
+          git config user.name "arena-ai[bot]"
+          git config user.email "arena-ai[bot]@users.noreply.github.com"
+          git add data/samples/scenarios.jsonl \
+                  data/samples/generated-manifest.jsonl \
+                  data/samples/postprocess-r010b.json \
+                  data/samples/tail-fade-r010b.json \
+                  data/samples/audio-audit-latest.json \
+                  "$AUDIO_AUDIT_JSON" "$SEMANTIC_JSON" \
+                  "$AUDIO_AUDIT_MD" "$SEMANTIC_MD" \
+                  audio/samples/59.mp3 audio/samples/558.mp3 \
+                  .github/workflows/temp-r010b-regenerate.yml
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Regenerate Mysidian Elder r010b"
+            git push origin HEAD:arena/01a0f64a-mtgdatabase
+          fi
