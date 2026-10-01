@@ -216,6 +216,40 @@ Raporty: `data/samples/postprocess-r010.json`, `data/samples/postprocess-r010b.j
 `docs/audits/2026-10-01-audio-audit-after-r010c.md`,
 `docs/audits/2026-10-01-semantic-match-r010c.md`.
 
+## 2026-10-01 — Runda r011/r011b/r011c: druga lista odsłuchowa właściciela
+
+Właściciel wskazał kolejne 3 sample, których brzmienia nie dało się łatwo
+połączyć z kartą/fabułą: `463` *Knockout Maneuver*, `557` *Kishla Village* i
+`396` *Vow of Wildness*.
+
+Prompty przepisano na bardziej dosłowne, rozpoznawalne źródła:
+
+- `463` — nie „chrobotanie”, tylko rzut ciałem na twardy lód: głuchy slam,
+  pękająca tafla i sypiące się odłamki śniegu,
+- `557` — zamiast stukania łodzi, które kojarzyło się z drzwiami: mokry skrzek
+  dużej żaby w mętnym kanale pod domami na palach,
+- `396` — zamiast abstrakcyjnej świetlistej przysięgi / „syku pary": gardłowy
+  ryk dzikiego anoa, parsknięcie i racica zdzierająca suchą ziemię.
+
+Pierwsza generacja `r011` poprawiła kierunek, ale `463` miało krótką treść i
+martwą ciszę, a `557` wpadło w parę brzmieniową z wodnym samplem `121`.
+`r011b` poprawiło `396` i `557` oraz zlikwidowało parę bliźniaczą; `463` nadal
+było za krótkim impulsem z długim lead/trail. Finalnie `r011c` lokalnie
+rozszerzyło `463`: z aktywnego slam/crack wycięto zdarzenie, zostawiono pełny
+pierwszy impakt, a dalsze wysokoprzepustowe, cichsze kopie ułożono jako
+rozchodzące się pęknięcia i patter odłamków. Treść wzrosła **0,58 s → 1,70 s**,
+lead **0,66 s → 0,07 s**, trail **1,76 s → 0,43 s**.
+
+Stan po `r011c`: **537 sampli**, **93 pliki z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+Wszystkie 3 wskazane ID są bez flag sygnałowych i mają 0 pkt w audycie
+semantycznym.
+
+Raporty: `data/samples/postprocess-r011.json`, `data/samples/postprocess-r011b.json`,
+`data/samples/extend-r011c.json`,
+`docs/audits/2026-10-01-audio-audit-after-r011c.md`,
+`docs/audits/2026-10-01-semantic-match-r011c.md`.
+
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
 Katalog urósł do **537 fabuł**. Nowa fabuła z Warhammer Old World (Marienburg):

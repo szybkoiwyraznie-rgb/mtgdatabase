@@ -1,0 +1,90 @@
+{
+ "id": "463",
+ "operation": "extend_ice_crack_tail_from_r011b",
+ "source_event_s": [
+  0.66,
+  1.24
+ ],
+ "source_slice_s": 0.73,
+ "output_duration_s": 2.2,
+ "placements": [
+  {
+   "onset_s": 0.04,
+   "gain_db": 0.0,
+   "speed": 1.0,
+   "pan": 0.0,
+   "len_s": 0.73,
+   "truncated": false
+  },
+  {
+   "onset_s": 0.7,
+   "gain_db": -8.0,
+   "speed": 1.08,
+   "pan": -0.25,
+   "len_s": 0.676,
+   "truncated": false
+  },
+  {
+   "onset_s": 1.03,
+   "gain_db": -11.0,
+   "speed": 0.93,
+   "pan": 0.25,
+   "len_s": 0.785,
+   "truncated": false
+  },
+  {
+   "onset_s": 1.34,
+   "gain_db": -14.0,
+   "speed": 1.16,
+   "pan": -0.1,
+   "len_s": 0.629,
+   "truncated": false
+  }
+ ],
+ "master": {
+  "id": "463-r011c-extended",
+  "hp_hz": 25.0,
+  "lufs_before": -23.89,
+  "lufs_after_hp": -23.9,
+  "gain_db": 3.9,
+  "gain_wanted_db": 3.9,
+  "gain_capped": false,
+  "makeup_db": 0.0,
+  "limiter_gr_db": 0.0,
+  "limiter_gr_mean_db": 0.0,
+  "true_peak_before": -9.67,
+  "dc_before": 1e-05,
+  "side_gain": 1.0,
+  "side_gain_db": 0.0,
+  "mono_excess_before_lu": 0.46,
+  "mono_excess_after_lu": null,
+  "encode_attempts": 1,
+  "encoder_headroom_db": 0.7,
+  "lufs_after": -20.0,
+  "true_peak_after": -5.72,
+  "dc_after": 1e-05,
+  "transcode_snr_db": 28.1,
+  "bytes_before": 776248,
+  "bytes_after": 65111
+ },
+ "before": {
+  "duration_s": 3.0,
+  "content_s": 0.58,
+  "lead_silence_s": 0.66,
+  "trail_silence_s": 1.76,
+  "flags": [
+   "short_content",
+   "long_lead_silence",
+   "long_trail_silence"
+  ]
+ },
+ "after": {
+  "duration_s": 2.2,
+  "content_s": 1.7,
+  "lead_silence_s": 0.07,
+  "trail_silence_s": 0.43,
+  "lufs": -20.0,
+  "true_peak_dbtp": -5.72,
+  "flags": []
+ }
+}
