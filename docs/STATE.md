@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-01** (sesja `arena/01a0f64a-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-02** (sesja `arena/01a0f64a-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
@@ -173,9 +173,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **540 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 540 gotowych wpisów (batche `b001`–`b060` + rundy korekt) — 100% katalogu.
-- Wygenerowane sample v2: 540 produkcyjnych MP3 w `audio/samples/`.
+- Katalog bieżący: **543 fabuły** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 543 gotowe wpisy (batche `b001`–`b061` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 543 produkcyjne MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -333,6 +333,38 @@ Nowe ID jest bez flag sygnałowych i ma 0 pkt w audycie semantycznym.
 Raporty: `data/samples/postprocess-b060.json`, `data/samples/deharsh-b060b.json`,
 `docs/audits/2026-10-01-audio-audit-after-b060b.md`,
 `docs/audits/2026-10-01-semantic-match-b060b.md`.
+
+## 2026-10-02 — Dostawa b061: Vulturous Aven, Jade Bearer i Fiery Justice
+
+Właściciel dostarczył trzy nowe fabuły: `205DTK` *Vulturous Aven* (moczary
+Gurmag/Tarkir, sępi szaman Silumgara wyciąga z urny z prochami zakazaną
+esencję), `208RIX` *Jade Bearer* (zalane groty przy Azcancie/Ixalan,
+nefrytowy diadem przekazuje dziedzictwo Śpiewaków Rzek) oraz `210_2X2`
+*Fiery Justice* (sala tronowa Bretagardu/Kaldheim, runiczny kostur wyzwala
+nawałnicę sakralnego ognia). Katalog urósł do **543 fabuł**.
+
+Scenariusze:
+
+- `205` — suchy szur kościanego kostura po urnie z prochami i dwa eteryczne
+  impulsy esencji; po generacji opis doprecyzowano z „syku” na faktyczny szur
+  i impulsy, dzięki czemu audyt semantyczny nie oczekuje szumu pary,
+- `208` — szmer płytkiej wody i kamienne kliknięcie nefrytowego diademu na
+  czole; bez śpiewu/mowy, żeby ceremonia nie zamieniła się w wokal,
+- `210` — trzask runicznego kostura o kamienną posadzkę i wybuch trzaskających
+  płomieni; prompt wymusza nieregularne trzaski ognia i zakazuje krzyków.
+
+Generacja `b061` dała 3/3 pliki. Postprodukcja wyrównała je do ok. −20 LUFS;
+żaden z nowych plików nie ma flag sygnałowych ani pary bliźniaczej. Audyt
+semantyczny po doprecyzowaniu scenariusza `205`: wszystkie trzy nowe ID mają
+**0 pkt** (`205`: granular, `208`: water, `210`: impact+fire).
+
+Stan po `b061`: **543 sample**, **93 pliki z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+Nowe ID są bez flag sygnałowych i mają 0 pkt w audycie semantycznym.
+
+Raporty: `data/samples/postprocess-b061.json`,
+`docs/audits/2026-10-02-audio-audit-after-b061.md`,
+`docs/audits/2026-10-02-semantic-match-b061.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 

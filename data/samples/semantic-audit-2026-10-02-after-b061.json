@@ -285,10 +285,10 @@
     "613",
     "617"
   ],
-  "suspects": 60,
+  "suspects": 59,
   "by_severity": {
     "rażące (>=3.0)": 0,
-    "wyraźne (1.5-3.0)": 57,
+    "wyraźne (1.5-3.0)": 56,
     "drobne (<1.5)": 3
   },
   "results": [
@@ -1623,42 +1623,6 @@
           "mid_250_2k": 0.8924,
           "high_2k_8k": 0.001,
           "air_8k_plus": 0.0001
-        }
-      }
-    },
-    {
-      "id": "205",
-      "title": "Vulturous Aven",
-      "scenario": "kościany kostur szoruje urnę z prochami, a eteryczna smuga syczy i dzieli się w dwa impulsy",
-      "classes": [
-        "noise_hiss",
-        "granular"
-      ],
-      "score": 1.5,
-      "violations": [
-        {
-          "class": "noise_hiss",
-          "reason": "wyraźna wysokość dźwięku (voiced=0.88 > górny kwartyl 0.26)",
-          "weight": 1.5
-        }
-      ],
-      "metrics": {
-        "spectral_centroid_hz": 7260.1,
-        "spectral_flatness": 0.0868,
-        "tonal_frame_fraction": 0.278,
-        "voiced_fraction": 0.881,
-        "attack_s": 0.96,
-        "decay_s": 0.69,
-        "onset_count": 1,
-        "mod_peak_hz": 1.98,
-        "sustain_ratio": 0.486,
-        "rolloff95_hz": 13587.5,
-        "bands": {
-          "sub_0_60": 0.0064,
-          "low_60_250": 0.0048,
-          "mid_250_2k": 0.3284,
-          "high_2k_8k": 0.1725,
-          "air_8k_plus": 0.4879
         }
       }
     },
@@ -6120,6 +6084,35 @@
           "mid_250_2k": 0.1718,
           "high_2k_8k": 0.0299,
           "air_8k_plus": 0.7884
+        }
+      }
+    },
+    {
+      "id": "205",
+      "title": "Vulturous Aven",
+      "scenario": "suchy szur kościanego kostura po urnie z prochami i dwa eteryczne impulsy esencji",
+      "classes": [
+        "granular"
+      ],
+      "score": 0,
+      "violations": [],
+      "metrics": {
+        "spectral_centroid_hz": 7260.1,
+        "spectral_flatness": 0.0868,
+        "tonal_frame_fraction": 0.278,
+        "voiced_fraction": 0.881,
+        "attack_s": 0.96,
+        "decay_s": 0.69,
+        "onset_count": 1,
+        "mod_peak_hz": 1.98,
+        "sustain_ratio": 0.486,
+        "rolloff95_hz": 13587.5,
+        "bands": {
+          "sub_0_60": 0.0064,
+          "low_60_250": 0.0048,
+          "mid_250_2k": 0.3284,
+          "high_2k_8k": 0.1725,
+          "air_8k_plus": 0.4879
         }
       }
     },

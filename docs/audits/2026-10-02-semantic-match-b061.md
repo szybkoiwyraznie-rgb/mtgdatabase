@@ -3,7 +3,7 @@
 Sprawdzono **325** sampli z rozpoznaną klasą dźwięku. Bez rozpoznanej klasy: **218** (scenariusze bez konkretnego słowa dźwiękowego — osobna lista do przepisania).
 
 - rażące sprzeczności (≥3,0): **0**
-- wyraźne (1,5–3,0): **57**
+- wyraźne (1,5–3,0): **56**
 - drobne (<1,5): **3**
 
 ## Kandydaci do odsłuchu i regeneracji
@@ -46,7 +46,6 @@ Sprawdzono **325** sampli z rozpoznaną klasą dźwięku. Bez rozpoznanej klasy:
 | 1.5 | 178 | pneumatyczne szpony przemysłowego robota-łuskowca kruszące twardą skał | uderzenie — ostry atak, szybki zanik; szerokopasmowy szum/syk bez wyra | atak zbyt wolny (1.32 s > górny kwartyl 0.34 s) |
 | 1.5 | 190 | trzask małego ogniska rozniecanego przy kamiennej piramidce | uderzenie — ostry atak, szybki zanik | atak zbyt wolny (0.38 s > górny kwartyl 0.34 s) |
 | 1.5 | 197 | pojedyncza ciężka kropla w nieruchomą wodę z bliska | woda — rozproszone transjenty, szerokie pasmo | dźwięk tonalny zamiast wody (tonal=0.95 > górny kwartyl 0.84) |
-| 1.5 | 205 | kościany kostur szoruje urnę z prochami, a eteryczna smuga syczy i dzi | szerokopasmowy szum/syk bez wyraźnej wysokości; materiał sypki — gęste | wyraźna wysokość dźwięku (voiced=0.88 > górny kwartyl 0.26) |
 | 1.5 | 218 | bulgotanie trzech zbiorników ciemnozielonej substancji w trigonie | woda — rozproszone transjenty, szerokie pasmo | dźwięk tonalny zamiast wody (tonal=1.00 > górny kwartyl 0.84) |
 | 1.5 | 234 | chrapliwy pomruk płaziego slaada na mglistym mokradle | niskie dudnienie — dominacja dołu pasma | brak dołu pasma (low=1.4%, oczekiwane >20%) |
 | 1.5 | 243 | zaklęcie skręcające ze swojego toru nad wodami Tolarii | woda — rozproszone transjenty, szerokie pasmo | dźwięk tonalny zamiast wody (tonal=1.00 > górny kwartyl 0.84) |
