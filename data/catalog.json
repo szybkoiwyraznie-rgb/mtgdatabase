@@ -1359,6 +1359,13 @@
       "versions": []
     },
     {
+      "id": "205",
+      "art_id": "205DTK",
+      "title": "Vulturous Aven",
+      "story": "W mrocznych, ociekających wilgocią moczarach Gurmag na planie Tarkir szamani z rodu Silumgara sprawują pieczę nad nekromantycznymi obrzędami klanu. Sępi ptakoczłek o postrzępionych czarnych skrzydłach przysiada na omszałym posągu, wznosząc szpon ponad starożytną urnę z prochami. Jednym gestem kościanego kostura wyciąga z naczynia eteryczną smugę szmaragdowej esencji, która w powietrzu rozszczepia się na dwie lśniące kule zakazanej wiedzy. Choć ten bezwzględny rytuał wyzysku wymaga bolesnej daniny z własnych sił witalnych, dla sług smoczego lorda potęga płynąca ze zgłębiania tajemnic śmierci warta jest każdej ceny.",
+      "versions": []
+    },
+    {
       "id": "206",
       "art_id": "206BLB",
       "title": "High Stride",
@@ -1373,10 +1380,24 @@
       "versions": []
     },
     {
+      "id": "208",
+      "art_id": "208RIX",
+      "title": "Jade Bearer",
+      "story": "W zalanych, prastarych grotach w pobliżu zatopionego miasta Azcanta na planie Ixalan Śpiewacy Rzek przekazują sobie najcenniejsze dziedzictwo przodków. Dostojna szamanka o barwnych płetwach ostrożnie nakłada ceremonialny nefrytowy diadem na czoło klęczącego w płytkiej wodzie młodego wojownika. Pod dotknięciem uświęconego kamienia po ciele młodzieńca rozlewa się ciepła, szmaragdowa poświata, napełniając go legendarnym męstwem dawnych obrońców puszczy. Pamięć o wielkich czynach Sisory i Nateny odżywa w nowym pokoleniu, niosąc siłę niezbędną do ochrony tajemnic dżungli przed chciwością obcych najeźdźców.",
+      "versions": []
+    },
+    {
       "id": "209",
       "art_id": "209ELD",
       "title": "Burning-Yard Trainer",
       "story": "Na udeptanej piaszczystej arenie otoczonej drewnianymi trybunami, pod wieżami baśniowego zamku w Ardenvale, stoi doświadczony instruktor w czerwonej tunice treningowej, skórzanych ochraniaczach na przedramionach i ciężkich butach. W jednej dłoni trzyma opuszczony płonący miecz treningowy — drewniane ostrze owinięte naoliwioną tkaniną, palące się spokojnym ogniem jak pochodnia — drugą uspokaja kasztanowego konia. Obok niego młody rycerz w czerwonym wamsie siedzi w siodle drugiego wierzchowca, pochylony w koncentracji przed torem przeszkód z obręczami i słupami owiniętymi płonącą liną. Po bokach areny płoną żelazne kosze latarni treningowych, a na trybunach siedzą inni uczniowie — w rycerskich akademiach Eldraine ogień jest ostatnim egzaminem, po którym wojownik wie, czy był gotów.",
+      "versions": []
+    },
+    {
+      "id": "210",
+      "art_id": "210_2X2",
+      "title": "Fiery Justice",
+      "story": "W warownym zamku wzniesionym pośród skalistych szczytów Bretagardu na planie Kaldheim samozwańczy władca Lalor Uparty uważał się za nietykalnego za swoimi niezdobytymi murami. Gdy klanowi rebelianci nie zdołali sforsować potężnych wrót twierdzy, wprowadzili do wnętrza sali tronowej zwiadowczynię władającą pradawną magią płomieni. Uderzenie runicznego kostura o posadzkę wyzwala rozgałęzioną nawałnicę sakralnego ognia, która w ułamku sekundy powala całą przyboczną straż uzurpatora. Choć ochronna bariera otaczająca tron pozwala fałszywemu monarsze ocalić życie, płomienna sprawiedliwość bezpowrotnie obraca w zgliszcza jego sny o wiecznym panowaniu.",
       "versions": []
     },
     {
