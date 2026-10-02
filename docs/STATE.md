@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-09-28** (sesja `arena/01a0e7f0-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-02** (sesja `arena/01a0f64a-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
@@ -173,10 +173,198 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **537 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 537 gotowych wpisów (batche `b001`–`b058`) — 100% katalogu.
-- Wygenerowane sample v2: 537 produkcyjnych MP3 w `audio/samples/`.
+- Katalog bieżący: **543 fabuły** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 543 gotowe wpisy (batche `b001`–`b061` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 543 produkcyjne MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
+
+## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
+
+Właściciel wskazał 9 sampli, których brzmienie było trudne do przypisania do
+karty/fabuły: `548` *Steelclaw Lance*, `558` *White Mage's Staff*, `500`
+*Instant Ramen*, `15` *Tellah, Great Sage*, `138` *Join the Dance*, `59`
+*Mysidian Elder*, `187` *Idyllic Grange*, `445` *Locthwain Paladin* i `29`
+*You're Not Alone*.
+
+Prompty przepisano na czytelniejsze, bardziej dosłowne źródła dźwięku:
+
+- `548` — zębaty grot lancy zgrzyta po pancerzu i rozrywa pnącza,
+- `558` — szklisty impuls kryształu laski i drobne iskry leczenia,
+- `500` — realne jedzenie ramenu: siorbanie z kubka i stuk pałeczek,
+- `15` — szelest starych kart pergaminu w magicznym podmuchu i iskry,
+- `138` — jawny wyjątek `music_allowed`: krótka wiejska muzyka do tańca
+  (skrzypce, bębenek, klaskanie),
+- `59` — jasny syk małego płomienia nad dłonią maga,
+- `187` — poranny okrzyk koguta na sielskim podwórzu,
+- `445` — ciężki pancerny rumak: kopyta w zlodzonym śniegu i pobrzęk uprzęży,
+- `29` — towarzysze stają w obronnym kręgu: buty na kamieniu i wspólny szczęk
+  dobywanych ostrzy.
+
+Generacja `r010` dała 9/9 plików. `59` wyszedł zbyt nisko/tonalnie, więc
+został przepisany i zregenerowany w `r010b`; `558` dostał 90 ms fade-out na
+ucięty ogon. W `r010c` plik `59` dodatkowo wygładzono high-shelfem 6 kHz
+−8 dB, bo po r010b był czytelny, ale za syczący (`harsh`).
+
+Stan po `r010c`: **537 sampli**, **93 pliki z flagą** (wszystkie flagi poza
+wskazaną dziewiątką), **0 par bliźniaków ≥ 0,95**, **0 identycznego PCM** i
+**0 rażących sprzeczności semantycznych**. Wszystkie 9 wskazanych ID jest bez
+flag sygnałowych; semantycznie 8/9 ma 0 pkt, a `15` ma tylko drobną heurystykę
+1,5 za minimalnie wolniejszy atak pergaminu/iskier.
+
+Raporty: `data/samples/postprocess-r010.json`, `data/samples/postprocess-r010b.json`,
+`data/samples/tail-fade-r010b.json`, `data/samples/deharsh-r010c.json`,
+`docs/audits/2026-10-01-audio-audit-after-r010c.md`,
+`docs/audits/2026-10-01-semantic-match-r010c.md`.
+
+## 2026-10-01 — Runda r011/r011b/r011c: druga lista odsłuchowa właściciela
+
+Właściciel wskazał kolejne 3 sample, których brzmienia nie dało się łatwo
+połączyć z kartą/fabułą: `463` *Knockout Maneuver*, `557` *Kishla Village* i
+`396` *Vow of Wildness*.
+
+Prompty przepisano na bardziej dosłowne, rozpoznawalne źródła:
+
+- `463` — nie „chrobotanie”, tylko rzut ciałem na twardy lód: głuchy slam,
+  pękająca tafla i sypiące się odłamki śniegu,
+- `557` — zamiast stukania łodzi, które kojarzyło się z drzwiami: mokry skrzek
+  dużej żaby w mętnym kanale pod domami na palach,
+- `396` — zamiast abstrakcyjnej świetlistej przysięgi / „syku pary": gardłowy
+  ryk dzikiego anoa, parsknięcie i racica zdzierająca suchą ziemię.
+
+Pierwsza generacja `r011` poprawiła kierunek, ale `463` miało krótką treść i
+martwą ciszę, a `557` wpadło w parę brzmieniową z wodnym samplem `121`.
+`r011b` poprawiło `396` i `557` oraz zlikwidowało parę bliźniaczą; `463` nadal
+było za krótkim impulsem z długim lead/trail. Finalnie `r011c` lokalnie
+rozszerzyło `463`: z aktywnego slam/crack wycięto zdarzenie, zostawiono pełny
+pierwszy impakt, a dalsze wysokoprzepustowe, cichsze kopie ułożono jako
+rozchodzące się pęknięcia i patter odłamków. Treść wzrosła **0,58 s → 1,70 s**,
+lead **0,66 s → 0,07 s**, trail **1,76 s → 0,43 s**.
+
+Stan po `r011c`: **537 sampli**, **93 pliki z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+Wszystkie 3 wskazane ID są bez flag sygnałowych i mają 0 pkt w audycie
+semantycznym.
+
+Raporty: `data/samples/postprocess-r011.json`, `data/samples/postprocess-r011b.json`,
+`data/samples/extend-r011c.json`,
+`docs/audits/2026-10-01-audio-audit-after-r011c.md`,
+`docs/audits/2026-10-01-semantic-match-r011c.md`.
+
+## 2026-10-01 — Runda r012/r012b: Omenspeaker i Silvanus's Invoker po odsłuchu
+
+Właściciel wskazał 2 kolejne sample jako nieczytelne: `452` *Omenspeaker*
+(brzmiało jak spuszczanie wody w toalecie) i `539` *Silvanus's Invoker*
+(brzmiało jak maszyna do pisania albo przekładanie kartek).
+
+Prompty przepisano tak, żeby jawnie zakazać błędnych skojarzeń:
+
+- `452` — brzęk pierścieni z mosiądzu astrolabium i czysty szklany dzwon
+  soczewki proroctwa; prompt ma `no water, no flushing, no whoosh`,
+- `539` — trzask korzeni, chrzęst ziemi i ciężki zgrzyt kamieni wstającego
+  żywiołaka; prompt ma `no paper, no typing clicks, no page turning`.
+
+Generacja `r012` dała 2/2 pliki i oba były semantycznie trafione. `452` miało
+jednak flagę `harsh` (centroid 10,6 kHz, 85% energii > 8 kHz), więc w `r012b`
+zrobiono lokalny de-harsh: high-shelf 6 kHz −16 dB + renormalizacja. Wynik:
+centroid **8621 Hz**, air **57%**, 0 flag, przy zachowaniu szklistego charakteru
+dzwonu soczewki.
+
+Stan po `r012b`: **537 sampli**, **93 pliki z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+Oba wskazane ID są bez flag sygnałowych i mają 0 pkt w audycie semantycznym.
+
+Raporty: `data/samples/postprocess-r012.json`, `data/samples/deharsh-r012b.json`,
+`docs/audits/2026-10-01-audio-audit-after-r012b.md`,
+`docs/audits/2026-10-01-semantic-match-r012b.md`.
+
+## 2026-10-01 — Dostawa b059: Tackle Artist i Golem-Skin Gauntlets
+
+Właściciel dostarczył dwie nowe fabuły: `198SOS` *Tackle Artist* (Strixhaven,
+orkowy zawodnik Prismari taranuje linię obrony, a magia wyzwala eksplozję
+szkarłatnej farby) oraz `203_2XM` *Golem-Skin Gauntlets* (Axgard/Kaldheim,
+krasnoludzka rękawica z płyt pancerza pradawnego golema wzmacnia cios).
+Katalog urósł do **539 fabuł**.
+
+Scenariusze:
+
+- `198` — tupot korków po murawie, zderzenie ochraniaczy i mokry rozbryzg
+  szkarłatnej farby; bez tłumu/wiwatów, żeby nie wprowadzać mowy,
+- `203` — jasny szczęk żelaznych płyt rękawicy golema i dzwoniący metalowy
+  rezonans; prompt wymusza crisp metallic detail i unika głuchego tąpnięcia.
+
+Pierwsza generacja `b059` dała 2/2 pliki, ale `198` było tylko krótkim impulsem
+(0,22 s treści + długi ogon ciszy), a `203` wpadło w podobieństwo do `501` i
+było zbyt ciemne jak na metal. `b059b` przyniosło pełny, czytelny `198`
+(2,76 s treści, 0 flag, semantycznie 0 pkt) i usunęło parę bliźniaczą. `203`
+nadal było za ciemne w audycie semantycznym, więc `b059c` rozjaśniło metal
+lokalnym high-shelfem 1,5 kHz +9 dB z renormalizacją. Wynik `203`: centroid
+**571 → 1319 Hz**, rolloff95 **2283 → 3747 Hz**, audible_share **0,395 → 0,643**,
+0 flag i 0 pkt semantycznie.
+
+Stan po `b059c`: **539 sampli**, **93 pliki z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+Oba nowe ID są bez flag sygnałowych i mają 0 pkt w audycie semantycznym.
+
+Raporty: `data/samples/postprocess-b059.json`, `data/samples/postprocess-b059b.json`,
+`data/samples/brighten-b059c.json`,
+`docs/audits/2026-10-01-audio-audit-after-b059c.md`,
+`docs/audits/2026-10-01-semantic-match-b059c.md`.
+
+## 2026-10-01 — Dostawa b060: Mnemonic Wall
+
+Właściciel dostarczył nową fabułę `196THS` *Mnemonic Wall* (Meletis/Theros:
+Perisophia dotyka muru pamięci z krystalicznego marmuru, a echo dawnych idei
+materializuje się jako świetlisty zwój zapomnianego czaru). Katalog urósł do
+**540 fabuł**.
+
+Scenariusz `196`: krótki brzęk krystalicznego marmuru i suchy szelest
+rozwijanego pergaminu — konkretny, akustyczny odpowiednik dotknięcia muru i
+pojawienia się zwoju, bez mowy/szeptów. Generacja `b060` dała 1/1 plik; sample
+był semantycznie trafiony, ale zbyt jasny (`harsh`: centroid 9510 Hz, 77%
+energii > 8 kHz). `b060b` przyciemniło go lokalnym high-shelfem 6 kHz −6 dB i
+renormalizacją. Wynik: centroid **7818 Hz**, air **58%**, LUFS −19,99,
+true peak −1,71 dBTP, **0 flag**. Po zsynchronizowaniu opisu z faktycznie
+krótkim brzękiem audyt semantyczny daje `196` **0 pkt**.
+
+Stan po `b060b`: **540 sampli**, **93 pliki z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+Nowe ID jest bez flag sygnałowych i ma 0 pkt w audycie semantycznym.
+
+Raporty: `data/samples/postprocess-b060.json`, `data/samples/deharsh-b060b.json`,
+`docs/audits/2026-10-01-audio-audit-after-b060b.md`,
+`docs/audits/2026-10-01-semantic-match-b060b.md`.
+
+## 2026-10-02 — Dostawa b061: Vulturous Aven, Jade Bearer i Fiery Justice
+
+Właściciel dostarczył trzy nowe fabuły: `205DTK` *Vulturous Aven* (moczary
+Gurmag/Tarkir, sępi szaman Silumgara wyciąga z urny z prochami zakazaną
+esencję), `208RIX` *Jade Bearer* (zalane groty przy Azcancie/Ixalan,
+nefrytowy diadem przekazuje dziedzictwo Śpiewaków Rzek) oraz `210_2X2`
+*Fiery Justice* (sala tronowa Bretagardu/Kaldheim, runiczny kostur wyzwala
+nawałnicę sakralnego ognia). Katalog urósł do **543 fabuł**.
+
+Scenariusze:
+
+- `205` — suchy szur kościanego kostura po urnie z prochami i dwa eteryczne
+  impulsy esencji; po generacji opis doprecyzowano z „syku” na faktyczny szur
+  i impulsy, dzięki czemu audyt semantyczny nie oczekuje szumu pary,
+- `208` — szmer płytkiej wody i kamienne kliknięcie nefrytowego diademu na
+  czole; bez śpiewu/mowy, żeby ceremonia nie zamieniła się w wokal,
+- `210` — trzask runicznego kostura o kamienną posadzkę i wybuch trzaskających
+  płomieni; prompt wymusza nieregularne trzaski ognia i zakazuje krzyków.
+
+Generacja `b061` dała 3/3 pliki. Postprodukcja wyrównała je do ok. −20 LUFS;
+żaden z nowych plików nie ma flag sygnałowych ani pary bliźniaczej. Audyt
+semantyczny po doprecyzowaniu scenariusza `205`: wszystkie trzy nowe ID mają
+**0 pkt** (`205`: granular, `208`: water, `210`: impact+fire).
+
+Stan po `b061`: **543 sample**, **93 pliki z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+Nowe ID są bez flag sygnałowych i mają 0 pkt w audycie semantycznym.
+
+Raporty: `data/samples/postprocess-b061.json`,
+`docs/audits/2026-10-02-audio-audit-after-b061.md`,
+`docs/audits/2026-10-02-semantic-match-b061.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 

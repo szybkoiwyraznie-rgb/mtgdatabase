@@ -1,0 +1,27 @@
+{
+ "id": "452",
+ "operation": "deharsh_high_shelf",
+ "source": "postprocessed r012 mp3",
+ "high_shelf_hz": 6000.0,
+ "high_shelf_gain_db": -16.0,
+ "target_lufs": -20.0,
+ "total_gain_db_after_eq": 14.14,
+ "limiter_gr_db": -4.28,
+ "limiter_gr_mean_db": -0.01,
+ "before": {
+  "lufs": -20.28,
+  "true_peak_dbtp": -1.7,
+  "spectral_centroid_hz": 10596.8,
+  "air_8k_plus": 0.8481,
+  "flags": [
+   "harsh"
+  ]
+ },
+ "after": {
+  "lufs": -20.25,
+  "true_peak_dbtp": -1.7,
+  "spectral_centroid_hz": 8621.1,
+  "air_8k_plus": 0.5749,
+  "flags": []
+ }
+}

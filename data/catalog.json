@@ -1289,6 +1289,13 @@
       "versions": []
     },
     {
+      "id": "196",
+      "art_id": "196THS",
+      "title": "Mnemonic Wall",
+      "story": "W pełnym mędrców i myślicieli polis Meletis na planie Theros filozofowie nieustannie badają granice ludzkiego umysłu i natury wspomnień. Przewodząca Radzie Dwunastu Perisophia prowadzi swoje dociekania przed monumentalnym murem pamięci wykutym z krystalicznego marmuru. Gdy uczona dotyka błękitnej ściany, zaklęte w jej wnętrzu echa dawnych idei materializują się pod postacią świetlistego zwoju zapomnianego czaru. Dla tutejszych filozofów to niezwykłe zjawisko anamnezy jest koronnym dowodem na to, że prawdziwa wiedza nigdy nie przemija, lecz cierpliwie czeka na ponowne odkrycie w sercu polis.",
+      "versions": []
+    },
+    {
       "id": "195",
       "art_id": "195THB",
       "title": "Entrancing Lyre",
@@ -1300,6 +1307,13 @@
       "art_id": "197M20",
       "title": "Dismal Backwater",
       "story": "W głębi mrocznego podmokłego lasu Drakwald rozciąga się stojąca zatoka otoczona starymi powykrzywianymi drzewami, ich korzenie zanurzone w ciemnej wodzie jak palce. Powierzchnia wody nieruchoma i lustrzanie gładka odbija sylwetki drzew, na niej unoszą się kępy mchu, opadłe liście i szarawa rzęsa, a między korzeniami zwisa gęsta kurtyna mchu i liszajów. Za pniami widoczne są ruiny kamiennej świątyni o azjatyckich rysach z płaskorzeźbą wijącego się węża, zarośnięte pnączami i wpółzatopione — na jednym z kamieni siedzi nieruchomo wielka czapla wpatrzona w wodę. W Imperium nie wszystkie świątynie zostały porzucone przez ludzi — niektóre zostały wchłonięte przez bagno, które pamięta więcej niż te, które je wzniosły.",
+      "versions": []
+    },
+    {
+      "id": "198",
+      "art_id": "198SOS",
+      "title": "Tackle Artist",
+      "story": "Na monumentalnym stadionie Wieży Magów na uniwersytecie Strixhaven na planie Arcavios mecze sportowe są równie zacięte, co najtrudniejsze egzaminy arkaniczne. Potężny orkowy czarnoksiężnik z Kolegium Prismari szarżuje przez murawę, łącząc surową siłę fizyczną z widowiskową magią żywiołów. Każde rzucone przez jego drużynę zaklęcie wyzwala wokół zawodnika eksplozję płomiennej, szkarłatnej farby, która wypala na boisku spektakularne, artystyczne smugi. Gdy rozpędzony sportowiec z impetem taranuje linię obrony rywali, widownia na trybunach wiwatuje na cześć najbardziej bezkompromisowej formy sztuki w całej akademii.",
       "versions": []
     },
     {
@@ -1331,10 +1345,24 @@
       "versions": []
     },
     {
+      "id": "203",
+      "art_id": "203_2XM",
+      "title": "Golem-Skin Gauntlets",
+      "story": "W rozżarzonych lawą kuźniach królestwa Axgard na planie Kaldheim krasnoludzcy rzemieślnicy przekuwają pancerze pokonanych konstruktów w niezrównany oręż. Wytrawny kowal z dumą zaciska pięść w nowo odkutej rękawicy, której segmentowe płyty pozyskano z twardego jak skała pancerza pradawnego golema. Wyryte wzdłuż żelaznych paliczków runy rozbłyskują ciepłym, bursztynowym żarem, w tajemniczy sposób rezonując z ciężkim toporem i tarczą spoczywającymi na warsztacie. Z każdym kolejnym elementem rynsztunku zabieranym w bój ten niezwykły pancerz potęguje siłę ciosu wojownika, obracając każde uderzenie w druzgocący grzmot.",
+      "versions": []
+    },
+    {
       "id": "204",
       "art_id": "204CMR",
       "title": "Skilled Animator",
       "story": "W zalanych słońcem pracowniach metropolii Ghirapur na planie Kaladesh najzdolniejsi rzemieślnicy potrafią tchnąć nowe życie w pozornie martwe konstrukcje. Skupiony mistrz animacji kieruje skoncentrowany strumień błękitnego eteru wprost do serca monumentalnego automatu z ażurowego złota i brązu. Pod wpływem magicznego zasilania potężna machina ożywa w ułamku sekundy, stawiając ciężki krok na posadzce i rozświetlając warsztat blaskiem wewnętrznego rdzenia. Ta niezwykła biegłość w ożywianiu filigranowych kolosów sprawia, że dzieła tutejszych warsztatów stają się potężnymi strażnikami gotowymi do obrony wolności miasta.",
+      "versions": []
+    },
+    {
+      "id": "205",
+      "art_id": "205DTK",
+      "title": "Vulturous Aven",
+      "story": "W mrocznych, ociekających wilgocią moczarach Gurmag na planie Tarkir szamani z rodu Silumgara sprawują pieczę nad nekromantycznymi obrzędami klanu. Sępi ptakoczłek o postrzępionych czarnych skrzydłach przysiada na omszałym posągu, wznosząc szpon ponad starożytną urnę z prochami. Jednym gestem kościanego kostura wyciąga z naczynia eteryczną smugę szmaragdowej esencji, która w powietrzu rozszczepia się na dwie lśniące kule zakazanej wiedzy. Choć ten bezwzględny rytuał wyzysku wymaga bolesnej daniny z własnych sił witalnych, dla sług smoczego lorda potęga płynąca ze zgłębiania tajemnic śmierci warta jest każdej ceny.",
       "versions": []
     },
     {
@@ -1352,10 +1380,24 @@
       "versions": []
     },
     {
+      "id": "208",
+      "art_id": "208RIX",
+      "title": "Jade Bearer",
+      "story": "W zalanych, prastarych grotach w pobliżu zatopionego miasta Azcanta na planie Ixalan Śpiewacy Rzek przekazują sobie najcenniejsze dziedzictwo przodków. Dostojna szamanka o barwnych płetwach ostrożnie nakłada ceremonialny nefrytowy diadem na czoło klęczącego w płytkiej wodzie młodego wojownika. Pod dotknięciem uświęconego kamienia po ciele młodzieńca rozlewa się ciepła, szmaragdowa poświata, napełniając go legendarnym męstwem dawnych obrońców puszczy. Pamięć o wielkich czynach Sisory i Nateny odżywa w nowym pokoleniu, niosąc siłę niezbędną do ochrony tajemnic dżungli przed chciwością obcych najeźdźców.",
+      "versions": []
+    },
+    {
       "id": "209",
       "art_id": "209ELD",
       "title": "Burning-Yard Trainer",
       "story": "Na udeptanej piaszczystej arenie otoczonej drewnianymi trybunami, pod wieżami baśniowego zamku w Ardenvale, stoi doświadczony instruktor w czerwonej tunice treningowej, skórzanych ochraniaczach na przedramionach i ciężkich butach. W jednej dłoni trzyma opuszczony płonący miecz treningowy — drewniane ostrze owinięte naoliwioną tkaniną, palące się spokojnym ogniem jak pochodnia — drugą uspokaja kasztanowego konia. Obok niego młody rycerz w czerwonym wamsie siedzi w siodle drugiego wierzchowca, pochylony w koncentracji przed torem przeszkód z obręczami i słupami owiniętymi płonącą liną. Po bokach areny płoną żelazne kosze latarni treningowych, a na trybunach siedzą inni uczniowie — w rycerskich akademiach Eldraine ogień jest ostatnim egzaminem, po którym wojownik wie, czy był gotów.",
+      "versions": []
+    },
+    {
+      "id": "210",
+      "art_id": "210_2X2",
+      "title": "Fiery Justice",
+      "story": "W warownym zamku wzniesionym pośród skalistych szczytów Bretagardu na planie Kaldheim samozwańczy władca Lalor Uparty uważał się za nietykalnego za swoimi niezdobytymi murami. Gdy klanowi rebelianci nie zdołali sforsować potężnych wrót twierdzy, wprowadzili do wnętrza sali tronowej zwiadowczynię władającą pradawną magią płomieni. Uderzenie runicznego kostura o posadzkę wyzwala rozgałęzioną nawałnicę sakralnego ognia, która w ułamku sekundy powala całą przyboczną straż uzurpatora. Choć ochronna bariera otaczająca tron pozwala fałszywemu monarsze ocalić życie, płomienna sprawiedliwość bezpowrotnie obraca w zgliszcza jego sny o wiecznym panowaniu.",
       "versions": []
     },
     {
