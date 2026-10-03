@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-03** (sesja `arena/01a0fd5a-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-03** (sesja `arena/01a10303-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
