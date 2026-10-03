@@ -173,9 +173,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **543 fabuły** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 543 gotowe wpisy (batche `b001`–`b061` + rundy korekt) — 100% katalogu.
-- Wygenerowane sample v2: 543 produkcyjne MP3 w `audio/samples/`.
+- Katalog bieżący: **545 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 545 gotowych wpisów (batche `b001`–`b062` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 545 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -415,6 +415,35 @@ semantycznych**. Wszystkie 7 wskazanych ID ma **0 flag sygnałowych** oraz
 Raporty: `data/samples/postprocess-r013.json`, `data/samples/refine-r013b.json`,
 `docs/audits/2026-10-03-audio-audit-after-r013.md`,
 `docs/audits/2026-10-03-semantic-match-r013.md`.
+
+## 2026-10-03 — Dostawa b062: Bloodtithe Harvester i Dig Site Inventory
+
+Właściciel dostarczył dwie nowe fabuły: `212VOW` *Bloodtithe Harvester*
+(Innistrad/Stensia: wampirzy poborca krwawej dziesięciny ocenia rocznik krwi w
+szlifowanej karafce i zabezpieczone woskiem flakony w kufrach powozu) oraz
+`239SOS` *Dig Site Inventory* (kanion Pillardrop/Arcavios: adeptka Lorehold
+kataloguje starożytne kamienne tablice i kompasy w oprawnej w mosiądz skrzyni
+ekspedycyjnej). Katalog urósł do **545 fabuł**.
+
+Scenariusze (oba z wynikiem jakości 100/100 w `audit_scenario_quality.py`):
+
+- `212` (*Bloodtithe Harvester*) — chlupot gęstej krwi w szklanej karafce,
+  brzęk szkła flakonów i trzask woskowej pieczęci,
+- `239` (*Dig Site Inventory*) — stukot kamiennych tablic, brzęk kompasów z
+  mosiądzu w drewnianej skrzyni i zatrzask klamry.
+
+Generacja `b062` (run 37147333162) dała 2/2 pliki, wyrównane w postprodukcji do
+ok. −20 LUFS (`212`: −19,96 LUFS, true peak −2,44 dBTP, treść 1,81 s; `239`:
+−20,26 LUFS, true peak −1,66 dBTP, treść 1,94 s). Oba nowe sample mają **0 flag
+sygnałowych** i **0,0 pkt w audycie semantycznym** (`212`: impact/metal/water;
+`239`: impact/metal/wood).
+
+Stan po `b062`: **545 sampli**, **91 plików z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+
+Raporty: `data/samples/postprocess-b062.json`,
+`docs/audits/2026-10-03-audio-audit-after-b062.md`,
+`docs/audits/2026-10-03-semantic-match-b062.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
