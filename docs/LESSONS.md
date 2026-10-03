@@ -927,4 +927,8 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
      wykrytej częstotliwości rezonansowej. Dźwięk zachowuje pełną jasność i detal,
      ale staje się gładki i przyjemny dla ucha.
 
+## 2026-10-03 — Początek sesji = otwarcie PR; każde zadanie = commit + push
 
+- Sytuacja: agent wykonał regenerację sampli, zacommitował i wypchnął zmiany na gałąź sesji (`arena/...`), sprawdził workflowy przez `gh run list`, ale zapomniał otworzyć Pull Request na GitHubie (`gh pr create`).
+- Wniosek: sam push na gałąź roboczą nie wystarcza — właściciel przegląda i merguje pracę przez PR na GitHubie, więc brak otwartego PR-a blokuje odbiór pracy.
+- Zasada / działanie zapobiegawcze: zasada nr 0 w `AGENTS.md` oraz sekcja 3 w `ENVIRONMENT.md` — na początku sesji (natychmiast przy pierwszym commicie na gałęzi sesji) otwieramy PR do `main` (`gh pr create --base main --head <branch-sesji>`), każde zadanie kończymy `git commit` + `git push`, a w raporcie końcowym zawsze podajemy numer i URL otwartego PR-a.

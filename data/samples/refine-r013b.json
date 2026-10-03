@@ -1,0 +1,68 @@
+{
+  "312": {
+    "operation": "deharsh_high_shelf_and_mid_body",
+    "high_shelf_hz": 5500.0,
+    "high_shelf_gain_db": -8.0,
+    "peaking_hz": 750.0,
+    "peaking_gain_db": 5.0,
+    "before": {
+      "lufs": -20.03,
+      "true_peak_dbtp": -4.08,
+      "spectral_centroid_hz": 8940.4,
+      "bands": {
+        "sub_0_60": 0.0002,
+        "low_60_250": 0.0007,
+        "mid_250_2k": 0.0606,
+        "high_2k_8k": 0.3047,
+        "air_8k_plus": 0.6338
+      }
+    },
+    "after": {
+      "lufs": -19.98,
+      "true_peak_dbtp": -3.81,
+      "spectral_centroid_hz": 6099.5,
+      "bands": {
+        "sub_0_60": 0.0005,
+        "low_60_250": 0.0022,
+        "mid_250_2k": 0.2837,
+        "high_2k_8k": 0.3721,
+        "air_8k_plus": 0.3415
+      }
+    }
+  },
+  "521": {
+    "operation": "trim_slow_lead_and_wood_eq",
+    "trim_lead_s": 0.22,
+    "fade_in_ms": 8.0,
+    "high_shelf_hz": 5500.0,
+    "high_shelf_gain_db": -7.0,
+    "peaking_hz": 650.0,
+    "peaking_gain_db": 6.0,
+    "before": {
+      "duration_s": 2.48,
+      "lufs": -20.25,
+      "true_peak_dbtp": -1.64,
+      "spectral_centroid_hz": 7371.7,
+      "bands": {
+        "sub_0_60": 0.0042,
+        "low_60_250": 0.0012,
+        "mid_250_2k": 0.0345,
+        "high_2k_8k": 0.499,
+        "air_8k_plus": 0.4612
+      }
+    },
+    "after": {
+      "duration_s": 2.26,
+      "lufs": -20.4,
+      "true_peak_dbtp": -1.6,
+      "spectral_centroid_hz": 5569.2,
+      "bands": {
+        "sub_0_60": 0.003,
+        "low_60_250": 0.0031,
+        "mid_250_2k": 0.1178,
+        "high_2k_8k": 0.6319,
+        "air_8k_plus": 0.2442
+      }
+    }
+  }
+}

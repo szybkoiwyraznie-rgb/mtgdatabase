@@ -18,6 +18,14 @@ Nie rozwijaj go jako głównego flow i nie pakuj jego MP3 do ZIP-a.
 
 ## Zasady nadrzędne
 
+0. **Początek sesji = otwarty PR na GitHubie; każde zadanie = commit + push.**
+   - Na starcie sesji sprawdź `gh pr list --head <branch-sesji>`. Jeśli PR dla
+     bieżącej gałęzi sesji (`arena/...`) jeszcze nie istnieje, otwórz go
+     natychmiast po pierwszym commicie (`gh pr create --base main --head <branch-sesji>`).
+   - Każde wykonane zadanie lub runda poprawek kończy się `git commit` +
+     `git push origin <branch-sesji>` oraz aktualizacją/sprawdzeniem PR-a
+     (`gh pr checks`). Nigdy nie kończ odpowiedzi po wykonaniu zadania bez
+     zacommitowania, wypchnięcia i upewnienia się, że PR na GitHubie jest otwarty.
 1. **Jedna fabuła = jeden krótki sample**. Nie robimy pełnej sceny audio ani
    warstwowego sound designu.
 2. Sample ma być jednorodny i rozpoznawalny: np. „krakanie wron”, „uderzenie
@@ -116,8 +124,9 @@ git diff --check
 
 Podaj krótko:
 
-- ile scenariuszy dopisano,
+- numer i link do otwartego PR-a na GitHubie (`gh pr view --json number,url`),
+- ile scenariuszy dopisano / przepisano,
 - ile MP3 wygenerowano,
 - gdzie jest HTML preview/ZIP,
-- czy CI przeszło,
+- czy CI na PR przeszło,
 - następny krok.

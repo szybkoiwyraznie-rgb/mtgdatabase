@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-02** (sesja `arena/01a0f64a-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-03** (sesja `arena/01a0fd5a-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
@@ -365,6 +365,56 @@ Nowe ID są bez flag sygnałowych i mają 0 pkt w audycie semantycznym.
 Raporty: `data/samples/postprocess-b061.json`,
 `docs/audits/2026-10-02-audio-audit-after-b061.md`,
 `docs/audits/2026-10-02-semantic-match-b061.md`.
+
+## 2026-10-03 — Runda r013/r013b: siedem poprawek po odsłuchu właściciela
+
+Właściciel wskazał 7 sampli, których brzmienie nie kojarzyło się z kartą i
+fabułą: `312` *Goblin Battle Jester* (brzmiało jak skrzypienie piasku),
+`515` *Warmaker Gunship* (jak popiskiwanie myszy), `145` *Clone Shell* (jak
+skrobanie w podłogę), `7` *Mindstab* (skrzypienie), `521` *Leafcrown Dryad*
+(trąbka), `464` *Polluted Dead* (dźwięk radia) oraz `568` *Nanoform Sentinel*
+(cykady).
+
+Wszystkie 7 promptów i scenariuszy przepisano od zera na czytelne, fizyczne
+źródła dźwięku z jawnymi zakazami błędnych skojarzeń:
+
+- `7` (*Mindstab*) — rozdarcie, głośny szelest i świst papierowych kart
+  pergaminu wyrywanych z księgi na skale (`no creaking, no wood squeak`),
+- `145` (*Clone Shell*) — metalowy huk pękającej stalowej kapsuły, syk zaworu
+  ciśnieniowego i mokry rozbryzg płynu stazy na żelaznej podłodze
+  (`no floor scraping, no scratching`),
+- `312` (*Goblin Battle Jester*) — skoczny tupot goblina na skale, jasny brzęk
+  mosiężnych dzwonków/blaszek błazna i klekot kościanych ochraniaczy
+  (`no sand crunch, no gravel`),
+- `464` (*Polluted Dead*) — ciężkie szuranie stóp nieumarłego po suchej słomie
+  i glebie oraz żrący syk i skwierczenie zatrutej ziemi (`no radio static, no
+  electronic hum, no sine tone`),
+- `515` (*Warmaker Gunship*) — syk siłowników, ciężki szczęk i łomot stalowej
+  rampy okrętu desantowego uderzającej o skałę oraz huk dysz (`no squeaking,
+  no mouse chirps`),
+- `521` (*Leafcrown Dryad*) — szelest gęstych liści dębu, świst splatających
+  się kolczastych gałęzi i trzask łamanych drewnianych pędów (`no trumpet, no
+  horn, no sustained tone`),
+- `568` (*Nanoform Sentinel*) — trzask iskier spawania elektrycznego,
+  metaliczny zatrzask uszczelnianych stalowych przewodów i uderzenie
+  włączanego generatora (`no cicadas, no insects, no high hiss`).
+
+Generacja `r013` (run 37136501832) dała 7/7 plików i zdjęła dwie dotychczasowe
+flagi sygnałowe z korpusu (`521`: `tonal_sustained`, `568`: `harsh`). W `r013b`
+wykonano lokalne dopracowanie barwy i obwiedni dla dwóch plików: `312`
+(high-shelf 5,5 kHz −8 dB + peaking 750 Hz +5 dB pod ciało kościanych płytek,
+centroid **8940 → 6100 Hz**, udział 250–2000 Hz **6% → 28%**) oraz `521`
+(przycięcie 0,22 s powolnego wejścia z fade-in 8 ms + high-shelf 5,5 kHz −7 dB
+i peaking 650 Hz +6 dB pod drewniane gałęzie, centroid **7372 → 5569 Hz**).
+
+Stan po `r013b`: **543 sample**, **91 plików z flagą** (spadek z 93), **0 par
+bliźniaków ≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności
+semantycznych**. Wszystkie 7 wskazanych ID ma **0 flag sygnałowych** oraz
+**0,0 pkt w audycie semantycznym**.
+
+Raporty: `data/samples/postprocess-r013.json`, `data/samples/refine-r013b.json`,
+`docs/audits/2026-10-03-audio-audit-after-r013.md`,
+`docs/audits/2026-10-03-semantic-match-r013.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
