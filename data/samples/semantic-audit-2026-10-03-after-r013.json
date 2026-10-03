@@ -5,11 +5,11 @@
       "p25": 0.0121,
       "p50": 0.096,
       "p75": 0.2168,
-      "p95": 0.3523299999999999
+      "p95": 0.35726999999999987
     },
     "tonal_frame_fraction": {
       "p5": 0.0,
-      "p25": 0.016,
+      "p25": 0.0165,
       "p50": 0.248,
       "p75": 0.829,
       "p95": 1.0
@@ -25,14 +25,14 @@
       "p5": 337.23,
       "p25": 1144.45,
       "p50": 2665.5,
-      "p75": 5821.5,
+      "p75": 5798.65,
       "p95": 9833.089999999997
     },
     "attack_s": {
       "p5": 0.0,
       "p25": 0.03,
       "p50": 0.08,
-      "p75": 0.33,
+      "p75": 0.325,
       "p95": 1.0989999999999998
     },
     "decay_s": {
@@ -53,14 +53,14 @@
       "p5": 562.05,
       "p25": 2907.0,
       "p50": 8118.0,
-      "p75": 11767.900000000001,
+      "p75": 11735.6,
       "p95": 14767.489999999998
     },
     "mod_peak_hz": {
       "p5": 1.06,
       "p25": 1.3,
       "p50": 1.9,
-      "p75": 3.9050000000000002,
+      "p75": 3.9400000000000004,
       "p95": 14.075999999999997
     }
   },
@@ -280,10 +280,10 @@
     "613",
     "617"
   ],
-  "suspects": 60,
+  "suspects": 59,
   "by_severity": {
     "rażące (>=3.0)": 0,
-    "wyraźne (1.5-3.0)": 57,
+    "wyraźne (1.5-3.0)": 56,
     "drobne (<1.5)": 3
   },
   "results": [
@@ -2080,43 +2080,6 @@
           "mid_250_2k": 0.3976,
           "high_2k_8k": 0.0149,
           "air_8k_plus": 0.005
-        }
-      }
-    },
-    {
-      "id": "521",
-      "title": "Leafcrown Dryad",
-      "scenario": "szelest gęstych liści dębu, świst splatających się kolczastych gałęzi i trzask łamanych drewnianych pędów",
-      "classes": [
-        "impact",
-        "noise_hiss",
-        "wood"
-      ],
-      "score": 1.5,
-      "violations": [
-        {
-          "class": "impact",
-          "reason": "atak zbyt wolny (0.39 s > górny kwartyl 0.33 s)",
-          "weight": 1.5
-        }
-      ],
-      "metrics": {
-        "spectral_centroid_hz": 7371.7,
-        "spectral_flatness": 0.3508,
-        "tonal_frame_fraction": 0.0,
-        "voiced_fraction": 0.0,
-        "attack_s": 0.39,
-        "decay_s": 0.17,
-        "onset_count": 15,
-        "mod_peak_hz": 1.16,
-        "sustain_ratio": 0.149,
-        "rolloff95_hz": 12446.2,
-        "bands": {
-          "sub_0_60": 0.0042,
-          "low_60_250": 0.0012,
-          "mid_250_2k": 0.0345,
-          "high_2k_8k": 0.499,
-          "air_8k_plus": 0.4612
         }
       }
     },
@@ -7214,22 +7177,22 @@
       "score": 0,
       "violations": [],
       "metrics": {
-        "spectral_centroid_hz": 8940.4,
-        "spectral_flatness": 0.1571,
-        "tonal_frame_fraction": 0.005,
-        "voiced_fraction": 0.742,
-        "attack_s": 0.11,
-        "decay_s": 0.09,
-        "onset_count": 21,
+        "spectral_centroid_hz": 6099.5,
+        "spectral_flatness": 0.1664,
+        "tonal_frame_fraction": 0.067,
+        "voiced_fraction": 0.818,
+        "attack_s": 0.05,
+        "decay_s": 0.1,
+        "onset_count": 18,
         "mod_peak_hz": 4.12,
-        "sustain_ratio": 0.226,
-        "rolloff95_hz": 13436.7,
+        "sustain_ratio": 0.21,
+        "rolloff95_hz": 13006.1,
         "bands": {
-          "sub_0_60": 0.0002,
-          "low_60_250": 0.0007,
-          "mid_250_2k": 0.0606,
-          "high_2k_8k": 0.3047,
-          "air_8k_plus": 0.6338
+          "sub_0_60": 0.0005,
+          "low_60_250": 0.0022,
+          "mid_250_2k": 0.2837,
+          "high_2k_8k": 0.3721,
+          "air_8k_plus": 0.3415
         }
       }
     },
@@ -9173,6 +9136,37 @@
           "mid_250_2k": 0.1547,
           "high_2k_8k": 0.8328,
           "air_8k_plus": 0.0013
+        }
+      }
+    },
+    {
+      "id": "521",
+      "title": "Leafcrown Dryad",
+      "scenario": "szelest gęstych liści dębu, świst splatających się kolczastych gałęzi i trzask łamanych drewnianych pędów",
+      "classes": [
+        "impact",
+        "noise_hiss",
+        "wood"
+      ],
+      "score": 0,
+      "violations": [],
+      "metrics": {
+        "spectral_centroid_hz": 5569.2,
+        "spectral_flatness": 0.4046,
+        "tonal_frame_fraction": 0.0,
+        "voiced_fraction": 0.0,
+        "attack_s": 0.26,
+        "decay_s": 0.15,
+        "onset_count": 12,
+        "mod_peak_hz": 4.49,
+        "sustain_ratio": 0.15,
+        "rolloff95_hz": 11197.3,
+        "bands": {
+          "sub_0_60": 0.003,
+          "low_60_250": 0.0031,
+          "mid_250_2k": 0.1178,
+          "high_2k_8k": 0.6319,
+          "air_8k_plus": 0.2442
         }
       }
     },

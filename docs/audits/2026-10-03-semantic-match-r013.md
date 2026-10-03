@@ -3,7 +3,7 @@
 Sprawdzono **330** sampli z rozpoznaną klasą dźwięku. Bez rozpoznanej klasy: **213** (scenariusze bez konkretnego słowa dźwiękowego — osobna lista do przepisania).
 
 - rażące sprzeczności (≥3,0): **0**
-- wyraźne (1,5–3,0): **57**
+- wyraźne (1,5–3,0): **56**
 - drobne (<1,5): **3**
 
 ## Kandydaci do odsłuchu i regeneracji
@@ -59,7 +59,6 @@ Sprawdzono **330** sampli z rozpoznaną klasą dźwięku. Bez rozpoznanej klasy:
 | 1.5 | 492 | szelest wysokiej trawy kładzionej podmuchem nad kurhanem | szerokopasmowy szum/syk bez wyraźnej wysokości | wyraźna wysokość dźwięku (voiced=0.27 > górny kwartyl 0.26) |
 | 1.5 | 504 | pojedynczy strzał ciężkiej balisty: trzask spustu i głuche tąpnięcie r | uderzenie — ostry atak, szybki zanik; niskie dudnienie — dominacja doł | brak dołu pasma (low=1.5%, oczekiwane >20%) |
 | 1.5 | 506 | gęste bulgotanie oleju i suche trzaski sztywniejących narośli | uderzenie — ostry atak, szybki zanik; woda — rozproszone transjenty, s | dźwięk tonalny zamiast wody (tonal=0.93 > górny kwartyl 0.83) |
-| 1.5 | 521 | szelest gęstych liści dębu, świst splatających się kolczastych gałęzi  | uderzenie — ostry atak, szybki zanik; szerokopasmowy szum/syk bez wyra | atak zbyt wolny (0.39 s > górny kwartyl 0.33 s) |
 | 1.5 | 523 | długi trzask żywego pnia wierzby rozdzieranego i łamanego wpół | uderzenie — ostry atak, szybki zanik; drewno — matowy, krótki rezonans | atak zbyt wolny (0.35 s > górny kwartyl 0.33 s) |
 | 1.5 | 538 | strumień krystalicznego zimna więżący orka w locie | metal — jasne pasmo i dzwoniący ogon; woda — rozproszone transjenty, s | pasmo zbyt ciemne jak na metal (centroid=992 Hz < dolny kwartyl 1144) |
 | 1.5 | 540 | osaczenie poszukiwacza przez piskliwy rój szczurów w kanałach | głos (zwierzęcy lub ludzki) — wyraźna harmoniczność | czysty szum zamiast głosu (flatness=0.22) |
