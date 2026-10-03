@@ -31,14 +31,19 @@ git reset --mixed FETCH_HEAD
 `--hard` wykonuj dopiero po upewnieniu się, że nie ma lokalnych zmian do
 uratowania.
 
-## 3. GitHub i uwierzytelnienie
+## 3. GitHub, PR i uwierzytelnienie
 
+- **Twarda zasada sesji: początek sesji = otwarcie PR; każde zadanie = commit + push.**
+  Sprawdź `gh pr list --head <branch-sesji>` już na starcie pracy. Natychmiast
+  po pierwszym commicie na gałęzi sesji (`arena/...`) utwórz PR do `main`
+  (`gh pr create --base main --head <branch-sesji>`), a każde kolejne zadanie
+  zamykaj commitem i pushem aktualizującym ten PR.
 - Do operacji lokalnych używaj `git`, do PR/checków/workflowów `gh`.
 - Nigdy nie proś właściciela o hasła, tokeny ani kody 2FA w czacie.
 - Jeśli `git`/`gh` zwróci błąd uwierzytelnienia, poproś o reconnect GitHub w Arena.
 - `gh workflow run` może nie działać z tokenem GitHub App (`actions:write`);
   jeśli tak, właściciel może uruchomić manualny workflow z UI GitHuba.
-- Po każdym pushu sprawdź checks PR-a.
+- Po każdym pushu sprawdź checks PR-a (`gh pr checks`).
 
 ## 4. Pliki i sekrety
 
