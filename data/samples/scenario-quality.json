@@ -1,5 +1,5 @@
 {
-  "count": 549,
+  "count": 550,
   "median_score": 57.0,
   "below_threshold": 0,
   "threshold": 40.0,
@@ -7446,6 +7446,18 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 9,
+      "problems": []
+    },
+    {
+      "id": "254",
+      "title": "Snarespinner",
+      "scenario": "szybki tupot i suche stukanie ośmiu odnóży pająka o drewniany pień",
+      "score": 92.0,
+      "sound_hits": 2,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 11,
       "problems": []
     },
     {

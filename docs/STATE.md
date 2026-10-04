@@ -20,14 +20,14 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **549 fabuł**
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **550 fabuł**
 i z niego generowano `data/catalog.json`. Liczba obejmuje kolejne dostawy
 właściciela po bazie `b054` (szczegóły historyczne poniżej), w tym najnowsze
 `212VOW` *Bloodtithe Harvester*, `239SOS` *Dig Site Inventory* (`b062`),
 `241SPM` *News Helicopter* (`b063`), `244BFZ` *Natural Connection* (`b064`),
-`247ORI` *Subterranean Scout* (`b065`) oraz `250MRD` *Loxodon Mender* (`b066`).
-ID fabuły to numeryczna część wartości `Ilustracja`, sufiks setu jest wycinany
-przy imporcie.
+`247ORI` *Subterranean Scout* (`b065`), `250MRD` *Loxodon Mender* (`b066`)
+oraz `254DMU` *Snarespinner* (`b067`). ID fabuły to numeryczna część wartości
+`Ilustracja`, sufiks setu jest wycinany przy imporcie.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
 
@@ -174,9 +174,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **549 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 549 gotowych wpisów (batche `b001`–`b066` + rundy korekt) — 100% katalogu.
-- Wygenerowane sample v2: 549 produkcyjnych MP3 w `audio/samples/`.
+- Katalog bieżący: **550 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 550 gotowych wpisów (batche `b001`–`b067` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 550 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -546,6 +546,29 @@ Raporty: `data/samples/postprocess-b066.json`,
 `docs/audits/2026-10-04-scenario-quality.md`,
 `docs/audits/2026-10-04-audio-audit-after-b066.md`,
 `docs/audits/2026-10-04-semantic-match-b066.md`.
+
+## 2026-10-04 — Dostawa b067: 254 Snarespinner
+
+Dodano `254DMU` *Snarespinner*: pająk z puszczy Yavimaya rozciąga lepką,
+złotą pajęczynę, która uruchamia jego błyskawiczny atak na latającą zdobycz.
+Katalog urósł do **550 fabuł**.
+
+Żeby odróżnić dźwięk od wcześniejszych sampli pajęczyn, scenariusz `b067`
+skupia się na jednym szybkim, suchym tupocie i stukaniu ośmiu odnóży pająka
+o drewniany pień. Ocena jakości scenariusza: **92/100**.
+
+Generacja (run 37223595286) dała 1/1 plik. `254.mp3` trwa 2,00 s (czytelna
+treść 1,74 s); po postprodukcji ma −20,16 LUFS i true peak −1,70 dBTP.
+Audyt sygnałowy: **0 flag**. Audyt semantyczny: **0 pkt**, klasy impact/wood,
+17 onsetów i brak naruszeń. Korpus: **91** plików z flagą, **0** par bliźniaków
+≥ 0,95, **0** identycznych PCM i **0** rażących sprzeczności semantycznych.
+
+Raporty: `data/samples/postprocess-b067.json`,
+`data/samples/scenario-quality.json`,
+`data/samples/audio-audit-2026-10-04-after-b067.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b067.md`,
+`docs/audits/2026-10-04-semantic-match-b067.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
