@@ -7311,20 +7311,6 @@
       "problems": []
     },
     {
-      "id": "76",
-      "title": "Negate",
-      "scenario": "rozbicie zaklęcia o barierę: świst nadlatującej energii, szklisty trzask i kaskada kryształowych okruchów dzwoniących na marmurze",
-      "score": 89.0,
-      "sound_hits": 3,
-      "material_hits": 2,
-      "visual_hits": 0,
-      "abstract_hits": 1,
-      "words": 16,
-      "problems": [
-        "pojęcia abstrakcyjne (1)"
-      ]
-    },
-    {
       "id": "34",
       "title": "Volcanic Submersion",
       "scenario": "ciężki plusk gęstej magmy i skwierczenie rozprysków na rozżarzonej skale",
@@ -7468,6 +7454,18 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 19,
+      "problems": []
+    },
+    {
+      "id": "76",
+      "title": "Negate",
+      "scenario": "rozbicie zaklęcia o barierę: jeden ostry trzask uderzenia, potem dźwięczne dzwonienie kryształowych odłamków na marmurze, każdy z jasnym długim tonem",
+      "score": 94.0,
+      "sound_hits": 3,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 20,
       "problems": []
     },
     {

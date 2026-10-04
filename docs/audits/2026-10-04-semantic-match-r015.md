@@ -2,7 +2,7 @@
 
 Sprawdzono **342** sampli z rozpoznaną klasą dźwięku. Bez rozpoznanej klasy: **211** (scenariusze bez konkretnego słowa dźwiękowego — osobna lista do przepisania).
 
-- rażące sprzeczności (≥3,0): **1**
+- rażące sprzeczności (≥3,0): **0**
 - wyraźne (1,5–3,0): **60**
 - drobne (<1,5): **3**
 
@@ -10,7 +10,6 @@ Sprawdzono **342** sampli z rozpoznaną klasą dźwięku. Bez rozpoznanej klasy:
 
 | Wynik | ID | Scenariusz | Oczekiwano | Zmierzono |
 |---|---|---|---|---|
-| 3.0 | 76 | rozbicie zaklęcia o barierę: świst nadlatującej energii, szklisty trza | dźwięk tonalny z długim wybrzmieniem (dzwon, struna); uderzenie — ostr | widmo szumowe (flatness=0.42 > górny kwartyl 0.22); dźwięk ciągły zamiast uderzenia (sustain=0.49) |
 | 2.5 | 160 | ogień ogar żywiołów wymyka się spod kontroli i zrywa do skoku | ogień — nieregularne mikrotrzaski w szumie | brak szumowej natury ognia (flatness=0.002 < dolny kwartyl 0.013); ogień bez trzasków w górze pasma (high=1.2% |
 | 2.5 | 209 | machnięcie płonącym treningowym mieczem i spokojenie konia | metal — jasne pasmo i dzwoniący ogon | pasmo zbyt ciemne jak na metal (centroid=270 Hz < dolny kwartyl 1152); brak jasnego ogona (rolloff95=517 Hz <  |
 | 2.5 | 275 | łomot butów wbiegających po stalowych schodach coraz wyżej | uderzenie — ostry atak, szybki zanik; metal — jasne pasmo i dzwoniący  | pasmo zbyt ciemne jak na metal (centroid=832 Hz < dolny kwartyl 1152); brak jasnego ogona (rolloff95=1938 Hz < |
@@ -50,3 +49,4 @@ Sprawdzono **342** sampli z rozpoznaną klasą dźwięku. Bez rozpoznanej klasy:
 | 1.5 | 190 | trzask małego ogniska rozniecanego przy kamiennej piramidce | uderzenie — ostry atak, szybki zanik | atak zbyt wolny (0.38 s > górny kwartyl 0.33 s) |
 | 1.5 | 197 | pojedyncza ciężka kropla w nieruchomą wodę z bliska | woda — rozproszone transjenty, szerokie pasmo | dźwięk tonalny zamiast wody (tonal=0.95 > górny kwartyl 0.83) |
 | 1.5 | 218 | bulgotanie trzech zbiorników ciemnozielonej substancji w trigonie | woda — rozproszone transjenty, szerokie pasmo | dźwięk tonalny zamiast wody (tonal=1.00 > górny kwartyl 0.83) |
+| 1.5 | 234 | chrapliwy pomruk płaziego slaada na mglistym mokradle | niskie dudnienie — dominacja dołu pasma | brak dołu pasma (low=1.4%, oczekiwane >20%) |

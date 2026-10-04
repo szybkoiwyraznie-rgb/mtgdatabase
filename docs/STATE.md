@@ -701,8 +701,82 @@ odtwarzalny:
 Ostatnia liczba to największa niezamknięta dźwignia jakościowa korpusu:
 przepisanie tych scenariuszy jest darmowe, ale słyszalny efekt daje dopiero
 regeneracja (~29 kredytów/sztukę), więc decyzja o budżecie należy do
-właściciela. W tej sesji nie zmieniono ani jednego MP3 — do repo trafiła tylko
-dokumentacja.
+właściciela. Właściciel wybrał z listy najtwardszą kategorię — `short_content`
+(11 plików) — i zaraz potem ruszyła runda `r015` opisana poniżej.
+
+## 2026-10-04 — Runda r015/r015b/r015c/r015d: jedenaście sampli z treścią < 0,8 s
+
+Właściciel zdecydował o regeneracji wszystkich plików, które audyt oznacza jako
+WYSOKIE, czyli `short_content` (treść krótsza niż 0,8 s przy zamówionych 2,5 s):
+`65`, `76`, `105`, `191`, `290`, `321`, `403`, `504`, `517`, `567`, `593`.
+
+Zgodnie z zasadą z `LESSONS.md` („generatorowi mówi się, co ma być”) żaden
+prompt nie został skrócony ani uzupełniony zakazem ciszy — każdy opisuje teraz
+**następstwo faz jednego zdarzenia** (impakt → faza ciągła → wybrzmienie), co
+daje modelowi czym wypełnić czas.
+
+**r015 (run 37239129618, 11/11 `generated`).** Treść urosła w 10 z 11 plików,
+np. `517` 0,21 → 1,82 s, `290` 0,22 → 1,51 s, `403` 0,35 → 0,65 s, `567`
+0,65 → 0,67 s (bez zmiany). Trzy pliki wymagały drugiej próby:
+
+- `290` *Soulbright Flamekin* wpadł w pułapkę infradźwiękową — centroid
+  **128 Hz**, `audible_share` **0,063**, flagi `boomy` + `dull`;
+- `504` *Ballista Watcher* wyszedł jako niski, w pełni tonalny łomot
+  (tonalność **0,91** ramek, centroid 599 Hz) zamiast strzału z balisty;
+- `567` *Jwar Isle Avenger* nadal miał **0,60 s** treści.
+
+**r015b (run 37239606761, 3/3 `generated`).** Wszystkie trzy naprawione:
+`290` — 2,04 s treści, centroid 373 Hz, `audible_share` 0,261; `504` — 2,48 s;
+`567` — 2,48 s. Prompty nazwały fazy ciągłe (trzaskający żar, brzęk cięciwy
+i świst bełtu, długie mokre rozdarcie chityny).
+
+**r015c (run 37240185162, 1/1 `generated`).** `517` *Force Away* po
+regeneracji okazał się bliźniakiem `57` *Veiled Ascension* (kosinus **0,9612**)
+i `255` *Urborg Uprising* (**0,9601**) — wszystkie trzy to podmuch/unoszenie
+powietrza. Varispeed zbijał kosinus dopiero przy +25% (0,9449), czyli kosztem
+słyszalnego przesunięcia barwy, więc zamiast tego zmieniono **źródło dźwięku**:
+rozbryzg wodnej mgły po zniknięciu ciała i żelazny tasak opadający w zaspy.
+Efekt: 0 par bliźniaczych, 0 flag, 0 pkt w audycie semantycznym.
+
+**r015d (run 37240478263, 1/1 `generated`).** `76` *Negate* po r015 zapalił
+**rażącą sprzeczność semantyczną (3,0 pkt)**: scenariusz obiecuje szklisty,
+dzwoniący kryształ, a plik był szumową kaskadą (flatness **0,42** przy górnym
+kwartylu 0,22) o ciągłym charakterze (sustain 0,49). Prompt przepisany na
+dźwięczne dzwonienie odłamków — po regeneracji **0 pkt**, flatness 0,10.
+
+**Postprodukcja i różnicowanie (0 kredytów).** Cztery przejścia
+`postprocess_samples.py` (`postprocess-r015.json` 11 plików,
+`postprocess-r015b.json` 3, `postprocess-r015c.json` 517,
+`postprocess-r015d.json` 76) oraz dwie sesje lokalnych korekt z surowych
+oryginałów (`refine-r015b.json`, `refine-r015c.json`):
+
+- `403` — high-shelf 4,5 kHz −12 dB + peaking 750 Hz +5 dB (centroid
+  9848 → 9258 Hz), głośność −27,8 → −21,46 LUFS. Flaga `harsh` **zostaje
+  świadomie**: to syk żrącego gazu, 88% energii powyżej 8 kHz, i żadna
+  rozsądna korekcja tego nie zmienia bez zabicia źródła;
+- `593` — high-shelf 3,5 kHz −14 dB + peaking 1,2 kHz +6 dB (centroid
+  9407 → 8944 Hz), `harsh` zdjęty;
+- `504` — fade-in 8 ms i fade-out 40 ms na twarde krawędzie oraz większy budżet
+  limitera: −24,7 → −20,89 LUFS;
+- `76` — łagodny high-shelf 6 kHz −6 dB + zwężenie boku (kosinus z `174`
+  **0,9417**, z `315` **0,9397**, `mono_excess` 1,77 LU). Mocniejszy tilt
+  (5 kHz −8 dB + 1,5 kHz +4 dB) też rozbijał parę, ale zamieniał kryształy
+  w szum — stąd r015d.
+
+**Stan po rundzie:** 553 sample, **82 pliki z flagą** (spadek z 91), **0 par
+bliźniaków ≥ 0,95**, **0 identycznych PCM**, **0 rażących sprzeczności
+semantycznych** (60 „wyraźnych”, 3 drobne), mediana −20,01 LUFS (σ 0,13 LU).
+Z jedenastki **9 plików ma 0 flag**; `403` ma `harsh`, `504` `cut_start_hard`
+(perkusyjny start — audyt sam uznaje go za naturalny). Mediana jakości
+scenariuszy 57,0 → **60,0/100**. Zużycie: **16 generacji** (11 + 3 + 1 + 1).
+
+Raporty: `data/samples/audio-audit-2026-10-04-after-r015.json`,
+`data/samples/semantic-audit-2026-10-04-after-r015.json`,
+`data/samples/scenario-quality.json`,
+`docs/audits/2026-10-04-audio-audit-after-r015.md`,
+`docs/audits/2026-10-04-semantic-match-r015.md`,
+`docs/audits/2026-10-04-scenario-quality.md`. Tymczasowy workflow generacji
+(`temp-generate-r015.yml`, triggery `[generate-r015…]`) usunięty po imporcie.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 

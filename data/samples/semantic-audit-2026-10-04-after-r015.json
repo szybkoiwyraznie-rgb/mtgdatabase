@@ -4,8 +4,8 @@
       "p5": 0.00016000000000000015,
       "p25": 0.0126,
       "p50": 0.0991,
-      "p75": 0.217,
-      "p95": 0.35824
+      "p75": 0.2166,
+      "p95": 0.35796
     },
     "tonal_frame_fraction": {
       "p5": 0.0,
@@ -278,56 +278,13 @@
     "613",
     "617"
   ],
-  "suspects": 64,
+  "suspects": 63,
   "by_severity": {
-    "rażące (>=3.0)": 1,
+    "rażące (>=3.0)": 0,
     "wyraźne (1.5-3.0)": 60,
     "drobne (<1.5)": 3
   },
   "results": [
-    {
-      "id": "76",
-      "title": "Negate",
-      "scenario": "rozbicie zaklęcia o barierę: świst nadlatującej energii, szklisty trzask i kaskada kryształowych okruchów dzwoniących na marmurze",
-      "classes": [
-        "tonal_ring",
-        "impact",
-        "noise_hiss",
-        "granular"
-      ],
-      "score": 3.0,
-      "violations": [
-        {
-          "class": "tonal_ring",
-          "reason": "widmo szumowe (flatness=0.42 > górny kwartyl 0.22)",
-          "weight": 1.5
-        },
-        {
-          "class": "impact",
-          "reason": "dźwięk ciągły zamiast uderzenia (sustain=0.49)",
-          "weight": 1.5
-        }
-      ],
-      "metrics": {
-        "spectral_centroid_hz": 3572.3,
-        "spectral_flatness": 0.4195,
-        "tonal_frame_fraction": 0.018,
-        "voiced_fraction": 0.021,
-        "attack_s": 0.05,
-        "decay_s": 1.41,
-        "onset_count": 0,
-        "mod_peak_hz": 1.05,
-        "sustain_ratio": 0.492,
-        "rolloff95_hz": 10379.0,
-        "bands": {
-          "sub_0_60": 0.0804,
-          "low_60_250": 0.1184,
-          "mid_250_2k": 0.1537,
-          "high_2k_8k": 0.5455,
-          "air_8k_plus": 0.1021
-        }
-      }
-    },
     {
       "id": "160",
       "title": "Fiery Hellhound",
@@ -4066,6 +4023,36 @@
           "mid_250_2k": 0.7265,
           "high_2k_8k": 0.235,
           "air_8k_plus": 0.0218
+        }
+      }
+    },
+    {
+      "id": "76",
+      "title": "Negate",
+      "scenario": "rozbicie zaklęcia o barierę: jeden ostry trzask uderzenia, potem dźwięczne dzwonienie kryształowych odłamków na marmurze, każdy z jasnym długim tonem",
+      "classes": [
+        "tonal_ring",
+        "impact"
+      ],
+      "score": 0,
+      "violations": [],
+      "metrics": {
+        "spectral_centroid_hz": 3098.0,
+        "spectral_flatness": 0.1033,
+        "tonal_frame_fraction": 0.207,
+        "voiced_fraction": 0.0,
+        "attack_s": 0.01,
+        "decay_s": 0.56,
+        "onset_count": 12,
+        "mod_peak_hz": 1.04,
+        "sustain_ratio": 0.21,
+        "rolloff95_hz": 10831.2,
+        "bands": {
+          "sub_0_60": 0.1121,
+          "low_60_250": 0.3326,
+          "mid_250_2k": 0.1923,
+          "high_2k_8k": 0.1586,
+          "air_8k_plus": 0.2045
         }
       }
     },

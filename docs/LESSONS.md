@@ -932,3 +932,56 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Sytuacja: agent wykonał regenerację sampli, zacommitował i wypchnął zmiany na gałąź sesji (`arena/...`), sprawdził workflowy przez `gh run list`, ale zapomniał otworzyć Pull Request na GitHubie (`gh pr create`).
 - Wniosek: sam push na gałąź roboczą nie wystarcza — właściciel przegląda i merguje pracę przez PR na GitHubie, więc brak otwartego PR-a blokuje odbiór pracy.
 - Zasada / działanie zapobiegawcze: zasada nr 0 w `AGENTS.md` oraz sekcja 3 w `ENVIRONMENT.md` — na początku sesji (natychmiast przy pierwszym commicie na gałęzi sesji) otwieramy PR do `main` (`gh pr create --base main --head <branch-sesji>`), każde zadanie kończymy `git commit` + `git push`, a w raporcie końcowym zawsze podajemy numer i URL otwartego PR-a.
+
+## 2026-10-04 — Dopełnianie długości ciszą cofa różnicowanie bliźniaków
+
+- Sytuacja: varispeed +8% i tilt barwy zbiły kosinus pary `57`~`517` z 0,9687
+  do 0,9471, ale plik skrócił się do 2,30 s i złapał `duration_mismatch`.
+  Dopełnienie końcówki zerami do deklarowanych 2,50 s podniosło kosinus z
+  powrotem na **0,9612** — cała praca poszła na marne.
+- Wniosek: odcisk log-mel uśrednia widmo do 24 ramek **na całą długość pliku**,
+  więc doklejona cisza zmienia ramki i przesuwa podobieństwo. Długość jest
+  częścią odcisku, nie neutralnym opakowaniem.
+- Zasada / działanie zapobiegawcze: po różnicowaniu nie przywracać długości
+  ciszą, tylko zadeklarować realną długość pliku w `duration_seconds`
+  scenariusza. Jeśli varispeed trzeba łączyć z konkretnym czasem, mierzyć
+  kosinus **na zapisanym MP3 o docelowej długości**, nie na sygnale w pamięci.
+
+## 2026-10-04 — Varispeed nie rozbije bliźniaków, gdy źródło dźwięku jest to samo
+
+- Sytuacja: trzy sample (`57`, `255`, `517`) opisywały podmuch/unoszenie
+  powietrza. Varispeed do +12% dawał 0,9556, do +20% 0,9580, a dopiero +25%
+  zeszło do 0,9449 — czyli o włos od progu i kosztem przesunięcia barwy
+  o niemal cztery półtony.
+- Wniosek: dla szerokopasmowych, beztonalnych źródeł (podmuch, syk, szum)
+  transformacje czasu i barwy ruszają odcisk słabo, bo nie zmieniają tego, co
+  słychać. Skuteczna była dopiero zmiana **źródła** w prompcie (rozbryzg
+  wodnej mgły i żelazny tasak w śniegu) — 0 par bliźniaczych bez żadnego EQ.
+- Zasada / działanie zapobiegawcze: jeśli para bliźniacza wynika z tego samego
+  zjawiska fizycznego w dwóch fabułach, nie ratować jej varispeedem, tylko
+  znaleźć w fabule inny, równie prawdziwy dźwięk i przepisać prompt.
+
+## 2026-10-04 — Różnicowanie barwą potrafi zepsuć zgodność semantyczną
+
+- Sytuacja: tilt (high-shelf 5 kHz −8 dB + peaking 1,5 kHz +4 dB) rozbijał parę
+  `76`~`174` (0,9597 → 0,9258) i audyt **sygnałowy** był czysty. Audyt
+  **semantyczny** zapalił jednak rażącą sprzeczność 3,0 pkt: scenariusz
+  obiecuje szklisty, dzwoniący kryształ, a po korekcji została szumowa
+  kaskada (flatness 0,42 przy górnym kwartylu 0,22).
+- Wniosek: audyt sygnałowy nie widzi sensu. Ta sama korekcja, która zdejmuje
+  jedną flagę, potrafi zabrać sample'owi cechę, którą obiecuje scenariusz.
+- Zasada / działanie zapobiegawcze: po każdej korekcji barwy uruchamiać
+  `audit_semantic_match.py`, nie tylko `audit_samples_full.py`. Gdy tilt
+  gasi cechę obiecaną w scenariuszu, cofnąć go i szukać innego sposobu.
+
+## 2026-10-04 — Jest flaga, której nie wolno naprawiać korekcją
+
+- Sytuacja: `403` *Dementia Bat* to syk żrącego gazu — 88% energii powyżej
+  8 kHz. Próby zdjęcia flagi `harsh` kolejnymi półkami (4,5 kHz −12 dB,
+  3,8 kHz −12 dB, 3,5 kHz −14 dB, 3 kHz −16 dB) zbijały centroid z 9852 Hz
+  najwyżej do 9001 Hz, czyli wciąż nad progiem, a dźwięk robił się matowy.
+- Wniosek: `harsh` bywa opisem źródła, nie wadą realizacji. Próba spełnienia
+  metryki zamienia syk w szmatę.
+- Zasada / działanie zapobiegawcze: zanim korekcja zacznie gonić próg, sprawdzić,
+  czy flaga nie wynika wprost z fizyki źródła. Jeśli tak — zostawić ją
+  i zapisać w raporcie jako świadomą, zamiast psuć sample.
