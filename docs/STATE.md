@@ -20,15 +20,16 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **552 fabuły**
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **553 fabuły**
 i z niego generowano `data/catalog.json`. Liczba obejmuje kolejne dostawy
 właściciela po bazie `b054` (szczegóły historyczne poniżej), w tym najnowsze
 `212VOW` *Bloodtithe Harvester*, `239SOS` *Dig Site Inventory* (`b062`),
 `241SPM` *News Helicopter* (`b063`), `244BFZ` *Natural Connection* (`b064`),
 `247ORI` *Subterranean Scout* (`b065`), `250MRD` *Loxodon Mender* (`b066`),
-`254DMU` *Snarespinner* (`b067`), `255APC` *Urborg Uprising* (`b068`) oraz
-`259_2XM` *Kozilek's Predator* (`b069`). ID fabuły to numeryczna część
-wartości `Ilustracja`, sufiks setu jest wycinany przy imporcie.
+`254DMU` *Snarespinner* (`b067`), `255APC` *Urborg Uprising* (`b068`),
+`259_2XM` *Kozilek's Predator* (`b069`) oraz `260MOM` *Etched Host Doombringer*
+(`b070`). ID fabuły to numeryczna część wartości `Ilustracja`, sufiks setu jest
+wycinany przy imporcie.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
 
@@ -175,9 +176,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **552 fabuły** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 552 gotowe wpisy (batche `b001`–`b069` + rundy korekt) — 100% katalogu.
-- Wygenerowane sample v2: 552 produkcyjne MP3 w `audio/samples/`.
+- Katalog bieżący: **553 fabuły** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 553 gotowe wpisy (batche `b001`–`b070` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 553 produkcyjne MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -617,6 +618,31 @@ Raporty: `data/samples/postprocess-b069.json`,
 `docs/audits/2026-10-04-scenario-quality.md`,
 `docs/audits/2026-10-04-audio-audit-after-b069.md`,
 `docs/audits/2026-10-04-semantic-match-b069.md`.
+
+## 2026-10-04 — Dostawa b070: 260 Etched Host Doombringer
+
+Dodano `260MOM` *Etched Host Doombringer*: potężny demon z Immersturmu,
+po kompleacji okuty czarnym żelazem i bazaltem, stał się bezduszną machiną
+Zastępu Trawionych. Z rozgrzanej piersi wystrzeliwuje pojedyncze wyładowanie
+nekromantycznej energii; katalog urósł do **553 fabuł**.
+
+Scenariusz `b070` zawęża efekt do jednego krótkiego, suchego trzasku
+wyładowania spod bazaltowej płyty na piersi demona. Ocena jakości scenariusza:
+**71/100**, bez problemów.
+
+Generacja (run 37230572719) dała 1/1 plik. `260.mp3` trwa 2,00 s
+(wykryta treść 0,87 s); po postprodukcji ma −20,17 LUFS i true peak
+−9,73 dBTP. Audyt sygnałowy: **0 flag**. Audyt semantyczny: **1,5 pkt**
+(heurystyka wolnego ataku: 0,77 s przy górnym kwartylu 0,32 s); nie wykryto
+rażącej sprzeczności. Korpus: **91** plików z flagą, **0** par bliźniaków
+≥ 0,95, **0** identycznych PCM i **0** rażących sprzeczności semantycznych.
+
+Raporty: `data/samples/postprocess-b070.json`,
+`data/samples/scenario-quality.json`,
+`data/samples/audio-audit-2026-10-04-after-b070.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b070.md`,
+`docs/audits/2026-10-04-semantic-match-b070.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 

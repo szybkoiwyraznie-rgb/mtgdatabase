@@ -1,6 +1,6 @@
 # Audyt wyrazistości scenariuszy
 
-Ocenionych scenariuszy: **552**, mediana wyniku: **57.0/100**.
+Ocenionych scenariuszy: **553**, mediana wyniku: **57.0/100**.
 
 - poniżej progu 40.0: **0**
 - bez żadnego słowa opisującego dźwięk: **295**
