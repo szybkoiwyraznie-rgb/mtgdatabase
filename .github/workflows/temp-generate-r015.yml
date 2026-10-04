@@ -1,10 +1,10 @@
-name: TEMP r015b generate + import
+name: TEMP r015c generate + import
 
-# TYMCZASOWY workflow rundy r015b (3 sample, które nie wyszły w r015: 290 sub-bas, 504 tonalny łomot, 567 za krótka treść).
+# TYMCZASOWY workflow rundy r015c (517 — podmuch wiatru był bliźniakiem 57 i 255, prompt przepisany na rozbryzg wodnej mgły).
 # Token bota Arena nie może odpalić workflow_dispatch (HTTP 403), a sandbox nie
 # ma dostępu do *.blob.core.windows.net, więc artefaktu nie da się pobrać
 # lokalnie. Dlatego generacja idzie z triggera push markerowanego w wiadomości
-# commitu ([generate-r015b]) i od razu commituje MP3 z powrotem na gałąź sesji.
+# commitu ([generate-r015c]) i od razu commituje MP3 z powrotem na gałąź sesji.
 # Plik usuwamy po imporcie — workflow `ai-sfx-elevenlabs.yml` na main zostaje
 # manualny.
 
@@ -20,7 +20,7 @@ env:
   SCENARIOS: data/samples/scenarios.jsonl
   OUT_DIR: audio/samples
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "290,504,567"
+  IDS: "517"
 
 jobs:
   generate:
@@ -31,13 +31,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r015b]
+      - name: Guard — tylko commit z markerem [generate-r015c]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r015b]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r015c]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r015b] w HEAD — nic nie generuję"
+            echo "brak markera [generate-r015c] w HEAD — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -74,17 +74,17 @@ jobs:
       - name: Stage raw copies for the artifact
         if: steps.guard.outputs.run == '1'
         run: |
-          mkdir -p build/r015b-raw
+          mkdir -p build/r015c-raw
           IFS=',' read -ra LIST <<< "$IDS"
-          for id in "${LIST[@]}"; do cp "$OUT_DIR/$id.mp3" "build/r015b-raw/$id.mp3"; done
-          ls -la build/r015b-raw
+          for id in "${LIST[@]}"; do cp "$OUT_DIR/$id.mp3" "build/r015c-raw/$id.mp3"; done
+          ls -la build/r015c-raw
 
       - name: Upload raw artifact (surowe, przed postprodukcją)
         if: steps.guard.outputs.run == '1'
         uses: actions/upload-artifact@v4
         with:
-          name: r015b-raw
-          path: build/r015b-raw
+          name: r015c-raw
+          path: build/r015c-raw
           if-no-files-found: error
 
       - name: Commit generated samples back to the session branch
@@ -96,6 +96,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r015b: surowe sample z ElevenLabs (290, 504, 567) [import-r015b]"
+            git commit -m "r015c: surowy sample z ElevenLabs (517) [import-r015c]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
