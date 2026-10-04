@@ -1,5 +1,5 @@
 {
-  "count": 548,
+  "count": 549,
   "median_score": 57.0,
   "below_threshold": 0,
   "threshold": 40.0,
@@ -7467,6 +7467,18 @@
       "score": 99.0,
       "sound_hits": 2,
       "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 9,
+      "problems": []
+    },
+    {
+      "id": "250",
+      "title": "Loxodon Mender",
+      "scenario": "trzask i szczęk stalowego ostrza scalającego się po pęknięciu",
+      "score": 99.0,
+      "sound_hits": 3,
+      "material_hits": 1,
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 9,

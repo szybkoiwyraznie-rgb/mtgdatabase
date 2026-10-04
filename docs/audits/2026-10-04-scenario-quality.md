@@ -1,6 +1,6 @@
 # Audyt wyrazistości scenariuszy
 
-Ocenionych scenariuszy: **548**, mediana wyniku: **57.0/100**.
+Ocenionych scenariuszy: **549**, mediana wyniku: **57.0/100**.
 
 - poniżej progu 40.0: **0**
 - bez żadnego słowa opisującego dźwięk: **295**
@@ -50,3 +50,13 @@ Niski wynik oznacza opis kadru zamiast zdarzenia dźwiękowego.
 | 48.0 | 141 | skok raptora w złotym kołnierzu ze schodów świątyni z rozbłyskiem piór | brak słowa opisującego konkretny dźwięk |
 | 48.0 | 151 | szał złotej burzy piaskowej zrywający iluzje z najeźdźców | brak słowa opisującego konkretny dźwięk |
 | 48.0 | 157 | przeskok krwawej aury szału na kolejnego berserkera | brak słowa opisującego konkretny dźwięk |
+| 48.0 | 462 | żelazne kroki Maruta miażdżące złoto na posadzce | brak słowa opisującego konkretny dźwięk |
+| 48.0 | 466 | złoty rezonans bram miasta nasycający pancerz strażnika | brak słowa opisującego konkretny dźwięk |
+| 48.0 | 508 | wodna kolumna więżąca szarżującego minotaura | brak słowa opisującego konkretny dźwięk |
+| 50.0 | 4 | pojedynczy szklisty puls magicznej fali rozchodzącej się po jeziorze s | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
+| 50.0 | 6 | kliknięcie runicznych kajdan zamykających się na nadgarstkach skazańcó | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
+| 50.0 | 12 | mosiężne chwytaki konstrukta katalogizujące skrzynie na nabrzeżu | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
+| 50.0 | 18 | iskry i odłamki odbijające się od pulsującej magicznej tarczy | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
+| 50.0 | 30 | strumień kriogenicznego gazu skuwający bestię lodem | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
+| 50.0 | 31 | wylęg zmutowanych owadów przebijających się przez padlinę | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
+| 50.0 | 35 | materializacja glifowego zaklęcia wydobytego z grobu przez wróżkę | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
