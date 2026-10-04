@@ -1,5 +1,5 @@
 {
-  "count": 551,
+  "count": 552,
   "median_score": 57.0,
   "below_threshold": 0,
   "threshold": 40.0,
@@ -6336,6 +6336,18 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 9,
+      "problems": []
+    },
+    {
+      "id": "259",
+      "title": "Kozilek's Predator",
+      "scenario": "krótki, szklisty zgrzyt szponów zsuwających się po kamiennej ścianie hedronu",
+      "score": 71.0,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
       "problems": []
     },
     {
