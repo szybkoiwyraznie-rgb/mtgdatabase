@@ -3,7 +3,7 @@
 Sprawdzono **339** sampli z rozpoznaną klasą dźwięku. Bez rozpoznanej klasy: **214** (scenariusze bez konkretnego słowa dźwiękowego — osobna lista do przepisania).
 
 - rażące sprzeczności (≥3,0): **0**
-- wyraźne (1,5–3,0): **58**
+- wyraźne (1,5–3,0): **57**
 - drobne (<1,5): **3**
 
 ## Kandydaci do odsłuchu i regeneracji
@@ -12,7 +12,6 @@ Sprawdzono **339** sampli z rozpoznaną klasą dźwięku. Bez rozpoznanej klasy:
 |---|---|---|---|---|
 | 2.5 | 160 | ogień ogar żywiołów wymyka się spod kontroli i zrywa do skoku | ogień — nieregularne mikrotrzaski w szumie | brak szumowej natury ognia (flatness=0.002 < dolny kwartyl 0.012); ogień bez trzasków w górze pasma (high=1.2% |
 | 2.5 | 209 | machnięcie płonącym treningowym mieczem i spokojenie konia | metal — jasne pasmo i dzwoniący ogon | pasmo zbyt ciemne jak na metal (centroid=270 Hz < dolny kwartyl 1143); brak jasnego ogona (rolloff95=517 Hz <  |
-| 2.5 | 260 | krótki, gardłowy ryk demona dobiegający spod czarnego, bazaltowego pan | metal — jasne pasmo i dzwoniący ogon; głos (zwierzęcy lub ludzki) — wy | pasmo zbyt ciemne jak na metal (centroid=454 Hz < dolny kwartyl 1143); brak jasnego ogona (rolloff95=840 Hz <  |
 | 2.5 | 275 | łomot butów wbiegających po stalowych schodach coraz wyżej | uderzenie — ostry atak, szybki zanik; metal — jasne pasmo i dzwoniący  | pasmo zbyt ciemne jak na metal (centroid=832 Hz < dolny kwartyl 1143); brak jasnego ogona (rolloff95=1938 Hz < |
 | 2.5 | 372 | głębokie kamienne zgrzytnięcie masywnej skamieniałej szczęki osiadając | metal — jasne pasmo i dzwoniący ogon; skrzypienie — wolna modulacja, ś | pasmo zbyt ciemne jak na metal (centroid=435 Hz < dolny kwartyl 1143); brak jasnego ogona (rolloff95=1830 Hz < |
 | 2.5 | 473 | krystalizacja mchu w obsydianowy inkubator pomiotu | metal — jasne pasmo i dzwoniący ogon | pasmo zbyt ciemne jak na metal (centroid=202 Hz < dolny kwartyl 1143); brak jasnego ogona (rolloff95=560 Hz <  |
@@ -70,3 +69,4 @@ Sprawdzono **339** sampli z rozpoznaną klasą dźwięku. Bez rozpoznanej klasy:
 | 1.5 | 605 | gęsty miękki furkot tysięcy papierowych skrzydełek rzednący do ciszy | skrzydła — powolna modulacja obwiedni | brak pulsacji skrzydeł (modulacja=18.26 Hz, oczekiwana <14.2 Hz) |
 | 1.0 | 72 | łuskowate cielsko szorujące o kamienny łuk z sypiącym gruzem | materiał sypki — gęste, drobne ziarna | brak ziarnistej szumowości (flatness=0.000) |
 | 1.0 | 317 | wielki żelazny dzwon kościelny bity na alarm — kilka szybkich, mocnych | dźwięk tonalny z długim wybrzmieniem (dzwon, struna); metal — jasne pa | brak jasnego ogona (rolloff95=2692 Hz < dolny kwartyl 2864) |
+| 1.0 | 373 | wciąganie żołnierza w wirujące oblicze w suficie sypialni | materiał sypki — gęste, drobne ziarna | brak ziarnistej szumowości (flatness=0.004) |

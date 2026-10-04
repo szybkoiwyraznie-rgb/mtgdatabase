@@ -281,10 +281,10 @@
     "613",
     "617"
   ],
-  "suspects": 61,
+  "suspects": 60,
   "by_severity": {
     "rażące (>=3.0)": 0,
-    "wyraźne (1.5-3.0)": 58,
+    "wyraźne (1.5-3.0)": 57,
     "drobne (<1.5)": 3
   },
   "results": [
@@ -365,47 +365,6 @@
           "mid_250_2k": 0.3355,
           "high_2k_8k": 0.0038,
           "air_8k_plus": 0.0013
-        }
-      }
-    },
-    {
-      "id": "260",
-      "title": "Etched Host Doombringer",
-      "scenario": "krótki, gardłowy ryk demona dobiegający spod czarnego, bazaltowego pancerza",
-      "classes": [
-        "metal",
-        "voice"
-      ],
-      "score": 2.5,
-      "violations": [
-        {
-          "class": "metal",
-          "reason": "pasmo zbyt ciemne jak na metal (centroid=454 Hz < dolny kwartyl 1143)",
-          "weight": 1.5
-        },
-        {
-          "class": "metal",
-          "reason": "brak jasnego ogona (rolloff95=840 Hz < dolny kwartyl 2864)",
-          "weight": 1.0
-        }
-      ],
-      "metrics": {
-        "spectral_centroid_hz": 453.8,
-        "spectral_flatness": 0.0023,
-        "tonal_frame_fraction": 1.0,
-        "voiced_fraction": 0.218,
-        "attack_s": 0.3,
-        "decay_s": 1.29,
-        "onset_count": 3,
-        "mod_peak_hz": 1.19,
-        "sustain_ratio": 0.775,
-        "rolloff95_hz": 839.8,
-        "bands": {
-          "sub_0_60": 0.0015,
-          "low_60_250": 0.1655,
-          "mid_250_2k": 0.8271,
-          "high_2k_8k": 0.0037,
-          "air_8k_plus": 0.0022
         }
       }
     },
@@ -6953,6 +6912,35 @@
           "mid_250_2k": 0.0632,
           "high_2k_8k": 0.3681,
           "air_8k_plus": 0.1719
+        }
+      }
+    },
+    {
+      "id": "260",
+      "title": "Etched Host Doombringer",
+      "scenario": "krótki, gardłowy ryk demona z chropawym, bazaltowym tembrem",
+      "classes": [
+        "voice"
+      ],
+      "score": 0,
+      "violations": [],
+      "metrics": {
+        "spectral_centroid_hz": 453.8,
+        "spectral_flatness": 0.0023,
+        "tonal_frame_fraction": 1.0,
+        "voiced_fraction": 0.218,
+        "attack_s": 0.3,
+        "decay_s": 1.29,
+        "onset_count": 3,
+        "mod_peak_hz": 1.19,
+        "sustain_ratio": 0.775,
+        "rolloff95_hz": 839.8,
+        "bands": {
+          "sub_0_60": 0.0015,
+          "low_60_250": 0.1655,
+          "mid_250_2k": 0.8271,
+          "high_2k_8k": 0.0037,
+          "air_8k_plus": 0.0022
         }
       }
     },
