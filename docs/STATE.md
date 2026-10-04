@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-03** (sesja `arena/01a0fd5a-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-04** (sesja `arena/01a10303-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
@@ -20,13 +20,16 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **530 fabuł**
-(2026-09-29 doszły fabuły `162DMR` *Griffin Guide*, `164VOW` *Gryffwing
-Cavalry* i `165M20` *Captivating Gyre*; wcześniej 2026-09-28 doszły `158OGW`
-*Kozilek's Shrieker*, `160M11` *Fiery Hellhound* i `161KTK` *Dragonscale
-Boon*; ID fabuły to numeryczna część `Ilustracja`, sufiks setu wycinany
-przy imporcie) i z niego
-wygenerowano `data/catalog.json`.
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **553 fabuły**
+i z niego generowano `data/catalog.json`. Liczba obejmuje kolejne dostawy
+właściciela po bazie `b054` (szczegóły historyczne poniżej), w tym najnowsze
+`212VOW` *Bloodtithe Harvester*, `239SOS` *Dig Site Inventory* (`b062`),
+`241SPM` *News Helicopter* (`b063`), `244BFZ` *Natural Connection* (`b064`),
+`247ORI` *Subterranean Scout* (`b065`), `250MRD` *Loxodon Mender* (`b066`),
+`254DMU` *Snarespinner* (`b067`), `255APC` *Urborg Uprising* (`b068`),
+`259_2XM` *Kozilek's Predator* (`b069`) oraz `260MOM` *Etched Host Doombringer*
+(dostawa `b070`, korekta brzmienia `r014`). ID fabuły to numeryczna część
+wartości `Ilustracja`, sufiks setu jest wycinany przy imporcie.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
 
@@ -173,9 +176,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **543 fabuły** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 543 gotowe wpisy (batche `b001`–`b061` + rundy korekt) — 100% katalogu.
-- Wygenerowane sample v2: 543 produkcyjne MP3 w `audio/samples/`.
+- Katalog bieżący: **553 fabuły** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 553 gotowe wpisy (batche `b001`–`b070` + rundy korekt, najnowsza `r014`) — 100% katalogu.
+- Wygenerowane sample v2: 553 produkcyjne MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -415,6 +418,250 @@ semantycznych**. Wszystkie 7 wskazanych ID ma **0 flag sygnałowych** oraz
 Raporty: `data/samples/postprocess-r013.json`, `data/samples/refine-r013b.json`,
 `docs/audits/2026-10-03-audio-audit-after-r013.md`,
 `docs/audits/2026-10-03-semantic-match-r013.md`.
+
+## 2026-10-03 — Dostawa b062: Bloodtithe Harvester i Dig Site Inventory
+
+Właściciel dostarczył dwie nowe fabuły: `212VOW` *Bloodtithe Harvester*
+(Innistrad/Stensia: wampirzy poborca krwawej dziesięciny ocenia rocznik krwi w
+szlifowanej karafce i zabezpieczone woskiem flakony w kufrach powozu) oraz
+`239SOS` *Dig Site Inventory* (kanion Pillardrop/Arcavios: adeptka Lorehold
+kataloguje starożytne kamienne tablice i kompasy w oprawnej w mosiądz skrzyni
+ekspedycyjnej). Katalog urósł do **545 fabuł**.
+
+Scenariusze (oba z wynikiem jakości 100/100 w `audit_scenario_quality.py`):
+
+- `212` (*Bloodtithe Harvester*) — chlupot gęstej krwi w szklanej karafce,
+  brzęk szkła flakonów i trzask woskowej pieczęci,
+- `239` (*Dig Site Inventory*) — stukot kamiennych tablic, brzęk kompasów z
+  mosiądzu w drewnianej skrzyni i zatrzask klamry.
+
+Generacja `b062` (run 37147333162) dała 2/2 pliki, wyrównane w postprodukcji do
+ok. −20 LUFS (`212`: −19,96 LUFS, true peak −2,44 dBTP, treść 1,81 s; `239`:
+−20,26 LUFS, true peak −1,66 dBTP, treść 1,94 s). Oba nowe sample mają **0 flag
+sygnałowych** i **0,0 pkt w audycie semantycznym** (`212`: impact/metal/water;
+`239`: impact/metal/wood).
+
+Stan po `b062`: **545 sampli**, **91 plików z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+
+Raporty: `data/samples/postprocess-b062.json`,
+`docs/audits/2026-10-03-audio-audit-after-b062.md`,
+`docs/audits/2026-10-03-semantic-match-b062.md`.
+
+## 2026-10-04 — Dostawa b063: 241 News Helicopter
+
+Dodano fabułę `241SPM` *News Helicopter*: śmigłowiec reporterski Daily Bugle
+wykonuje zwrot nad Manhattanem podczas pościgu za Spider-Manem. Katalog urósł
+do **546 fabuł**.
+
+Scenariusz `b063` opisuje wyłącznie charakterystyczny przelot maszyny —
+rytmiczny terkot wirnika i dudnienie silnika. Prompt wymusza krótki, czysty
+przelot helikoptera i wyklucza muzykę, mowę, radio, wiatr oraz odgłosy miasta.
+Ocena jakości scenariusza: **78/100**.
+
+Generacja (run 37187409300) dała 1/1 plik. Po postprodukcji sample ma 2,56 s
+(czytelna treść 2,16 s), −20,00 LUFS i true peak −11,34 dBTP. `241.mp3` ma
+**0 flag sygnałowych**. Audyt semantyczny przyznał **1,5 pkt** drobnej
+heurystyki za udział dołu pasma 13,6% wobec progu 20% klasy „rumble”; nie
+wykrył rażącej sprzeczności. Nie powstała żadna para bliźniacza ani duplikat
+PCM.
+
+Stan po `b063`: **546 sampli**, **91 plików z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+
+Raporty: `data/samples/postprocess-b063.json`,
+`data/samples/scenario-quality.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b063.md`,
+`docs/audits/2026-10-04-semantic-match-b063.md`.
+
+## 2026-10-04 — Dostawa b064: 244 Natural Connection
+
+Dodano `244BFZ` *Natural Connection*: animistka Tajuru łączy się z geomancją
+Zendikaru, a monolit skalny wypiera się z gliniastej ziemi. Katalog urósł do
+**547 fabuł**.
+
+Scenariusz `b064` skupia się na jednym dźwięku — chropowatym szurze kamiennego
+monolitu podnoszonego przez grunt. Prompt wyklucza wybuch, uderzenia, luźne
+odłamki, muzykę, mowę, wiatr i tło. Ocena jakości scenariusza: **85/100**.
+
+Generacja (run 37192997233) dała 1/1 plik. Po postprodukcji `244.mp3` ma
+2,76 s (czytelna treść 1,46 s), −20,00 LUFS i true peak −6,33 dBTP; **0 flag
+sygnałowych**. Słowo „szur” nie mapuje się na obecną klasę audytu semantycznego,
+więc plik trafił do `without_class` — bez automatycznej oceny semantycznej.
+
+Stan po `b064`: **547 sampli**, **91 plików z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+
+Raporty: `data/samples/postprocess-b064.json`,
+`data/samples/scenario-quality.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b064.md`,
+`docs/audits/2026-10-04-semantic-match-b064.md`.
+
+## 2026-10-04 — Dostawa b065: 247 Subterranean Scout
+
+Dodano `247ORI` *Subterranean Scout*: zwinny zwiadowca boggartów prowadzi
+współplemieńców przez podziemne korytarze Lorwynu. Katalog urósł do **548
+fabuł**.
+
+Scenariusz `b065` skupia się na szybkich, lekkich krokach boggarta i szuraniu
+po wilgotnej gliniastej glebie; pochodnia i tło zostały wykluczone z sampla.
+Ocena jakości scenariusza: **92/100**.
+
+Generacja (run 37222183510) dała 1/1 plik. `247.mp3` trwa 2,56 s (czytelna
+treść 2,06 s). Postprodukcja ograniczyła wzmocnienie do +15 dB i użyła
+limiter gain reduction 1,27 dB; finalnie sample ma −21,87 LUFS i true peak
+−1,70 dBTP. Audyt sygnałowy: **0 flag**. Audyt semantyczny: **0 pkt**,
+klasy impact/steps, 12 onsetów i brak naruszeń.
+
+Stan po `b065`: **548 sampli**, **91 plików z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+
+Raporty: `data/samples/postprocess-b065.json`,
+`data/samples/scenario-quality.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b065.md`,
+`docs/audits/2026-10-04-semantic-match-b065.md`.
+
+## 2026-10-04 — Dostawa b066: 250 Loxodon Mender
+
+Dodano fabułę `250MRD` *Loxodon Mender*: w Taj-Nar na Mirrodinie kleryk
+loxodonów przywraca pierwotną strukturę strzaskanemu mieczowi auriockiego
+wojownika. Katalog urósł do **549 fabuł**.
+
+Scenariusz `b066` redukuje moment naprawy do jednego, wyraźnego zdarzenia —
+trzasku i szczęku stalowego ostrza scalającego się po pęknięciu. Prompt skupia
+się na dominującym metalicznym zatrzaśnięciu z krótkim wybrzmieniem; wyklucza
+młotkowanie, odgłosy kuźni, eksplozje i tło. Ocena jakości scenariusza:
+**99/100**.
+
+Generacja (run 37222766766) dała 1/1 plik. `250.mp3` trwa 2,48 s (czytelna
+treść 1,27 s); po postprodukcji ma −19,77 LUFS i true peak −5,63 dBTP.
+Audyt sygnałowy: **0 flag**. Audyt semantyczny: **0 pkt**, klasy impact/metal,
+bez naruszeń. Korpus: **91** plików z flagą, **0** par bliźniaków ≥ 0,95,
+**0** identycznych PCM i **0** rażących sprzeczności semantycznych.
+
+Raporty: `data/samples/postprocess-b066.json`,
+`data/samples/scenario-quality.json`,
+`data/samples/audio-audit-2026-10-04-after-b066.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b066.md`,
+`docs/audits/2026-10-04-semantic-match-b066.md`.
+
+## 2026-10-04 — Dostawa b067: 254 Snarespinner
+
+Dodano `254DMU` *Snarespinner*: pająk z puszczy Yavimaya rozciąga lepką,
+złotą pajęczynę, która uruchamia jego błyskawiczny atak na latającą zdobycz.
+Katalog urósł do **550 fabuł**.
+
+Żeby odróżnić dźwięk od wcześniejszych sampli pajęczyn, scenariusz `b067`
+skupia się na jednym szybkim, suchym tupocie i stukaniu ośmiu odnóży pająka
+o drewniany pień. Ocena jakości scenariusza: **92/100**.
+
+Generacja (run 37223595286) dała 1/1 plik. `254.mp3` trwa 2,00 s (czytelna
+treść 1,74 s); po postprodukcji ma −20,16 LUFS i true peak −1,70 dBTP.
+Audyt sygnałowy: **0 flag**. Audyt semantyczny: **0 pkt**, klasy impact/wood,
+17 onsetów i brak naruszeń. Korpus: **91** plików z flagą, **0** par bliźniaków
+≥ 0,95, **0** identycznych PCM i **0** rażących sprzeczności semantycznych.
+
+Raporty: `data/samples/postprocess-b067.json`,
+`data/samples/scenario-quality.json`,
+`data/samples/audio-audit-2026-10-04-after-b067.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b067.md`,
+`docs/audits/2026-10-04-semantic-match-b067.md`.
+
+## 2026-10-04 — Dostawa b068: 255 Urborg Uprising
+
+Dodano `255APC` *Urborg Uprising*: nekromantka na bagnach Urborgu budzi
+dwa widma dawnych wojowników, które unoszą się z czarnej, spienionej wody.
+Katalog urósł do **551 fabuł**.
+
+Scenariusz `b068` skupia się na jednym krótkim, pustym świście i szumie
+widm unoszących się nad wodą — bez głosów, plusku ani odgłosów rytuału.
+Ocena jakości scenariusza: **85/100**.
+
+Generacja (run 37229612964) dała 1/1 plik. `255.mp3` trwa 2,00 s (czytelna
+treść 0,87 s); po postprodukcji ma −19,51 LUFS i true peak −10,20 dBTP.
+Audyt sygnałowy: **0 flag**. Audyt semantyczny: **0 pkt**, klasa noise_hiss,
+bez naruszeń. Korpus: **91** plików z flagą, **0** par bliźniaków ≥ 0,95,
+**0** identycznych PCM i **0** rażących sprzeczności semantycznych.
+
+Raporty: `data/samples/postprocess-b068.json`,
+`data/samples/scenario-quality.json`,
+`data/samples/audio-audit-2026-10-04-after-b068.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b068.md`,
+`docs/audits/2026-10-04-semantic-match-b068.md`.
+
+## 2026-10-04 — Dostawa b069: 259 Kozilek's Predator
+
+Dodano `259_2XM` *Kozilek's Predator*: bezrozumne pomioty tytana Kozileka
+przeczesują wulkaniczne kaniony Akoum; masywny, pasiasty drapieżnik z płytami
+obsydianu zbiega po strzaskanym hedronie, a za nim przemykają dwa chitynowe
+zarodki. Katalog urósł do **552 fabuł**.
+
+Scenariusz `b069` wyodrębnia jeden krótki, suchy, szklisty zgrzyt szponów
+zsuwających się po kamiennej ścianie hedronu — bez ryku, gruzu, uderzenia ani
+tła. Ocena jakości scenariusza: **71/100**, bez problemów.
+
+Generacja (run 37230106466) dała 1/1 plik. `259.mp3` trwa 2,00 s
+(wykryta treść 1,30 s); po postprodukcji ma −20,04 LUFS i true peak
+−2,41 dBTP. Audyt sygnałowy: **0 flag**. Audyt semantyczny: **0 pkt**, klasa
+creak, bez naruszeń. Korpus: **91** plików z flagą, **0** par bliźniaków
+≥ 0,95, **0** identycznych PCM i **0** rażących sprzeczności semantycznych.
+
+Raporty: `data/samples/postprocess-b069.json`,
+`data/samples/scenario-quality.json`,
+`data/samples/audio-audit-2026-10-04-after-b069.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b069.md`,
+`docs/audits/2026-10-04-semantic-match-b069.md`.
+
+## 2026-10-04 — Dostawa b070: 260 Etched Host Doombringer
+
+Dodano `260MOM` *Etched Host Doombringer*: potężny demon z Immersturmu,
+po kompleacji okuty czarnym żelazem i bazaltem, stał się bezduszną machiną
+Zastępu Trawionych. Z rozgrzanej piersi wystrzeliwuje pojedyncze wyładowanie
+nekromantycznej energii; katalog urósł do **553 fabuł**.
+
+Pierwszy scenariusz `b070` zawężał efekt do krótkiego trzasku wyładowania
+spod bazaltowej płyty na piersi demona (jakość **71/100**). Po uwadze
+właściciela, że taki abstrakcyjny efekt nie daje rozpoznawalnego skojarzenia
+z demonem, sygnaturę zmieniono w rundzie `r014` na bezsłowny, gardłowy ryk.
+
+Historyczna generacja b070 (run 37230572719) dała 1/1 plik. Pierwsze
+`260.mp3` trwało 2,00 s (wykryta treść 0,87 s), −20,17 LUFS, −9,73 dBTP;
+sygnałowo miało 0 flag, ale audyt semantyczny naliczył 1,5 pkt za wolny atak.
+Próbkę zastąpiła wersja `r014` opisana poniżej.
+
+Raporty b070: `data/samples/postprocess-b070.json`,
+`data/samples/audio-audit-2026-10-04-after-b070.json`,
+`docs/audits/2026-10-04-audio-audit-after-b070.md`,
+`docs/audits/2026-10-04-semantic-match-b070.md`.
+
+## 2026-10-04 — Korekta r014: 260 Etched Host Doombringer
+
+Po feedbacku właściciela scenariusz przepisano na jeden krótki, niski,
+gardłowy ryk demona z chropawym, bazaltowym tembrem — rozpoznawalny odgłos
+stworzenia zamiast abstrakcyjnego wyładowania. Ocena jakości: **71/100**,
+bez problemów.
+
+Generacja r014 (run 37231271188) dała 1/1 plik i zastąpiła poprzednią wersję
+`audio/samples/260.mp3`. Sample trwa 2,00 s (wykryta treść 1,64 s); po
+postprodukcji ma −20,01 LUFS i true peak −11,40 dBTP. Audyt sygnałowy:
+**0 flag**. Audyt semantyczny: **0 pkt**, klasa `voice`, bez naruszeń.
+Korpus: **91** plików z flagą, **0** par bliźniaków ≥ 0,95,
+**0** identycznych PCM i **0** rażących sprzeczności semantycznych.
+
+Raporty r014: `data/samples/postprocess-r014.json`,
+`data/samples/scenario-quality.json`,
+`data/samples/audio-audit-2026-10-04-after-r014.json`,
+`data/samples/semantic-audit-2026-10-04-after-r014.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-r014.md`,
+`docs/audits/2026-10-04-semantic-match-r014.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 

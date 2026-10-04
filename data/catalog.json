@@ -1408,6 +1408,13 @@
       "versions": []
     },
     {
+      "id": "212",
+      "art_id": "212VOW",
+      "title": "Bloodtithe Harvester",
+      "story": "W ramach przygotowań do wielkiego wesela Olivii Voldaren na planie Innistrad arystokraci nocy bezwzględnie egzekwują krwawą dziesięcinę we wszystkich prowincjach świata. Wytworny poborca w aksamitnym fraku z pedantyczną uwagą ocenia jakość szlachetnego rocznika zamkniętego w szlifowanej karafce. W wyściełanych czarnym atłasem kufrach powozu spoczywają dziesiątki zabezpieczonych woskiem flakonów, zebranych z okolicznych dworów i ludzkich osad na stensyjskim trakcie. Zgromadzone zapasy najprzedniejszej esencji stanowią nie tylko luksusową ozdobę weselnego bankietu, lecz także potężne źródło mrocznej potęgi zdolnej złamać opór każdego wroga.",
+      "versions": []
+    },
+    {
       "id": "213",
       "art_id": "213ORI",
       "title": "Reclusive Artificer",
@@ -1583,10 +1590,24 @@
       "versions": []
     },
     {
+      "id": "239",
+      "art_id": "239SOS",
+      "title": "Dig Site Inventory",
+      "story": "W monumentalnych ruinach kanionu Pillardrop na planie Arcavios studenci Kolegium Lorehold prowadzą skrupulatne prace archeologiczne. Młoda badaczka przeszłości klęczy na kamiennym tarasie, drobiazgowo weryfikując stan polowego ekwipunku i skatalogowanych zabytków. Pod czujnym okiem ożywionego posągu strażniczego kolejne starożytne tablice i kompasy lądują w oprawnej w mosiądz skrzyni ekspedycyjnej. Dzięki pedantycznemu przygotowaniu i rzetelnym zapiskom adepci magii historii zyskują pewność, że żadne niebezpieczeństwo nie zaskoczy ich w trakcie odkrywania pradawnych sekretów.",
+      "versions": []
+    },
+    {
       "id": "240",
       "art_id": "240TDM",
       "title": "Descendant of Storms",
       "story": "Na szerokiej stepowej równinie Tarkiru, w narastającej burzy piaskowej przez którą przebijają złote promienie zachodzącego słońca, stoi młoda wojowniczka klanu Abzan o długich rozwianych czarnych włosach i zdyscyplinowanej postawie. Ubrana w lekką abzańską zbroję z motywem Kin-Tree — turkus, biel, złote okucia, chusta na szyi ozdobiona symbolem przodków. W uniesionej dłoni trzyma pióro lub mały fragment starożytnego sztandaru, wokół którego formuje się ciepła złotawa aureola rodowego błogosławieństwa, a ze stóp prowadzą w tył drobne świetliste ślady — echa przodków idących za nią przez burzę. Nikt z Abzan nie wychodzi sam w burzę — każdy krok potomka niesie za sobą wszystkich, którzy już tej drogi nie pokonają.",
+      "versions": []
+    },
+    {
+      "id": "241",
+      "art_id": "241SPM",
+      "title": "News Helicopter",
+      "story": "Nad tętniącymi życiem wieżowcami Manhattanu w uniwersum Marvela śmigłowce transmisyjne Daily Bugle bezustannie przeczesują niebo w pogoni za sensacją. Błękitno-biała maszyna wykonuje gwałtowny zwrot wokół iglicy wieżowca, gdy załoga dostrzega kolejny podniebny pościg nad ulicami Nowego Jorku. Operator kamery wychyla się przez otwarte drzwi kadłuba, z zapartym tchem rejestrując w kadrze błyskawiczne ewolucje Spider-Mana przemykającego pomiędzy szklanymi fasadami. Zdeterminowani dziennikarze ryzykują wszystkim na pierwszej linii miejskich wydarzeń, byle tylko ubiec Petera Parkera i dostarczyć redakcji materiał na jutrzejszą pierwszą stronę.",
       "versions": []
     },
     {
@@ -1604,6 +1625,13 @@
       "versions": []
     },
     {
+      "id": "244",
+      "art_id": "244BFZ",
+      "title": "Natural Connection",
+      "story": "W obliczu niszczycielskiej inwazji Eldrazich na planie Zendikar elficcy druidzi z klanu Tajuru sięgają do samego serca budzącego się świata. Klęcząc na skraju urwiska w prastarym lesie Turntimber, zdeterminowana animistka wbija dłonie w żyzną glebę, łącząc się z pulsującymi pod ziemią liniami geomantycznymi. Na jej zew puszcza gwałtownie odpowiada zjawiskiem Przebudzenia Ziemi, wypiętrzając z głębin nowy, nasycony życiodajną magią monolit skalny porośnięty mchem i roślinnością. Ten nierozerwalny sojusz z siłami natury udowadnia, że dopóki w żyłach Zendikaru płynie pierwotna energia, jego rdzenni obrońcy nigdy nie złożą broni.",
+      "versions": []
+    },
+    {
       "id": "245",
       "art_id": "245M10",
       "title": "Dread Warlock",
@@ -1618,6 +1646,13 @@
       "versions": []
     },
     {
+      "id": "247",
+      "art_id": "247ORI",
+      "title": "Subterranean Scout",
+      "story": "Pod słonecznymi wzgórzami planu Lorwyn boggarty wykuły gęstą sieć podziemnych nor i korytarzy z dala od wzroku wrogów. Gdy elficcy myśliwi z Gilt-Leaf rozpoczynają bezwzględne łowy na powierzchni, zwinny zwiadowca z pochodnią w dłoni natychmiast prowadzi swoich współplemieńców w bezpieczne tunele. Klucząc pośród splątanych korzeni i fosforyzujących grzybów, mały przewodnik z łatwością omija niebezpieczeństwa, torując drogę pod stopami nieświadomych strażników. Dzięki doskonałej znajomości podziemi nawet najbardziej bezbronni leśni wędrowcy potrafią bez przeszkód dotrzeć do celu, pozostając całkowicie niewidocznymi dla polujących na nich łowców.",
+      "versions": []
+    },
+    {
       "id": "248",
       "art_id": "248M19",
       "title": "Reassembling Skeleton",
@@ -1629,6 +1664,13 @@
       "art_id": "249_5ED",
       "title": "Feedback",
       "story": "W cichej komnacie maga z jasnego kamienia, wypełnionej zwojami i świecącymi znakami zaklęć, uczony czarodziej w fioletowo-błękitnej szacie pochyla się nad półprzezroczystą geometryczną pieczęcią unoszącą się przed nim. Między kręgami pieczęci pulsują delikatne linie energii, które nagle zaczynają rozbłyskiwać niestabilnym światłem — zaklęcie ma defekt, sprzężenie zwrotne. Z jego pleców i ramion wyrasta ciemna pulsująca aura bólu, a twarz wykrzywia się w grymasie — w Kolegium Niebieskim mag płaci za każde niedokończone zaklęcie własnym cierpieniem, proporcjonalnym do mocy, którą próbował ujarzmić. Nie każdy czarodziej Altdorfu dożywa mistrzostwa, a ci, którzy dożywają, pamiętają dzień, w którym własne zaklęcie oddało im ten sam cios.",
+      "versions": []
+    },
+    {
+      "id": "250",
+      "art_id": "250MRD",
+      "title": "Loxodon Mender",
+      "story": "W lśniącym bielą i złotem mieście Taj-Nar na planie Mirrodin kapłani loxodonów strzegą świętej sztuki metalurgicznej odnowy. Przed kowadłem ze słonecznego metalu potężny słoniogłowy kleryk unosi dłoń nad strzaskanym mieczem auriockiego wojownika, skupiając w palcach kojącą energię. Pod wpływem spływającego z jego rękawicy złotego światła pęknięta stal w ułamku sekundy scala się bez śladu, odzyskując pierwotną ostrość i nienaruszalną strukturę. Dla koczowniczych plemion z Pól Brzytwy ta niezwykła moc stanowi niezłomny dowód, że oręż powierzony opiece mędrców z Taj-Nar nigdy nie ulegnie ostatecznemu zniszczeniu.",
       "versions": []
     },
     {
@@ -1653,6 +1695,20 @@
       "versions": []
     },
     {
+      "id": "254",
+      "art_id": "254DMU",
+      "title": "Snarespinner",
+      "story": "W prastarych, tętniących dzikim życiem gęstwinach puszczy Yavimaya na planie Dominaria feeria barw stanowi najbardziej zabójczą formę kamuflażu. Pomiędzy gigantycznymi konarami drzew żelaznych olbrzymi pająk o szafirowo-karmazynowym pancerzu rozwiesza potężną sieć z lepkiego, złotego jedwabiu. Gdy nieostrożny podniebny drapieżnik z impetem uderza w niewidoczne w powietrzu liny, naciągnięta pułapka natychmiast wyzwala w pająku niszczycielski zryw bojowy. Błyskawiczny skok jaskrawo ubarwionego łowcy w ułamku sekundy pieczętuje los intruza, dowodząc, że w sercu lasu pozorne piękno kwiatów często skrywa śmiertelne niebezpieczeństwo.",
+      "versions": []
+    },
+    {
+      "id": "255",
+      "art_id": "255APC",
+      "title": "Urborg Uprising",
+      "story": "Na spowitych trującymi oparami bagnach Urborgu na Dominarii granica między życiem a śmiercią jest bardziej płynna niż gdziekolwiek indziej. W blasku fioletowego płomienia latarni miejscowa nekromantka odprawia starożytny rytuał, budząc uśpione w torfowisku echa dawnych obrońców świata. Ze spienionej, czarnej wody bezszelestnie unoszą się dwa majestatyczne widma poległych wojowników, przybierając świetlistą, eteryczną formę gotową do ponownej walki. W tej mrocznej krainie nawet wieczny spoczynek okazuje się jedynie ulotną przerwą, z której zmarli mogą w każdej chwili powrócić na zew potężnej magii.",
+      "versions": []
+    },
+    {
       "id": "256",
       "art_id": "256ISD",
       "title": "Frightful Delusion",
@@ -1671,6 +1727,20 @@
       "art_id": "258_7ED",
       "title": "Hill Giant",
       "story": "Na stromym skalistym zboczu porośniętym suchą trawą, pod ciepłym niebem późnego popołudnia, z góry zsuwa się kolosalny humanoid o surowych rysach twarzy i grubej skórze. W mosiężnym hełmie i pasach grubej skóry, masą i pędem przełamuje barierę z drewnianych belek — kurz, rozlatujące się deski i drobne kamyki wirują w powietrzu wokół jego nóg. Jego twarz wyraża bezmyślne skupienie na jednym: dotrzeć tam, gdzie schodzi, nie martwiąc się o to, co depcze po drodze. W Górach Krańca Świata olbrzymi wzgórzowi nie myślą strategicznie — toczą się w dół stoku jak lawina z zębami, a wieśniak, który zobaczył czarny kształt na grani, ma tyle czasu, ile trwa zejście.",
+      "versions": []
+    },
+    {
+      "id": "259",
+      "art_id": "259_2XM",
+      "title": "Kozilek's Predator",
+      "story": "W poszarpanych, wulkanicznych kanionach Akoum na planie Zendikar bezrozumne pomioty tytana Kozileka niestrudzenie przeczesują rumowiska dawnych cywilizacji. Masywny drapieżnik o pasiastej, pancernej łusce i lewitujących nad grzbietem płytach obsydianu bezszelestnie zbiega po ścianie strzaskanego hedronu. U jego boku posłusznie przemykają dwa mniejsze, chitynowe zarodki, reagując na każdy ruch potężnego cielska w zniekształconej czasoprzestrzeni. Pozbawione strachu, strategii i jakiejkolwiek myśli monstra kierują się wyłącznie ślepym instynktem niszczenia, nie pozostawiając obrońcom świata żadnej szansy na przechytrzenie wroga.",
+      "versions": []
+    },
+    {
+      "id": "260",
+      "art_id": "260MOM",
+      "title": "Etched Host Doombringer",
+      "story": "Podczas niszczycielskiej inwazji na planie Kaldheimu Zastęp Trawionych bezlitośnie przełamuje opór w najniebezpieczniejszych zakątkach światów. W płonących czeluściach Immersturmu potężny demon uległ kompleacji: stał się bezdusznym zwiastunem zagłady, okutym czarnym żelazem i bazaltem. Gdy bestia unosi wyszczerbione ostrze, z rozgrzanej klatki piersiowej wystrzeliwuje pojedyncza fala nekromantycznej energii. Nawet najdziksi wojownicy krainy ognia nie są w stanie zatrzymać tej machiny wojennej, która zamienia każde pole bitwy w jałowe, spalone zgliszcza.",
       "versions": []
     },
     {

@@ -1,10 +1,10 @@
 {
-  "count": 534,
+  "count": 553,
   "median_score": 57.0,
   "below_threshold": 0,
   "threshold": 40.0,
-  "no_sound_word": 307,
-  "no_material": 305,
+  "no_sound_word": 295,
+  "no_material": 295,
   "results": [
     {
       "id": "13",
@@ -307,21 +307,6 @@
       ]
     },
     {
-      "id": "396",
-      "title": "Vow of Wildness",
-      "scenario": "świetlista nić przysięgi między szamanką a rogiem anoą",
-      "score": 41.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 1,
-      "abstract_hits": 0,
-      "words": 8,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "439",
       "title": "Hecteyes",
       "scenario": "wielookie spojrzenie koszmaru paraliżujące zwiadowcę",
@@ -346,21 +331,6 @@
       "visual_hits": 1,
       "abstract_hits": 0,
       "words": 7,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
-      "id": "464",
-      "title": "Polluted Dead",
-      "scenario": "pełznąca mgła zarazy z nieumarłego na opuszczonym polu",
-      "score": 41.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 1,
-      "abstract_hits": 0,
-      "words": 8,
       "problems": [
         "brak słowa opisującego konkretny dźwięk",
         "brak materiału/kontaktu (co uderza o co)"
@@ -451,21 +421,6 @@
       "visual_hits": 1,
       "abstract_hits": 0,
       "words": 6,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
-      "id": "558",
-      "title": "White Mage's Staff",
-      "scenario": "uzdrawiający blask laski Kolegium Światła",
-      "score": 41.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 1,
-      "abstract_hits": 0,
-      "words": 5,
       "problems": [
         "brak słowa opisującego konkretny dźwięk",
         "brak materiału/kontaktu (co uderza o co)"
@@ -1030,21 +985,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 11,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
-      "id": "138",
-      "title": "Join the Dance",
-      "scenario": "radosny taniec w kręgu przy ognisku żniwnego święta",
-      "score": 50.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 8,
       "problems": [
         "brak słowa opisującego konkretny dźwięk",
         "brak materiału/kontaktu (co uderza o co)"
@@ -2101,39 +2041,9 @@
       ]
     },
     {
-      "id": "445",
-      "title": "Locthwain Paladin",
-      "scenario": "miarowy kłus rumaka paladynki przez zaspy zamieci",
-      "score": 50.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "449",
       "title": "Greater Tanuki",
       "scenario": "przebijanie się gigantycznego tanuki przez gąszcz Jukai",
-      "score": 50.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
-      "id": "452",
-      "title": "Omenspeaker",
-      "scenario": "ożywione astrolabium rzucające nieznane konstelacje na sufit",
       "score": 50.0,
       "sound_hits": 0,
       "material_hits": 0,
@@ -2491,21 +2401,6 @@
       ]
     },
     {
-      "id": "521",
-      "title": "Leafcrown Dryad",
-      "scenario": "jeżyny tkające sieć pułapki pod koronami drzew",
-      "score": 50.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "524",
       "title": "Squire's Lightblade",
       "scenario": "ostrze czystego światła z relikwiarzowej rękojeści",
@@ -2635,21 +2530,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 8,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
-      "id": "548",
-      "title": "Steelclaw Lance",
-      "scenario": "zębata lanca rwąca krwiożercze pnącza w Dziczy",
-      "score": 50.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
       "problems": [
         "brak słowa opisującego konkretny dźwięk",
         "brak materiału/kontaktu (co uderza o co)"
@@ -3473,20 +3353,6 @@
       ]
     },
     {
-      "id": "187",
-      "title": "Idyllic Grange",
-      "scenario": "trening dzieci drewnianymi mieczami pod pradawnym dębem",
-      "score": 57.0,
-      "sound_hits": 0,
-      "material_hits": 1,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk"
-      ]
-    },
-    {
       "id": "201",
       "title": "Tiller of Flesh",
       "scenario": "złożenie zalążku życia w ceramiczny kokon przez porcelanowego oracza",
@@ -3767,20 +3633,6 @@
       ]
     },
     {
-      "id": "312",
-      "title": "Goblin Battle Jester",
-      "scenario": "wyśmiewający taniec goblina-trefnisia na skalnej półce",
-      "score": 57.0,
-      "sound_hits": 0,
-      "material_hits": 1,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk"
-      ]
-    },
-    {
       "id": "313",
       "title": "Faceless Butcher",
       "scenario": "chitynowy chód beztwarzowego koszmaru wchłaniającego twarz",
@@ -4019,20 +3871,6 @@
       ]
     },
     {
-      "id": "463",
-      "title": "Knockout Maneuver",
-      "scenario": "rzut rywalem na lód areny z kaskadą zmarzniętych odłamków",
-      "score": 57.0,
-      "sound_hits": 0,
-      "material_hits": 1,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 9,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk"
-      ]
-    },
-    {
       "id": "469",
       "title": "Chained Throatseeker",
       "scenario": "napór na łańcuchy drapieżnika wyczuwającego olej",
@@ -4070,20 +3908,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 7,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk"
-      ]
-    },
-    {
-      "id": "500",
-      "title": "Instant Ramen",
-      "scenario": "kulinarna precyzja wojownika przy obozowym ognisku",
-      "score": 57.0,
-      "sound_hits": 0,
-      "material_hits": 1,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 6,
       "problems": [
         "brak słowa opisującego konkretny dźwięk"
       ]
@@ -4463,20 +4287,6 @@
       ]
     },
     {
-      "id": "15",
-      "title": "Tellah, Great Sage",
-      "scenario": "eksplozja ognia i błyskawic wyrywająca się z dłoni starca",
-      "score": 64.0,
-      "sound_hits": 1,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 9,
-      "problems": [
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "16",
       "title": "Brawler's Plate",
       "scenario": "podniesienie ciężkiego napierśnika z brzękiem płytowej zbroi o stojak",
@@ -4600,6 +4410,20 @@
       "words": 8,
       "problems": [
         "brak słowa opisującego konkretny dźwięk"
+      ]
+    },
+    {
+      "id": "59",
+      "title": "Mysidian Elder",
+      "scenario": "jasny syk małego płomienia zapalanego nad otwartą dłonią maga",
+      "score": 64.0,
+      "sound_hits": 1,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 9,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
       ]
     },
     {
@@ -4911,20 +4735,6 @@
       ]
     },
     {
-      "id": "145",
-      "title": "Clone Shell",
-      "scenario": "pęknięcie ciśnieniowej komory chromowego konstruktu klonującego",
-      "score": 64.0,
-      "sound_hits": 1,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 6,
-      "problems": [
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "146",
       "title": "Palace Familiar",
       "scenario": "skrzek pałacowego ptaka z wirującą mechaniczną soczewką oka",
@@ -5228,20 +5038,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 9,
-      "problems": [
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
-      "id": "317",
-      "title": "Village Bell-Ringer",
-      "scenario": "dzwon wioski bijący na alarm z wysiłkiem dzwonnika",
-      "score": 64.0,
-      "sound_hits": 1,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 8,
       "problems": [
         "brak materiału/kontaktu (co uderza o co)"
       ]
@@ -5651,15 +5447,39 @@
       "problems": []
     },
     {
-      "id": "7",
-      "title": "Mindstab",
-      "scenario": "wir rozdarcia czasu wciągający luźne pergaminy w inną epokę",
-      "score": 71.0,
+      "id": "317",
+      "title": "Village Bell-Ringer",
+      "scenario": "wielki żelazny dzwon kościelny bity na alarm — kilka szybkich, mocnych uderzeń serca z długim, rezonującym wybrzmieniem",
+      "score": 69.0,
+      "sound_hits": 1,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 16,
+      "problems": []
+    },
+    {
+      "id": "558",
+      "title": "White Mage's Staff",
+      "scenario": "czysty dzwonny impuls kryształu na lasce białego maga i miękki deszcz iskier leczenia",
+      "score": 69.5,
       "sound_hits": 1,
       "material_hits": 1,
       "visual_hits": 0,
       "abstract_hits": 0,
-      "words": 9,
+      "words": 13,
+      "problems": []
+    },
+    {
+      "id": "205",
+      "title": "Vulturous Aven",
+      "scenario": "suchy szur kościanego kostura po urnie z prochami i dwa eteryczne impulsy esencji",
+      "score": 69.5,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 13,
       "problems": []
     },
     {
@@ -5684,18 +5504,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 10,
-      "problems": []
-    },
-    {
-      "id": "29",
-      "title": "You're Not Alone",
-      "scenario": "miękki szelest ciężkiej ciepłej tkaniny otulającej ramiona",
-      "score": 71.0,
-      "sound_hits": 1,
-      "material_hits": 1,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
       "problems": []
     },
     {
@@ -5967,6 +5775,18 @@
       "problems": []
     },
     {
+      "id": "187",
+      "title": "Idyllic Grange",
+      "scenario": "poranny okrzyk koguta nad słomą spokojnego wiejskiego podwórza Eldraine",
+      "score": 71.0,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 9,
+      "problems": []
+    },
+    {
       "id": "188",
       "title": "Apprentice Wizard",
       "scenario": "chrobot kredy po kamiennej posadzce przy domykaniu kręgu",
@@ -6231,6 +6051,30 @@
       "problems": []
     },
     {
+      "id": "396",
+      "title": "Vow of Wildness",
+      "scenario": "gardłowy ryk dzikiego anoa, parsknięcie i racica zdzierająca suchą ziemię",
+      "score": 71.0,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": []
+    },
+    {
+      "id": "445",
+      "title": "Locthwain Paladin",
+      "scenario": "ciężki pancerny rumak idzie przez zlodzony śnieg, kopyta chrupią i uprząż pobrzękuje",
+      "score": 71.0,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 12,
+      "problems": []
+    },
+    {
       "id": "459",
       "title": "Prismari Campus",
       "scenario": "zderzenie ognia i wody w taflę lodu i pary na scenie",
@@ -6365,13 +6209,13 @@
     {
       "id": "557",
       "title": "Kishla Village",
-      "scenario": "puste, rytmiczne stuknięcia drewnianych łodzi o pale przystani",
+      "scenario": "mokry skrzek dużej żaby w mętnym kanale pod drewnianymi domami na palach",
       "score": 71.0,
       "sound_hits": 1,
       "material_hits": 1,
       "visual_hits": 0,
       "abstract_hits": 0,
-      "words": 8,
+      "words": 12,
       "problems": []
     },
     {
@@ -6420,18 +6264,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 9,
-      "problems": []
-    },
-    {
-      "id": "568",
-      "title": "Nanoform Sentinel",
-      "scenario": "rój nano-cząsteczek zasklepiający pęknięte przewody zasilania",
-      "score": 71.0,
-      "sound_hits": 1,
-      "material_hits": 1,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
       "problems": []
     },
     {
@@ -6507,6 +6339,30 @@
       "problems": []
     },
     {
+      "id": "259",
+      "title": "Kozilek's Predator",
+      "scenario": "krótki, szklisty zgrzyt szponów zsuwających się po kamiennej ścianie hedronu",
+      "score": 71.0,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": []
+    },
+    {
+      "id": "260",
+      "title": "Etched Host Doombringer",
+      "scenario": "krótki, gardłowy ryk demona z chropawym, bazaltowym tembrem",
+      "score": 71.0,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 8,
+      "problems": []
+    },
+    {
       "id": "374",
       "title": "Thistledown Players",
       "scenario": "wędrowna kapela myszy: fujarka i skrzypce prowadzą marszową melodię, bęben i dzwonki trzymają krok",
@@ -6519,6 +6375,18 @@
       "problems": [
         "brak materiału/kontaktu (co uderza o co)"
       ]
+    },
+    {
+      "id": "463",
+      "title": "Knockout Maneuver",
+      "scenario": "ciało pada ciężko na lód, tafla pęka długimi trzaskami i sypią się odłamki śniegu",
+      "score": 75.0,
+      "sound_hits": 1,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 14,
+      "problems": []
     },
     {
       "id": "170",
@@ -6638,20 +6506,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 7,
-      "problems": [
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
-      "id": "59",
-      "title": "Mysidian Elder",
-      "scenario": "trzaskanie i syk małego płomienia na otwartej dłoni",
-      "score": 78.0,
-      "sound_hits": 2,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 8,
       "problems": [
         "brak materiału/kontaktu (co uderza o co)"
       ]
@@ -7073,18 +6927,6 @@
       ]
     },
     {
-      "id": "515",
-      "title": "Warmaker Gunship",
-      "scenario": "terkot małych dronów wysypujących się kolejno po metalowej rampie",
-      "score": 78.0,
-      "sound_hits": 1,
-      "material_hits": 2,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 9,
-      "problems": []
-    },
-    {
       "id": "528",
       "title": "Enter the Enigma",
       "scenario": "elektryczne rozdarcie powietrza z trzeszczącą krawędzią statyki",
@@ -7108,18 +6950,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 9,
-      "problems": []
-    },
-    {
-      "id": "539",
-      "title": "Silvanus's Invoker",
-      "scenario": "rozrywana ziemia i trzeszczące drewno wstającego żywiołaka",
-      "score": 78.0,
-      "sound_hits": 1,
-      "material_hits": 2,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
       "problems": []
     },
     {
@@ -7161,6 +6991,58 @@
       ]
     },
     {
+      "id": "208",
+      "title": "Jade Bearer",
+      "scenario": "szmer płytkiej wody i kamienne kliknięcie nefrytowego diademu na czole",
+      "score": 78.0,
+      "sound_hits": 1,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": []
+    },
+    {
+      "id": "241",
+      "title": "News Helicopter",
+      "scenario": "rytmiczny terkot wirnika i niskie dudnienie silnika śmigłowca podczas krótkiego przelotu",
+      "score": 78.0,
+      "sound_hits": 2,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 11,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
+      "id": "178",
+      "title": "Oreplate Pangolin",
+      "scenario": "pneumatyczne szpony przemysłowego robota-łuskowca kruszące twardą skałę — syk pneumatyki, ciężkie metalowe uderzenie, pękająca skała i sypiące się okruchy rudy",
+      "score": 81.0,
+      "sound_hits": 2,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 20,
+      "problems": [
+        "opis sceny złożonej, nie jednego zdarzenia"
+      ]
+    },
+    {
+      "id": "452",
+      "title": "Omenspeaker",
+      "scenario": "brzęk pierścieni z mosiądzu astrolabium i czysty szklany dzwon soczewki proroctwa",
+      "score": 83.0,
+      "sound_hits": 2,
+      "material_hits": 2,
+      "visual_hits": 1,
+      "abstract_hits": 0,
+      "words": 11,
+      "problems": []
+    },
+    {
       "id": "554",
       "title": "Cherished Hatchling",
       "scenario": "pisklę syczy, a samica karnozaura odpowiada rykiem",
@@ -7175,6 +7057,32 @@
       ]
     },
     {
+      "id": "138",
+      "title": "Join the Dance",
+      "scenario": "krótka wiejska muzyka do tańca: drewniane skrzypce, mały bębenek i klaskanie w rytmie",
+      "score": 83.5,
+      "sound_hits": 2,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 13,
+      "problems": []
+    },
+    {
+      "id": "194",
+      "title": "Lionheart Maverick",
+      "scenario": "metaliczny grzechot i pobrzękiwanie stalowego kropierza rumaka oraz zbroi płytowej jeźdźca — klekot płyt, brzęcząca kolczuga i sprzączki, z lekkim stuknięciem kopyta o bruk",
+      "score": 84.5,
+      "sound_hits": 5,
+      "material_hits": 4,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 23,
+      "problems": [
+        "opis sceny złożonej, nie jednego zdarzenia"
+      ]
+    },
+    {
       "id": "14",
       "title": "Crew Captain",
       "scenario": "pojedyncze ciężkie uderzenie klucza-młota w stalową belkę z metalicznym pogłosem",
@@ -7184,6 +7092,30 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 11,
+      "problems": []
+    },
+    {
+      "id": "15",
+      "title": "Tellah, Great Sage",
+      "scenario": "szelest starych kart pergaminu wirujących gwałtownie i trzask płonących iskier",
+      "score": 85.0,
+      "sound_hits": 2,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": []
+    },
+    {
+      "id": "29",
+      "title": "You're Not Alone",
+      "scenario": "stukot butów o kamień i wspólny szczęk dobywanych ostrzy w obronnym kręgu",
+      "score": 85.0,
+      "sound_hits": 2,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 12,
       "problems": []
     },
     {
@@ -7295,6 +7227,18 @@
       "problems": []
     },
     {
+      "id": "500",
+      "title": "Instant Ramen",
+      "scenario": "głośne siorbanie ramenu z kubka i stuknięcie drewnianych pałeczek o krawędź",
+      "score": 85.0,
+      "sound_hits": 2,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 11,
+      "problems": []
+    },
+    {
       "id": "506",
       "title": "Spread the Sickness",
       "scenario": "gęste bulgotanie oleju i suche trzaski sztywniejących narośli",
@@ -7304,6 +7248,18 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 8,
+      "problems": []
+    },
+    {
+      "id": "548",
+      "title": "Steelclaw Lance",
+      "scenario": "zębaty grot stalowej lancy zgrzyta po pancerzu i rozrywa kolczaste pnącza",
+      "score": 85.0,
+      "sound_hits": 1,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 11,
       "problems": []
     },
     {
@@ -7329,6 +7285,56 @@
       "abstract_hits": 0,
       "words": 8,
       "problems": []
+    },
+    {
+      "id": "210",
+      "title": "Fiery Justice",
+      "scenario": "trzask runicznego kostura o kamienną posadzkę i wybuch trzaskających płomieni",
+      "score": 85.0,
+      "sound_hits": 2,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": []
+    },
+    {
+      "id": "244",
+      "title": "Natural Connection",
+      "scenario": "chropowaty szur kamiennego monolitu wypieranego z gliniastej ziemi",
+      "score": 85.0,
+      "sound_hits": 1,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 8,
+      "problems": []
+    },
+    {
+      "id": "255",
+      "title": "Urborg Uprising",
+      "scenario": "krótki świst i szum widm unoszących się nad czarną wodą",
+      "score": 85.0,
+      "sound_hits": 2,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": []
+    },
+    {
+      "id": "192",
+      "title": "Crumbling Vestige",
+      "scenario": "odłamek skały rozłupujący się na kryształ — jeden ostry, głęboki trzask, potem rozproszone perkusyjne brzęki i szklane pyknięcia kryształowych drzazg, na końcu krótki jasny dzwonek",
+      "score": 86.0,
+      "sound_hits": 3,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 24,
+      "problems": [
+        "opis sceny złożonej, nie jednego zdarzenia"
+      ]
     },
     {
       "id": "176",
@@ -7452,6 +7458,198 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 11,
+      "problems": []
+    },
+    {
+      "id": "203",
+      "title": "Golem-Skin Gauntlets",
+      "scenario": "jasny szczęk żelaznych płyt rękawicy golema i dzwoniący metalowy rezonans",
+      "score": 92.0,
+      "sound_hits": 2,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": []
+    },
+    {
+      "id": "247",
+      "title": "Subterranean Scout",
+      "scenario": "szybki tupot kroków boggarta szurającego po wilgotnej gliniastej glebie",
+      "score": 92.0,
+      "sound_hits": 2,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 9,
+      "problems": []
+    },
+    {
+      "id": "254",
+      "title": "Snarespinner",
+      "scenario": "szybki tupot i suche stukanie ośmiu odnóży pająka o drewniany pień",
+      "score": 92.0,
+      "sound_hits": 2,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 11,
+      "problems": []
+    },
+    {
+      "id": "198",
+      "title": "Tackle Artist",
+      "scenario": "tupot korków po murawie, zderzenie ochraniaczy i mokry rozbryzg szkarłatnej farby",
+      "score": 99.0,
+      "sound_hits": 3,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 11,
+      "problems": []
+    },
+    {
+      "id": "196",
+      "title": "Mnemonic Wall",
+      "scenario": "krótki brzęk krystalicznego marmuru i suchy szelest rozwijanego pergaminu",
+      "score": 99.0,
+      "sound_hits": 2,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 9,
+      "problems": []
+    },
+    {
+      "id": "250",
+      "title": "Loxodon Mender",
+      "scenario": "trzask i szczęk stalowego ostrza scalającego się po pęknięciu",
+      "score": 99.0,
+      "sound_hits": 3,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 9,
+      "problems": []
+    },
+    {
+      "id": "7",
+      "title": "Mindstab",
+      "scenario": "rozdarcie, głośny szelest i świst papierowych kart pergaminu wyrywanych z księgi na skale",
+      "score": 100.0,
+      "sound_hits": 3,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 13,
+      "problems": []
+    },
+    {
+      "id": "145",
+      "title": "Clone Shell",
+      "scenario": "metalowy huk pękającej stalowej kapsuły, syk zaworu i mokry rozbryzg płynu na żelaznej podłodze",
+      "score": 100.0,
+      "sound_hits": 3,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 14,
+      "problems": []
+    },
+    {
+      "id": "312",
+      "title": "Goblin Battle Jester",
+      "scenario": "skoczny tupot goblina na skale, jasny brzęk mosiężnych blaszek błazna i klekot kościanych ochraniaczy",
+      "score": 100.0,
+      "sound_hits": 3,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 14,
+      "problems": []
+    },
+    {
+      "id": "464",
+      "title": "Polluted Dead",
+      "scenario": "ciężkie szuranie stóp nieumarłego po suchej słomie i glebie oraz żrący syk i skwierczenie zatrutej ziemi",
+      "score": 100.0,
+      "sound_hits": 3,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 16,
+      "problems": []
+    },
+    {
+      "id": "515",
+      "title": "Warmaker Gunship",
+      "scenario": "syk siłowników, ciężki szczęk i łomot stalowej rampy z żelaza uderzającej o skałę oraz huk dysz",
+      "score": 100.0,
+      "sound_hits": 5,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 16,
+      "problems": []
+    },
+    {
+      "id": "521",
+      "title": "Leafcrown Dryad",
+      "scenario": "szelest gęstych liści dębu, świst splatających się kolczastych gałęzi i trzask łamanych drewnianych pędów",
+      "score": 100.0,
+      "sound_hits": 3,
+      "material_hits": 4,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 14,
+      "problems": []
+    },
+    {
+      "id": "539",
+      "title": "Silvanus's Invoker",
+      "scenario": "trzask korzeni, chrzęst ziemi i ciężki zgrzyt kamieni wstającego żywiołaka",
+      "score": 100.0,
+      "sound_hits": 3,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": []
+    },
+    {
+      "id": "568",
+      "title": "Nanoform Sentinel",
+      "scenario": "trzask iskier spawania elektrycznego, metaliczny zatrzask stalowych przewodów i uderzenie włączanego żelaznego generatora",
+      "score": 100.0,
+      "sound_hits": 3,
+      "material_hits": 4,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 13,
+      "problems": []
+    },
+    {
+      "id": "212",
+      "title": "Bloodtithe Harvester",
+      "scenario": "chlupot gęstej krwi w szklanej karafce, brzęk szkła flakonów i trzask woskowej pieczęci",
+      "score": 100.0,
+      "sound_hits": 3,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 13,
+      "problems": []
+    },
+    {
+      "id": "239",
+      "title": "Dig Site Inventory",
+      "scenario": "stukot kamiennych tablic, brzęk kompasów z mosiądzu w drewnianej skrzyni i zatrzask klamry",
+      "score": 100.0,
+      "sound_hits": 3,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 13,
       "problems": []
     }
   ]
