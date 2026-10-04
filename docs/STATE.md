@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-03** (sesja `arena/01a10303-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-04** (sesja `arena/01a10303-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
@@ -20,13 +20,12 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **530 fabuł**
-(2026-09-29 doszły fabuły `162DMR` *Griffin Guide*, `164VOW` *Gryffwing
-Cavalry* i `165M20` *Captivating Gyre*; wcześniej 2026-09-28 doszły `158OGW`
-*Kozilek's Shrieker*, `160M11` *Fiery Hellhound* i `161KTK` *Dragonscale
-Boon*; ID fabuły to numeryczna część `Ilustracja`, sufiks setu wycinany
-przy imporcie) i z niego
-wygenerowano `data/catalog.json`.
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **546 fabuł**
+i z niego generowano `data/catalog.json`. Liczba obejmuje kolejne dostawy
+właściciela po bazie `b054` (szczegóły historyczne poniżej), w tym najnowsze
+`212VOW` *Bloodtithe Harvester*, `239SOS` *Dig Site Inventory* (`b062`) oraz
+`241SPM` *News Helicopter* (`b063`). ID fabuły to numeryczna część wartości
+`Ilustracja`, sufiks setu jest wycinany przy imporcie.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
 
@@ -173,9 +172,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **545 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 545 gotowych wpisów (batche `b001`–`b062` + rundy korekt) — 100% katalogu.
-- Wygenerowane sample v2: 545 produkcyjnych MP3 w `audio/samples/`.
+- Katalog bieżący: **546 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 546 gotowych wpisów (batche `b001`–`b063` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 546 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -444,6 +443,33 @@ Stan po `b062`: **545 sampli**, **91 plików z flagą**, **0 par bliźniaków
 Raporty: `data/samples/postprocess-b062.json`,
 `docs/audits/2026-10-03-audio-audit-after-b062.md`,
 `docs/audits/2026-10-03-semantic-match-b062.md`.
+
+## 2026-10-04 — Dostawa b063: 241 News Helicopter
+
+Dodano fabułę `241SPM` *News Helicopter*: śmigłowiec reporterski Daily Bugle
+wykonuje zwrot nad Manhattanem podczas pościgu za Spider-Manem. Katalog urósł
+do **546 fabuł**.
+
+Scenariusz `b063` opisuje wyłącznie charakterystyczny przelot maszyny —
+rytmiczny terkot wirnika i dudnienie silnika. Prompt wymusza krótki, czysty
+przelot helikoptera i wyklucza muzykę, mowę, radio, wiatr oraz odgłosy miasta.
+Ocena jakości scenariusza: **78/100**.
+
+Generacja (run 37187409300) dała 1/1 plik. Po postprodukcji sample ma 2,56 s
+(czytelna treść 2,16 s), −20,00 LUFS i true peak −11,34 dBTP. `241.mp3` ma
+**0 flag sygnałowych**. Audyt semantyczny przyznał **1,5 pkt** drobnej
+heurystyki za udział dołu pasma 13,6% wobec progu 20% klasy „rumble”; nie
+wykrył rażącej sprzeczności. Nie powstała żadna para bliźniacza ani duplikat
+PCM.
+
+Stan po `b063`: **546 sampli**, **91 plików z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+
+Raporty: `data/samples/postprocess-b063.json`,
+`data/samples/scenario-quality.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b063.md`,
+`docs/audits/2026-10-04-semantic-match-b063.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
