@@ -20,14 +20,15 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **550 fabuł**
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **551 fabuł**
 i z niego generowano `data/catalog.json`. Liczba obejmuje kolejne dostawy
 właściciela po bazie `b054` (szczegóły historyczne poniżej), w tym najnowsze
 `212VOW` *Bloodtithe Harvester*, `239SOS` *Dig Site Inventory* (`b062`),
 `241SPM` *News Helicopter* (`b063`), `244BFZ` *Natural Connection* (`b064`),
-`247ORI` *Subterranean Scout* (`b065`), `250MRD` *Loxodon Mender* (`b066`)
-oraz `254DMU` *Snarespinner* (`b067`). ID fabuły to numeryczna część wartości
-`Ilustracja`, sufiks setu jest wycinany przy imporcie.
+`247ORI` *Subterranean Scout* (`b065`), `250MRD` *Loxodon Mender* (`b066`),
+`254DMU` *Snarespinner* (`b067`) oraz `255APC` *Urborg Uprising* (`b068`).
+ID fabuły to numeryczna część wartości `Ilustracja`, sufiks setu jest wycinany
+przy imporcie.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
 
@@ -174,9 +175,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **550 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 550 gotowych wpisów (batche `b001`–`b067` + rundy korekt) — 100% katalogu.
-- Wygenerowane sample v2: 550 produkcyjnych MP3 w `audio/samples/`.
+- Katalog bieżący: **551 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 551 gotowych wpisów (batche `b001`–`b068` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 551 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -569,6 +570,29 @@ Raporty: `data/samples/postprocess-b067.json`,
 `docs/audits/2026-10-04-scenario-quality.md`,
 `docs/audits/2026-10-04-audio-audit-after-b067.md`,
 `docs/audits/2026-10-04-semantic-match-b067.md`.
+
+## 2026-10-04 — Dostawa b068: 255 Urborg Uprising
+
+Dodano `255APC` *Urborg Uprising*: nekromantka na bagnach Urborgu budzi
+dwa widma dawnych wojowników, które unoszą się z czarnej, spienionej wody.
+Katalog urósł do **551 fabuł**.
+
+Scenariusz `b068` skupia się na jednym krótkim, pustym świście i szumie
+widm unoszących się nad wodą — bez głosów, plusku ani odgłosów rytuału.
+Ocena jakości scenariusza: **85/100**.
+
+Generacja (run 37229612964) dała 1/1 plik. `255.mp3` trwa 2,00 s (czytelna
+treść 0,87 s); po postprodukcji ma −19,51 LUFS i true peak −10,20 dBTP.
+Audyt sygnałowy: **0 flag**. Audyt semantyczny: **0 pkt**, klasa noise_hiss,
+bez naruszeń. Korpus: **91** plików z flagą, **0** par bliźniaków ≥ 0,95,
+**0** identycznych PCM i **0** rażących sprzeczności semantycznych.
+
+Raporty: `data/samples/postprocess-b068.json`,
+`data/samples/scenario-quality.json`,
+`data/samples/audio-audit-2026-10-04-after-b068.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b068.md`,
+`docs/audits/2026-10-04-semantic-match-b068.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
