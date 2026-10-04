@@ -1,5 +1,5 @@
 {
-  "count": 547,
+  "count": 548,
   "median_score": 57.0,
   "below_threshold": 0,
   "threshold": 40.0,
@@ -7434,6 +7434,18 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 10,
+      "problems": []
+    },
+    {
+      "id": "247",
+      "title": "Subterranean Scout",
+      "scenario": "szybki tupot kroków boggarta szurającego po wilgotnej gliniastej glebie",
+      "score": 92.0,
+      "sound_hits": 2,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 9,
       "problems": []
     },
     {

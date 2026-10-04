@@ -20,13 +20,13 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **547 fabuł**
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **548 fabuł**
 i z niego generowano `data/catalog.json`. Liczba obejmuje kolejne dostawy
 właściciela po bazie `b054` (szczegóły historyczne poniżej), w tym najnowsze
 `212VOW` *Bloodtithe Harvester*, `239SOS` *Dig Site Inventory* (`b062`),
-`241SPM` *News Helicopter* (`b063`) oraz `244BFZ` *Natural Connection* (`b064`).
-ID fabuły to numeryczna część wartości `Ilustracja`, sufiks setu jest wycinany
-przy imporcie.
+`241SPM` *News Helicopter* (`b063`), `244BFZ` *Natural Connection* (`b064`)
+oraz `247ORI` *Subterranean Scout* (`b065`). ID fabuły to numeryczna część
+wartości `Ilustracja`, sufiks setu jest wycinany przy imporcie.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
 
@@ -173,9 +173,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **547 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 547 gotowych wpisów (batche `b001`–`b064` + rundy korekt) — 100% katalogu.
-- Wygenerowane sample v2: 547 produkcyjnych MP3 w `audio/samples/`.
+- Katalog bieżący: **548 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 548 gotowych wpisów (batche `b001`–`b065` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 548 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -495,6 +495,31 @@ Raporty: `data/samples/postprocess-b064.json`,
 `docs/audits/2026-10-04-scenario-quality.md`,
 `docs/audits/2026-10-04-audio-audit-after-b064.md`,
 `docs/audits/2026-10-04-semantic-match-b064.md`.
+
+## 2026-10-04 — Dostawa b065: 247 Subterranean Scout
+
+Dodano `247ORI` *Subterranean Scout*: zwinny zwiadowca boggartów prowadzi
+współplemieńców przez podziemne korytarze Lorwynu. Katalog urósł do **548
+fabuł**.
+
+Scenariusz `b065` skupia się na szybkich, lekkich krokach boggarta i szuraniu
+po wilgotnej gliniastej glebie; pochodnia i tło zostały wykluczone z sampla.
+Ocena jakości scenariusza: **92/100**.
+
+Generacja (run 37222183510) dała 1/1 plik. `247.mp3` trwa 2,56 s (czytelna
+treść 2,06 s). Postprodukcja ograniczyła wzmocnienie do +15 dB i użyła
+limiter gain reduction 1,27 dB; finalnie sample ma −21,87 LUFS i true peak
+−1,70 dBTP. Audyt sygnałowy: **0 flag**. Audyt semantyczny: **0 pkt**,
+klasy impact/steps, 12 onsetów i brak naruszeń.
+
+Stan po `b065`: **548 sampli**, **91 plików z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+
+Raporty: `data/samples/postprocess-b065.json`,
+`data/samples/scenario-quality.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b065.md`,
+`docs/audits/2026-10-04-semantic-match-b065.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
