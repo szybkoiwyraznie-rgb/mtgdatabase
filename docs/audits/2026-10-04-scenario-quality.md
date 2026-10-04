@@ -1,10 +1,10 @@
 # Audyt wyrazistości scenariuszy
 
-Ocenionych scenariuszy: **553**, mediana wyniku: **57.0/100**.
+Ocenionych scenariuszy: **553**, mediana wyniku: **60.0/100**.
 
 - poniżej progu 40.0: **0**
-- bez żadnego słowa opisującego dźwięk: **295**
-- bez materiału/kontaktu: **295**
+- bez żadnego słowa opisującego dźwięk: **290**
+- bez materiału/kontaktu: **290**
 
 Niski wynik oznacza opis kadru zamiast zdarzenia dźwiękowego.
 
@@ -14,9 +14,7 @@ Niski wynik oznacza opis kadru zamiast zdarzenia dźwiękowego.
 | 41.0 | 25 | napięcie się złotych więzów światła krępujących bestię | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
 | 41.0 | 50 | spadające księgi rozpuszczające się w błękitnoszarą magiczną mgłę | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
 | 41.0 | 57 | unoszenie się zasłoniętych postaci w złotej kolumnie wzniesienia | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
-| 41.0 | 65 | gwałtowne otwarcie lewitującego tomu z błękitnym błyskiem i wirującymi | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
 | 41.0 | 73 | skanujący czujnik złotego konstrukta z wysuwającym się ostrzem | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
-| 41.0 | 76 | rozbicie strumienia zaklęcia o niewidzialną barierę w miliony błękitny | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
 | 41.0 | 88 | zsynchronizowane cięcie szablą i fala błękitnego eteru rozbijająca wro | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
 | 41.0 | 96 | strumień szmaragdowej magii oplatający wielkiego zmutowanego szczura | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
 | 41.0 | 98 | wir świetlistych motyli wstrzymujący skok wampira w pół ruchu | brak słowa opisującego konkretny dźwięk; brak materiału/kontaktu (co uderza o co) |
@@ -50,3 +48,5 @@ Niski wynik oznacza opis kadru zamiast zdarzenia dźwiękowego.
 | 48.0 | 141 | skok raptora w złotym kołnierzu ze schodów świątyni z rozbłyskiem piór | brak słowa opisującego konkretny dźwięk |
 | 48.0 | 151 | szał złotej burzy piaskowej zrywający iluzje z najeźdźców | brak słowa opisującego konkretny dźwięk |
 | 48.0 | 157 | przeskok krwawej aury szału na kolejnego berserkera | brak słowa opisującego konkretny dźwięk |
+| 48.0 | 462 | żelazne kroki Maruta miażdżące złoto na posadzce | brak słowa opisującego konkretny dźwięk |
+| 48.0 | 466 | złoty rezonans bram miasta nasycający pancerz strażnika | brak słowa opisującego konkretny dźwięk |
