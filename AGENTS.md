@@ -80,7 +80,7 @@ ELEVENLABS=... python scripts/elevenlabs_sample_scout.py --batch b001 --limit 10
 ```
 
 Audyt korpusu (tylko raportuje, nic nie nadpisuje; wymaga lokalnego
-`.venv` z `numpy`, `scipy`, `soundfile`):
+`.venv` z `numpy`, `scipy`, `soundfile` — przepis w `ENVIRONMENT.md` §6):
 
 ```bash
 python scripts/audit_samples_full.py \

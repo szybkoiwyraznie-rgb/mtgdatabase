@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-04** (sesja `arena/01a10303-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-04** (sesja `arena/01a108e2-mtgdatabase`).
 
 ## Aktualna decyzja produktu
 
@@ -662,6 +662,47 @@ Raporty r014: `data/samples/postprocess-r014.json`,
 `docs/audits/2026-10-04-scenario-quality.md`,
 `docs/audits/2026-10-04-audio-audit-after-r014.md`,
 `docs/audits/2026-10-04-semantic-match-r014.md`.
+
+## 2026-10-04 — Sesja weryfikacyjna: lokalny audyt 553 sampli (0 kredytów)
+
+Sesja `arena/01a108e2-mtgdatabase` nie dostała nowych fabuł, więc zamiast
+generacji wykonano pełną weryfikację stanu i udokumentowano brakujące ogniwo
+procesu.
+
+**Stan potwierdzony na czystym klonie:** `validate_stories.py` — 553 poprawne
+rekordy; `validate_sample_scenarios.py` — 553/553 `ready`; `import_collection.py`
+z `fabuły270926.csv` daje katalog identyczny z tym w repo (te same 553 ID w tej
+samej kolejności); testy v2 — 6/6; `build_pack.py` — 553 MP3, `build_site.py` —
+553 sample. Zero sierot i zero nadmiarowych plików w `audio/samples`.
+
+**Audytory uruchomione lokalnie, bez tymczasowego workflowa.** Czysty sandbox
+nie ma `numpy`/`scipy`/`soundfile`, ale `pip` ma dostęp do sieci: `python3 -m
+venv .venv` + instalacja trzech paczek (numpy 2.4.6, scipy 1.17.1,
+soundfile 0.14.0) wystarczyła, żeby pełny skan 553 MP3 przeszedł w **40 s**
+lokalnie, audyt semantyczny w 4 s, a audyt jakości scenariuszy w <1 s. Przepis
+trafił do `ENVIRONMENT.md` §6 — tymczasowe triggery na GitHubie zostają już
+tylko dla generacji ElevenLabs i importu artefaktów.
+
+**Wyniki lokalne są identyczne z raportami w repo** (`audio-audit-latest.json`,
+`docs/audits/2026-10-04-*-r014.md`), czyli stan opisany w dokumentacji jest
+odtwarzalny:
+
+- sygnał: **91/553** plików z flagą — `long_trail_silence` 39, `harsh` 32,
+  `short_content` 11, `cut_start_hard` 7, `speech_like` 5, `dull` 3,
+  `tonal_sustained` 3, `cut_end_hard` 2, `long_lead_silence` 2;
+  **0** par bliźniaków ≥ 0,95, **0** identycznych PCM, mediana −20,01 LUFS
+  (σ 0,12 LU);
+- semantyka: **0** rażących sprzeczności, **57** „wyraźnych” (1,5–3,0),
+  **3** drobne; **214** sampli bez rozpoznanej klasy dźwięku;
+- jakość scenariuszy: mediana **57/100**, **0** poniżej progu 40, ale
+  **295** scenariuszy bez słowa opisującego konkretny dźwięk i **295** bez
+  materiału/kontaktu.
+
+Ostatnia liczba to największa niezamknięta dźwignia jakościowa korpusu:
+przepisanie tych scenariuszy jest darmowe, ale słyszalny efekt daje dopiero
+regeneracja (~29 kredytów/sztukę), więc decyzja o budżecie należy do
+właściciela. W tej sesji nie zmieniono ani jednego MP3 — do repo trafiła tylko
+dokumentacja.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 
