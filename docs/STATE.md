@@ -20,12 +20,13 @@ To nie jest wielowarstwowa scena z tłem i kodą.
 
 ## Aktualny stan produkcji
 
-Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **546 fabuł**
+Źródłem bieżącej pracy jest `fabuły270926.csv` — waliduje się jako **547 fabuł**
 i z niego generowano `data/catalog.json`. Liczba obejmuje kolejne dostawy
 właściciela po bazie `b054` (szczegóły historyczne poniżej), w tym najnowsze
-`212VOW` *Bloodtithe Harvester*, `239SOS` *Dig Site Inventory* (`b062`) oraz
-`241SPM` *News Helicopter* (`b063`). ID fabuły to numeryczna część wartości
-`Ilustracja`, sufiks setu jest wycinany przy imporcie.
+`212VOW` *Bloodtithe Harvester*, `239SOS` *Dig Site Inventory* (`b062`),
+`241SPM` *News Helicopter* (`b063`) oraz `244BFZ` *Natural Connection* (`b064`).
+ID fabuły to numeryczna część wartości `Ilustracja`, sufiks setu jest wycinany
+przy imporcie.
 
 Gotowe są cztery fale paczek (łącznie 50 fabuł):
 
@@ -172,9 +173,9 @@ nie odpalała się bez kontroli właściciela.
 
 ## Stan liczbowy
 
-- Katalog bieżący: **546 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
-- Scenariusze v2: 546 gotowych wpisów (batche `b001`–`b063` + rundy korekt) — 100% katalogu.
-- Wygenerowane sample v2: 546 produkcyjnych MP3 w `audio/samples/`.
+- Katalog bieżący: **547 fabuł** w `data/catalog.json` z `fabuły270926.csv`.
+- Scenariusze v2: 547 gotowych wpisów (batche `b001`–`b064` + rundy korekt) — 100% katalogu.
+- Wygenerowane sample v2: 547 produkcyjnych MP3 w `audio/samples/`.
 - Stare sygnatury v1: zachowane tylko w archiwum.
 
 ## 2026-10-01 — Runda r010/r010b/r010c: poprawki po odsłuchu właściciela
@@ -470,6 +471,30 @@ Raporty: `data/samples/postprocess-b063.json`,
 `docs/audits/2026-10-04-scenario-quality.md`,
 `docs/audits/2026-10-04-audio-audit-after-b063.md`,
 `docs/audits/2026-10-04-semantic-match-b063.md`.
+
+## 2026-10-04 — Dostawa b064: 244 Natural Connection
+
+Dodano `244BFZ` *Natural Connection*: animistka Tajuru łączy się z geomancją
+Zendikaru, a monolit skalny wypiera się z gliniastej ziemi. Katalog urósł do
+**547 fabuł**.
+
+Scenariusz `b064` skupia się na jednym dźwięku — chropowatym szurze kamiennego
+monolitu podnoszonego przez grunt. Prompt wyklucza wybuch, uderzenia, luźne
+odłamki, muzykę, mowę, wiatr i tło. Ocena jakości scenariusza: **85/100**.
+
+Generacja (run 37192997233) dała 1/1 plik. Po postprodukcji `244.mp3` ma
+2,76 s (czytelna treść 1,46 s), −20,00 LUFS i true peak −6,33 dBTP; **0 flag
+sygnałowych**. Słowo „szur” nie mapuje się na obecną klasę audytu semantycznego,
+więc plik trafił do `without_class` — bez automatycznej oceny semantycznej.
+
+Stan po `b064`: **547 sampli**, **91 plików z flagą**, **0 par bliźniaków
+≥ 0,95**, **0 identycznego PCM**, **0 rażących sprzeczności semantycznych**.
+
+Raporty: `data/samples/postprocess-b064.json`,
+`data/samples/scenario-quality.json`,
+`docs/audits/2026-10-04-scenario-quality.md`,
+`docs/audits/2026-10-04-audio-audit-after-b064.md`,
+`docs/audits/2026-10-04-semantic-match-b064.md`.
 
 ## 2026-09-30 — Dostawa b058: fabuła 194 Lionheart Maverick
 

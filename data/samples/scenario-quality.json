@@ -1,5 +1,5 @@
 {
-  "count": 546,
+  "count": 547,
   "median_score": 57.0,
   "below_threshold": 0,
   "threshold": 40.0,
@@ -7272,6 +7272,18 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 10,
+      "problems": []
+    },
+    {
+      "id": "244",
+      "title": "Natural Connection",
+      "scenario": "chropowaty szur kamiennego monolitu wypieranego z gliniastej ziemi",
+      "score": 85.0,
+      "sound_hits": 1,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 8,
       "problems": []
     },
     {
