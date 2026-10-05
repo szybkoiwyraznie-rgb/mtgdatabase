@@ -377,6 +377,27 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "shimmering partials ringing on and on, filling the whole take. " + NO_S,
             "dzwon z brązu uderzony raz: głęboki ton z ciepłymi alikwotami dzwoni bez końca", True),
 
+    # --- druga poprawka po r020: audyt pokazał, że model nie dowozi ---
+    # 7: atak 0,90 s przy progu 0,10 — wymuszamy brak narastania.
+    "7": ("A mind stab: a sudden piercing shriek at full volume from the very first "
+          "millisecond, no fade-in at all, a high tonal scream cut off short. " + NO_M,
+          "pchnięcie psychiczne: nagły przenikliwy krzyk od pierwszej milisekundy, bez narastania", False),
+    # 31 i 456: kontrakt chce harmonicznego bzyczenia, a „suchy szelest" dał szum 8,5-9,3 kHz.
+    "31": ("A dense swarm of flies hovering close: a low thick buzzing drone, the steady "
+           "harmonic hum of thousands of wings, sustained and even. " + NO_M,
+           "gęsty rój much: niski gruby bzyk, równe harmoniczne brzęczenie tysięcy skrzydeł", False),
+    "456": ("A swarm rising from shattered porcelain: one bright crack of ceramic, then a "
+            "thick low buzzing drone of many wings lifting off, harmonic and sustained. " + NO_M,
+            "rój wzbija się z potłuczonej porcelany: trzask i gruby niski bzyk wielu skrzydeł", False),
+    # 568: tonal_frame_fraction 0,000 — serwo wyszło szumowe, ma być ton o stałej wysokości.
+    "568": ("A robot's servo motor holding one pitched note: a clean electric motor hum at a "
+            "constant steady pitch, smooth and tonal, ending in one precise click. " + NO_M,
+            "serwo robota trzyma jeden ton: czyste brzęczenie silnika o stałej wysokości, klik na końcu", False),
+    # 317: 2,23 s — cztery uderzenia mają wypełnić cały czas.
+    "317": ("A large iron church bell tolled in alarm: four heavy strikes in a steady rhythm, "
+            "each one ringing out fully, filling the whole take from start to finish. " + NO_S,
+            "kościelny dzwon na alarm: cztery ciężkie uderzenia równym rytmem, każde w pełni wybrzmiewa", True),
+
     # 459: profil 0 dał 1,5 pkt i dull — jaśniejszy ryk z echem.
     "459": ("A great beast roaring across a campus courtyard: a huge bright roaring call with a "
             "raspy harmonic edge and a short stone echo. " + NO_M,

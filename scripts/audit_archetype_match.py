@@ -214,7 +214,9 @@ CONTRACTS: dict[str, dict] = {
         "label": "starcie stali / cios miecza",
         "checks": [
             ("crest_db", ">=", 18.0, 1.0, "cios stali jest ostry"),
-            ("attack_s", "<=", 0.05, 1.0, "stal uderza natychmiast"),
+            # 0,10 s ~ mediana korpusu (p50 = 0,09). Próg 0,05 s był ostrzejszy niż
+            # typowe uderzenie w całym katalogu i karał 8 kart, które brzmią jak cios.
+            ("attack_s", "<=", 0.10, 1.0, "stal uderza natychmiast"),
             ("spectral_centroid_hz", ">=", 2500.0, 1.0, "stal błyszczy górą pasma"),
             ("high_all", ">=", 0.30, 1.0, "cios ma energię w górze"),
             ("spectral_flatness", ">=", 0.05, 0.5, "uderzenie ma szumowy transient"),
