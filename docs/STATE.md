@@ -904,9 +904,11 @@ Actions w GitHubie (bot token nie ma `workflow_dispatch` — HTTP 403).
   z `quota_exceeded` = sygnał do ponownej wymiany klucza.
 - Po każdym imporcie kontrolować statusy w manifeście: `failed`
   z `quota_exceeded` = sygnał do ponownej wymiany klucza.
-- Pisać scenariusze jako krótkie, jednorodne sample. Unikać słów i konstrukcji:
-  `tło`, `hero`, `koda`, `warstwy`, `ambient bed`, `full scene`, `music`.
-- Każdy prompt ma zawierać zakaz muzyki i mowy.
+- Pisać scenariusze jako jednorodne sample. Unikać słów i konstrukcji:
+  `tło`, `hero`, `koda`, `warstwy`, `ambient bed`, `full scene`.
+- Każdy prompt ma zawierać zakaz mowy. Muzyka jest dozwolona tam, gdzie
+  karta ją implikuje — przez `music_allowed` z nazwanym instrumentem
+  (decyzja właściciela 2026-10-05).
 - Przed generacją zawsze uruchomić `validate_sample_scenarios.py` i dry-run
   `elevenlabs_sample_scout.py`.
 - Nie wracać do ręcznych bramek v1 jako głównego flow.

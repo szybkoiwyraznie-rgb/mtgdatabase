@@ -23,7 +23,10 @@ przykłady:
 - „plusk wielkiego ciała w wodzie”.
 
 Opis może być unikalny i konkretny dla fabuły, ale prompt ma pilnować jednego
-źródła/zdarzenia. Nie prosimy o tło, kodę, muzykę ani pełną scenę.
+źródła/zdarzenia. Nie prosimy o tło, kodę ani pełną scenę. Muzyka jest
+dozwolona tam, gdzie karta ją implikuje (lutnia, chór, róg bojowy, taniec) —
+deklaruje się ją polem `music_allowed` i nazwanym instrumentem (decyzja
+właściciela 2026-10-05; bezwzględny zakaz muzyki był błędem dokumentacji).
 
 ## Dane scenariuszy
 
@@ -126,9 +129,12 @@ Artifact workflow zawiera ZIP, manifest i gotową bibliotekę HTML.
 ## Zasady jakości promptów
 
 - Jeden prompt = jeden dźwięk, nie scena.
-- Zakaz muzyki i mowy w każdym prompcie.
+- Zakaz mowy w każdym prompcie; muzyka dozwolona przez `music_allowed`
+  z nazwanym instrumentem/źródłem.
 - Unikać „ambient bed”, „cinematic trailer”, „full soundscape”.
-- Długość raczej 1.5–3 s; tylko wyjątkowo do 5 s.
+- Długość 3–5 s dla sampli archetypowych (cel właściciela z 2026-10-05:
+  dźwięk rozpoznawalny jak ryk smoka, dzwon czy krakanie); starsze wpisy
+  mają 2–2,5 s i będą przepisywane partiami.
 - Każdy sample ma być unikalny dla fabuły, ale prosty do rozpoznania.
 
 ## Audyt korpusu
