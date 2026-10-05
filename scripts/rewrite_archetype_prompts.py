@@ -173,6 +173,33 @@ TEMPLATES: dict[str, tuple[str, str, bool]] = {
 # czyli rodzina rozkłada się na kilka różnych dźwięków zamiast jednego.
 # ---------------------------------------------------------------------------
 PROFILES: dict[str, list[tuple[str, str]]] = {
+    # r026: kolejne rodziny z jednym TEMPLATE, w których karty psuja sie grupowo.
+    # sword_clash: zdajace karty maja attack 0,00-0,08 s, gubiace 0,14-1,77 s -
+    #   wiec natychmiastowy cios jest osiagalny, trzeba go nazwac wprost.
+    # insect_swarm: centroid 8,1-12,4 kHz przy oknie 1000-6000 i tonal 0,0 -
+    #   "buzzing of beating wings" daje szum; kotwiczymy w niskim harmonicznym bzyku.
+    "sword_clash": [
+        ("Swords clashing: two steel blades struck together with no build-up, full force at the "
+         "very first instant, a bright ringing shimmer over a gritty scrape of metal. " + NO_M,
+         "miecze się zderzają: dwa stalowe ciosy bez zamachu, pełną siłą w pierwszej chwili"),
+        ("A sword parried mid-swing: an instant hard steel impact, sharp and immediate, with a "
+         "spray of metallic noise and a bright ring. " + NO_M,
+         "miecz zbity w pół ciosu: natychmiastowe twarde uderzenie stali z chmurą metalicznego szumu"),
+        ("Two blades meeting edge to edge: a sudden violent steel strike landing at once, with a "
+         "harsh gritty ring and a short scrape. " + NO_M,
+         "dwa ostrza schodzą się krawędziami: nagły gwałtowny cios z chropawym brzękiem"),
+    ],
+    "insect_swarm": [
+        ("A dense swarm of bees hovering close: a low thick buzzing drone, a steady harmonic hum "
+         "of many wings, sustained and even. " + NO_M,
+         "gęsty rój pszczół z bliska: niski gruby bzyk, równe harmoniczne brzęczenie"),
+        ("A cloud of flies over a carcass: a deep droning buzz with a warm harmonic core, "
+         "holding steadily without a break. " + NO_M,
+         "chmara much nad padliną: głęboki bzyk z ciepłym harmonicznym środkiem, bez przerwy"),
+        ("A swarm settling on wood: a low continuous buzzing hum, mid-pitched and harmonic, "
+         "thick and unbroken. " + NO_M,
+         "rój osiada na drewnie: niski ciągły harmoniczny bzyk, gęsty i nieprzerwany"),
+    ],
     # r025: cztery rodziny miały tylko TEMPLATE, więc wszystkie ich karty
     # dostawały ten sam prompt i psuły się grupowo (4x forest_birdsongs za niskie,
     # 4x mechanism_click za jasne, 3x robot_servo bez tonu, 3x plate_clank bez
@@ -321,6 +348,32 @@ PROFILES: dict[str, list[tuple[str, str]]] = {
          "with full weight. " + NO_M,
          "marsz olbrzyma: cztery ciężkie stąpnięcia z dudniącym dołem, równym rytmem"),
     ],
+    # r026: water_splash mial high_all 0,044-0,095 przy progu 0,25 (plusk byl
+    # niski, bez rozbryzgu), a war_machine low_all 0,001-0,010 przy progu 0,35
+    # (silnik bez dołu). Kontrakt war_machine chce tez mid_up >= 0,1, wiec
+    # profile trzymaja mechaniczny srodek nad basem.
+    "water_splash": [
+        ("A heavy object hitting deep water: one big splash with a bright hiss of spray and "
+         "droplets scattering, then a low submerged boom. " + NO_M,
+         "ciężki przedmiot wpada do wody: duży plusk z jasnym sykiem rozbryzgu i głuchym echem"),
+        ("A body slamming into a pool: a sharp crack of water with a wide hissing spray flying "
+         "up, followed by a deep gurgle. " + NO_M,
+         "ciało wpada do basenu: ostry trzask wody z szerokim syczącym rozbryzgiem i bulgotem"),
+        ("A stone thrown into deep water: a bright splashing burst with a fine spray hissing "
+         "down, then a low thump underneath. " + NO_M,
+         "kamień rzucony w głęboką wodę: jasny wybuch plusku z drobnym syczącym rozbryzgiem"),
+    ],
+    "war_machine": [
+        ("A war machine's engine: a deep diesel rumble with heavy bass, spooling up over slow "
+         "rhythmic pounding and a gritty mechanical mid-range. " + NO_M,
+         "silnik machiny wojennej: głęboki basowy pomruk diesla z rytmicznym łomotem"),
+        ("A siege engine's motor: a very low throbbing engine note with thick bass underneath "
+         "and heavy metal clanking beats on top. " + NO_M,
+         "silnik machiny oblężniczej: bardzo niski pulsujący ton z grubym basem i łomotem"),
+        ("An armored vehicle idling: a deep guttural engine rumble dominated by low "
+         "frequencies, with a gritty metallic knocking over it. " + NO_M,
+         "opancerzony pojazd na biegu: głęboki gardłowy pomruk z niskim basem i stukotem"),
+    ],
     "undead_groan": [
         ("A plague zombie moaning deep in its chest: a slow guttural groan in a low register, wet "
          "rattle in the throat, held long and sagging at the end. " + NO_M,
@@ -446,6 +499,31 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "459": ("A great beast roaring across a campus courtyard: a huge bright roaring call with a "
             "raspy harmonic edge and a short stone echo. " + NO_M,
             "ryk przez dziedziniec: potężny jasny ryk z chrapliwą harmoniczną krawędzią i krótkim echem", False),
+
+    # --- r026: dwie rodziny, w których profil rodzinny nie wystarczył ---
+    # mechanism_click: profile r025 mówiły „mid-pitched, dry and woody rather
+    # than hissy", a centroid i tak wyszedł 7,7-10,6 kHz przy oknie 800-6000.
+    # Model czyta „click" jako jasny trzask, więc nazywamy wprost czego NIE ma być.
+    "52": ("A clockwork mechanism turning: a row of low dull wooden knocks in a steady rhythm, "
+           "deep and soft-edged, with no bright ticking and no hiss. " + NO_M,
+           "mechanizm zegarowy: rząd niskich głuchych drewnianych stuków, bez jasnego cykania i syku", False),
+    "132": ("A small gear train stepping: firm low knocks of wood on brass, dark and round, "
+            "evenly spaced, without any high-pitched snap. " + NO_M,
+            "przekładnia: niskie głuche stuki drewna o mosiądz, ciemne i bez wysokiego trzasku", False),
+    "213": ("A winding ratchet turning slowly: repeated dull low clicks with a soft body, "
+            "mid-low pitched, no hiss and no bright edge. " + NO_M,
+            "zapadka kręcona powoli: powtarzalne głuche niskie kliki bez syku i jasnej krawędzi", False),
+    "610": ("A toy automaton stepping: three or four soft low wooden knocks in a regular beat, "
+            "warm and dark, nothing sharp or hissy. " + NO_M,
+            "automat zabawka: trzy-cztery miękkie niskie drewniane stuki, ciepłe i bez syku", False),
+    # magic_shimmer: `5` i `607` trafiły na profil „mroczna magia" (niski pulsujący
+    # pomruk) i wyszły z centroidem 93-104 Hz przy wymaganym high_all >= 0,4.
+    "5": ("An arcane spell igniting: a bright crystalline shimmer high in the treble, sparkling "
+          "glassy overtones rising and holding steady. " + NO_M,
+          "zaklęcie zapala się: jasne krystaliczne migotanie wysoko w górze pasma, szkliste iskry", False),
+    "607": ("A protective ward unfolding: a thin glassy chime cluster high in pitch, delicate "
+            "and sparkling, hovering bright at the end. " + NO_M,
+            "bariera się rozwija: cienki szklisty klaster dzwonków wysoko, delikatny i błyszczący", False),
 }
 
 
