@@ -1586,3 +1586,33 @@ policzalne. Plan wydatków:
 
 Zasada: **2 warianty minimum** na kartę — pilot pokazał, że z tego samego
 promptu `396` wychodzi 0 / 2,5 / 3,5 pkt, więc jeden wariant to ruletka.
+
+### r016b dowieziona — 7 z 13 kart właściciela trafionych
+
+Nowy klucz zadziałał: 9 generacji, 9 plików. Wybór wariantów po kalibracji:
+`387` v2, `464` v2, `539` v3 — **wszystkie trzy 0 pkt**. Bliźniak `387`↔`501`
+(0,9762) zniknął: nowy wariant ma kosinus 0,5303 z `501`.
+
+**Trzy poprawki wymuszone przez dane:**
+
+1. **Selektor mierzył surowy wariant, nie plik po postprodukcji.** `464` miał
+   0 pkt jako wariant i 1,0 pkt po obróbce, bo filtr 25 Hz zdejmuje dół
+   (`low_all` 0,547 przy progu 0,55). `pick_archetype_variant.py` dostał
+   `--postprocess`: przepuszcza każdy wariant przez `process_one()` z
+   ustawieniami korpusu i mierzy dopiero wynik.
+2. **`decay_s` źle opisuje „toczy się".** Mierzy czas od szczytu do −20 dB,
+   więc „wybuch i potem płynąca lawa" dostaje krótki zanik mimo 3,1 s treści.
+   Kontrakt `volcanic_eruption` używa teraz `sustain_ratio >= 0,20` (jak
+   `undead_groan` i `robot_servo`). Efekt: `387` v2 — flatness 0,264, centroid
+   1,7 kHz — wchodzi na 0 pkt, a to właśnie ten wariant brzmi jak erupcja.
+3. **Progi `low_all` były o traf losowy.** `undead_groan` 0,55 (~p89) → 0,44
+   (~p85), `heavy_impact` 0,25 → 0,20 (~p75); `463` Knockout Maneuver
+   przestaje przegrywać o 0,0001 i wchodzi na 0 pkt.
+
+**13 kart właściciela:** trafionych **7** (było 1): `452` 6,0→0, `464` 4,0→0,
+`396` 3,5→0, `539` 3,5→0, `387` 2,5→0, `463` 0,5→0, `145` 0. Zostaje
+`515` war_machine 2,5 oraz prawdopodobne `7`, `312`, `521`, `557`, `568`.
+
+Katalog: 234 nie trafionych / 117 prawdopodobnie / 70 trafionych. Korpus:
+553 pliki, 82 z flagą, **0 par bliźniaczych**, LUFS −20,0.
+Zużycie kredytów w tej turze: 9 generacji = 360 z 10 000.

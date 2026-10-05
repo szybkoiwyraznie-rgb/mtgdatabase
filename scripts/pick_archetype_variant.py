@@ -29,14 +29,35 @@ import argparse
 import json
 import shutil
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT / "scripts"))
 
 from audit_archetype_match import CONTRACTS, evaluate, metric, verdict  # noqa: E402
+from postprocess_samples import process_one  # noqa: E402
 from audit_samples_full import analyze  # noqa: E402
 from audit_semantic_match import extra_features  # noqa: E402
+
+
+# Ustawienia postprodukcji takie jak w korpusie (patrz postprocess_samples.py):
+# bez nich selektor mierzy inny sygnał niż ten, który trafia do audio/samples.
+POSTPROCESS_KW = dict(target_lufs=-20.0, ceiling_db=-1.0, max_gain_db=15.0,
+                      hp_hz=25.0, dry_run=False, fix_mono=True, trim_trail_s=0.4)
+
+
+def ship_ready(src: Path, tmp_dir: Path) -> Path:
+    """Przepuszcza wariant przez ten sam łańcuch, co korpus, i zwraca ścieżkę.
+
+    Powód: pomiar surowego wariantu rozjeżdża się z pomiarem pliku po
+    postprodukcji. W rundzie r016b `464` miał 0 pkt jako wariant, a 1,0 pkt po
+    obróbce (`low_all` 0,547 przy progu 0,55), bo filtr 25 Hz zdejmuje trochę
+    dołu pasma. Selekcja musi oceniać to, co słyszy właściciel.
+    """
+    dst = tmp_dir / src.name
+    process_one(src, dst, **POSTPROCESS_KW)
+    return dst
 
 
 def score_file(path: Path, expected: float, music_allowed: bool, archetype: str):
@@ -54,6 +75,8 @@ def main() -> int:
     ap.add_argument("--json", type=Path, dest="json_out")
     ap.add_argument("--apply", action="store_true",
                     help="kopiuj zwycięski wariant do --out (domyślnie tylko raport)")
+    ap.add_argument("--postprocess", action="store_true",
+                    help="mierz warianty po przejściu łańcucha postprodukcji (zalecane)")
     args = ap.parse_args()
 
     rows = [json.loads(l) for l in args.scenarios.read_text(encoding="utf-8").splitlines() if l.strip()]
@@ -64,6 +87,7 @@ def main() -> int:
         raise SystemExit(f"{args.variants_dir}: brak katalogów wariantów")
 
     ids = sorted({p.stem for d in variant_dirs for p in d.glob("*.mp3")}, key=int)
+    tmp_dir = Path(tempfile.mkdtemp(prefix="arch-variants-")) if args.postprocess else None
     report = []
     for sid in ids:
         row = by_id.get(sid, {})
@@ -78,9 +102,11 @@ def main() -> int:
             f = d / f"{sid}.mp3"
             if not f.exists():
                 continue
-            score, broken, metrics = score_file(f, expected, music, archetype)
+            measured = ship_ready(f, tmp_dir) if tmp_dir else f
+            score, broken, metrics = score_file(measured, expected, music, archetype)
             variants.append({
                 "variant": d.name, "file": str(f.relative_to(ROOT)), "score": score,
+                "measured": ("postprocess" if tmp_dir else "raw"),
                 "violations": [b["reason"] for b in broken],
                 "verdict": verdict(score),
                 "metrics": {

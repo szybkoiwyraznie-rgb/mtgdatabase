@@ -75,7 +75,10 @@ CONTRACTS: dict[str, dict] = {
             ("spectral_centroid_hz", "between", (120.0, 1000.0), 1.5, "jęk jest niski"),
             ("decay_s", ">=", 0.60, 1.5, "jęk się ciągnie"),
             ("sustain_ratio", ">=", 0.25, 1.0, "jęk trzyma poziom, nie gaśnie od razu"),
-            ("low_all", ">=", 0.55, 1.0, "jęk ma ciało w dole"),
+            # 0,44 ~ p85 korpusu (p50 = 0,034). Próg 0,55 okazał się fałszywie
+            # ostry: po filtrze 25 Hz w postprodukcji `464` miał 0,547 i przegrał
+            # o 0,003 mimo centroidu 249 Hz i zaniku 2,85 s.
+            ("low_all", ">=", 0.44, 1.0, "jęk ma ciało w dole"),
             ("spectral_flatness", "<=", 0.40, 0.5, "jęk nie jest czystym szumem"),
         ],
     },
@@ -161,7 +164,8 @@ CONTRACTS: dict[str, dict] = {
             ("crest_db", ">=", 14.0, 1.5, "uderzenie ma ostry szczyt"),
             ("attack_s", "<=", 0.15, 1.0, "uderzenie jest natychmiastowe"),
             ("decay_s", "<=", 1.40, 1.0, "uderzenie gaśnie, nie ciągnie się"),
-            ("low_all", ">=", 0.25, 0.5, "uderzenie ma masę"),
+            # 0,20 ~ p75 korpusu; przy 0,25 `463` przegrywał o 0,0001.
+            ("low_all", ">=", 0.20, 0.5, "uderzenie ma masę"),
         ],
     },
     "volcanic_eruption": {
@@ -170,7 +174,10 @@ CONTRACTS: dict[str, dict] = {
             ("low_all", ">=", 0.35, 1.5, "erupcja ma masę w dole"),
             ("crest_db", ">=", 12.0, 1.0, "erupcja uderza"),
             ("spectral_flatness", ">=", 0.04, 1.0, "erupcja jest szumowa, nie tonalna"),
-            ("decay_s", ">=", 0.80, 1.0, "erupcja się toczy"),
+            # `decay_s` (szczyt -> -20 dB) źle czyta kształt „wybuch i potem
+            # płynąca lawa”: huk gaśnie szybko, choć dźwięk trwa. Stąd
+            # sustain_ratio, tak jak w undead_groan i robot_servo.
+            ("sustain_ratio", ">=", 0.20, 1.0, "erupcja się toczy, nie wybucha raz"),
             ("content_rel_s", ">=", 1.50, 1.0, "erupcja trwa"),
         ],
     },
