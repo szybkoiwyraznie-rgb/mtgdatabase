@@ -173,6 +173,54 @@ TEMPLATES: dict[str, tuple[str, str, bool]] = {
 # czyli rodzina rozkłada się na kilka różnych dźwięków zamiast jednego.
 # ---------------------------------------------------------------------------
 PROFILES: dict[str, list[tuple[str, str]]] = {
+    # r025: cztery rodziny miały tylko TEMPLATE, więc wszystkie ich karty
+    # dostawały ten sam prompt i psuły się grupowo (4x forest_birdsongs za niskie,
+    # 4x mechanism_click za jasne, 3x robot_servo bez tonu, 3x plate_clank bez
+    # kilku płyt). Profile różnicują zdarzenie i celują w zmierzoną wadę.
+    "forest_birdsong": [
+        ("Small songbirds chattering in a hedge: many quick high-pitched chirps and thin "
+         "whistles, bright and piercing, one after another. " + NO_M,
+         "drobne ptaki w żywopłocie: wiele szybkich wysokich świergotów i cienkich gwizdów"),
+        ("A dawn chorus of tiny birds: rapid tinkling high chirps, sharp and silvery, "
+         "overlapping in a fast flurry. " + NO_M,
+         "poranny chór drobnych ptaków: szybkie wysokie dzwoniące świergoty"),
+        ("A flock of finches taking off: a burst of high squeaking chirps and short sharp "
+         "calls, light and bright. " + NO_M,
+         "stado zięb zrywa się: seria wysokich piszczących świergotów i ostrych zawołań"),
+    ],
+    "mechanism_click": [
+        ("A clockwork mechanism turning: a series of crisp mid-pitched ratchet clicks in a "
+         "steady rhythm, dry and woody rather than hissy. " + NO_M,
+         "mechanizm zegarowy: seria ostrych klików ze środka pasma, suchych, nie syczących"),
+        ("A small gear train stepping: firm mid-range clicks of steel on brass, evenly spaced, "
+         "each with a soft body. " + NO_M,
+         "mała przekładnia: równe kliki stali na mosiądzu ze środka pasma"),
+        ("A winding ratchet handle turning: repeated low-medium clicks with a dull mechanical "
+         "body, in a regular rhythm. " + NO_M,
+         "korba zapadkowa: powtarzalne kliki z niskiego środka pasma, głuche i rytmiczne"),
+    ],
+    "robot_servo": [
+        ("A robot servo holding one pure tone: a smooth sustained harmonic hum at a single "
+         "unwavering pitch, like a struck tuning fork, with two short precise clicks. " + NO_M,
+         "serwo robota trzyma jeden czysty ton jak kamerton, z dwoma klikami"),
+        ("A robot arm rotating under power: a steady harmonic motor whine at one constant "
+         "pitch, clean and tonal, with three crisp clicks as it moves. " + NO_M,
+         "ramię robota obraca się: równy harmoniczny pisk silnika o stałej wysokości, trzy kliki"),
+        ("A drone's servo locking into place: a clear sustained electronic tone at a fixed "
+         "pitch, even and tonal, punctuated by two precise clicks. " + NO_M,
+         "serwo drona blokuje się: czysty ciągły ton o stałej wysokości, dwa kliki"),
+    ],
+    "plate_clank": [
+        ("Plate armor shifting: three separate heavy steel plates clanking one after another, "
+         "each hit distinct and sharply struck. " + NO_M,
+         "zbroja płytowa się przesuwa: trzy osobne ciężkie płyty dzwonią jedna po drugiej"),
+        ("A knight's harness rattling: several steel plates knocking together in quick "
+         "succession, bright but weighty, with a scrape between. " + NO_M,
+         "opierzenie rycerza grzechocze: kilka płyt stalowych uderza kolejno, z przesunięciem"),
+        ("Armored shoulders turning: two or three dull steel clanks with body, spaced apart, "
+         "ending in a short scrape of plates. " + NO_M,
+         "pancerne ramiona się obracają: dwa-trzy głuche stalowe brzęki i krótki zgrzyt"),
+    ],
     "stone_slide": [
         ("A rockslide tearing loose: heavy boulders grinding and tumbling down, stone cracking, "
          "rubble cascading with a deep rumble underneath, ending in one heavy slam. " + NO_M,
@@ -184,27 +232,33 @@ PROFILES: dict[str, list[tuple[str, str]]] = {
          "a spreading crash of debris settling. " + NO_M,
          "ściana skalna osuwa się: długi zgrzyt, trzaski i opadający gruz"),
     ],
+    # r025: trzy karty miały mod_peak 1,0-1,4 Hz (próg 2-12) i decay 0,06-0,08 s
+    # (próg >= 0,3) — skrzypienie było jednostajne i urywało się. Profile mówią
+    # wprost o wielokrotnym falowaniu i o tym, że dźwięk ma trwać sekundami.
     "door_creak": [
-        ("A heavy old wooden door pushed slowly open: a long wavering creak of dry wood and iron "
-         "hinge, held and groaning, ending in a soft wooden clunk. " + NO_M,
-         "ciężkie drewniane drzwi: długie falujące skrzypienie i miękki trzask"),
-        ("A rusted iron gate swinging on dry hinges: a high thin metallic squeal that wavers in "
-         "pitch as the gate moves, ending with a clank. " + NO_M,
-         "zardzewiała brama: wysoki cienki pisk zawiasów falujący w wysokości"),
-        ("A stiff wooden lid forced open: a short dry groan of wood fibers straining, then a "
-         "hollow wooden knock as it settles. " + NO_M,
-         "sztywne drewniane wieko: krótki suchy jęk włókien i głuche stuknięcie"),
+        ("A heavy old wooden door pushed slowly open: a long creak that rises and falls several "
+         "times over seconds, groaning and wavering, ending in a soft wooden clunk. " + NO_M,
+         "ciężkie drzwi: długie skrzypienie falujące w górę i w dół przez kilka sekund"),
+        ("A rusted iron gate swinging on dry hinges: a thin metallic squeal whose pitch wobbles "
+         "up and down repeatedly as the gate moves, drawn out, ending with a clank. " + NO_M,
+         "zardzewiała brama: pisk zawiasów wielokrotnie chwiejący się w wysokości"),
+        ("A stiff wooden lid forced open slowly: a groaning creak that pulses and wavers, "
+         "stretching out for seconds before it settles. " + NO_M,
+         "sztywne wieko: pulsujące falujące skrzypienie ciągnące się sekundami"),
     ],
+    # r025: skrajne profile dawały centroid 243 Hz („deep bronze") i 7538 Hz
+    # („small silver handbell") przy oknie 400-3000. Wszystkie trzy profile
+    # celują teraz w środek pasma — dzwon średniej wielkości.
     "temple_bell": [
-        ("A single bronze temple bell struck once and left to ring: a deep struck tone with warm "
-         "shimmering partials, ringing on and slowly fading. " + NO_S,
-         "dzwon świątynny: jeden głęboki ton brązu z ciepłymi alikwotami"),
-        ("A small silver handbell shaken once: a bright clear ring with fast shimmering partials "
-         "that dies away quickly. " + NO_S,
-         "srebrny dzwoneczek: jasny czysty dźwięk z szybkim migotaniem"),
-        ("A great cathedral gong struck with a soft mallet: a low swelling hum that blooms and "
-         "holds, with a dark beating shimmer. " + NO_S,
-         "wielki gong: niski narastający pomruk z ciemnym biciem alikwotów"),
+        ("A medium bronze temple bell struck once and left to ring: a mid-range struck tone with "
+         "warm shimmering partials, ringing on steadily. " + NO_S,
+         "średni dzwon brązowy: ton ze środka pasma z ciepłymi alikwotami"),
+        ("A chapel bell tolled once: a clear mid-pitched ring with a slow shimmering decay, "
+         "holding its level. " + NO_S,
+         "dzwon kaplicy: czysty dźwięk ze środka pasma z powolnym wybrzmieniem"),
+        ("An iron monastery bell hit with a hammer: a mid struck note with a dark hum, sustained "
+         "and even, ringing for seconds. " + NO_S,
+         "żelazny dzwon klasztorny: uderzony ton ze środka pasma, równy i długi"),
     ],
     "magic_shimmer": [
         ("An arcane spell igniting: a rising crystalline shimmer, a bright tonal hum with "
@@ -217,24 +271,33 @@ PROFILES: dict[str, list[tuple[str, str]]] = {
          "and staying. " + NO_M,
          "mroczna magia: niski pulsujący pomruk z chropawym przydźwiękiem"),
     ],
+    # r025: low_all 0,000 / 0,000 / 0,044 przy progu >= 0,45 (p85 korpusu) —
+    # ryki nie miały w sobie dołu. Profile mówią o piersiowym pomruku i
+    # basowym dudnieniu pod spodem, nie tylko o „głębokim" ryku.
     "creature_roar": [
-        ("A large beast roaring: one long throaty harmonic roar, low and swelling, held full and "
-         "ending in a forceful snort. " + NO_M,
-         "ryk bestii: jeden długi gardłowy harmoniczny ryk"),
-        ("A horned beast bellowing: two short deep bellows with a raspy edge, each punched out "
-         "and cut off. " + NO_M,
-         "ryk rogatego bydlęcia: dwa krótkie głębokie porykiwania z chrypką"),
-        ("A giant predator roaring from a cave: a huge roaring call with a long stone echo "
-         "trailing behind it. " + NO_M,
-         "ryk drapieżnika z jaskini: potężny zew z długim kamiennym echem"),
+        ("A huge beast roaring from deep in its chest: a low roaring growl with heavy bass body "
+         "underneath, swelling and held full. " + NO_M,
+         "ryk z piersi: niski gardłowy ryk z ciężkim basowym ciałem"),
+        ("A monster's close-up roar: a guttural bellow with a thick low-frequency rumble beneath "
+         "it, sustained and swelling. " + NO_M,
+         "ryk potwora z bliska: gardłowy ryk z gęstym niskim dudnieniem"),
+        ("A giant predator roaring: a very deep roaring call with a strong low end and a raspy "
+         "harmonic edge, held long. " + NO_M,
+         "ryk drapieżnika: bardzo niski zew z mocnym dołem i chropawą krawędzią"),
     ],
+    # r025: obie karty-wzorce mówiły o „gwiździe", więc model oddał czysty ton
+    # (tonal 1,0, flatness 0,000-0,002 przy progu >= 0,05). Wiatr ma być
+    # turbulentnym szumem — profile mówią o hissing/turbulent/breath, nie o gwizdaniu.
     "wind_gust": [
-        ("A strong gust of wind rushing past: a swelling roar of air that builds and fades, with "
-         "a low whistle through it. " + NO_M,
-         "podmuch wiatru: narastający huk powietrza z niskim gwizdem"),
-        ("A cold wind howling through a narrow gap: a thin wavering whistle over a soft rush of "
-         "air, holding steady. " + NO_M,
-         "wiatr w szczelinie: cienki falujący gwizd nad miękkim szumem"),
+        ("A strong gust of wind rushing past: a broad hissing rush of turbulent air, noisy and "
+         "airy, swelling up and fading away. " + NO_M,
+         "podmuch wiatru: szeroki szumiący pęd turbulentnego powietrza"),
+        ("Wind tearing through bare branches: a gusting wash of air with a ragged hiss, rising "
+         "and falling in waves. " + NO_M,
+         "wiatr w gałęziach: podmuchy szumiącego powietrza falujące w górę i w dół"),
+        ("A cold squall hitting a stone wall: a wide band of breathy wind noise, turbulent and "
+         "even, surging then easing off. " + NO_M,
+         "zimna nawałnica: szerokie pasmo oddechowego szumu wiatru"),
     ],
     "wing_flutter": [
         ("A great winged creature taking off: three powerful wingbeats with a deep leathery flap "
@@ -244,13 +307,19 @@ PROFILES: dict[str, list[tuple[str, str]]] = {
          "fluttering and thinning out. " + NO_M,
          "stado ptaków zrywa się: szybka seria drobnych uderzeń skrzydeł"),
     ],
+    # r025: low_all 0,016 / 0,017 / 0,139 przy progu >= 0,15 — „metallic clank"
+    # w profilu ciągnął energię w górę pasma. Profile mówią o głębokim łupnięciu
+    # i drżeniu ziemi, a rytm ma być równy (ioi_cv <= 0,6, onset >= 3).
     "heavy_footsteps": [
-        ("Heavy armored footsteps: three weighty boot steps on stone, each with a metallic clank "
-         "of plate armor. " + NO_M,
-         "ciężkie kroki: trzy ważkie kroki w zbroi po kamieniu"),
-        ("A huge creature walking: two slow massive thuds on packed earth, each with a low "
-         "ground shake. " + NO_M,
-         "kroki olbrzyma: dwa powolne masywne łomoty w ubitą ziemię"),
+        ("Heavy armored footsteps on stone: three weighty steps, each a deep thud with a low "
+         "ground shake, evenly spaced. " + NO_M,
+         "ciężkie kroki po kamieniu: trzy głębokie łupnięcia z drżeniem ziemi, równo"),
+        ("A huge creature walking: three slow massive thuds on packed earth, deep and heavy, "
+         "each shaking the ground. " + NO_M,
+         "kroki olbrzyma: trzy powolne masywne łomoty w ubitą ziemię"),
+        ("A giant marching: four heavy stomps with a booming low end, evenly timed, each landing "
+         "with full weight. " + NO_M,
+         "marsz olbrzyma: cztery ciężkie stąpnięcia z dudniącym dołem, równym rytmem"),
     ],
     "undead_groan": [
         ("A plague zombie moaning deep in its chest: a slow guttural groan in a low register, wet "
