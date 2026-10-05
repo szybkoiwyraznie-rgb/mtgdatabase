@@ -27,3 +27,4 @@ variants/
 .vscode/
 .idea/
 workspace-*.zip
+.cache/
