@@ -1992,3 +1992,47 @@ nieudana runda zużyła 3600 kredytów — **niezweryfikowane**.
 
 **Kredyty: 3600 w r027 (plus prawdopodobnie 3600 stracone na nieudanym runie).
 Konto trzecie: 10 000, realnie zostało ~2800–6400.**
+
+## 2026-10-05 — r028: karty z kontraktem naprawia się promptem, nie postprodukcją (2800 kredytów)
+
+35 kart z archetypem i treścią < 2 s. Postprodukcja odpada — pogłos i cięcie
+widma zmieniają dokładnie te cechy, które mierzy kontrakt (sprawdzone w tej
+sesji na 44 kartach: 14 + 3 popsute kontrakty). Została więc regeneracja
+promptem pisanym pod kontrakt konkretnej rodziny.
+
+**Cztery karty celowo pominięte, bo ich kontrakt sam ogranicza czas** —
+wydłużanie by go złamało: `583` arrow_flight (`decay_s ≤ 0,8 s`), `257` i `15`
+whip_crack (`decay_s ≤ 0,5 s`, `attack_s ≤ 0,03 s`), `71` heavy_impact
+(`decay_s ≤ 1,4 s`). To ważna granica: nie każdą krótką treść wolno wydłużać.
+
+**Skuteczny wzorzec dla `sword_clash`** (9 kart, kontrakt `attack_s ≤ 0,1 s`):
+„one hard bright strike **at the very first instant**, then three more sharp
+clicks" — pierwszy cios natychmiast, seria dopiero po nim. Odwrotna kolejność
+(„trzy ciosy, pierwszy natychmiast") dawała `attack_s` 0,26–0,74 s.
+
+**Wynik: 9 lepiej / 0 gorzej / 26 bez zmian.** Archetypy 0/69/105 → **0/64/110**.
+Treść < 2 s: 105 → **85**. 24 karty, które zostały: średnia treść 1,47 → 2,45 s.
+
+11 regresji cofniętych (`344, 232, 565, 434, 559, 292, 23, 244, 12, 5, 98`) —
+nowe warianty dały m.in. `tonal_frame_fraction` 0,000 przy wymaganym ≥ 0,5
+(dzwon `23`) i `spectral_flatness` 0,001 przy ≥ 0,05 (wiatr `292`).
+
+**Dwie rzeczy warte zapamiętania z tej rundy:**
+- Workflow patchowany **bez regexu**: poprzednio `r02\d: \d+ wariant(y|ow)[^\n]*`
+  zjadł zamykający cudzysłów, a bash nie wykonał nic z całego bloku. Teraz każdy
+  krok `run:` przechodzi `bash -n` przed pushem — to test, którego brak kosztował
+  jedną rundę.
+- Istniejące wpisy `OVERRIDES` wymieniane przez `ast` (`key.lineno` →
+  `value.end_lineno`), nie przez dopisanie: dict literal cicho przesłania
+  wcześniejsze klucze. Kontrola po zmianie: 100 kluczy w literale = 100 po imporcie.
+
+**Kredyty: 2800 w r028. Konto trzecie: 10 000, zostało ~3600–7200** (nie wiadomo,
+czy nieudany run r027 zużył 3600 — logi CI są nieosiągalne z sandboksa).
+
+### Odtworzenie stanu po resecie sandboksa
+
+Sandbox został zrestartowany: lokalny klon wrócił do `f73de71`, a `.venv` zniknął.
+Nic nie zginęło — branch `arena/01a108e2-mtgdatabase` był na GitHubie pod
+`7422f2e`, a PR #52 otwarty. Procedura: `git ls-remote origin | grep <id sesji>`,
+`git fetch origin <branch>`, `git diff FETCH_HEAD` (same `variants/` = snapshot je
+pominął), `git reset --hard FETCH_HEAD`, odtworzenie `.venv`.
