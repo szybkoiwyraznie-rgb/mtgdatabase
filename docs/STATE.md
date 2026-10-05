@@ -1822,3 +1822,53 @@ Dwie pułapki przy okazji:
 
 **Kredyty: bez zmian — 4320 z 10 000 na koncie drugim, zostało 5680
 = 142 generacje.**
+
+## 2026-10-05 — r022–r024: `568` Nanoform Sentinel (9 generacji, 360 kredytów)
+
+Ostatnia z 13 kart właściciela bez pełnego trafienia. Kontrakt `robot_servo`
+chce czterech rzeczy: tonu (`tonal_frame_fraction >= 0,35`), stabilnej
+wysokości (`f0_semitone_std <= 4,0`), klików (`onset_count >= 2`) i pracy
+ciągiem (`sustain_ratio >= 0,2`). Karta miała `tonal` **0,000** — model
+renderował „electric motor hum" jako szum szerokopasmowy (flatness 0,30,
+centroid 4,8 kHz, f0 = 0 Hz). Próg nie jest wygórowany: 250 kart
+niemuzykalnych w korpusie ma `tonal >= 0,35` (mediana 0,315).
+
+Trzy rundy po 3 warianty, każda z inną hipotezą:
+
+| Runda | Hipoteza | Wynik |
+|---|---|---|
+| r022 | kotwiczenie w źródle harmonicznym („jak uderzony kamerton") | **ton naprawiony**: `tonal` 0,997/1,000/0,907, `f0_std` 0,28–1,67 — ale `onset_count` **0**, czyli 1,5 pkt → 1,0 |
+| r023 | kliki przecinające ton | najwyżej `onset` 1, ton stłumiony (0,767), `f0_std` 3,3 |
+| r024 | odwrotna hierarchia: rytm zdarzeniem głównym, ton tłem | **`onset` 8** i `tonal` 0,812 naraz; `f0_std` 4,38 (7% ponad próg) |
+
+Model rozstrzyga konflikt „ton albo kliki" kosztem tej cechy, którą prompt
+stawia niżej. Wybrany został **r024 v2** — jedyny z obiema cechami, które
+nadają archetypowi nazwę („robot klika i pracuje"). Został brak stabilności
+wysokości: **`568` 1,5 → 1,0 pkt**, ton ✓, kliki ✓, zero flag, `duration` 4,0 s.
+
+**Kontur f0 pokazał, gdzie jest chwiejność: w pierwszych 0,5 s** (rozruch
+serwa, 31–38 półtonów przy 46–48 w reszcie pliku; 22 ramki voiced). Fade
+120 ms zbijał `f0_semitone_std` do 3,39 i odwracał werdykt na „trafiony" —
+ale tylko dlatego, że jego fade-**in** tłumi te pierwsze ramki poniżej bramki
+ciszy i progu autokorelacji 0,55, czyli wycina je z pomiaru. Zastosowany
+został fade 60 ms, który zdejmuje realną flagę `cut_end_hard` (koniec pliku
+−30,1 dB) i zostawia werdykt uczciwy: `f0_std` 4,38, 1,0 pkt.
+
+**Kredyty: 360 w tych trzech rundach. Konto drugie: 4680 z 10 000 wydane,
+zostało 5320 = 133 generacje.**
+
+## 2026-10-05 — Porządki przed finałem (0 kredytów)
+
+- Usunięte `variants/r016…r024` — **25 MB** wariantów MP3. To czysty
+  artefakt: po wyborze przez `pick_archetype_variant.py` do korpusu trafia
+  tylko zwycięzca, a pomiar jest zapisany w `data/samples/variant-pick-*.json`.
+- Usunięty workflow tymczasowy `.github/workflows/temp-variants-r016.yml`
+  (ostatnia wersja w historii: commit `e6cb145`). To on definiował check CI
+  `variants`, więc na PR zostają dwa checki: `build` i `validate`.
+- `variants/` dopisane do `.gitignore`, żeby kolejna runda znowu nie
+  wciągnęła megabajtów do gita.
+- `OVERRIDES` w `rewrite_archetype_prompts.py` miało 29 wpisów, ale tylko
+  **19 unikalnych** — 10 wcześniejszych było przesłoniętych przez późniejsze
+  (`7`, `31`, `317`, `456`, `515`, `521`, `568`). Martwe wpisy usunięte;
+  słownik po czyszczeniu ma identyczne skuteczne wartości (sprawdzone
+  importem modułu przed i po).

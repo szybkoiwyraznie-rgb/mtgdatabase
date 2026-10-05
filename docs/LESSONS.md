@@ -1058,3 +1058,35 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   łańcuchu, który pójdzie do korpusu — razem z `--fix-mono` — a po każdej
   zmianie pliku uruchamiać `audit_samples_full.py`, nie polegać na karze
   `--avoid-twins` z chwili wyboru.
+
+## 2026-10-05 — Fade na krawędzi potrafi „naprawić" metrykę, wyciszając to, co ona mierzy
+
+- Sytuacja: `568` Nanoform Sentinel miał `f0_semitone_std` 4,27 przy progu
+  4,0. Fade 120 ms zbijał wartość do 3,39 i odwracał werdykt na „trafiony".
+  Kontur f0 pokazał dlaczego: chwiejność siedzi w **pierwszych 0,5 s**
+  (rozruch serwa, 31–38 półtonów przy 46–48 w reszcie), a `edge_fades()`
+  tłumaczy obie krawędzie — fade-in 120 ms spycha te ramki poniżej bramki
+  ciszy i progu autokorelacji 0,55, więc wypadają ze statystyki.
+- Wniosek: korekta krawędzi, która zmienia werdykt, prawie zawsze robi to
+  przez usunięcie ramek z pomiaru, nie przez zmianę dźwięku. Fade-out jest
+  lekarstwem na `cut_end_hard` i na nic więcej.
+- Zasada / działanie zapobiegawcze: zanim korekta wejdzie do korpusu,
+  sprawdzić **gdziej** w czasie siedzi mierzona wada (kontur f0, obwiednia),
+  i czy korekta ją usuwa, czy tylko zasłania. Jeśli zasłania — zastosować
+  najmniejszą korekcję, która zdejmuje realną flagę, i zostawić werdykt
+  taki, jaki jest. Tu: fade 60 ms zamiast 120 ms.
+
+## 2026-10-05 — Model rozstrzyga konflikt cech kosztem tej, którą prompt stawia niżej
+
+- Sytuacja: `robot_servo` wymaga i tonu, i klików. r022 (prompt o czystym
+  tonie) dał `tonal` 1,000 i `onset_count` **0**; r023 (ton przecinany
+  klikami) dał `onset` 1 i ton 0,767; r024 (rytm jako zdarzenie główne, ton
+  jako tło) dał `onset` **8** i `tonal` 0,812 naraz.
+- Wniosek: przy dwóch wymaganach, których model nie łączy domyślnie,
+  decyduje hierarchia w zdaniu, nie lista życzeń. Wersja „A z dodatkiem B"
+  oddaje A bez B; wersja „B w rytmie, nad A" oddaje oba.
+- Zasada / działanie zapobiegawcze: gdy kontrakt ma dwie cechy z różnych
+  rodzin (ton + transient), pisać prompt tak, by zdarzenie rytmiczne było
+  podmiotem zdania, a cecha ciągła — okolicznikiem. I mierzyć wszystkie
+  warianty z kilku rund naraz, bo najlepszy bywa w innej rundzie niż
+  ostatnia.
