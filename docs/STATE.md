@@ -2036,3 +2036,57 @@ Nic nie zginęło — branch `arena/01a108e2-mtgdatabase` był na GitHubie pod
 `7422f2e`, a PR #52 otwarty. Procedura: `git ls-remote origin | grep <id sesji>`,
 `git fetch origin <branch>`, `git diff FETCH_HEAD` (same `variants/` = snapshot je
 pominął), `git reset --hard FETCH_HEAD`, odtworzenie `.venv`.
+
+### r029 — prompt pod JEDNO złamanie kontraktu (0/59/115 → 0/49/125)
+
+Punkt wyjścia był mierzalny: **wszystkie 59 kart z werdyktu „prawdopodobnie" ma
+dokładnie jedno złamanie progu** (punktacja 1,0 dla 51 kart, 0,5 dla 8, 1,5 dla 5).
+Zamiast pisać ogólnie „lepszy" prompt, każdy z 34 wpisów nazywa wprost tę jedną
+cechę, np. `sword_clash` → „broadband harsh metallic noise" (bez słów
+ring/chime/crystalline, bo ciągną ku tonowi), `robot_servo` → „four separate
+distinct mechanical clicks", `door_creak` → „fades slowly over more than a second".
+
+**Najpierw próba za zero kredytów.** Nowe narzędzie `scripts/tame_spectrum.py`
+wprowadza centroid widma do *okna* kontraktu — tnie albo podbija, mierząc efekt
+funkcjami audytu. `tame_harsh.py` celuje w progi flagi (centroid 9000 Hz /
+air8k 0,50) i tylko tnie, a kontrakty mają okna: `mechanism_click` i
+`arrow_flight` 800–6000 Hz, `insect_swarm` 1000–6000 Hz. Naprawione bez generacji:
+`52` (7588→5830 Hz), `132` (7834→5911), `213` (8561→5722), `207` (6474→5991),
+`370` (6309→4606). Cofnięte `81` — podbicie +3 dB zbiło `tonal_frame_fraction`
+z 0,55 do 0,22 przy wymaganym ≥ 0,3.
+
+**Czterech kart nie da się naprawić korektą widma — zmierzone.** `98`, `106`,
+`456` (za jasne) i `610` (centroid 163 Hz, bo prompt z r026 „no bright ticking
+and no hiss" przesterował w drugą stronę). Mechanizm: cięcie 15 dB powyżej
+2,5 kHz zabija 14,5 LU głośności, więc renormalizacja do −20 LUFS dodaje +14,5 dB,
+a `limit_true_peak` musi zdusić transjent (`peak_gr` −11,3 dB) — czyli dokładnie
+ten jasny atak, o który chodzi. **Centroid wraca z 5588 na 7277 Hz.** Wniosek:
+przy dużej korekcie widma limiter oddaje to, co korekta zabrała. Te karty
+wymagają regeneracji.
+
+**Wynik rundy: 10 lepiej / 0 gorzej / 24 bez zmian.** Archetypy **0/49/125**.
+Poprawione: `6`, `18` (sustain), `9` (flatness), `15` (attack), `67`, `80`, `501`
+(mid_up), `308` (flatness), `506` (mod_peak), `540` (tonal). 13 regresji cofniętych.
+
+**Wzorzec regresji (powtarza się w każdej rundzie):** prompt pod jedną cechę
+naprawia ją, ale model rozstrzyga konflikt kosztem innej cechy w tej samej
+rodzinie — `sword_clash` dostał szumowy transient i stracił `attack_s`
+(0,14–0,52 s przy wymaganym ≤ 0,1), `insect_swarm` dostał niższy centroid i
+stracił `tonal`, `door_creak` dostał szybsze falowanie i stracił tonalność.
+Dlatego audyt po rundzie i cofanie regresji z poprzedniego commitu nie jest
+formalnością, tylko częścią metody.
+
+**Błąd do zapamiętania: `postprocess_samples.py` bez `--ids` przejeżdża po całym
+korpusie.** Uruchomiony globalnie zmienił 540 z 553 plików, a `--fix-mono`
+podnosi podobieństwo i wypchnął parę `529`/`592` na cosine 0,9501 — nowego
+bliźniaka nad progiem 0,95, choć żadna z tych kart nie była w rundzie.
+Przywrócone 517 plików spoza batchu. **Zasada: postprocess zawsze z `--ids`
+ograniczonym do bieżącego batchu.**
+
+`insect_swarm` potrzebuje raz niższego centroidu (`98`, `106`, `456`, `81`), a raz
+więcej tonalności (`31`, `540`) — profil rodzinny nie pogodzi obu kierunków,
+więc dla tej rodziny działają wyłącznie wpisy per karta w `OVERRIDES`.
+
+**Kredyty: 2720 w r029** z czwartego klucza (10 000). Korpus: 553 pliki,
+53 z flagą, 0 bliźniaków, 0 poza oknem 2–5 s, LUFS −20,02 (σ 0,25),
+treść < 2 s: **83** (średnio 1,70 s).
