@@ -2090,3 +2090,47 @@ więc dla tej rodziny działają wyłącznie wpisy per karta w `OVERRIDES`.
 **Kredyty: 2720 w r029** z czwartego klucza (10 000). Korpus: 553 pliki,
 53 z flagą, 0 bliźniaków, 0 poza oknem 2–5 s, LUFS −20,02 (σ 0,25),
 treść < 2 s: **83** (średnio 1,70 s).
+
+### r030 — „cecha chroniona pierwsza": pomysł zadziałał słabo (0/49/125 → 0/48/126)
+
+r029 pokazała mechanizm regresji: prompt pod jedną cechę naprawia ją, ale model
+rozstrzyga konflikt kosztem innej cechy w tej samej rodzinie. Hipoteza na r030:
+jeśli cecha **chroniona** pójdzie w prompcie pierwsza i jako element dominujący,
+a poprawka dopiero po niej, regresji nie będzie. 19 kart = wszystkie grupy ≥ 2
+spośród 49 pozostałych „prawdopodobnie".
+
+**Wynik: 1 lepiej / 0 gorzej / 18 bez zmian.** Poprawione tylko `20`
+(`sword_clash` 0,5 → 0). Regresji nie było — ale dlatego, że sześć kart cofnąłem.
+
+**Zasada działa, ale jest słabą dźwignią.** Cofnięte: `81`, `456` (znowu
+`tonal_frame_fraction` w `insect_swarm`), `103` (sustain 0,243 przy ≥ 0,3), `492`
+(`attack_s` 0,24 przy ≥ 0,3 — prompt mówił „builds slowly over a third of a
+second", model dał 0,24 s), `608` (`attack_s` 0,29 mimo „at the very first
+instant"), `98` (flaga `speech_like`, a mowa jest zakazana; centroid spadł z
+8860 na 426 Hz — z jednej skrajności w drugą).
+
+**Najważniejszy wniosek: model nie realizuje liczb w prompcie.** Dla
+`door_creak`/`mod_peak_hz` te same słowa „about five or six times a second" dały
+1,10 Hz (`381`), 1,36 Hz (`95`), 1,55 Hz (`531`), 1,64 Hz (`537`) i **17,39 Hz**
+(`303`) — czyli raz głęboko pod oknem 2–12 Hz, raz daleko nad nim. Dla
+`sword_clash`/`attack_s` „at the very first instant" dało 0,29 s przy wymaganym
+≤ 0,1. **Te dwie cechy nie są sterowalne promptem** i dalsze rundy na nich to
+wydawanie kredytów na loterię.
+
+`513` zostało w korpusie dopiero po korekcie głośności: wariant miał LUFS
+−33,21 (drugi −45,29), a `--max-gain-db` domyślnie 15 dB nie wystarczył, więc
+plik wyszedł na −30,66 przy korpusie −20,02 i podbił odchylenie z 0,25 na 0,52.
+Ponowny postprocess z `--max-gain-db 26` dał −20,00. Po tej korekcie werdykt
+wrócił do „prawdopodobnie", więc realny zysk rundy to jedna karta.
+
+**Błąd techniczny tej rundy:** podmiana wpisów `OVERRIDES` musi iść **od końca**
+(malejąco po numerach linii). Wpis zajmuje 2 albo 3 linie (prompt bywa zapisany
+jako dwa sklejone literały), więc każda zamiana przesuwa indeksy poniżej.
+Pierwsza próba szła od początku: plik się kompilował, `ast` nie zgłaszał błędu,
+0 duplikatów — ale trzy karty dostały cudzy tekst. Wykrył to dopiero walidator,
+który mierzy **ładunek API** (prompt + ok. 280 znaków doklejanych zakazów), więc
+limit 450 oznacza prompt do ok. 168–172 znaków.
+
+**Kredyty: 1520 w r030.** Z czwartego klucza (10 000) zostało ~5760. Korpus:
+553 pliki, 56 z flagą, 0 bliźniaków, 0 poza oknem 2–5 s, LUFS −20,02 (σ 0,25),
+treść < 2 s: 83.
