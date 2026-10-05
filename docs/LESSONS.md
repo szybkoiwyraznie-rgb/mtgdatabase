@@ -1029,3 +1029,32 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   definicję funkcji oceny i jej `verdict`. W tym projekcie: wynik kontraktu
   to punkty karne (0 = ideał), a każdy nowy składnik oceny musi mieć ten sam
   zwrot — kara **dodaje** punkty.
+
+## 2026-10-05 — Sztywne okno długości potrafi być droższe niż cała transza
+
+- Sytuacja: przy celu 3–5 s audyt wyliczył **419 plików „za krótkich"**
+  (78 z archetypem), a plan naprawy kosztował 152 generacje = 6080 kredytów —
+  więcej, niż zostało na koncie. Właściciel rozszerzył okno do 2–5 s
+  („dobre 2 sekundy są lepsze niż złe 4") i liczba plików poza celem spadła
+  do **zera** bez ani jednej generacji.
+- Wniosek: zanim zaczniemy płacić za spełnienie progu, trzeba zapytać, czy próg
+  mierzy to, o co chodzi. Tu celem była rozpoznawalność, a długość była tylko
+  jej przybliżeniem — i to przybliżenie wyznaczało budżet.
+- Zasada / działanie zapobiegawcze: twarde progi w kryteriach akceptacji
+  zapisywać jako decyzję właściciela z datą i uzasadnieniem, a przy każdej
+  dużej transzy najpierw policzyć, ile z jej kosztu wynika z progu,
+  a ile z faktycznej wady dźwięku. W selektorze jakość (kontrakt) decyduje,
+  długość rozstrzyga tylko remisy.
+
+## 2026-10-05 — Korekcja mono zawęża nie tylko obraz, ale i margines unikalności
+
+- Sytuacja: `23` Brightwood Tracker v2 miał podobieństwo 0,9162 do `168`
+  (czysto, próg 0,95) i flagę `mono_collapse`. Po `--fix-mono` flaga znikła,
+  a podobieństwo wzrosło do **0,9568** — powstała para bliźniacza.
+- Wniosek: zwężenie składowej bocznej usuwa z odcisku log-mel to, co różniło
+  dwa pliki, więc kosmetyczna korekcja potrafi złamać twardszą zasadę
+  (każda fabuła ma unikalny sample).
+- Zasada / działanie zapobiegawcze: wybór wariantu mierzyć po **pełnym**
+  łańcuchu, który pójdzie do korpusu — razem z `--fix-mono` — a po każdej
+  zmianie pliku uruchamiać `audit_samples_full.py`, nie polegać na karze
+  `--avoid-twins` z chwili wyboru.

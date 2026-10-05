@@ -1784,3 +1784,41 @@ poza oknem 3–5 s** (mediana korpusu 2,48 s), w tym 76 z archetypem — ich
 naprawa to 152 generacje = 6080 kredytów, czyli więcej niż zostało na koncie;
 379 fabuł bez archetypu; `variants/r016…r021` i workflow tymczasowy do
 usunięcia przed finałem.
+
+## 2026-10-05 — Okno akceptacji 2–5 s zamiast 3–5 s (0 kredytów)
+
+Decyzja właściciela: **„Nie upieram się przy 3-5. Dobre 2 sekundy są lepsze
+niż złe 4. Możemy rozszerzyć okno do 2-5."** Zasada: jakość decyduje,
+długość rozstrzyga tylko remisy — nie dopisujemy ciszy i nie bierzemy
+gorszego wariantu po to, żeby dobić do 3 s.
+
+**Skutek zmierzony, nie szacowany: zero plików w korpusie jest poza celem.**
+Przy oknie 3–5 s „za krótkich" było 419 (w tym 78 z archetypem) i plan
+naprawy kosztowałby 152 generacje = 6080 kredytów. Przy 2–5 s problem znika
+bez ani jednej generacji — to była najtańsza runda tej sesji.
+
+Selektor przestał wybierać gorzej, żeby było dłużej: `7` Mindstab bierze v1
+(2,36 s, kontrakt 0,0 pkt) zamiast v3 (3,49 s, 2,0 pkt) — **`7` jest teraz
+trafiona**, a była jedną z dwóch ostatnich kart właściciela. Kara za wyjście
+poza okno dostała część stałą (10 pkt + 5 pkt/s), bo sama stawka za sekundę
+nie wystarczała: przy niedomiarze 0,2 s kara 1,0 pkt mieściła się w różnicy
+kontraktu i `558` wybierało plik 1,80 s.
+
+**Wynik: audyt 174 kart — 0 nie trafionych / 93 prawdopodobnie / 81 trafionych.
+13 kart właściciela: 12 trafionych, 1 prawdopodobna (`568` Nanoform Sentinel,
+serwo bez tonu).** Transza r021: 7 lepiej, 0 gorzej, 18 bez zmian. Korpus:
+553 pliki, LUFS −20,04 (σ 0,18), 0 bliźniaków, **0 poza oknem 2–5 s**,
+95 z flagą.
+
+Dwie pułapki przy okazji:
+
+- `pick_archetype_variant.py --apply` kopiuje **surowy** wariant — łańcuch
+  postprodukcji działa tylko na pliku tymczasowym do pomiaru. Bez osobnego
+  `postprocess_samples.py` w korpusie zostają pliki o LUFS −3…−16 zamiast −20
+  (zmierzone na `7`, `31`, `1`, `92`).
+- `--fix-mono` **podnosi** podobieństwo odcisków: `23` v2 miało 0,9162 do
+  `168` przed korekcją i 0,9568 po niej, czyli z pary „czystej" robi się
+  bliźniak. Wybór wariantu trzeba mierzyć po pełnym łańcuchu, z `--fix-mono`.
+
+**Kredyty: bez zmian — 4320 z 10 000 na koncie drugim, zostało 5680
+= 142 generacje.**

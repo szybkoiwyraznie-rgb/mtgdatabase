@@ -6,7 +6,6 @@ Sprawdzono **174** sampli z zadeklarowanym polem `archetype`.
 |---|---|---|---|---|
 | 1.5 | 3 | Nefarious Imp | `fire_crackle` (trzask ognia / żaru) | ogień jest szumowy (spectral_flatness=0.008, oczekiwane >= 0.1) |
 | 1.5 | 5 | Academy Journeymage | `magic_shimmer` (magiczne migotanie / aureola) | magia świeci górą pasma (high_all=0.000, oczekiwane >= 0.4) |
-| 1.5 | 7 | Mindstab | `psychic_shriek` (przenikliwy jęk / uderzenie psychiczne) | uderzenie psychiczne jest natychmiastowe (attack_s=0.900, oczekiwane <= 0.1) |
 | 1.5 | 26 | Ember Beast | `stone_slide` (osuwisko / tarcie skał) | skały mają masę w dole (low_all=0.231, oczekiwane >= 0.25) |
 | 1.5 | 31 | Carrion Call | `insect_swarm` (rój owadów / bzykanie) | bzykanie jest harmoniczne (tonal_frame_fraction=0.006, oczekiwane >= 0.3) |
 | 1.5 | 80 | Merciless Repurposing | `war_machine` (silnik i mechanizm wojennej machiny) | machina dudni dołem (low_all=0.159, oczekiwane >= 0.35) |
@@ -31,7 +30,7 @@ Sprawdzono **174** sampli z zadeklarowanym polem `archetype`.
 | 1.0 | 17 | Selhoff Occultist | `sword_clash` (starcie stali / cios miecza) | stal uderza natychmiast (attack_s=0.270, oczekiwane <= 0.1) |
 | 1.0 | 18 | Lotusguard Disciple | `magic_shimmer` (magiczne migotanie / aureola) | magia płynie, nie klika (sustain_ratio=0.287, oczekiwane >= 0.3) |
 | 1.0 | 20 | Jeskai Devotee | `sword_clash` (starcie stali / cios miecza) | stal uderza natychmiast (attack_s=0.140, oczekiwane <= 0.1) |
-| 1.0 | 23 | Brightwood Tracker | `temple_bell` (dzwon / dzwonek / gong) | dzwon siedzi w środku pasma (spectral_centroid_hz=243.300, oczekiwane 400.0–3000.0) |
+| 1.0 | 23 | Brightwood Tracker | `temple_bell` (dzwon / dzwonek / gong) | dzwon siedzi w środku pasma (spectral_centroid_hz=243.600, oczekiwane 400.0–3000.0) |
 | 1.0 | 37 | Howl of the Night Pack | `creature_roar` (ryk / porykiwanie dużego zwierzęcia) | ryk ma ciało w dole pasma (low_all=0.000, oczekiwane >= 0.45) |
 | 1.0 | 40 | Expunge | `plate_clank` (pancerz / płyty stalowe) | stal pancerza jest jasna (spectral_centroid_hz=8052.200, oczekiwane 1000.0–6000.0) |
 | 1.0 | 43 | Kor Sanctifiers | `wind_gust` (podmuch wiatru) | wiatr jest szumowy (spectral_flatness=0.000, oczekiwane >= 0.05) |
@@ -68,7 +67,7 @@ Sprawdzono **174** sampli z zadeklarowanym polem `archetype`.
 | 1.0 | 303 | Blanchwood Prowler | `door_creak` (skrzypienie drewna / zawiasów) | skrzypienie faluje (mod_peak_hz=1.030, oczekiwane 2.0–12.0) |
 | 1.0 | 335 | Gather the Townsfolk | `heavy_footsteps` (ciężkie kroki / kopyta) | ciężki krok ma masę w dole (low_all=0.016, oczekiwane >= 0.15) |
 | 1.0 | 345 | Porcelain Legionnaire | `sword_clash` (starcie stali / cios miecza) | stal błyszczy górą pasma (spectral_centroid_hz=2292.600, oczekiwane >= 2500.0) |
-| 1.0 | 347 | Pristine Talisman | `temple_bell` (dzwon / dzwonek / gong) | dzwon siedzi w środku pasma (spectral_centroid_hz=98.400, oczekiwane 400.0–3000.0) |
+| 1.0 | 347 | Pristine Talisman | `temple_bell` (dzwon / dzwonek / gong) | dzwon siedzi w środku pasma (spectral_centroid_hz=376.200, oczekiwane 400.0–3000.0) |
 | 1.0 | 358 | Frontline War-Rager | `creature_roar` (ryk / porykiwanie dużego zwierzęcia) | ryk ma ciało w dole pasma (low_all=0.044, oczekiwane >= 0.45) |
 | 1.0 | 370 | Consume Spirit | `arrow_flight` (strzała / świst pocisku) | świst siedzi w środku i górze (spectral_centroid_hz=6308.900, oczekiwane 800.0–6000.0) |
 | 1.0 | 381 | Caravan Vigil | `door_creak` (skrzypienie drewna / zawiasów) | skrzypienie się ciągnie (decay_s=0.060, oczekiwane >= 0.3) |
@@ -99,6 +98,7 @@ Sprawdzono **174** sampli z zadeklarowanym polem `archetype`.
 | 0.5 | 608 | Skymarch Bloodletter | `sword_clash` (starcie stali / cios miecza) | uderzenie ma szumowy transient (spectral_flatness=0.037, oczekiwane >= 0.05) |
 | 0.5 | 616 | Act of Treason | `sword_clash` (starcie stali / cios miecza) | uderzenie ma szumowy transient (spectral_flatness=0.042, oczekiwane >= 0.05) |
 | 0 | 1 | Dunland Crebain | `forest_birdsong` (śpiew ptaków) | — |
+| 0 | 7 | Mindstab | `psychic_shriek` (przenikliwy jęk / uderzenie psychiczne) | — |
 | 0 | 12 | Merchant's Dockhand | `robot_servo` (serwo i mechanizm robota) | — |
 | 0 | 16 | Brawler's Plate | `plate_clank` (pancerz / płyty stalowe) | — |
 | 0 | 39 | Brute Force | `heavy_footsteps` (ciężkie kroki / kopyta) | — |
@@ -179,7 +179,7 @@ Sprawdzono **174** sampli z zadeklarowanym polem `archetype`.
 | 0 | 571 | Vow of Flight | `wing_flutter` (trzepot skrzydeł) | — |
 | 0 | 583 | Kill Shot | `arrow_flight` (strzała / świst pocisku) | — |
 
-Werdykty: {'prawdopodobnie': 94, 'trafiony': 80}
+Werdykty: {'prawdopodobnie': 93, 'trafiony': 81}
 
 0 pkt = kontrakt archetypu spełniony w całości. ≥ 2 pkt = sample nie jest tym,
 co deklaruje scenariusz, i nie da się go rozpoznać z zamkniętymi oczami.

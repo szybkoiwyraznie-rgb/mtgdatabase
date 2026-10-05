@@ -132,9 +132,12 @@ Artifact workflow zawiera ZIP, manifest i gotową bibliotekę HTML.
 - Zakaz mowy w każdym prompcie; muzyka dozwolona przez `music_allowed`
   z nazwanym instrumentem/źródłem.
 - Unikać „ambient bed”, „cinematic trailer”, „full soundscape”.
-- Długość 3–5 s dla sampli archetypowych (cel właściciela z 2026-10-05:
-  dźwięk rozpoznawalny jak ryk smoka, dzwon czy krakanie); starsze wpisy
-  mają 2–2,5 s i będą przepisywane partiami.
+- Długość **2–5 s** dla sampli archetypowych. Cel właściciela z 2026-10-05:
+  dźwięk rozpoznawalny jak ryk smoka, dzwon czy krakanie; tego samego dnia
+  właściciel rozszerzył okno z 3–5 s do 2–5 s — „dobre 2 sekundy są lepsze
+  niż złe 4". Jakość decyduje, długość rozstrzyga tylko remisy: nie
+  dopisujemy ciszy ani nie wybieramy gorszego wariantu po to, żeby dobić
+  do 3 s. Starsze wpisy mają 2–2,5 s i mieszczą się w oknie.
 - Każdy sample ma być unikalny dla fabuły, ale prosty do rozpoznania.
 
 ## Audyt korpusu

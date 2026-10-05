@@ -2,8 +2,8 @@
  "audit": "data/samples/audio-audit-latest.json",
  "checked": 174,
  "by_verdict": {
-  "prawdopodobnie": 94,
-  "trafiony": 80
+  "prawdopodobnie": 93,
+  "trafiony": 81
  },
  "results": [
   {
@@ -32,21 +32,6 @@
     {
      "check": "high_all",
      "reason": "magia świeci górą pasma (high_all=0.000, oczekiwane >= 0.4)",
-     "weight": 1.5
-    }
-   ]
-  },
-  {
-   "id": "7",
-   "title": "Mindstab",
-   "archetype": "psychic_shriek",
-   "archetype_label": "przenikliwy jęk / uderzenie psychiczne",
-   "score": 1.5,
-   "verdict": "prawdopodobnie",
-   "violations": [
-    {
-     "check": "attack_s",
-     "reason": "uderzenie psychiczne jest natychmiastowe (attack_s=0.900, oczekiwane <= 0.1)",
      "weight": 1.5
     }
    ]
@@ -421,7 +406,7 @@
    "violations": [
     {
      "check": "spectral_centroid_hz",
-     "reason": "dzwon siedzi w środku pasma (spectral_centroid_hz=243.300, oczekiwane 400.0–3000.0)",
+     "reason": "dzwon siedzi w środku pasma (spectral_centroid_hz=243.600, oczekiwane 400.0–3000.0)",
      "weight": 1.0
     }
    ]
@@ -976,7 +961,7 @@
    "violations": [
     {
      "check": "spectral_centroid_hz",
-     "reason": "dzwon siedzi w środku pasma (spectral_centroid_hz=98.400, oczekiwane 400.0–3000.0)",
+     "reason": "dzwon siedzi w środku pasma (spectral_centroid_hz=376.200, oczekiwane 400.0–3000.0)",
      "weight": 1.0
     }
    ]
@@ -1421,6 +1406,15 @@
    "title": "Dunland Crebain",
    "archetype": "forest_birdsong",
    "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "7",
+   "title": "Mindstab",
+   "archetype": "psychic_shriek",
+   "archetype_label": "przenikliwy jęk / uderzenie psychiczne",
    "score": 0,
    "verdict": "trafiony",
    "violations": []

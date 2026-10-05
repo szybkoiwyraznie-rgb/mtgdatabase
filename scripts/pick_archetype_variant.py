@@ -50,16 +50,24 @@ POSTPROCESS_KW = dict(target_lufs=-20.0, ceiling_db=-1.0, max_gain_db=15.0,
                       hp_hz=25.0, dry_run=False, fix_mono=True,
                       trim_trail_s=0.25, trim_lead_s=0.15, edge_fade_ms=12.0)
 
-# Kryterium akceptacji sampla to 3-5 s. Kontrakt archetypu tego nie widzi, więc
-# wariant z martwym ogonem mógł wygrać i trafić do korpusu jako 2,36 s (r021:
-# `7` v1 = 2,03 s treści + 1,89 s ciszy, choć v2 miał pełne 4,00 s). Kara za
-# wyjście poza okno jest liczona od długości PO łańcuchu, czyli od tego, co
-# właściciel dostaje — wymaga --postprocess, przy surowym pomiarze ogon jest
-# jeszcze na miejscu.
+# Kryterium akceptacji sampla to 2-5 s (decyzja właściciela z 2026-10-05:
+# „dobre 2 sekundy są lepsze niż złe 4"; do tego dnia było 3-5 s). Kontrakt
+# archetypu długości nie widzi, więc wariant z martwym ogonem mógł wygrać
+# i trafić do korpusu jako 2,36 s (r021: `7` v1 = 2,03 s treści + 1,89 s ciszy,
+# choć v2 miał pełne 4,00 s). Kara za wyjście poza okno jest liczona od długości
+# PO łańcuchu, czyli od tego, co właściciel dostaje — wymaga --postprocess, przy
+# surowym pomiarze ogon jest jeszcze na miejscu.
+# Wewnątrz okna o wyborze decyduje wyłącznie kontrakt, a długość rozstrzyga
+# tylko remisy (dłuższa słyszalna treść wygrywa) — zgodnie z decyzją właściciela
+# jakość jest ważniejsza niż długość, więc nie dopłacamy punktami za 2,5 s.
 # Stawka jest celowo wyższa niż maksymalna suma wag kontraktu (~5 pkt): plik
-# poza 3-5 s NIE SPELNIA kryterium akceptacji w ogóle, więc nigdy nie może
+# poza 2-5 s NIE SPELNIA kryterium akceptacji w ogóle, więc nigdy nie może
 # wygrać z wariantem w oknie, nawet jeśli tamten gorzej pasuje do archetypu.
-DUR_MIN_S, DUR_MAX_S, DUR_PENALTY_PER_S = 3.0, 5.0, 5.0
+DUR_MIN_S, DUR_MAX_S = 2.0, 5.0
+# Stała część kary gwarantuje, że plik poza oknem przegra z KAŻDYM w oknie:
+# sama stawka za sekundę nie wystarczała, bo przy krótkim niedomiarze (0,2 s)
+# kara 1,0 pkt mieściła się w różnicy kontraktu i `558` wybrało plik 1,80 s.
+DUR_PENALTY_FLAT, DUR_PENALTY_PER_S = 10.0, 5.0
 
 
 def ship_ready(src: Path, tmp_dir: Path) -> Path:
@@ -169,7 +177,8 @@ def main() -> int:
                                + max(0.0, float(dur) - DUR_MAX_S))
                     # Wynik `evaluate` to suma wag ZŁAMANYCH kontraktów, więc
                     # kara musi DODAWAĆ punkty karne (wyższe = gorsze).
-                    score = round(score + DUR_PENALTY_PER_S * outside, 2)
+                    score = round(score + (DUR_PENALTY_FLAT + DUR_PENALTY_PER_S * outside
+                                           if outside > 0 else 0.0), 2)
             twin_with = None
             fp_variant = None
             if args.avoid_twins:
