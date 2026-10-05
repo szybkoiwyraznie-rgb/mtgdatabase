@@ -161,6 +161,131 @@ TEMPLATES: dict[str, tuple[str, str, bool]] = {
                      "kowadło: dwa twarde dzwoniące uderzenia młota w stal", False),
 }
 
+
+# ---------------------------------------------------------------------------
+# Profile akustyczne wewnątrz archetypu.
+#
+# Powód: runda r017a pokazała, że dwa karty z tym samym szablonem (`168` i `382`,
+# oba `stone_slide`) wyszły z kosinusem 0,9676 i żadna kombinacja wariantów nie
+# zeszła poniżej 0,95. Sama klauzula z tytułem nie różnicuje dźwięku — model
+# i tak gra ten sam archetyp. Dlatego duże rodziny mają 2-3 profile: inny
+# materiał, inna skala, inne tempo. Karta dostaje profil po `int(id) % N`,
+# czyli rodzina rozkłada się na kilka różnych dźwięków zamiast jednego.
+# ---------------------------------------------------------------------------
+PROFILES: dict[str, list[tuple[str, str]]] = {
+    "stone_slide": [
+        ("A rockslide tearing loose: heavy boulders grinding and tumbling down, stone cracking, "
+         "rubble cascading with a deep rumble underneath, ending in one heavy slam. " + NO_M,
+         "osuwisko: głazy mielą się i staczają, gruz sypie się z głębokim pomrukiem"),
+        ("One huge boulder splitting apart and rolling down a gravel slope: a deep crack, then a "
+         "slow grinding roll of stone over loose rock, heavier and heavier. " + NO_M,
+         "głaz pęka i toczy się po żwirze, coraz ciężej"),
+        ("A cliff face collapsing: a long scrape of rock sliding off stone, shards snapping, then "
+         "a spreading crash of debris settling. " + NO_M,
+         "ściana skalna osuwa się: długi zgrzyt, trzaski i opadający gruz"),
+    ],
+    "door_creak": [
+        ("A heavy old wooden door pushed slowly open: a long wavering creak of dry wood and iron "
+         "hinge, held and groaning, ending in a soft wooden clunk. " + NO_M,
+         "ciężkie drewniane drzwi: długie falujące skrzypienie i miękki trzask"),
+        ("A rusted iron gate swinging on dry hinges: a high thin metallic squeal that wavers in "
+         "pitch as the gate moves, ending with a clank. " + NO_M,
+         "zardzewiała brama: wysoki cienki pisk zawiasów falujący w wysokości"),
+        ("A stiff wooden lid forced open: a short dry groan of wood fibers straining, then a "
+         "hollow wooden knock as it settles. " + NO_M,
+         "sztywne drewniane wieko: krótki suchy jęk włókien i głuche stuknięcie"),
+    ],
+    "temple_bell": [
+        ("A single bronze temple bell struck once and left to ring: a deep struck tone with warm "
+         "shimmering partials, ringing on and slowly fading. " + NO_S,
+         "dzwon świątynny: jeden głęboki ton brązu z ciepłymi alikwotami"),
+        ("A small silver handbell shaken once: a bright clear ring with fast shimmering partials "
+         "that dies away quickly. " + NO_S,
+         "srebrny dzwoneczek: jasny czysty dźwięk z szybkim migotaniem"),
+        ("A great cathedral gong struck with a soft mallet: a low swelling hum that blooms and "
+         "holds, with a dark beating shimmer. " + NO_S,
+         "wielki gong: niski narastający pomruk z ciemnym biciem alikwotów"),
+    ],
+    "magic_shimmer": [
+        ("An arcane spell igniting: a rising crystalline shimmer, a bright tonal hum with "
+         "sparkling high overtones, swelling and holding steady. " + NO_M,
+         "magia: narastające krystaliczne migotanie z jasnym tonem"),
+        ("A protective ward unfolding: a soft glassy chime cluster rising in pitch, thin and "
+         "delicate, hovering at the end. " + NO_M,
+         "bariera: delikatny szklany klaster dzwonków wznoszący się w górę"),
+        ("Dark magic pooling: a low throbbing hum with a gritty warped overtone, swelling slowly "
+         "and staying. " + NO_M,
+         "mroczna magia: niski pulsujący pomruk z chropawym przydźwiękiem"),
+    ],
+    "creature_roar": [
+        ("A large beast roaring: one long throaty harmonic roar, low and swelling, held full and "
+         "ending in a forceful snort. " + NO_M,
+         "ryk bestii: jeden długi gardłowy harmoniczny ryk"),
+        ("A horned beast bellowing: two short deep bellows with a raspy edge, each punched out "
+         "and cut off. " + NO_M,
+         "ryk rogatego bydlęcia: dwa krótkie głębokie porykiwania z chrypką"),
+        ("A giant predator roaring from a cave: a huge roaring call with a long stone echo "
+         "trailing behind it. " + NO_M,
+         "ryk drapieżnika z jaskini: potężny zew z długim kamiennym echem"),
+    ],
+    "wind_gust": [
+        ("A strong gust of wind rushing past: a swelling roar of air that builds and fades, with "
+         "a low whistle through it. " + NO_M,
+         "podmuch wiatru: narastający huk powietrza z niskim gwizdem"),
+        ("A cold wind howling through a narrow gap: a thin wavering whistle over a soft rush of "
+         "air, holding steady. " + NO_M,
+         "wiatr w szczelinie: cienki falujący gwizd nad miękkim szumem"),
+    ],
+    "wing_flutter": [
+        ("A great winged creature taking off: three powerful wingbeats with a deep leathery flap "
+         "and a rush of air. " + NO_M,
+         "trzepot skrzydeł: trzy mocne uderzenia szerokich skrzydeł"),
+        ("A flock of small birds taking off at once: a rapid burst of many small wingbeats, "
+         "fluttering and thinning out. " + NO_M,
+         "stado ptaków zrywa się: szybka seria drobnych uderzeń skrzydeł"),
+    ],
+    "heavy_footsteps": [
+        ("Heavy armored footsteps: three weighty boot steps on stone, each with a metallic clank "
+         "of plate armor. " + NO_M,
+         "ciężkie kroki: trzy ważkie kroki w zbroi po kamieniu"),
+        ("A huge creature walking: two slow massive thuds on packed earth, each with a low "
+         "ground shake. " + NO_M,
+         "kroki olbrzyma: dwa powolne masywne łomoty w ubitą ziemię"),
+    ],
+    "undead_groan": [
+        ("A plague zombie moaning deep in its chest: a slow guttural groan in a low register, wet "
+         "rattle in the throat, held long and sagging at the end. " + NO_M,
+         "jęk nieumarłego: powolny niski gardłowy pomruk z mokrym rzężeniem"),
+        ("A wight hissing and moaning: a dry rasping moan with a breathy rattle, rising once and "
+         "dropping away. " + NO_M,
+         "upiór: suchy chrapliwy jęk z oddechowym rzężeniem"),
+    ],
+    "earth_rumble": [
+        ("An earth elemental rising: heavy boulders grinding against each other and cracking, "
+         "rubble tumbling down in a rolling cascade, a deep rumble underneath, ending in one "
+         "heavy stone slam. " + NO_M,
+         "grzmot ziemi: głazy mielą się i pękają, gruz stacza się kaskadą, głęboki pomruk"),
+        ("The ground splitting open: one deep cracking split through soil and rock, debris "
+         "falling into the gap, then a long low grind settling. " + NO_M,
+         "ziemia pęka: głębokie rozdarcie gruntu, gruz wpada w szczelinę, niski zgrzyt"),
+        ("A great stone slab shifting: a slow heavy grind of rock on rock, gathering weight, "
+         "then one deep settling thud. " + NO_M,
+         "kamienna płyta się przesuwa: powolny ciężki zgrzyt i głębokie osadzenie"),
+    ],
+    "volcanic_eruption": [
+        ("A volcano erupting close by: molten lava tearing out of the ground in a sustained roar, "
+         "rocks cracking and bursting apart, dense steam hissing over the cooling flow. " + NO_M,
+         "erupcja: lawa wyrywa się z ziemi, skały pękają, para syczy"),
+        ("A lava flow collapsing into the sea: a violent burst of steam with a deep roar and "
+         "sharp crackling of cooling rock. " + NO_M,
+         "lawa wpada do morza: gwałtowny wybuch pary z hukiem i trzaskiem"),
+    ],
+}
+
+# Rotacja długości: różne czasy trwania dodatkowo rozróżniają odciski kart
+# z tej samej rodziny (cel właściciela to 3-5 s, więc każda wartość jest w celu).
+DURATIONS = (4.0, 4.5, 3.5)
+
 # Karty, których prompt musi zostać ręczny (fabuła narzuca konkretne źródło).
 OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "515": ("A war gunship's engine: a deep throbbing turbine rumble with heavy rotor blades "
@@ -181,6 +306,36 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "568": ("A sentinel robot's servos: a smooth continuous mechanical whirr with a steady hum, "
             "a hydraulic hiss and a precise click at the end. " + NO_M,
             "serwo sentinela: ciągłe gładkie warczenie mechanizmu z syknięciem hydrauliki i kliknięciem", False),
+
+    # --- poprawki po rundzie r017a (audyt pokazał, co model zrobił nie tak) ---
+    # 515: wyszedł centroid 90 Hz i flagi muffled/boomy/dull — sam infrabas.
+    "515": ("A war gunship hovering low: heavy rotor blades chopping the air with a sharp slap, "
+            "a high turbine whine over it and a bright metallic rattle of the hull. " + NO_M,
+            "gunship: ciężkie łopaty wirnika tną powietrze, nad nimi świst turbiny i jasny grzechot kadłuba", False),
+    # 521: flaga speech_like — ptasi śpiew wyszedł głosowo.
+    "521": ("Forest birds at dawn: three clear whistled bird calls, pure tone with no voice in "
+            "them, answered by two short sharp chirps. " + NO_M,
+            "ptaki o świcie: trzy czyste gwizdane zawołania bez głosu, odpowiedź dwoma krótkimi ćwierknięciami", False),
+    # 35: tylko 2,53 s i 2,0 pkt.
+    "35": ("A winged creature hovering close: five steady deep wingbeats with a leathery flap "
+           "and a rush of air, filling the whole take. " + NO_M,
+           "skrzydła z bliska: pięć równych głębokich uderzeń skrzydeł z podmuchem powietrza", False),
+    # 62: boomy/dull, centroid 118 Hz.
+    "62": ("A wounded bird struggling to fly: four uneven wingbeats with a dry papery flap and a "
+           "soft thump as it lands. " + NO_M,
+           "ranny ptak: cztery nierówne uderzenia suchych skrzydeł i miękki łomot przy lądowaniu", False),
+    # 112: boomy/dull — podmuch zjechał w dół pasma.
+    "112": ("A flurry of wings in a narrow street: a fast rush of many small wingbeats with a "
+            "bright rustle of feathers and a swirl of air. " + NO_M,
+            "furkot skrzydeł w zaułku: szybki pęd wielu drobnych skrzydeł z jasnym szelestem piór", False),
+    # 6: profil 0 dał 2,5 pkt — twardszy atak i puls w dole.
+    "6": ("A lawmage's ward snapping into place: a crisp glassy chime cluster with a firm low "
+          "pulse underneath, bright and holding. " + NO_M,
+          "bariera prawodawcy: szklisty klaster dzwonków z twardym niskim pulsem", False),
+    # 459: profil 0 dał 1,5 pkt i dull — jaśniejszy ryk z echem.
+    "459": ("A great beast roaring across a campus courtyard: a huge bright roaring call with a "
+            "raspy harmonic edge and a short stone echo. " + NO_M,
+            "ryk przez dziedziniec: potężny jasny ryk z chrapliwą harmoniczną krawędzią i krótkim echem", False),
 }
 
 
@@ -213,6 +368,10 @@ def build(row: dict) -> dict | None:
     archetype = row.get("archetype")
     if sid in OVERRIDES:
         prompt, pl, music = OVERRIDES[sid]
+    elif archetype in PROFILES:
+        choices = PROFILES[archetype]
+        prompt, pl = choices[int(sid) % len(choices)]
+        music = TEMPLATES[archetype][2] if archetype in TEMPLATES else False
     elif archetype in TEMPLATES:
         prompt, pl, music = TEMPLATES[archetype]
     else:
@@ -224,16 +383,18 @@ def build(row: dict) -> dict | None:
         body = body.replace(t_, "")
     prompt = f"{body.rstrip()} {clause.strip()} {tail}"
     return {"prompt": prompt, "sample_scenario": pl, "music_allowed": music,
-            "duration_seconds": DURATION}
+            "duration_seconds": DURATION if sid in OVERRIDES else DURATIONS[int(sid) % len(DURATIONS)]}
 
 
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--scenarios", type=Path, default=ROOT / "data/samples/scenarios.jsonl")
     ap.add_argument("--audit", type=Path,
-                    default=ROOT / "data/samples/archetype-match-2026-10-05-after-r016b.json")
+                    default=ROOT / "data/samples/archetype-match-2026-10-05-strong.json")
     ap.add_argument("--ids", default="", help="lista ID po przecinku")
     ap.add_argument("--families", default="", help="archetypy do wyboru, po przecinku")
+    ap.add_argument("--worst", type=int, default=0,
+                    help="ile najgorszych kart z całego katalogu (wg punktacji kontraktu)")
     ap.add_argument("--worst-per-family", type=int, default=0,
                     help="ile najgorszych kart z każdego archetypu (wg punktacji kontraktu)")
     ap.add_argument("--batch", default="r017a")
@@ -244,6 +405,16 @@ def main() -> int:
     rows = [json.loads(l) for l in args.scenarios.read_text(encoding="utf-8").splitlines() if l.strip()]
     by_id = {str(r["story_id"]): r for r in rows}
     wanted: list[str] = [s.strip() for s in args.ids.split(",") if s.strip()]
+
+    if args.worst:
+        scores = json.loads(args.audit.read_text(encoding="utf-8"))["results"]
+        fams = {f.strip() for f in args.families.split(",") if f.strip()}
+        cand = [r for r in scores
+                if r["verdict"] != "trafiony" and r["id"] not in wanted
+                and (r["archetype"] in TEMPLATES or r["archetype"] in PROFILES)
+                and (not fams or r["archetype"] in fams)]
+        cand.sort(key=lambda r: (-r["score"], int(r["id"])))
+        wanted += [r["id"] for r in cand[:args.worst]]
 
     if args.worst_per_family:
         scores = json.loads(args.audit.read_text(encoding="utf-8"))["results"]
@@ -275,7 +446,7 @@ def main() -> int:
             missing.append(f"{sid}: brak szablonu dla archetypu {row.get('archetype')!r}")
             continue
         text = api_payload({**row, **patch}, 0.35)["text"]
-        print(f"{sid:>4} {row.get('title','')[:24]:<24} {row.get('archetype'):<18} "
+        print(f"{sid:>4} {row.get('title','')[:24]:<24} {(row.get('archetype') or '-'):<18} "
               f"{len(text)}/450 znaków{'  [muzyka]' if patch['music_allowed'] else ''}")
         print(f"     {patch['prompt'][:150]}")
         if args.apply:

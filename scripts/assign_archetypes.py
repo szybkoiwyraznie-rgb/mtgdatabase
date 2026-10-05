@@ -148,11 +148,30 @@ RULES: list[tuple[str, str, str]] = [
 COMPILED = [(a, re.compile(rx, re.I), note) for a, rx, note in RULES]
 
 
-def assign(text: str) -> tuple[str | None, str | None]:
+def main_clause(row: dict) -> str:
+    """Główne zdarzenie promptu: tekst przed pierwszym dwukropkiem.
+
+    Prompty mają kształt „A <zdarzenie>: <szczegóły>". Reguła, która łapie motyw
+    dopiero w szczegółach, zwykle łapie go przypadkiem — `314 Revolutionist`
+    („Loose pages whipped into a spiral") dostał `undead_groan`, bo gdzieś dalej
+    padało słowo o jęku, a `74 Rush of Battle` (galop kawalerii) `thunder_clap`,
+    bo w opisie był „thundering". Takie przypisanie prowadzi do regeneracji
+    dźwięku niezwiązanego z kartą, a audyt potem sam siebie potwierdza.
+    """
+    prompt = row.get("prompt", "") or ""
+    head = prompt.split(":")[0] if ":" in prompt else prompt.split(".")[0]
+    return clean_text({"prompt": head, "sample_scenario": ""})
+
+
+def assign(text: str, head: str) -> tuple[str | None, str | None, str]:
+    """Zwraca (archetyp, reguła, pewność). `strong` = trafienie w głównym zdarzeniu."""
+    for archetype, rx, note in COMPILED:
+        if rx.search(head):
+            return archetype, note, "strong"
     for archetype, rx, note in COMPILED:
         if rx.search(text):
-            return archetype, note
-    return None, None
+            return archetype, note, "weak"
+    return None, None, ""
 
 
 def main() -> int:
@@ -160,6 +179,14 @@ def main() -> int:
     ap.add_argument("--scenarios", type=Path, default=ROOT / "data/samples/scenarios.jsonl")
     ap.add_argument("--apply", action="store_true", help="zapisz archetype do scenarios.jsonl")
     ap.add_argument("--overwrite", action="store_true", help="nadpisz archetypy ustawione ręcznie")
+    ap.add_argument("--corrections", type=Path,
+                    default=ROOT / "data/samples/archetype-corrections.json",
+                    help="ręczne korekty przypisania (warstwa nad regułami)")
+    ap.add_argument("--protect", default="",
+                    help="ID (po przecinku), których archetyp jest zadeklarowany ręcznie "
+                         "i nie podlega przeliczeniu regułami")
+    ap.add_argument("--include-weak", action="store_true",
+                    help="zapisz też przypisania weak (domyślnie zostają bez archetypu)")
     ap.add_argument("--json", type=Path, dest="json_out",
                     default=ROOT / "data/samples/archetype-assignment-latest.json")
     ap.add_argument("--markdown", type=Path)
@@ -167,6 +194,10 @@ def main() -> int:
     args = ap.parse_args()
 
     rows = [json.loads(l) for l in args.scenarios.read_text(encoding="utf-8").splitlines() if l.strip()]
+    protected = {s.strip() for s in args.protect.split(",") if s.strip()}
+    corrections: dict = {}
+    if args.corrections.exists():
+        corrections = json.loads(args.corrections.read_text(encoding="utf-8")).get("corrections", {})
     known = set(CONTRACTS)
     missing = {a for a, _, _ in RULES} - known
     if missing:
@@ -176,20 +207,28 @@ def main() -> int:
     for row in rows:
         sid = str(row["story_id"])
         text = clean_text(row)
-        archetype, note = assign(text)
+        archetype, note, conf = assign(text, main_clause(row))
+        if sid in corrections:
+            archetype = corrections[sid]
+            note = "korekta ręczna" if archetype else "korekta ręczna: brak pasującego archetypu"
+            conf = "correction"
         manual = row.get("archetype")
-        if manual and not args.overwrite:
-            archetype, note = manual, "ręczna deklaracja"
+        if sid in protected or (manual and not args.overwrite):
+            archetype, note, conf = manual, "ręczna deklaracja", "manual"
         out.append({"id": sid, "title": row.get("title"), "archetype": archetype,
-                    "rule": note, "prompt": row.get("prompt", "")[:160]})
+                    "rule": note, "confidence": conf, "prompt": row.get("prompt", "")[:160]})
         if archetype:
             by_arch[archetype] += 1
         else:
             unassigned.append((sid, row.get("title"), row.get("prompt", "")[:150]))
 
     covered = len(out) - len(unassigned)
+    by_conf = collections.Counter(r["confidence"] for r in out if r["archetype"])
     print(f"fabuł: {len(out)} · z archetypem: {covered} ({covered / len(out):.0%}) · "
           f"bez przypisania: {len(unassigned)}")
+    print(f"pewność przypisania: {dict(by_conf)}")
+    print("  strong = motyw w głównym zdarzeniu promptu (nadaje się do regeneracji)")
+    print("  weak   = motyw tylko w szczegółach (ryzyko, że to nie ten dźwięk)")
     print(f"archetypów użytych: {len(by_arch)} z {len(known)} zdefiniowanych")
     for a, c in by_arch.most_common():
         print(f"  {c:>4}  {a}")
@@ -219,12 +258,27 @@ def main() -> int:
         print(f"markdown: {args.markdown}")
 
     if args.apply:
-        changed = 0
+        changed = cleared = 0
         for row, rec in zip(rows, out):
-            if rec["archetype"] and (args.overwrite or not row.get("archetype")):
+            sid = str(row["story_id"])
+            if sid in protected:
+                continue
+            if sid in corrections and corrections[sid] is None:
+                if row.get("archetype"):
+                    row.pop("archetype", None)
+                    cleared += 1
+                continue
+            keep = rec["archetype"] and (args.include_weak or rec["confidence"] != "weak")
+            if keep:
                 if row.get("archetype") != rec["archetype"]:
                     row["archetype"] = rec["archetype"]
                     changed += 1
+            elif row.get("archetype"):
+                # Przypisanie weak znika z danych: audyt nie ma punktować karty
+                # za archetyp, którego jej prompt wcale nie zamawia.
+                row.pop("archetype", None)
+                cleared += 1
+        print(f"usunięto {cleared} przypisań weak z {args.scenarios}")
         args.scenarios.write_text(
             "".join(json.dumps(r, ensure_ascii=False, sort_keys=True) + "\n" for r in rows),
             encoding="utf-8")

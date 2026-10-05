@@ -1,51 +1,51 @@
 # Przypisanie archetypów — triage katalogu
 
-Fabuł: **553** · z archetypem: **421** (76%) · bez przypisania: **132**
+Fabuł: **553** · z archetypem: **411** (74%) · bez przypisania: **142**
 
 Przypisanie regułami z promptu (nie z tytułu). Fabuły bez trafienia zostają bez
 archetypu — skrypt nie zgaduje.
 
 | Archetyp | Kart |
 |---|---:|
-| stone_slide | 46 |
-| magic_shimmer | 39 |
-| sword_clash | 34 |
+| stone_slide | 36 |
+| magic_shimmer | 34 |
 | plate_clank | 31 |
-| door_creak | 29 |
-| temple_bell | 24 |
-| creature_roar | 21 |
-| heavy_footsteps | 19 |
+| sword_clash | 31 |
+| door_creak | 24 |
+| creature_roar | 23 |
+| heavy_footsteps | 21 |
+| temple_bell | 20 |
+| wind_gust | 17 |
+| forest_birdsong | 14 |
+| water_splash | 14 |
+| heavy_impact | 13 |
+| insect_swarm | 13 |
 | mechanism_click | 13 |
-| wind_gust | 13 |
-| water_splash | 12 |
-| arrow_flight | 12 |
-| wing_flutter | 12 |
-| forest_birdsong | 11 |
-| heavy_impact | 11 |
-| insect_swarm | 10 |
-| volcanic_eruption | 9 |
-| undead_groan | 7 |
+| undead_groan | 11 |
+| arrow_flight | 9 |
+| wing_flutter | 8 |
+| robot_servo | 7 |
 | steam_hiss | 6 |
 | chain_rattle | 6 |
-| arcane_choir | 6 |
-| thunder_clap | 6 |
-| folk_music | 6 |
+| volcanic_eruption | 6 |
+| war_machine | 6 |
 | fire_crackle | 5 |
+| earth_rumble | 5 |
+| folk_music | 5 |
+| arcane_choir | 5 |
 | beast_screech | 4 |
-| electric_zap | 4 |
-| robot_servo | 4 |
-| liquid_pour | 4 |
+| glass_shatter | 4 |
+| thunder_clap | 4 |
 | whip_crack | 3 |
-| horn_call | 3 |
-| glass_shatter | 2 |
-| war_machine | 2 |
+| electric_zap | 3 |
+| liquid_pour | 3 |
 | anvil_strike | 2 |
-| earth_rumble | 2 |
+| horn_call | 2 |
 | psychic_shriek | 1 |
 | bone_snap | 1 |
 | creature_cackle | 1 |
 
-## Bez przypisania (132)
+## Bez przypisania (142)
 
 - `27` Erase — A curse breaking apart: one clean burst of focused energy striking, then thin brittle shards popping and dissolving into nothing. No music, no speech,
 - `28` Kraken's Eye — One deep muffled underwater pulse, like a huge air bubble collapsing far below the surface, round and low, close and clearly audible. No music, no spe
@@ -64,6 +64,7 @@ archetypu — skrypt nie zgaduje.
 - `104` Glitch Ghost Surveyor — A glitch ghost sweeping past: flickering holographic warble, chopped digital stutters, thin sparks trailing off its dissolving edges. No music, no spe
 - `109` Relic Robber — One quick springy leap whoosh ending with small boots landing hard on wooden planks, a light bouncy thump. No music, no speech, no ambience bed.
 - `110` Serra's Embrace — Enormous feathered wings folding around a standing figure: dense feather rustle and quill friction, one deep air displacement as they close, fabric of
+- `111` Final Parting — A length of silk slowly torn in two, a fine fibrous ripping that ends soft, recorded very close, clearly audible. No music, no speech, no ambience bed
 - `116` Wrap in Flames — Ribbons of fire wrapping around bodies: one rolling flame swirl engulfing fur and mail, sharp crackle of licking fire, embers spitting. No music, no s
 - `119` Spin Out — A race car spinning out: a vicious metal trap grinding into the chassis, tires shrieking, one long aether-sparking pirouette scattering broken gears. 
 - `121` Sea God's Scorn — One massive sea wave crashing up marble steps and dragging back down with a long foamy hiss. No music, no speech, no ambience bed.
@@ -76,4 +77,3 @@ archetypu — skrypt nie zgaduje.
 - `139` Slithering Cryptid — A scaly cryptid gliding through dark water: silent serpentine slide, rusty scrap harness clinking softly, slow drips from tunnel walls. No music, no s
 - `148` Xu-Ifit, Osteoharmonist — Dry bone fragments clacking and snapping together in a fast sequence: hard hollow clicks ending with one firm locking snap. Close, loud, dry. No music
 - `149` Blossoming Sands — A desert oasis springing to life: one crystalline water burst from the sand, followed by a rush of tiny blossoms popping open across the dunes. The so
-- `154` Trigon of Thought — Three crisp crystalline clicks in sequence, like polished glass facets locking into place one after another, small and precise. No music, no speech, n
