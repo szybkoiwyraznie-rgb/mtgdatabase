@@ -1652,3 +1652,43 @@ prompty), `521` (`speech_like`), `35` (2,53 s), `343` (`long_trail_silence`),
 `124` (3,0 pkt), `6` (2,5 pkt), `112` i `62` (2,0 pkt).
 
 **Kredyty:** wydane 1960 z 10 000 (49 generacji), zostało 8040 = 201 generacji.
+
+## 2026-10-05 — r018: transza 75 kart (150 generacji, 6000 kredytów)
+
+**Korekta wcześniejszego wyniku.** Podawana wcześniej liczba „236 nie trafionych"
+była zawyżona: reguły przypisania łapały motyw archetypu także w szczegółach
+promptu, więc 237 kart miało archetyp, którego ich prompt wcale nie zamawiał
+(`314` wirujące kartki → `undead_groan`, `74` galop kawalerii → `thunder_clap`,
+`166` skrzydła owada → `temple_bell`, `241` helikopter → `horn_call`).
+Regeneracja według takich przypisań zastąpiłaby dźwięk karty czymś unrelated —
+czyli pogłębiłaby problem właściciela — a audyt sam by się potwierdził, bo
+mierzyłby archetyp, który sam podstawił. Przegląd listy przed wydaniem 6480
+kredytów to wyłapał.
+
+**Nowa warstwa wiarygodności** w `assign_archetypes.py`: `strong` (motyw
+w głównym zdarzeniu promptu) / `weak` (tylko w szczegółach) + ręczne korekty
+w `data/samples/archetype-corrections.json` (19 kart poprawionych, 10 bez
+pasującego archetypu → zostają bez archetypu, czekają na prompt pisany ręcznie).
+Do audytu wchodzą tylko strong + korekty + 13 kart właściciela: **174 karty**.
+
+**Profile akustyczne wewnątrz archetypu** (`rewrite_archetype_prompts.py`): 2–3
+warianty brzmienia na rodzinę, wybór `int(id) % N`, plus rotacja długości
+4,0 / 4,5 / 3,5 s. To odpowiedź na bliźniaka `168`↔`382` — identyczny szablon
+daje identyczny dźwięk i żadna selekcja tego nie rozdzieli.
+
+**Wynik transzy: 65 kart poprawionych, 6 bez zmian, 4 pogorszone**
+(`docs/audits/2026-10-05-r018-batch.md`). Audyt 174 kart:
+**69 nie trafionych → 15**, prawdopodobnie 62 → 91, trafione 43 → **68**.
+
+**Zostało do roboty:**
+- 3 pary bliźniacze, których nie rozdzieli wybór wariantu: `317`↔`347` (0,9644,
+  oba dzwon), `97`↔`265` (0,9543), `202`↔`493` (0,9520) — potrzebny inny prompt;
+- 7 plików poniżej 3 s: `383` 1,52 · `23` 2,22 · `209` 2,54 · `317` 2,62 ·
+  `223` 2,77 · `459` 2,81 · `347` 2,82;
+- 15 kart dalej nie trafionych, 25 kart transzy z flagami (`dull` 8,
+  `long_trail_silence` 6, `speech_like` 3 — kruk/brama/kogut, prawdopodobnie
+  fałszywy alarm audytu semantycznego);
+- 142 karty bez archetypu (w tym 10 po korektach) — potrzebują promptów pisanych
+  pod fabułę, nie szablonu.
+
+**Kredyty:** wydane 7960 z 10 000 (199 generacji), zostało 2040 = 51 generacji.
