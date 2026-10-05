@@ -1,8 +1,8 @@
-name: TEMP r016 warianty archetypowe
+name: TEMP r016b warianty archetypowe
 
 # TYMCZASOWY: pilot archetypowy. Token bota Arena ma HTTP 403 na
 # workflow_dispatch, a sandbox nie sięga *.blob.core.windows.net, więc warianty
-# generujemy z triggera push markerowanego ([generate-r016]) i commitujemy je
+# generujemy z triggera push markerowanego ([generate-r016b]) i commitujemy je
 # na gałąź sesji. Plik i katalog variants/ kasujemy po wyborze.
 
 on:
@@ -16,7 +16,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "387,396,452,464,539"
+  IDS: "387,464,539"
 
 jobs:
   variants:
@@ -27,13 +27,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r016]
+      - name: Guard — tylko commit z markerem [generate-r016b]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r016]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r016b]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r016] — nic nie generuję"
+            echo "brak markera [generate-r016b] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -55,10 +55,10 @@ jobs:
             echo "=== wariant v$v ==="
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r016 --force --prompt-influence 0.35 \
-              --out "variants/r016/v$v"
+              --ids "$IDS" --batch r016b --force --prompt-influence 0.35 \
+              --out "variants/r016b/v$v"
           done
-          ls -la variants/r016/v1 variants/r016/v2 variants/r016/v3
+          ls -la variants/r016b/v1 variants/r016b/v2 variants/r016b/v3
 
       - name: Commit variants back to the session branch
         if: steps.guard.outputs.run == '1'
@@ -69,6 +69,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r016: 15 wariantów archetypowych (5 kart x 3) [import-r016]"
+            git commit -m "r016b: 9 wariantów archetypowych (387, 464, 539 x 3) [import-r016b]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

@@ -151,6 +151,8 @@ CONTRACTS: dict[str, dict] = {
             ("spectral_centroid_hz", "<=", 900.0, 1.0, "grzmot ziemi jest niski"),
             ("decay_s", ">=", 0.80, 1.0, "grzmot się toczy"),
             ("content_rel_s", ">=", 1.50, 1.0, "grzmot trwa"),
+            ("mid_up", ">=", 0.10, 1.0,
+             "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas"),
         ],
     },
     "heavy_impact": {

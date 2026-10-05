@@ -240,6 +240,29 @@ def narrow_sides(data: np.ndarray, fs: int, target_excess_lu: float,
     return fixed, best, before, mono_excess_lu(fixed, fs)
 
 
+def trim_trailing_silence(data: np.ndarray, fs: int, keep_s: float,
+                          floor_db: float = -45.0, fade_ms: float = 40.0) -> tuple[np.ndarray, float]:
+    """Odcina martwą ciszę z końca pliku, zostawiając `keep_s` ogona + krótki fade.
+
+    Powód: audyt flaguje `long_trail_silence` (> 1,5 s ciszy), a w grze martwy
+    ogon brzmi jak zacięcie. Nie ruszamy ciszy wstępnej — nią zajmuje się
+    `refine_corpus_audio.py`.
+    """
+    thr = db_to_lin(floor_db)
+    mono = np.abs(data).max(axis=1)
+    idx = np.flatnonzero(mono > thr)
+    if not len(idx):
+        return data, 0.0
+    cut = min(len(mono), int(idx[-1]) + 1 + int(fs * keep_s))
+    if cut >= len(mono):
+        return data, 0.0
+    out = data[:cut].copy()
+    n_fade = min(len(out), int(fs * fade_ms / 1000.0))
+    if n_fade:
+        out[-n_fade:] *= np.linspace(1.0, 0.0, n_fade)[:, None]
+    return out, round((len(mono) - cut) / fs, 3)
+
+
 def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: float,
                 max_gain_db: float, hp_hz: float, dry_run: bool,
                 encoder_headroom_db: float = 0.7, max_limiter_gr_db: float = 2.0,
@@ -249,7 +272,8 @@ def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: f
                 fix_spectral: bool = False,
                 boomy_ids: set[str] | None = None,
                 dull_ids: set[str] | None = None,
-                harsh_ids: set[str] | None = None) -> dict:
+                harsh_ids: set[str] | None = None,
+                trim_trail_s: float = 0.0) -> dict:
     data, fs = sf.read(str(path), always_2d=True)
     lufs_before = integrated_lufs(data, fs)
     tp_before = true_peak_dbtp(data, fs)
@@ -269,6 +293,10 @@ def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: f
         if harsh_ids and sid in harsh_ids:
             data = biquad_peaking(data, fs, fc=4500.0, gain_db=-3.5, q=1.2)
 
+    trim_removed_s = 0.0
+    if trim_trail_s > 0.0:
+        data, trim_removed_s = trim_trailing_silence(data, fs, trim_trail_s)
+
     filtered = highpass(data, fs, hp_hz)
     lufs_filtered = integrated_lufs(filtered, fs)
 
@@ -284,6 +312,7 @@ def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: f
     result = {
         "id": path.stem,
         "hp_hz": hp_hz,
+        "trim_removed_s": trim_removed_s,
         "lufs_before": lufs_before,
         "lufs_after_hp": lufs_filtered,
         "gain_db": round(gain_db, 2),
@@ -364,6 +393,8 @@ def main() -> int:
     ap.add_argument("--ids", default="", help="opcjonalna lista ID po przecinku")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--report", default="")
+    ap.add_argument("--trim-trail-s", type=float, default=0.0,
+                    help="ile sekund ogona zostawić po odcięciu martwej ciszy (0 = wyłącz)")
     ap.add_argument("--fix-mono", action="store_true",
                     help="zwęź składową boczną tam, gdzie sample traci energię w mono")
     ap.add_argument("--mono-target-excess", type=float, default=1.0,
@@ -425,6 +456,7 @@ def main() -> int:
                                     max_makeup_db=args.max_makeup,
                                     max_peak_gr_db=args.max_peak_gr,
                                     fix_mono=args.fix_mono,
+                                    trim_trail_s=args.trim_trail_s,
                                     mono_target_excess_lu=args.mono_target_excess,
                                     fix_spectral=args.fix_spectral,
                                     boomy_ids=boomy_ids,

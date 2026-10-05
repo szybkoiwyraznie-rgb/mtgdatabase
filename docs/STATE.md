@@ -1475,3 +1475,50 @@ w r011–r013 audyt potwierdza więc jedną.
 treści — takich rozstrzygnięć nie wolno traktować jako wyroku. Zanim audyt
 zacznie sterować regeneracjami, trzeba go skalibrować na odsłuchu właściciela:
 audyt jest **proxy** dla oceny uchem, a nie jej zamiennikiem.
+
+## 2026-10-05 — Pilot archetypowy r016: 5 kart × 3 warianty, wybór kontraktem (15 generacji)
+
+Tor wybrany przez właściciela: **pilot generacyjny i triage katalogu równolegle**;
+muzyka dozwolona tam, gdzie karta ją implikuje (zakaz w `AGENTS.md` i
+`docs/ai-sfx-pipeline.md` był błędem dokumentacji — usunięty, mowa zostaje
+zakazana).
+
+**Zmiana metody.** Zamiast opisu tekstury zamówiliśmy archetyp (`396` ryk,
+`452` chór proroctwa, `464` jęk nieumarłego, `539` grzmot ziemi, `387` erupcja),
+długość 4,0 s, po 3 warianty na kartę. Wybór robi nowy
+`scripts/pick_archetype_variant.py`: liczy `audit_samples_full.analyze()` +
+`extra_features()` dla każdego wariantu i bierze minimum punktów kontraktu
+archetypu; przy remisie — dłuższą słyszalną treść.
+
+**Wynik** (`docs/audits/2026-10-05-archetype-pilot-r016.md`):
+
+| ID | Karta | Przed | Po | Uwaga |
+|---:|---|---:|---:|---|
+| 452 | Omenspeaker | 6,0 | **0** | chór wszedł we wszystkich 3 wariantach |
+| 396 | Vow of Wildness | 3,5 | **0** | warianty: 0 / 2,5 / 3,5 — selekcja konieczna |
+| 539 | Silvanus's Invoker | 3,5 | 1,0 | archetyp trafiony, ale `mid_up`=0,063 — niesłyszalny na małych głośnikach |
+| 387 | Molten Nursery | 2,5 | 1,0 | generyczny boom, kosinus 0,9762 z `501` (salwa plazmowa) |
+| 464 | Polluted Dead | 4,0 | 2,5 | centroid 1,1 kHz przy kontrakcie 120–1000 Hz |
+
+Audyt archetypów na 13 kartach: **przed {nie trafiony 6, prawdopodobnie 6,
+trafiony 1} → po {2, 8, 3}**.
+
+**Wnioski.** (1) Prompt archetypowy działa tam, gdzie archetyp jest
+jednoznaczny — chór i ryk weszły powtarzalnie. (2) „Deep explosive blast" daje
+generyczny huk, który audyt łapie podwójnie (brak szumu + bliźniak z inną
+kartą) — to jest dokładnie mechanizm skargi właściciela, uchwycony miarą.
+(3) Kontrakt `earth_rumble` dostał warunek `mid_up >= 0,10` (słyszalność na
+małych głośnikach), bo grzmot w 94 % w infrabasie jest bezużyteczny w grze.
+(4) `464` rozstrzygnie runda `r016b`: jeśli prompt „low register" znów da
+~1 kHz, kalibrujemy kontrakt, nie prompt.
+
+**Nowe w narzędziach:** `--trim-trail-s` w `postprocess_samples.py` (odcina
+martwy ogon; `452` 4,00 → 3,33 s, zadeklarowana długość zaktualizowana),
+`--fix-mono` ściągnął nadmiar stereo `452` z 2,69 do 0,99 LU. Postprodukcja
+pięciu plików: −20,00/−20,02/−19,99 LUFS, 0 ponad sufitem, SNR ≥ 29,8 dB.
+Flagi korpusu 82, pary bliźniacze 1 (`387`↔`501`, do zdjęcia w `r016b`).
+
+**Otwarte:** runda `r016b` (387/464/539 × 3 warianty, workflow tymczasowy
+`temp-variants-r016.yml`, marker `[generate-r016b]`) oraz triage 553 kart bez
+kredytów — rozszerzenie taksonomii archetypów i przypisanie archetypu każdej
+fabule. Audyt archetypów pozostaje **proxy** do odsłuchu właściciela.
