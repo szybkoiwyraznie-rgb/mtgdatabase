@@ -1421,3 +1421,55 @@ Zidentyfikowano i całkowicie zlikwidowano problem pozornej niesłyszalności sa
    - Liczba wszystkich flag w korpusie spadła do rekordowych **95** (z pierwotnych 140+).
 
 
+
+## 2026-10-05 — Diagnoza: trzy różne awarie rozpoznawalności + audyt archetypów
+
+Właściciel podał 13 kart, których sample „nie kojarzą się z kartą” (skrzypienie
+piasku, popiskiwanie myszy, spuszczanie wody w toalecie, maszyna do pisania,
+cykady, stukanie do drzwi). Wszystkie poza `387` były już regenerowane
+w rundach r011–r013, więc **prompty sprzed poprawki** odczytano z historii
+GitHuba (`gh api …/contents/data/samples/scenarios.jsonl?ref=<sha>` dla
+`7e0a9389`, `3451cd69`, `4b39a351`) — lokalny klon jest płytki (1 commit).
+
+Stare prompty pokazują, że to **nie jedna awaria, a trzy**:
+
+- **A — prompt był opisem kadru, nie dźwięku.** `452` Omenspeaker: „two blue
+  beams sweeping the ceiling, a quill freezing mid-stroke”; `396`: „green light
+  pouring from a palm, muscles swelling”; `464`: „a thick fog rolling low, crops
+  wilting”. Model nie ma czego nagrać, więc improwizuje generyczną teksturę
+  (właściciel: toaleta, syk pary, radio). **Naprawione** w r011–r013.
+- **B — prompt był dźwiękowy, ale zamówiony dźwięk jest z natury
+  niejednoznaczny.** `557` Kishla Village: „wooden boats knocking against dock
+  pilings, hollow rhythmic bumps” — model dowiązał **uczciwie**, dlatego brzmi
+  jak pukanie do drzwi. `387`: „chitin bodies hissing” → syk. `515`: „rapid
+  mechanical skittering” → popiskiwanie myszy. Stukanie, syk, chrobot i szelest
+  może wydać z siebie wszystko, więc nie nadaje się na sygnaturę karty.
+  **Lepszy prompt tego nie naprawi** — trzeba zmienić dźwięk na taki, który ma
+  własną tożsamość (ryk, dzwon, wybuch, krakanie, muzyka).
+- **C — prompt był dobry, model nie dowiózł.** `312`: zamówiony „a shrill
+  wordless cackle of mockery” → skrzypienie piasku; `521`: „a bowstring drawn
+  slow and held” → trąbka. To wariancja generacji; zdejmuje ją dopiero
+  generowanie wariantów i automatyczny wybór, nie redakcja promptu.
+
+**Nowe narzędzie: `scripts/audit_archetype_match.py`.** Dotychczasowe audyty
+mierzyły jakość realizacji i zgodność z grubą klasą (`metal`, `woda`, `ogień`) —
+spłukiwanie toalety i wytrysk oazy to dla audytu semantycznego ta sama woda, oba
+przechodzą z 0 pkt. Audyt archetypów wprowadza **kontrakty**: deklarujemy
+w scenariuszu pole `archetype` (np. `creature_roar`, `arcane_choir`,
+`volcanic_eruption`), a skrypt sprawdza, czy sygnał spełnia mierzalne warunki
+tego archetypu (ryk musi być harmoniczny, niski i trwać; chichot musi być serią
+≥3 wybuchów; chór musi być harmoniczny i płynąć). Wpisy bez `archetype` są
+pomijane — skrypt nie zgaduje archetypu z tekstu, bo zgadywanie było źródłem
+problemu.
+
+**Pomiar bazowy 13 kart** (`data/samples/archetype-match-2026-10-05-baseline.json`):
+**6 nie trafionych** (`452` 6,0 · `464` 4,0 · `396` 3,5 · `539` 3,5 · `387` 2,5 ·
+`515` 2,5), **6 prawdopodobnych** (`7` 1,5 · `312` 1,0 · `521` 1,0 · `557` 1,0 ·
+`463` 0,5 · `568` 0,5), **1 trafiona** (`145`). Z siedmiu kart poprawionych
+w r011–r013 audyt potwierdza więc jedną.
+
+**Zastrzeżenie kalibracyjne (ważne):** progi kontraktów są ustawione ręcznie.
+`463` przegrał o 0,0001 (`low_all=0.250` przy progu ≥0,25), `557` o 0,02 s
+treści — takich rozstrzygnięć nie wolno traktować jako wyroku. Zanim audyt
+zacznie sterować regeneracjami, trzeba go skalibrować na odsłuchu właściciela:
+audyt jest **proxy** dla oceny uchem, a nie jej zamiennikiem.
