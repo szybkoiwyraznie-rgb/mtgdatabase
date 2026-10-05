@@ -283,7 +283,9 @@ PROFILES: dict[str, list[tuple[str, str]]] = {
 }
 
 # Rotacja długości: różne czasy trwania dodatkowo rozróżniają odciski kart
-# z tej samej rodziny (cel właściciela to 3-5 s, więc każda wartość jest w celu).
+# z tej samej rodziny. Zamawiamy 3,5-4,5 s, choć okno akceptacji to 2-5 s
+# (decyzja właściciela z 2026-10-05: „dobre 2 sekundy są lepsze niż złe 4"):
+# model i tak często oddaje mniej, a zapas daje selektorowi z czego wybierać.
 DURATIONS = (4.0, 4.5, 3.5)
 
 # Karty, których prompt musi zostać ręczny (fabuła narzuca konkretne źródło).

@@ -1807,7 +1807,7 @@ kontraktu i `558` wybierało plik 1,80 s.
 **Wynik: audyt 174 kart — 0 nie trafionych / 93 prawdopodobnie / 81 trafionych.
 13 kart właściciela: 12 trafionych, 1 prawdopodobna (`568` Nanoform Sentinel,
 serwo bez tonu).** Transza r021: 7 lepiej, 0 gorzej, 18 bez zmian. Korpus:
-553 pliki, LUFS −20,04 (σ 0,18), 0 bliźniaków, **0 poza oknem 2–5 s**,
+553 pliki, LUFS −20,04 (σ 0,21), 0 bliźniaków, **0 poza oknem 2–5 s**,
 95 z flagą.
 
 Dwie pułapki przy okazji:
