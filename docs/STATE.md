@@ -1692,3 +1692,33 @@ daje identyczny dźwięk i żadna selekcja tego nie rozdzieli.
   pod fabułę, nie szablonu.
 
 **Kredyty:** wydane 7960 z 10 000 (199 generacji), zostało 2040 = 51 generacji.
+
+## 2026-10-05 — r019: ponowienia i zamknięcie dnia (50 generacji)
+
+Zakres: 15 kart nadal nie trafionych + 6 kart z par bliźniaczych + 7 za krótkich.
+Nowe opcje `rewrite_archetype_prompts.py`: `--profile-shift` (inny profil
+akustyczny niż w poprzedniej rundzie) i `--fill-take` (dźwięk ma wypełnić cały
+czas — dla kart, które wyszły za krótkie).
+
+**Wynik: 16 kart poprawionych, 3 pogorszone, 6 bez zmian.** Audyt 174 kart:
+**nie trafionych 15 → 4** (po kalibracji dzwonu), prawdopodobnie 99, trafionych
+**71**. Pary bliźniacze: **3 → 1** (`31`↔`456`, oba `insect_swarm`, 0,9548).
+
+**Kolejna wada metryki `decay_s`** — przy dzwonie karała ostre uderzenie
+z cichszym wybrzmieniem (`343` 0,28 s, `558` 0,62 s przy progu 0,8), choć dzwon
+dzwonił długo. Kontrakt `temple_bell` nie używa już `decay_s`; o wybrzmiewaniu
+mówią `sustain_ratio` i `content_rel_s`. To ta sama poprawka co wcześniej przy
+`volcanic_eruption`.
+
+**13 kart właściciela: 10 trafionych, 3 prawdopodobne, 0 nie trafionych**
+(na starcie sesji: 1 trafiona). Zostają `521` (trele za wolne, `mod_peak`
+1,82 Hz), `7` (atak 0,48 s zamiast natychmiastowego), `568` (serwo niestabilne
+w wysokości, `f0_semitone_std` 14,2).
+
+**Higiena: regresja do odrobienia bez kredytów.** 90 odtworzonych kart ma 41
+flag (`dull` 11, `long_trail_silence` 8, `boomy` 6, `long_lead_silence` 4,
+`speech_like` 3, `cut_start_hard` 3), 463 stare karty 73. Nowe sample są
+dłuższe i mają więcej dołu, więc częściej łapią `dull`/`boomy`, a model zostawia
+ciszę na brzegach. Do zrobienia: korekta high-shelf i trymowanie brzegów.
+
+**Kredyty: 9960 z 10 000 wydane (249 generacji), zostało 40 = 1 generacja.**

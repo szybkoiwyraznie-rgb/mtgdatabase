@@ -201,7 +201,10 @@ CONTRACTS: dict[str, dict] = {
         "label": "dzwon / dzwonek / gong",
         "checks": [
             ("tonal_frame_fraction", ">=", 0.50, 1.5, "dzwon jest tonalny, nie szumowy"),
-            ("decay_s", ">=", 0.80, 1.5, "dzwon wybrzmiewa"),
+            # Bez `decay_s`: mierzy czas od szczytu do -20 dB, więc ostre
+            # uderzenie z cichszym wybrzmieniem dostaje krótki zanik, choć dzwon
+            # dzwoni długo (ta sama wada co przy volcanic_eruption). O wybrzmiewaniu
+            # mówią już `sustain_ratio` i `content_rel_s` poniżej.
             ("spectral_centroid_hz", "between", (400.0, 3000.0), 1.0, "dzwon siedzi w środku pasma"),
             ("sustain_ratio", ">=", 0.20, 1.0, "dzwon trzyma poziom"),
             ("content_rel_s", ">=", 1.50, 1.0, "dzwon musi potrwać"),
