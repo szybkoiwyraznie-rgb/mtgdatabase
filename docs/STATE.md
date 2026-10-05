@@ -1929,3 +1929,66 @@ LUFS −20,04 (σ 0,19). 13 kart właściciela: **12 trafionych, 1 prawdopodobni
 
 **Kredyty: 4560 w tych dwóch rundach. Konto drugie: 9240 z 10 000 wydane,
 zostało 760 = 19 generacji.**
+
+## 2026-10-05 — Martwy ogon: pogłos, korekta widma i r027 (3600 kredytów)
+
+Właściciel zakwestionował liczbę „263 fabuły do przerobienia" — i miał rację.
+Pomiar pokazał, że problemem nie jest archetyp, a **długość treści**:
+`content_s = plik − cisza początkowa − cisza końcowa`. 263 z 553 plików miało
+poniżej 2 s słyszalnej treści, a ogon był **prawdziwą ciszą** (RMS −54…−64 dB
+przy treści −20…−27 dB, próg audytu −45 dBFS). Trym tego nie naprawia: zostałoby
+0,41–1,21 s, czyli daleko poza oknem.
+
+**Trzy darmowe narzędzia zamiast 21 040 kredytów:**
+
+1. `scripts/add_reverb_tail.py` — syntetyczny ogon pogłosu zanikający do progu
+   ciszy na końcu pliku. Poziom startowy od **RMS treści**, nie od piku (przy
+   piku pogłos wychodził ~10 dB za cicho i wypełniał tylko początek ogona).
+2. `scripts/tame_harsh.py` — półka wysokotonowa dobierana **iteracyjnie**: tnie,
+   mierzy widmo funkcjami audytu, dokłada, aż zejdzie pod próg. Średnio −15 dB.
+3. `scripts/pick_content_variant.py` — wybór wariantu po długości treści dla kart
+   **bez** archetypu (`pick_archetype_variant.py` takie pomija).
+
+**Dwie lekcji o postprodukcji, obie znalezione pomiarem:**
+
+- **Każda korekta widma psuje kontrakty, które mierzą widmo.** Pogłos na 41 kartach
+  z archetypem popsuł 14 kontraktów (`attack_s`, `crest_db`, `spectral_flatness`,
+  `onset_count`) i zrobił 2 bliźniaki. Cięcie góry na 3 kolejnych popsuło
+  `spectral_flatness` i `tonal_frame_fraction`. Reguła: **postprodukcja tylko na
+  karty bez kontraktu**, a karty z kontraktem naprawia się promptem.
+- **Cisza na końcu obniża mierzoną głośność** (bramkowanie BS.1770 liczy bloki
+  400 ms z bramką względną), więc renormalizacja do −20 LUFS podnosi transjent
+  o 3,5 dB i plik startujący od pełnego poziomu łapie `cut_start_hard`. Oraz:
+  prymitywny ogranicznik piku ściska cały plik (−20 → −23,5 LUFS) — trzeba
+  `limit_true_peak` z `postprocess_samples.py`.
+
+`postprocess_samples.py --fix-spectral` tnie −3,5 dB przy 4,5 kHz (Q 1,2) i przy
+centroidzie 9–12 kHz **nie zmienia nic** — 23 pliki po tej korekcie dalej miały
+flagę `harsh`. Nie kalibrować po wrażeniu, tylko mierzyć efekt.
+
+**r027 (45 kart × 2 = 90 generacji, 3600 kredytów).** Karty, których fabuła
+obiecuje zdarzenie powtarzalne, a sample miał jedno. Prompt nazywa liczbę
+powtórzeń wprost („osiem–dziesięć kroków", „trzy cięcia", „pięć uderzeń skrzydeł")
+plus `--fill-take`. Dla 7 kart z archetypem dopisane wymogi kontraktu (np.
+`attack_s ≤ 0,1 s` → „the first landing at the very first instant").
+
+| | przed sesją | po pogłosie | po `harsh` | po r027 |
+|---|---|---|---|---|
+| treść < 2,0 s | 263 | 147 | 146 | **105** |
+| treść < 1,0 s | 36 | 12 | 12 | **7** |
+| pliki z flagą | 93 | 74 | 55 | **55** |
+| `harsh` | 28 | 23 | 4 | **5** |
+| archetypy 174 kart | 0/70/104 | 0/70/104 | 0/70/104 | **0/69/105** |
+
+45 kart r027: średnia treść **1,31 → 3,16 s**, poniżej 2 s zostały 3 (było 45).
+
+**Pułapka workflow:** regex patchujący nazwę batchu
+(`r02\d: \d+ wariant(y|ow)[^\n]*`) zjadł zamykający cudzysłów linii
+`git commit -m "..."`. YAML się parsował (dla YAML to zwykły skalar), więc błąd
+wyszedł dopiero w runtime, a bash nie wykonał **nic** z całego bloku — warianty
+przepadły razem z runnerem. Logi CI były nieosiągalne z sandboksa (EOF z blob
+storage), więc przyczynę znalazłem czytając sam plik workflow. Podejrzenie: ta
+nieudana runda zużyła 3600 kredytów — **niezweryfikowane**.
+
+**Kredyty: 3600 w r027 (plus prawdopodobnie 3600 stracone na nieudanym runie).
+Konto trzecie: 10 000, realnie zostało ~2800–6400.**
