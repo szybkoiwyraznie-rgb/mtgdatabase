@@ -363,6 +363,12 @@ def card_clause(row: dict) -> str:
     return f" Signature sound of the card {title} — {phrase}."
 
 
+PROFILE_SHIFT = 0
+
+
+FILL_TAKE = False
+
+
 def build(row: dict) -> dict | None:
     sid = str(row["story_id"])
     archetype = row.get("archetype")
@@ -370,7 +376,7 @@ def build(row: dict) -> dict | None:
         prompt, pl, music = OVERRIDES[sid]
     elif archetype in PROFILES:
         choices = PROFILES[archetype]
-        prompt, pl = choices[int(sid) % len(choices)]
+        prompt, pl = choices[(int(sid) + PROFILE_SHIFT) % len(choices)]
         music = TEMPLATES[archetype][2] if archetype in TEMPLATES else False
     elif archetype in TEMPLATES:
         prompt, pl, music = TEMPLATES[archetype]
@@ -381,7 +387,11 @@ def build(row: dict) -> dict | None:
     body = prompt
     for t_ in TAILS:
         body = body.replace(t_, "")
-    prompt = f"{body.rstrip()} {clause.strip()} {tail}"
+    if FILL_TAKE:
+        prompt = (f"{body.rstrip()} {clause.strip()} The sound fills the whole take, "
+                  f"start to finish, with no silence at the beginning or the end. {tail}")
+    else:
+        prompt = f"{body.rstrip()} {clause.strip()} {tail}"
     return {"prompt": prompt, "sample_scenario": pl, "music_allowed": music,
             "duration_seconds": DURATION if sid in OVERRIDES else DURATIONS[int(sid) % len(DURATIONS)]}
 
@@ -400,8 +410,15 @@ def main() -> int:
     ap.add_argument("--batch", default="r017a")
     ap.add_argument("--apply", action="store_true")
     ap.add_argument("--limit", type=int, default=0)
+    ap.add_argument("--profile-shift", type=int, default=0,
+                    help="przesuń wybór profilu akustycznego (do ponowień kart, "
+                         "które zlały się z inną kartą)")
+    ap.add_argument("--fill-take", action="store_true",
+                    help="dopisz wymaganie wypełnienia całego czasu (dla kart za krótkich)")
     args = ap.parse_args()
 
+    global PROFILE_SHIFT, FILL_TAKE
+    PROFILE_SHIFT, FILL_TAKE = args.profile_shift, args.fill_take
     rows = [json.loads(l) for l in args.scenarios.read_text(encoding="utf-8").splitlines() if l.strip()]
     by_id = {str(r["story_id"]): r for r in rows}
     wanted: list[str] = [s.strip() for s in args.ids.split(",") if s.strip()]
