@@ -1571,3 +1571,18 @@ i „szelest", na które skarżył się właściciel.
 oraz serię naprawczą dla `door_creak` / `temple_bell` / `stone_slide` (~99 kart),
 (b) skalibrować progi na odsłuchu ~20 kart, zanim audyt zacznie sterować
 generacjami. Audyt pozostaje proxy dla ucha.
+
+## 2026-10-05 — Kredyty odnowione (10 000), runda r016b odblokowana
+
+Właściciel dodał nowy klucz `ELEVENLABS`: 10 000 kredytów. Jedna generacja
+kosztuje 40, więc budżet sesji to **250 generacji** — nie „niewyczerpane", tylko
+policzalne. Plan wydatków:
+
+| Pozycja | Generacje | Kredyty |
+|---|---:|---:|
+| `r016b` — 387/464/539 × 3 warianty (dokończenie pilota) | 9 | 360 |
+| `r017a` — 20 najgorszych kart × 2 warianty (test skali) | 40 | 1 600 |
+| rezerwa na poprawki i kolejne transze | — | 8 040 |
+
+Zasada: **2 warianty minimum** na kartę — pilot pokazał, że z tego samego
+promptu `396` wychodzi 0 / 2,5 / 3,5 pkt, więc jeden wariant to ruletka.
