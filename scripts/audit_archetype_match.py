@@ -174,6 +174,236 @@ CONTRACTS: dict[str, dict] = {
             ("content_rel_s", ">=", 1.50, 1.0, "erupcja trwa"),
         ],
     },
+
+    # ----------------------------------------------------------------------
+    # Tranche 2 (2026-10-05): archetypy do triage'u całego katalogu.
+    # Progi v0 — ustawione względem rozkładu korpusu z audytu
+    # `audio-audit-latest.json` (553 pliki): centroid p50 2,66 kHz / p75 5,84 kHz,
+    # low_all p50 0,034 / p75 0,204, flatness p50 0,097, decay_s p50 0,21 s,
+    # content_rel_s p50 2,09 s, onset_count p50 5, mod_peak p50 1,87 Hz.
+    # Warunki opisują tożsamość archetypu (dzwon musi dzwonić, miecz musi
+    # błyszczeć górą), a nie średnią korpusu — dlatego wiele kart je obleje.
+    # To lista priorytetów do odsłuchu, nie wyrok: kalibracja należy do ucha
+    # właściciela.
+    # ----------------------------------------------------------------------
+    "temple_bell": {
+        "label": "dzwon / dzwonek / gong",
+        "checks": [
+            ("tonal_frame_fraction", ">=", 0.50, 1.5, "dzwon jest tonalny, nie szumowy"),
+            ("decay_s", ">=", 0.80, 1.5, "dzwon wybrzmiewa"),
+            ("spectral_centroid_hz", "between", (400.0, 3000.0), 1.0, "dzwon siedzi w środku pasma"),
+            ("sustain_ratio", ">=", 0.20, 1.0, "dzwon trzyma poziom"),
+            ("content_rel_s", ">=", 1.50, 1.0, "dzwon musi potrwać"),
+        ],
+    },
+    "sword_clash": {
+        "label": "starcie stali / cios miecza",
+        "checks": [
+            ("crest_db", ">=", 18.0, 1.0, "cios stali jest ostry"),
+            ("attack_s", "<=", 0.05, 1.0, "stal uderza natychmiast"),
+            ("spectral_centroid_hz", ">=", 2500.0, 1.0, "stal błyszczy górą pasma"),
+            ("high_all", ">=", 0.30, 1.0, "cios ma energię w górze"),
+            ("spectral_flatness", ">=", 0.05, 0.5, "uderzenie ma szumowy transient"),
+        ],
+    },
+    "anvil_strike": {
+        "label": "uderzenie młota w kowadło",
+        "checks": [
+            ("crest_db", ">=", 19.0, 1.0, "młot uderza twardo"),
+            ("spectral_centroid_hz", "between", (1500.0, 7000.0), 1.0, "kowadło dzwoni wysoko"),
+            ("onset_count", ">=", 2, 1.0, "kucie to seria uderzeń"),
+            ("decay_s", "<=", 1.00, 0.5, "uderzenie kowadła nie ciągnie się jak dzwon"),
+        ],
+    },
+    "arrow_flight": {
+        "label": "strzała / świst pocisku",
+        "checks": [
+            ("attack_s", "<=", 0.10, 1.0, "strzała startuje od razu"),
+            ("decay_s", "<=", 0.80, 1.0, "przelot jest krótki"),
+            ("spectral_flatness", ">=", 0.10, 1.0, "świst jest szumowy"),
+            ("spectral_centroid_hz", "between", (800.0, 6000.0), 1.0, "świst siedzi w środku i górze"),
+        ],
+    },
+    "thunder_clap": {
+        "label": "grzmot / uderzenie pioruna",
+        "checks": [
+            ("low_all", ">=", 0.50, 1.5, "grzmot jest w dole pasma"),
+            ("spectral_centroid_hz", "<=", 800.0, 1.0, "grzmot jest niski"),
+            ("crest_db", ">=", 18.0, 1.0, "grzmot uderza"),
+            ("decay_s", ">=", 0.50, 1.0, "grzmot się toczy"),
+        ],
+    },
+    "heavy_footsteps": {
+        "label": "ciężkie kroki / kopyta",
+        "checks": [
+            ("onset_count", ">=", 3, 1.5, "kroki to seria uderzeń"),
+            ("ioi_cv", "<=", 0.60, 1.0, "kroki mają równy rytm"),
+            ("low_all", ">=", 0.15, 1.0, "ciężki krok ma masę w dole"),
+            ("spectral_centroid_hz", "<=", 2000.0, 1.0, "krok nie jest cienki"),
+        ],
+    },
+    "wing_flutter": {
+        "label": "trzepot skrzydeł",
+        "checks": [
+            ("onset_count", ">=", 6, 1.5, "skrzydła biją wielokrotnie"),
+            ("mod_peak_hz", "between", (4.0, 20.0), 1.0, "trzepot pulsuje w tempie machania"),
+            ("spectral_centroid_hz", "between", (800.0, 6000.0), 1.0, "trzepot jest szelestem w środku pasma"),
+        ],
+    },
+    "fire_crackle": {
+        "label": "trzask ognia / żaru",
+        "checks": [
+            ("spectral_flatness", ">=", 0.10, 1.5, "ogień jest szumowy"),
+            ("onset_count", ">=", 8, 1.5, "ogień strzela wieloma trzaskami"),
+            ("spectral_centroid_hz", "between", (1000.0, 6000.0), 1.0, "trzaski są jasne"),
+            ("content_rel_s", ">=", 1.50, 1.0, "ogień trwa"),
+        ],
+    },
+    "water_splash": {
+        "label": "plusk / uderzenie w wodę",
+        "checks": [
+            ("spectral_flatness", ">=", 0.08, 1.5, "plusk jest szumowy"),
+            ("high_all", ">=", 0.25, 1.0, "plusk chlapie górą"),
+            ("crest_db", ">=", 15.0, 1.0, "plusk ma szczyt"),
+            ("attack_s", "<=", 0.10, 1.0, "plusk zaczyna się od razu"),
+        ],
+    },
+    "liquid_pour": {
+        "label": "lanie cieczy / bulgot mikstury",
+        "checks": [
+            ("sustain_ratio", ">=", 0.30, 1.0, "lanie jest ciągłe"),
+            ("spectral_flatness", ">=", 0.05, 1.0, "ciecz szumi"),
+            ("spectral_centroid_hz", "between", (500.0, 4000.0), 1.0, "ciecz siedzi w środku pasma"),
+            ("content_rel_s", ">=", 1.50, 1.0, "lanie trwa"),
+        ],
+    },
+    "door_creak": {
+        "label": "skrzypienie drewna / zawiasów",
+        "checks": [
+            ("tonal_frame_fraction", ">=", 0.30, 1.5, "skrzypienie jest tonalne"),
+            ("mod_peak_hz", "between", (2.0, 12.0), 1.0, "skrzypienie faluje"),
+            ("spectral_centroid_hz", "between", (700.0, 4000.0), 1.0, "skrzypienie siedzi w środku"),
+            ("decay_s", ">=", 0.30, 1.0, "skrzypienie się ciągnie"),
+        ],
+    },
+    "stone_slide": {
+        "label": "osuwisko / tarcie skał",
+        "checks": [
+            ("low_all", ">=", 0.25, 1.5, "skały mają masę w dole"),
+            ("spectral_centroid_hz", "<=", 2000.0, 1.0, "skały są niskie"),
+            ("decay_s", ">=", 0.50, 1.0, "osuwisko się toczy"),
+            ("content_rel_s", ">=", 1.50, 1.0, "osuwisko trwa"),
+        ],
+    },
+    "chain_rattle": {
+        "label": "grzechot łańcuchów / kolczugi",
+        "checks": [
+            ("onset_count", ">=", 6, 1.5, "łańcuch dzwoni wieloma ogniwami"),
+            ("spectral_centroid_hz", ">=", 2000.0, 1.0, "łańcuch jest jasny"),
+            ("decay_s", "<=", 1.00, 1.0, "ogniwa gasną szybko"),
+        ],
+    },
+    "magic_shimmer": {
+        "label": "magiczne migotanie / aureola",
+        "checks": [
+            ("high_all", ">=", 0.40, 1.5, "magia świeci górą pasma"),
+            ("tonal_frame_fraction", ">=", 0.30, 1.0, "migotanie jest tonalne"),
+            ("sustain_ratio", ">=", 0.30, 1.0, "magia płynie, nie klika"),
+            ("attack_s", ">=", 0.10, 1.0, "magia narasta, nie uderza"),
+        ],
+    },
+    "insect_swarm": {
+        "label": "rój owadów / bzykanie",
+        "checks": [
+            ("tonal_frame_fraction", ">=", 0.30, 1.5, "bzykanie jest harmoniczne"),
+            ("sustain_ratio", ">=", 0.40, 1.0, "rój brzmi ciągiem"),
+            ("spectral_centroid_hz", "between", (1000.0, 6000.0), 1.0, "bzykanie jest wysokie"),
+            ("content_rel_s", ">=", 1.50, 1.0, "rój trwa"),
+        ],
+    },
+    "horn_call": {
+        "label": "róg bojowy / sygnał dęty",
+        "checks": [
+            ("voiced_fraction", ">=", 0.30, 1.5, "róg jest harmoniczny"),
+            ("tonal_frame_fraction", ">=", 0.50, 1.0, "róg jest tonalny"),
+            ("spectral_centroid_hz", "between", (200.0, 1500.0), 1.0, "róg siedzi nisko w środku"),
+            ("decay_s", ">=", 0.60, 1.0, "sygnał rogu wybrzmiewa"),
+        ],
+    },
+    "glass_shatter": {
+        "label": "tłuczenie szkła / kryształu",
+        "checks": [
+            ("crest_db", ">=", 18.0, 1.0, "szkło pęka gwałtownie"),
+            ("spectral_centroid_hz", ">=", 3000.0, 1.5, "szkło dzwoni bardzo wysoko"),
+            ("onset_count", ">=", 5, 1.0, "odłamki dzwonią serią"),
+            ("spectral_flatness", ">=", 0.05, 0.5, "tłuczenie ma szum"),
+        ],
+    },
+    "wind_gust": {
+        "label": "podmuch wiatru",
+        "checks": [
+            ("sustain_ratio", ">=", 0.30, 1.0, "podmuch płynie"),
+            ("spectral_flatness", ">=", 0.05, 1.0, "wiatr jest szumowy"),
+            ("attack_s", ">=", 0.30, 1.0, "podmach narasta"),
+            ("spectral_centroid_hz", "between", (300.0, 3000.0), 1.0, "wiatr siedzi w środku pasma"),
+        ],
+    },
+    "bone_snap": {
+        "label": "trzask kości / łamanie",
+        "checks": [
+            ("crest_db", ">=", 18.0, 1.0, "kość pęka gwałtownie"),
+            ("attack_s", "<=", 0.05, 1.0, "pęknięcie jest natychmiastowe"),
+            ("spectral_centroid_hz", "between", (500.0, 4000.0), 1.0, "trzask kości jest suchy i średni"),
+            ("decay_s", "<=", 0.60, 1.0, "trzask gaśnie szybko"),
+        ],
+    },
+    "mechanism_click": {
+        "label": "zegarowy mechanizm / zamek / zapadka",
+        "checks": [
+            ("onset_count", ">=", 3, 1.5, "mechanizm klika serią"),
+            ("crest_db", ">=", 16.0, 1.0, "klik jest ostry"),
+            ("spectral_centroid_hz", "between", (800.0, 6000.0), 1.0, "klik jest suchy i jasny"),
+            ("ioi_cv", "<=", 0.80, 1.0, "mechanizm ma rytm"),
+        ],
+    },
+    "whip_crack": {
+        "label": "trzask bicza",
+        "checks": [
+            ("crest_db", ">=", 20.0, 1.5, "bicz strzela bardzo ostro"),
+            ("attack_s", "<=", 0.03, 1.0, "bicz pęka natychmiast"),
+            ("spectral_centroid_hz", ">=", 2000.0, 1.0, "trzask bicza jest jasny"),
+            ("decay_s", "<=", 0.50, 1.0, "trzask jest krótki"),
+        ],
+    },
+    "plate_clank": {
+        "label": "pancerz / płyty stalowe",
+        "checks": [
+            ("crest_db", ">=", 17.0, 1.0, "płyty pancerza uderzają ostro"),
+            ("spectral_centroid_hz", "between", (1000.0, 6000.0), 1.0, "stal pancerza jest jasna"),
+            ("onset_count", ">=", 2, 1.0, "pancerz dzwoni kilkoma płytami"),
+            ("spectral_flatness", ">=", 0.03, 1.0, "brzęk stali ma szum"),
+            ("decay_s", "<=", 1.20, 0.5, "płyty gasną szybciej niż dzwon"),
+        ],
+    },
+    "electric_zap": {
+        "label": "wyładowanie / iskra",
+        "checks": [
+            ("attack_s", "<=", 0.03, 1.5, "wyładowanie jest natychmiastowe"),
+            ("crest_db", ">=", 18.0, 1.0, "wyładowanie ma ostry szczyt"),
+            ("spectral_centroid_hz", ">=", 2500.0, 1.0, "iskra jest bardzo jasna"),
+            ("spectral_flatness", ">=", 0.10, 1.0, "wyładowanie jest szumowe"),
+            ("decay_s", "<=", 0.80, 1.0, "iskra gaśnie szybko"),
+        ],
+    },
+    "steam_hiss": {
+        "label": "syk pary / gazu",
+        "checks": [
+            ("spectral_flatness", ">=", 0.15, 1.5, "syk jest szumem"),
+            ("high_all", ">=", 0.30, 1.0, "syk siedzi w górze pasma"),
+            ("sustain_ratio", ">=", 0.30, 1.0, "syk jest ciągły"),
+            ("content_rel_s", ">=", 1.50, 1.0, "syk trwa"),
+        ],
+    },
 }
 
 # metryki pochodne z pasm audytu sygnałowego

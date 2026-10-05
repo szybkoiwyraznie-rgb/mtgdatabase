@@ -1,6 +1,9 @@
 name: TEMP r016b warianty archetypowe
 
-# TYMCZASOWY: pilot archetypowy. Token bota Arena ma HTTP 403 na
+# TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
+# 2026-10-05: konto ElevenLabs zwraca HTTP 401 quota_exceeded (0 kredytów,
+# 40 wymaganych) — generowanie wstrzymane do doładowania. Workflow bez markera
+# nic nie robi, więc CI pozostaje zielone. Token bota Arena ma HTTP 403 na
 # workflow_dispatch, a sandbox nie sięga *.blob.core.windows.net (nie da się
 # pobrać logów runa), więc warianty generujemy z triggera push markerowanego
 # ([generate-r016b]) i commitujemy na gałąź sesji razem z logiem generacji —

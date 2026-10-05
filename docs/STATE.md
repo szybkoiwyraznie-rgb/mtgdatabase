@@ -1522,3 +1522,52 @@ Flagi korpusu 82, pary bliźniacze 1 (`387`↔`501`, do zdjęcia w `r016b`).
 `temp-variants-r016.yml`, marker `[generate-r016b]`) oraz triage 553 kart bez
 kredytów — rozszerzenie taksonomii archetypów i przypisanie archetypu każdej
 fabule. Audyt archetypów pozostaje **proxy** do odsłuchu właściciela.
+
+## 2026-10-05 — Triage katalogu (0 kredytów) + blokada: konto ElevenLabs ma 0 kredytów
+
+**Blokada generowania.** Runda `r016b` (387/464/539 × 3 warianty) padła na API:
+
+```
+HTTP 401 quota_exceeded: "This request exceeds your quota of 10000.
+You have 0 credits remaining, while 40 credits are required for this request."
+```
+
+Założenie „kredyty niewyczerpane" przestało być prawdziwe — 15 generacji
+pilota r016 jeszcze przeszło, kolejne już nie. Log z Actions jest w repo
+(`variants/r016b/generate.log`), bo sandbox nie sięga `blob.core.windows.net`
+i nie da się pobrać logów runa przez `gh api`. Workflow `temp-variants-r016.yml`
+zostaje zaparkowany (bez markera nic nie robi), prompty r016b są gotowe
+w `scenarios.jsonl`.
+
+**Triage całego katalogu — nowe narzędzie `scripts/assign_archetypes.py`.**
+Przypisuje archetyp regułami czytanymi **z promptu, nie z tytułu** (prompt
+opisuje dźwięk, który zamówiliśmy). Reguła łapie zdarzenie, nie materiał:
+`stone_slide` wymaga skały *w ruchu*, `steam_hiss` wymaga, żeby syk był parą lub
+gazem. Fabuły bez trafienia zostają bez archetypu — skrypt nie zgaduje.
+
+- fabuł 553 · z archetypem **421 (76 %)** · bez przypisania **132**
+- taksonomia rozszerzona z 13 do **37 archetypów** (24 nowe kontrakty, progi v0
+  ustawione względem rozkładu korpusu: centroid p50 2,66 kHz, `low_all` p50
+  0,034, `decay_s` p50 0,21 s, `content_rel_s` p50 2,09 s)
+- wynik audytu: **236 nie trafionych (56 %) · 119 prawdopodobnie · 66 trafionych**
+  (`data/samples/archetype-match-2026-10-05-catalog.json`,
+  `docs/audits/2026-10-05-archetype-match-catalog.md`)
+
+**Najgorsze rodziny** (udział nie trafionych): `door_creak` 90 % (26/29),
+`temple_bell` 88 % (21/24), `stone_slide` 76 % (35/46), `magic_shimmer` 67 %
+(26/39), `creature_roar` 67 % (14/21). **Najlepsze**: `heavy_impact` 0 % (11/11
+trafionych), `chain_rattle` 17 %, `water_splash` 25 %, `plate_clank` i
+`sword_clash` po 29 % — metal i uderzenia już działają.
+
+Kontrola losowa potwierdza, że to nie szum progów: `196` Mnemonic Wall
+(„dzwon") ma centroid 7,8 kHz, `tonal_frame_fraction` 0,03 i `decay_s` 0,06 s —
+to jasne cykanie, nie dzwon; `124` (skrzypienie) 4,5 kHz i 0,04 s zaniku —
+krótki zarys, nie skrzypienie; `168` (osuwisko) `low_all` 0,005 i 1,17 s treści.
+Wzorzec jest wspólny: tam, gdzie archetyp wymaga długiego, niskiego lub
+średniego zdarzenia, korpus ma krótki jasny tik — dokładnie „stuknięcie"
+i „szelest", na które skarżył się właściciel.
+
+**Następny krok — decyzja właściciela:** (a) doładować kredyty i odpalić r016b
+oraz serię naprawczą dla `door_creak` / `temple_bell` / `stone_slide` (~99 kart),
+(b) skalibrować progi na odsłuchu ~20 kart, zanim audyt zacznie sterować
+generacjami. Audyt pozostaje proxy dla ucha.

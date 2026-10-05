@@ -1,0 +1,4579 @@
+{
+ "total": 553,
+ "covered": 421,
+ "unassigned": 132,
+ "by_archetype": {
+  "stone_slide": 46,
+  "magic_shimmer": 39,
+  "sword_clash": 34,
+  "plate_clank": 31,
+  "door_creak": 29,
+  "temple_bell": 24,
+  "creature_roar": 21,
+  "heavy_footsteps": 19,
+  "mechanism_click": 13,
+  "wind_gust": 13,
+  "water_splash": 12,
+  "arrow_flight": 12,
+  "wing_flutter": 12,
+  "forest_birdsong": 11,
+  "heavy_impact": 11,
+  "insect_swarm": 10,
+  "volcanic_eruption": 9,
+  "undead_groan": 7,
+  "steam_hiss": 6,
+  "chain_rattle": 6,
+  "arcane_choir": 6,
+  "thunder_clap": 6,
+  "folk_music": 6,
+  "fire_crackle": 5,
+  "beast_screech": 4,
+  "electric_zap": 4,
+  "robot_servo": 4,
+  "liquid_pour": 4,
+  "whip_crack": 3,
+  "horn_call": 3,
+  "glass_shatter": 2,
+  "war_machine": 2,
+  "anvil_strike": 2,
+  "earth_rumble": 2,
+  "psychic_shriek": 1,
+  "bone_snap": 1,
+  "creature_cackle": 1
+ },
+ "assignments": [
+  {
+   "id": "1",
+   "title": "Dunland Crebain",
+   "archetype": "forest_birdsong",
+   "rule": "ptaki",
+   "prompt": "Three sharp raven caws answering each other, close and harsh, birds calling from different distances over a dark rocky ravine. Short natural tail. No music, no "
+  },
+  {
+   "id": "2",
+   "title": "Coralhelm Guide",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "A heavy beast splashing through shallow canyon water: one powerful body shove, water burst, and wet echo. Short focused sound. No music, no speech, no ambience "
+  },
+  {
+   "id": "3",
+   "title": "Nefarious Imp",
+   "archetype": "fire_crackle",
+   "rule": "ogień / żar",
+   "prompt": "A small malicious imp giggle, close and raspy, with a tiny ember crackle underneath the laugh. One short creature vocalization. No music, no speech, no ambience"
+  },
+  {
+   "id": "4",
+   "title": "Mystic Sanctuary",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A single magical water pulse from a misty lake sanctuary: one soft crystalline ripple expanding across water, delicate and mysterious. No music, no speech, no a"
+  },
+  {
+   "id": "5",
+   "title": "Academy Journeymage",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A short arcane portal whoosh: one clean blue-energy swirl opening and snapping an intruder away, airy paper flutter at the edge. No music, no speech, no ambienc"
+  },
+  {
+   "id": "6",
+   "title": "Azorius Justiciar",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A single runic shackle seal snapping shut: one crisp magical clasp closing with a brief icy crystalline shimmer around it, short and precise. No music, no speec"
+  },
+  {
+   "id": "7",
+   "title": "Mindstab",
+   "archetype": "psychic_shriek",
+   "rule": "ręczna deklaracja",
+   "prompt": "Thick parchment pages ripped from an open spellbook on stone and flapping rapidly in a sudden rushing gust of air: crisp paper tear, fast fluttering sheets whip"
+  },
+  {
+   "id": "8",
+   "title": "Goblin Deathraiders",
+   "archetype": "beast_screech",
+   "rule": "wrzask bestii",
+   "prompt": "A single frenzied goblin war shriek, one raspy high creature scream, wild and close, with a short rough tail. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "9",
+   "title": "Toll of the Invasion",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "A cold airy whoosh being sucked sharply inward, like wind drawn through a narrow stone crack, ending with one soft pop. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "10",
+   "title": "Servant of the Scale",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A short disciplined march cadence: heavy boots striking sandy ground in tight unison rhythm with one crisp banner cloth snap above. No music, no speech, no ambi"
+  },
+  {
+   "id": "11",
+   "title": "Sleep of the Dead",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "One huge beast yawn: a long low groaning yawn from a giant three-headed dog, sliding into a soft fading sleepy growl. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "12",
+   "title": "Merchant's Dockhand",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "Brass construct grippers sorting cargo: precise mechanical clamps clacking onto a wooden crate with light clockwork ticking and one smooth metallic slide. No mu"
+  },
+  {
+   "id": "13",
+   "title": "Soulmender",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A single gentle healing pulse: one soft warm chime swell with delicate golden sparkles drifting down like dust, calm and precise. No music, no speech, no ambien"
+  },
+  {
+   "id": "14",
+   "title": "Crew Captain",
+   "archetype": "heavy_impact",
+   "rule": "ciężkie uderzenie",
+   "prompt": "One heavy wrench-hammer strike on a steel beam: a solid metallic clang with a long resonant ringing tail fading over a distant city. No music, no speech, no amb"
+  },
+  {
+   "id": "15",
+   "title": "Tellah, Great Sage",
+   "archetype": "whip_crack",
+   "rule": "bicz",
+   "prompt": "Ancient spellbook pages whip violently in a magical gust, then dry parchment catches with crackling sparks and tiny embers. No music, no speech, no ambience bed"
+  },
+  {
+   "id": "16",
+   "title": "Brawler's Plate",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "Heavy plate armor being lifted from a stand: one deep metallic scrape of thick steel plates clanking together, solid and heavy. No music, no speech, no ambience"
+  },
+  {
+   "id": "17",
+   "title": "Selhoff Occultist",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A thin dagger blade slashed fast through cold air: a pure airy whoosh of turbulence, broadband and windy with no pitched tone and no ringing, rising then cuttin"
+  },
+  {
+   "id": "18",
+   "title": "Lotusguard Disciple",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Sparks and debris ricocheting off a shimmering magical barrier: a few quick bright energy pings on a soft pulsing shield. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "19",
+   "title": "Twiddle",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "One candle snuffed out: a soft puff of air with a brief arcane crackle and a thin trail of smoke hiss. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "20",
+   "title": "Jeskai Devotee",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A spinning twin-blade strike: two fast curved swords whipping through air in one tight spiral, with a sharp cloth snap and a fine metallic shimmer. No music, no"
+  },
+  {
+   "id": "21",
+   "title": "Pyxis of Pandemonium",
+   "archetype": "steam_hiss",
+   "rule": "syk pary / gazu (syk musi być parą/gazem, nie przypadkowym słowem)",
+   "prompt": "A ceramic lid popping open on an ancient jar: a hollow clay rattle, then a bright burst of vapor hissing upward through the crack. No music, no speech, no ambie"
+  },
+  {
+   "id": "22",
+   "title": "Titan's Strength",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "One enormous boulder heave: deep stone grinding against rock and a sharp ground crack underfoot, ending with a heavy settling thud. No music, no speech, no ambi"
+  },
+  {
+   "id": "23",
+   "title": "Brightwood Tracker",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "Three soft crystalline chimes blooming one after another along a mossy forest path, like tiny glass bells struck in sequence, each with a short airy sparkle tai"
+  },
+  {
+   "id": "24",
+   "title": "Lunar Rejection",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "One icy moonbeam pulse striking a beast: a cold silver energy wash with a pained werewolf snarl dissolving into fine particles. No music, no speech, no ambience"
+  },
+  {
+   "id": "25",
+   "title": "Bonds of Faith",
+   "archetype": "chain_rattle",
+   "rule": "łańcuch / kolczuga",
+   "prompt": "Bonds of golden light snapping taut: bright heavy chains of glowing energy clamping down with a strained beast growl beneath. No music, no speech, no ambience b"
+  },
+  {
+   "id": "26",
+   "title": "Ember Beast",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "One heavy beast footfall on stone: a deep ponderous thud of a massive creature, with a dry ember crackle of glowing cracks in its hide. No music, no speech, no "
+  },
+  {
+   "id": "27",
+   "title": "Erase",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A curse breaking apart: one clean burst of focused energy striking, then thin brittle shards popping and dissolving into nothing. No music, no speech, no ambien"
+  },
+  {
+   "id": "28",
+   "title": "Kraken's Eye",
+   "archetype": null,
+   "rule": null,
+   "prompt": "One deep muffled underwater pulse, like a huge air bubble collapsing far below the surface, round and low, close and clearly audible. No music, no speech, no am"
+  },
+  {
+   "id": "29",
+   "title": "You're Not Alone",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "Companions step into a protective circle around the listener: several boots stop on stone, sword and spear blades draw together with a confident steel ring. No "
+  },
+  {
+   "id": "30",
+   "title": "Containment Protocol",
+   "archetype": "steam_hiss",
+   "rule": "syk pary / gazu (syk musi być parą/gazem, nie przypadkowym słowem)",
+   "prompt": "A cryogenic stasis blast: a hissing jet of freezing gas locking a huge body in ice, ending with sharp crackling frost. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "31",
+   "title": "Carrion Call",
+   "archetype": "insect_swarm",
+   "rule": "rój",
+   "prompt": "Mutated insects crawling out of a carcass: wet chitinous legs pushing through torn flesh, with a brief sickly wing buzz. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "32",
+   "title": "Shipwreck Moray",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A large fish lunging out of a rotten wooden hull underwater: one muffled low whoosh of displaced water, a burst of bubbles rushing past, and a dull knock of a b"
+  },
+  {
+   "id": "33",
+   "title": "Fierce Empath",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "Two palms pressing hard onto thick tree bark: a dull woody knock, then a low creaking crack travelling down inside the trunk, dry fibres ticking under pressure."
+  },
+  {
+   "id": "34",
+   "title": "Volcanic Submersion",
+   "archetype": "volcanic_eruption",
+   "rule": "wulkan",
+   "prompt": "A massive body plunging into molten rock: a thick viscous splash of heavy liquid, then sizzling spatter landing and searing on hot stone, gas hissing out. Close"
+  },
+  {
+   "id": "35",
+   "title": "Halo Forager",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "A spell glyph recovered from a grave: delicate insect wings fluttering, then a soft translucent glyph chiming into shape from pale mist. No music, no speech, no"
+  },
+  {
+   "id": "36",
+   "title": "Etherium Abomination",
+   "archetype": null,
+   "rule": null,
+   "prompt": "An abomination tearing free from a pit: heavy metal claws gouging earth, grinding gear teeth and straining brass pipes rising to a shriek. No music, no speech, "
+  },
+  {
+   "id": "37",
+   "title": "Howl of the Night Pack",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "One long wolf howl: a deep sustained howl rising from a single black wolf and carrying far through a still night forest. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "38",
+   "title": "Liliana's Triumph",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A brittle crystalline body collapsing: sharp glassy cracking, then a cascade of hard shards scattering and skittering across stone pavement, small pieces settli"
+  },
+  {
+   "id": "39",
+   "title": "Brute Force",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "One massive orc stomp in deep mud: a heavy wet splash of mud and water, with a short raw surge of angry red energy. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "40",
+   "title": "Expunge",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "Thick dark sludge creeping up polished steel plate armour: sticky viscous crawling with strands peeling and snapping, wet film sliding over metal, faint bright "
+  },
+  {
+   "id": "41",
+   "title": "Severed Strands",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "Heavy ritual shears closing on a taut cord: a metallic scissor snip with blade ring, then the dry snap of a fibre parting and both ends whipping loose. Very clo"
+  },
+  {
+   "id": "42",
+   "title": "Murder of Crows",
+   "archetype": "arcane_choir",
+   "rule": "chór / zaśpiew",
+   "prompt": "A raucous chorus of crow caws erupting at once, harsh overlapping bird calls bursting upward and receding. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "43",
+   "title": "Kor Sanctifiers",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "A dark artifact purified: one blinding white sanctifying flash, brittle cracking, then fine dust whisked away by mountain wind. No music, no speech, no ambience"
+  },
+  {
+   "id": "44",
+   "title": "Underdark Explorer",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Claws on a stone ledge in a vast cavern: slow deliberate lizard talons scraping rock, answered by a deep hollow echo and one far drip. No music, no speech, no a"
+  },
+  {
+   "id": "45",
+   "title": "Piercing Rays",
+   "archetype": "electric_zap",
+   "rule": "wyładowanie / iskra",
+   "prompt": "Three quick sharp zaps snapping in fast succession, like static sparks striking metal, ending with one thin sustained electric hum that holds steady. No music, "
+  },
+  {
+   "id": "46",
+   "title": "Selesnya Charm",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "Soft bursts of fresh green shoots and leaves springing open one after another, sappy stems popping and unfurling, close and lively. No music, no speech, no ambi"
+  },
+  {
+   "id": "47",
+   "title": "Divine Offering",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Fine dry sand pouring steadily onto a stone plate, a thin granular hiss thinning out to nothing, close and clear. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "48",
+   "title": "Raucous Carnival",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "An abandoned carousel turning by itself: slow worn wooden creaks and one hollow mechanical groan, eerily gentle. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "49",
+   "title": "Unstable Frontier",
+   "archetype": "volcanic_eruption",
+   "rule": "wulkan",
+   "prompt": "Unstable ground splitting between two worlds: a deep earth crack rumbling, then orange lava hissing against cold grey swamp mist. No music, no speech, no ambien"
+  },
+  {
+   "id": "50",
+   "title": "Dream Twist",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Heavy books falling and dissolving: muffled thumps of tumbling tomes cut short, each unraveling into a cold blue-grey mist crawling over floorboards. No music, "
+  },
+  {
+   "id": "51",
+   "title": "Deepwood Denizen",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A slow rhythmic knocking pulse from inside a hollow tree trunk: deep woody thumps like a muffled heartbeat under thick bark, each beat with a faint creak of woo"
+  },
+  {
+   "id": "52",
+   "title": "Divest",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "A small wind-up mechanism unwinding fast, a fluttering ratchet whirr slowing to a few last ticks, recorded very close. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "53",
+   "title": "Illvoi Operative",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A gelatinous agent drifting through an ice cavern: soft slippery tentacle glide, one faint crystal chime from a data container, hollow frost echo. No music, no "
+  },
+  {
+   "id": "54",
+   "title": "Cautious Survivor",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A cracked handheld recorder glitching: bursts of harsh digital static stuttering over a weak signal whine, device dying out. No music, no speech, no ambience be"
+  },
+  {
+   "id": "55",
+   "title": "Etherwrought Page",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A thin flexible metal page being flexed, a soft wobbling metallic waver, close and delicate, one gentle flex and release. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "56",
+   "title": "Diplomatic Relations",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "Chitinous armour plates snapping shut one after another: short dry clacks of hard shell on shell, tight and clipped with almost no tail. Very close, detailed. N"
+  },
+  {
+   "id": "57",
+   "title": "Veiled Ascension",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Silk-robed figures rising into the sky: swirls of heavy fabric billowing open like wings, one soft uplift whoosh climbing higher and higher. No music, no speech"
+  },
+  {
+   "id": "58",
+   "title": "Mobile Garrison",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A pneumatic armored ramp hissing down and slamming onto cobblestones with one heavy metallic clang. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "59",
+   "title": "Mysidian Elder",
+   "archetype": "steam_hiss",
+   "rule": "syk pary / gazu (syk musi być parą/gazem, nie przypadkowym słowem)",
+   "prompt": "A small mage flame ignites above an open palm like a gas pilot light: bright airy whoosh, steady hiss, a few tiny spark pops, thin and present, no scraping, no "
+  },
+  {
+   "id": "60",
+   "title": "Thornwood Falls",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "A crystal waterfall pouring into a forest pool: steady bright rush of falling water, soft splashing veil, calm and cleansing. No music, no speech, no ambience b"
+  },
+  {
+   "id": "61",
+   "title": "Stall Out",
+   "archetype": "glass_shatter",
+   "rule": "tłuczenie szkła / kryształu",
+   "prompt": "A crystallization blast freezing a racing vehicle: a bright glassy burst, then rapid crackling crystal growth crawling over metal until it locks solid. No music"
+  },
+  {
+   "id": "62",
+   "title": "Grounded",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "A grounded beast straining against vines: heavy leathery wings beating wet moss, thick plant ropes creaking and snapping taut, muffled struggle. No music, no sp"
+  },
+  {
+   "id": "63",
+   "title": "Dragon Fodder",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A huge scaled claw landing on rock: one heavy blunt impact on stone, claw tips scraping across the surface, then loose gravel sliding and tumbling away. Close a"
+  },
+  {
+   "id": "64",
+   "title": "Lightwalker",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "Sprinting across crystalline stairs of light: quick ringing footfalls on glassy surfaces, each step releasing a short golden chime flare. No music, no speech, n"
+  },
+  {
+   "id": "65",
+   "title": "Curate",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A heavy tome flying open: one sharp leather cover snap, a burst of intense blue light, loose pages and ink wisps whirling upward. No music, no speech, no ambien"
+  },
+  {
+   "id": "66",
+   "title": "Hooting Mandrills",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A mandrill alpha charging through ruins: one raw powerful primate shriek over crumbling stone blocks crashing apart. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "67",
+   "title": "Scorpion Sentinel",
+   "archetype": "electric_zap",
+   "rule": "wyładowanie / iskra",
+   "prompt": "A war machine charging its weapon: rising electric whine, crackling blue arcs snapping between metal segments, peaking at one bright discharge snap. No music, n"
+  },
+  {
+   "id": "68",
+   "title": "Ainok Tracker",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A hound scout tracking through snow: focused snuffling sniffing, slow deliberate crunch of frosty footsteps, thin wind whistling. No music, no speech, no ambien"
+  },
+  {
+   "id": "69",
+   "title": "Tome Scour",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A brass gauntlet scraping a tome: sharp metal styli raking across parchment, letters peeling away, pages shredding into gritty black dust. No music, no speech, "
+  },
+  {
+   "id": "70",
+   "title": "Capture Sphere",
+   "archetype": "heavy_impact",
+   "rule": "ciężkie uderzenie",
+   "prompt": "A hard transparent shell sealing shut around something: a glassy snapping ring as it closes, then one muffled thud from inside pushing against the surface. Clos"
+  },
+  {
+   "id": "71",
+   "title": "Security Rhox",
+   "archetype": "heavy_impact",
+   "rule": "ciężkie uderzenie",
+   "prompt": "One deep rubbery impact of a body against an invisible force wall, a low resonant boom with a short wobbling shudder. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "72",
+   "title": "Dragon Arch",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Huge scaled wings and claws scraping hard against a stone archway as a massive body forces its way through: gritty stone rasping, sharp scale rattle and loose g"
+  },
+  {
+   "id": "73",
+   "title": "Bladed Sentinel",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A bladed construct on watch: quiet servo motors whirring as its sensor sweeps, followed by a clean steel blade sliding out with a bright edge ring. No music, no"
+  },
+  {
+   "id": "74",
+   "title": "Rush of Battle",
+   "archetype": "thunder_clap",
+   "rule": "grzmot",
+   "prompt": "Thundering cavalry hooves at full gallop passing very close, heavy, fast and rolling, no voices. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "75",
+   "title": "Phyrexian Rager",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Fast relentless skittering bounds of chitin-and-metal limbs over rubble, irregular scraping footfalls rushing past. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "76",
+   "title": "Negate",
+   "archetype": "glass_shatter",
+   "rule": "tłuczenie szkła / kryształu",
+   "prompt": "A spell shattering on an invisible barrier: one calm gesture, then a violent stream breaking apart into millions of tiny blue crystalline fragments raining down"
+  },
+  {
+   "id": "77",
+   "title": "Annie Flash, the Veteran",
+   "archetype": "electric_zap",
+   "rule": "wyładowanie / iskra",
+   "prompt": "A triple-barrel gauntlet firing: one sharp crack of gunshot ripping into a crackling burst of electric discharge. Clean recording at moderate level, no distorti"
+  },
+  {
+   "id": "78",
+   "title": "Nightsnare",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "Secrets drained from a sleeper: a slow lavender mist hiss pulling through the air, drawn into a glass vial with one soft hollow chime. No music, no speech, no a"
+  },
+  {
+   "id": "79",
+   "title": "Holdout Settlement",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "A colossal hedron humming over a camp: deep slow stone resonance pulsing from carved runes, taut guy lines singing softly in the wind. No music, no speech, no a"
+  },
+  {
+   "id": "80",
+   "title": "Merciless Repurposing",
+   "archetype": "war_machine",
+   "rule": "machina wojenna",
+   "prompt": "A war machine being dismantled in stasis: precise porcelain hands unbolting iron limbs, clicking locks releasing, a cold stasis field humming steady. No music, "
+  },
+  {
+   "id": "81",
+   "title": "Krotiq Nestguard",
+   "archetype": "insect_swarm",
+   "rule": "rój",
+   "prompt": "A giant insect nest guard threat display: one enormous hollow mandible clack like thick wood, followed by a low warning chitter of chitin plates. No music, no s"
+  },
+  {
+   "id": "82",
+   "title": "Messenger Falcons",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A messenger falcon landing on an armored gauntlet: strong wing beats flaring to a stop, sharp talons gripping metal, one bright hawk cry. No music, no speech, n"
+  },
+  {
+   "id": "83",
+   "title": "Gorehorn Minotaurs",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Minotaurs charging through pinewood: heavy split hooves hammering soil, thick branches snapping under shoulders, one deep bullish snort. No music, no speech, no"
+  },
+  {
+   "id": "84",
+   "title": "Garruk's Companion",
+   "archetype": "fire_crackle",
+   "rule": "ogień / żar",
+   "prompt": "A horned beast crushing a fallen log: a century-old trunk splintering and cracking apart under charging weight, debris scattering. No music, no speech, no ambie"
+  },
+  {
+   "id": "85",
+   "title": "Phyrexian Rager",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A heavy metal-clawed foot stepping onto a rusted steel walkway: one hard clank with grating rattle and a loose plate rocking afterwards. Close, loud. No music, "
+  },
+  {
+   "id": "86",
+   "title": "Cloudbound Moogle",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A tiny creature hovering in flight: quick delicate bat-like wing flutters, then one warm golden spark chime as its paw touches a head. No music, no speech, no a"
+  },
+  {
+   "id": "87",
+   "title": "Angelic Benediction",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "One powerful wingbeat of a very large winged creature passing right overhead: a deep feathery whump of displaced air with feather rustle, then a second lighter "
+  },
+  {
+   "id": "88",
+   "title": "Baral and Kari Zev",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A synchronized strike: one fast saber slash cutting through, followed instantly by a concussive wave of blue aether energy shattering metal. Clean recording at "
+  },
+  {
+   "id": "89",
+   "title": "Release the Ants",
+   "archetype": "insect_swarm",
+   "rule": "rój",
+   "prompt": "A brittle resin shell cracking open: a sharp dry crack, then a dense scurrying rustle of many small insects spilling out and scattering over leaf litter. Very c"
+  },
+  {
+   "id": "90",
+   "title": "Tranquil Cove",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Gentle waves in a sacred cove: soft water lapping white sand and mossy stones, with one faint crystalline spirit shimmer passing. No music, no speech, no ambien"
+  },
+  {
+   "id": "91",
+   "title": "Curse of the Pierced Heart",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A hard thorn pushed into a figure woven from dry grass and roots: crunching of brittle stalks, fibres snapping one by one, a final tight crackle as it seats. Ve"
+  },
+  {
+   "id": "92",
+   "title": "Silumgar Butcher",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "An undead executioner raising his sickle: a heavy curved blade slicing slow through damp air, bone spines creaking, one hollow death rattle. No music, no speech"
+  },
+  {
+   "id": "93",
+   "title": "Dispeller's Capsule",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "Thin metal ribs of a small artefact unfolding outward: a rapid series of fine mechanical clicks and detents, light brass ticking as each segment locks. Very clo"
+  },
+  {
+   "id": "94",
+   "title": "Fortify",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Sacred braziers flaring to life: priestly fire bowls igniting one after another, a warm protective shimmer rising along old limestone walls. No music, no speech"
+  },
+  {
+   "id": "95",
+   "title": "Krumar Initiate",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A deep resonant wooden creak swelling from inside a huge hollow tree trunk, slow and alive, one long groan of old wood. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "96",
+   "title": "Voice of the Vermin",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A thick stream of emerald magic coiling around a giant rat: one flowing energy pour ending in a harsh mutated rat screech. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "97",
+   "title": "Great Furnace",
+   "archetype": "fire_crackle",
+   "rule": "ogień / żar",
+   "prompt": "A colossal furnace mountain breathing: one deep industrial roar of heat, molten metal sloshing and spilling over a crater lip, sparks spraying upward. No music,"
+  },
+  {
+   "id": "98",
+   "title": "Fleeting Distraction",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "A swarm of glowing blue butterflies stopping a predator mid-leap: dense delicate wing flutters, one confused startled hiss, wings drifting apart. No music, no s"
+  },
+  {
+   "id": "99",
+   "title": "Steelfin Whale",
+   "archetype": "undead_groan",
+   "rule": "jęk",
+   "prompt": "A steel-finned whale feeding: one deep underwater groan from a metal giant, fine silver filings tinkling and snapping onto magnetized baleen rods. No music, no "
+  },
+  {
+   "id": "100",
+   "title": "Emissary Escort",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A ceremonial escort mech readying itself: a long energy halberd humming to life, an oval shield of pale blue light unfolding with a soft snap. No music, no spee"
+  },
+  {
+   "id": "101",
+   "title": "Grave Exchange",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A skeletal hand touching its living reflection: one dry bone clack on still water, a slow dark ripple spreading, a faint cold echo beneath. No music, no speech,"
+  },
+  {
+   "id": "102",
+   "title": "Fiery Fall",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "A huge heavy body diving fast through air: a rising airy whoosh building in pressure and speed, rushing wind tearing past a large mass, cut short at the lowest "
+  },
+  {
+   "id": "103",
+   "title": "Sweet Oblivion",
+   "archetype": "forest_birdsong",
+   "rule": "ptaki",
+   "prompt": "One long soft breathy whoosh rising slowly upward, like a deep exhale stretched thin, dissolving into a gentle airy hiss that fades out smoothly. No music, no s"
+  },
+  {
+   "id": "104",
+   "title": "Glitch Ghost Surveyor",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A glitch ghost sweeping past: flickering holographic warble, chopped digital stutters, thin sparks trailing off its dissolving edges. No music, no speech, no am"
+  },
+  {
+   "id": "105",
+   "title": "Blade-Blizzard Kitsune",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "A kitsune spinning twin energy katanas: two bright plasma edges whirling into a tight vortex, snowflakes and gravel whipping up around the blur. No music, no sp"
+  },
+  {
+   "id": "106",
+   "title": "Mosquito Guard",
+   "archetype": "insect_swarm",
+   "rule": "rój",
+   "prompt": "A swarm of tiny glowing insects circling a guard: thin persistent mosquito whine rising and falling, one soft pulsing glass vial shimmer. No music, no speech, n"
+  },
+  {
+   "id": "107",
+   "title": "Somberwald Spider",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "Thick taut silk strands plucked and stretched hard: bright twanging fibrous snaps with creaking tension between them, very close to the microphone. Clear high-f"
+  },
+  {
+   "id": "108",
+   "title": "Forced Landing",
+   "archetype": "whip_crack",
+   "rule": "bicz",
+   "prompt": "Thorny vines shooting upward and hauling a flyer down: one fast whip-crack of growing stems, wings snapping taut, a heavy body dragged through leaves. Clean rec"
+  },
+  {
+   "id": "109",
+   "title": "Relic Robber",
+   "archetype": null,
+   "rule": null,
+   "prompt": "One quick springy leap whoosh ending with small boots landing hard on wooden planks, a light bouncy thump. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "110",
+   "title": "Serra's Embrace",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Enormous feathered wings folding around a standing figure: dense feather rustle and quill friction, one deep air displacement as they close, fabric of a cloak b"
+  },
+  {
+   "id": "111",
+   "title": "Final Parting",
+   "archetype": "forest_birdsong",
+   "rule": "ptaki",
+   "prompt": "A length of silk slowly torn in two, a fine fibrous ripping that ends soft, recorded very close, clearly audible. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "112",
+   "title": "Flurry of Wings",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "A formation of bird warriors diving from storm clouds: a rolling rush of hundreds of beating wings, wind building, one spear-ribbon snapping. No music, no speec"
+  },
+  {
+   "id": "113",
+   "title": "Welder Automaton",
+   "archetype": "robot_servo",
+   "rule": "serwo / mechanizm robota",
+   "prompt": "A welding automaton at work: a steady blue-orange torch hiss, molten metal sizzling and popping, one brief pneumatic clank. No music, no speech, no ambience bed"
+  },
+  {
+   "id": "114",
+   "title": "Fledgling Imp",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "A rolled parchment dropping into thick bog water, one muddy plop followed by a few slow rising bubbles. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "115",
+   "title": "Merfolk Mesmerist",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "One hand sweeping hard through waist-deep lake water in a single fast swirl: loud churning and splashing right at the microphone, water streaming and dripping o"
+  },
+  {
+   "id": "116",
+   "title": "Wrap in Flames",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Ribbons of fire wrapping around bodies: one rolling flame swirl engulfing fur and mail, sharp crackle of licking fire, embers spitting. No music, no speech, no "
+  },
+  {
+   "id": "117",
+   "title": "Tireless Hauler",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A farmhand hauling huge hay bales: deep steady footfalls pressing into soft soil, dry hay rustling and shifting, thick rope creaking taut. No music, no speech, "
+  },
+  {
+   "id": "118",
+   "title": "Dire-Strain Brawler",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A huge wolf growling close to the microphone: raspy throat rattle and heavy breath with clear grain and detail in the growl, not a pure bass rumble. Present, fu"
+  },
+  {
+   "id": "119",
+   "title": "Spin Out",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A race car spinning out: a vicious metal trap grinding into the chassis, tires shrieking, one long aether-sparking pirouette scattering broken gears. No music, "
+  },
+  {
+   "id": "120",
+   "title": "Returned Centaur",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A lone undead centaur walking through mist: slow heavy hooves pressing into damp earth, worn armor straps swaying, a hollow masked breath. No music, no speech, "
+  },
+  {
+   "id": "121",
+   "title": "Sea God's Scorn",
+   "archetype": null,
+   "rule": null,
+   "prompt": "One massive sea wave crashing up marble steps and dragging back down with a long foamy hiss. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "122",
+   "title": "Blazing Torch",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A pitch soaked cloth torch burning in an iron bracket: wet crackling of tar, fibres popping and spitting, drops of burning pitch hissing as they fall. Very clos"
+  },
+  {
+   "id": "123",
+   "title": "Trade Route Envoy",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A trade caravan rolling on a packed road: wooden wagon axles creaking steadily, an ox lowing once, harness ropes and straps swinging. No music, no speech, no am"
+  },
+  {
+   "id": "124",
+   "title": "Courage in Crisis",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "Green vines rapidly coiling and tightening around a wooden post, sappy stems creaking and squeaking as they bind, close and clear. No music, no speech, no ambie"
+  },
+  {
+   "id": "125",
+   "title": "Ordinary Bear",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Bear claws scratching and scuffing across dry gravel in a slow walking rhythm: grit dragging under each paw, small stones flicking away, dry and bright. Close t"
+  },
+  {
+   "id": "126",
+   "title": "Bird Admirer",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "Wild birds feeding from an open palm: gentle beak pecks on skin, soft content chirps, quick wing flutters as they hop. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "127",
+   "title": "Wing Shredder",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "Claws shredding fairy wings: one razor-fast tear, tiny startled chimes scattering, a cascade of fine glowing dust drifting down. No music, no speech, no ambienc"
+  },
+  {
+   "id": "128",
+   "title": "Undead Servant",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "An undead servant rising from a shallow grave: wet soil crumbling away, a ragged shroud dragging over stone, a cold violet glow humming to life. No music, no sp"
+  },
+  {
+   "id": "129",
+   "title": "Charismatic Vanguard",
+   "archetype": "anvil_strike",
+   "rule": "kowadło",
+   "prompt": "A heavy blacksmith hammer swung up and struck hard against steel plate: a bright metallic clang with ringing overtones and armour plates rattling afterwards. Cl"
+  },
+  {
+   "id": "130",
+   "title": "Scavenging Harpy",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A harpy guarding her hoard: one harsh ragged screech, curved talons clattering on cracked sarcophagus stone, loose bone trinkets rattling. No music, no speech, "
+  },
+  {
+   "id": "131",
+   "title": "Memory's Journey",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Three drops lifting off and falling back onto a still pool surface: clean glassy plinks with short watery tails, tiny ripples settling between them. Very close,"
+  },
+  {
+   "id": "132",
+   "title": "Pilgrim's Eye",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "A small clockwork thopter fluttering close by: canvas wings beating fast, a thin brass gear ticking and a metal ring clicking as it turns. Bright, dry, detailed"
+  },
+  {
+   "id": "133",
+   "title": "Breaching Hippocamp",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A hippocamp breaching from the sea: one explosive water burst upward, a deep aquatic snort, a heavy opalescent tail slapping back down. No music, no speech, no "
+  },
+  {
+   "id": "134",
+   "title": "Waveskimmer Aven",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "An aven gliding low over ocean waves: a long smooth wind rush over feathered wings, wave crests hissing past beneath, one distant gull-like call. No music, no s"
+  },
+  {
+   "id": "135",
+   "title": "Kumano's Blessing",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A sacred flame-wreathed katana cutting through a dark spirit: one clean burning slash, a thin spirit shriek unraveling, hot embers and ash settling after. No mu"
+  },
+  {
+   "id": "136",
+   "title": "Bone Splinters",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Bone splinters erupting from a ritual circle: a sickly violet glow swelling, sharp bone shards bursting upward and clattering back onto stone. No music, no spee"
+  },
+  {
+   "id": "137",
+   "title": "Withstand",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A blast of fire washing over a tower shield: flames splitting and rolling past the edges, golden runes pulsing steady through the heat, embers drifting away. No"
+  },
+  {
+   "id": "138",
+   "title": "Join the Dance",
+   "archetype": "folk_music",
+   "rule": "muzyka ludowa",
+   "prompt": "A short rustic harvest dance tune played in frame: lively fiddle melody, small hand drum, clapping hands and stomping feet in a circle. No speech, no narration,"
+  },
+  {
+   "id": "139",
+   "title": "Slithering Cryptid",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A scaly cryptid gliding through dark water: silent serpentine slide, rusty scrap harness clinking softly, slow drips from tunnel walls. No music, no speech, no "
+  },
+  {
+   "id": "140",
+   "title": "Boros Challenger",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "One body rolling across packed training ground with a light clatter of practice armor, a single tumbling motion. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "141",
+   "title": "Sun-Collared Raptor",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A sun-blessed raptor lunging from temple stairs: talons scraping ancient stone, a piercing raptor shriek, its feather crest flaring with a burst of solar heat. "
+  },
+  {
+   "id": "142",
+   "title": "Savage Hunger",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A colossal beast ramming a frozen palisade: repeated battering impacts, frozen pine logs cracking apart, one furious starving roar. No music, no speech, no ambi"
+  },
+  {
+   "id": "143",
+   "title": "Kabira Vindicator",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "A mounted vindicator raising his banner: a horned mount stamping and snorting, the white banner of Kabira whipping and cracking in the wind. No music, no speech"
+  },
+  {
+   "id": "144",
+   "title": "Stensia Innkeeper",
+   "archetype": "forest_birdsong",
+   "rule": "ptaki",
+   "prompt": "A heavy iron key turning slowly in an old door lock, tumblers grinding, ending with one solid deadbolt clack. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "145",
+   "title": "Clone Shell",
+   "archetype": "beast_screech",
+   "rule": "ręczna deklaracja",
+   "prompt": "A pressurized steel cloning pod bursting open: a loud resonant metal hatch bang and pneumatic seal pop, followed by a thick wet gush of stasis liquid splashing "
+  },
+  {
+   "id": "146",
+   "title": "Palace Familiar",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A palace familiar ruffling on its jade perch: one low crooked caw, a tiny golden lens iris whirring open, a faint violet glow hum. No music, no speech, no ambie"
+  },
+  {
+   "id": "147",
+   "title": "Renegade Tactics",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A guard stuck fast in expanding foam: thick sticky foam bubbling and stretching, boots wrenching against the glue, one distant confident footstep passing. No mu"
+  },
+  {
+   "id": "148",
+   "title": "Xu-Ifit, Osteoharmonist",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Dry bone fragments clacking and snapping together in a fast sequence: hard hollow clicks ending with one firm locking snap. Close, loud, dry. No music, no speec"
+  },
+  {
+   "id": "149",
+   "title": "Blossoming Sands",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A desert oasis springing to life: one crystalline water burst from the sand, followed by a rush of tiny blossoms popping open across the dunes. The sound finish"
+  },
+  {
+   "id": "150",
+   "title": "Balamb Garden, SeeD Academy",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A large stone fountain splashing steadily, water falling into a wide shallow basin, recorded up close, bright and clearly audible, loud in the foreground. No mu"
+  },
+  {
+   "id": "151",
+   "title": "Revealing Wind",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A desert sand squall rolling in: a rising wall of golden dust hissing past, veils and illusions ripping away with a thin shimmering snap. No music, no speech, n"
+  },
+  {
+   "id": "152",
+   "title": "Timely Interference",
+   "archetype": "thunder_clap",
+   "rule": "grzmot",
+   "prompt": "A kavu leaping to the rescue: one thunderous roar from behind a column, heavy claws striking a biomechanical body with a metallic crunch. No music, no speech, n"
+  },
+  {
+   "id": "153",
+   "title": "Balamb Garden, Airborne",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "A powerful thruster blasting overhead: a loud hissing roar of pressurised air with a sharp whistling edge, leaves and water spray whipping in the blast. Bright "
+  },
+  {
+   "id": "154",
+   "title": "Trigon of Thought",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Three crisp crystalline clicks in sequence, like polished glass facets locking into place one after another, small and precise. No music, no speech, no ambience"
+  },
+  {
+   "id": "155",
+   "title": "Demolish",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A strategic gate demolition: one sharp detonation, tons of stone archway collapsing and grinding down into a rising wave of fire. No music, no speech, no ambien"
+  },
+  {
+   "id": "156",
+   "title": "Summary Judgment",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A heavy flat stone slab slamming down onto marble: one massive crushing impact, immediately followed by a sharp bright chime ringing out like a struck bell, sho"
+  },
+  {
+   "id": "157",
+   "title": "Infectious Bloodlust",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A bloodlust aura leaping between warriors: one vanguard body dropping, a red surge snapping across to the next fighter, a rising berserker roar. No music, no sp"
+  },
+  {
+   "id": "159",
+   "title": "Predator's Gambit",
+   "archetype": "insect_swarm",
+   "rule": "rój",
+   "prompt": "A huntress leaping from a rooftop edge: one breath of stillness, then an explosive coiled pounce into darkness, cloak snapping behind. The sound finishes with a"
+  },
+  {
+   "id": "163",
+   "title": "Ghoulcaller's Bell",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A ghoulcaller's bronze bell tolling: one deep cracked bell strike, a cold mist hiss seeping from its skull shape, graveyard silence after. No music, no speech, "
+  },
+  {
+   "id": "166",
+   "title": "Talion's Messenger",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "Fast delicate insect wings buzzing in short hovering bursts, like a dragonfly holding position very close, ending with one small bright bell ding. No music, no "
+  },
+  {
+   "id": "168",
+   "title": "Steel Sabotage",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Steel plates clattering onto a stone floor one after another, hollow metallic tumbling that settles quickly. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "169",
+   "title": "Greenwood Sentinel",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A forest sentinel going still: living leaves on her bark armor rustling softly, one careful mossy footstep, a curved blade easing loose in its sheath. Recorded "
+  },
+  {
+   "id": "171",
+   "title": "Grizzled Outcasts",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "Four weathered hunters walking the dusk road: heavy boots crunching gravel in loose rhythm, crossbow fittings and leather creaking, a shutter easing shut nearby"
+  },
+  {
+   "id": "172",
+   "title": "Mournful Zombie",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A mournful zombie tending its bandages: slow careful cloth strips wrung in a clay bowl, wax candle sputtering softly, a dry creaking sigh. Recorded close-up, cl"
+  },
+  {
+   "id": "173",
+   "title": "Awaken the Bear",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A warrior's roar awakening a bear spirit: one deep bellow swelling, an emerald presence bursting from his shoulders into a towering spectral bear growl. No musi"
+  },
+  {
+   "id": "175",
+   "title": "Caves of Chaos Adventurer",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "An axe striking a cave guardian: one solid blade impact, an amethyst wall cracking apart, a scroll and coin sack tumbling out onto stone. No music, no speech, n"
+  },
+  {
+   "id": "177",
+   "title": "Dire Fleet Ravager",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "An orc warlock's triumphant roar: one guttural bellow, then a green-black vapor breathing out, wood and rope groaning as decay sets in. No music, no speech, no "
+  },
+  {
+   "id": "179",
+   "title": "Index",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A heavy index book crackling: small blue sparks leaping between turning pages, loose sheets fluttering down, ink-stained paper rustling. No music, no speech, no"
+  },
+  {
+   "id": "180",
+   "title": "Homicidal Brute",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A transformed brute rising in a dark alley: strained ragged breathing, broken glass grinding under heavy boots, a gas lamp guttering out. No music, no speech, n"
+  },
+  {
+   "id": "181",
+   "title": "Spectral Prison",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A low steady electrical hum, like a large transformer coil recorded very close, constant and clearly audible, loud in the foreground. No music, no speech, no am"
+  },
+  {
+   "id": "182",
+   "title": "Stomping Slabs",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Enormous stone slabs sweeping low past the microphone: a fast heavy air whoosh with dry grit and small pebbles rattling and skittering off their surfaces. Keep "
+  },
+  {
+   "id": "183",
+   "title": "Sifter Wurm",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A colossal wurm squeezing through ruined walls: armored scales grinding across ancient stone, masonry toppling in its wake, a deep subterranean hiss. No music, "
+  },
+  {
+   "id": "184",
+   "title": "Altar of the Goyf",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "An ancient altar in the wilds: huge claws dragging once across carved granite, dry bones shifting in the moss around its base, wind through cracked runes. No mu"
+  },
+  {
+   "id": "185",
+   "title": "Alaborn Trooper",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "A soldier taking his oath: one firm spear-butt strike on stone paving, the tap of a shield settling on arm, a red plume stirring in the wind. No music, no speec"
+  },
+  {
+   "id": "186",
+   "title": "Cogwork Assembler",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "A cogwork assembler at work: smooth brass gears turning in rhythm, a glowing component hovering between fingers, fine precision clicks as parts lock in. The sou"
+  },
+  {
+   "id": "187",
+   "title": "Idyllic Grange",
+   "archetype": "forest_birdsong",
+   "rule": "ptaki",
+   "prompt": "A clear morning rooster crow from a peaceful farmyard, close and warm, with one soft hen cluck after it. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "188",
+   "title": "Apprentice Wizard",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A chalk stick dragged across rough stone floor: gritty scraping strokes with small dust crumbs breaking off, ending with a short tap as the line closes. Very cl"
+  },
+  {
+   "id": "189",
+   "title": "Glint-Sleeve Artisan",
+   "archetype": "robot_servo",
+   "rule": "serwo / mechanizm robota",
+   "prompt": "An artisan tightening an aether core: firm wrench clicks, blue sparks dancing over inscriptions, a tiny brass servo taking its first step. No music, no speech, "
+  },
+  {
+   "id": "190",
+   "title": "Goldmeadow Nomad",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "A small campfire flaring briefly to life: dry twigs popping and crackling, a soft gust breathing through embers and stirring them brighter, close and intimate. "
+  },
+  {
+   "id": "191",
+   "title": "Esper Stormblade",
+   "archetype": "volcanic_eruption",
+   "rule": "wulkan",
+   "prompt": "A vedalken hovering over a volcanic cliff: a calm sustained levitation hum, hot air rising and rushing past the crag, etherium filaments chiming faintly. The so"
+  },
+  {
+   "id": "193",
+   "title": "Floodhound",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "A hound formed of flowing water: liquid paws sloshing over stones, streams dripping from its ears, a focused wet snuffling sniff. No music, no speech, no ambien"
+  },
+  {
+   "id": "195",
+   "title": "Entrancing Lyre",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A lyre plucked in a slow hypnotic figure: a few clear bronze strings rising and repeating, each note ringing over the next, the wooden frame resonating warmly. "
+  },
+  {
+   "id": "197",
+   "title": "Dismal Backwater",
+   "archetype": null,
+   "rule": null,
+   "prompt": "One heavy water drop falling into a still pool, recorded extremely close: a loud sharp plip with a deep hollow bloop and a short wet ring fading after it. No mu"
+  },
+  {
+   "id": "199",
+   "title": "Gloomfang Mauler",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Heavy hooked legs stabbing into deep wet mud one after another: thick squelching and sucking, with wet slaps as each is torn free. Close and loud. No music, no "
+  },
+  {
+   "id": "200",
+   "title": "Cloak of the Bat",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A heavy leather cloak snapped wide open in one hard motion: a loud leathery crack followed by a fast air rush sweeping past the microphone. Dry, close, full lev"
+  },
+  {
+   "id": "201",
+   "title": "Tiller of Flesh",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A porcelain tiller seeding a ceramic cocoon: smooth ceramic shells clicking open, a wet living core settled inside, a warm pulse beginning. No music, no speech,"
+  },
+  {
+   "id": "202",
+   "title": "Inferno Titan",
+   "archetype": "volcanic_eruption",
+   "rule": "wulkan",
+   "prompt": "A magma titan striding: one colossal footfall cracking basalt, molten plates shifting with liquid heat, a fire geyser bursting nearby. Clean recording at modera"
+  },
+  {
+   "id": "204",
+   "title": "Skilled Animator",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "An animator awakening a great automaton: a focused blue aether stream pouring in, deep gears surging to life, one heavy golden footstep shaking dust loose. The "
+  },
+  {
+   "id": "206",
+   "title": "High Stride",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "A rabbit traveler on tall wooden stilts: deliberate stilt steps splashing through a shallow stream, reeds brushing past, water trickling off the poles. No music"
+  },
+  {
+   "id": "207",
+   "title": "Feed the Infection",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "Thick black oil forced through a narrow opening: wet slithering, squelching and fast spattering onto skin, bright and close to the microphone. No music, no spee"
+  },
+  {
+   "id": "209",
+   "title": "Burning-Yard Trainer",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A trainer swinging a flaming wooden sword: the burning blade whooshing low, fire licking the oiled cloth, a horse snorting and settling calm. No music, no speec"
+  },
+  {
+   "id": "211",
+   "title": "Seismic Monstrosaur",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A monstrosaur breaking through a buried chamber: rubble bursting outward, glowing runes pulsing on its back, stone ceilings groaning down. No music, no speech, "
+  },
+  {
+   "id": "213",
+   "title": "Reclusive Artificer",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A tiny clockwork walker clicking upright and taking three small ticking steps across a wooden workbench, delicate and precise. No music, no speech, no ambience "
+  },
+  {
+   "id": "214",
+   "title": "Snarling Wolf",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A wolf pack snarling in defense: a chorus of low guttural snarls from between the trees, one warning bark, a branch snapping under a paw. No music, no speech, n"
+  },
+  {
+   "id": "215",
+   "title": "Malamet Battle Glyph",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A battle glyph taking form: a green jaguar-head sigil condensing in midair, deep stone resonance rising from carved glyphs, one sharp vow-like clap. No music, n"
+  },
+  {
+   "id": "216",
+   "title": "Armored Skaab",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A stitched skaab shifting its mismatched armor: loose plates scraping and settling, old leather straps creaking, one wet hollow breath in sea fog. No music, no "
+  },
+  {
+   "id": "217",
+   "title": "Manor Gate",
+   "archetype": "chain_rattle",
+   "rule": "łańcuch / kolczuga",
+   "prompt": "An old city gate admitting a traveler: iron chains cranking, a heavy wooden leaf groaning open, city noise spilling briefly through. No music, no speech, no amb"
+  },
+  {
+   "id": "218",
+   "title": "Trigon of Corruption",
+   "archetype": "liquid_pour",
+   "rule": "ciecz / mikstura",
+   "prompt": "A corruption trigon churning: three tanks of thick dark-green fluid slowly bubbling, matte metal arms resonating low, one wet pressure knock. No music, no speec"
+  },
+  {
+   "id": "219",
+   "title": "Prishe's Wanderings",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "An adventuring party passing through a crystal portal: clear crystalline chimes ringing, boots echoing together, the gate's hum swelling and releasing. No music"
+  },
+  {
+   "id": "220",
+   "title": "Urza's Mine",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "An ancient mine at work: a long energy drill spinning low over a glowing pit, steel cables creaking under load, golden power crackling up the shaft. No music, n"
+  },
+  {
+   "id": "221",
+   "title": "Mark of the Vampire",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Two quick wet punctures piercing in close succession, like a thick needle pushing through taut leather, followed by one soft slow liquid pulse. No music, no spe"
+  },
+  {
+   "id": "222",
+   "title": "Maritime Guard",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A merfolk guard sounding a shell horn over a storm coast: one long low blast curling over crashing waves and spray on black rock. No music, no speech, no ambien"
+  },
+  {
+   "id": "223",
+   "title": "Angel's Feather",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "One large wing flapped hard past the microphone: a strong airy whoosh with the dry rustle of stiff feathers and a light air snap at the end. Close, loud, presen"
+  },
+  {
+   "id": "224",
+   "title": "Immersturm Skullcairn",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "Slow metallic ticking and pinging of hot sword blades cooling and contracting, scattered faint pings from a mound of steel. No music, no speech, no ambience bed"
+  },
+  {
+   "id": "225",
+   "title": "Furious Forebear",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "A forebear's spirit hovering over a wounded warrior: a soft ringing presence settling close, one spent arrow dropping into grass, slow steadying breath beneath."
+  },
+  {
+   "id": "226",
+   "title": "Makeshift Mauler",
+   "archetype": "robot_servo",
+   "rule": "serwo / mechanizm robota",
+   "prompt": "A makeshift construct stirring in an alchemical lab: heavy mismatched limbs shifting, glass jars rattling on shelves, one blue chemical bubble popping. No music"
+  },
+  {
+   "id": "227",
+   "title": "Jwari Shapeshifter",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A fast sequence of wet joint cracks and knuckle pops, sharp and close, finishing with one firm dull settling thud. Dry, loud, full level. No music, no speech, n"
+  },
+  {
+   "id": "228",
+   "title": "Strandwalker",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Four thin metal stilts stepping on cracked stone: sharp high clicks from tapered tips with dry metal sinews creaking between the steps. Close and bright. No mus"
+  },
+  {
+   "id": "229",
+   "title": "Sterling Keykeeper",
+   "archetype": "chain_rattle",
+   "rule": "łańcuch / kolczuga",
+   "prompt": "A jailer presenting her key: a heavy iron key ringing on its chain, boots settling on old boards, a long coat swaying once. No music, no speech, no ambience bed"
+  },
+  {
+   "id": "230",
+   "title": "Horizon Spellbomb",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "A small brass and gold artefact arming itself: one crisp metallic latch click, then short bright ringing of thin metal panels shifting against each other. Very "
+  },
+  {
+   "id": "231",
+   "title": "Anthem of Champions",
+   "archetype": "arcane_choir",
+   "rule": "chór / zaśpiew",
+   "prompt": "Four wordless voices humming a single sustained hymn note in unison, then opening into an open chord, breath audible at the start, stone colonnade reverberation"
+  },
+  {
+   "id": "232",
+   "title": "Goblin Piker",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A goblin guard shifting in oversized armor: loose plates clanking with every small step, a long pike wobbling and tapping wood, one unsure grunt. No music, no s"
+  },
+  {
+   "id": "233",
+   "title": "Barkform Harvester",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A barkform harvester at work: wooden limbs creaking and knotting, root claws sinking into garden soil, old farm tools clinking on its frame. No music, no speech"
+  },
+  {
+   "id": "234",
+   "title": "Gray Slaad",
+   "archetype": "undead_groan",
+   "rule": "jęk",
+   "prompt": "A gray slaad calling in a misty marsh: one deep resonant toad croak rolling out, wet skin shifting, marsh water sucking at its weight. No music, no speech, no a"
+  },
+  {
+   "id": "235",
+   "title": "Trestle Troll",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Huge wet hands peeling off damp stone: a thick suction squelch, wet skin dragging across rock and loose grit trickling down after. Close, detailed. No music, no"
+  },
+  {
+   "id": "236",
+   "title": "Agate Assault",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A cliff edge breaking apart: sharp cracks racing through rock, massive boulders tearing loose and tumbling down in a rolling cascade of dust. No music, no speec"
+  },
+  {
+   "id": "238",
+   "title": "Ramroller",
+   "archetype": "steam_hiss",
+   "rule": "syk pary / gazu (syk musi być parą/gazem, nie przypadkowym słowem)",
+   "prompt": "A dwarf war roller grinding forward: iron drums crushing a wrecked chariot, wood splintering and metal buckling, steam valves hissing as it rolls on. No music, "
+  },
+  {
+   "id": "240",
+   "title": "Descendant of Storms",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "Ancestral blessing in a sandstorm: a warm golden halo swelling around an upraised feather, grains of sand hissing past, faint ghostly footsteps keeping pace beh"
+  },
+  {
+   "id": "242",
+   "title": "Knight of the Skyward Eye",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A knight trotting on a marble road: steady hoofbeats ringing on polished stone, plate armor softly shifting, one low distant groan from the treeline. No music, "
+  },
+  {
+   "id": "243",
+   "title": "Willbender",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A spell being bent aside: a crackling bolt whipping into a curve mid-flight, energy shrieking as it changes course, then plunging into sea water with a hiss. Cl"
+  },
+  {
+   "id": "245",
+   "title": "Dread Warlock",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Thick corrosive sludge running off fingers onto dry heather: viscous dripping with sticky strands breaking, faint sizzling where it lands, wet plops on dead pla"
+  },
+  {
+   "id": "246",
+   "title": "Cuombajj Witches",
+   "archetype": "bone_snap",
+   "rule": "kości",
+   "prompt": "One wet crunching snap of a bone broken in half, sharp and close, with a small gristly tear at the end. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "248",
+   "title": "Reassembling Skeleton",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A skeleton reassembling itself: bone clicking against bone as a skull is set back onto the neck, wet mud sucking as bony fingers claw out of the grave. No music"
+  },
+  {
+   "id": "249",
+   "title": "Feedback",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A spell seal feeding back on itself: thin energy lines pulsing faster between the rings, a rising unstable whine, one sharp discharge cracking the air. No music"
+  },
+  {
+   "id": "251",
+   "title": "Stirring Bard",
+   "archetype": "folk_music",
+   "rule": "muzyka ludowa",
+   "prompt": "A lute strummed hard once and then twice more in a martial rhythm: gut strings ringing out bright and full, wood body resonating, the chords decaying into a sto"
+  },
+  {
+   "id": "252",
+   "title": "Captain's Call",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Two short commanding brass war-horn blasts, bright and hard, a plain signal call with a brief echo, not a melody. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "253",
+   "title": "Inspiring Bard",
+   "archetype": "folk_music",
+   "rule": "muzyka ludowa",
+   "prompt": "A soft toned lute plucked in a short rising phrase, single notes one after another, gut strings warm and woody with light finger noise on the fretboard, last no"
+  },
+  {
+   "id": "256",
+   "title": "Frightful Delusion",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Nightmare visions sinking into a mind: pale mist swirling with faint chittering shapes, a soft glowing streak sliding under skin, one frightened gasp. No music,"
+  },
+  {
+   "id": "257",
+   "title": "Lash of the Balrog",
+   "archetype": "whip_crack",
+   "rule": "bicz",
+   "prompt": "A fiery whip lashing out: burning cords cracking through air, searing coils snapping tight around limbs, stone crumbling away into a deep shaft. No music, no sp"
+  },
+  {
+   "id": "258",
+   "title": "Hill Giant",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A hill giant tumbling downhill: massive feet ploughing through dry grass, a wooden beam barrier bursting apart, planks and gravel ricocheting off thick hide. No"
+  },
+  {
+   "id": "262",
+   "title": "Angel's Herald",
+   "archetype": "horn_call",
+   "rule": "róg / sygnał dęty",
+   "prompt": "A herald's brass trumpet playing a short bright fanfare: two rising notes then a held final note, strong breath attack, metallic edge to the tone, ringing out i"
+  },
+  {
+   "id": "264",
+   "title": "Ghost Warden",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A ghost shielding a debtor: a grate bursting with steel shards, shards ringing flat against an unseen barrier, a cold spectral rush sweeping past. The sound fin"
+  },
+  {
+   "id": "265",
+   "title": "Boulder Salvo",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A magical boulder salvo: bedrock tearing loose at once, a huge rock whipping through the air with a deep whoosh, stone shards whistling past like hail. No music"
+  },
+  {
+   "id": "267",
+   "title": "Hunter's Blowgun",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A blowgun dart in the jungle: one sharp puff of breath, a slender dart hissing through leaves, a faint thud as it strikes home. No music, no speech, no ambience"
+  },
+  {
+   "id": "268",
+   "title": "Might of the Masses",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Many hands striking tree trunks and bark in a building rhythm: dull woody thuds at different distances and pitches, overlapping into a dense pulse. Close, organ"
+  },
+  {
+   "id": "270",
+   "title": "Roiling Regrowth",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "New growth forcing through stone: hedron rock splitting with deep cracks, tender shoots bursting from black basalt, roots threading through the fissures. No mus"
+  },
+  {
+   "id": "271",
+   "title": "Expose to Daylight",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Sunlight unraveling forbidden runes: a focused beam striking hidden inscriptions, the spell tearing apart with a shriek of cracking aether, sparks of worthless "
+  },
+  {
+   "id": "272",
+   "title": "Feral Invocation",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "A feral summoning: vines and leaves sprouting from a nocked arrow, wrapping and tightening around her arm, a low growl answering from the treeline. No music, no"
+  },
+  {
+   "id": "273",
+   "title": "Fertile Thicket",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Living ground under a palm: a wet moss cushion yielding, the earth breathing in slow deep pulses of mana, trickling water deep below. No music, no speech, no am"
+  },
+  {
+   "id": "274",
+   "title": "Akrasan Squire",
+   "archetype": "folk_music",
+   "rule": "muzyka ludowa",
+   "prompt": "A squire's ritual salute: measured boots on stone, a spear shaft swung up and held steady, its blade ringing faintly as it catches the sun. No music, no speech,"
+  },
+  {
+   "id": "275",
+   "title": "Aerith Rescue Mission",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Boots hammering up steel stairs, fast rhythmic metallic clanging climbing higher, urgent and close. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "276",
+   "title": "Heap Gate",
+   "archetype": "forest_birdsong",
+   "rule": "ptaki",
+   "prompt": "Iron-rimmed wagon wheels rattling slowly over cobblestones under heavy load, a steady wooden-metallic rumble. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "277",
+   "title": "Spinewoods Paladin",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A paladin planting his blade: a heavy saw-toothed sword plunging into cracked earth, grit grinding against steel, resin vials clinking on his belt. No music, no"
+  },
+  {
+   "id": "278",
+   "title": "Kappa Tech-Wrecker",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A kappa stripping a drone wreck: a blade slicing through an energy seal, power core winding down, live sparks skittering across canal water. No music, no speech"
+  },
+  {
+   "id": "279",
+   "title": "Village Rites",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Tallow candle flames guttering and sputtering softly, small waxy crackles and one tiny flare, quiet room, very close. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "281",
+   "title": "Moonlit Meditation",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "Concentric ripples spreading across shallow water: light rhythmic laps and small splashes right at the surface, bright and detailed, close to the microphone. No"
+  },
+  {
+   "id": "282",
+   "title": "Hysterical Blindness",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A blinding mist rolling in: elixir fog swelling and catching moonlight, a sharp glassy flare washing over watchers, disoriented footsteps stumbling on the galle"
+  },
+  {
+   "id": "283",
+   "title": "Magic Damper",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A dampening dome at work: hexagon tiles locking into a shield, fiery psion shots bursting flat against it, the field humming down into silence. No music, no spe"
+  },
+  {
+   "id": "284",
+   "title": "Thieves' Tools",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A master thief at work: thin picks sliding into a heavy lock, a wrench holding tension, tumbler after tumbler clicking into place. No music, no speech, no ambie"
+  },
+  {
+   "id": "285",
+   "title": "Etherium Sculptor",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A thick stream of molten metal poured into a mould: heavy hissing and spattering, then a hard crystalline tick as the surface sets. Close and loud. No music, no"
+  },
+  {
+   "id": "286",
+   "title": "Weftblade Enhancer",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A single taut filament plucked hard: an immediate sharp attack with a clear metallic ring, the strand buzzing briefly and decaying to silence. Starts instantly,"
+  },
+  {
+   "id": "287",
+   "title": "Sarkhan's Rage",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "Dragon rage erupting: a vortex of orange fire roaring up, flames spreading into vast wings, sparks spiraling high into storm air. Clean recording at moderate le"
+  },
+  {
+   "id": "288",
+   "title": "Wedgelight Rammer",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A wedge ship charging for flight: a hatch hissing open, power leads snapping in, sharp electrical impulses climbing, the copper hull shivering with stored light"
+  },
+  {
+   "id": "289",
+   "title": "Rustvine Cultivator",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "Thick oil drops falling one after another onto a copper root: wet slaps with bright metallic ticks, then slow sticky dripping and a faint metal creak. Very clos"
+  },
+  {
+   "id": "290",
+   "title": "Soulbright Flamekin",
+   "archetype": "steam_hiss",
+   "rule": "syk pary / gazu (syk musi być parą/gazem, nie przypadkowym słowem)",
+   "prompt": "A burst of flame igniting. Starts instantly with a hard percussive whoomp on the very first sample, no fade in: turbulent rushing fire with sharp sparks crackin"
+  },
+  {
+   "id": "291",
+   "title": "Plague Reaver",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A plague beast exhaling contagion: heavy wet breaths, a thick smog of tainted air rolling off its neck, abandoned armor shifting in the dust. No music, no speec"
+  },
+  {
+   "id": "292",
+   "title": "Rediscover the Way",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "A parchment scroll flapping hard in a gust while wooden shutters knock against their frames: paper snapping and rattling, wood clattering on wood, dust grains t"
+  },
+  {
+   "id": "293",
+   "title": "Forever Young",
+   "archetype": "liquid_pour",
+   "rule": "ciecz / mikstura",
+   "prompt": "A large cauldron of thick liquid boiling: heavy viscous bubbles rising and bursting with wet plops, syrupy churning underneath, occasional splatter on the rim. "
+  },
+  {
+   "id": "294",
+   "title": "Tumbleweed Rising",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Dry brittle tumbleweed branches dragged and crushed across hard ground: loud crackling, scraping and snapping of thin twigs with dust grit. Close to the microph"
+  },
+  {
+   "id": "295",
+   "title": "Fake Your Own Death",
+   "archetype": "forest_birdsong",
+   "rule": "ptaki",
+   "prompt": "A heavy wooden box being dragged slowly across floorboards, long scraping slides with brief pauses, low and close. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "296",
+   "title": "Minotaur Abomination",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "An abomination stirring in temple ruins: mismatched joints cracking as it shifts, stitched hide creaking, one deep hollow snort echoing between pillars. No musi"
+  },
+  {
+   "id": "297",
+   "title": "Grizzled Leotau",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "An old lion leaving the lights: heavy paws pressing slow and deliberate, black slate crunching underfoot, a low tired rumble in his chest. No music, no speech, "
+  },
+  {
+   "id": "298",
+   "title": "Raise the Alarm",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A heavy iron alarm bell rung by pulling a thick rope: rope creaking through the wheel, then the clapper striking the bell with a deep loud clang, the bell swing"
+  },
+  {
+   "id": "299",
+   "title": "Farbog Explorer",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Wading a night swamp: boots sucking through black mud, water lapping at shins, a lantern hissing softly as faint shapes stir beside the path. No music, no speec"
+  },
+  {
+   "id": "300",
+   "title": "Gila Courser",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A gila runner at full sprint: claws raking red rock, a lizard bounding in huge leaps, dust bursting with each push off stone. No music, no speech, no ambience b"
+  },
+  {
+   "id": "301",
+   "title": "Guildscorn Ward",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Two heavy thumps of bodies pressing into a taut invisible membrane, like palms striking a huge stretched drumhead, each hit rebounding with a low rubbery wobble"
+  },
+  {
+   "id": "302",
+   "title": "Curate",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Parchment scrolls being shuffled and set down on a heavy wooden table, dry crisp paper rasping, recorded very close, loud and clear. No music, no speech, no amb"
+  },
+  {
+   "id": "303",
+   "title": "Blanchwood Prowler",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "Twigs snapping and damp wood creaking as a heavy body pushes through dense undergrowth, recorded very close, loud and clear. No music, no speech, no ambience be"
+  },
+  {
+   "id": "304",
+   "title": "Sagittars' Volley",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "A triple volley loosed as one: three bowstrings snapping in the same breath, arrows hissing upward, wings beating frantically above. No music, no speech, no amb"
+  },
+  {
+   "id": "305",
+   "title": "Illusory Demon",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A dry brittle crumble, like a charred sheet of paper collapsing into flakes, soft papery crackling fading out. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "306",
+   "title": "Mysteries of the Deep",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Sea water rushing back over wet sand in one long withdrawing hiss, fading as the water pulls away. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "307",
+   "title": "Jyoti, Moag Ancient",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "An ancient forest guardian rousing its kin: spring water bursting from cracked bark, roots tearing out of rock with long groaning creaks, heavy wooden limbs str"
+  },
+  {
+   "id": "308",
+   "title": "Greatsword of Tyr",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "One slow ceremonial greatsword drawn from a metal scabbard, a long clean ringing slide of steel, solemn and close. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "309",
+   "title": "Civilized Scholar",
+   "archetype": null,
+   "rule": null,
+   "prompt": "An inkwell tipping over on a desk, thick ink glugging out in slow pulses and spreading, small wet details, very close. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "310",
+   "title": "Chatter of the Squirrel",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Mutated squirrels chattering: sharp rapid chatter from a rune-carved trunk, a second higher answer from the undergrowth, claws scrabbling on bark. No music, no "
+  },
+  {
+   "id": "311",
+   "title": "Guildsworn Prowler",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A muffled tavern brawl heard through a thick wall, dull blurred thumps and crashes, distant and muted. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "312",
+   "title": "Goblin Battle Jester",
+   "archetype": "creature_cackle",
+   "rule": "ręczna deklaracja",
+   "prompt": "A mischievous goblin jester hopping in a mocking dance on flat stone: bright brass jester bells jingling rhythmically, hollow dry bone armor plates clacking tog"
+  },
+  {
+   "id": "313",
+   "title": "Faceless Butcher",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "A faceless horror striding closer: sharp chitin legs ticking over fleshy ground, long arms swaying, a smooth blank head humming as it drinks in a face. No music"
+  },
+  {
+   "id": "314",
+   "title": "Revolutionist",
+   "archetype": "undead_groan",
+   "rule": "jęk",
+   "prompt": "Loose pages whipped into a spiral: paper fluttering and snapping through the air, shelves groaning, one red rune flaring hot on an open book. No music, no speec"
+  },
+  {
+   "id": "315",
+   "title": "Chronic Flooding",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "A flooded archive street: water pouring steadily from a broken conduit, floating books and boards knocking against legs, urgent wading splashes. No music, no sp"
+  },
+  {
+   "id": "316",
+   "title": "Wormfang Newt",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A rift swallowing a patch of meadow: space rippling and folding like wet paper, grass and stone tearing loose and vanishing with a hollow slurp. No music, no sp"
+  },
+  {
+   "id": "317",
+   "title": "Village Bell-Ringer",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A large iron church bell tolling in alarm: several fast, hard clapper strikes on a heavy cast bell, each with a clear ringing fundamental and a long resonant me"
+  },
+  {
+   "id": "318",
+   "title": "Gond Gate",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A mechanical gate opening itself: heavy gears engaging and turning, counterweights sliding down their chains, stone doors rumbling apart along the arch. No musi"
+  },
+  {
+   "id": "319",
+   "title": "Call the Mountain Chocobo",
+   "archetype": "forest_birdsong",
+   "rule": "ptaki",
+   "prompt": "A mountain chocobo leaping rock steps: claws gouging gravel with each launch, dust bursting underfoot, a sharp bird squawk of effort. No music, no speech, no am"
+  },
+  {
+   "id": "320",
+   "title": "Infectious Horror",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "An infectious horror drifting past: three narrow head-slits hissing green vapor, bone dust sifting down beneath it, weakened bodies sagging to the ground. No mu"
+  },
+  {
+   "id": "321",
+   "title": "Ainok Artillerist",
+   "archetype": "undead_groan",
+   "rule": "jęk",
+   "prompt": "A ballista of sacred grove wood firing: the lever slamming home, a heavy bolt tearing loose with a deep thrum, wood fibers groaning in the frame. No music, no s"
+  },
+  {
+   "id": "322",
+   "title": "Satyr Wayfinder",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "Hooves and hands scraping and rummaging through loose soil and pebbles, steady earthy digging, close and dry. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "326",
+   "title": "Bone Shredder",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A bone shredder machine descending: violet membranes crackling softly, a heavy fragment clamped in its claw, its presence echoing off metal walls then dying to "
+  },
+  {
+   "id": "330",
+   "title": "Invasion of the Giants",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Giant footfalls landing on frozen ground: each heavy impact with loud crunching frost, cracking soil and small stones skittering away. Keep the crunch bright an"
+  },
+  {
+   "id": "331",
+   "title": "Trostani Discordant",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "Dry autumn leaves sifting and ticking down onto flat stone, a light papery patter, with two wooden spear shafts knocking together once, hollow and uneasy. Recor"
+  },
+  {
+   "id": "335",
+   "title": "Gather the Townsfolk",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A crowd of townsfolk hurrying across a cobbled square, many shuffling and scuffing footsteps gathering closer, no voices. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "337",
+   "title": "Glaring Aegis",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A bronze shield ringing once from a sharp glancing strike: one bright metallic clang with a long shimmering ring-out, like a small gong fading naturally. No mus"
+  },
+  {
+   "id": "339",
+   "title": "Patron of the Arts",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A dragonborn patron claiming her prize: heeled steps on marble, a heavy gilded frame knocking against her hip, scales rustling beneath stiff silk flounces. No m"
+  },
+  {
+   "id": "342",
+   "title": "Gorger Wurm",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A swamp wurm surfacing: black water peeling off a massive scaled body, mud sucking and ripping, a bone-masked maw parting with a wet roar. No music, no speech, "
+  },
+  {
+   "id": "343",
+   "title": "Puppeteer Clique",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "Faerie puppeteers raising the fallen: fine silk threads drawn taut with faint chimes, a mossy armor creaking as stiff limbs are bent, a body dragged upright. No"
+  },
+  {
+   "id": "344",
+   "title": "Pain for All",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "Crossed blades discharging agony: two curved blades clashing above a warrior's head, a red shockwave rolling outward across the arena, scattered cries of shared"
+  },
+  {
+   "id": "345",
+   "title": "Porcelain Legionnaire",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "One precise blade whoosh slicing cold air, a thin whistling steel sweep, followed by a light hard ceramic click as a porcelain foot lands on stone. No music, no"
+  },
+  {
+   "id": "346",
+   "title": "Necrosquito",
+   "archetype": "insect_swarm",
+   "rule": "rój",
+   "prompt": "A necrosquito feeding on a wreck: thin insect wings whining, a needle proboscis dipping into leaking oil, the body swelling heavier with each drop. The sound fi"
+  },
+  {
+   "id": "347",
+   "title": "Pristine Talisman",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A single clear strike of a small polished metal bell, one hit only, the ring fading completely to silence well before the clip ends. No music, no speech, no amb"
+  },
+  {
+   "id": "349",
+   "title": "Enduring Sliver",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "An enduring sliver anchoring itself: hooked limbs driving deep into dune sand, segmented plates grinding thicker over its body, wind hissing across the crest. T"
+  },
+  {
+   "id": "352",
+   "title": "Evangel of Synthesis",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A pact of oil and metal: viscous droplets falling one by one onto a kneeling acolyte, flesh creaking as plates surface beneath skin, a low solemn drone of assen"
+  },
+  {
+   "id": "354",
+   "title": "Wretched Banquet",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A banquet verdict: an ethereal balance scale chiming as it tips, a black halo tightening around a small creature, its body crumbling into dark motes. No music, "
+  },
+  {
+   "id": "355",
+   "title": "Cathartic Reunion",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "Laying a burdensome armor down: heavy plates set on a workbench one by one, buckles and keepsakes clinking, a long slow breath of relief. No music, no speech, n"
+  },
+  {
+   "id": "358",
+   "title": "Frontline War-Rager",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "One deep reptilian war roar from a single huge beast, raw and guttural, ending in a rattling snarl. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "360",
+   "title": "Inspiration",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Inspiration striking a scholar: a quill standing upright and scratching runes on its own, two parchment sheets glowing brighter, a sharp gasp of understanding. "
+  },
+  {
+   "id": "362",
+   "title": "Simian Simulacrum",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A mechanical ape emerging: steel limbs hauling out of a sunken pit, joints whirring, two beams of green energy striking an ally's chest plate and fusing as glow"
+  },
+  {
+   "id": "366",
+   "title": "Assert Perfection",
+   "archetype": "heavy_impact",
+   "rule": "ciężkie uderzenie",
+   "prompt": "A spear point striking a wooden shield once: a hard bright impact splitting into cracking wood fibres, shield boards rattling briefly afterwards. Close and loud"
+  },
+  {
+   "id": "367",
+   "title": "Battle-Rattle Shaman",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A shaman's gourd rattle shaken in a driving repeating rhythm: dry seeds hissing inside the shell on every stroke, small copper bells and rings jangling with eac"
+  },
+  {
+   "id": "370",
+   "title": "Consume Spirit",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "A thin rasping suction of liquid drawn fast through a narrow glass tube, ending in one small hollow gulp, close and clear. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "372",
+   "title": "Dragonbroods' Relic",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "One deep grinding scrape of a massive stone fossil shifting on a rock pedestal, slow, heavy and resonant. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "373",
+   "title": "Fear of Abduction",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A nightmare abduction: a soldier dragged upward through cold air, a swirling void face humming above the ceiling, one last muffled struggle falling silent. Clea"
+  },
+  {
+   "id": "374",
+   "title": "Thistledown Players",
+   "archetype": "folk_music",
+   "rule": "muzyka ludowa",
+   "prompt": "A tiny travelling minstrel band playing while walking: a small wooden fife and a fiddle carrying a simple lively marching tune together, a hand drum keeping the"
+  },
+  {
+   "id": "375",
+   "title": "Deadly Recluse",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "A dry zipping rasp of spider silk paying out fast, like thin line pulled off a spool, ending with one muffled desperate flutter of trapped insect wings. No musi"
+  },
+  {
+   "id": "376",
+   "title": "Doomed Dissenter",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A swollen corpse rising: soaked leaves sliding off bloated shoulders, seams of a shirt tearing wide, stiff gloves left lying by a dead lantern. No music, no spe"
+  },
+  {
+   "id": "377",
+   "title": "Scroll of Avacyn",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A parchment scroll unrolled quickly, crisp dry paper rustling and crackling, recorded very close, loud and clearly audible. No music, no speech, no ambience bed"
+  },
+  {
+   "id": "379",
+   "title": "Swooping Protector",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A guardian landing hard on a balcony: great wings backwinging to brake, talons scraping stone, an energy bolt bursting flat against a round blue barrier. No mus"
+  },
+  {
+   "id": "381",
+   "title": "Caravan Vigil",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "Slow rhythmic creaking of a parked wooden wagon settling and swaying gently in night wind, calm and steady. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "382",
+   "title": "Geological Appraiser",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A pickaxe strike releasing a guardian: steel biting into rock, a crystal cracking wide, an ancient presence unfurling from the fissure with a stone groan. No mu"
+  },
+  {
+   "id": "383",
+   "title": "Supernatural Stamina",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "Tight leather straps creaking hard as they are pulled taut, with two dull body thumps underneath them. Bright leather creak in front, close to the microphone. N"
+  },
+  {
+   "id": "384",
+   "title": "Sequestered Stash",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Unearthing a stash under the city: rubble shifting aside, a golden artifact brushing free of sand with a soft ring, aether dust sparkling down from cracked tank"
+  },
+  {
+   "id": "385",
+   "title": "Midnight Guard",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A night guard startled to attention: boots pivoting hard on a wooden walkway, a heavy gate groaning open, a halberd shaft whipping up into ready grip. No music,"
+  },
+  {
+   "id": "386",
+   "title": "Insatiable Appetite",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Enormous wet chewing of huge jaws working loudly, sloppy and greedy, ending with one deep gulp. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "387",
+   "title": "Molten Nursery",
+   "archetype": "volcanic_eruption",
+   "rule": "ręczna deklaracja",
+   "prompt": "A volcano erupting close by: molten lava tearing out of the ground in a sustained roar, rocks cracking and bursting apart, dense steam hissing over the cooling "
+  },
+  {
+   "id": "388",
+   "title": "Goblin Picker",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "Scrap metal being picked up and tossed aside, clanking and clattering pieces landing on a metal deck, busy and close. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "389",
+   "title": "Bring Low",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "An ice colossus brought low: a palm pressing calm against a frozen brow, glowing runes fading, huge knees cracking into snow, a long breath of steam sinking awa"
+  },
+  {
+   "id": "393",
+   "title": "Forge Devil",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A devil wrecking an archive: an iron bar pulverizing a stone pillar, sparks and sharp shards ricocheting, burning scrolls lighting the smoky halls. No music, no"
+  },
+  {
+   "id": "395",
+   "title": "Unearth",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A corpse unearthed by rain: mud bursting upward in a downpour, rusted armor grinding free of the grave, a violet light guttering awake in hollow eyes. No music,"
+  },
+  {
+   "id": "396",
+   "title": "Vow of Wildness",
+   "archetype": "creature_roar",
+   "rule": "ręczna deklaracja",
+   "prompt": "A wild beast roaring: one long throaty roar of a large horned bull-like creature, clearly animal and harmonic, held and swelling, ending in a forceful snort. No"
+  },
+  {
+   "id": "399",
+   "title": "Chill of the Grave",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A body frozen mid-step: ice crackling outward and sealing an intruder solid, a shrouded form gliding closer through the frost, parchment whispering in its grip."
+  },
+  {
+   "id": "401",
+   "title": "Rage of Purphoros",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Red hot metal searing and melting: a fierce sustained hiss, metal skin crackling and warping, droplets of molten material spitting and sizzling on stone. Close,"
+  },
+  {
+   "id": "403",
+   "title": "Dementia Bat",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A dementia bat's final protocol: a metal carapace splitting open with a sharp crack, concentrated gas hissing out in a dense cloud, a mind unraveling inside it."
+  },
+  {
+   "id": "419",
+   "title": "Fear of Burning Alive",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A fear of burning made flesh: a crushing heatwave rolling off a smoldering figure, paint blistering on the walls, a summoned guardian crumbling to ash mid-strid"
+  },
+  {
+   "id": "420",
+   "title": "Cellar Door",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A cellar door breached: old iron hinges shrieking as the door swings, torn seals fluttering down, slow uneven footsteps climbing out of the dark. No music, no s"
+  },
+  {
+   "id": "421",
+   "title": "Dreams of Steel and Oil",
+   "archetype": null,
+   "rule": null,
+   "prompt": "An engineer waking in terror: a body jolting upright, artifacts swept and smashing on stone, an inkwell overturning and flooding drawings black. No music, no sp"
+  },
+  {
+   "id": "422",
+   "title": "Benevolent Blessing",
+   "archetype": null,
+   "rule": null,
+   "prompt": "An elven dome of starlight: a bright barrier blooming over a rider, dark webbing searing away on contact, a soft rush of protective light. No music, no speech, "
+  },
+  {
+   "id": "428",
+   "title": "Curiosity",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Heavy claws hammering repeatedly on an iron-banded wooden post: hard booming impacts with a bright metal ring and splintering wood on every hit. Close, detailed"
+  },
+  {
+   "id": "430",
+   "title": "Nightshade Harvester",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Harvesting nightshade by moonlight: berries plucked one by one, leaves rustling softly under careful fingers, a pestle grinding the last of the harvest into ven"
+  },
+  {
+   "id": "431",
+   "title": "Delta Bloodflies",
+   "archetype": "insect_swarm",
+   "rule": "rój",
+   "prompt": "A bloodfly swarm cornering a boat: thick wings droning closer and closer, chitin bodies bouncing off wood, an old wound throbbing with a wet pulse. No music, no"
+  },
+  {
+   "id": "432",
+   "title": "Wishful Merfolk",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A mermaid trading fins for feet: a fish tail splitting with wet cracks, scales peeling away, first unsteady steps on sharp rock. No music, no speech, no ambienc"
+  },
+  {
+   "id": "433",
+   "title": "Inspire Awe",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A goddess stepping out of the wild: branches knitting into a towering form, emerald light flaring wide, spears clattering to the ground from nerveless hands. No"
+  },
+  {
+   "id": "434",
+   "title": "Epic Experiment",
+   "archetype": "thunder_clap",
+   "rule": "grzmot",
+   "prompt": "A mizzium reactor overloading: a rising harmonic whine, the chamber cracking open, a cascade of fire and wild lightning bursting out at once. Clean recording at"
+  },
+  {
+   "id": "435",
+   "title": "Warrior's Sword",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A relic sword accepting its wielder: a hilt gripped tight, power surging up the arm, crimson armor crystallizing piece by piece around the body. Clean recording"
+  },
+  {
+   "id": "436",
+   "title": "Fireball",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Three fireballs split from one spell: a single charge cracking into three, each sphere whooshing to its target, wood igniting with rolling heat. No music, no sp"
+  },
+  {
+   "id": "437",
+   "title": "Giant Spider",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A webbed drake straining: taut silk lines creaking under trapped wings, a heavy spider stepping down strand by strand, the web flexing with every pluck. No musi"
+  },
+  {
+   "id": "438",
+   "title": "Circle of the Land Druid",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Old ruins rotting into new soil: dead leaves crumbling to rich earth, buried artifacts flaking apart, green pulses quickening as seeds stir beneath. No music, n"
+  },
+  {
+   "id": "439",
+   "title": "Hecteyes",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A many-eyed horror emerging: a gelid body oozing from a crystal fissure, dozens of eyes opening at once, a scout's arms going slack and gear thudding to the flo"
+  },
+  {
+   "id": "440",
+   "title": "Your Temple Is Under Attack",
+   "archetype": "heavy_impact",
+   "rule": "ciężkie uderzenie",
+   "prompt": "A temple ward springing up: a silver barrier snapping into place on altar steps, a demon's charge slamming flat against it, a parchment scroll held out in offer"
+  },
+  {
+   "id": "441",
+   "title": "Survivor of Korlis",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A survivor picking through ruins: embers shifting underfoot, a scorched parchment dragged free of rubble, a spear butt stamped once into ash. No music, no speec"
+  },
+  {
+   "id": "442",
+   "title": "Cenn's Tactician",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A row of boots stamping into position in one crisp unison stomp on packed earth, single sharp impact with a short shuffle. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "443",
+   "title": "Scorned Villager",
+   "archetype": null,
+   "rule": null,
+   "prompt": "An exile alert at a dying fire: branches cracking in the thicket, a knife rasping out of its sheath, embers popping as a log settles. No music, no speech, no am"
+  },
+  {
+   "id": "444",
+   "title": "Colossodon Yearling",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A dragon stooping on an armored herbivore: wings cutting air in a dive, a huge shadow sweeping over rock, talons raking across a stone-hard shell. No music, no "
+  },
+  {
+   "id": "445",
+   "title": "Locthwain Paladin",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A heavy armored warhorse walking through icy snow: four clear hoof crunches breaking frozen crust, with steel tack and plate armor clinking between steps. No mu"
+  },
+  {
+   "id": "446",
+   "title": "Unbreakable Bond",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A huge reptile waking: one slow rasping inhale drawing air through wide nostrils, then a heavy rumbling exhale with loose throat flutter. Very close to the muzz"
+  },
+  {
+   "id": "447",
+   "title": "Resurrected Cultist",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A cultist rising from grave-litter: bones sliding aside, rotted tomes sloughing off a ragged frame, a rusted dagger hilt creaking in a dead grip. No music, no s"
+  },
+  {
+   "id": "448",
+   "title": "Rupture Spire",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A chaos spire erupting from a street: cobblestones bursting upward, a crystal spike grinding skyward, wild rainbow discharges snapping off its facets. Clean rec"
+  },
+  {
+   "id": "449",
+   "title": "Greater Tanuki",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A giant tanuki plowing through deep forest: massive paws pressing saplings flat, thick branches snapping like dry twigs, a contented huff of breath. No music, n"
+  },
+  {
+   "id": "450",
+   "title": "Thornhide Wolves",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Thick thorn canes dragged across hard bark-like hide and springing back: dry scraping, sharp thorn snaps and rustling branches. Bright, close, detailed. No musi"
+  },
+  {
+   "id": "451",
+   "title": "Downwind Ambusher",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A pressurised spray released from a small animal: a sharp wet hiss of atomised liquid, then ferns thrashing and rustling as a body bursts through them. Close, d"
+  },
+  {
+   "id": "452",
+   "title": "Omenspeaker",
+   "archetype": "arcane_choir",
+   "rule": "ręczna deklaracja",
+   "prompt": "A prophecy from the heavens: a wordless mystical choir chant swelling in sustained harmonious voices, with a soft bell shimmer over it, rising and slowly fading"
+  },
+  {
+   "id": "453",
+   "title": "Elgaud Inquisitor",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "Heavy rain drumming hard on steel plate armour: dense bright metallic pattering with water sheeting and running off the plates. Recorded very close, loud and pr"
+  },
+  {
+   "id": "454",
+   "title": "Setessan Skirmisher",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "Starlight arming an ambusher: a hushed forest stillness, Nyx-bright energy seething along a blade and forearms, bark creaking under braced feet. The sound finis"
+  },
+  {
+   "id": "455",
+   "title": "Irontread Crusher",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A steam crusher grinding through a ruined camp: iron-studded wheels crushing palisade wood, debris popping under tread, pressure valves whistling, pistons hamme"
+  },
+  {
+   "id": "456",
+   "title": "Crawling Chorus",
+   "archetype": "insect_swarm",
+   "rule": "rój",
+   "prompt": "Porcelain horrors shattering into swarm: glazed shells cracking under blows, a spill of metal mites skittering free, tiny claws ticking across sterile floors. N"
+  },
+  {
+   "id": "457",
+   "title": "Silken Strength",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Living silk saving a racing rover: a chassis tipping and scrapping the track, thick glowing strands snapping taut around it, the machine hauled back upright. No"
+  },
+  {
+   "id": "458",
+   "title": "Trained Arynx",
+   "archetype": "thunder_clap",
+   "rule": "grzmot",
+   "prompt": "An arynx leaping a canyon: clawed paws launching off the rim, a long hang of rushing wind, a heavy landing scattering gravel. No music, no speech, no ambience b"
+  },
+  {
+   "id": "459",
+   "title": "Prismari Campus",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "Fire meeting water on a stage: a roaring flame jet plunging into a climbing water spiral, steam bursting white, a skin of ice crackling into being. No music, no"
+  },
+  {
+   "id": "460",
+   "title": "Ivy Lane Denizen",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "Armor fitted on a centaur: heavy horn plates clapped onto a broad chest, straps hauled tight, buckles snapping home, a testing knock on the cuirass. No music, n"
+  },
+  {
+   "id": "461",
+   "title": "Negate",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A spell snuffed mid-flight: a fireball roaring toward its mark, water jets and thick vines erupting to crush it, the flame collapsing into a cloud of white stea"
+  },
+  {
+   "id": "462",
+   "title": "Marut",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A marut sealing a pact: iron footfalls striding across a hall, gold coins crunching flat under each step, a colossal fist stamping the contract seal. No music, "
+  },
+  {
+   "id": "463",
+   "title": "Knockout Maneuver",
+   "archetype": "heavy_impact",
+   "rule": "ręczna deklaracja",
+   "prompt": "A knockout wrestling throw on hard ice: a heavy body slams flat with a dull thud, then long sharp cracks race across the ice and small frozen shards patter into"
+  },
+  {
+   "id": "464",
+   "title": "Polluted Dead",
+   "archetype": "undead_groan",
+   "rule": "ręczna deklaracja",
+   "prompt": "A plague zombie moaning deep in its chest: a slow guttural groan in a low register, wet rattle in the throat, held long and sagging at the end. No music, no spe"
+  },
+  {
+   "id": "465",
+   "title": "Gurmag Drowner",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A mind drained into the swamp: a sharp magical suction peeling memories away, one thought plucked out bright, a body slipping under black mud with a heavy gulp."
+  },
+  {
+   "id": "466",
+   "title": "Basilisk Gate",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A city's old power arming a guard: golden light streaming from carved gate arches, armor plates drinking it in and humming, a distant resonance answering from r"
+  },
+  {
+   "id": "467",
+   "title": "Monastery Flock",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "A mountain flock rising from monastery towers: hundreds of wings catching one gust, a rushing wind of feathers circling the walls, distant crooks and calls. No "
+  },
+  {
+   "id": "468",
+   "title": "Cacophodon",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A cacophodon's deafening roar: a bellow blasting outward like a shockwave, ancient ferns whipping flat, the ground trembling, birds scattering in panic. No musi"
+  },
+  {
+   "id": "469",
+   "title": "Chained Throatseeker",
+   "archetype": "chain_rattle",
+   "rule": "łańcuch / kolczuga",
+   "prompt": "A chained predator scenting oil: heavy links snapping taut and grinding, a cage rattling under sudden lunges, a wet growl building to a frenzy. No music, no spe"
+  },
+  {
+   "id": "470",
+   "title": "Springbloom Druid",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A sacrifice of soil awakening two trees: fertile earth draining grey and crumbling to dust, that life erupting upward, two trunks bursting through ash and unfur"
+  },
+  {
+   "id": "471",
+   "title": "Healer of the Glade",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Dry herbs being gently crushed and crumbled between palms, a fine leafy crackle with soft falling particles, very close. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "472",
+   "title": "Kazuul's Toll Collector",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "An ogre toll collector taking his due: a fine sword wrenched from a sheath and slapped into a huge harness, blades and buckles clinking onto a belt of trophies."
+  },
+  {
+   "id": "473",
+   "title": "Scion Summoner",
+   "archetype": "undead_groan",
+   "rule": "jęk",
+   "prompt": "Reality warping under a drone's limb: spongy moss stiffening and crackling into obsidian, the ground groaning as a scion incubator rises, something stirring ins"
+  },
+  {
+   "id": "474",
+   "title": "Scroll Thief",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A scroll thief slipping away: webbed feet padding up wet marble steps, wax-sealed parchments crackling in a tight grip, a quiet dive back into churning foam. No"
+  },
+  {
+   "id": "475",
+   "title": "Ruinous Rampage",
+   "archetype": "undead_groan",
+   "rule": "jęk",
+   "prompt": "A mech arm swung as a club: torn metal groaning through the air, terminals bursting in showers of blue sparks, shattered electronics raining down. No music, no "
+  },
+  {
+   "id": "476",
+   "title": "Banishment Decree",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A decree of banishment: a torrent of sterile white light flooding over a body, boots skidding and scraping across polished floors, a final surge hurling him out"
+  },
+  {
+   "id": "477",
+   "title": "Jeskai Windscout",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "An aven diving on cold currents: wings folding into a steep dive, wind screaming past, a spear-head flaring bright with borrowed magic. No music, no speech, no "
+  },
+  {
+   "id": "478",
+   "title": "Spare from Evil",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Claws raking across a hard glassy barrier, a screeching slide skittering off without grip, sharp and close. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "479",
+   "title": "Impact Tremors",
+   "archetype": "thunder_clap",
+   "rule": "grzmot",
+   "prompt": "A charge striking the ground: heavy armor slamming down on rock, a seismic shockwave rolling outward with red lightning, stone rattling and a soldier collapsing"
+  },
+  {
+   "id": "480",
+   "title": "Zoraline, Cosmos Caller",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A fine sparkling trickle, like dry sand pouring steadily onto a glass plate, ending with one clear sharp human gasp of a waking breath. No music, no speech, no "
+  },
+  {
+   "id": "481",
+   "title": "Dawntreader Elk",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Bright meltwater trickling and dripping from thawing branches, steady clear droplets pattering on wet snow, close and fresh. No music, no speech, no ambience be"
+  },
+  {
+   "id": "482",
+   "title": "True Conviction",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "Twin blades cutting into rusted metal plating: two fast hard strikes, each tearing through corroded sheet with a grinding screech, flakes of rust falling away. "
+  },
+  {
+   "id": "483",
+   "title": "Lodestone Needle",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A lodestone needle snapping to life: a violet flare of magnetic force, steel armor wrenching and locking rigid mid-leap, a body frozen in the air. No music, no "
+  },
+  {
+   "id": "484",
+   "title": "Guidestone Compass",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Smooth brass rings spinning inside a stone housing with a fine metallic hiss, slowing until one gentle click as they align. No music, no speech, no ambience bed"
+  },
+  {
+   "id": "485",
+   "title": "Moonscarred Werewolf",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A werewolf watching from a ridge: slow deep breaths in the night, claws flexing into cold stone, distant lanterns creaking in the fog below. No music, no speech"
+  },
+  {
+   "id": "486",
+   "title": "Krallenhorde Wantons",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A pack leader smashing through a tavern door: hinges tearing loose in one blow, wood splintering wide, muddy paws padding out of the mist behind him. No music, "
+  },
+  {
+   "id": "487",
+   "title": "Stoic Rebuttal",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A rebuttal without a glance: three chromed artifacts chiming in resonance, a geometric shield snapping into place, a fireball bursting harmlessly against its fa"
+  },
+  {
+   "id": "488",
+   "title": "Carapace Forger",
+   "archetype": "anvil_strike",
+   "rule": "kowadło",
+   "prompt": "A carapace assembled from artifacts: copper plates locking over shoulders one by one, three relics clamping into their sockets and humming up, a smith's frame s"
+  },
+  {
+   "id": "489",
+   "title": "Seer's Lantern",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A small metal lantern shutter sliding open with a smooth scrape and a click, followed by a thin crystalline tone rising softly, like a wet finger circling a gla"
+  },
+  {
+   "id": "490",
+   "title": "Awaken the Sleeper",
+   "archetype": null,
+   "rule": null,
+   "prompt": "One sharp dry crack of a wooden weapon shaft snapped in half, a single splintering break, close and hard. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "491",
+   "title": "Nature's Embrace",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "Nature armoring an ally: ivy threading and tightening around forearms, bark hardening plate by plate, the ground glowing warm gold-green beneath their feet. No "
+  },
+  {
+   "id": "492",
+   "title": "Secluded Steppe",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "A gust laying down tall dry grass on an open barrow: dense stalk rustle sweeping past, seed heads ticking against each other, the whole field leaning and settli"
+  },
+  {
+   "id": "493",
+   "title": "Skyclave Geopede",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A stone wall cracking apart, chunks of rock tumbling and clattering onto a stone floor, recorded at moderate level with generous headroom, no distortion. No mus"
+  },
+  {
+   "id": "494",
+   "title": "Crested Herdcaller",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A herdcaller's summons answered: a deep throaty roar rolling through jungle, an answering call crashing closer, two massive bodies charging as one through splin"
+  },
+  {
+   "id": "495",
+   "title": "Scorch Spitter",
+   "archetype": "volcanic_eruption",
+   "rule": "wulkan",
+   "prompt": "A magma lizard guarding the bar: a small leap and snap of jaws, a spit of flame licking across oak, a kettle hissing as it catches the heat. No music, no speech"
+  },
+  {
+   "id": "496",
+   "title": "Shiv's Embrace",
+   "archetype": "volcanic_eruption",
+   "rule": "wulkan",
+   "prompt": "Wings of fire unfurling over a lava lake: plasma feathers stretching wide from a warrior's arms, superheated air rushing and roaring, a breath glowing white-hot"
+  },
+  {
+   "id": "497",
+   "title": "Static Net",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "Electric arcs snapping across a geared iron machine. Starts instantly at full level with a hard dry crack, no fade in and no build up: rapid bright crackling, s"
+  },
+  {
+   "id": "498",
+   "title": "Fathom Fleet Cutthroat",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "Spoils swept overboard: broken shields kicked off a gunwale, heavy splashes fading below, dark water stirring as hungry shapes circle. No music, no speech, no a"
+  },
+  {
+   "id": "499",
+   "title": "Vandalize",
+   "archetype": "heavy_impact",
+   "rule": "ciężkie uderzenie",
+   "prompt": "A monument shattered at its roots: a crushing blow cracking ancient brass, the whole terrace splitting, marble blocks tearing loose and booming down into the mi"
+  },
+  {
+   "id": "500",
+   "title": "Instant Ramen",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Someone eating instant ramen close up: noodles slurped from a foam cup, chopsticks clacking lightly on the rim, a satisfied swallow but no words. No music, no s"
+  },
+  {
+   "id": "501",
+   "title": "Exterminator Magmarch",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A reactor-charged double blast: cannons spooling up through a pulsing core, twin streams of dark plasma roaring out, barricades slumping into molten ruin. Clean"
+  },
+  {
+   "id": "502",
+   "title": "Kin-Tree Nurturer",
+   "archetype": "liquid_pour",
+   "rule": "ciecz / mikstura",
+   "prompt": "Life poured into a dead tree: energy streaming from a palm into cracked bark, dry wood groaning awake, a spectral warrior stepping free of the branches. No musi"
+  },
+  {
+   "id": "503",
+   "title": "Rustwing Falcon",
+   "archetype": "wind_gust",
+   "rule": "wiatr",
+   "prompt": "Falcons nesting in a dragon's ribs: sharp cries echoing off sun-bleached bone, talons scratching along old vertebrae, wind whistling through the empty ribs. No "
+  },
+  {
+   "id": "504",
+   "title": "Ballista Watcher",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A heavy wooden ballista firing once: a sharp snap of the trigger and a deep thump of the throwing arms, one shot only, moderate level with headroom, no distorti"
+  },
+  {
+   "id": "505",
+   "title": "Ballista Wielder",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A werewolf tearing a ballista free: iron bolts shearing from their mounts, a whole oak frame groaning up in huge clawed hands, the loaded weapon creaking toward"
+  },
+  {
+   "id": "506",
+   "title": "Spread the Sickness",
+   "archetype": "liquid_pour",
+   "rule": "ciecz / mikstura",
+   "prompt": "Thick oil glugging and spreading slowly over moss: viscous heavy bubbles swelling and popping, with dry brittle crackles as stiff growths snap upward through th"
+  },
+  {
+   "id": "507",
+   "title": "Shatter",
+   "archetype": null,
+   "rule": null,
+   "prompt": "An iron shell bursting apart from inside: a hard metallic rupture with tearing plate, then heavy fragments raining down and clanging across a stone floor. Close"
+  },
+  {
+   "id": "508",
+   "title": "Wavecrash Triton",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A water column caging a minotaur: a wave snapping up into a hardened pillar around a charging body, froth sealing the trap, hooves skidding to a frozen stop ins"
+  },
+  {
+   "id": "509",
+   "title": "Highland Game",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A stalk through highland snow: one careful boot placed between drifts, a crossbow creaking up to the shoulder, an elk's head snapping alert through thin air. No"
+  },
+  {
+   "id": "510",
+   "title": "Angel of the Dawn",
+   "archetype": "arcane_choir",
+   "rule": "chór / zaśpiew",
+   "prompt": "A wordless choir of high voices rising on a single open vowel, slow swell from quiet to full, bright and clear with cathedral space around them, ending suspende"
+  },
+  {
+   "id": "511",
+   "title": "Emerald Oryx",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A heavy animal body settling softly onto forest leaf litter, leaves and twigs compressing with a soft crunch, recorded very close, clearly audible. No music, no"
+  },
+  {
+   "id": "512",
+   "title": "Vanish from Sight",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A friend swallowed by the walls: wood warping and gulping a body inward, an armored hand snatching at empty air, blue afterimages fading to silence. No music, n"
+  },
+  {
+   "id": "513",
+   "title": "Spreading Insurrection",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "A ship sail booming taut in a sudden violent gust, canvas cracking once and rigging ropes straining and thrumming. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "514",
+   "title": "Wolfkin Bond",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "Hunter and wolf striking as one: two sets of feet launching from the same beat, an emerald glint in both pairs of eyes, a shared snarl rolling into a lunge. No "
+  },
+  {
+   "id": "515",
+   "title": "Warmaker Gunship",
+   "archetype": "war_machine",
+   "rule": "ręczna deklaracja",
+   "prompt": "An armored gunship assault ramp deploying: pneumatic hydraulic pistons hiss, heavy steel chains clank, and the massive iron ramp slams down hard onto rock with "
+  },
+  {
+   "id": "516",
+   "title": "Tenth District Veteran",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A veteran holding the line: rubble shifting under planted boots, a notched sword swinging toward the next push, a gauntlet hauling a young recruit back into ran"
+  },
+  {
+   "id": "517",
+   "title": "Force Away",
+   "archetype": "heavy_impact",
+   "rule": "ciężkie uderzenie",
+   "prompt": "One hard concussive burst of compressed air blasting into fine water mist, a wet forceful puff dissolving into droplets. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "518",
+   "title": "Woolly Loxodon",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A loxodon erupting from a snowdrift: white silence cracking open, slabs of ice shearing off thick fur, a mammoth frame rearing to full height with a bellow. No "
+  },
+  {
+   "id": "519",
+   "title": "Lurking Green Dragon",
+   "archetype": "steam_hiss",
+   "rule": "syk pary / gazu (syk musi być parą/gazem, nie przypadkowym słowem)",
+   "prompt": "A dragon perfectly still in the canopy: slow deep breathing in green gloom, a thin hiss of venomous vapor curling from its nostrils, deer hooves trotting away b"
+  },
+  {
+   "id": "520",
+   "title": "Rakshasa Vizier",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A clawed hand setting a heavy gemstone down on stone: one solid weighty clack of mineral on rock, then a claw tip scraping across the slab with a thin grating r"
+  },
+  {
+   "id": "521",
+   "title": "Leafcrown Dryad",
+   "archetype": "forest_birdsong",
+   "rule": "ręczna deklaracja",
+   "prompt": "Thorny bramble vines whipping and twisting tightly around oak branches: crisp rustling of dense forest leaves, sharp snapping of dry wooden twigs, and tough fib"
+  },
+  {
+   "id": "522",
+   "title": "Hobble",
+   "archetype": "chain_rattle",
+   "rule": "łańcuch / kolczuga",
+   "prompt": "Luminous chains hobbling a beast: a holy symbol ringing bright, glowing bindings snapping around galloping legs, a massive body pitching forward into the mud. N"
+  },
+  {
+   "id": "523",
+   "title": "Segmented Krotiq",
+   "archetype": "forest_birdsong",
+   "rule": "ptaki",
+   "prompt": "A thick living willow trunk tearing slowly and then bursting in half, green wood fibers ripping into one final crack. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "524",
+   "title": "Squire's Lightblade",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A lightblade igniting from the hilt: a hidden reliquary clicking open, solid radiance bursting out of the guard in a blinding flash, one decisive thrust. No mus"
+  },
+  {
+   "id": "525",
+   "title": "Jill, Shiva's Dominant",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "Glacial spikes erupting from a rapier strike: ice spears tearing up through frozen ground, steel-clad bodies hurled and clattering away, frost thickening over a"
+  },
+  {
+   "id": "526",
+   "title": "Canonized in Blood",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A vampire canonized in dark power: violet energy pouring down over steel plate, armor plates humming and straining, a deep subterranean rumble building. No musi"
+  },
+  {
+   "id": "527",
+   "title": "Shiva, Warden of Ice",
+   "archetype": null,
+   "rule": null,
+   "prompt": "An ice warden descending: a body unfolding into towering frost, the air cracking cold as mist sweeps the field, boots and hooves locking solid mid-stride. No mu"
+  },
+  {
+   "id": "528",
+   "title": "Enter the Enigma",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A sharp electric rip, like the air itself being sliced open, with a crackling static edge that seals shut behind it. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "529",
+   "title": "Turn the Tide",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A wave of liquid metal turning the tide: a mercury sea swelling into a colossal swell, mirror-heavy water crashing over metal monsters, bodies clattering and sw"
+  },
+  {
+   "id": "530",
+   "title": "Grazing Gladehart",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A gladehart stamping vines flat: thick hooves hammering snaring tendrils into soil, the ground flushing with light, luminous ferns unfurling at every strike. No"
+  },
+  {
+   "id": "531",
+   "title": "Disa the Restless",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "Deep glacier ice creaking and groaning slowly under pressure, hollow frozen pops echoing from within. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "532",
+   "title": "You're Confronted by Robbers",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "Two rusted swords dropping and clattering onto wet cobblestones one after another, followed by heavy iron-shod boots stepping closer in slow unison. No music, n"
+  },
+  {
+   "id": "533",
+   "title": "Death-Hood Cobra",
+   "archetype": null,
+   "rule": null,
+   "prompt": "An iron cobra striking upward: coils unloading in one vertical launch, metal scales rasping, a fanged hood clamping shut on prey high in the air. No music, no s"
+  },
+  {
+   "id": "534",
+   "title": "Terminal Agony",
+   "archetype": "volcanic_eruption",
+   "rule": "wulkan",
+   "prompt": "Armor boiling into slag: iron plates bubbling and running like magma, a helmet sealing shut in liquid metal, an inhuman roar ringing over the wind. No music, no"
+  },
+  {
+   "id": "535",
+   "title": "Lab Rats",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "A skaven laboratory cycle: cage doors clattering open, small claws skittering across moldy tables, brass mechanisms clicking and warping-light hums running. No "
+  },
+  {
+   "id": "536",
+   "title": "Ethersworn Shieldmage",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A geometric shield of hardened mana: etherium arms sweeping up, a lattice barrier snapping into place, bone spears shattering against it in a rattling rain. No "
+  },
+  {
+   "id": "537",
+   "title": "Kor Cartographer",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A taut climbing rope creaking and straining over a wooden pulley, slow tense fiber groans above a windy drop. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "538",
+   "title": "Ojutai's Breath",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "A dragon's breath of crystalline cold: a glittering stream jetting down, an orc freezing mid-leap inside clear ice, fresh frost ticking thicker over the shell. "
+  },
+  {
+   "id": "539",
+   "title": "Silvanus's Invoker",
+   "archetype": "earth_rumble",
+   "rule": "ręczna deklaracja",
+   "prompt": "An earth elemental rising: heavy boulders grinding against each other and cracking, rubble tumbling down in a rolling cascade, a deep rumble underneath, ending "
+  },
+  {
+   "id": "540",
+   "title": "Chittering Rats",
+   "archetype": "insect_swarm",
+   "rule": "rój",
+   "prompt": "A swarm cutting off retreat: sharp squeals echoing through tunnels, hundreds of claws skittering over wet stone, a man backing into a wall. No music, no speech,"
+  },
+  {
+   "id": "541",
+   "title": "Bomat Bazaar Barge",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A cargo barge barging into a canal: a brass hull shoving water aside with a slap, mooring ropes creaking home, heavy power cores rolling in their cradles. No mu"
+  },
+  {
+   "id": "542",
+   "title": "Panic Spellbomb",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A panic spellbomb bursting: a cracked sphere spilling crimson light across steel, a sensory shockwave snapping outward, a heavy spear clattering from nerveless "
+  },
+  {
+   "id": "543",
+   "title": "Wooden Stake",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A hunter closing with an oak stake: boots pressing slow over grave moss, a rough-hewn point scraping free of its sheath, a cornered hiss answering. No music, no"
+  },
+  {
+   "id": "544",
+   "title": "Thraben Valiant",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A huntress at the rim of a fire chasm: a whip's many strands uncoiling, a sword scraped an inch from its sheath, hot updrafts fluttering a heavy cloak. No music"
+  },
+  {
+   "id": "545",
+   "title": "Fuel for the Cause",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A spell caught and consumed: incoming magic stopped dead in a metal palm, energy hissing down glass conduits, a tank of oil swelling and frothing with sudden gr"
+  },
+  {
+   "id": "546",
+   "title": "Clawing Torment",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "Spectral claws gripping a machine-man: shadow hands closing from the dark, tar-black talons grinding into composite plate, servos seizing mid-motion, a strangle"
+  },
+  {
+   "id": "547",
+   "title": "Quicksilver Fisher",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A chrome dragon fishing mercury: a dive flattening low over the mirror sea, talons slicing into liquid metal with a rip, wings heaving a heavy catch back into t"
+  },
+  {
+   "id": "548",
+   "title": "Steelclaw Lance",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A jagged steel lance head rakes across plate armor, then tears through thorny vines: sharp metallic scrape, hard puncture, snapping stems. No music, no speech, "
+  },
+  {
+   "id": "549",
+   "title": "Stampeding Elk Herd",
+   "archetype": "earth_rumble",
+   "rule": "trzęsienie / żywiołak ziemi",
+   "prompt": "An elk herd stampeding through snowdrifts: countless hooves hammering packed snow, antlers splintering a barricade to matchwood, the whole mass rolling forward "
+  },
+  {
+   "id": "550",
+   "title": "Frost Lynx",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A frost lynx freezing its prey: silent paws gathering cold, one leap and a touch, ice snapping shut around a bear mid-roar, a small body landing light on the bl"
+  },
+  {
+   "id": "551",
+   "title": "Contested Game Ball",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A heavy stone ball striking a stone hoop and bouncing off with sharp echoing clacks, two or three hard knocks. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "552",
+   "title": "Ettercap",
+   "archetype": null,
+   "rule": null,
+   "prompt": "An ettercap netting a flyer: a thick strand of webbing squirting upward, sticky silk slapping around beating wings, the tangle dragging its prey down through le"
+  },
+  {
+   "id": "553",
+   "title": "Coat with Venom",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "Blades anointed in venom: steel sliding into a tarry basin, thick liquid dragging as it lifts, one slow drip falling back into the dark pool. No music, no speec"
+  },
+  {
+   "id": "554",
+   "title": "Cherished Hatchling",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A hatchling's warning answered: a small hiss from the ferns, the thicket exploding as a colossal mother crashes through, a roar rolling over the canopy. No musi"
+  },
+  {
+   "id": "555",
+   "title": "Bedhead Beastie",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A bedhead beastie facing militia: wooden bed planks shifting on a horned skull, straw rustling as a huge frame rises, two spears leveling in the doorway. No mus"
+  },
+  {
+   "id": "556",
+   "title": "Ruthless Invasion",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A metal juggernaut ramming a barricade: a mass of liquid iron hitting scrap walls, sparks and bent steel spraying, warriors scattering from the wreck. No music,"
+  },
+  {
+   "id": "557",
+   "title": "Kishla Village",
+   "archetype": "folk_music",
+   "rule": "ręczna deklaracja",
+   "prompt": "A large marsh frog croaks twice beneath wooden stilt houses in a muddy delta canal, wet throat resonance with a small water drip after it. No boat knocks, no do"
+  },
+  {
+   "id": "558",
+   "title": "White Mage's Staff",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A white mage staff crystal gives one clear glassy chime, followed by a soft shower of tiny healing sparks from a silver finial. No music, no speech, no ambience"
+  },
+  {
+   "id": "559",
+   "title": "Gaelicat",
+   "archetype": "beast_screech",
+   "rule": "wrzask bestii",
+   "prompt": "One sharp screeching cat yowl very close to the microphone, followed immediately by a hard leathery wing snap as it launches. Bright, loud, full level. No music"
+  },
+  {
+   "id": "560",
+   "title": "Dead Ringers",
+   "archetype": null,
+   "rule": null,
+   "prompt": "One dull cracked double-clank of two identical iron plates struck together, flat, lifeless and heavy, short metallic ring. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "561",
+   "title": "Time to Feed",
+   "archetype": "heavy_impact",
+   "rule": "ciężkie uderzenie",
+   "prompt": "A griffin claiming its prey: a dive tearing down through branches, a body slammed flat into mud, wings mantling wide over the catch, one decisive strike of the "
+  },
+  {
+   "id": "562",
+   "title": "Shock",
+   "archetype": "thunder_clap",
+   "rule": "grzmot",
+   "prompt": "A battle mage's lightning: a gauntlet crackling to full charge, a blue arc snapping across the wall, steel ringing once as a body is hurled backward. No music, "
+  },
+  {
+   "id": "563",
+   "title": "Koilos Roc",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A roc landing over the ruins: huge wings backwinging in a dust storm, talons clamping onto cracked sandstone, a power stone pulsing cold light beneath. No music"
+  },
+  {
+   "id": "564",
+   "title": "Razorfoot Griffin",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A razorfoot griffin strafing a machine: a steep dive whistling down, hardened talons shearing through metal, the wreck spinning out of the sky. No music, no spe"
+  },
+  {
+   "id": "565",
+   "title": "Mana Cylix",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Dew drops falling into a hand carved oak bowl: dull woody plinks with short damp tails, the bowl body resonating faintly, one drop running down the inner wall. "
+  },
+  {
+   "id": "566",
+   "title": "Creakwood Safewright",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "A safewright pushing through blackthorn: thorny canes raking across armor, hooves braced and groaning, a guarded bloom of blue light steadying his breath. No mu"
+  },
+  {
+   "id": "567",
+   "title": "Jwar Isle Avenger",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "Sharp claws punching through chitin armour: a hard cracking impact with shell splintering and wet tearing, wing feathers snapping in the air just before it. Clo"
+  },
+  {
+   "id": "568",
+   "title": "Nanoform Sentinel",
+   "archetype": "robot_servo",
+   "rule": "ręczna deklaracja",
+   "prompt": "Precision robotic arc-welding repairing a power conduit: three crisp electric welding sparks and metallic clamps clicking shut on a cracked steel pipe, followed"
+  },
+  {
+   "id": "569",
+   "title": "Manifest Dread",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A dread cocoon burning: an organic mass swelling and straining on cracked tiles, a flamethrower nozzle roaring wide, the growth charring to ash mid-scream. No m"
+  },
+  {
+   "id": "570",
+   "title": "Dimir Guildgate",
+   "archetype": "chain_rattle",
+   "rule": "łańcuch / kolczuga",
+   "prompt": "A heavy iron grate hauled up out of water: chain links grinding and clanking through a pulley, water sheeting and dripping off the bars, metal groaning under lo"
+  },
+  {
+   "id": "571",
+   "title": "Vow of Flight",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "Arcane wings unfolding: sapphire light sweeping out from a warrior's shoulders, armored boots leaving the floor, a pact rune ringing once on her blade. No music"
+  },
+  {
+   "id": "572",
+   "title": "Skinbrand Goblin",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "Skinbrands igniting: seared runes flaring white-hot on skin, a growl building to a shriek, a goblin launching off a broken column with a heavy club. No music, n"
+  },
+  {
+   "id": "573",
+   "title": "Typhoid Rats",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Plague rats among the gifts: small claws rustling through gift baskets, a startled yelp and a fall, ragged breathing turning feverish. No music, no speech, no a"
+  },
+  {
+   "id": "574",
+   "title": "Invasive Species",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "A beetle swarm stripping a village: thousands of mandibles gnawing palisade wood, timber collapsing into sawdust, wagons creaking away in a panic. No music, no "
+  },
+  {
+   "id": "575",
+   "title": "Dromoka Warrior",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A phalanx thrust in dragon scale: a spear driving clean through the drill, scale plates rasping in step, a dragon's shadow sweeping over the dune line. No music"
+  },
+  {
+   "id": "576",
+   "title": "Akroan Sergeant",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A sword blade struck flat against a bronze shield three times: hard bright clangs with metallic ring, each slightly different in force, shield boss resonating b"
+  },
+  {
+   "id": "577",
+   "title": "Thunderstaff",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "An iron shod staff driven down onto a stone slab: one hard impact with stone crack, immediately followed by electrical arcs crackling and snapping around the sh"
+  },
+  {
+   "id": "578",
+   "title": "Savage Surge",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A beast's sudden reversal: hooves wrenching around in the mud, a heavy morning star whistling full-circle, hunters scattering with a panicked yell. No music, no"
+  },
+  {
+   "id": "579",
+   "title": "Kulrath Mystic",
+   "archetype": "fire_crackle",
+   "rule": "ogień / żar",
+   "prompt": "A mystic mastering his own flame: fire gusting upward from a crown, then steadying to a hum, breath slowing as raw power coils in. No music, no speech, no ambie"
+  },
+  {
+   "id": "580",
+   "title": "Loporrit Scout",
+   "archetype": "forest_birdsong",
+   "rule": "ptaki",
+   "prompt": "One bright warbling chocobo chirrup, a cheerful rolling bird call very close, ending with a small happy cluck. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "581",
+   "title": "Ulna Alley Shopkeep",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A goblin hawking a rare elixir: a cork popping free, thick violet vapor curling out of the flask's mouth, glass chiming as it changes hands. No music, no speech"
+  },
+  {
+   "id": "582",
+   "title": "Vaan, Street Thief",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A rooftop thief on the run: a leap off a canopy, boots skimming terracotta tiles, a gap cleared with a whoop, the market roar swallowed by alleys. Recorded clos"
+  },
+  {
+   "id": "583",
+   "title": "Kill Shot",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "One perfect arrow: a horn bow drawn to its creaking limit and held dead still, breath stopped, then a single release and a distant fall. No music, no speech, no"
+  },
+  {
+   "id": "584",
+   "title": "Merfolk Falconer",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A falcon returning to the glove: wings flaring and braking hard, talons closing on a padded brace, a soft chirr as the hood slips on. No music, no speech, no am"
+  },
+  {
+   "id": "585",
+   "title": "Jolrael, Mwonvuli Recluse",
+   "archetype": "creature_roar",
+   "rule": "ryk / warczenie",
+   "prompt": "A silent command, a pack unleashed: a hand sweeping once, panthers bursting through ferns mid-roar, water exploding under their leap. Clean recording at moderat"
+  },
+  {
+   "id": "586",
+   "title": "Fourth Bridge Prowler",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "An aether dart from the shadows: a gauntlet giving one soft thump, a tiny charge bursting on armor in a blue wash, a guard sagging groggy against his post. No m"
+  },
+  {
+   "id": "587",
+   "title": "Leonin Surveyor",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "A leonin rider along the ridge: sure hooves striking narrow rock, harness bells jingling once, a gust as his mount rounds the crest. No music, no speech, no amb"
+  },
+  {
+   "id": "588",
+   "title": "Cemetery Recruitment",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Graveyard soil pushed up and crumbling as bones creak and click their way out: dry earth spilling, small stones tumbling and joints cracking. Close, detailed, f"
+  },
+  {
+   "id": "589",
+   "title": "Acidic Slime",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "An acidic slime digesting an armory: a gelid mass creeping over stone, steel and granite fizzing and slumping into puddles, soft bubbles popping. No music, no s"
+  },
+  {
+   "id": "590",
+   "title": "Keep Out",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A taut tripwire strung with tin bells yanked hard: bright jangling of thin metal bells clattering together, wire twanging underneath, bells swinging and ringing"
+  },
+  {
+   "id": "591",
+   "title": "Rust-Shield Rampager",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A badger rampager on the charge: a pot-lid shield bashing through clover, a tiny tin helmet rattling alongside, two voices yipping the same war cry. No music, n"
+  },
+  {
+   "id": "592",
+   "title": "Glorifier of Suffering",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A stone reliquary smashed down onto an altar: heavy stone cracking apart, metal fittings crunching and tearing loose, fragments skidding across the altar top. C"
+  },
+  {
+   "id": "593",
+   "title": "Inspiring Captain",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A warhorse stamping once and letting out one commanding whinny, powerful and close, with a snort at the end. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "594",
+   "title": "Ironclad Slayer",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A sword pulled from the mud: heavy boots sucking through battlefield mire, buckles clinking on wrecked wagons, a blade sliding free with a long wet scrape. No m"
+  },
+  {
+   "id": "595",
+   "title": "Óin the Brave",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A heap of gold coins sliding and spilling across stone: dense bright metallic clinking, coins rolling and settling, a few spinning to a stop. Close, bright, det"
+  },
+  {
+   "id": "596",
+   "title": "Ghirapur Gearcrafter",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "A golden thopter's first flight: filigree wings beginning to beat, crystal gears ticking into rhythm, a cyan wisp of aether trailing as it lifts. No music, no s"
+  },
+  {
+   "id": "597",
+   "title": "Ichorclaw Myr",
+   "archetype": "insect_swarm",
+   "rule": "rój",
+   "prompt": "An ichorclaw myr striking: triple claws extending with a ratchet, tainted oil dripping and hissing on metal, one furious blow hammering through a shield line. N"
+  },
+  {
+   "id": "598",
+   "title": "Sheriff of Safe Passage",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A hobbit sheriff keeping the road: an oak staff rapped once on stone, a feathered hat brim tilting as he points the way, pony hooves clopping past. No music, no"
+  },
+  {
+   "id": "599",
+   "title": "Candlegrove Witch",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A candle-grove kindling at once: dozens of beeswax wicks catching in sequence, flames breathing upward through birch branches, a hush settling over the glade. N"
+  },
+  {
+   "id": "600",
+   "title": "Rotting Legion",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A rotting legion on the march: hundreds of boots dragging in one dead rhythm, rusty mail clinking out of step, the column grinding through a barricade without s"
+  },
+  {
+   "id": "601",
+   "title": "Exploding Borders",
+   "archetype": "volcanic_eruption",
+   "rule": "wulkan",
+   "prompt": "Two worlds colliding: a wall of magma shoving into old forest, ancient trunks swallowed in flame, boulders lofting through cascading fire. No music, no speech, "
+  },
+  {
+   "id": "602",
+   "title": "Abstruse Interference",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A spell bent out of shape: a bolt of power kinking mid-air at wrong angles, its energy unraveling into a hum, obsidian shards chiming into being. No music, no s"
+  },
+  {
+   "id": "603",
+   "title": "Kheru Dreadmaw",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "A mummified dreadmaw feeding: a heavy splash in a flooded crypt, old jaws slamming shut through the water, one long swallow into silence. No music, no speech, n"
+  },
+  {
+   "id": "604",
+   "title": "Vampire's Bite",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A bruxa's strike: a body dropped hard on marble, a wet gasp, fangs working once at the throat, a slow satisfied exhale. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "605",
+   "title": "Consign to Dream",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A dense soft flutter of thousands of tiny paper-thin wings rising together and thinning away to silence, airy and light. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "606",
+   "title": "Treefolk Umbra",
+   "archetype": "heavy_impact",
+   "rule": "ciężkie uderzenie",
+   "prompt": "An ethereal ent absorbing a blow: orcish iron slamming into ghostly bark, the impact scattering into golden sparks, green shoots unfurling where the weapon fell"
+  },
+  {
+   "id": "607",
+   "title": "Containment Membrane",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "A beast sealed in a magic sphere: claws raking a soft elastic shell, the membrane thrumming with each blow, the prison bobbing gently in the air. No music, no s"
+  },
+  {
+   "id": "608",
+   "title": "Skymarch Bloodletter",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A thin rapier blade striking a steel breastplate once: a bright hard metallic clang with a short ringing tail and the plate rattling in its straps. Close and lo"
+  },
+  {
+   "id": "609",
+   "title": "Jungleborn Pioneer",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A pioneer wading into sunken ruins: water lapping over golden flagstones, bronze armor sliding beneath the surface, a slow careful step and a held breath. No mu"
+  },
+  {
+   "id": "610",
+   "title": "Gearsmith Prodigy",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "A clockwork fox springing to life: brass filigree legs coiling and releasing, gears whirring through a clean leap, a soft aether core humming as it lands. No mu"
+  },
+  {
+   "id": "611",
+   "title": "Lifecrafter's Gift",
+   "archetype": "door_creak",
+   "rule": "skrzypienie",
+   "prompt": "Vines feeding constructs: aether crackling down living cords, wood creaking and swelling into new growth, fresh shoots bursting from empty sockets. No music, no"
+  },
+  {
+   "id": "612",
+   "title": "Crumb and Get It",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Waybread offered to a predator: a loaf torn and held out steady, a beast's snuffling charge faltering to a sniff, a warm shimmer settling over the camp. No musi"
+  },
+  {
+   "id": "613",
+   "title": "Duskmantle Seer",
+   "archetype": null,
+   "rule": null,
+   "prompt": "Loose parchment sheets and book pages snatched up all at once: sharp paper flutter and snapping, sheets slapping against shelves, then settling back down. Close"
+  },
+  {
+   "id": "614",
+   "title": "Hunt the Weak",
+   "archetype": "heavy_impact",
+   "rule": "ciężkie uderzenie",
+   "prompt": "An old wyvern breaking a rival: wings flaring for balance, one heavy paw hammering a younger body down onto rock, a harsh rasp of triumph. No music, no speech, "
+  },
+  {
+   "id": "615",
+   "title": "Tah-Crop Skirmisher",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A naga drill on a stone beam: scales whispering across narrow stone, a coil shifting for balance over rushing water, twin bronze blades slicing the air twice. C"
+  },
+  {
+   "id": "616",
+   "title": "Act of Treason",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "One heavy sword blow crashing into a wooden shield, a splintering impact with a short cracking tail. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "617",
+   "title": "Douse in Gloom",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "Tarry shadows taking a runner: black tendrils rising from still water, wet coils cinching tight around limbs, breath dragged out into the murk. No music, no spe"
+  },
+  {
+   "id": "158",
+   "title": "Kozilek's Shrieker",
+   "archetype": "beast_screech",
+   "rule": "wrzask bestii",
+   "prompt": "A shrieker's reality-rending scream: an eyeless maw yawning wide, one jagged blast of sound tearing the air apart, weapons clattering onto chalk dust as men cla"
+  },
+  {
+   "id": "160",
+   "title": "Fiery Hellhound",
+   "archetype": "fire_crackle",
+   "rule": "ogień / żar",
+   "prompt": "An elemental hound breaking loose: a bass roar swelling under crackling flame, iron-hot claws slamming basalt, one leap scattering embers wide. No music, no spe"
+  },
+  {
+   "id": "161",
+   "title": "Dragonscale Boon",
+   "archetype": "magic_shimmer",
+   "rule": "magia",
+   "prompt": "An ancestral boon taking hold: a weary warrior snapping upright, dragon scales crystallizing over his chest with bright clicks, a warm emerald shimmer settling "
+  },
+  {
+   "id": "162",
+   "title": "Griffin Guide",
+   "archetype": "horn_call",
+   "rule": "róg / sygnał dęty",
+   "prompt": "A huge griffin's clarion cry above white castle battlements: two bright eagle bugle screams, deep-chested and ringing, the second call soaring higher over cold "
+  },
+  {
+   "id": "164",
+   "title": "Gryffwing Cavalry",
+   "archetype": "wing_flutter",
+   "rule": "skrzydła",
+   "prompt": "Powerful wingbeats of a large hippogriff mount carrying a rider: strong even strokes in a steady patrol cadence, broad feathered wings pressing down through col"
+  },
+  {
+   "id": "165",
+   "title": "Captivating Gyre",
+   "archetype": null,
+   "rule": null,
+   "prompt": "A spiraling waterspout bursting up from a wide river: water rushing and twisting upward with a hiss of driven desert sand, one strong rising swell that lifts, w"
+  },
+  {
+   "id": "167",
+   "title": "Lost in the Mist",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "A body and a sealed scroll case slipping under cold lake water: one heavy wet plunge, then a thick band of bubbles rising and thinning out as everything sinks, "
+  },
+  {
+   "id": "170",
+   "title": "Riftburst Hellion",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Basalt pavement bursting open from underneath: heavy stone slabs cracking apart with a deep structural snap, grinding of broken rock shoved upward, then chunks "
+  },
+  {
+   "id": "174",
+   "title": "Izzet Charm",
+   "archetype": "electric_zap",
+   "rule": "wyładowanie / iskra",
+   "prompt": "A sudden blast of hot steam venting from a brass valve: a short electric crackle at the onset, then a sharp pressurised hiss cutting through, brass fitting tick"
+  },
+  {
+   "id": "176",
+   "title": "Chocobo Kick",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "One explosive double-footed kick from a huge running bird slamming into steel plate armour: a short feathery whoosh, then a single massive blunt impact, followe"
+  },
+  {
+   "id": "178",
+   "title": "Oreplate Pangolin",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "Heavy pneumatic mining claws crushing hard rock: a hiss of compressed air and low servo whir, then a powerful metallic claw strike cracking and shattering dense"
+  },
+  {
+   "id": "192",
+   "title": "Crumbling Vestige",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A chunk of rock shattering into crystal: one sharp deep crack splitting stone, then scattered percussive clinks and glassy pings of crystalline shards breaking "
+  },
+  {
+   "id": "194",
+   "title": "Lionheart Maverick",
+   "archetype": "plate_clank",
+   "rule": "pancerz / płyty",
+   "prompt": "The bright, high metallic jingle and rattle of a warhorse's steel barding and a rider's plate armor as the mount shifts: clinking chainmail, rattling steel plat"
+  },
+  {
+   "id": "198",
+   "title": "Tackle Artist",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "A Strixhaven sports tackle in three clear beats: cleats sprint across grass, shoulder pads collide with a heavy thump, then thick red paint splashes outward and"
+  },
+  {
+   "id": "203",
+   "title": "Golem-Skin Gauntlets",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A golem-skin gauntlet powering up: bright iron plates clink and ratchet around stone knuckles, then one heavy fist strike on a steel shield with a ringing metal"
+  },
+  {
+   "id": "196",
+   "title": "Mnemonic Wall",
+   "archetype": "temple_bell",
+   "rule": "dzwon",
+   "prompt": "A scholar touches a crystalline marble memory wall: one fingertip tap on cool crystal stone, a clear glass-and-marble chime blooms, then an ancient parchment sc"
+  },
+  {
+   "id": "205",
+   "title": "Vulturous Aven",
+   "archetype": "arcane_choir",
+   "rule": "chór / zaśpiew",
+   "prompt": "A Silumgar necromancer ritual in close detail: a bone staff scrapes the rim of an ancient ash urn, dry ashes swirl and rasp, then spectral essence hisses out an"
+  },
+  {
+   "id": "208",
+   "title": "Jade Bearer",
+   "archetype": null,
+   "rule": null,
+   "prompt": "In a flooded Ixalan cave, close and intimate: gentle shallow water laps around a kneeling warrior, then a jade stone diadem is placed on the forehead with one s"
+  },
+  {
+   "id": "210",
+   "title": "Fiery Justice",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A rune staff cracks hard against a castle stone floor; branching sacred fire erupts outward with a hot whoosh and many sharp irregular flame crackles, ending wi"
+  },
+  {
+   "id": "212",
+   "title": "Bloodtithe Harvester",
+   "archetype": "water_splash",
+   "rule": "plusk",
+   "prompt": "A vampire bloodtithe collector inspecting glass vials: a wax-sealed glass stopper pops open, thick red liquid pours and sloshes into a cut-glass crystal decante"
+  },
+  {
+   "id": "239",
+   "title": "Dig Site Inventory",
+   "archetype": "mechanism_click",
+   "rule": "mechanizm",
+   "prompt": "An archaeologist packing artifacts at a dig site: carved stone tablets thud into a wooden expedition crate, brass compasses clink and click crisply, and a heavy"
+  },
+  {
+   "id": "241",
+   "title": "News Helicopter",
+   "archetype": "horn_call",
+   "rule": "róg / sygnał dęty",
+   "prompt": "A short close flyby of a Daily Bugle news helicopter, dominated by a rapid, rhythmic rotor chop and low engine rumble that swells then recedes. Isolated helicop"
+  },
+  {
+   "id": "244",
+   "title": "Natural Connection",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "A massive, moss-covered stone monolith slowly forcing up through compact soil: one heavy, coarse scrape as rock drags through clay, rising then stopping with a "
+  },
+  {
+   "id": "247",
+   "title": "Subterranean Scout",
+   "archetype": "arrow_flight",
+   "rule": "strzała",
+   "prompt": "A nimble boggart scout dashing down a narrow, root-lined earth tunnel: quick, light, closely spaced bare-foot steps pattering over damp packed clay with a few s"
+  },
+  {
+   "id": "250",
+   "title": "Loxodon Mender",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "A cracked steel sword repairs itself in one instant: the split blade halves draw together and fuse with a crisp metallic snap, ending in a short, clear steel ri"
+  },
+  {
+   "id": "254",
+   "title": "Snarespinner",
+   "archetype": "heavy_footsteps",
+   "rule": "kroki / kopyta",
+   "prompt": "As a giant spider springs across an ironwood trunk, eight hard-tipped feet strike the rough bark in a rapid, irregular patter with tiny dry clicks. One close, c"
+  },
+  {
+   "id": "255",
+   "title": "Urborg Uprising",
+   "archetype": "arcane_choir",
+   "rule": "chór / zaśpiew",
+   "prompt": "One short, hollow upward rush of cold air as two warrior spirits rise together from foamy black swamp water, with a thin, wavering hiss at the edge. A single sm"
+  },
+  {
+   "id": "259",
+   "title": "Kozilek's Predator",
+   "archetype": "stone_slide",
+   "rule": "skały w ruchu",
+   "prompt": "One quick, dry, glassy rasp as a massive Eldrazi predator's hooked claws slide down a fractured obsidian hedron. Close gritty claw-on-stone scrape, short and co"
+  },
+  {
+   "id": "260",
+   "title": "Etched Host Doombringer",
+   "archetype": "sword_clash",
+   "rule": "stal",
+   "prompt": "One short, inhuman demon roar emerging from beneath black basalt-and-iron armor: a low, guttural bellow with a coarse, dry, iron-edged rasp. It must sound like "
+  }
+ ],
+ "unassigned_rows": [
+  {
+   "id": "27",
+   "title": "Erase",
+   "prompt": "A curse breaking apart: one clean burst of focused energy striking, then thin brittle shards popping and dissolving into nothing. No music, no speech,"
+  },
+  {
+   "id": "28",
+   "title": "Kraken's Eye",
+   "prompt": "One deep muffled underwater pulse, like a huge air bubble collapsing far below the surface, round and low, close and clearly audible. No music, no spe"
+  },
+  {
+   "id": "32",
+   "title": "Shipwreck Moray",
+   "prompt": "A large fish lunging out of a rotten wooden hull underwater: one muffled low whoosh of displaced water, a burst of bubbles rushing past, and a dull kn"
+  },
+  {
+   "id": "36",
+   "title": "Etherium Abomination",
+   "prompt": "An abomination tearing free from a pit: heavy metal claws gouging earth, grinding gear teeth and straining brass pipes rising to a shriek. No music, n"
+  },
+  {
+   "id": "47",
+   "title": "Divine Offering",
+   "prompt": "Fine dry sand pouring steadily onto a stone plate, a thin granular hiss thinning out to nothing, close and clear. No music, no speech, no ambience bed"
+  },
+  {
+   "id": "54",
+   "title": "Cautious Survivor",
+   "prompt": "A cracked handheld recorder glitching: bursts of harsh digital static stuttering over a weak signal whine, device dying out. No music, no speech, no a"
+  },
+  {
+   "id": "55",
+   "title": "Etherwrought Page",
+   "prompt": "A thin flexible metal page being flexed, a soft wobbling metallic waver, close and delicate, one gentle flex and release. No music, no speech, no ambi"
+  },
+  {
+   "id": "57",
+   "title": "Veiled Ascension",
+   "prompt": "Silk-robed figures rising into the sky: swirls of heavy fabric billowing open like wings, one soft uplift whoosh climbing higher and higher. No music,"
+  },
+  {
+   "id": "65",
+   "title": "Curate",
+   "prompt": "A heavy tome flying open: one sharp leather cover snap, a burst of intense blue light, loose pages and ink wisps whirling upward. No music, no speech,"
+  },
+  {
+   "id": "69",
+   "title": "Tome Scour",
+   "prompt": "A brass gauntlet scraping a tome: sharp metal styli raking across parchment, letters peeling away, pages shredding into gritty black dust. No music, n"
+  },
+  {
+   "id": "83",
+   "title": "Gorehorn Minotaurs",
+   "prompt": "Minotaurs charging through pinewood: heavy split hooves hammering soil, thick branches snapping under shoulders, one deep bullish snort. No music, no "
+  },
+  {
+   "id": "85",
+   "title": "Phyrexian Rager",
+   "prompt": "A heavy metal-clawed foot stepping onto a rusted steel walkway: one hard clank with grating rattle and a loose plate rocking afterwards. Close, loud. "
+  },
+  {
+   "id": "91",
+   "title": "Curse of the Pierced Heart",
+   "prompt": "A hard thorn pushed into a figure woven from dry grass and roots: crunching of brittle stalks, fibres snapping one by one, a final tight crackle as it"
+  },
+  {
+   "id": "100",
+   "title": "Emissary Escort",
+   "prompt": "A ceremonial escort mech readying itself: a long energy halberd humming to life, an oval shield of pale blue light unfolding with a soft snap. No musi"
+  },
+  {
+   "id": "104",
+   "title": "Glitch Ghost Surveyor",
+   "prompt": "A glitch ghost sweeping past: flickering holographic warble, chopped digital stutters, thin sparks trailing off its dissolving edges. No music, no spe"
+  },
+  {
+   "id": "109",
+   "title": "Relic Robber",
+   "prompt": "One quick springy leap whoosh ending with small boots landing hard on wooden planks, a light bouncy thump. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "110",
+   "title": "Serra's Embrace",
+   "prompt": "Enormous feathered wings folding around a standing figure: dense feather rustle and quill friction, one deep air displacement as they close, fabric of"
+  },
+  {
+   "id": "116",
+   "title": "Wrap in Flames",
+   "prompt": "Ribbons of fire wrapping around bodies: one rolling flame swirl engulfing fur and mail, sharp crackle of licking fire, embers spitting. No music, no s"
+  },
+  {
+   "id": "119",
+   "title": "Spin Out",
+   "prompt": "A race car spinning out: a vicious metal trap grinding into the chassis, tires shrieking, one long aether-sparking pirouette scattering broken gears. "
+  },
+  {
+   "id": "121",
+   "title": "Sea God's Scorn",
+   "prompt": "One massive sea wave crashing up marble steps and dragging back down with a long foamy hiss. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "122",
+   "title": "Blazing Torch",
+   "prompt": "A pitch soaked cloth torch burning in an iron bracket: wet crackling of tar, fibres popping and spitting, drops of burning pitch hissing as they fall."
+  },
+  {
+   "id": "125",
+   "title": "Ordinary Bear",
+   "prompt": "Bear claws scratching and scuffing across dry gravel in a slow walking rhythm: grit dragging under each paw, small stones flicking away, dry and brigh"
+  },
+  {
+   "id": "131",
+   "title": "Memory's Journey",
+   "prompt": "Three drops lifting off and falling back onto a still pool surface: clean glassy plinks with short watery tails, tiny ripples settling between them. V"
+  },
+  {
+   "id": "133",
+   "title": "Breaching Hippocamp",
+   "prompt": "A hippocamp breaching from the sea: one explosive water burst upward, a deep aquatic snort, a heavy opalescent tail slapping back down. No music, no s"
+  },
+  {
+   "id": "135",
+   "title": "Kumano's Blessing",
+   "prompt": "A sacred flame-wreathed katana cutting through a dark spirit: one clean burning slash, a thin spirit shriek unraveling, hot embers and ash settling af"
+  },
+  {
+   "id": "137",
+   "title": "Withstand",
+   "prompt": "A blast of fire washing over a tower shield: flames splitting and rolling past the edges, golden runes pulsing steady through the heat, embers driftin"
+  },
+  {
+   "id": "139",
+   "title": "Slithering Cryptid",
+   "prompt": "A scaly cryptid gliding through dark water: silent serpentine slide, rusty scrap harness clinking softly, slow drips from tunnel walls. No music, no s"
+  },
+  {
+   "id": "148",
+   "title": "Xu-Ifit, Osteoharmonist",
+   "prompt": "Dry bone fragments clacking and snapping together in a fast sequence: hard hollow clicks ending with one firm locking snap. Close, loud, dry. No music"
+  },
+  {
+   "id": "149",
+   "title": "Blossoming Sands",
+   "prompt": "A desert oasis springing to life: one crystalline water burst from the sand, followed by a rush of tiny blossoms popping open across the dunes. The so"
+  },
+  {
+   "id": "154",
+   "title": "Trigon of Thought",
+   "prompt": "Three crisp crystalline clicks in sequence, like polished glass facets locking into place one after another, small and precise. No music, no speech, n"
+  },
+  {
+   "id": "179",
+   "title": "Index",
+   "prompt": "A heavy index book crackling: small blue sparks leaping between turning pages, loose sheets fluttering down, ink-stained paper rustling. No music, no "
+  },
+  {
+   "id": "181",
+   "title": "Spectral Prison",
+   "prompt": "A low steady electrical hum, like a large transformer coil recorded very close, constant and clearly audible, loud in the foreground. No music, no spe"
+  },
+  {
+   "id": "182",
+   "title": "Stomping Slabs",
+   "prompt": "Enormous stone slabs sweeping low past the microphone: a fast heavy air whoosh with dry grit and small pebbles rattling and skittering off their surfa"
+  },
+  {
+   "id": "195",
+   "title": "Entrancing Lyre",
+   "prompt": "A lyre plucked in a slow hypnotic figure: a few clear bronze strings rising and repeating, each note ringing over the next, the wooden frame resonatin"
+  },
+  {
+   "id": "197",
+   "title": "Dismal Backwater",
+   "prompt": "One heavy water drop falling into a still pool, recorded extremely close: a loud sharp plip with a deep hollow bloop and a short wet ring fading after"
+  },
+  {
+   "id": "199",
+   "title": "Gloomfang Mauler",
+   "prompt": "Heavy hooked legs stabbing into deep wet mud one after another: thick squelching and sucking, with wet slaps as each is torn free. Close and loud. No "
+  },
+  {
+   "id": "200",
+   "title": "Cloak of the Bat",
+   "prompt": "A heavy leather cloak snapped wide open in one hard motion: a loud leathery crack followed by a fast air rush sweeping past the microphone. Dry, close"
+  },
+  {
+   "id": "201",
+   "title": "Tiller of Flesh",
+   "prompt": "A porcelain tiller seeding a ceramic cocoon: smooth ceramic shells clicking open, a wet living core settled inside, a warm pulse beginning. No music, "
+  },
+  {
+   "id": "215",
+   "title": "Malamet Battle Glyph",
+   "prompt": "A battle glyph taking form: a green jaguar-head sigil condensing in midair, deep stone resonance rising from carved glyphs, one sharp vow-like clap. N"
+  },
+  {
+   "id": "221",
+   "title": "Mark of the Vampire",
+   "prompt": "Two quick wet punctures piercing in close succession, like a thick needle pushing through taut leather, followed by one soft slow liquid pulse. No mus"
+  },
+  {
+   "id": "222",
+   "title": "Maritime Guard",
+   "prompt": "A merfolk guard sounding a shell horn over a storm coast: one long low blast curling over crashing waves and spray on black rock. No music, no speech,"
+  },
+  {
+   "id": "227",
+   "title": "Jwari Shapeshifter",
+   "prompt": "A fast sequence of wet joint cracks and knuckle pops, sharp and close, finishing with one firm dull settling thud. Dry, loud, full level. No music, no"
+  },
+  {
+   "id": "235",
+   "title": "Trestle Troll",
+   "prompt": "Huge wet hands peeling off damp stone: a thick suction squelch, wet skin dragging across rock and loose grit trickling down after. Close, detailed. No"
+  },
+  {
+   "id": "245",
+   "title": "Dread Warlock",
+   "prompt": "Thick corrosive sludge running off fingers onto dry heather: viscous dripping with sticky strands breaking, faint sizzling where it lands, wet plops o"
+  },
+  {
+   "id": "248",
+   "title": "Reassembling Skeleton",
+   "prompt": "A skeleton reassembling itself: bone clicking against bone as a skull is set back onto the neck, wet mud sucking as bony fingers claw out of the grave"
+  },
+  {
+   "id": "252",
+   "title": "Captain's Call",
+   "prompt": "Two short commanding brass war-horn blasts, bright and hard, a plain signal call with a brief echo, not a melody. No music, no speech, no ambience bed"
+  },
+  {
+   "id": "258",
+   "title": "Hill Giant",
+   "prompt": "A hill giant tumbling downhill: massive feet ploughing through dry grass, a wooden beam barrier bursting apart, planks and gravel ricocheting off thic"
+  },
+  {
+   "id": "264",
+   "title": "Ghost Warden",
+   "prompt": "A ghost shielding a debtor: a grate bursting with steel shards, shards ringing flat against an unseen barrier, a cold spectral rush sweeping past. The"
+  },
+  {
+   "id": "267",
+   "title": "Hunter's Blowgun",
+   "prompt": "A blowgun dart in the jungle: one sharp puff of breath, a slender dart hissing through leaves, a faint thud as it strikes home. No music, no speech, n"
+  },
+  {
+   "id": "268",
+   "title": "Might of the Masses",
+   "prompt": "Many hands striking tree trunks and bark in a building rhythm: dull woody thuds at different distances and pitches, overlapping into a dense pulse. Cl"
+  },
+  {
+   "id": "271",
+   "title": "Expose to Daylight",
+   "prompt": "Sunlight unraveling forbidden runes: a focused beam striking hidden inscriptions, the spell tearing apart with a shriek of cracking aether, sparks of "
+  },
+  {
+   "id": "273",
+   "title": "Fertile Thicket",
+   "prompt": "Living ground under a palm: a wet moss cushion yielding, the earth breathing in slow deep pulses of mana, trickling water deep below. No music, no spe"
+  },
+  {
+   "id": "275",
+   "title": "Aerith Rescue Mission",
+   "prompt": "Boots hammering up steel stairs, fast rhythmic metallic clanging climbing higher, urgent and close. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "283",
+   "title": "Magic Damper",
+   "prompt": "A dampening dome at work: hexagon tiles locking into a shield, fiery psion shots bursting flat against it, the field humming down into silence. No mus"
+  },
+  {
+   "id": "284",
+   "title": "Thieves' Tools",
+   "prompt": "A master thief at work: thin picks sliding into a heavy lock, a wrench holding tension, tumbler after tumbler clicking into place. No music, no speech"
+  },
+  {
+   "id": "285",
+   "title": "Etherium Sculptor",
+   "prompt": "A thick stream of molten metal poured into a mould: heavy hissing and spattering, then a hard crystalline tick as the surface sets. Close and loud. No"
+  },
+  {
+   "id": "288",
+   "title": "Wedgelight Rammer",
+   "prompt": "A wedge ship charging for flight: a hatch hissing open, power leads snapping in, sharp electrical impulses climbing, the copper hull shivering with st"
+  },
+  {
+   "id": "294",
+   "title": "Tumbleweed Rising",
+   "prompt": "Dry brittle tumbleweed branches dragged and crushed across hard ground: loud crackling, scraping and snapping of thin twigs with dust grit. Close to t"
+  },
+  {
+   "id": "299",
+   "title": "Farbog Explorer",
+   "prompt": "Wading a night swamp: boots sucking through black mud, water lapping at shins, a lantern hissing softly as faint shapes stir beside the path. No music"
+  },
+  {
+   "id": "301",
+   "title": "Guildscorn Ward",
+   "prompt": "Two heavy thumps of bodies pressing into a taut invisible membrane, like palms striking a huge stretched drumhead, each hit rebounding with a low rubb"
+  },
+  {
+   "id": "302",
+   "title": "Curate",
+   "prompt": "Parchment scrolls being shuffled and set down on a heavy wooden table, dry crisp paper rasping, recorded very close, loud and clear. No music, no spee"
+  },
+  {
+   "id": "305",
+   "title": "Illusory Demon",
+   "prompt": "A dry brittle crumble, like a charred sheet of paper collapsing into flakes, soft papery crackling fading out. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "306",
+   "title": "Mysteries of the Deep",
+   "prompt": "Sea water rushing back over wet sand in one long withdrawing hiss, fading as the water pulls away. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "309",
+   "title": "Civilized Scholar",
+   "prompt": "An inkwell tipping over on a desk, thick ink glugging out in slow pulses and spreading, small wet details, very close. No music, no speech, no ambienc"
+  },
+  {
+   "id": "310",
+   "title": "Chatter of the Squirrel",
+   "prompt": "Mutated squirrels chattering: sharp rapid chatter from a rune-carved trunk, a second higher answer from the undergrowth, claws scrabbling on bark. No "
+  },
+  {
+   "id": "311",
+   "title": "Guildsworn Prowler",
+   "prompt": "A muffled tavern brawl heard through a thick wall, dull blurred thumps and crashes, distant and muted. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "316",
+   "title": "Wormfang Newt",
+   "prompt": "A rift swallowing a patch of meadow: space rippling and folding like wet paper, grass and stone tearing loose and vanishing with a hollow slurp. No mu"
+  },
+  {
+   "id": "326",
+   "title": "Bone Shredder",
+   "prompt": "A bone shredder machine descending: violet membranes crackling softly, a heavy fragment clamped in its claw, its presence echoing off metal walls then"
+  },
+  {
+   "id": "339",
+   "title": "Patron of the Arts",
+   "prompt": "A dragonborn patron claiming her prize: heeled steps on marble, a heavy gilded frame knocking against her hip, scales rustling beneath stiff silk flou"
+  },
+  {
+   "id": "354",
+   "title": "Wretched Banquet",
+   "prompt": "A banquet verdict: an ethereal balance scale chiming as it tips, a black halo tightening around a small creature, its body crumbling into dark motes. "
+  },
+  {
+   "id": "373",
+   "title": "Fear of Abduction",
+   "prompt": "A nightmare abduction: a soldier dragged upward through cold air, a swirling void face humming above the ceiling, one last muffled struggle falling si"
+  },
+  {
+   "id": "376",
+   "title": "Doomed Dissenter",
+   "prompt": "A swollen corpse rising: soaked leaves sliding off bloated shoulders, seams of a shirt tearing wide, stiff gloves left lying by a dead lantern. No mus"
+  },
+  {
+   "id": "377",
+   "title": "Scroll of Avacyn",
+   "prompt": "A parchment scroll unrolled quickly, crisp dry paper rustling and crackling, recorded very close, loud and clearly audible. No music, no speech, no am"
+  },
+  {
+   "id": "386",
+   "title": "Insatiable Appetite",
+   "prompt": "Enormous wet chewing of huge jaws working loudly, sloppy and greedy, ending with one deep gulp. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "399",
+   "title": "Chill of the Grave",
+   "prompt": "A body frozen mid-step: ice crackling outward and sealing an intruder solid, a shrouded form gliding closer through the frost, parchment whispering in"
+  },
+  {
+   "id": "419",
+   "title": "Fear of Burning Alive",
+   "prompt": "A fear of burning made flesh: a crushing heatwave rolling off a smoldering figure, paint blistering on the walls, a summoned guardian crumbling to ash"
+  },
+  {
+   "id": "421",
+   "title": "Dreams of Steel and Oil",
+   "prompt": "An engineer waking in terror: a body jolting upright, artifacts swept and smashing on stone, an inkwell overturning and flooding drawings black. No mu"
+  },
+  {
+   "id": "422",
+   "title": "Benevolent Blessing",
+   "prompt": "An elven dome of starlight: a bright barrier blooming over a rider, dark webbing searing away on contact, a soft rush of protective light. No music, n"
+  },
+  {
+   "id": "428",
+   "title": "Curiosity",
+   "prompt": "Heavy claws hammering repeatedly on an iron-banded wooden post: hard booming impacts with a bright metal ring and splintering wood on every hit. Close"
+  },
+  {
+   "id": "430",
+   "title": "Nightshade Harvester",
+   "prompt": "Harvesting nightshade by moonlight: berries plucked one by one, leaves rustling softly under careful fingers, a pestle grinding the last of the harves"
+  },
+  {
+   "id": "433",
+   "title": "Inspire Awe",
+   "prompt": "A goddess stepping out of the wild: branches knitting into a towering form, emerald light flaring wide, spears clattering to the ground from nerveless"
+  },
+  {
+   "id": "436",
+   "title": "Fireball",
+   "prompt": "Three fireballs split from one spell: a single charge cracking into three, each sphere whooshing to its target, wood igniting with rolling heat. No mu"
+  },
+  {
+   "id": "438",
+   "title": "Circle of the Land Druid",
+   "prompt": "Old ruins rotting into new soil: dead leaves crumbling to rich earth, buried artifacts flaking apart, green pulses quickening as seeds stir beneath. N"
+  },
+  {
+   "id": "439",
+   "title": "Hecteyes",
+   "prompt": "A many-eyed horror emerging: a gelid body oozing from a crystal fissure, dozens of eyes opening at once, a scout's arms going slack and gear thudding "
+  },
+  {
+   "id": "443",
+   "title": "Scorned Villager",
+   "prompt": "An exile alert at a dying fire: branches cracking in the thicket, a knife rasping out of its sheath, embers popping as a log settles. No music, no spe"
+  },
+  {
+   "id": "446",
+   "title": "Unbreakable Bond",
+   "prompt": "A huge reptile waking: one slow rasping inhale drawing air through wide nostrils, then a heavy rumbling exhale with loose throat flutter. Very close t"
+  },
+  {
+   "id": "449",
+   "title": "Greater Tanuki",
+   "prompt": "A giant tanuki plowing through deep forest: massive paws pressing saplings flat, thick branches snapping like dry twigs, a contented huff of breath. N"
+  },
+  {
+   "id": "450",
+   "title": "Thornhide Wolves",
+   "prompt": "Thick thorn canes dragged across hard bark-like hide and springing back: dry scraping, sharp thorn snaps and rustling branches. Bright, close, detaile"
+  },
+  {
+   "id": "451",
+   "title": "Downwind Ambusher",
+   "prompt": "A pressurised spray released from a small animal: a sharp wet hiss of atomised liquid, then ferns thrashing and rustling as a body bursts through them"
+  },
+  {
+   "id": "455",
+   "title": "Irontread Crusher",
+   "prompt": "A steam crusher grinding through a ruined camp: iron-studded wheels crushing palisade wood, debris popping under tread, pressure valves whistling, pis"
+  },
+  {
+   "id": "470",
+   "title": "Springbloom Druid",
+   "prompt": "A sacrifice of soil awakening two trees: fertile earth draining grey and crumbling to dust, that life erupting upward, two trunks bursting through ash"
+  },
+  {
+   "id": "471",
+   "title": "Healer of the Glade",
+   "prompt": "Dry herbs being gently crushed and crumbled between palms, a fine leafy crackle with soft falling particles, very close. No music, no speech, no ambie"
+  },
+  {
+   "id": "474",
+   "title": "Scroll Thief",
+   "prompt": "A scroll thief slipping away: webbed feet padding up wet marble steps, wax-sealed parchments crackling in a tight grip, a quiet dive back into churnin"
+  },
+  {
+   "id": "476",
+   "title": "Banishment Decree",
+   "prompt": "A decree of banishment: a torrent of sterile white light flooding over a body, boots skidding and scraping across polished floors, a final surge hurli"
+  },
+  {
+   "id": "480",
+   "title": "Zoraline, Cosmos Caller",
+   "prompt": "A fine sparkling trickle, like dry sand pouring steadily onto a glass plate, ending with one clear sharp human gasp of a waking breath. No music, no s"
+  },
+  {
+   "id": "481",
+   "title": "Dawntreader Elk",
+   "prompt": "Bright meltwater trickling and dripping from thawing branches, steady clear droplets pattering on wet snow, close and fresh. No music, no speech, no a"
+  },
+  {
+   "id": "484",
+   "title": "Guidestone Compass",
+   "prompt": "Smooth brass rings spinning inside a stone housing with a fine metallic hiss, slowing until one gentle click as they align. No music, no speech, no am"
+  },
+  {
+   "id": "487",
+   "title": "Stoic Rebuttal",
+   "prompt": "A rebuttal without a glance: three chromed artifacts chiming in resonance, a geometric shield snapping into place, a fireball bursting harmlessly agai"
+  },
+  {
+   "id": "489",
+   "title": "Seer's Lantern",
+   "prompt": "A small metal lantern shutter sliding open with a smooth scrape and a click, followed by a thin crystalline tone rising softly, like a wet finger circ"
+  },
+  {
+   "id": "490",
+   "title": "Awaken the Sleeper",
+   "prompt": "One sharp dry crack of a wooden weapon shaft snapped in half, a single splintering break, close and hard. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "500",
+   "title": "Instant Ramen",
+   "prompt": "Someone eating instant ramen close up: noodles slurped from a foam cup, chopsticks clacking lightly on the rim, a satisfied swallow but no words. No m"
+  },
+  {
+   "id": "504",
+   "title": "Ballista Watcher",
+   "prompt": "A heavy wooden ballista firing once: a sharp snap of the trigger and a deep thump of the throwing arms, one shot only, moderate level with headroom, n"
+  },
+  {
+   "id": "507",
+   "title": "Shatter",
+   "prompt": "An iron shell bursting apart from inside: a hard metallic rupture with tearing plate, then heavy fragments raining down and clanging across a stone fl"
+  },
+  {
+   "id": "511",
+   "title": "Emerald Oryx",
+   "prompt": "A heavy animal body settling softly onto forest leaf litter, leaves and twigs compressing with a soft crunch, recorded very close, clearly audible. No"
+  },
+  {
+   "id": "527",
+   "title": "Shiva, Warden of Ice",
+   "prompt": "An ice warden descending: a body unfolding into towering frost, the air cracking cold as mist sweeps the field, boots and hooves locking solid mid-str"
+  },
+  {
+   "id": "528",
+   "title": "Enter the Enigma",
+   "prompt": "A sharp electric rip, like the air itself being sliced open, with a crackling static edge that seals shut behind it. No music, no speech, no ambience "
+  },
+  {
+   "id": "529",
+   "title": "Turn the Tide",
+   "prompt": "A wave of liquid metal turning the tide: a mercury sea swelling into a colossal swell, mirror-heavy water crashing over metal monsters, bodies clatter"
+  },
+  {
+   "id": "533",
+   "title": "Death-Hood Cobra",
+   "prompt": "An iron cobra striking upward: coils unloading in one vertical launch, metal scales rasping, a fanged hood clamping shut on prey high in the air. No m"
+  },
+  {
+   "id": "536",
+   "title": "Ethersworn Shieldmage",
+   "prompt": "A geometric shield of hardened mana: etherium arms sweeping up, a lattice barrier snapping into place, bone spears shattering against it in a rattling"
+  },
+  {
+   "id": "542",
+   "title": "Panic Spellbomb",
+   "prompt": "A panic spellbomb bursting: a cracked sphere spilling crimson light across steel, a sensory shockwave snapping outward, a heavy spear clattering from "
+  },
+  {
+   "id": "543",
+   "title": "Wooden Stake",
+   "prompt": "A hunter closing with an oak stake: boots pressing slow over grave moss, a rough-hewn point scraping free of its sheath, a cornered hiss answering. No"
+  },
+  {
+   "id": "547",
+   "title": "Quicksilver Fisher",
+   "prompt": "A chrome dragon fishing mercury: a dive flattening low over the mirror sea, talons slicing into liquid metal with a rip, wings heaving a heavy catch b"
+  },
+  {
+   "id": "551",
+   "title": "Contested Game Ball",
+   "prompt": "A heavy stone ball striking a stone hoop and bouncing off with sharp echoing clacks, two or three hard knocks. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "552",
+   "title": "Ettercap",
+   "prompt": "An ettercap netting a flyer: a thick strand of webbing squirting upward, sticky silk slapping around beating wings, the tangle dragging its prey down "
+  },
+  {
+   "id": "555",
+   "title": "Bedhead Beastie",
+   "prompt": "A bedhead beastie facing militia: wooden bed planks shifting on a horned skull, straw rustling as a huge frame rises, two spears leveling in the doorw"
+  },
+  {
+   "id": "560",
+   "title": "Dead Ringers",
+   "prompt": "One dull cracked double-clank of two identical iron plates struck together, flat, lifeless and heavy, short metallic ring. No music, no speech, no amb"
+  },
+  {
+   "id": "564",
+   "title": "Razorfoot Griffin",
+   "prompt": "A razorfoot griffin strafing a machine: a steep dive whistling down, hardened talons shearing through metal, the wreck spinning out of the sky. No mus"
+  },
+  {
+   "id": "573",
+   "title": "Typhoid Rats",
+   "prompt": "Plague rats among the gifts: small claws rustling through gift baskets, a startled yelp and a fall, ragged breathing turning feverish. No music, no sp"
+  },
+  {
+   "id": "575",
+   "title": "Dromoka Warrior",
+   "prompt": "A phalanx thrust in dragon scale: a spear driving clean through the drill, scale plates rasping in step, a dragon's shadow sweeping over the dune line"
+  },
+  {
+   "id": "578",
+   "title": "Savage Surge",
+   "prompt": "A beast's sudden reversal: hooves wrenching around in the mud, a heavy morning star whistling full-circle, hunters scattering with a panicked yell. No"
+  },
+  {
+   "id": "581",
+   "title": "Ulna Alley Shopkeep",
+   "prompt": "A goblin hawking a rare elixir: a cork popping free, thick violet vapor curling out of the flask's mouth, glass chiming as it changes hands. No music,"
+  },
+  {
+   "id": "584",
+   "title": "Merfolk Falconer",
+   "prompt": "A falcon returning to the glove: wings flaring and braking hard, talons closing on a padded brace, a soft chirr as the hood slips on. No music, no spe"
+  },
+  {
+   "id": "591",
+   "title": "Rust-Shield Rampager",
+   "prompt": "A badger rampager on the charge: a pot-lid shield bashing through clover, a tiny tin helmet rattling alongside, two voices yipping the same war cry. N"
+  },
+  {
+   "id": "593",
+   "title": "Inspiring Captain",
+   "prompt": "A warhorse stamping once and letting out one commanding whinny, powerful and close, with a snort at the end. No music, no speech, no ambience bed."
+  },
+  {
+   "id": "598",
+   "title": "Sheriff of Safe Passage",
+   "prompt": "A hobbit sheriff keeping the road: an oak staff rapped once on stone, a feathered hat brim tilting as he points the way, pony hooves clopping past. No"
+  },
+  {
+   "id": "599",
+   "title": "Candlegrove Witch",
+   "prompt": "A candle-grove kindling at once: dozens of beeswax wicks catching in sequence, flames breathing upward through birch branches, a hush settling over th"
+  },
+  {
+   "id": "600",
+   "title": "Rotting Legion",
+   "prompt": "A rotting legion on the march: hundreds of boots dragging in one dead rhythm, rusty mail clinking out of step, the column grinding through a barricade"
+  },
+  {
+   "id": "604",
+   "title": "Vampire's Bite",
+   "prompt": "A bruxa's strike: a body dropped hard on marble, a wet gasp, fangs working once at the throat, a slow satisfied exhale. No music, no speech, no ambien"
+  },
+  {
+   "id": "605",
+   "title": "Consign to Dream",
+   "prompt": "A dense soft flutter of thousands of tiny paper-thin wings rising together and thinning away to silence, airy and light. No music, no speech, no ambie"
+  },
+  {
+   "id": "613",
+   "title": "Duskmantle Seer",
+   "prompt": "Loose parchment sheets and book pages snatched up all at once: sharp paper flutter and snapping, sheets slapping against shelves, then settling back d"
+  },
+  {
+   "id": "165",
+   "title": "Captivating Gyre",
+   "prompt": "A spiraling waterspout bursting up from a wide river: water rushing and twisting upward with a hiss of driven desert sand, one strong rising swell tha"
+  },
+  {
+   "id": "208",
+   "title": "Jade Bearer",
+   "prompt": "In a flooded Ixalan cave, close and intimate: gentle shallow water laps around a kneeling warrior, then a jade stone diadem is placed on the forehead "
+  }
+ ]
+}
