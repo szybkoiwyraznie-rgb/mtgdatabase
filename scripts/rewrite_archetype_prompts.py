@@ -290,34 +290,18 @@ DURATIONS = (4.0, 4.5, 3.5)
 
 # Karty, których prompt musi zostać ręczny (fabuła narzuca konkretne źródło).
 OVERRIDES: dict[str, tuple[str, str, bool]] = {
-    "515": ("A war gunship's engine: a deep throbbing turbine rumble with heavy rotor blades "
-            "beating the air and a metallic rattle of the hull. " + NO_M,
-            "gunship: głęboki turbinowy pomruk z biciem ciężkich łopat wirnika i grzechotem kadłuba", False),
-    "7": ("A mind stab: an instant piercing psychic shriek, a high tonal scream swelling inside "
-          "the skull and cutting off. " + NO_M,
-          "pchnięcie psychiczne: natychmiastowy przenikliwy tonalny krzyk w czaszce, urywa się", False),
     "312": ("A goblin jester cackling: a series of sharp mocking cackles, five rapid jeering "
             "bursts, high and cruel. " + NO_M,
             "chichot błazna: seria ostrych kpiących chichotów, pięć szybkich wybuchów", False),
-    "521": ("Forest birds at dawn: several distinct whistled bird songs and chirps answering each "
-            "other, clear and tonal. " + NO_M,
-            "ptaki o świcie: kilka wyraźnych gwizdanych zawołań odpowiadających sobie", False),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
             "rustic, feet stamping the beat. " + NO_S,
             "wiejska muzyka: skrzypce grają żywą taneczną melodię nad bębenkiem, stopy wybijają rytm", True),
-    "568": ("A sentinel robot's servos: a smooth continuous mechanical whirr with a steady hum, "
-            "a hydraulic hiss and a precise click at the end. " + NO_M,
-            "serwo sentinela: ciągłe gładkie warczenie mechanizmu z syknięciem hydrauliki i kliknięciem", False),
 
     # --- poprawki po rundzie r017a (audyt pokazał, co model zrobił nie tak) ---
     # 515: wyszedł centroid 90 Hz i flagi muffled/boomy/dull — sam infrabas.
     "515": ("A war gunship hovering low: heavy rotor blades chopping the air with a sharp slap, "
             "a high turbine whine over it and a bright metallic rattle of the hull. " + NO_M,
             "gunship: ciężkie łopaty wirnika tną powietrze, nad nimi świst turbiny i jasny grzechot kadłuba", False),
-    # 521: flaga speech_like — ptasi śpiew wyszedł głosowo.
-    "521": ("Forest birds at dawn: three clear whistled bird calls, pure tone with no voice in "
-            "them, answered by two short sharp chirps. " + NO_M,
-            "ptaki o świcie: trzy czyste gwizdane zawołania bez głosu, odpowiedź dwoma krótkimi ćwierknięciami", False),
     # 35: tylko 2,53 s i 2,0 pkt.
     "35": ("A winged creature hovering close: five steady deep wingbeats with a leathery flap "
            "and a rush of air, filling the whole take. " + NO_M,
@@ -356,25 +340,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "521": ("Forest birds at dawn: quick rapid chirps and short whistled trills, several birds "
             "answering fast, bright and light. " + NO_M,
             "ptaki o świcie: szybkie ćwierknięcia i krótkie trele, kilka ptaków odpowiada prędko", False),
-    # 7: attack_s 0,48 przy progu 0,10 — bez narastania.
-    "7": ("A mind stab: a piercing psychic shriek starting at full force with no build-up, a "
-          "high tonal scream cutting off abruptly. " + NO_M,
-          "pchnięcie psychiczne: przenikliwy krzyk od pełnej mocy, bez narastania, urywa się nagle", False),
-    # 568: f0_semitone_std 14,2 przy progu 4,0 — stabilna wysokość.
-    "568": ("A sentinel robot's servo holding one steady note: a smooth even mechanical whirr "
-            "at a constant pitch, with a single precise click at the end. " + NO_M,
-            "serwo sentinela: gładkie równe warczenie na stałej wysokości, jedno kliknięcie na końcu", False),
-    # 31 i 456: bliźniaki (0,9548) — dwa różne zdarzenia w tym samym archetypie.
-    "31": ("Insects crawling out of a carcass: a dry rustling swarm of many small legs and "
-           "wings, dense and close, sustained. " + NO_M,
-           "owady wyłażą z padliny: suchy szelest wielu odnóży i skrzydeł, gęsty i bliski", False),
-    "456": ("Porcelain insects shattering and taking flight: one bright crack of ceramic, then "
-            "a rising buzz of a swarm lifting off. " + NO_M,
-            "porcelanowe owady pękają i wzbijają się: jasny trzask ceramiki i narastające bzyczenie", False),
-    # 317 i 343: za krótkie (2,80 i 2,66 s) — dźwięk ma wypełnić cały czas.
-    "317": ("A large iron church bell tolled in alarm: three heavy strikes, each ringing out "
-            "fully one after another, filling the whole take. " + NO_S,
-            "kościelny dzwon bije na alarm: trzy ciężkie uderzenia, każde w pełni wybrzmiewa", True),
     "343": ("A bronze temple bell struck once and left to ring: a deep struck tone with warm "
             "shimmering partials ringing on and on, filling the whole take. " + NO_S,
             "dzwon z brązu uderzony raz: głęboki ton z ciepłymi alikwotami dzwoni bez końca", True),
@@ -392,9 +357,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "thick low buzzing drone of many wings lifting off, harmonic and sustained. " + NO_M,
             "rój wzbija się z potłuczonej porcelany: trzask i gruby niski bzyk wielu skrzydeł", False),
     # 568: tonal_frame_fraction 0,000 — serwo wyszło szumowe, ma być ton o stałej wysokości.
-    "568": ("A robot's servo motor holding one pitched note: a clean electric motor hum at a "
-            "constant steady pitch, smooth and tonal, ending in one precise click. " + NO_M,
-            "serwo robota trzyma jeden ton: czyste brzęczenie silnika o stałej wysokości, klik na końcu", False),
+    # 568: trzy próby (r018/r020/r021) opisywały silnik/warczenie i wszystkie dały
+    # tonal_frame_fraction 0,000 przy progu 0,35 — model renderuje „motor hum"
+    # jako szum szerokopasmowy (flatness 0,30, centroid 4,8 kHz, f0 = 0 Hz).
+    # Próg jest osiągalny: 250 kart niemuzykalnych w korpusie ma tonal >= 0,35
+    # (mediana korpusu 0,315), więc winny jest opis źródła, nie kontrakt.
+    # Dlatego kotwiczymy w źródle harmonicznym (kamerton), nie w mechanizmie.
+    "568": ("A robot servo holding one pure tone: a smooth sustained hum at a single "
+            "unwavering pitch, clear and harmonic like a struck tuning fork that keeps "
+            "ringing, a faint coil whine underneath, then two short precise clicks. "
+            "The pitch never bends or wobbles. " + NO_M,
+            "serwo robota trzyma jeden czysty ton: równy harmoniczny dźwięk jak "
+            "dzwoniący kamerton, pod spodem ciche brzęczenie cewki, dwa kliki", False),
     # 317: 2,23 s — cztery uderzenia mają wypełnić cały czas.
     "317": ("A large iron church bell tolled in alarm: four heavy strikes in a steady rhythm, "
             "each one ringing out fully, filling the whole take from start to finish. " + NO_S,
