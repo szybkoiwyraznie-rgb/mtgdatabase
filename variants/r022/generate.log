@@ -1,0 +1,12 @@
+=== wariant v1 ===
+selected 1 scenario(s)
+OK 568: variants/r022/v1/568.mp3 (65245 bytes)
+done: generated=1, skipped=0, failed=0
+=== wariant v2 ===
+selected 1 scenario(s)
+OK 568: variants/r022/v2/568.mp3 (65245 bytes)
+done: generated=1, skipped=0, failed=0
+=== wariant v3 ===
+selected 1 scenario(s)
+OK 568: variants/r022/v3/568.mp3 (65245 bytes)
+done: generated=1, skipped=0, failed=0
