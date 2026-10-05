@@ -1,31 +1,33 @@
-name: TEMP r029 karty z jednym progiem kontraktu
+name: TEMP r030 cecha chroniona pierwsza
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # 2026-10-05: klucz odnowiony (10 000 kredytow, 40 na generacje). Workflow bez
 # markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma HTTP 403 na
 # workflow_dispatch, a sandbox nie siega *.blob.core.windows.net (nie da sie
 # pobrac logow runa), wiec warianty generujemy z triggera push markerowanego
-# ([generate-r029]) i commitujemy na galaz sesji razem z logiem generacji -
+# ([generate-r030]) i commitujemy na galaz sesji razem z logiem generacji -
 # log w repo to jedyny sposob, zeby zobaczyc blad API z sandboxa.
 #
-# r029: 2 warianty x 34 karty = 68 generacji x 40 kredytow = 2720 kredytow.
-# Kazda z 34 kart ma DOKLADNIE jedno zlamanie kontraktu archetypu, wiec prompt
-# celuje w te jedna ceche: sword_clash -> spectral_flatness >= 0,05;
-# insect_swarm -> centroid 1000-6000 Hz albo tonal >= 0,3; door_creak ->
-# decay >= 0,3 s albo mod_peak 2-12 Hz; robot_servo -> onset >= 2; whip_crack ->
-# attack <= 0,03 s; war_machine i earth_rumble -> mid_up >= 0,1; wind_gust ->
-# flatness >= 0,05; magic_shimmer -> sustain >= 0,3; forest_birdsong ->
-# mod_peak 3-22 Hz; mechanism_click -> centroid 800-6000 Hz.
-# insect_swarm potrzebuje raz NIZSZEGO centroidu (98, 106, 456, 81), a raz
-# WIECEJ tonalnosci (31, 540) - dlatego tylko wpisy per karta w OVERRIDES;
-# profil rodzinny nie moglby pogodzic obu kierunkow naraz.
-# Cztery karty (98, 106, 456, 610) NIE daja sie naprawic korekta widma -
-# zmierzone w tame_spectrum.py: ciecie 15 dB powyzej 2,5 kHz zabija 14,5 LU
-# glosnosci, wiec renormalizacja do -20 LUFS dodaje +14,5 dB, a limit_true_peak
-# musi zdusic transjent (peak_gr -11,3 dB), czyli dokladnie ten jasny atak,
-# o ktory chodzi. Centroid wraca z 5588 na 7277 Hz. Stad regeneracja.
-# Postprocess dziala bez --trim-trail-s, zeby nie zjadac ogona, ktory ma wydluzyc
-# tresc. Stan korpusu: 553 pliki, 54 z flaga, 0 par blizniakow, 0 poza 2,0-5,0 s.
+# r030: 2 warianty x 19 kart = 38 generacji x 40 kredytow = 1520 kredytow.
+# RUNDA WYNIKA WPROST Z POMIARU r030. Wtedy prompt pod jedna ceche naprawial ja,
+# ale model rozstrzygal konflikt kosztem innej cechy w tej samej rodzinie:
+#   sword_clash  dostal szumowy transient i stracil attack_s (0,14-0,52 s przy <= 0,1)
+#   robot_servo  dostal cztery kliky i stracil tonal (0,040 i 0,000 przy >= 0,35)
+#   insect_swarm dostal nizszy centroid i stracil tonal (0,22 przy >= 0,3)
+#   door_creak   dostal szybkie falowanie i stracil tonalnosc
+# Dlatego teraz cecha CHRONIONA idzie w prompcie PIERWSZA i jako element
+# dominujacy, a poprawka dopiero po niej, np. robot_servo: 'One continuous clean
+# tone at a constant pitch, dominant and unbroken ... with just two very soft
+# clicks barely audible over it' - ton najpierw, klik jako dodatek.
+# 19 kart to wszystkie grupy >= 2 sposrod 49 pozostalych 'prawdopodobnie':
+#   sword_clash/flatness 5 | insect_swarm/centroid 4 | door_creak/mod_peak 3
+#   wind_gust/centroid 3 | door_creak/decay 2 | robot_servo/onset 2
+# door_creak/mod_peak ma oba kierunki: 95 przestrzelil w gore (19,76 Hz po
+# prompcie 'several times per second'), a 303 i 531 sa za wolne (1,03 i 1,40 Hz),
+# wiec cel to srodek okna: 'about five or six times a second'.
+# Postprocess zawsze z --ids ograniczonym do batchu: w r030 uruchomiony globalnie
+# zmienil 540 z 553 plikow, a --fix-mono podnosi podobienstwo i wypchnal pare
+# 529/592 na cosine 0,9501 - nowego blizniaka nad progiem 0,95.
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -38,7 +40,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "17,20,308,345,435,608,81,98,106,456,9,103,513,67,80,501,95,381,537,31,540,6,18,15,257,49,168,144,506,204,611,303,531,610"
+  IDS: "17,20,345,435,608,81,98,106,456,95,303,531,103,492,513,381,537,204,611"
 
 jobs:
   variants:
@@ -49,13 +51,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r029]
+      - name: Guard — tylko commit z markerem [generate-r030]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r029]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r030]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r029] — nic nie generuję"
+            echo "brak markera [generate-r030] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -74,25 +76,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r029
+          mkdir -p variants/r030
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r029/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r030/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r029 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r029/v$v" 2>&1 | tee -a variants/r029/generate.log
+              --ids "$IDS" --batch r030 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r030/v$v" 2>&1 | tee -a variants/r030/generate.log
           done
-          ls -la variants/r029 variants/r029/v1 variants/r029/v2 || true
+          ls -la variants/r030 variants/r030/v1 variants/r030/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r029 data/samples/generated-manifest.jsonl
+          git add -f variants/r030 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r029: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r029]"
+            git commit -m "r030: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r030]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
