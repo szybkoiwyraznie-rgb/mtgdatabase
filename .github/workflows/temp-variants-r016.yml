@@ -75,6 +75,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r027: 90 wariantow archetypowych (45 kart x 2) + log generacji [import-r027]
+            git commit -m "r027: 90 wariantow archetypowych (45 kart x 2) + log generacji [import-r027]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
