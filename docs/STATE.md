@@ -1722,3 +1722,65 @@ dłuższe i mają więcej dołu, więc częściej łapią `dull`/`boomy`, a mode
 ciszę na brzegach. Do zrobienia: korekta high-shelf i trymowanie brzegów.
 
 **Kredyty: 9960 z 10 000 wydane (249 generacji), zostało 40 = 1 generacja.**
+
+## 2026-10-05 — Higiena bez kredytów + r020: 11 upartych kart × 3 warianty (33 generacje)
+
+**Higiena (0 kredytów).** `postprocess_samples.py` dostał `--trim-lead-s`,
+`--edge-fade-ms` i `--spectral-kinds` (funkcje `trim_leading_silence()`,
+`edge_fades()`). Przejście przez 25 flagowanych kart z nowych batchów:
+LUFS −20,0 (σ 0,08), SNR min 23,1 dB, **flagi 102 → 94**, zero regresji
+archetypów. Korekta `boomy` celowo pominięta — low-shelf ciąłby `low_all`,
+którego kontrakty `earth_rumble`/`war_machine` wymagają.
+
+**r020: 11 kart × 3 warianty = 33 generacje = 1320 kredytów.** Prompty pisane
+pod zmierzoną wadę każdej karty (`OVERRIDES`), nie pod szablon.
+
+**Wynik: audyt 174 kart — nie trafionych 4 → 1, prawdopodobnie 99, trafionych
+71 → 74. Pary bliźniacze: 0.** Karta po karcie (przed → po): `49` 2,5 → 1,0 ·
+`168` 2,0 → 1,0 · `298` 2,5 → **0** · `343` 1,0 → **0** · `493` 2,0 → 1,0 ·
+`521` 1,0 → **0** · `7` 1,5 → 1,5 · `31` 1,0 → **3,5 (regresja)** ·
+`456` 1,0 → 1,0 · `568` 1,0 → 1,5 (regresja) · `317` 0 → 0 (ale tylko 2,23 s).
+
+**Prompty pod intuicję psują zgodność z kontraktem.** `31` Carrion Call
+z override'em „suchy szelest chityny" dał szum 8,5 kHz, a kontrakt
+`insect_swarm` chce harmonicznego bzyku roju (`tonal_frame_fraction >= 0,3`):
+1,0 → 3,5 pkt. Analogicznie `568` „constant pitch whirr" dał `tonal` 0,000
+(potrzeba „pitched hum"), a `7` „no build-up" i tak wyszedł z atakiem 0,90 s.
+
+**Kredyty: konto drugie 1320 z 10 000 wydane, zostało 8680 = 217 generacji.**
+
+## 2026-10-05 — r021: druga fala (75 generacji) — zero kart nie trafionych
+
+Zakres: 5 kart upartych z r020 z promptami pod zmierzoną wadę + 20 kart
+z `--worst`, po 3 warianty. **Wynik: audyt 174 kart — 0 nie trafionych /
+94 prawdopodobnie / 80 trafionych** (przed rundą 1 / 99 / 74). Karty transzy:
+6 poprawionych, 0 pogorszonych, 19 bez zmian. Pary bliźniacze 0, flagi 97.
+
+**13 kart właściciela: 11 trafionych, 2 prawdopodobne, 0 nie trafionych**
+(zostają `7` Mindstab i `568` Nanoform Sentinel — obie nowe generacje wypadły
+gorzej niż dotychczasowe pliki, więc zostały przywrócone).
+
+**Błąd zakresu kosztował 960 kredytów.** `rewrite_archetype_prompts.py` miał
+twardo zaszyty domyślny `--audit` = zrzut `archetype-match-...-strong.json`
+sprzed r018, więc `--worst 20` wybrał **8 kart już wtedy trafionych**
+(`1`, `92`, `128`, `172`, `192`, `298`, `317`, `383`). Nowe generacje część
+z nich zepsuły (`383`: 0 → 3,0 pkt). Naprawione: domyślny `--audit` to teraz
+najnowszy `archetype-match-*.json`, a 10 zepsutych kart przywrócono
+z commitu `8ebae10` (zero kredytów): `4`, `7`, `164`, `168`, `303`, `382`,
+`383`, `456`, `558`, `568`.
+
+**Selektor nie pilnował okna 3–5 s.** `7` v1 (2,03 s treści + 1,89 s ciszy)
+wygrywał z v2 o pełnych 4,00 s, bo kontrakt archetypu długości nie widzi.
+`pick_archetype_variant.py` karze teraz wyjście poza 3–5 s stawką 5,0 pkt/s
+(więcej niż maksymalna suma wag kontraktu), a łańcuch pomiaru wariantu
+zrównano z wysyłkowym. Bez kredytów kalibrowano też `sword_clash`
+(`attack_s <= 0,10 s` = mediana korpusu, było 0,05) — samo to dało 74 → 76.
+
+**Kredyty: 3000 w tej rundzie, razem na koncie drugim 4320 wydane,
+zostało 5680 = 142 generacje.**
+
+**Co zostało:** 94 karty „prawdopodobnie" (żadna nie trafiona), **417 plików
+poza oknem 3–5 s** (mediana korpusu 2,48 s), w tym 76 z archetypem — ich
+naprawa to 152 generacje = 6080 kredytów, czyli więcej niż zostało na koncie;
+379 fabuł bez archetypu; `variants/r016…r021` i workflow tymczasowy do
+usunięcia przed finałem.

@@ -462,11 +462,26 @@ def build(row: dict) -> dict | None:
             "duration_seconds": DURATION if sid in OVERRIDES else DURATIONS[int(sid) % len(DURATIONS)]}
 
 
+def latest_archetype_audit() -> Path:
+    """Najnowszy zrzut `archetype-match-*.json` w data/samples/.
+
+    Powód: --worst czyta punktacje kontraktu z tego pliku. Gdy domyślnie
+    wskazywał stary zrzut, transza naprawcza trafiała w karty już naprawione
+    (r021: 8 z 20 wybranych kart miało wtedy werdykt „trafiony"), a nowe
+    generacje potrafiły je zepsuć (`383`: 0 -> 3,0 pkt).
+    """
+    cands = sorted((ROOT / "data/samples").glob("archetype-match-*.json"),
+                   key=lambda f: (f.stat().st_mtime, f.name))
+    return cands[-1] if cands else ROOT / "data/samples/archetype-match-2026-10-05-strong.json"
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--scenarios", type=Path, default=ROOT / "data/samples/scenarios.jsonl")
-    ap.add_argument("--audit", type=Path,
-                    default=ROOT / "data/samples/archetype-match-2026-10-05-strong.json")
+    ap.add_argument("--audit", type=Path, default=latest_archetype_audit(),
+                    help="JSON audytu archetypów; domyślnie NAJNOWSZY w data/samples/. "
+                         "Twardo zaszyta ścieżka do starego zrzutu kosztowała w r021 "
+                         "24 generacje: --worst wybrał 8 kart już wtedy trafionych.")
     ap.add_argument("--ids", default="", help="lista ID po przecinku")
     ap.add_argument("--families", default="", help="archetypy do wyboru, po przecinku")
     ap.add_argument("--worst", type=int, default=0,

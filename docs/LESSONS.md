@@ -985,3 +985,47 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Zasada / działanie zapobiegawcze: zanim korekcja zacznie gonić próg, sprawdzić,
   czy flaga nie wynika wprost z fizyki źródła. Jeśli tak — zostawić ją
   i zapisać w raporcie jako świadomą, zamiast psuć sample.
+
+## 2026-10-05 — Domyślna ścieżka do audytu musi być „najnowsza", nie zaszyta
+
+- Sytuacja: `rewrite_archetype_prompts.py --worst 20` wybierał karty do transzy
+  z pliku `archetype-match-2026-10-05-strong.json`, zaszytego na stałe
+  w wartości domyślnej `--audit`. Zrzut był sprzed czterech rund, więc transza
+  r021 trafiła w **8 kart już trafionych** — 24 generacje = 960 kredytów,
+  a nowe sample część z nich zepsuły (`383` Supernatural Stamina: 0 → 3,0 pkt).
+- Wniosek: każdy wybór zakresu „weź najgorsze N" jest tak dobry jak świeżość
+  zrzutu, z którego czyta. Zaszyta ścieżka nie psuje się głośno — zwraca
+  poprawnie wyglądającą listę.
+- Zasada / działanie zapobiegawcze: domyślne wejścia narzędzi wybierających
+  zakres transzy mają wskazywać **najnowszy** zrzut (`latest_archetype_audit()`
+  globuje `archetype-match-*.json`). Przed każdą transzą wydrukować listę id
+  z ich bieżącym werdyktem i sprawdzić, czy żadna nie jest już „trafiona".
+
+## 2026-10-05 — Selektor wariantów musi pilnować kryterium akceptacji, nie tylko kontraktu
+
+- Sytuacja: `pick_archetype_variant.py` oceniał warianty wyłącznie kontraktem
+  archetypu, który długości nie widzi. `7` Mindstab v1 miał 2,03 s treści
+  + 1,89 s martwej ciszy i wygrywał z v2 o pełnych 4,00 s; po trymowaniu
+  do korpusu trafiał plik 2,36 s przy celu właściciela 3–5 s.
+- Wniosek: metryka optymalizacji musi zawierać **twarde** kryteria akceptacji,
+  inaczej narzędzie zoptymalizuje to, co mierzy, i po cichu złamie resztę.
+- Zasada / działanie zapobiegawcze: kara za wyjście poza 3–5 s liczona od
+  długości **po łańcuchu postprodukcji**, ze stawką (5,0 pkt/s) wyższą niż
+  maksymalna suma wag kontraktu — żeby plik poza oknem nigdy nie wygrał
+  z wariantem w oknie, nawet gorzej pasującym do archetypu.
+
+## 2026-10-05 — Zanim „naprawisz" kierunek sortowania, sprawdź, co zwraca funkcja oceny
+
+- Sytuacja: log selektora pokazał `wybór v1 (-1,28 pkt), pozostałe [2.0, 3.5]`
+  i wyglądał na odwrócone sortowanie — jakby od r016 wybierano najgorszy
+  wariant. Tymczasem `evaluate()` zwraca **sumę wag złamanych kontraktów**,
+  więc niższy wynik = lepiej, a `verdict(0.0)` = „trafiony". Sortowanie było
+  poprawne od początku; odwrócona była dopiero dopisana kara za długość,
+  która nagradzała pliki poza oknem.
+- Wniosek: „to wygląda na błąd" nie jest dowodem. Ta sama obserwacja
+  pasowała do dwóch przeciwnych diagnoz, a błędna prowadziła do zmiany
+  działającego kodu.
+- Zasada / działanie zapobiegawcze: przed zmianą porządku wyboru przeczytać
+  definicję funkcji oceny i jej `verdict`. W tym projekcie: wynik kontraktu
+  to punkty karne (0 = ideał), a każdy nowy składnik oceny musi mieć ten sam
+  zwrot — kara **dodaje** punkty.

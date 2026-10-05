@@ -47,7 +47,19 @@ from audit_semantic_match import extra_features  # noqa: E402
 # Ustawienia postprodukcji takie jak w korpusie (patrz postprocess_samples.py):
 # bez nich selektor mierzy inny sygnał niż ten, który trafia do audio/samples.
 POSTPROCESS_KW = dict(target_lufs=-20.0, ceiling_db=-1.0, max_gain_db=15.0,
-                      hp_hz=25.0, dry_run=False, fix_mono=True, trim_trail_s=0.4)
+                      hp_hz=25.0, dry_run=False, fix_mono=True,
+                      trim_trail_s=0.25, trim_lead_s=0.15, edge_fade_ms=12.0)
+
+# Kryterium akceptacji sampla to 3-5 s. Kontrakt archetypu tego nie widzi, więc
+# wariant z martwym ogonem mógł wygrać i trafić do korpusu jako 2,36 s (r021:
+# `7` v1 = 2,03 s treści + 1,89 s ciszy, choć v2 miał pełne 4,00 s). Kara za
+# wyjście poza okno jest liczona od długości PO łańcuchu, czyli od tego, co
+# właściciel dostaje — wymaga --postprocess, przy surowym pomiarze ogon jest
+# jeszcze na miejscu.
+# Stawka jest celowo wyższa niż maksymalna suma wag kontraktu (~5 pkt): plik
+# poza 3-5 s NIE SPELNIA kryterium akceptacji w ogóle, więc nigdy nie może
+# wygrać z wariantem w oknie, nawet jeśli tamten gorzej pasuje do archetypu.
+DUR_MIN_S, DUR_MAX_S, DUR_PENALTY_PER_S = 3.0, 5.0, 5.0
 
 
 def ship_ready(src: Path, tmp_dir: Path) -> Path:
@@ -150,6 +162,14 @@ def main() -> int:
                 continue
             measured = ship_ready(f, tmp_dir) if tmp_dir else f
             score, broken, metrics = score_file(measured, expected, music, archetype)
+            if tmp_dir:
+                dur = metric(metrics, "duration_s")
+                if dur is not None:
+                    outside = (max(0.0, DUR_MIN_S - float(dur))
+                               + max(0.0, float(dur) - DUR_MAX_S))
+                    # Wynik `evaluate` to suma wag ZŁAMANYCH kontraktów, więc
+                    # kara musi DODAWAĆ punkty karne (wyższe = gorsze).
+                    score = round(score + DUR_PENALTY_PER_S * outside, 2)
             twin_with = None
             fp_variant = None
             if args.avoid_twins:
@@ -181,7 +201,6 @@ def main() -> int:
             continue
         # Równorzędne wyniki rozstrzyga dłuższa słyszalna treść: kontrakt nie
         # widzi estetyki, a sample z 2,8 s treści jest gorszy niż z 3,5 s.
-        variants.sort(key=lambda v: (v["score"], -v["metrics"].get("content_rel_s", 0.0), v["variant"]))
         variants.sort(key=lambda v: (v["score"], -v["metrics"].get("content_rel_s", 0.0), v["variant"]))
         best = variants[0]
         if args.avoid_twins and best.get("_fp") is not None:
