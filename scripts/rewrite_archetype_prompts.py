@@ -357,16 +357,17 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "thick low buzzing drone of many wings lifting off, harmonic and sustained. " + NO_M,
             "rój wzbija się z potłuczonej porcelany: trzask i gruby niski bzyk wielu skrzydeł", False),
     # 568: tonal_frame_fraction 0,000 — serwo wyszło szumowe, ma być ton o stałej wysokości.
-    # r022 (kamerton) naprawił ton: tonal 0,000 -> 0,997/1,000/0,907 i f0_std
-    # 0,28-1,67, ale model oddał ciągły ton bez jednego transientu
-    # (onset_count 0 przy progu >= 2) — 1,5 pkt zamieniło się na 1,0.
-    # Karta `12` Merchant's Dockhand ma i ton (0,545), i kliki, więc da się
-    # obie cechy naraz; r023 dopisuje kliki tak, żeby nie zabiły tonu.
-    "568": ("A robot servo holding one pure tone: a smooth sustained harmonic hum at a single "
-            "unwavering pitch, like a struck tuning fork, cut through twice by two sharp "
-            "mechanical clicks, the tone resuming after each. The pitch never bends. " + NO_M,
-            "serwo robota trzyma jeden czysty ton jak kamerton, dwa razy przecięty ostrym "
-            "mechanicznym klikiem, ton wraca po każdym", False),
+    # r023 (kliki przecinające ton) dał najwyżej onset 1 i stonizowany ton
+    # (0,767 / f0_std 3,3) — model rozstrzyga konflikt ton-vs-klik kosztem tonu.
+    # Próg klików jest dobrze skalibrowany: mediana korpusu 4, a pozostałe karty
+    # robot_servo mają 2-29, więc to realna wada, nie zły próg.
+    # r024 odwraca hierarchię: rytm jest zdarzeniem głównym, ton — tłem.
+    "568": ("A robot servo working in a steady rhythm: a precise mechanical ticking, "
+            "two clicks per second, each click crisp and separate, over a continuous "
+            "harmonic whine held at one unwavering pitch. " + NO_M,
+            "serwo robota pracuje równym rytmem: precyzyjne mechaniczne tikanie, dwa kliki "
+            "na sekundę, każdy osobny, nad ciągłym harmonicznym brzęczeniem o stałej wysokości",
+            False),
     # 317: 2,23 s — cztery uderzenia mają wypełnić cały czas.
     "317": ("A large iron church bell tolled in alarm: four heavy strikes in a steady rhythm, "
             "each one ringing out fully, filling the whole take from start to finish. " + NO_S,
