@@ -1872,3 +1872,60 @@ zostało 5320 = 133 generacje.**
   (`7`, `31`, `317`, `456`, `515`, `521`, `568`). Martwe wpisy usunięte;
   słownik po czyszczeniu ma identyczne skuteczne wartości (sprawdzone
   importem modułu przed i po).
+
+## 2026-10-05 — r025 i r026: profile pisane pod zmierzoną wadę (4560 kredytów)
+
+Właściciel rozszerzył okno akceptacji do **2–5 s** („dobre 2 sekundy są
+lepsze niż złe 4"), więc długość przestała być wąskim gardłem — pozostały
+79 kart „prawdopodobnie" miało po **jednym** złamaniu kontraktu. Obie rundy
+oparto na tym samym pomiarze: porównanie **wewnątrz rodziny**, między
+kartami zdającymi a gubiącymi.
+
+**Kalibracja jest dobra — wady są realne.** Dane pokazały czyste
+rozdzielenie, bez nakładania: `door_creak decay_s` zdające 0,94–2,05 s vs
+gubiące 0,06–0,08 s; `sword_clash attack_s` zdające 0,00–0,08 s vs gubiące
+0,14–1,77 s. Ten drugi pomiar dowodzi przy okazji, że **natychmiastowy cios
+(≤ 0,10 s) jest dla modelu osiągalny** — więc nie ma czego luzować.
+
+**r025 (30 kart × 2 = 60 generacji, 2400 kredytów).** Nadpisano 5 profili
+i dodano 4 nowe rodziny. Skuteczne podmiany: „gwizd" wiatru → turbulentny
+szum (gwizd dawał czysty ton: flatness 0,0002 przy progu 0,05); dzwony ze
+skrajności pasma (243 Hz / 7538 Hz) → środek; „metallic clank" kroków →
+głębokie łupnięcie z drżeniem ziemi; nowe `forest_birdsong`,
+`mechanism_click`, `robot_servo`, `plate_clank`.
+
+**r026 (27 kart × 2 = 54 generacje, 2160 kredytów).** Nowe profile
+`sword_clash`, `insect_swarm`, `water_splash`, `war_machine` + override'y
+dla `mechanism_click` i `magic_shimmer`.
+
+| | nie trafione | prawdopodobnie | trafione |
+|---|---|---|---|
+| przed r025 | 0 | 93 | 81 |
+| po r025 | 0 | 79 | 95 |
+| po r026 | **0** | **70** | **104** |
+
+**Dwie lekcje o pisaniu profili:**
+1. **Model nie czyta zaprzeczeń przez domyślny obraz słowa.** Profil
+   `mechanism_click` mówił „mid-pitched, dry and woody rather than hissy" —
+   a centroid i tak wychodził 7,7–10,6 kHz przy oknie 800–6000, bo „click"
+   sam w sobie ciągnie ku jasnym trzaskom. Dopiero zdanie „low dull wooden
+   knocks… no bright ticking and no hiss" zadziałało na tyle, by zjechać
+   w okno.
+2. **Profil rodzinny jest kompromisem, a `OVERRIDES` ratuje wyjątki.**
+   Rotacja `(int(sid)+shift) % 3` w `magic_shimmer` podsunęła kartom `5`
+   i `607` profil „Dark magic pooling: a low throbbing hum" — celowo niski,
+   a one wymagały `high_all ≥ 0,4`; wyszły z centroidem 93–104 Hz. Dla kart,
+   których karta **wymaga** przeciwnego bieguna, potrzebny jest jawny
+   override, nie trzeci profil.
+
+**Regresje cofnięte bez kredytów** (`git show <commit>:audio/samples/<id>.mp3`
++ sync długości dla id bieżącego batchu): r025 — `103, 513, 558, 303, 531`;
+r026 — `98, 106, 456` (nowy profil dał tonal 0,77–0,94 przy kontrakcie
+≤ 0,45), `4` (flatness 0,024) i `20` (oba warianty 1,44–1,76 s, poza oknem).
+
+**Korpus po r026:** 553 pliki, **93 z flagą**, 0 bliźniaków, 0 poza 2–5 s,
+LUFS −20,04 (σ 0,19). 13 kart właściciela: **12 trafionych, 1 prawdopodobnie**
+(`568` — `f0_semitone_std` 4,38 przy progu 4,0).
+
+**Kredyty: 4560 w tych dwóch rundach. Konto drugie: 9240 z 10 000 wydane,
+zostało 760 = 19 generacji.**
