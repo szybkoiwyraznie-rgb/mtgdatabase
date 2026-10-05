@@ -437,19 +437,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "bright rustle of feathers and a swirl of air. " + NO_M,
             "furkot skrzydeł w zaułku: szybki pęd wielu drobnych skrzydeł z jasnym szelestem piór", False),
     # 6: profil 0 dał 2,5 pkt — twardszy atak i puls w dole.
-    "6": ("A lawmage's ward snapping into place: a crisp glassy chime cluster with a firm low "
-          "pulse underneath, bright and holding. " + NO_M,
-          "bariera prawodawcy: szklisty klaster dzwonków z twardym niskim pulsem", False),
     # --- poprawki po rundach r018/r019: prompt pod konkretną wadę z audytu ---
     # 49: low_all 0,449 przy progu 0,50 — więcej masy w dole.
-    "49": ("The ground splitting between two worlds: one deep cracking split through soil and "
-           "rock in the deep bass, debris falling into the gap, then a long low grinding "
-           "settle. " + NO_M,
-           "ziemia pęka między światami: głębokie rozdarcie gruntu w niskim paśmie i długi zgrzyt", False),
     # 168: centroid 1378 Hz przy progu 900 — niżej.
-    "168": ("A deep rockslide low in the mountains: huge boulders grinding and rolling in the "
-            "bass, rubble cascading down, a heavy low rumble underneath. " + NO_M,
-            "głębokie osuwisko w górach: głazy mielą się i toczą w niskim paśmie, ciężki pomruk", False),
     # 493: centroid 2223 Hz przy progu 2000 — niżej.
     "493": ("A stone wall cracking apart: one deep crack, then heavy chunks of rock tumbling "
             "down onto a stone floor, low and weighty. " + NO_M,
@@ -472,12 +462,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
           "millisecond, no fade-in at all, a high tonal scream cut off short. " + NO_M,
           "pchnięcie psychiczne: nagły przenikliwy krzyk od pierwszej milisekundy, bez narastania", False),
     # 31 i 456: kontrakt chce harmonicznego bzyczenia, a „suchy szelest" dał szum 8,5-9,3 kHz.
-    "31": ("A dense swarm of flies hovering close: a low thick buzzing drone, the steady "
-           "harmonic hum of thousands of wings, sustained and even. " + NO_M,
-           "gęsty rój much: niski gruby bzyk, równe harmoniczne brzęczenie tysięcy skrzydeł", False),
-    "456": ("A swarm rising from shattered porcelain: one bright crack of ceramic, then a "
-            "thick low buzzing drone of many wings lifting off, harmonic and sustained. " + NO_M,
-            "rój wzbija się z potłuczonej porcelany: trzask i gruby niski bzyk wielu skrzydeł", False),
     # 568: tonal_frame_fraction 0,000 — serwo wyszło szumowe, ma być ton o stałej wysokości.
     # r023 (kliki przecinające ton) dał najwyżej onset 1 i stonizowany ton
     # (0,767 / f0_std 3,3) — model rozstrzyga konflikt ton-vs-klik kosztem tonu.
@@ -513,9 +497,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "213": ("A winding ratchet turning slowly: repeated dull low clicks with a soft body, "
             "mid-low pitched, no hiss and no bright edge. " + NO_M,
             "zapadka kręcona powoli: powtarzalne głuche niskie kliki bez syku i jasnej krawędzi", False),
-    "610": ("A toy automaton stepping: three or four soft low wooden knocks in a regular beat, "
-            "warm and dark, nothing sharp or hissy. " + NO_M,
-            "automat zabawka: trzy-cztery miękkie niskie drewniane stuki, ciepłe i bez syku", False),
     # magic_shimmer: `5` i `607` trafiły na profil „mroczna magia" (niski pulsujący
     # pomruk) i wyszły z centroidem 93-104 Hz przy wymaganym high_all >= 0,4.
     "607": ("A protective ward unfolding: a thin glassy chime cluster high in pitch, delicate "
@@ -593,8 +574,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "integracja trzech artefaktów z miedzianą skorupą zbrojmistrza: trzy kolejne rezonansowe metaliczne zatrzaśnięcia, każde głębsze", False),
     "494": ("A herd call answered by two giant reptiles charging in sync: one long rising bellow, then eight heavy footfalls in a fast even thunder.",
             "zew stada i zsynchronizowana szarża dwóch gigantycznych gadów: jeden długi narastający ryk, potem osiem ciężkich kroków w szybkim grzmocie", False),
-    "501": ("A double plasma volley from a reactor: two heavy low blasts spaced a second apart, each with a deep bass thump, over a sustained very low engine rumble with gritty metallic knocking.",
-            "podwójna plazmowa salwa z reaktora: dwa ciężkie niskie wybuchy w odstępie sekundy, każdy z basowym łupnięciem, nad ciągłym bardzo niskim pomrukiem silnika", False),
     "507": ("An iron shell torn apart with a hail of shards falling on stone: one hard shattering burst, then a scattering row of many small metallic shards ticking down over two seconds.",
             "rozerwanie żelaznej skorupy z gradem odłamków na posadzce: jedno twarde pęknięcie, potem szereg wielu drobnych odłamków dzwoniących przez dwie sekundy", False),
     "514": ("A hunter and a wolf attacking in sync: two matching low snarls together, then four paired footfalls and one hard strike, all in tight unison.",
@@ -615,25 +594,16 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # konkretnej rodziny + jawna liczba powtorzen. Tam, gdzie kontrakt
     # ogranicza czas (arrow_flight decay <= 0,8 s, whip_crack <= 0,5 s,
     # heavy_impact <= 1,4 s), kart NIE ruszamy - wydłużanie by je złamalo.
-    "345": ("A porcelain blade striking: one hard bright strike at the very first instant, then "
-           "three sharp ceramic-on-steel clicks, each with a gritty noisy edge.",
-            "świst porcelanowego ostrza i ceramiczny stuk: jedno twarde jasne uderzenie w pierwszej chwili, potem trzy ostre kliki", False),
-    "435": ("A crimson blade crystallising as it strikes: an instant hard steel impact at the very first moment, followed by three sharp ringing strikes and a spray of glassy metallic noise.",
-            "krystalizacja karmazynowego pancerza przy orężu: natychmiastowe uderzenie stali, potem trzy dzwoniące ciosy z chmurą metalicznego szumu", False),
     "250": ("A steel blade snapping back together: one bright hard clash at the very first instant, then four short sharp metallic clicks as the crack seals, each with a gritty shimmer.",
             "ostrze scala się po pęknięciu: jeden jasny twardy szczęk w pierwszej chwili, potem cztery ostre metaliczne kliki", False),
     "73": ("A golden construct's blade snapping out and striking: an instant bright steel hit at the very first moment, then three more crisp clashes with a harsh metallic ring.",
             "ostrze konstrukta wysuwa się i uderza: natychmiastowy jasny cios stali, potem trzy kolejne szczęki z ostrym brzękiem", False),
     "344": ("Crossed kavu blades: one violent steel strike landing at the very first instant, then three more harsh gritty clashes in quick succession ringing across the whole take.",
             "krzyżowe ostrza kavu: jeden gwałtowny cios w pierwszej chwili, potem trzy chrapliwe szczęki kolejno", False),
-    "20": ("Two blades meeting edge to edge: a sudden violent steel strike at the very first instant, then two more hard clashes with a harsh gritty ring and a bright shimmer.",
-            "dwa ostrza schodzą się krawędziami: nagły cios w pierwszej chwili, potem dwa twarde szczęki z chropawym brzękiem", False),
     "525": ("A rapier thrust throwing a wave of glacial spikes: one instant bright steel impact, then four sharp cracking strikes as the ice splinters, each with a glassy metallic ring.",
             "fala lodowcowych kolców od ciosu rapiera: natychmiastowy jasny cios, potem cztery ostre trzaski pękanego lodu", False),
     "594": ("A sword wrenched out of mud and struck: an instant hard bright steel clash at the very first moment, then three more gritty ringing strikes.",
             "miecz wyrwany z błota i cios: natychmiastowy twardy szczęk stali, potem trzy chrapliwe dzwoniące uderzenia", False),
-    "608": ("Two blades meeting edge to edge: a sudden violent steel strike at the very first instant, then three more harsh gritty clashes ringing out across the take.",
-            "dwa ostrza schodzą się krawędziami: nagły cios w pierwszej chwili, potem trzy chrapliwe szczęki", False),
     "140": ("A fighter rolling up from a packed yard: five separate steel plates clanking one "
            "after another, each distinct, sharply struck and mid-pitched, with a gritty scrape.",
             "przewrotka po ubitym placu: pięć osobnych płyt zbroi dzwoni kolejno, każda wyraźna i ze środka pasma", False),
@@ -683,10 +653,82 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "serwo robota dźwigowego: gładki ciągły tonalny pomruk o stałej wysokości z równym brzęczeniem i dwoma miękkimi klikami", False),
     "5": ("An arcane spell igniting: a bright crystalline shimmer high in the treble, sparkling glassy overtones rising, swelling and holding steadily across the whole take.",
             "zaklęcie zapala się: jasne krystaliczne migotanie wysoko w górze pasma, szkliste iskry narastają i trwają przez cały sample", False),
-    "98": ("A swarm settling on wood: a dense low buzzing drone with a rough granular rasp rather than a clean tone, swelling and holding steadily across the whole take.",
-            "rój osiada na drewnie: gęsty niski bzyk z chropawym ziarnistym zgrzytem zamiast czystego tonu, narasta i trwa", False),
     "253": ("An elven bard's lute at dawn: a short plucked phrase played twice with a slight variation, warm clear strings, filling the whole take.",
             "szarpana fraza na lutni elfickiego barda o świcie: krótka fraza grana dwa razy z lekką zmianą, ciepłe czyste struny", True),
+    # --- r029: 33 karty, kazda z DOKLADNIE jednym zlamanym progiem kontraktu.
+    # Prompt celuje w ta jedna ceche. Uwaga: insect_swarm potrzebuje raz
+    # nizszego centroidu (98, 106, 456, 81), a raz wiecej tonalnosci (31, 540) -
+    # dlatego tylko wpisy per karta, profil rodzinny by je pogodzic nie mogl.
+    "17": ("Two blades meeting edge to edge: a sudden violent steel strike made of broadband harsh metallic noise, a gritty rasping scrape with no clean pitched ring at all.",
+            "dwa ostrza krawędziami: gwałtowny cios z szerokopasmowego chrapliwego szumu stali, bez czystego tonu", False),
+    "20": ("A sword struck hard against another: an instant burst of gritty broadband metal noise, a raw scraping clang with a rough noisy edge instead of a clear tone.",
+            "miecz uderza o miecz: natychmiastowy wybuch chrapliwego szerokopasmowego szumu stali zamiast czystego tonu", False),
+    "308": ("A greatsword clashing: one brutal steel impact built from harsh broadband scraping noise, gritty and rough, with no smooth pitched ring underneath.",
+            "cios wielkiego miecza: brutalne uderzenie z chrapliwego szerokopasmowego zgrzytu, bez gładkiego tonu", False),
+    "345": ("A porcelain blade striking: one hard impact of gritty broadband ceramic-and-steel noise, rasping and rough, with no clean ringing tone.",
+            "porcelanowe ostrze uderza: twarde uderzenie z chrapliwego szerokopasmowego szumu, bez czystego dzwonienia", False),
+    "435": ("A crimson blade striking as it crystallises: an instant harsh broadband burst of gritty metal noise, raw and scraping, with no clear pitched ring.",
+            "karmazynowe ostrze uderza: natychmiastowy chrapliwy szerokopasmowy wybuch szumu stali, bez tonu", False),
+    "608": ("Two blades meeting edge to edge: a sudden brutal steel clash of harsh broadband scraping noise, gritty and rough rather than ringing.",
+            "dwa ostrza krawędziami: nagły brutalny szczęk z chrapliwego szerokopasmowego zgrzytu", False),
+    "98": ("A swarm settling on wood: a deep thick drone sitting in the low middle of the range, warm and rounded, with no high whine and no hiss above it.",
+            "rój osiada na drewnie: głęboki gruby bzyk w niskim środku pasma, ciepły, bez wysokiego pisku i syku", False),
+    "106": ("A cloud of flies over carrion: a low rounded buzzing drone in the mid range, thick and warm, nothing shrill or hissy on top.",
+            "chmara much nad padliną: niski zaokrąglony bzyk w środku pasma, gęsty i ciepły, bez pisku", False),
+    "456": ("A swarm rising from broken porcelain: one sharp crack then a deep mid-range buzzing drone, thick and rounded, with no bright hiss over it.",
+            "rój wzbija się z porcelany: trzask, potem głęboki bzyk w środku pasma, bez jasnego syku", False),
+    "81": ("A dense swarm of bees close up: a steady buzzing drone pitched in the middle of the range, slightly bright and forward, with even harmonic edges.",
+            "gęsty rój pszczół z bliska: równy bzyk w środku pasma, nieco jasny i bliski, z harmoniczną krawędzią", False),
+    "9": ("A gust of wind: broadband hissing white noise of turbulent air, swelling and easing, with no whistle, no pitched note and no tonal hum anywhere in it.",
+            "podmuch wiatru: szerokopasmowy szumiący szum białego turbulentnego powietrza, bez gwizdu i bez tonu", False),
+    "103": ("Wind moving through branches: a broad rush of hissing turbulent air that rises and falls, pure broadband noise with no whistling tone in it at all.",
+            "wiatr w gałęziach: szeroki pęd szumiącego turbulentnego powietrza, czysty szum bez gwizdania", False),
+    "513": ("A wide gust sweeping open ground: broadband hissing noise of churning air, swelling and fading, with no whistle and no pitched hum underneath.",
+            "szeroki podmuch nad otwartym terenem: szerokopasmowy szum wirującego powietrza, bez gwizdu i pomruku", False),
+    "67": ("A war machine's engine: a deep rumble kept low in level, with loud gritty metallic knocking and clanking clearly forward in the middle of the range.",
+            "silnik machiny: głęboki pomruk nisko, a głośny chrapliwy metaliczny stukot wyraźnie w środku pasma", False),
+    "80": ("An armored vehicle idling: a moderate low engine rumble under loud gritty mechanical clatter and metal knocking that sits forward in the mid range.",
+            "opancerzony pojazd na biegu: umiarkowany pomruk pod głośnym chrapliwym metalicznym terkotem w środku", False),
+    "501": ("A double plasma volley from a reactor: two heavy blasts with a low thump, over loud gritty metallic knocking and clanking carried clearly in the middle of the range.",
+            "podwójna salwa plazmowa: dwa ciężkie wybuchy z basowym łupnięciem, nad głośnym metalicznym stukotem w środku", False),
+    "49": ("The ground tearing between worlds: a deep crack with rolling low weight, but loud grinding and snapping rock clearly audible in the middle of the range, not only sub-bass.",
+            "ziemia pęka: głębokie rozdarcie z niskim ciężarem, ale głośne mielące i trzaskające skały w środku pasma", False),
+    "168": ("A deep mountain landslide: boulders grinding and rolling with low weight, and loud gritting stone-on-stone scraping carried clearly in the middle of the range.",
+            "głębokie osuwisko: głazy mielą się i toczą z niskim ciężarem, głośny zgrzyt kamienia w środku pasma", False),
+    "95": ("Heavy wooden doors: a long creak that keeps sounding and fades away slowly over more than a second after the push ends, with a soft wooden knock beneath.",
+            "ciężkie drewniane drzwi: długie skrzypienie, które brzmi i gaśnie powoli ponad sekundę po pchnięciu", False),
+    "381": ("A settled caravan wagon creaking in the night wind: one long slow creak that rings on and fades gradually for well over a second, with timber settling under it.",
+            "skrzypienie wozu karawany w nocnym wietrze: długie powolne skrzypienie wybrzmiewające ponad sekundę", False),
+    "537": ("Heavy doors: a long drawn-out creak that holds and fades slowly across more than a second, wavering up and down before it dies away.",
+            "ciężkie drzwi: długie przeciągłe skrzypienie, które trwa i gaśnie powoli przez ponad sekundę", False),
+    "31": ("A dense swarm of flies: a steady pitched drone with one clear fundamental note held throughout, smooth and harmonic, buzzing on a single sustained pitch.",
+            "gęsty rój much: równy bzyk z jednym wyraźnym tonem podstawowym trzymanym przez cały czas", False),
+    "540": ("A dense swarm close up: a smooth pitched buzzing drone on one steady note, clearly harmonic and even, held without breaking.",
+            "gęsty rój z bliska: gładki bzyk na jednym równym tonie, wyraźnie harmoniczny i ciągły", False),
+    "6": ("A lawmage's barrier: a glassy chime cluster with a hard low strike, then a long sustained shimmering tail that holds steadily to the very end of the take.",
+            "bariera prawodawcy: szklisty klaster dzwonków z twardym uderzeniem, potem długi trzymany ogon migotania", False),
+    "18": ("Magic kindling: a rising crystalline shimmer with a bright tone and sparkles, holding its sustained glow right through to the end without dropping away.",
+            "magia się zapala: narastające krystaliczne migotanie trwające równo do samego końca", False),
+    "15": ("Old parchment cards swirling, then a fire crack: the crack lands with zero build-up at the very first sample, an instantaneous snap with nothing before it.",
+            "szelest wirujących kart i trzask ognia: trzask w pierwszej próbce, bez żadnego zamachu", False),
+    "257": ("A fire whip coiling around legs and dragging: the whip crack happens instantly at the very first moment with no wind-up whatsoever, then a dragging scrape.",
+            "ognisty bicz owija się i ciągnie: trzask bicza natychmiast w pierwszej chwili, bez zamachu", False),
+    "144": ("A heavy iron key turning slowly in an old lock, with rapid bird trills around it: several quick chirps per second, fast and fluttering, not slow calls.",
+            "obrót żelaznego klucza w starym zamku z szybkimi trelem ptaków: kilka świergotów na sekundę", False),
+    "506": ("A flock of finches taking flight: a rapid burst of high squeaking chirps, many quick notes per second in a fast fluttering trill, with wingbeats under them.",
+            "stado zięb zrywa się do lotu: szybka seria wysokich świergotów, wiele nut na sekundę w trzepoczącym trelem", False),
+    "204": ("A robot's servo holding one clean tone like a tuning fork, with four separate distinct mechanical clicks spaced through it, each click clearly audible.",
+            "serwo robota trzyma czysty ton jak kamerton z czterema osobnymi wyraźnymi mechanicznymi klikami", False),
+    "611": ("A drone's servo jamming: a clean steady tone at a constant pitch, interrupted by four separate distinct mechanical clicks spread across the whole take.",
+            "serwo drona się blokuje: czysty równy ton przerwany czterema osobnymi wyraźnymi klikami", False),
+    "303": ("Heavy doors: a long creak whose pitch wavers quickly up and down several times per second, trembling fast rather than sliding slowly.",
+            "ciężkie drzwi: długie skrzypienie, którego wysokość faluje szybko w górę i w dół kilka razy na sekundę", False),
+    "531": ("Heavy doors: a drawn-out creak trembling with fast pitch wobble, several fluctuations per second, not one slow slide.",
+            "ciężkie drzwi: przeciągłe skrzypienie drżące szybkim falowaniem wysokości, kilka razy na sekundę", False),
+    # 610: poprzedni prompt z r026 mowil 'no bright ticking and no hiss',
+    # przez co centroid spadl do 163 Hz przy wymaganym oknie 800-6000 Hz.
+    "610": ("A toy automaton taking a few steps: three or four light crisp mechanical clicks and small gear ticks, each one bright and clearly audible in the middle of the range, over a soft low whir.",
+            "automaton robi kilka kroków: trzy-cztery lekkie sprężyste kliknięcia i zębatki, każde jasne i słyszalne w środku pasma, nad miękkim pomrukiem", False),
 }
 
 

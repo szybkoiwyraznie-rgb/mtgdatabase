@@ -1,14 +1,32 @@
-name: TEMP r028 dluzsza tresc kart z archetypem
+name: TEMP r029 karty z jednym progiem kontraktu
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
-# 2026-10-05: klucz odnowiony (10 000 kredytów, 40 na generację). Workflow bez
-# markera nic nie robi, więc CI pozostaje zielone. Token bota Arena ma HTTP 403 na
-# workflow_dispatch, a sandbox nie sięga *.blob.core.windows.net (nie da się
-# pobrać logów runa), więc warianty generujemy z triggera push markerowanego
-# ([generate-r028]) i commitujemy na gałąź sesji razem z logiem generacji —
-# log w repo to jedyny sposób, żeby zobaczyć błąd API z sandboxa.
-# Plik i katalog variants/ kasujemy po wyborze wariantów.
-
+# 2026-10-05: klucz odnowiony (10 000 kredytow, 40 na generacje). Workflow bez
+# markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma HTTP 403 na
+# workflow_dispatch, a sandbox nie siega *.blob.core.windows.net (nie da sie
+# pobrac logow runa), wiec warianty generujemy z triggera push markerowanego
+# ([generate-r029]) i commitujemy na galaz sesji razem z logiem generacji -
+# log w repo to jedyny sposob, zeby zobaczyc blad API z sandboxa.
+#
+# r029: 2 warianty x 34 karty = 68 generacji x 40 kredytow = 2720 kredytow.
+# Kazda z 34 kart ma DOKLADNIE jedno zlamanie kontraktu archetypu, wiec prompt
+# celuje w te jedna ceche: sword_clash -> spectral_flatness >= 0,05;
+# insect_swarm -> centroid 1000-6000 Hz albo tonal >= 0,3; door_creak ->
+# decay >= 0,3 s albo mod_peak 2-12 Hz; robot_servo -> onset >= 2; whip_crack ->
+# attack <= 0,03 s; war_machine i earth_rumble -> mid_up >= 0,1; wind_gust ->
+# flatness >= 0,05; magic_shimmer -> sustain >= 0,3; forest_birdsong ->
+# mod_peak 3-22 Hz; mechanism_click -> centroid 800-6000 Hz.
+# insect_swarm potrzebuje raz NIZSZEGO centroidu (98, 106, 456, 81), a raz
+# WIECEJ tonalnosci (31, 540) - dlatego tylko wpisy per karta w OVERRIDES;
+# profil rodzinny nie moglby pogodzic obu kierunkow naraz.
+# Cztery karty (98, 106, 456, 610) NIE daja sie naprawic korekta widma -
+# zmierzone w tame_spectrum.py: ciecie 15 dB powyzej 2,5 kHz zabija 14,5 LU
+# glosnosci, wiec renormalizacja do -20 LUFS dodaje +14,5 dB, a limit_true_peak
+# musi zdusic transjent (peak_gr -11,3 dB), czyli dokladnie ten jasny atak,
+# o ktory chodzi. Centroid wraca z 5588 na 7277 Hz. Stad regeneracja.
+# Postprocess dziala bez --trim-trail-s, zeby nie zjadac ogona, ktory ma wydluzyc
+# tresc. Stan korpusu: 553 pliki, 54 z flaga, 0 par blizniakow, 0 poza 2,0-5,0 s.
+# Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
     branches:
@@ -20,7 +38,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "345,435,250,73,344,20,525,594,608,140,232,16,460,176,194,56,355,39,442,565,434,2,559,292,173,478,26,129,23,522,244,12,5,98,253"
+  IDS: "17,20,308,345,435,608,81,98,106,456,9,103,513,67,80,501,95,381,537,31,540,6,18,15,257,49,168,144,506,204,611,303,531,610"
 
 jobs:
   variants:
@@ -31,13 +49,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r028]
+      - name: Guard — tylko commit z markerem [generate-r029]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r028]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r029]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r028] — nic nie generuję"
+            echo "brak markera [generate-r029] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -56,25 +74,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r028
+          mkdir -p variants/r029
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r028/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r029/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r028 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r028/v$v" 2>&1 | tee -a variants/r028/generate.log
+              --ids "$IDS" --batch r029 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r029/v$v" 2>&1 | tee -a variants/r029/generate.log
           done
-          ls -la variants/r028 variants/r028/v1 variants/r028/v2 || true
+          ls -la variants/r029 variants/r029/v1 variants/r029/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r028 data/samples/generated-manifest.jsonl
+          git add -f variants/r029 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r028: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r028]"
+            git commit -m "r029: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r029]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
