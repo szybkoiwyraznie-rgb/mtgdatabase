@@ -30,6 +30,9 @@ import json
 import shutil
 import sys
 import tempfile
+
+import numpy as np
+import soundfile as sf
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
@@ -37,7 +40,7 @@ sys.path.insert(0, str(ROOT / "scripts"))
 
 from audit_archetype_match import CONTRACTS, evaluate, metric, verdict  # noqa: E402
 from postprocess_samples import process_one  # noqa: E402
-from audit_samples_full import analyze  # noqa: E402
+from audit_samples_full import analyze, fingerprint  # noqa: E402
 from audit_semantic_match import extra_features  # noqa: E402
 
 
@@ -60,6 +63,42 @@ def ship_ready(src: Path, tmp_dir: Path) -> Path:
     return dst
 
 
+def load_corpus_fps(samples_dir: Path, skip: set[str]) -> tuple[list[str], np.ndarray]:
+    """Odciski log-mel całego korpusu, bez kart właśnie przerabianych."""
+    ids, fps = [], []
+    for f in sorted(samples_dir.glob("*.mp3")):
+        if f.stem in skip:
+            continue
+        data, fs = sf.read(str(f), always_2d=True)
+        fps.append(fingerprint(data.mean(axis=1), fs))
+        ids.append(f.stem)
+    return ids, (np.vstack(fps) if fps else np.zeros((0, 1)))
+
+
+def twin_penalty(fp: np.ndarray, ids: list[str], corpus: np.ndarray,
+                 threshold: float, extra_ids: list[str] | None = None,
+                 extra: np.ndarray | None = None) -> tuple[float, str | None]:
+    """Kara, jeśli wariant byłby bliźniakiem którejś karty w korpusie.
+
+    Powód: prompty archetypowe są wspólne dla całej rodziny, więc bez tego kroku
+    naprawa rozpoznawalności tworzy nową falę bliźniaków — po rundzie r017a
+    `168`↔`382` (oba stone_slide) miały kosinus 0,9676.
+    """
+    # Korpus plus karty wybrane wcześniej w tym samym przebiegu: bez tego dwie
+    # karty jednej rodziny (oba `stone_slide`) nie widzą się nawzajem, bo
+    # `load_corpus_fps` pomija całą przerabianą partię — tak powstał bliźniak
+    # `168`↔`382` (0,9676) w rundzie r017a.
+    pool_ids = ids + (extra_ids or [])
+    pool = np.vstack([m for m in (corpus, extra) if m is not None and len(m)])
+    if not len(pool):
+        return 0.0, None
+    sims = pool @ fp
+    j = int(np.argmax(sims))
+    if sims[j] >= threshold:
+        return 2.0, f"{pool_ids[j]}:{sims[j]:.4f}"
+    return 0.0, None
+
+
 def score_file(path: Path, expected: float, music_allowed: bool, archetype: str):
     metrics = analyze(path, expected, music_allowed).metrics
     metrics.update(extra_features(path))
@@ -75,6 +114,9 @@ def main() -> int:
     ap.add_argument("--json", type=Path, dest="json_out")
     ap.add_argument("--apply", action="store_true",
                     help="kopiuj zwycięski wariant do --out (domyślnie tylko raport)")
+    ap.add_argument("--avoid-twins", action="store_true",
+                    help="karz warianty, które byłyby bliźniakiem karty z korpusu")
+    ap.add_argument("--twin-threshold", type=float, default=0.95)
     ap.add_argument("--postprocess", action="store_true",
                     help="mierz warianty po przejściu łańcucha postprodukcji (zalecane)")
     args = ap.parse_args()
@@ -88,6 +130,10 @@ def main() -> int:
 
     ids = sorted({p.stem for d in variant_dirs for p in d.glob("*.mp3")}, key=int)
     tmp_dir = Path(tempfile.mkdtemp(prefix="arch-variants-")) if args.postprocess else None
+    corpus_ids, corpus_fps = (load_corpus_fps(args.out, set(ids)) if args.avoid_twins
+                              else ([], np.zeros((0, 1))))
+    chosen_ids: list[str] = []
+    chosen_fps: list[np.ndarray] = []
     report = []
     for sid in ids:
         row = by_id.get(sid, {})
@@ -104,9 +150,23 @@ def main() -> int:
                 continue
             measured = ship_ready(f, tmp_dir) if tmp_dir else f
             score, broken, metrics = score_file(measured, expected, music, archetype)
+            twin_with = None
+            fp_variant = None
+            if args.avoid_twins:
+                data, fs = sf.read(str(measured), always_2d=True)
+                # Odcisk trzymamy przy wariancie: plik tymczasowy jest wspólny
+                # dla wszystkich wariantów karty i gets nadpisany, więc
+                # odczytany „po wyborze" należałby do ostatniego wariantu.
+                fp_variant = fingerprint(data.mean(axis=1), fs)
+                pen, twin_with = twin_penalty(
+                    fingerprint(data.mean(axis=1), fs), corpus_ids, corpus_fps,
+                    args.twin_threshold, chosen_ids,
+                    np.vstack(chosen_fps) if chosen_fps else None)
+                score = round(score + pen, 2)
             variants.append({
                 "variant": d.name, "file": str(f.relative_to(ROOT)), "score": score,
                 "measured": ("postprocess" if tmp_dir else "raw"),
+                "twin_with": twin_with, "_fp": fp_variant,
                 "violations": [b["reason"] for b in broken],
                 "verdict": verdict(score),
                 "metrics": {
@@ -122,7 +182,13 @@ def main() -> int:
         # Równorzędne wyniki rozstrzyga dłuższa słyszalna treść: kontrakt nie
         # widzi estetyki, a sample z 2,8 s treści jest gorszy niż z 3,5 s.
         variants.sort(key=lambda v: (v["score"], -v["metrics"].get("content_rel_s", 0.0), v["variant"]))
+        variants.sort(key=lambda v: (v["score"], -v["metrics"].get("content_rel_s", 0.0), v["variant"]))
         best = variants[0]
+        if args.avoid_twins and best.get("_fp") is not None:
+            chosen_ids.append(sid)
+            chosen_fps.append(best["_fp"])
+        for v in variants:
+            v.pop("_fp", None)
         report.append({
             "id": sid, "title": row.get("title"), "archetype": archetype,
             "archetype_label": CONTRACTS.get(archetype, {}).get("label", archetype),

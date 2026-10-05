@@ -98,6 +98,10 @@ CONTRACTS: dict[str, dict] = {
             ("spectral_centroid_hz", "<=", 2600.0, 1.0, "machina nie jest cienka"),
             ("onset_count", ">=", 2, 1.0, "machina ma rytmiczne uderzenia"),
             ("content_rel_s", ">=", 1.50, 1.0, "machina pracuje, nie stuka raz"),
+            # Tak jak earth_rumble: sam infrabas jest niesłyszalny na telefonie.
+            # `515` po rundzie r017a miał centroid 90 Hz i flagi muffled/boomy/dull.
+            ("mid_up", ">=", 0.10, 1.0,
+             "machina musi być słyszalna też na małych głośnikach"),
         ],
     },
     "psychic_shriek": {
@@ -238,6 +242,8 @@ CONTRACTS: dict[str, dict] = {
             ("spectral_centroid_hz", "<=", 800.0, 1.0, "grzmot jest niski"),
             ("crest_db", ">=", 18.0, 1.0, "grzmot uderza"),
             ("decay_s", ">=", 0.50, 1.0, "grzmot się toczy"),
+            ("mid_up", ">=", 0.08, 1.0,
+             "grzmot musi być słyszalny też na małych głośnikach"),
         ],
     },
     "heavy_footsteps": {

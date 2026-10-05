@@ -1616,3 +1616,39 @@ Nowy klucz zadziałał: 9 generacji, 9 plików. Wybór wariantów po kalibracji:
 Katalog: 234 nie trafionych / 117 prawdopodobnie / 70 trafionych. Korpus:
 553 pliki, 82 z flagą, **0 par bliźniaczych**, LUFS −20,0.
 Zużycie kredytów w tej turze: 9 generacji = 360 z 10 000.
+
+## 2026-10-05 — r017a: pierwsza seria naprawcza (20 kart × 2 warianty, 1600 kredytów)
+
+Nowe narzędzie `scripts/rewrite_archetype_prompts.py`: 37 szablonów archetypowych
+pisanych pod kontrakt audytu + ręczne override'y dla kart właściciela. Każda karta
+dostaje klauzulę rozróżniającą (tytuł + źródło z dotychczasowego promptu), bo bez
+niej cała rodzina miałaby identyczny prompt.
+
+**Wynik: 18 z 20 kart poprawionych, 1 pogorszona, 1 bez zmian**
+(`docs/audits/2026-10-05-r017a-repair-batch.md`). Największe ruchy: `518` ryk
+6,0→0, `459` 5,0→1,5, `196` dzwon 5,0→0, `382` osuwisko 4,5→0, `352` skrzypienie
+4,5→1,0, `168` 4,5→1,0, `312` chichot 1,0→0, `521` ptaki 1,0→0, `557` muzyka
+ludowa 1,0→0, `515` machina 2,5→1,0. Pogorszona: `568` 0,5→1,0.
+
+Katalog: **225 nie trafionych / 120 prawdopodobnie / 76 trafionych** (przed rundą
+234/117/70). Korpus: 553 pliki, 85 z flagą, LUFS −20,0.
+
+**Trzy wnioski, które zmieniają metodę:**
+
+1. **Identyczny prompt archetypowy = nowy bliźniak.** `168` i `382` (oba
+   `stone_slide`) mają kosinus 0,9676 i żadna z czterech kombinacji wariantów nie
+   schodzi poniżej 0,95. Selekcja tego nie naprawi — trzeba zróżnicować prompt.
+   Dlatego klauzula karty jest obowiązkowa, a w rodzinach licznych (35 kart
+   `stone_slide`, 29 `door_creak`) same szablony nie wystarczą.
+2. **Selektor musi mierzyć plik po postprodukcji i widzieć bliźniaki** — obie
+   poprawki weszły (`--postprocess`, `--avoid-twins`), plus naprawiony bug
+   nadpisywania odcisku w pliku tymczasowym.
+3. **Niskie archetypy potrzebują warunku słyszalności.** `515` wyszedł z centroidem
+   90 Hz i flagami `muffled/boomy/dull`; kontrakty `war_machine` i `thunder_clap`
+   dostały `mid_up` tak jak wcześniej `earth_rumble`.
+
+**Do ponowienia (r017b):** `515` (środek pasma), `382` albo `168` (rozdzielić
+prompty), `521` (`speech_like`), `35` (2,53 s), `343` (`long_trail_silence`),
+`124` (3,0 pkt), `6` (2,5 pkt), `112` i `62` (2,0 pkt).
+
+**Kredyty:** wydane 1960 z 10 000 (49 generacji), zostało 8040 = 201 generacji.
