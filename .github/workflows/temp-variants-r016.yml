@@ -1,9 +1,11 @@
 name: TEMP r016b warianty archetypowe
 
 # TYMCZASOWY: pilot archetypowy. Token bota Arena ma HTTP 403 na
-# workflow_dispatch, a sandbox nie sięga *.blob.core.windows.net, więc warianty
-# generujemy z triggera push markerowanego ([generate-r016b]) i commitujemy je
-# na gałąź sesji. Plik i katalog variants/ kasujemy po wyborze.
+# workflow_dispatch, a sandbox nie sięga *.blob.core.windows.net (nie da się
+# pobrać logów runa), więc warianty generujemy z triggera push markerowanego
+# ([generate-r016b]) i commitujemy na gałąź sesji razem z logiem generacji —
+# log w repo to jedyny sposób, żeby zobaczyć błąd API z sandboxa.
+# Plik i katalog variants/ kasujemy po wyborze wariantów.
 
 on:
   push:
@@ -47,21 +49,23 @@ jobs:
 
       - name: Generate 3 variants per story
         if: steps.guard.outputs.run == '1'
+        continue-on-error: true
         env:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
+          mkdir -p variants/r016b
           for v in 1 2 3; do
-            echo "=== wariant v$v ==="
+            echo "=== wariant v$v ===" | tee -a variants/r016b/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r016b --force --prompt-influence 0.35 \
-              --out "variants/r016b/v$v"
+              --ids "$IDS" --batch r016b --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r016b/v$v" 2>&1 | tee -a variants/r016b/generate.log
           done
-          ls -la variants/r016b/v1 variants/r016b/v2 variants/r016b/v3
+          ls -la variants/r016b variants/r016b/v* || true
 
-      - name: Commit variants back to the session branch
-        if: steps.guard.outputs.run == '1'
+      - name: Commit variants and log back to the session branch
+        if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
@@ -69,6 +73,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r016b: 9 wariantów archetypowych (387, 464, 539 x 3) [import-r016b]"
+            git commit -m "r016b: warianty archetypowe (387, 464, 539) + log generacji [import-r016b]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
