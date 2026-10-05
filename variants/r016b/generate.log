@@ -43,3 +43,21 @@ WARN 539: attempt 3/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quo
 WARN 539: attempt 4/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"abc82a8926c2ed572ddd5912a9cd5b0b"}}
 selected 3 scenario(s)
 done: generated=0, skipped=0, failed=3
+=== wariant v1 ===
+selected 3 scenario(s)
+OK 387: variants/r016b/v1/387.mp3 (65245 bytes)
+OK 464: variants/r016b/v1/464.mp3 (65245 bytes)
+OK 539: variants/r016b/v1/539.mp3 (65245 bytes)
+done: generated=3, skipped=0, failed=0
+=== wariant v2 ===
+selected 3 scenario(s)
+OK 387: variants/r016b/v2/387.mp3 (65245 bytes)
+OK 464: variants/r016b/v2/464.mp3 (65245 bytes)
+OK 539: variants/r016b/v2/539.mp3 (65245 bytes)
+done: generated=3, skipped=0, failed=0
+=== wariant v3 ===
+selected 3 scenario(s)
+OK 387: variants/r016b/v3/387.mp3 (65245 bytes)
+OK 464: variants/r016b/v3/464.mp3 (65245 bytes)
+OK 539: variants/r016b/v3/539.mp3 (65245 bytes)
+done: generated=3, skipped=0, failed=0
