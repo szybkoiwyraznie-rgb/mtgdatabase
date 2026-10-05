@@ -332,6 +332,51 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "6": ("A lawmage's ward snapping into place: a crisp glassy chime cluster with a firm low "
           "pulse underneath, bright and holding. " + NO_M,
           "bariera prawodawcy: szklisty klaster dzwonków z twardym niskim pulsem", False),
+    # --- poprawki po rundach r018/r019: prompt pod konkretną wadę z audytu ---
+    # 49: low_all 0,449 przy progu 0,50 — więcej masy w dole.
+    "49": ("The ground splitting between two worlds: one deep cracking split through soil and "
+           "rock in the deep bass, debris falling into the gap, then a long low grinding "
+           "settle. " + NO_M,
+           "ziemia pęka między światami: głębokie rozdarcie gruntu w niskim paśmie i długi zgrzyt", False),
+    # 168: centroid 1378 Hz przy progu 900 — niżej.
+    "168": ("A deep rockslide low in the mountains: huge boulders grinding and rolling in the "
+            "bass, rubble cascading down, a heavy low rumble underneath. " + NO_M,
+            "głębokie osuwisko w górach: głazy mielą się i toczą w niskim paśmie, ciężki pomruk", False),
+    # 493: centroid 2223 Hz przy progu 2000 — niżej.
+    "493": ("A stone wall cracking apart: one deep crack, then heavy chunks of rock tumbling "
+            "down onto a stone floor, low and weighty. " + NO_M,
+            "kamienny mur pęka: głęboki trzask i ciężkie bryły spadają na kamienną posadzkę", False),
+    # 298: tonal_frame_fraction 0,32 przy progu 0,50 — czystszy ton.
+    "298": ("A heavy iron alarm bell tolled by rope: one clear struck tone that rings steadily "
+            "and purely with a warm hum, no rattling, no clatter. " + NO_S,
+            "żelazny dzwon alarmowy: jeden czysty ton dzwoniący równo i ciepło, bez grzechotania", True),
+    # 521: mod_peak 1,82 Hz przy progu 3,0 — szybsze trele.
+    "521": ("Forest birds at dawn: quick rapid chirps and short whistled trills, several birds "
+            "answering fast, bright and light. " + NO_M,
+            "ptaki o świcie: szybkie ćwierknięcia i krótkie trele, kilka ptaków odpowiada prędko", False),
+    # 7: attack_s 0,48 przy progu 0,10 — bez narastania.
+    "7": ("A mind stab: a piercing psychic shriek starting at full force with no build-up, a "
+          "high tonal scream cutting off abruptly. " + NO_M,
+          "pchnięcie psychiczne: przenikliwy krzyk od pełnej mocy, bez narastania, urywa się nagle", False),
+    # 568: f0_semitone_std 14,2 przy progu 4,0 — stabilna wysokość.
+    "568": ("A sentinel robot's servo holding one steady note: a smooth even mechanical whirr "
+            "at a constant pitch, with a single precise click at the end. " + NO_M,
+            "serwo sentinela: gładkie równe warczenie na stałej wysokości, jedno kliknięcie na końcu", False),
+    # 31 i 456: bliźniaki (0,9548) — dwa różne zdarzenia w tym samym archetypie.
+    "31": ("Insects crawling out of a carcass: a dry rustling swarm of many small legs and "
+           "wings, dense and close, sustained. " + NO_M,
+           "owady wyłażą z padliny: suchy szelest wielu odnóży i skrzydeł, gęsty i bliski", False),
+    "456": ("Porcelain insects shattering and taking flight: one bright crack of ceramic, then "
+            "a rising buzz of a swarm lifting off. " + NO_M,
+            "porcelanowe owady pękają i wzbijają się: jasny trzask ceramiki i narastające bzyczenie", False),
+    # 317 i 343: za krótkie (2,80 i 2,66 s) — dźwięk ma wypełnić cały czas.
+    "317": ("A large iron church bell tolled in alarm: three heavy strikes, each ringing out "
+            "fully one after another, filling the whole take. " + NO_S,
+            "kościelny dzwon bije na alarm: trzy ciężkie uderzenia, każde w pełni wybrzmiewa", True),
+    "343": ("A bronze temple bell struck once and left to ring: a deep struck tone with warm "
+            "shimmering partials ringing on and on, filling the whole take. " + NO_S,
+            "dzwon z brązu uderzony raz: głęboki ton z ciepłymi alikwotami dzwoni bez końca", True),
+
     # 459: profil 0 dał 1,5 pkt i dull — jaśniejszy ryk z echem.
     "459": ("A great beast roaring across a campus courtyard: a huge bright roaring call with a "
             "raspy harmonic edge and a short stone echo. " + NO_M,

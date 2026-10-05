@@ -1,11 +1,11 @@
-name: TEMP r019 ponowienia
+name: TEMP r020 uparte karty
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # 2026-10-05: klucz odnowiony (10 000 kredytów, 40 na generację). Workflow bez
 # markera nic nie robi, więc CI pozostaje zielone. Token bota Arena ma HTTP 403 na
 # workflow_dispatch, a sandbox nie sięga *.blob.core.windows.net (nie da się
 # pobrać logów runa), więc warianty generujemy z triggera push markerowanego
-# ([generate-r019]) i commitujemy na gałąź sesji razem z logiem generacji —
+# ([generate-r020]) i commitujemy na gałąź sesji razem z logiem generacji —
 # log w repo to jedyny sposób, żeby zobaczyć błąd API z sandboxa.
 # Plik i katalog variants/ kasujemy po wyborze wariantów.
 
@@ -20,7 +20,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "12,23,31,49,95,157,168,177,202,209,223,265,298,317,343,347,382,383,456,459,493,531,537,558,607"
+  IDS: "7,31,49,168,298,317,343,456,493,521,568"
 
 jobs:
   variants:
@@ -31,13 +31,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r019]
+      - name: Guard — tylko commit z markerem [generate-r020]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r019]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r020]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r019] — nic nie generuję"
+            echo "brak markera [generate-r020] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -56,15 +56,15 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r019
-          for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r019/generate.log
+          mkdir -p variants/r020
+          for v in 1 2 3; do
+            echo "=== wariant v$v ===" | tee -a variants/r020/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r019 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r019/v$v" 2>&1 | tee -a variants/r019/generate.log
+              --ids "$IDS" --batch r020 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r020/v$v" 2>&1 | tee -a variants/r020/generate.log
           done
-          ls -la variants/r019 variants/r019/v1 variants/r019/v2 || true
+          ls -la variants/r020 variants/r020/v1 variants/r020/v2 variants/r020/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
@@ -75,6 +75,6 @@ jobs:
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r016b: warianty archetypowe (387, 464, 539) + log generacji [import-r019]"
+            git commit -m "r016b: warianty archetypowe (387, 464, 539) + log generacji [import-r020]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
