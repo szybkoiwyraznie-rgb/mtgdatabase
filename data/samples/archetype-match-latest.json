@@ -2,8 +2,8 @@
  "audit": "data/samples/audio-audit-latest.json",
  "checked": 178,
  "by_verdict": {
-  "prawdopodobnie": 34,
-  "trafiony": 144
+  "prawdopodobnie": 33,
+  "trafiony": 145
  },
  "results": [
   {
@@ -392,21 +392,6 @@
     {
      "check": "attack_s",
      "reason": "stal uderza natychmiast (attack_s=0.600, oczekiwane <= 0.1)",
-     "weight": 1.0
-    }
-   ]
-  },
-  {
-   "id": "558",
-   "title": "White Mage's Staff",
-   "archetype": "temple_bell",
-   "archetype_label": "dzwon / dzwonek / gong",
-   "score": 1.0,
-   "verdict": "prawdopodobnie",
-   "violations": [
-    {
-     "check": "sustain_ratio",
-     "reason": "dzwon trzyma poziom (sustain_ratio=0.152, oczekiwane >= 0.2)",
      "weight": 1.0
     }
    ]
@@ -1700,6 +1685,15 @@
    "title": "Kishla Village",
    "archetype": "folk_music",
    "archetype_label": "muzyka ludowa / taneczna",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "558",
+   "title": "White Mage's Staff",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
    "score": 0,
    "verdict": "trafiony",
    "violations": []
