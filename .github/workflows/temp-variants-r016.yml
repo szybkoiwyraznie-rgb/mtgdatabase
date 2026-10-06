@@ -1,4 +1,4 @@
-name: TEMP r036 trzecie pietro wezlow podobienstwa
+name: TEMP r037 czwarte pietro wezlow podobienstwa
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -106,6 +106,26 @@ name: TEMP r036 trzecie pietro wezlow podobienstwa
 # v2 1,30 s) - tym razem prompt jawnie rozklada cztery uderzenia na caly take.
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
+#
+# r037: 2 warianty x 7 kart = 14 generacji x 40 kredytow = 560 kredytow.
+# Cel: czwarte pietro WEZLOW podobienstwa. Postep: 175 -> 120 -> 99 -> 87 par
+# w pasmie kosinusa 0,90-0,95. Struktura sie splaszczyla - najwieksze wezly
+# maja teraz 3 pary (w r034 bylo 14).
+# Wezly z najwieksza liczba par to karty TRAFIONE z kontraktami (562 Shock 5 par,
+# 261 Universal Solvent 4, 23/26/358 po 3) - celowo NIE ruszane, bo regeneracja
+# ryzykowalaby utrate trafienia.
+# Wzieiete 7 kart BEZ archetypu. Kryterium: pary ORAZ za krotka tresc, zeby
+# jedna regeneracja naprawila dwa problemy naraz:
+#   104 Glitch Ghost Surveyor   3 pary | tresc 1,96 s | centroid 2193 Hz
+#   222 Maritime Guard          3 pary | tresc 2,55 s | centroid 2272 Hz
+#   395 Unearth                 3 pary | tresc 2,28 s | centroid 3273 Hz
+#   419 Fear of Burning Alive   3 pary | tresc 2,03 s | centroid  917 Hz
+#   401 Rage of Purphoros       3 pary | tresc 2,06 s | centroid 6752 Hz
+#   461 Negate                  2 pary | tresc 1,40 s | centroid  460 Hz
+#   50  Dream Twist             2 pary | tresc 1,71 s | centroid  394 Hz
+# Prompty celowo krotkie (~150 zn), bo doklejka --fill-take wchodzi w limit 450
+# (lekcja z r036: EN 213 zn dalo 479 zn ladunku i walidator odrzucil zapis).
+# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034/r035/r036).
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -118,7 +138,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "487,592,238,22,32"
+  IDS: "104,461,50,222,395,419,401"
 
 jobs:
   variants:
@@ -129,13 +149,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r036]
+      - name: Guard — tylko commit z markerem [generate-r037]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r036]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r037]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r036] — nic nie generuję"
+            echo "brak markera [generate-r037] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -154,25 +174,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r036
+          mkdir -p variants/r037
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r036/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r037/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r036 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r036/v$v" 2>&1 | tee -a variants/r036/generate.log
+              --ids "$IDS" --batch r037 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r037/v$v" 2>&1 | tee -a variants/r037/generate.log
           done
-          ls -la variants/r036 variants/r036/v1 variants/r036/v2 || true
+          ls -la variants/r037 variants/r037/v1 variants/r037/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r036 data/samples/generated-manifest.jsonl
+          git add -f variants/r037 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r036: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r036]"
+            git commit -m "r037: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r037]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

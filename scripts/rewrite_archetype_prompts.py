@@ -845,6 +845,27 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "gigantyczny głaz rusza z miejsca: kamień miele o skałę, potem ostry trzask ziemi pod stopami i deszcz kamyków", False),
     "32": ("A large fish lunging out of a rotten wooden hull underwater: one muffled low whoosh of displaced water, then a bright burst of bubbles rising and popping against the planks.",
             "ryba wypada ze zbutwiałego wraku pod wodą: głuchy wir wody, potem jasna chmura bąbli wzbijająca się i pękająca o deski", False),
+    # --- r037: czwarte pietro wezlow (po r036: 87 par, bylo 175). Struktura sie
+    # splaszczyla - najwieksze wezly maja 3 pary (w r034 bylo 14). Wezly z
+    # najwieksza liczba par to karty TRAFIONE z kontraktami (562 Shock 5 par,
+    # 261 Universal Solvent 4, 23/26/358 po 3) - celowo nie ruszane.
+    # Kryterium wyboru: pary ORAZ za krotka tresc, zeby jedna regeneracja
+    # naprawila dwa problemy naraz (461: 2 pary i 1,40 s; 50: 2 pary i 1,71 s).
+    # Prompty celowo krotkie (~150 zn), bo doklejka --fill-take wchodzi w limit 450.
+    "104": ("A glitch ghost sweeping past: chopped digital stutters snapping in a fast irregular burst as the loudest moment, holographic warble, thin sparks trailing.",
+            "hologram zwiadowcy przelatuje z migotaniem: urywane cyfrowe zacięcia trzaskają serią, za nimi cienkie iskry", False),
+    "461": ("A spell snuffed mid-flight: a fireball roaring in, then water jets and thick vines erupting to crush it with a violent steam hiss that keeps building.",
+            "zaklęcie zduszone w locie: kula ognia nadlatuje, strumienie wody i pnącza miażdżą ją z gwałtownym sykiem pary", False),
+    "50": ("Heavy books falling and dissolving: three muffled thumps of tumbling tomes, each cut short as it unravels into a cold shimmering mist that keeps drifting.",
+            "ciężkie księgi spadają i rozpływają się: trzy głuche uderzenia, każde urywa się w zimną migoczącą mgłę", False),
+    "222": ("A merfolk guard sounding a shell horn over a storm coast: one long low blast curling out as the loudest moment, waves crashing and spray hissing beneath.",
+            "morski strażnik dmie w muszlę nad sztormowym brzegiem: jeden długi niski sygnał, pod nim fale i syk piany", False),
+    "395": ("A corpse unearthed by rain: mud bursting upward in a wet heavy spray, rusted armour grinding free of the grave, gravel and roots tearing loose.",
+            "zmarły przebija się przez mokrą ziemię: błoto wybucha w górę, zardzewiała zbroja zgrzyta, żwir i korzenie się rwą", False),
+    "419": ("A fear of burning made flesh: a crushing heatwave rolling off a smouldering figure, paint blistering and peeling with sharp cracks, embers popping close.",
+            "lęk przed spaleniem przybiera ciało: miażdżąca fala gorąca, farba pęcherzy i łuszczy się z ostrym trzaskiem", False),
+    "401": ("Red hot metal searing and melting: a fierce sustained hiss, metal skin warping with sharp cracking pops, droplets of molten metal spitting and sizzling.",
+            "rozżarzony metal topi się: ostry nieustanny syk, skóra metalu wygina się z trzaskiem, krople pryskają", False),
 }
 
 
