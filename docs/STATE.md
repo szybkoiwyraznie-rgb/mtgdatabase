@@ -2265,3 +2265,32 @@ zepchnąłby plik pod dolną granicę okna akceptacji. Pomiar rozdzielił pulę:
 ogona obniżyłoby plik pod 2,0 s, a to jest kryterium akceptacji właściciela.
 
 Flagi w korpusie: 60 → **54**. Archetypy bez zmian: 0 / 33 / 145.
+
+### Krawędzie plików — trzy klasy flag, tylko jedna prawdziwa
+
+Rozkład 54 flag rozebrany na klasy, a nie naprawiany hurtowo:
+
+**`too_quiet` (`611`) — fałszywy alarm, zostawiony.** Flaga odpala z dwóch
+warunków: `lufs < -32` **lub** `peak_db < -18`. `611` ma LUFS **−20,00 przy
+średniej korpusu −20,03** — czyli jest dokładnie na celu; flagę odpalił sam peak
+(−18,6 dB) przy creście 7,7 dB (p50 korpusu 21,9), bo to dźwięk gęsty,
+bez transientu. Podbicie go wyloniłoby go ponad bibliotekę, której odchylenie
+LUFS wynosi 0,31.
+
+**`cut_start_hard` (`278`, `430`, `504`) — cecha, nie wada, zostawione.** Wszystkie
+trzy mają crest 18,2–25,5 dB, czyli są uderzeniowe. Ich twardy start
+(`start_15ms_db` −10…−11,9 dB przy progu −12) **jest** atakiem; fade-in zniszczyłby
+dokładnie tę cechę, o którą walczyły kontrakty `attack_s ≤ 0,03–0,15`.
+
+**`cut_end_hard` (`72`, `306`, `431`) — jedna prawdziwa wada, naprawiona częściowo.**
+Plik urywał się na −20,3 / −31,3 / −38,7 dB, czyli dźwięk był przecinany
+w trakcie wybrzmiewania. Fade-out 260 ms zniósł wszystkie trzy flagi
+(−54,6 / −65,7 / −70,6 dB) i nie zmienił `duration_s`, więc okno 2–5 s było
+bezpieczne. Ale **`72` został cofnięty**: fade obciął właśnie ten ogon, który był
+wybrzmiewaniem osuwiska — `decay_s` spadł z ≥ 0,5 na 0,270 i złamał kontrakt
+`stone_slide` (werdykt trafiony → prawdopodobnie). Zostały `306` i `431`.
+
+Wniosek ogólny: **fade-out nie jest neutralny dla archetypów, których kontrakt
+mierzy `decay_s`** — dla nich ogon jest treścią, nie ciszą.
+
+Flagi w korpusie: 54 → **52**. Archetypy bez zmian: 0 / 33 / 145.
