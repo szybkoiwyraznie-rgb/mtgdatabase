@@ -2134,3 +2134,53 @@ limit 450 oznacza prompt do ok. 168–172 znaków.
 **Kredyty: 1520 w r030.** Z czwartego klucza (10 000) zostało ~5760. Korpus:
 553 pliki, 56 z flagą, 0 bliźniaków, 0 poza oknem 2–5 s, LUFS −20,02 (σ 0,25),
 treść < 2 s: 83.
+
+### r031–r032 — punkt 1, nowa dostawa i atak wieloudarzeniowy (0/48/126 → 0/34/144)
+
+**r031 (2320 kredytów).** Dwa zadania w jednej rundzie: 25 kart naprawczych
+wybranych pomiarem (metryka sterowalna promptem **i** brak wcześniejszego
+celowanego promptu pod tę cechę) oraz 4 nowe fabuły. Wynik: **13 lepiej /
+0 gorzej / 12 bez zmian**, nowe karty 3/4 trafione.
+
+Selekcja się potwierdziła: z 12 kart „bez zmian" aż 7 zostało na tej samej
+metryce, którą świadomie pominąłem jako niesterowalną (`mod_peak_hz`, `attack_s`,
+`ioi_cv`) albo już wcześniej przepaloną.
+
+**Błąd warty zapisania:** cztery nowe karty dodałem najpierw tylko do
+`data/catalog.json`. CI wykonuje `Refresh catalog from collection` **przed**
+walidacją scenariuszy, więc katalog odświeżany z `fabuły270926.csv` nadpisał mój
+ręczny wpis i run `validate` padł, choć lokalnie przechodził. **Źródłem prawdy
+jest CSV.** Przy dopisywaniu: plik kończy się pustym wierszem `\t\t` **bez** znaku
+nowej linii, więc dopisanie wprost skleja go z nowym wierszem (`invalid artID`).
+`import_collection.py` pomija wiersze całkowicie puste (L31–32), ale nie częściowo.
+
+**r032 (1120 kredytów) — odkrycie, które tłumaczy całą rodzinę regresji.**
+`attack_s` liczy się **wstecz od globalnego szczytu** energii, dopóki obwiednia
+jest powyżej szczyt−20 dB (`audit_semantic_match.py` L166–172). Przy dźwięku
+wieloudarzeniowym szczyt wypada w późniejszej sekcji, więc mierzony „atak" to
+czas narastania tej sekcji, nie opóźnienie pierwszego dźwięku. Zmierzony
+przypadek `269`: szczyt 2,160 s, początek ataku 1,010 s → `attack_s` 1,15 s, mimo
+że krzyk jest na samym początku.
+
+Wniosek: **przy kontraktach z `attack_s` i dźwięku wieloudarzeniowym prompt musi
+ustawiać hierarchię głośności, nie tylko kolejność.** Nowy prompt dla `269`
+(„One piercing hawk screech as the loudest moment of the take, hitting hard at
+the very first instant … with two quick wingbeats after it kept clearly quieter")
+dał **trafiony**. Poprawione też `118`, `164`, `216`.
+
+**Błąd patchowania:** patch workflow pochodny z `sed 's/r031/r032/'` podmienił
+token także **w samym skrypcie patchującym**, więc podmiany nie pasowały do pliku
+i workflow został w stanie mieszanym (IDS z r032, marker i ścieżki z r031) —
+guard szukałby `[generate-r031]`, a przy takim markerze nadpisałby istniejące
+`variants/r031`. Naprawione patchem po numerach linii, z zachowaniem odniesień
+historycznych. **Kontrola po każdym patchu: nazwa, marker guard, `--batch`,
+katalog wariantów, IDS i `bash -n` na wszystkich blokach `run`.**
+
+Nowe narzędzie `scripts/cut_internal_silence.py` (wycina dziury ciszy ze środka,
+zero kredytów) — napisane i przetestowane, ale **nie** użyte masowo: przy progu
+względnym −25 dB od RMS pliku łapie 90 kart, czyli mierzy zwykłe ciche fragmenty,
+nie defekt.
+
+**Kredyty: 2320 (r031) + 1120 (r032).** Z czwartego klucza (10 000) zostało
+~2320. Korpus: **557** plików, 63 z flagą, 0 bliźniaków, 0 poza oknem 2–5 s,
+LUFS −20,03 (σ 0,31), treść < 2 s: 85.
