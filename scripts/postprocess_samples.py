@@ -240,6 +240,25 @@ def narrow_sides(data: np.ndarray, fs: int, target_excess_lu: float,
     return fixed, best, before, mono_excess_lu(fixed, fs)
 
 
+def frame_rms_db(mono: np.ndarray, fs: int, frame_ms: float = 10.0) -> np.ndarray:
+    """Obwiednia RMS w dB — DOKŁADNIE jak `audit_samples_full.frame_rms_db`.
+
+    Musi być identyczna, bo `long_trail_silence` jest flagą audytu. Jeśli trym
+    szuka ciszy inaczej niż audyt, ogona z niskopoziomowym szumem nie da się ściąć:
+    zmierzone na 461 — ostatnia próbka nad −45 dB wypadała na 3,332 s, a ostatnia
+    ramka nad −45 dB na 2,280 s, czyli 1,05 s szumu, którego trym po szczycie
+    nie uznawał za ciszę, więc flaga zostawała mimo `--trim-trail-s`.
+    """
+    n = max(1, int(fs * frame_ms / 1000.0))
+    usable = len(mono) - (len(mono) % n)
+    if usable <= 0:
+        rms_all = float(np.sqrt(np.mean(mono ** 2))) if mono.size else 0.0
+        return np.array([20.0 * np.log10(max(rms_all, 1e-12))])
+    frames = mono[:usable].reshape(-1, n)
+    rms = np.sqrt(np.mean(frames ** 2, axis=1))
+    return 20.0 * np.log10(np.maximum(rms, 1e-12))
+
+
 def trim_trailing_silence(data: np.ndarray, fs: int, keep_s: float,
                           floor_db: float = -45.0, fade_ms: float = 40.0) -> tuple[np.ndarray, float]:
     """Odcina martwą ciszę z końca pliku, zostawiając `keep_s` ogona + krótki fade.
@@ -247,13 +266,20 @@ def trim_trailing_silence(data: np.ndarray, fs: int, keep_s: float,
     Powód: audyt flaguje `long_trail_silence` (> 1,5 s ciszy), a w grze martwy
     ogon brzmi jak zacięcie. Nie ruszamy ciszy wstępnej — nią zajmuje się
     `refine_corpus_audio.py`.
+
+    Ciszy szukamy po RMS ramki 10 ms, czyli TAK SAMO jak audyt liczy
+    `trail_silence_s` (`frame_rms_db(data.mean(axis=1), fs, 10.0) > SILENCE_DB`).
+    Wcześniejsza wersja szukała po szczycie próbki (`np.abs(data).max(axis=1)`),
+    który jest znacznie czulszy — pojedyncza próbka nad progiem wystarczała, żeby
+    uznać miejsce za dźwięk.
     """
-    thr = db_to_lin(floor_db)
-    mono = np.abs(data).max(axis=1)
-    idx = np.flatnonzero(mono > thr)
+    mono = data.mean(axis=1)
+    frames = frame_rms_db(mono, fs, 10.0)
+    idx = np.flatnonzero(frames > floor_db)
     if not len(idx):
         return data, 0.0
-    cut = min(len(mono), int(idx[-1]) + 1 + int(fs * keep_s))
+    n_frame = max(1, int(fs * 10.0 / 1000.0))
+    cut = min(len(mono), int((idx[-1] + 1) * n_frame) + int(fs * keep_s))
     if cut >= len(mono):
         return data, 0.0
     out = data[:cut].copy()

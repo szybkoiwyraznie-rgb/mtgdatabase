@@ -2556,3 +2556,43 @@ odrzucony) oraz **regeneracja kart z metryką niesterowalną** (`attack_s`,
 3. `postprocess` i audyt **inaczej definiują ciszę** (szczyt próbki vs RMS ramki),
    więc trym ogona nie zdejmie flagi `long_trail_silence` tam, gdzie w ogonie
    jest niskopoziomowy szum.
+
+### r038 — naprawa trymu ogona za zero kredytów: 4 flagi mniej
+
+W r037 odkryty został rozjazd definicji ciszy między narzędziami:
+`postprocess_samples.trim_trailing_silence()` szukało ciszy po **szczycie próbki**
+(`np.abs(data).max(axis=1) > −45 dB`), a audyt liczy `trail_silence_s` po **RMS
+ramki 10 ms** (`frame_rms_db(data.mean(axis=1), fs, 10.0) > SILENCE_DB`). Szczyt
+jest znacznie czulszy — pojedyncza próbka nad progiem wystarczała, żeby uznać
+miejsce za dźwięk, więc trym nie potrafił ściąć ogona z niskopoziomowym szumem
+i flaga `long_trail_silence` zostawała mimo `--trim-trail-s`.
+
+**Naprawa:** `trim_trailing_silence()` dostało własną kopię `frame_rms_db`,
+identyczną z audytową. Zweryfikowane bezpośrednio — oba narzędzia wyliczają teraz
+ten sam koniec treści, do milisekundy, na wszystkich sprawdzonych plikach.
+
+**Dobór kart:** z 11 plików z flagą `long_trail_silence` wzięte 6, dla których
+plik po trymie miałby ≥ 2,05 s (bezpieczny margines nad dolną granicą okna).
+Pięć odpadło, bo zeszłyby pod 2,0 s — m.in. `401` (1,98 s po trymie).
+
+**Dwie cofnięte, bo pomiar wykrył regresję:**
+
+- **`156` — treść spadła 2,09 → 1,93 s, czyli pod próg 2,0.** Mechanizm znany
+  z jej wcześniejszej historii: usunięcie ciszy podnosi LUFS, postprocess
+  kompensuje ściszeniem (−0,39 dB) i materiał przy progu wpada pod −45 dBFS.
+  Ta karta została wycofana z trymu już drugi raz, z tego samego powodu.
+- **`12` Merchant's Dockhand — straciła trafienie w kontrakcie `robot_servo`.**
+  `tonal_frame_fraction` spadła **0,545 → 0,165**, a kontrakt wymaga ≥ 0,35.
+  Ucięcie 1,8 s zniszczyło tonalną część nagrania. Zgodnie z priorytetem
+  właściciela (rozpoznawalność ważniejsza niż flaga) karta cofnięta.
+
+**Wynik: 4 karty (`298`, `435`, `461`, `477`) straciły `long_trail_silence`,
+zero nowych flag w korpusie.** Flagi 69 → 65, pliki z flagą 56 → 54. Pary w
+pasmie 0,90–0,95 bez zmian (**81**) — usunięcie ciszy nie naruszyło fingerprintu,
+co potwierdza, że operacja jest neutralna dla rozpoznawalności. Archetypy
+0 / 33 / 145, regresji brak. **Koszt: 0 kredytów.**
+
+Wniosek: trym ogona jest bezpieczny tylko dla plików, których treść nie opiera
+się na materiale tuż przy progu ciszy, i tylko po sprawdzeniu obu metryk po
+operacji — audytowa `content_s` jest matematycznie niezmiennicza względem
+trymu ogona, ale pomiar progiem absolutnym zmienia się razem z głośnością.

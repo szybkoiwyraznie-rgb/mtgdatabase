@@ -2,25 +2,10 @@
  "audit": "data/samples/audio-audit-latest.json",
  "checked": 178,
  "by_verdict": {
-  "prawdopodobnie": 34,
-  "trafiony": 144
+  "prawdopodobnie": 33,
+  "trafiony": 145
  },
  "results": [
-  {
-   "id": "12",
-   "title": "Merchant's Dockhand",
-   "archetype": "robot_servo",
-   "archetype_label": "serwo i mechanizm robota",
-   "score": 1.5,
-   "verdict": "prawdopodobnie",
-   "violations": [
-    {
-     "check": "tonal_frame_fraction",
-     "reason": "serwo trzyma ton (tonal_frame_fraction=0.165, oczekiwane >= 0.35)",
-     "weight": 1.5
-    }
-   ]
-  },
   {
    "id": "31",
    "title": "Carrion Call",
@@ -575,6 +560,15 @@
    "title": "Toll of the Invasion",
    "archetype": "wind_gust",
    "archetype_label": "podmuch wiatru",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "12",
+   "title": "Merchant's Dockhand",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
    "score": 0,
    "verdict": "trafiony",
    "violations": []
