@@ -563,8 +563,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "482": ("Two blades meeting edge to edge and pressing on: three violent steel strikes in "
            "quick succession, the first at the very first instant, each with a harsh gritty ring.",
             "dwa ostrza schodzą się krawędziami i napierają: trzy gwałtowne ciosy stali kolejno, pierwszy w pierwszej chwili, każdy z chropawym brzękiem", False),
-    "487": ("A geometric resonance shield breaking a fire projectile: four successive crystalline shatter bursts, each facet snapping with a bright glassy ping, each louder than the last.",
-            "tarcza rezonansu rozbija ognisty pocisk: cztery kolejne krystaliczne pęknięcia, każde z jasnym szklistym trzaskiem", False),
+    "487": ("A geometric resonance shield breaking a fire projectile: four crystalline shatter bursts spread across the take, each a bright glassy ping, the last loudest.",
+            "tarcza rezonansu rozbija pocisk: cztery krystaliczne pęknięcia rozłożone na cały take, każde z jasnym szklistym dzwonieniem", False),
     "488": ("Three artefacts being fused into a copper carapace: three successive resonant metallic lock-in clicks, each one deeper than the last.",
             "integracja trzech artefaktów z miedzianą skorupą zbrojmistrza: trzy kolejne rezonansowe metaliczne zatrzaśnięcia, każde głębsze", False),
     "494": ("A herd call answered by two giant reptiles charging in sync: one long rising bellow, then eight heavy footfalls in a fast even thunder.",
@@ -828,6 +828,23 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "mroźny ryś zamraża ofiarę: skok, dotyk, lód zatrzaskuje się serią ostrych kryształowych pęknięć, ryk urywa się", False),
     "438": ("Old ruins rotting into new soil: dead leaves crumbling with a dry papery rustle as the loudest moment, buried artifacts flaking apart, green pulses quickening beneath.",
             "stare ruiny próchnieją w glebę: suche liście kruszą się z szelestem, artefakty łuszczą, zielone pulsy przyspieszają", False),
+    # --- r036: trzecie pietro wezlow podobienstwa (po r035: 99 par, bylo 175).
+    # 5 kart BEZ archetypu. Z listy wezlow odrzucone, bo sa TRAFIONE z kontraktami:
+    # 562 Shock (thunder_clap), 343 Puppeteer Clique (temple_bell), 261 Universal
+    # Solvent (steam_hiss), 23 Brightwood Tracker (temple_bell), 26 Ember Beast
+    # (stone_slide), 358 Frontline War-Rager (creature_roar).
+    # 487 bylo probowane w r035 i cofniete (warianty krotkie: v1 1,09 s, v2 1,30 s)
+    # - tym razem prompt jawnie rozklada cztery uderzenia na caly take.
+    # 22 i 32 maja centroid 440-493 Hz, czyli siedza w niskim huku; 32 ma
+    # 'burst of bubbles' w scenariuszu, wiec dostaje hierarchie glosnosci.
+    "592": ("A stone reliquary smashed down onto an altar: heavy stone cracking apart, then iron fittings crunching and tearing loose one by one, grit and debris rattling across the slab.",
+            "kamienny relikwiarz rozbity o ołtarz: kamień pęka, żelazne okucia zgrzytają i wyrywają się kolejno, gruzy szeleszczą", False),
+    "238": ("A dwarf war roller grinding forward: iron drums crushing a wrecked chariot, wood splintering in sharp cracks and metal buckling, gravel spraying off the tread.",
+            "krasnoludzki walec wojenny miele wrak rydwanu: żelazne bębny, drewno trzaska, metal się wygina, żwir pryska", False),
+    "22": ("One enormous boulder heave: deep stone grinding against rock, then a sharp ground crack underfoot as the loudest moment, pebbles and grit showering down after it.",
+            "gigantyczny głaz rusza z miejsca: kamień miele o skałę, potem ostry trzask ziemi pod stopami i deszcz kamyków", False),
+    "32": ("A large fish lunging out of a rotten wooden hull underwater: one muffled low whoosh of displaced water, then a bright burst of bubbles rising and popping against the planks.",
+            "ryba wypada ze zbutwiałego wraku pod wodą: głuchy wir wody, potem jasna chmura bąbli wzbijająca się i pękająca o deski", False),
 }
 
 
