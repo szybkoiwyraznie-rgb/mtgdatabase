@@ -2392,3 +2392,46 @@ spadła 85 → **82**.
 
 Archetypy bez zmian: 0 / 33 / 145 (żadna z siedmiu kart nie ma archetypu, więc nie
 były oceniane; regresji w pozostałych brak). **Kredyty: 560 w r034.**
+
+### r035 — drugie piętro węzłów: 120 → 99 par
+
+Ten sam wzorzec co r034, zastosowany na kolejnym piętrze. Wzięto **7 kart bez
+archetypu** (nie ma kontraktu do złamania). Celowo pominięto `562` Shock
+(`thunder_clap`, trafiony) i `343` Puppeteer Clique (`temple_bell`, trafiony) —
+regeneracja ryzykowałaby utratę trafienia.
+
+**Wynik: pary w paśmie 0,90–0,95 spadły 120 → 99** (licząc po cofnięciu `487`),
+bliźniaków nadal 0.
+
+Zostawione 6 kart — pięć poprawiło treść: `470` 3,20 → 3,88 s, `448` 2,16 → 3,35,
+`57` 1,84 → 2,47, `550` 1,43 → 3,18, `438` 2,24 → 3,29. Karty z treścią < 2 s:
+81 → **80**.
+
+**`487` Stoic Rebuttal cofnięte.** Pierwszy odczyt pokazał spadek treści
+2,86 → 1,28 s, ale liczby trzeba było rozdzielić, bo audyt mierzy treść progiem
+**absolutnym** (`SILENCE_DB = −45 dBFS`), a warianty przyszły gorące (`477` v1:
+peak −0,3 dB, LUFS −9,78 przy celu korpusu −20,03) i postprocess ściszył je
+o ~10 dB, zsuwając cichy ogon pod próg. Pomiar w obu metrykach:
+
+| karta | stan | treść −45 dBFS | treść peak−45 |
+|---|---|---|---|
+| `477` | przed | 1,90 s | 2,30 s |
+| `477` | po | 1,63 s | **2,90 s** |
+| `487` | przed | 2,81 s | 3,62 s |
+| `487` | po | 1,28 s | **1,49 s** |
+
+`477` względem własnego szczytu **urodła** (2,30 → 2,90 s) i wyszła z niskiego
+huku (centroid 321 → 1348 Hz) — zostawiona. `487` straciła w **obu** metrykach,
+bo wariant sam w sobie był krótki (v1 1,09 s, v2 1,30 s) — cofnięta.
+
+**Wniosek metodyczny:** przy porównywaniu wariantu z plikiem po postprocesie
+treść mierzona progiem absolutnym nie jest porównywalna, jeśli pliki różnią się
+głośnością. Trzeba mierzyć też względem własnego szczytu, inaczej ściszenie
+wygląda jak utrata treści.
+
+**Naprawione po drodze:** `470` i `487` były już w `OVERRIDES` od r027, więc
+dopisanie drugiej definicji utworzyło **cichy duplikat** — 158 kluczy w literale
+przy 156 po imporcie. Generator podmienia teraz istniejące wpisy przez `ast`,
+zamiast dopisywać.
+
+Archetypy bez zmian: 0 / 33 / 145, regresji brak. **Kredyty: 560 w r035.**
