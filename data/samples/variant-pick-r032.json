@@ -1,0 +1,913 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r032",
+ "applied": true,
+ "results": [
+  {
+   "id": "3",
+   "title": "Nefarious Imp",
+   "archetype": "fire_crackle",
+   "archetype_label": "trzask ognia / żaru",
+   "chosen": "v1",
+   "chosen_score": 1.0,
+   "spread": 1.5,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/3.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "trzaski są jasne (spectral_centroid_hz=7240.400, oczekiwane 1000.0–6000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.968,
+      "content_rel_s": 3.818,
+      "lufs": -32.18,
+      "low_all": 0.067,
+      "spectral_centroid_hz": 7240.4,
+      "spectral_flatness": 0.205,
+      "tonal_frame_fraction": 0.039,
+      "voiced_fraction": 0.0,
+      "crest_db": 36.45,
+      "attack_s": 0.03,
+      "decay_s": 0.03,
+      "onset_count": 25,
+      "sustain_ratio": 0.033,
+      "mod_peak_hz": 8.6
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/3.mp3",
+     "score": 2.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ogień jest szumowy (spectral_flatness=0.062, oczekiwane >= 0.1)",
+      "trzaski są jasne (spectral_centroid_hz=6260.600, oczekiwane 1000.0–6000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.98,
+      "lufs": -26.59,
+      "low_all": 0.122,
+      "spectral_centroid_hz": 6260.6,
+      "spectral_flatness": 0.062,
+      "tonal_frame_fraction": 0.41,
+      "voiced_fraction": 0.623,
+      "crest_db": 30.93,
+      "attack_s": 0.02,
+      "decay_s": 0.04,
+      "onset_count": 33,
+      "sustain_ratio": 0.06,
+      "mod_peak_hz": 3.77
+     }
+    }
+   ]
+  },
+  {
+   "id": "49",
+   "title": "Unstable Frontier",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "chosen": "v1",
+   "chosen_score": 3.5,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/49.mp3",
+     "score": 3.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot ziemi jest w dole pasma (low_all=0.422, oczekiwane >= 0.5)",
+      "grzmot ziemi jest niski (spectral_centroid_hz=3049.500, oczekiwane <= 900.0)",
+      "grzmot się toczy (decay_s=0.370, oczekiwane >= 0.8)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 2.954,
+      "content_rel_s": 2.584,
+      "lufs": -19.99,
+      "low_all": 0.422,
+      "spectral_centroid_hz": 3049.5,
+      "spectral_flatness": 0.072,
+      "tonal_frame_fraction": 0.402,
+      "voiced_fraction": 0.287,
+      "crest_db": 24.07,
+      "attack_s": 0.55,
+      "decay_s": 0.37,
+      "onset_count": 12,
+      "sustain_ratio": 0.288,
+      "mod_peak_hz": 1.97
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/49.mp3",
+     "score": 3.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot ziemi jest w dole pasma (low_all=0.060, oczekiwane >= 0.5)",
+      "grzmot ziemi jest niski (spectral_centroid_hz=4267.900, oczekiwane <= 900.0)",
+      "grzmot się toczy (decay_s=0.050, oczekiwane >= 0.8)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 2.939,
+      "content_rel_s": 2.249,
+      "lufs": -20.0,
+      "low_all": 0.06,
+      "spectral_centroid_hz": 4267.9,
+      "spectral_flatness": 0.329,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.018,
+      "crest_db": 28.0,
+      "attack_s": 0.1,
+      "decay_s": 0.05,
+      "onset_count": 6,
+      "sustain_ratio": 0.089,
+      "mod_peak_hz": 1.71
+     }
+    }
+   ]
+  },
+  {
+   "id": "118",
+   "title": "Dire-Strain Brawler",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/118.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.51,
+      "lufs": -20.0,
+      "low_all": 0.602,
+      "spectral_centroid_hz": 189.3,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.429,
+      "crest_db": 12.31,
+      "attack_s": 1.34,
+      "decay_s": 1.86,
+      "onset_count": 13,
+      "sustain_ratio": 0.73,
+      "mod_peak_hz": 15.32
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/118.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.721,
+      "content_rel_s": 2.431,
+      "lufs": -19.79,
+      "low_all": 0.912,
+      "spectral_centroid_hz": 191.9,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.435,
+      "crest_db": 14.13,
+      "attack_s": 0.37,
+      "decay_s": 1.11,
+      "onset_count": 20,
+      "sustain_ratio": 0.32,
+      "mod_peak_hz": 18.11
+     }
+    }
+   ]
+  },
+  {
+   "id": "164",
+   "title": "Gryffwing Cavalry",
+   "archetype": "wing_flutter",
+   "archetype_label": "trzepot skrzydeł",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/164.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.204,
+      "content_rel_s": 2.964,
+      "lufs": -20.17,
+      "low_all": 0.695,
+      "spectral_centroid_hz": 2225.5,
+      "spectral_flatness": 0.292,
+      "tonal_frame_fraction": 0.015,
+      "voiced_fraction": 0.25,
+      "crest_db": 23.36,
+      "attack_s": 0.04,
+      "decay_s": 0.04,
+      "onset_count": 17,
+      "sustain_ratio": 0.103,
+      "mod_peak_hz": 8.6
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/164.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "trzepot jest szelestem w środku pasma (spectral_centroid_hz=7167.600, oczekiwane 800.0–6000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.095,
+      "content_rel_s": 2.695,
+      "lufs": -20.0,
+      "low_all": 0.172,
+      "spectral_centroid_hz": 7167.6,
+      "spectral_flatness": 0.443,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.008,
+      "crest_db": 24.65,
+      "attack_s": 0.05,
+      "decay_s": 0.04,
+      "onset_count": 27,
+      "sustain_ratio": 0.146,
+      "mod_peak_hz": 18.73
+     }
+    }
+   ]
+  },
+  {
+   "id": "168",
+   "title": "Steel Sabotage",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "chosen": "v1",
+   "chosen_score": 2.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/168.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot się toczy (decay_s=0.120, oczekiwane >= 0.8)",
+      "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.002, oczekiwane >= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.26,
+      "lufs": -20.0,
+      "low_all": 0.998,
+      "spectral_centroid_hz": 63.2,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 12.92,
+      "attack_s": 0.67,
+      "decay_s": 0.12,
+      "onset_count": 22,
+      "sustain_ratio": 0.36,
+      "mod_peak_hz": 2.05
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/168.mp3",
+     "score": 3.0,
+     "measured": "postprocess",
+     "twin_with": "74:0.9542",
+     "violations": [
+      "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.006, oczekiwane >= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.845,
+      "content_rel_s": 3.575,
+      "lufs": -20.0,
+      "low_all": 0.994,
+      "spectral_centroid_hz": 82.0,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.989,
+      "crest_db": 12.85,
+      "attack_s": 0.93,
+      "decay_s": 1.48,
+      "onset_count": 25,
+      "sustain_ratio": 0.568,
+      "mod_peak_hz": 14.87
+     }
+    }
+   ]
+  },
+  {
+   "id": "216",
+   "title": "Armored Skaab",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/216.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.064,
+      "content_rel_s": 2.624,
+      "lufs": -19.99,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 3117.5,
+      "spectral_flatness": 0.107,
+      "tonal_frame_fraction": 0.426,
+      "voiced_fraction": 0.214,
+      "crest_db": 20.49,
+      "attack_s": 0.03,
+      "decay_s": 0.21,
+      "onset_count": 5,
+      "sustain_ratio": 0.219,
+      "mod_peak_hz": 1.4
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/216.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "brzęk stali ma szum (spectral_flatness=0.001, oczekiwane >= 0.03)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.093,
+      "content_rel_s": 2.713,
+      "lufs": -20.02,
+      "low_all": 0.011,
+      "spectral_centroid_hz": 1743.9,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 0.899,
+      "voiced_fraction": 0.65,
+      "crest_db": 20.11,
+      "attack_s": 0.06,
+      "decay_s": 0.22,
+      "onset_count": 2,
+      "sustain_ratio": 0.113,
+      "mod_peak_hz": 1.32
+     }
+    }
+   ]
+  },
+  {
+   "id": "228",
+   "title": "Strandwalker",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "chosen": "v2",
+   "chosen_score": 1.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/228.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "kroki mają równy rytm (ioi_cv=0.640, oczekiwane <= 0.6)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.918,
+      "content_rel_s": 3.758,
+      "lufs": -22.2,
+      "low_all": 0.692,
+      "spectral_centroid_hz": 397.1,
+      "spectral_flatness": 0.066,
+      "tonal_frame_fraction": 0.419,
+      "voiced_fraction": 0.109,
+      "crest_db": 22.46,
+      "attack_s": 0.02,
+      "decay_s": 0.14,
+      "onset_count": 19,
+      "sustain_ratio": 0.148,
+      "mod_peak_hz": 1.76
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/228.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "kroki mają równy rytm (ioi_cv=0.779, oczekiwane <= 0.6)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.63,
+      "lufs": -19.99,
+      "low_all": 0.972,
+      "spectral_centroid_hz": 84.4,
+      "spectral_flatness": 0.008,
+      "tonal_frame_fraction": 0.859,
+      "voiced_fraction": 0.597,
+      "crest_db": 19.01,
+      "attack_s": 0.05,
+      "decay_s": 0.06,
+      "onset_count": 12,
+      "sustain_ratio": 0.085,
+      "mod_peak_hz": 2.63
+     }
+    }
+   ]
+  },
+  {
+   "id": "269",
+   "title": "Scouting Hawk",
+   "archetype": "beast_screech",
+   "archetype_label": "wrzask / pisk potwora",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/269.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.676,
+      "content_rel_s": 2.186,
+      "lufs": -20.01,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 3581.3,
+      "spectral_flatness": 0.008,
+      "tonal_frame_fraction": 0.937,
+      "voiced_fraction": 0.661,
+      "crest_db": 15.19,
+      "attack_s": 0.09,
+      "decay_s": 1.67,
+      "onset_count": 2,
+      "sustain_ratio": 0.614,
+      "mod_peak_hz": 1.37
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/269.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 1.14,
+      "lufs": -19.97,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 3457.3,
+      "spectral_flatness": 0.048,
+      "tonal_frame_fraction": 0.539,
+      "voiced_fraction": 0.233,
+      "crest_db": 17.15,
+      "attack_s": 0.07,
+      "decay_s": 0.89,
+      "onset_count": 1,
+      "sustain_ratio": 0.212,
+      "mod_peak_hz": 1.69
+     }
+    }
+   ]
+  },
+  {
+   "id": "292",
+   "title": "Rediscover the Way",
+   "archetype": "wind_gust",
+   "archetype_label": "podmuch wiatru",
+   "chosen": "v1",
+   "chosen_score": 2.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/292.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "wiatr jest szumowy (spectral_flatness=0.000, oczekiwane >= 0.05)",
+      "wiatr siedzi w środku pasma (spectral_centroid_hz=71.900, oczekiwane 300.0–3000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.785,
+      "content_rel_s": 3.225,
+      "lufs": -20.0,
+      "low_all": 0.993,
+      "spectral_centroid_hz": 71.9,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.972,
+      "crest_db": 16.48,
+      "attack_s": 1.06,
+      "decay_s": 0.27,
+      "onset_count": 22,
+      "sustain_ratio": 0.328,
+      "mod_peak_hz": 1.31
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/292.mp3",
+     "score": 3.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "podmuch płynie (sustain_ratio=0.299, oczekiwane >= 0.3)",
+      "wiatr jest szumowy (spectral_flatness=0.000, oczekiwane >= 0.05)",
+      "wiatr siedzi w środku pasma (spectral_centroid_hz=97.000, oczekiwane 300.0–3000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.655,
+      "content_rel_s": 3.325,
+      "lufs": -20.0,
+      "low_all": 0.957,
+      "spectral_centroid_hz": 97.0,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.51,
+      "crest_db": 16.95,
+      "attack_s": 0.56,
+      "decay_s": 0.65,
+      "onset_count": 19,
+      "sustain_ratio": 0.299,
+      "mod_peak_hz": 4.18
+     }
+    }
+   ]
+  },
+  {
+   "id": "382",
+   "title": "Geological Appraiser",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "chosen": "v1",
+   "chosen_score": 2.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/382.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot się toczy (decay_s=0.720, oczekiwane >= 0.8)",
+      "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.004, oczekiwane >= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.368,
+      "content_rel_s": 3.088,
+      "lufs": -20.0,
+      "low_all": 0.996,
+      "spectral_centroid_hz": 96.0,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.936,
+      "crest_db": 15.64,
+      "attack_s": 0.46,
+      "decay_s": 0.72,
+      "onset_count": 20,
+      "sustain_ratio": 0.321,
+      "mod_peak_hz": 18.41
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/382.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot się toczy (decay_s=0.510, oczekiwane >= 0.8)",
+      "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.000, oczekiwane >= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.376,
+      "content_rel_s": 2.936,
+      "lufs": -20.0,
+      "low_all": 1.0,
+      "spectral_centroid_hz": 60.5,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 16.85,
+      "attack_s": 0.24,
+      "decay_s": 0.51,
+      "onset_count": 16,
+      "sustain_ratio": 0.261,
+      "mod_peak_hz": 2.25
+     }
+    }
+   ]
+  },
+  {
+   "id": "493",
+   "title": "Skyclave Geopede",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/493.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.465,
+      "content_rel_s": 3.175,
+      "lufs": -20.11,
+      "low_all": 0.766,
+      "spectral_centroid_hz": 311.6,
+      "spectral_flatness": 0.003,
+      "tonal_frame_fraction": 0.929,
+      "voiced_fraction": 0.121,
+      "crest_db": 20.37,
+      "attack_s": 0.02,
+      "decay_s": 0.5,
+      "onset_count": 17,
+      "sustain_ratio": 0.147,
+      "mod_peak_hz": 1.47
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/493.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.07,
+      "lufs": -20.06,
+      "low_all": 0.561,
+      "spectral_centroid_hz": 791.8,
+      "spectral_flatness": 0.082,
+      "tonal_frame_fraction": 0.305,
+      "voiced_fraction": 0.009,
+      "crest_db": 22.67,
+      "attack_s": 0.35,
+      "decay_s": 0.6,
+      "onset_count": 14,
+      "sustain_ratio": 0.175,
+      "mod_peak_hz": 1.64
+     }
+    }
+   ]
+  },
+  {
+   "id": "496",
+   "title": "Shiv's Embrace",
+   "archetype": "volcanic_eruption",
+   "archetype_label": "wybuch wulkanu / lawy",
+   "chosen": "v2",
+   "chosen_score": 1.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/496.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "erupcja jest szumowa, nie tonalna (spectral_flatness=0.000, oczekiwane >= 0.04)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.45,
+      "lufs": -20.0,
+      "low_all": 0.946,
+      "spectral_centroid_hz": 116.7,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.495,
+      "crest_db": 12.84,
+      "attack_s": 0.43,
+      "decay_s": 2.13,
+      "onset_count": 20,
+      "sustain_ratio": 0.61,
+      "mod_peak_hz": 1.16
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/496.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "erupcja uderza (crest_db=10.330, oczekiwane >= 12.0)",
+      "erupcja jest szumowa, nie tonalna (spectral_flatness=0.000, oczekiwane >= 0.04)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.63,
+      "lufs": -20.0,
+      "low_all": 0.97,
+      "spectral_centroid_hz": 89.1,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.788,
+      "crest_db": 10.33,
+      "attack_s": 1.78,
+      "decay_s": 0.83,
+      "onset_count": 15,
+      "sustain_ratio": 0.598,
+      "mod_peak_hz": 17.77
+     }
+    }
+   ]
+  },
+  {
+   "id": "558",
+   "title": "White Mage's Staff",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 2.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/558.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.03,
+      "content_rel_s": 2.01,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 1286.9,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 15.84,
+      "attack_s": 0.09,
+      "decay_s": 0.96,
+      "onset_count": 0,
+      "sustain_ratio": 0.312,
+      "mod_peak_hz": 1.0
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/558.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "dzwon siedzi w środku pasma (spectral_centroid_hz=5068.000, oczekiwane 400.0–3000.0)",
+      "dzwon trzyma poziom (sustain_ratio=0.092, oczekiwane >= 0.2)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 1.8,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5068.0,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 22.33,
+      "attack_s": 0.01,
+      "decay_s": 0.61,
+      "onset_count": 0,
+      "sustain_ratio": 0.092,
+      "mod_peak_hz": 1.11
+     }
+    }
+   ]
+  },
+  {
+   "id": "568",
+   "title": "Nanoform Sentinel",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
+   "chosen": "v2",
+   "chosen_score": 1.5,
+   "spread": 2.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r032/v2/568.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "serwo trzyma ton (tonal_frame_fraction=0.007, oczekiwane >= 0.35)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.91,
+      "lufs": -20.04,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 4114.4,
+      "spectral_flatness": 0.195,
+      "tonal_frame_fraction": 0.007,
+      "voiced_fraction": 0.029,
+      "crest_db": 18.69,
+      "attack_s": 0.11,
+      "decay_s": 0.34,
+      "onset_count": 5,
+      "sustain_ratio": 0.595,
+      "mod_peak_hz": 1.65
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r032/v1/568.mp3",
+     "score": 3.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "serwo trzyma ton (tonal_frame_fraction=0.000, oczekiwane >= 0.35)",
+      "ton serwa jest stabilny (f0_semitone_std=7.340, oczekiwane <= 4.0)",
+      "robot klika i pracuje (onset_count=0, oczekiwane >= 2)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.95,
+      "lufs": -19.92,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6351.7,
+      "spectral_flatness": 0.252,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.128,
+      "crest_db": 15.74,
+      "attack_s": 2.42,
+      "decay_s": 1.49,
+      "onset_count": 0,
+      "sustain_ratio": 0.93,
+      "mod_peak_hz": 1.01
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -66,7 +66,29 @@ Serwer musi słuchać na `0.0.0.0`; `serve_site.py` już to robi i wysyła
 `Cache-Control: no-store`. Nie używaj do podglądu zwykłego `python -m http.server`,
 jeśli właściciel ma odsłuchiwać świeże MP3.
 
-## 6. Testowanie i publikacja
+## 6. Audyt audio bez tymczasowego workflowa
+
+Audytory (`audit_samples_full.py`, `audit_semantic_match.py`,
+`audit_scenario_quality.py`, `postprocess_samples.py`) potrzebują `numpy`,
+`scipy` i `soundfile`, których czysty sandbox nie ma. `pip` działa i ma
+dostęp do sieci, więc wystarczy jednorazowo postawić wirtualne środowisko
+w repo (`.venv/` jest w `.gitignore`, więc nie trafi do snapshotu):
+
+```bash
+python3 -m venv .venv
+./.venv/bin/python -m pip install numpy scipy soundfile
+./.venv/bin/python scripts/audit_samples_full.py \
+    --json data/samples/audio-audit-<data>.json \
+    --markdown docs/audits/<data>-audio-audit.md
+```
+
+Zmierzone 2026-10-04 (Python 3.11.2, numpy 2.4.6, scipy 1.17.1,
+soundfile 0.14.0): pełny skan 553 MP3 zajmuje **40 s** lokalnie, audyt
+semantyczny 4 s, jakość scenariuszy <1 s. Nie ma powodu stawiać do tego
+tymczasowego workflowa na GitHubie — tymczasowe triggery zostawiamy
+wyłącznie dla generacji ElevenLabs i importu artefaktów.
+
+## 7. Testowanie i publikacja
 
 Przed końcem pracy:
 

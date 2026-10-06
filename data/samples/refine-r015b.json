@@ -1,0 +1,108 @@
+{
+ "403": {
+  "op": "deharsh_high_shelf_and_mid_body",
+  "shelf_hz": 5500.0,
+  "shelf_db": -8.0,
+  "peak_hz": 750.0,
+  "peak_db": 5.0,
+  "varispeed": null,
+  "source": "surowy MP3 r015 (commit 3babcec)",
+  "total_gain_db_after_eq": 15.0,
+  "limiter_gr_db": 0.0,
+  "limiter_gr_mean_db": 0.0,
+  "before": {
+   "lufs": -27.8,
+   "true_peak_dbtp": -18.43,
+   "spectral_centroid_hz": 9755.9,
+   "duration_s": 2.48
+  },
+  "after": {
+   "lufs": -20.37,
+   "true_peak_dbtp": -9.38,
+   "spectral_centroid_hz": 9093.9,
+   "duration_s": 2.48
+  },
+  "transcode_snr_db": 20.6
+ },
+ "593": {
+  "op": "deharsh_high_shelf_and_horse_body",
+  "shelf_hz": 5500.0,
+  "shelf_db": -7.0,
+  "peak_hz": 900.0,
+  "peak_db": 4.0,
+  "varispeed": null,
+  "source": "surowy MP3 r015 (commit 3babcec)",
+  "total_gain_db_after_eq": 4.16,
+  "limiter_gr_db": 0.0,
+  "limiter_gr_mean_db": 0.0,
+  "before": {
+   "lufs": -17.96,
+   "true_peak_dbtp": -3.13,
+   "spectral_centroid_hz": 9699.3,
+   "duration_s": 2.48
+  },
+  "after": {
+   "lufs": -20.0,
+   "true_peak_dbtp": -4.56,
+   "spectral_centroid_hz": 9158.5,
+   "duration_s": 2.48
+  },
+  "transcode_snr_db": 25.7
+ },
+ "517": {
+  "op": "twin_break_varispeed_up_and_air_lift",
+  "shelf_hz": 3500.0,
+  "shelf_db": 3.0,
+  "peak_hz": null,
+  "peak_db": 0.0,
+  "varispeed": [
+   100,
+   108
+  ],
+  "source": "surowy MP3 r015 (commit 3babcec)",
+  "total_gain_db_after_eq": -12.69,
+  "limiter_gr_db": 0.0,
+  "limiter_gr_mean_db": 0.0,
+  "before": {
+   "lufs": -7.5,
+   "true_peak_dbtp": -0.2,
+   "spectral_centroid_hz": 1574.2,
+   "duration_s": 2.48
+  },
+  "after": {
+   "lufs": -20.0,
+   "true_peak_dbtp": -12.36,
+   "spectral_centroid_hz": 1989.5,
+   "duration_s": 2.296
+  },
+  "transcode_snr_db": 35.7
+ },
+ "76": {
+  "op": "twin_break_varispeed_down_and_mid_tilt",
+  "shelf_hz": null,
+  "shelf_db": 0.0,
+  "peak_hz": 2500.0,
+  "peak_db": 2.0,
+  "varispeed": [
+   107,
+   100
+  ],
+  "source": "surowy MP3 r015 (commit 3babcec)",
+  "total_gain_db_after_eq": -12.67,
+  "limiter_gr_db": 0.0,
+  "limiter_gr_mean_db": 0.0,
+  "before": {
+   "lufs": -7.86,
+   "true_peak_dbtp": 1.61,
+   "spectral_centroid_hz": 6953.2,
+   "duration_s": 2.48
+  },
+  "after": {
+   "lufs": -20.0,
+   "true_peak_dbtp": -10.89,
+   "spectral_centroid_hz": 6354.2,
+   "duration_s": 2.654
+  },
+  "transcode_snr_db": 16.5
+ }
+}

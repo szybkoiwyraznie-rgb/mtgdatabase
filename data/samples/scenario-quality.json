@@ -1,10 +1,10 @@
 {
   "count": 553,
-  "median_score": 57.0,
+  "median_score": 60.0,
   "below_threshold": 0,
   "threshold": 40.0,
-  "no_sound_word": 295,
-  "no_material": 295,
+  "no_sound_word": 290,
+  "no_material": 290,
   "results": [
     {
       "id": "13",
@@ -67,21 +67,6 @@
       ]
     },
     {
-      "id": "65",
-      "title": "Curate",
-      "scenario": "gwałtowne otwarcie lewitującego tomu z błękitnym błyskiem i wirującymi kartkami",
-      "score": 41.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 1,
-      "abstract_hits": 0,
-      "words": 10,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "73",
       "title": "Bladed Sentinel",
       "scenario": "skanujący czujnik złotego konstrukta z wysuwającym się ostrzem",
@@ -91,21 +76,6 @@
       "visual_hits": 1,
       "abstract_hits": 0,
       "words": 8,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
-      "id": "76",
-      "title": "Negate",
-      "scenario": "rozbicie strumienia zaklęcia o niewidzialną barierę w miliony błękitnych okruchów",
-      "score": 41.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 1,
-      "abstract_hits": 0,
-      "words": 10,
       "problems": [
         "brak słowa opisującego konkretny dźwięk",
         "brak materiału/kontaktu (co uderza o co)"
@@ -871,21 +841,6 @@
       ]
     },
     {
-      "id": "105",
-      "title": "Blade-Blizzard Kitsune",
-      "scenario": "świetlny wicher podwójnych energetycznych katan w obrocie kitsune",
-      "score": 50.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 8,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "107",
       "title": "Somberwald Spider",
       "scenario": "szarpane grube nici pajęczej sieci",
@@ -1165,21 +1120,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 8,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk",
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
-      "id": "191",
-      "title": "Esper Stormblade",
-      "scenario": "unoszenie się vedalkena nad krawędzią wulkanicznego klifu",
-      "score": 50.0,
-      "sound_hits": 0,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
       "problems": [
         "brak słowa opisującego konkretny dźwięk",
         "brak materiału/kontaktu (co uderza o co)"
@@ -4945,20 +4885,6 @@
       ]
     },
     {
-      "id": "290",
-      "title": "Soulbright Flamekin",
-      "scenario": "buchnięcie płomienia z trzaskiem iskier na starcie",
-      "score": 64.0,
-      "sound_hits": 1,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
-      "problems": [
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "293",
       "title": "Forever Young",
       "scenario": "gęste bulgotanie kotła z ciężkimi pęcherzami pękającymi na powierzchni",
@@ -5267,6 +5193,18 @@
       ]
     },
     {
+      "id": "517",
+      "title": "Force Away",
+      "scenario": "rozbryzg wodnej mgły po zniknięciu ciała: gęsty mokry prysznic kropel na śnieg i futro, głuche opadanie żelaznego tasaka w zaspy",
+      "score": 64.0,
+      "sound_hits": 1,
+      "material_hits": 4,
+      "visual_hits": 1,
+      "abstract_hits": 0,
+      "words": 20,
+      "problems": []
+    },
+    {
       "id": "540",
       "title": "Chittering Rats",
       "scenario": "osaczenie poszukiwacza przez piskliwy rój szczurów w kanałach",
@@ -5284,20 +5222,6 @@
       "id": "546",
       "title": "Clawing Torment",
       "scenario": "widmowe szpony blokujące cybernetyczny pancerz egzekutora",
-      "score": 64.0,
-      "sound_hits": 0,
-      "material_hits": 2,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 6,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk"
-      ]
-    },
-    {
-      "id": "567",
-      "title": "Jwar Isle Avenger",
-      "scenario": "szpony przebijające chitynowy pancerz w locie",
       "score": 64.0,
       "sound_hits": 0,
       "material_hits": 2,
@@ -5407,6 +5331,30 @@
       ]
     },
     {
+      "id": "191",
+      "title": "Esper Stormblade",
+      "scenario": "łuk wąskiego eteriumowego ostrza w gorącym powietrzu: świst cięcia, przeskakujące iskry i gasnący metaliczny rezonans klingi",
+      "score": 65.0,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 16,
+      "problems": []
+    },
+    {
+      "id": "321",
+      "title": "Ainok Artillerist",
+      "scenario": "napinanie balisty z drewna świętych gajów: klikanie zapadki kołowrotu, jęk konopnej cięciwy i suchy trzask zwolnienia",
+      "score": 65.0,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 16,
+      "problems": []
+    },
+    {
       "id": "162",
       "title": "Griffin Guide",
       "scenario": "dzwonny podwójny okrzyk gryfa znad blanków Ardenvale — złotawy orli sygnał niesiony porannym powietrzem",
@@ -5445,6 +5393,20 @@
       "abstract_hits": 0,
       "words": 8,
       "problems": []
+    },
+    {
+      "id": "290",
+      "title": "Soulbright Flamekin",
+      "scenario": "bliski ogień żywiołaka: jasne buchnięcie płomieni, potem głośny trzaskający żar z pękającymi węgielkami i sykiem gazu w płomieniu",
+      "score": 69.0,
+      "sound_hits": 2,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 18,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
     },
     {
       "id": "317",
@@ -5943,18 +5905,6 @@
       "problems": []
     },
     {
-      "id": "321",
-      "title": "Ainok Artillerist",
-      "scenario": "wystrzał balisty z drewna świętych gajów",
-      "score": 71.0,
-      "sound_hits": 1,
-      "material_hits": 1,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 6,
-      "problems": []
-    },
-    {
       "id": "330",
       "title": "Invasion of the Giants",
       "scenario": "kroki olbrzyma z chrzęstem zmarzniętej ziemi",
@@ -6126,18 +6076,6 @@
       "id": "507",
       "title": "Shatter",
       "scenario": "rozerwanie żelaznej skorupy z gradem odłamków spadających na posadzkę",
-      "score": 71.0,
-      "sound_hits": 1,
-      "material_hits": 1,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 9,
-      "problems": []
-    },
-    {
-      "id": "517",
-      "title": "Force Away",
-      "scenario": "twarde uderzenie sprężonego powietrza rozpylające ciało w wodną mgłę",
       "score": 71.0,
       "sound_hits": 1,
       "material_hits": 1,
@@ -6977,20 +6915,6 @@
       "problems": []
     },
     {
-      "id": "593",
-      "title": "Inspiring Captain",
-      "scenario": "tupnięcie i donośne rżenie rumaka bojowego przed szarżą",
-      "score": 78.0,
-      "sound_hits": 2,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 8,
-      "problems": [
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "208",
       "title": "Jade Bearer",
       "scenario": "szmer płytkiej wody i kamienne kliknięcie nefrytowego diademu na czole",
@@ -7015,6 +6939,32 @@
       "problems": [
         "brak materiału/kontaktu (co uderza o co)"
       ]
+    },
+    {
+      "id": "593",
+      "title": "Inspiring Captain",
+      "scenario": "rumak bojowy przed szarżą: dwa ciężkie stuknięcia podków w zlodziały grunt, brzęk łańcuchów uprzęży i długie donośne rżenie z parsknięciem",
+      "score": 80.0,
+      "sound_hits": 3,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 20,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
+      "id": "65",
+      "title": "Curate",
+      "scenario": "gwałtowne otwarcie ciężkiego tomu: trzask skórzanej okładki, szybki furkot kartek i opadające pojedynczo luźne karty",
+      "score": 80.5,
+      "sound_hits": 2,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 15,
+      "problems": []
     },
     {
       "id": "178",
@@ -7066,6 +7016,18 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 13,
+      "problems": []
+    },
+    {
+      "id": "105",
+      "title": "Blade-Blizzard Kitsune",
+      "scenario": "wir podwójnych plazmowych katan: elektryczny trzask rozkręcania ostrzy, ciągły świst ciętego powietrza i opadający śnieg ze żwirem",
+      "score": 84.5,
+      "sound_hits": 2,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 17,
       "problems": []
     },
     {
@@ -7203,18 +7165,6 @@
       "problems": []
     },
     {
-      "id": "403",
-      "title": "Dementia Bat",
-      "scenario": "pęknięcie metalowego pancerza nietoperza i chmura necrogenu",
-      "score": 85.0,
-      "sound_hits": 1,
-      "material_hits": 3,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 7,
-      "problems": []
-    },
-    {
       "id": "481",
       "title": "Dawntreader Elk",
       "scenario": "jasne kapanie i ciurkanie wody z tającego śniegu na gałęziach",
@@ -7323,6 +7273,18 @@
       "problems": []
     },
     {
+      "id": "567",
+      "title": "Jwar Isle Avenger",
+      "scenario": "szpony rozdzierające chitynowy pancerz w locie: trzask piór, twarde wbicie szponów i długie mokre rozdarcie pękającej skorupy z osypującymi się odłamkami",
+      "score": 85.5,
+      "sound_hits": 2,
+      "material_hits": 3,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 21,
+      "problems": []
+    },
+    {
       "id": "192",
       "title": "Crumbling Vestige",
       "scenario": "odłamek skały rozłupujący się na kryształ — jeden ostry, głęboki trzask, potem rozproszone perkusyjne brzęki i szklane pyknięcia kryształowych drzazg, na końcu krótki jasny dzwonek",
@@ -7423,20 +7385,6 @@
       "problems": []
     },
     {
-      "id": "504",
-      "title": "Ballista Watcher",
-      "scenario": "pojedynczy strzał ciężkiej balisty: trzask spustu i głuche tąpnięcie ramion",
-      "score": 92.0,
-      "sound_hits": 3,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 10,
-      "problems": [
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "531",
       "title": "Disa the Restless",
       "scenario": "głębokie skrzypienie i puste trzaski lodowca pracującego pod naporem",
@@ -7494,6 +7442,42 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 11,
+      "problems": []
+    },
+    {
+      "id": "504",
+      "title": "Ballista Watcher",
+      "scenario": "strzał ciężkiej balisty: suchy trzask zwalnianego zaczepu, głośny brzęk skręconej cięciwy, świst odlataującego bełtu i skrzypienie drewnianych połączeń ramy",
+      "score": 92.5,
+      "sound_hits": 5,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 19,
+      "problems": []
+    },
+    {
+      "id": "76",
+      "title": "Negate",
+      "scenario": "rozbicie zaklęcia o barierę: jeden ostry trzask uderzenia, potem dźwięczne dzwonienie kryształowych odłamków na marmurze, każdy z jasnym długim tonem",
+      "score": 94.0,
+      "sound_hits": 3,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 20,
+      "problems": []
+    },
+    {
+      "id": "403",
+      "title": "Dementia Bat",
+      "scenario": "rozerwanie pancerza nietoperza: ostry metalowy trzask, syk gazu pod ciśnieniem i mokre skwierczenie żrącej pary na płytach",
+      "score": 98.5,
+      "sound_hits": 4,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 17,
       "problems": []
     },
     {

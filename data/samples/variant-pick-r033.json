@@ -1,0 +1,54 @@
+{
+  "variants_dir": "/home/user/mtgdatabase/variants/r033",
+  "applied": true,
+  "results": [
+    {
+      "id": "130",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r033/v2/130.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.74,
+          "lufs": -22.37,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r033/v1/130.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.56,
+          "lufs": -11.58,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "578",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r033/v1/578.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.15,
+          "lufs": -17.64,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r033/v2/578.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.89,
+          "lufs": -18.47,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    }
+  ]
+}

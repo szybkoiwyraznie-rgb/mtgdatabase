@@ -240,6 +240,64 @@ def narrow_sides(data: np.ndarray, fs: int, target_excess_lu: float,
     return fixed, best, before, mono_excess_lu(fixed, fs)
 
 
+def trim_trailing_silence(data: np.ndarray, fs: int, keep_s: float,
+                          floor_db: float = -45.0, fade_ms: float = 40.0) -> tuple[np.ndarray, float]:
+    """Odcina martwą ciszę z końca pliku, zostawiając `keep_s` ogona + krótki fade.
+
+    Powód: audyt flaguje `long_trail_silence` (> 1,5 s ciszy), a w grze martwy
+    ogon brzmi jak zacięcie. Nie ruszamy ciszy wstępnej — nią zajmuje się
+    `refine_corpus_audio.py`.
+    """
+    thr = db_to_lin(floor_db)
+    mono = np.abs(data).max(axis=1)
+    idx = np.flatnonzero(mono > thr)
+    if not len(idx):
+        return data, 0.0
+    cut = min(len(mono), int(idx[-1]) + 1 + int(fs * keep_s))
+    if cut >= len(mono):
+        return data, 0.0
+    out = data[:cut].copy()
+    n_fade = min(len(out), int(fs * fade_ms / 1000.0))
+    if n_fade:
+        out[-n_fade:] *= np.linspace(1.0, 0.0, n_fade)[:, None]
+    return out, round((len(mono) - cut) / fs, 3)
+
+
+def trim_leading_silence(data: np.ndarray, fs: int, keep_s: float,
+                         floor_db: float = -45.0, fade_ms: float = 20.0) -> tuple[np.ndarray, float]:
+    """Odcina martwą ciszę z początku pliku, zostawiając `keep_s` + krótki fade-in.
+
+    Symetria do `trim_trailing_silence`: audyt flaguje `long_lead_silence`
+    (> 0,6 s), a w grze pół sekundy ciszy przed dźwiękiem brzmi jak opóźnienie.
+    """
+    thr = db_to_lin(floor_db)
+    mono = np.abs(data).max(axis=1)
+    idx = np.flatnonzero(mono > thr)
+    if not len(idx):
+        return data, 0.0
+    cut = max(0, int(idx[0]) - int(fs * keep_s))
+    if cut <= 0:
+        return data, 0.0
+    out = data[cut:].copy()
+    n_fade = min(len(out), int(fs * fade_ms / 1000.0))
+    if n_fade:
+        out[:n_fade] *= np.linspace(0.0, 1.0, n_fade)[:, None]
+    return out, round(cut / fs, 3)
+
+
+def edge_fades(data: np.ndarray, fs: int, ms: float) -> np.ndarray:
+    """Krótkie fade-in/out na krawędziach — audyt flaguje `cut_start_hard`/`cut_end_hard`."""
+    if ms <= 0 or not len(data):
+        return data
+    n = min(len(data), int(fs * ms / 1000.0))
+    if not n:
+        return data
+    out = data.copy()
+    out[:n] *= np.linspace(0.0, 1.0, n)[:, None]
+    out[-n:] *= np.linspace(1.0, 0.0, n)[:, None]
+    return out
+
+
 def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: float,
                 max_gain_db: float, hp_hz: float, dry_run: bool,
                 encoder_headroom_db: float = 0.7, max_limiter_gr_db: float = 2.0,
@@ -247,9 +305,12 @@ def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: f
                 max_makeup_db: float = 4.0, max_peak_gr_db: float = 12.0,
                 fix_mono: bool = False, mono_target_excess_lu: float = 1.0,
                 fix_spectral: bool = False,
+                spectral_kinds: tuple[str, ...] = ("boomy", "dull", "harsh"),
                 boomy_ids: set[str] | None = None,
                 dull_ids: set[str] | None = None,
-                harsh_ids: set[str] | None = None) -> dict:
+                harsh_ids: set[str] | None = None,
+                trim_trail_s: float = 0.0, trim_lead_s: float = 0.0,
+                edge_fade_ms: float = 0.0) -> dict:
     data, fs = sf.read(str(path), always_2d=True)
     lufs_before = integrated_lufs(data, fs)
     tp_before = true_peak_dbtp(data, fs)
@@ -262,12 +323,21 @@ def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: f
 
     if fix_spectral:
         sid = path.stem
-        if boomy_ids and sid in boomy_ids:
+        if boomy_ids and sid in boomy_ids and "boomy" in spectral_kinds:
             data = biquad_low_shelf(data, fs, fc=180.0, gain_db=-3.0)
-        if dull_ids and sid in dull_ids:
+        if dull_ids and sid in dull_ids and "dull" in spectral_kinds:
             data = biquad_high_shelf(data, fs, fc=3500.0, gain_db=3.5)
-        if harsh_ids and sid in harsh_ids:
+        if harsh_ids and sid in harsh_ids and "harsh" in spectral_kinds:
             data = biquad_peaking(data, fs, fc=4500.0, gain_db=-3.5, q=1.2)
+
+    trim_removed_s = 0.0
+    lead_removed_s = 0.0
+    if trim_trail_s > 0.0:
+        data, trim_removed_s = trim_trailing_silence(data, fs, trim_trail_s)
+    if trim_lead_s > 0.0:
+        data, lead_removed_s = trim_leading_silence(data, fs, trim_lead_s)
+    if edge_fade_ms > 0.0:
+        data = edge_fades(data, fs, edge_fade_ms)
 
     filtered = highpass(data, fs, hp_hz)
     lufs_filtered = integrated_lufs(filtered, fs)
@@ -284,6 +354,8 @@ def process_one(path: Path, out_path: Path, *, target_lufs: float, ceiling_db: f
     result = {
         "id": path.stem,
         "hp_hz": hp_hz,
+        "trim_removed_s": trim_removed_s,
+        "lead_removed_s": lead_removed_s,
         "lufs_before": lufs_before,
         "lufs_after_hp": lufs_filtered,
         "gain_db": round(gain_db, 2),
@@ -364,6 +436,14 @@ def main() -> int:
     ap.add_argument("--ids", default="", help="opcjonalna lista ID po przecinku")
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--report", default="")
+    ap.add_argument("--trim-lead-s", type=float, default=0.0,
+                    help="ile sekund wstępu zostawić po odcięciu martwej ciszy (0 = wyłącz)")
+    ap.add_argument("--edge-fade-ms", type=float, default=0.0,
+                    help="długość fade-in/out na krawędziach (cut_start_hard/cut_end_hard)")
+    ap.add_argument("--spectral-kinds", default="boomy,dull,harsh",
+                    help="które korekty spektralne stosować przy --fix-spectral")
+    ap.add_argument("--trim-trail-s", type=float, default=0.0,
+                    help="ile sekund ogona zostawić po odcięciu martwej ciszy (0 = wyłącz)")
     ap.add_argument("--fix-mono", action="store_true",
                     help="zwęź składową boczną tam, gdzie sample traci energię w mono")
     ap.add_argument("--mono-target-excess", type=float, default=1.0,
@@ -425,6 +505,11 @@ def main() -> int:
                                     max_makeup_db=args.max_makeup,
                                     max_peak_gr_db=args.max_peak_gr,
                                     fix_mono=args.fix_mono,
+                                    trim_trail_s=args.trim_trail_s,
+                                    trim_lead_s=args.trim_lead_s,
+                                    edge_fade_ms=args.edge_fade_ms,
+                                    spectral_kinds=tuple(
+                                        k.strip() for k in args.spectral_kinds.split(",") if k.strip()),
                                     mono_target_excess_lu=args.mono_target_excess,
                                     fix_spectral=args.fix_spectral,
                                     boomy_ids=boomy_ids,

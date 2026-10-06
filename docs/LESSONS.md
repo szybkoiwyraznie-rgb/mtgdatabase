@@ -932,3 +932,161 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
 - Sytuacja: agent wykonał regenerację sampli, zacommitował i wypchnął zmiany na gałąź sesji (`arena/...`), sprawdził workflowy przez `gh run list`, ale zapomniał otworzyć Pull Request na GitHubie (`gh pr create`).
 - Wniosek: sam push na gałąź roboczą nie wystarcza — właściciel przegląda i merguje pracę przez PR na GitHubie, więc brak otwartego PR-a blokuje odbiór pracy.
 - Zasada / działanie zapobiegawcze: zasada nr 0 w `AGENTS.md` oraz sekcja 3 w `ENVIRONMENT.md` — na początku sesji (natychmiast przy pierwszym commicie na gałęzi sesji) otwieramy PR do `main` (`gh pr create --base main --head <branch-sesji>`), każde zadanie kończymy `git commit` + `git push`, a w raporcie końcowym zawsze podajemy numer i URL otwartego PR-a.
+
+## 2026-10-04 — Dopełnianie długości ciszą cofa różnicowanie bliźniaków
+
+- Sytuacja: varispeed +8% i tilt barwy zbiły kosinus pary `57`~`517` z 0,9687
+  do 0,9471, ale plik skrócił się do 2,30 s i złapał `duration_mismatch`.
+  Dopełnienie końcówki zerami do deklarowanych 2,50 s podniosło kosinus z
+  powrotem na **0,9612** — cała praca poszła na marne.
+- Wniosek: odcisk log-mel uśrednia widmo do 24 ramek **na całą długość pliku**,
+  więc doklejona cisza zmienia ramki i przesuwa podobieństwo. Długość jest
+  częścią odcisku, nie neutralnym opakowaniem.
+- Zasada / działanie zapobiegawcze: po różnicowaniu nie przywracać długości
+  ciszą, tylko zadeklarować realną długość pliku w `duration_seconds`
+  scenariusza. Jeśli varispeed trzeba łączyć z konkretnym czasem, mierzyć
+  kosinus **na zapisanym MP3 o docelowej długości**, nie na sygnale w pamięci.
+
+## 2026-10-04 — Varispeed nie rozbije bliźniaków, gdy źródło dźwięku jest to samo
+
+- Sytuacja: trzy sample (`57`, `255`, `517`) opisywały podmuch/unoszenie
+  powietrza. Varispeed do +12% dawał 0,9556, do +20% 0,9580, a dopiero +25%
+  zeszło do 0,9449 — czyli o włos od progu i kosztem przesunięcia barwy
+  o niemal cztery półtony.
+- Wniosek: dla szerokopasmowych, beztonalnych źródeł (podmuch, syk, szum)
+  transformacje czasu i barwy ruszają odcisk słabo, bo nie zmieniają tego, co
+  słychać. Skuteczna była dopiero zmiana **źródła** w prompcie (rozbryzg
+  wodnej mgły i żelazny tasak w śniegu) — 0 par bliźniaczych bez żadnego EQ.
+- Zasada / działanie zapobiegawcze: jeśli para bliźniacza wynika z tego samego
+  zjawiska fizycznego w dwóch fabułach, nie ratować jej varispeedem, tylko
+  znaleźć w fabule inny, równie prawdziwy dźwięk i przepisać prompt.
+
+## 2026-10-04 — Różnicowanie barwą potrafi zepsuć zgodność semantyczną
+
+- Sytuacja: tilt (high-shelf 5 kHz −8 dB + peaking 1,5 kHz +4 dB) rozbijał parę
+  `76`~`174` (0,9597 → 0,9258) i audyt **sygnałowy** był czysty. Audyt
+  **semantyczny** zapalił jednak rażącą sprzeczność 3,0 pkt: scenariusz
+  obiecuje szklisty, dzwoniący kryształ, a po korekcji została szumowa
+  kaskada (flatness 0,42 przy górnym kwartylu 0,22).
+- Wniosek: audyt sygnałowy nie widzi sensu. Ta sama korekcja, która zdejmuje
+  jedną flagę, potrafi zabrać sample'owi cechę, którą obiecuje scenariusz.
+- Zasada / działanie zapobiegawcze: po każdej korekcji barwy uruchamiać
+  `audit_semantic_match.py`, nie tylko `audit_samples_full.py`. Gdy tilt
+  gasi cechę obiecaną w scenariuszu, cofnąć go i szukać innego sposobu.
+
+## 2026-10-04 — Jest flaga, której nie wolno naprawiać korekcją
+
+- Sytuacja: `403` *Dementia Bat* to syk żrącego gazu — 88% energii powyżej
+  8 kHz. Próby zdjęcia flagi `harsh` kolejnymi półkami (4,5 kHz −12 dB,
+  3,8 kHz −12 dB, 3,5 kHz −14 dB, 3 kHz −16 dB) zbijały centroid z 9852 Hz
+  najwyżej do 9001 Hz, czyli wciąż nad progiem, a dźwięk robił się matowy.
+- Wniosek: `harsh` bywa opisem źródła, nie wadą realizacji. Próba spełnienia
+  metryki zamienia syk w szmatę.
+- Zasada / działanie zapobiegawcze: zanim korekcja zacznie gonić próg, sprawdzić,
+  czy flaga nie wynika wprost z fizyki źródła. Jeśli tak — zostawić ją
+  i zapisać w raporcie jako świadomą, zamiast psuć sample.
+
+## 2026-10-05 — Domyślna ścieżka do audytu musi być „najnowsza", nie zaszyta
+
+- Sytuacja: `rewrite_archetype_prompts.py --worst 20` wybierał karty do transzy
+  z pliku `archetype-match-2026-10-05-strong.json`, zaszytego na stałe
+  w wartości domyślnej `--audit`. Zrzut był sprzed czterech rund, więc transza
+  r021 trafiła w **8 kart już trafionych** — 24 generacje = 960 kredytów,
+  a nowe sample część z nich zepsuły (`383` Supernatural Stamina: 0 → 3,0 pkt).
+- Wniosek: każdy wybór zakresu „weź najgorsze N" jest tak dobry jak świeżość
+  zrzutu, z którego czyta. Zaszyta ścieżka nie psuje się głośno — zwraca
+  poprawnie wyglądającą listę.
+- Zasada / działanie zapobiegawcze: domyślne wejścia narzędzi wybierających
+  zakres transzy mają wskazywać **najnowszy** zrzut (`latest_archetype_audit()`
+  globuje `archetype-match-*.json`). Przed każdą transzą wydrukować listę id
+  z ich bieżącym werdyktem i sprawdzić, czy żadna nie jest już „trafiona".
+
+## 2026-10-05 — Selektor wariantów musi pilnować kryterium akceptacji, nie tylko kontraktu
+
+- Sytuacja: `pick_archetype_variant.py` oceniał warianty wyłącznie kontraktem
+  archetypu, który długości nie widzi. `7` Mindstab v1 miał 2,03 s treści
+  + 1,89 s martwej ciszy i wygrywał z v2 o pełnych 4,00 s; po trymowaniu
+  do korpusu trafiał plik 2,36 s przy celu właściciela 3–5 s.
+- Wniosek: metryka optymalizacji musi zawierać **twarde** kryteria akceptacji,
+  inaczej narzędzie zoptymalizuje to, co mierzy, i po cichu złamie resztę.
+- Zasada / działanie zapobiegawcze: kara za wyjście poza 3–5 s liczona od
+  długości **po łańcuchu postprodukcji**, ze stawką (5,0 pkt/s) wyższą niż
+  maksymalna suma wag kontraktu — żeby plik poza oknem nigdy nie wygrał
+  z wariantem w oknie, nawet gorzej pasującym do archetypu.
+
+## 2026-10-05 — Zanim „naprawisz" kierunek sortowania, sprawdź, co zwraca funkcja oceny
+
+- Sytuacja: log selektora pokazał `wybór v1 (-1,28 pkt), pozostałe [2.0, 3.5]`
+  i wyglądał na odwrócone sortowanie — jakby od r016 wybierano najgorszy
+  wariant. Tymczasem `evaluate()` zwraca **sumę wag złamanych kontraktów**,
+  więc niższy wynik = lepiej, a `verdict(0.0)` = „trafiony". Sortowanie było
+  poprawne od początku; odwrócona była dopiero dopisana kara za długość,
+  która nagradzała pliki poza oknem.
+- Wniosek: „to wygląda na błąd" nie jest dowodem. Ta sama obserwacja
+  pasowała do dwóch przeciwnych diagnoz, a błędna prowadziła do zmiany
+  działającego kodu.
+- Zasada / działanie zapobiegawcze: przed zmianą porządku wyboru przeczytać
+  definicję funkcji oceny i jej `verdict`. W tym projekcie: wynik kontraktu
+  to punkty karne (0 = ideał), a każdy nowy składnik oceny musi mieć ten sam
+  zwrot — kara **dodaje** punkty.
+
+## 2026-10-05 — Sztywne okno długości potrafi być droższe niż cała transza
+
+- Sytuacja: przy celu 3–5 s audyt wyliczył **419 plików „za krótkich"**
+  (78 z archetypem), a plan naprawy kosztował 152 generacje = 6080 kredytów —
+  więcej, niż zostało na koncie. Właściciel rozszerzył okno do 2–5 s
+  („dobre 2 sekundy są lepsze niż złe 4") i liczba plików poza celem spadła
+  do **zera** bez ani jednej generacji.
+- Wniosek: zanim zaczniemy płacić za spełnienie progu, trzeba zapytać, czy próg
+  mierzy to, o co chodzi. Tu celem była rozpoznawalność, a długość była tylko
+  jej przybliżeniem — i to przybliżenie wyznaczało budżet.
+- Zasada / działanie zapobiegawcze: twarde progi w kryteriach akceptacji
+  zapisywać jako decyzję właściciela z datą i uzasadnieniem, a przy każdej
+  dużej transzy najpierw policzyć, ile z jej kosztu wynika z progu,
+  a ile z faktycznej wady dźwięku. W selektorze jakość (kontrakt) decyduje,
+  długość rozstrzyga tylko remisy.
+
+## 2026-10-05 — Korekcja mono zawęża nie tylko obraz, ale i margines unikalności
+
+- Sytuacja: `23` Brightwood Tracker v2 miał podobieństwo 0,9162 do `168`
+  (czysto, próg 0,95) i flagę `mono_collapse`. Po `--fix-mono` flaga znikła,
+  a podobieństwo wzrosło do **0,9568** — powstała para bliźniacza.
+- Wniosek: zwężenie składowej bocznej usuwa z odcisku log-mel to, co różniło
+  dwa pliki, więc kosmetyczna korekcja potrafi złamać twardszą zasadę
+  (każda fabuła ma unikalny sample).
+- Zasada / działanie zapobiegawcze: wybór wariantu mierzyć po **pełnym**
+  łańcuchu, który pójdzie do korpusu — razem z `--fix-mono` — a po każdej
+  zmianie pliku uruchamiać `audit_samples_full.py`, nie polegać na karze
+  `--avoid-twins` z chwili wyboru.
+
+## 2026-10-05 — Fade na krawędzi potrafi „naprawić" metrykę, wyciszając to, co ona mierzy
+
+- Sytuacja: `568` Nanoform Sentinel miał `f0_semitone_std` 4,27 przy progu
+  4,0. Fade 120 ms zbijał wartość do 3,39 i odwracał werdykt na „trafiony".
+  Kontur f0 pokazał dlaczego: chwiejność siedzi w **pierwszych 0,5 s**
+  (rozruch serwa, 31–38 półtonów przy 46–48 w reszcie), a `edge_fades()`
+  tłumaczy obie krawędzie — fade-in 120 ms spycha te ramki poniżej bramki
+  ciszy i progu autokorelacji 0,55, więc wypadają ze statystyki.
+- Wniosek: korekta krawędzi, która zmienia werdykt, prawie zawsze robi to
+  przez usunięcie ramek z pomiaru, nie przez zmianę dźwięku. Fade-out jest
+  lekarstwem na `cut_end_hard` i na nic więcej.
+- Zasada / działanie zapobiegawcze: zanim korekta wejdzie do korpusu,
+  sprawdzić **gdziej** w czasie siedzi mierzona wada (kontur f0, obwiednia),
+  i czy korekta ją usuwa, czy tylko zasłania. Jeśli zasłania — zastosować
+  najmniejszą korekcję, która zdejmuje realną flagę, i zostawić werdykt
+  taki, jaki jest. Tu: fade 60 ms zamiast 120 ms.
+
+## 2026-10-05 — Model rozstrzyga konflikt cech kosztem tej, którą prompt stawia niżej
+
+- Sytuacja: `robot_servo` wymaga i tonu, i klików. r022 (prompt o czystym
+  tonie) dał `tonal` 1,000 i `onset_count` **0**; r023 (ton przecinany
+  klikami) dał `onset` 1 i ton 0,767; r024 (rytm jako zdarzenie główne, ton
+  jako tło) dał `onset` **8** i `tonal` 0,812 naraz.
+- Wniosek: przy dwóch wymaganach, których model nie łączy domyślnie,
+  decyduje hierarchia w zdaniu, nie lista życzeń. Wersja „A z dodatkiem B"
+  oddaje A bez B; wersja „B w rytmie, nad A" oddaje oba.
+- Zasada / działanie zapobiegawcze: gdy kontrakt ma dwie cechy z różnych
+  rodzin (ton + transient), pisać prompt tak, by zdarzenie rytmiczne było
+  podmiotem zdania, a cecha ciągła — okolicznikiem. I mierzyć wszystkie
+  warianty z kilku rund naraz, bo najlepszy bywa w innej rundzie niż
+  ostatnia.

@@ -1,0 +1,45 @@
+{
+  "centroid_min": 800.0,
+  "centroid_max": 6000.0,
+  "shelf_hz": 3500.0,
+  "step_db": 3.0,
+  "applied": true,
+  "files": [
+    {
+      "id": 52,
+      "correction_db": -9.0,
+      "steps": 3,
+      "centroid_before": 7588.4,
+      "centroid_after": 5830.3,
+      "flatness_before": 0.215,
+      "flatness_after": 0.23,
+      "in_window": true,
+      "start_fade_applied": false,
+      "lufs_after": -20.0
+    },
+    {
+      "id": 132,
+      "correction_db": -12.0,
+      "steps": 4,
+      "centroid_before": 7834.1,
+      "centroid_after": 5911.1,
+      "flatness_before": 0.1842,
+      "flatness_after": 0.1974,
+      "in_window": true,
+      "start_fade_applied": false,
+      "lufs_after": -20.03
+    },
+    {
+      "id": 213,
+      "correction_db": -18.0,
+      "steps": 6,
+      "centroid_before": 8561.0,
+      "centroid_after": 5722.3,
+      "flatness_before": 0.147,
+      "flatness_after": 0.1331,
+      "in_window": true,
+      "start_fade_applied": false,
+      "lufs_after": -20.04
+    }
+  ]
+}

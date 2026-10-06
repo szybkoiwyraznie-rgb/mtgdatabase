@@ -1,0 +1,260 @@
+{
+ "audit": "data/samples/audio-audit-2026-10-04-after-r015.json",
+ "checked": 13,
+ "by_verdict": {
+  "nie trafiony": 6,
+  "prawdopodobnie": 6,
+  "trafiony": 1
+ },
+ "results": [
+  {
+   "id": "452",
+   "title": "Omenspeaker",
+   "archetype": "arcane_choir",
+   "archetype_label": "chór / zaświatowy śpiew bez słów",
+   "score": 6.0,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "tonal_frame_fraction",
+     "reason": "chór jest harmoniczny (tonal_frame_fraction=0.440, oczekiwane >= 0.45)",
+     "weight": 1.5
+    },
+    {
+     "check": "voiced_fraction",
+     "reason": "chór ma wyraźną wysokość (voiced_fraction=0.056, oczekiwane >= 0.25)",
+     "weight": 1.5
+    },
+    {
+     "check": "sustain_ratio",
+     "reason": "chór płynie, nie pulsuje (sustain_ratio=0.040, oczekiwane >= 0.35)",
+     "weight": 1.0
+    },
+    {
+     "check": "decay_s",
+     "reason": "chór wybrzmiewa (decay_s=0.090, oczekiwane >= 0.8)",
+     "weight": 1.0
+    },
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "chór siedzi w środku pasma (spectral_centroid_hz=8621.100, oczekiwane 250.0–2800.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "464",
+   "title": "Polluted Dead",
+   "archetype": "undead_groan",
+   "archetype_label": "jęk / pomruk nieumarłego",
+   "score": 4.0,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "jęk jest niski (spectral_centroid_hz=3553.800, oczekiwane 120.0–1000.0)",
+     "weight": 1.5
+    },
+    {
+     "check": "decay_s",
+     "reason": "jęk się ciągnie (decay_s=0.150, oczekiwane >= 0.6)",
+     "weight": 1.5
+    },
+    {
+     "check": "low_all",
+     "reason": "jęk ma ciało w dole (low_all=0.013, oczekiwane >= 0.55)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "396",
+   "title": "Vow of Wildness",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 3.5,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "voiced_fraction",
+     "reason": "ryk musi być harmoniczny (voiced) (voiced_fraction=0.253, oczekiwane >= 0.3)",
+     "weight": 1.5
+    },
+    {
+     "check": "low_all",
+     "reason": "ryk ma ciało w dole pasma (low_all=0.001, oczekiwane >= 0.45)",
+     "weight": 1.0
+    },
+    {
+     "check": "decay_s",
+     "reason": "ryk musi trwać, nie kliknąć (decay_s=0.220, oczekiwane >= 0.4)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "539",
+   "title": "Silvanus's Invoker",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "score": 3.5,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "low_all",
+     "reason": "grzmot ziemi jest w dole pasma (low_all=0.099, oczekiwane >= 0.5)",
+     "weight": 1.5
+    },
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "grzmot ziemi jest niski (spectral_centroid_hz=4284.000, oczekiwane <= 900.0)",
+     "weight": 1.0
+    },
+    {
+     "check": "decay_s",
+     "reason": "grzmot się toczy (decay_s=0.040, oczekiwane >= 0.8)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "387",
+   "title": "Molten Nursery",
+   "archetype": "volcanic_eruption",
+   "archetype_label": "wybuch wulkanu / lawy",
+   "score": 2.5,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "low_all",
+     "reason": "erupcja ma masę w dole (low_all=0.003, oczekiwane >= 0.35)",
+     "weight": 1.5
+    },
+    {
+     "check": "decay_s",
+     "reason": "erupcja się toczy (decay_s=0.300, oczekiwane >= 0.8)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "515",
+   "title": "Warmaker Gunship",
+   "archetype": "war_machine",
+   "archetype_label": "silnik i mechanizm wojennej machiny",
+   "score": 2.5,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "low_all",
+     "reason": "machina dudni dołem (low_all=0.241, oczekiwane >= 0.35)",
+     "weight": 1.5
+    },
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "machina nie jest cienka (spectral_centroid_hz=2641.200, oczekiwane <= 2600.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "7",
+   "title": "Mindstab",
+   "archetype": "psychic_shriek",
+   "archetype_label": "przenikliwy jęk / uderzenie psychiczne",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "tonal_frame_fraction",
+     "reason": "to ton, nie szum (tonal_frame_fraction=0.012, oczekiwane >= 0.3)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "312",
+   "title": "Goblin Battle Jester",
+   "archetype": "creature_cackle",
+   "archetype_label": "chichot / pokrzykiwanie stworzenia",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "chichot jest ostry i wysoki (spectral_centroid_hz=6099.500, oczekiwane 700.0–4500.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "521",
+   "title": "Leafcrown Dryad",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "tonal_frame_fraction",
+     "reason": "zawołania ptaków są tonalne (tonal_frame_fraction=0.000, oczekiwane >= 0.25)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "557",
+   "title": "Kishla Village",
+   "archetype": "folk_music",
+   "archetype_label": "muzyka ludowa / taneczna",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "content_rel_s",
+     "reason": "muzyka musi potrwać (content_rel_s=1.980, oczekiwane >= 2.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "463",
+   "title": "Knockout Maneuver",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "score": 0.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "low_all",
+     "reason": "uderzenie ma masę (low_all=0.250, oczekiwane >= 0.25)",
+     "weight": 0.5
+    }
+   ]
+  },
+  {
+   "id": "568",
+   "title": "Nanoform Sentinel",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
+   "score": 0.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "sustain_ratio",
+     "reason": "serwo pracuje ciągiem (sustain_ratio=0.133, oczekiwane >= 0.2)",
+     "weight": 0.5
+    }
+   ]
+  },
+  {
+   "id": "145",
+   "title": "Clone Shell",
+   "archetype": "beast_screech",
+   "archetype_label": "wrzask / pisk potwora",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  }
+ ]
+}

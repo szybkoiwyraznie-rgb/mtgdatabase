@@ -36,8 +36,16 @@ Nie rozwijaj go jako głównego flow i nie pakuj jego MP3 do ZIP-a.
    nienegocjowalna: każdy scenariusz pisany ręcznie pod konkretną
    fabułę, jednorodny, unikalny i zróżnicowany brzmieniowo względem
    pozostałych. Nie idź na ilość kosztem jakości.
-5. Każdy prompt musi zabraniać muzyki i mowy. Unikaj: `background`, `tło`,
-   `hero`, `koda`, `warstwa`, `ambient bed`, `full scene`, `cinematic trailer`.
+5. **Mowa zakazana zawsze. Muzyka dozwolona tam, gdzie karta ją implikuje**
+   (decyzja właściciela 2026-10-05; wcześniejszy zapis o bezwzględnym zakazie
+   muzyki był błędem dokumentacji — `music_allowed` działa w walidatorze od
+   dawna i korzysta z niego część kart). Jeśli fabuła stawia w kadrze
+   instrument, śpiew lub taniec — lutnia, chór, róg bojowy, wiejska muzyka,
+   taneczne kroki — sample **ma** być muzyczny: deklarujesz
+   `music_allowed: true` i nazywasz instrument/źródło w scenariuszu albo
+   w prompcie (walidator tego pilnuje). W pozostałych promptach wpisuj
+   `no music`. Unikaj: `background`, `tło`, `hero`, `koda`, `warstwa`,
+   `ambient bed`, `full scene`, `cinematic trailer`.
 6. ElevenLabs API używa sekretu/env **`ELEVENLABS`**. Nie pytaj właściciela o
    klucz w czacie i nie zapisuj go w repo.
 7. Budżet konta to 10 000 tokenów (~23 tokeny na sample; po 50 samplach
@@ -80,7 +88,7 @@ ELEVENLABS=... python scripts/elevenlabs_sample_scout.py --batch b001 --limit 10
 ```
 
 Audyt korpusu (tylko raportuje, nic nie nadpisuje; wymaga lokalnego
-`.venv` z `numpy`, `scipy`, `soundfile`):
+`.venv` z `numpy`, `scipy`, `soundfile` — przepis w `ENVIRONMENT.md` §6):
 
 ```bash
 python scripts/audit_samples_full.py \

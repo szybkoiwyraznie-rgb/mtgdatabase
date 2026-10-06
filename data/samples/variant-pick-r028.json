@@ -1,0 +1,2237 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r028",
+ "applied": true,
+ "results": [
+  {
+   "id": "2",
+   "title": "Coralhelm Guide",
+   "archetype": "water_splash",
+   "archetype_label": "plusk / uderzenie w wodę",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/2.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.702,
+      "content_rel_s": 3.462,
+      "lufs": -19.91,
+      "low_all": 0.018,
+      "spectral_centroid_hz": 5944.9,
+      "spectral_flatness": 0.263,
+      "tonal_frame_fraction": 0.112,
+      "voiced_fraction": 0.032,
+      "crest_db": 21.04,
+      "attack_s": 0.05,
+      "decay_s": 1.47,
+      "onset_count": 2,
+      "sustain_ratio": 0.389,
+      "mod_peak_hz": 1.32
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/2.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.791,
+      "content_rel_s": 2.151,
+      "lufs": -20.03,
+      "low_all": 0.197,
+      "spectral_centroid_hz": 4051.7,
+      "spectral_flatness": 0.342,
+      "tonal_frame_fraction": 0.019,
+      "voiced_fraction": 0.0,
+      "crest_db": 26.34,
+      "attack_s": 0.03,
+      "decay_s": 0.07,
+      "onset_count": 3,
+      "sustain_ratio": 0.054,
+      "mod_peak_hz": 1.14
+     }
+    }
+   ]
+  },
+  {
+   "id": "5",
+   "title": "Academy Journeymage",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v2",
+   "chosen_score": 1.0,
+   "spread": 1.5,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/5.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.272, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.222,
+      "content_rel_s": 2.902,
+      "lufs": -20.01,
+      "low_all": 0.297,
+      "spectral_centroid_hz": 5385.0,
+      "spectral_flatness": 0.12,
+      "tonal_frame_fraction": 0.272,
+      "voiced_fraction": 0.152,
+      "crest_db": 18.86,
+      "attack_s": 0.98,
+      "decay_s": 0.6,
+      "onset_count": 0,
+      "sustain_ratio": 0.345,
+      "mod_peak_hz": 1.14
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/5.mp3",
+     "score": 2.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "magia świeci górą pasma (high_all=0.389, oczekiwane >= 0.4)",
+      "magia płynie, nie klika (sustain_ratio=0.250, oczekiwane >= 0.3)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 2.82,
+      "lufs": -19.99,
+      "low_all": 0.488,
+      "spectral_centroid_hz": 3471.6,
+      "spectral_flatness": 0.05,
+      "tonal_frame_fraction": 0.508,
+      "voiced_fraction": 0.527,
+      "crest_db": 19.41,
+      "attack_s": 0.35,
+      "decay_s": 1.17,
+      "onset_count": 2,
+      "sustain_ratio": 0.25,
+      "mod_peak_hz": 1.46
+     }
+    }
+   ]
+  },
+  {
+   "id": "12",
+   "title": "Merchant's Dockhand",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
+   "chosen": "v2",
+   "chosen_score": 1.5,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/12.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "serwo trzyma ton (tonal_frame_fraction=0.000, oczekiwane >= 0.35)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.93,
+      "lufs": -19.97,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4774.3,
+      "spectral_flatness": 0.272,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.012,
+      "crest_db": 19.11,
+      "attack_s": 0.42,
+      "decay_s": 3.42,
+      "onset_count": 3,
+      "sustain_ratio": 0.657,
+      "mod_peak_hz": 4.33
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/12.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "serwo trzyma ton (tonal_frame_fraction=0.000, oczekiwane >= 0.35)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.86,
+      "lufs": -20.08,
+      "low_all": 0.009,
+      "spectral_centroid_hz": 7030.5,
+      "spectral_flatness": 0.293,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.004,
+      "crest_db": 21.11,
+      "attack_s": 0.06,
+      "decay_s": 0.35,
+      "onset_count": 8,
+      "sustain_ratio": 0.5,
+      "mod_peak_hz": 3.96
+     }
+    }
+   ]
+  },
+  {
+   "id": "16",
+   "title": "Brawler's Plate",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/16.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.911,
+      "content_rel_s": 3.531,
+      "lufs": -20.03,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 2718.7,
+      "spectral_flatness": 0.066,
+      "tonal_frame_fraction": 0.358,
+      "voiced_fraction": 0.098,
+      "crest_db": 22.32,
+      "attack_s": 0.08,
+      "decay_s": 0.12,
+      "onset_count": 8,
+      "sustain_ratio": 0.072,
+      "mod_peak_hz": 4.84
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/16.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.03,
+      "content_rel_s": 1.58,
+      "lufs": -20.0,
+      "low_all": 0.017,
+      "spectral_centroid_hz": 3207.0,
+      "spectral_flatness": 0.05,
+      "tonal_frame_fraction": 0.5,
+      "voiced_fraction": 0.136,
+      "crest_db": 23.04,
+      "attack_s": 0.01,
+      "decay_s": 0.09,
+      "onset_count": 3,
+      "sustain_ratio": 0.054,
+      "mod_peak_hz": 4.26
+     }
+    }
+   ]
+  },
+  {
+   "id": "20",
+   "title": "Jeskai Devotee",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v1",
+   "chosen_score": 0.5,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/20.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.000, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.715,
+      "content_rel_s": 2.195,
+      "lufs": -19.95,
+      "low_all": 0.004,
+      "spectral_centroid_hz": 4358.1,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.899,
+      "voiced_fraction": 0.898,
+      "crest_db": 22.08,
+      "attack_s": 0.07,
+      "decay_s": 0.75,
+      "onset_count": 1,
+      "sustain_ratio": 0.133,
+      "mod_peak_hz": 2.74
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/20.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "stal uderza natychmiast (attack_s=0.390, oczekiwane <= 0.1)",
+      "uderzenie ma szumowy transient (spectral_flatness=0.010, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.545,
+      "content_rel_s": 1.875,
+      "lufs": -20.02,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 5072.8,
+      "spectral_flatness": 0.01,
+      "tonal_frame_fraction": 0.625,
+      "voiced_fraction": 0.179,
+      "crest_db": 19.6,
+      "attack_s": 0.39,
+      "decay_s": 0.42,
+      "onset_count": 1,
+      "sustain_ratio": 0.213,
+      "mod_peak_hz": 1.14
+     }
+    }
+   ]
+  },
+  {
+   "id": "23",
+   "title": "Brightwood Tracker",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "chosen": "v2",
+   "chosen_score": 2.0,
+   "spread": 11.1,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/23.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "dzwon siedzi w środku pasma (spectral_centroid_hz=3392.900, oczekiwane 400.0–3000.0)",
+      "dzwon trzyma poziom (sustain_ratio=0.080, oczekiwane >= 0.2)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 2.85,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 3392.9,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.992,
+      "crest_db": 25.46,
+      "attack_s": 0.02,
+      "decay_s": 0.67,
+      "onset_count": 0,
+      "sustain_ratio": 0.08,
+      "mod_peak_hz": 2.12
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/23.mp3",
+     "score": 13.1,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "dzwon musi potrwać (content_rel_s=1.341, oczekiwane >= 1.5)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.581,
+      "content_rel_s": 1.341,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 1597.3,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 19.72,
+      "attack_s": 0.02,
+      "decay_s": 0.74,
+      "onset_count": 1,
+      "sustain_ratio": 0.272,
+      "mod_peak_hz": 1.49
+     }
+    }
+   ]
+  },
+  {
+   "id": "26",
+   "title": "Ember Beast",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/26.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.27,
+      "content_rel_s": 2.5,
+      "lufs": -20.0,
+      "low_all": 0.967,
+      "spectral_centroid_hz": 104.8,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.851,
+      "crest_db": 12.25,
+      "attack_s": 0.22,
+      "decay_s": 1.14,
+      "onset_count": 10,
+      "sustain_ratio": 0.399,
+      "mod_peak_hz": 5.74
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/26.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "osuwisko się toczy (decay_s=0.220, oczekiwane >= 0.5)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.576,
+      "content_rel_s": 3.276,
+      "lufs": -20.0,
+      "low_all": 0.959,
+      "spectral_centroid_hz": 115.9,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.882,
+      "crest_db": 14.04,
+      "attack_s": 0.89,
+      "decay_s": 0.22,
+      "onset_count": 22,
+      "sustain_ratio": 0.412,
+      "mod_peak_hz": 2.49
+     }
+    }
+   ]
+  },
+  {
+   "id": "39",
+   "title": "Brute Force",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/39.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.838,
+      "content_rel_s": 3.598,
+      "lufs": -20.37,
+      "low_all": 0.519,
+      "spectral_centroid_hz": 454.3,
+      "spectral_flatness": 0.172,
+      "tonal_frame_fraction": 0.201,
+      "voiced_fraction": 0.033,
+      "crest_db": 21.82,
+      "attack_s": 0.02,
+      "decay_s": 0.03,
+      "onset_count": 19,
+      "sustain_ratio": 0.076,
+      "mod_peak_hz": 1.78
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/39.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "kroki mają równy rytm (ioi_cv=0.625, oczekiwane <= 0.6)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.77,
+      "lufs": -20.25,
+      "low_all": 0.157,
+      "spectral_centroid_hz": 1050.2,
+      "spectral_flatness": 0.118,
+      "tonal_frame_fraction": 0.224,
+      "voiced_fraction": 0.011,
+      "crest_db": 22.62,
+      "attack_s": 0.02,
+      "decay_s": 0.12,
+      "onset_count": 27,
+      "sustain_ratio": 0.12,
+      "mod_peak_hz": 2.46
+     }
+    }
+   ]
+  },
+  {
+   "id": "56",
+   "title": "Diplomatic Relations",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/56.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.462,
+      "content_rel_s": 3.012,
+      "lufs": -20.41,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 3464.5,
+      "spectral_flatness": 0.123,
+      "tonal_frame_fraction": 0.136,
+      "voiced_fraction": 0.043,
+      "crest_db": 29.03,
+      "attack_s": 0.02,
+      "decay_s": 0.04,
+      "onset_count": 3,
+      "sustain_ratio": 0.023,
+      "mod_peak_hz": 6.67
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/56.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.287,
+      "content_rel_s": 2.897,
+      "lufs": -20.39,
+      "low_all": 0.021,
+      "spectral_centroid_hz": 4926.4,
+      "spectral_flatness": 0.206,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.038,
+      "crest_db": 27.07,
+      "attack_s": 0.03,
+      "decay_s": 0.03,
+      "onset_count": 4,
+      "sustain_ratio": 0.03,
+      "mod_peak_hz": 10.42
+     }
+    }
+   ]
+  },
+  {
+   "id": "73",
+   "title": "Bladed Sentinel",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/73.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.618,
+      "content_rel_s": 3.278,
+      "lufs": -20.41,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 5358.6,
+      "spectral_flatness": 0.231,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.194,
+      "crest_db": 27.99,
+      "attack_s": 0.03,
+      "decay_s": 0.11,
+      "onset_count": 4,
+      "sustain_ratio": 0.03,
+      "mod_peak_hz": 3.7
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/73.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.746,
+      "content_rel_s": 2.576,
+      "lufs": -20.02,
+      "low_all": 0.006,
+      "spectral_centroid_hz": 6207.5,
+      "spectral_flatness": 0.218,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.088,
+      "crest_db": 27.5,
+      "attack_s": 0.02,
+      "decay_s": 0.1,
+      "onset_count": 4,
+      "sustain_ratio": 0.053,
+      "mod_peak_hz": 4.82
+     }
+    }
+   ]
+  },
+  {
+   "id": "98",
+   "title": "Fleeting Distraction",
+   "archetype": "insect_swarm",
+   "archetype_label": "rój owadów / bzykanie",
+   "chosen": "v2",
+   "chosen_score": 2.5,
+   "spread": 1.5,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/98.mp3",
+     "score": 2.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "bzykanie jest harmoniczne (tonal_frame_fraction=0.144, oczekiwane >= 0.3)",
+      "rój brzmi ciągiem (sustain_ratio=0.164, oczekiwane >= 0.4)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.783,
+      "content_rel_s": 3.723,
+      "lufs": -19.99,
+      "low_all": 0.037,
+      "spectral_centroid_hz": 2489.4,
+      "spectral_flatness": 0.11,
+      "tonal_frame_fraction": 0.144,
+      "voiced_fraction": 0.049,
+      "crest_db": 22.99,
+      "attack_s": 0.04,
+      "decay_s": 0.03,
+      "onset_count": 30,
+      "sustain_ratio": 0.164,
+      "mod_peak_hz": 12.32
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/98.mp3",
+     "score": 4.0,
+     "measured": "postprocess",
+     "twin_with": "79:0.9604",
+     "violations": [
+      "rój brzmi ciągiem (sustain_ratio=0.305, oczekiwane >= 0.4)",
+      "bzykanie jest wysokie (spectral_centroid_hz=275.200, oczekiwane 1000.0–6000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.92,
+      "lufs": -20.0,
+      "low_all": 0.268,
+      "spectral_centroid_hz": 275.2,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.426,
+      "crest_db": 17.53,
+      "attack_s": 0.04,
+      "decay_s": 0.03,
+      "onset_count": 43,
+      "sustain_ratio": 0.305,
+      "mod_peak_hz": 11.73
+     }
+    }
+   ]
+  },
+  {
+   "id": "129",
+   "title": "Charismatic Vanguard",
+   "archetype": "anvil_strike",
+   "archetype_label": "uderzenie młota w kowadło",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/129.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.85,
+      "lufs": -20.01,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 4158.7,
+      "spectral_flatness": 0.038,
+      "tonal_frame_fraction": 0.542,
+      "voiced_fraction": 0.431,
+      "crest_db": 19.66,
+      "attack_s": 0.02,
+      "decay_s": 0.18,
+      "onset_count": 8,
+      "sustain_ratio": 0.217,
+      "mod_peak_hz": 2.6
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/129.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.963,
+      "content_rel_s": 3.613,
+      "lufs": -20.01,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 4127.6,
+      "spectral_flatness": 0.057,
+      "tonal_frame_fraction": 0.444,
+      "voiced_fraction": 0.5,
+      "crest_db": 23.05,
+      "attack_s": 0.02,
+      "decay_s": 0.09,
+      "onset_count": 8,
+      "sustain_ratio": 0.111,
+      "mod_peak_hz": 3.91
+     }
+    }
+   ]
+  },
+  {
+   "id": "140",
+   "title": "Boros Challenger",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/140.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.65,
+      "content_rel_s": 3.21,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 2581.1,
+      "spectral_flatness": 0.073,
+      "tonal_frame_fraction": 0.267,
+      "voiced_fraction": 0.02,
+      "crest_db": 20.76,
+      "attack_s": 0.25,
+      "decay_s": 0.19,
+      "onset_count": 8,
+      "sustain_ratio": 0.179,
+      "mod_peak_hz": 1.36
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/140.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.508,
+      "content_rel_s": 3.178,
+      "lufs": -20.03,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 2997.6,
+      "spectral_flatness": 0.087,
+      "tonal_frame_fraction": 0.187,
+      "voiced_fraction": 0.113,
+      "crest_db": 23.52,
+      "attack_s": 0.02,
+      "decay_s": 0.09,
+      "onset_count": 15,
+      "sustain_ratio": 0.183,
+      "mod_peak_hz": 1.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "173",
+   "title": "Awaken the Bear",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "chosen": "v1",
+   "chosen_score": 1.0,
+   "spread": 0.5,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/173.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk ma ciało w dole pasma (low_all=0.096, oczekiwane >= 0.45)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.428,
+      "content_rel_s": 2.028,
+      "lufs": -20.0,
+      "low_all": 0.096,
+      "spectral_centroid_hz": 687.5,
+      "spectral_flatness": 0.007,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.444,
+      "crest_db": 10.27,
+      "attack_s": 0.24,
+      "decay_s": 1.35,
+      "onset_count": 4,
+      "sustain_ratio": 0.649,
+      "mod_peak_hz": 7.43
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/173.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.295, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.702,
+      "content_rel_s": 2.272,
+      "lufs": -19.99,
+      "low_all": 0.572,
+      "spectral_centroid_hz": 311.3,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.295,
+      "crest_db": 13.63,
+      "attack_s": 1.23,
+      "decay_s": 0.49,
+      "onset_count": 2,
+      "sustain_ratio": 0.53,
+      "mod_peak_hz": 1.32
+     }
+    }
+   ]
+  },
+  {
+   "id": "176",
+   "title": "Chocobo Kick",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/176.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.518,
+      "content_rel_s": 3.258,
+      "lufs": -20.01,
+      "low_all": 0.06,
+      "spectral_centroid_hz": 2561.0,
+      "spectral_flatness": 0.079,
+      "tonal_frame_fraction": 0.364,
+      "voiced_fraction": 0.237,
+      "crest_db": 27.98,
+      "attack_s": 0.03,
+      "decay_s": 0.06,
+      "onset_count": 8,
+      "sustain_ratio": 0.02,
+      "mod_peak_hz": 1.39
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/176.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "brzęk stali ma szum (spectral_flatness=0.004, oczekiwane >= 0.03)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 2.58,
+      "lufs": -20.04,
+      "low_all": 0.522,
+      "spectral_centroid_hz": 1333.3,
+      "spectral_flatness": 0.004,
+      "tonal_frame_fraction": 0.567,
+      "voiced_fraction": 0.457,
+      "crest_db": 21.4,
+      "attack_s": 0.02,
+      "decay_s": 0.09,
+      "onset_count": 4,
+      "sustain_ratio": 0.11,
+      "mod_peak_hz": 1.72
+     }
+    }
+   ]
+  },
+  {
+   "id": "194",
+   "title": "Lionheart Maverick",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/194.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.545,
+      "content_rel_s": 3.225,
+      "lufs": -19.98,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 4112.4,
+      "spectral_flatness": 0.064,
+      "tonal_frame_fraction": 0.387,
+      "voiced_fraction": 0.552,
+      "crest_db": 24.65,
+      "attack_s": 0.02,
+      "decay_s": 0.05,
+      "onset_count": 27,
+      "sustain_ratio": 0.113,
+      "mod_peak_hz": 1.62
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/194.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "stal pancerza jest jasna (spectral_centroid_hz=7448.100, oczekiwane 1000.0–6000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.766,
+      "content_rel_s": 3.456,
+      "lufs": -19.96,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 7448.1,
+      "spectral_flatness": 0.109,
+      "tonal_frame_fraction": 0.01,
+      "voiced_fraction": 0.037,
+      "crest_db": 21.18,
+      "attack_s": 0.04,
+      "decay_s": 0.08,
+      "onset_count": 29,
+      "sustain_ratio": 0.261,
+      "mod_peak_hz": 5.22
+     }
+    }
+   ]
+  },
+  {
+   "id": "232",
+   "title": "Goblin Piker",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v2",
+   "chosen_score": 2.0,
+   "spread": 0.5,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/232.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "płyty pancerza uderzają ostro (crest_db=15.650, oczekiwane >= 17.0)",
+      "brzęk stali ma szum (spectral_flatness=0.002, oczekiwane >= 0.03)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.85,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 1796.4,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 0.994,
+      "voiced_fraction": 0.597,
+      "crest_db": 15.65,
+      "attack_s": 1.2,
+      "decay_s": 0.43,
+      "onset_count": 3,
+      "sustain_ratio": 0.352,
+      "mod_peak_hz": 1.09
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/232.mp3",
+     "score": 2.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "płyty pancerza uderzają ostro (crest_db=14.480, oczekiwane >= 17.0)",
+      "brzęk stali ma szum (spectral_flatness=0.002, oczekiwane >= 0.03)",
+      "płyty gasną szybciej niż dzwon (decay_s=1.550, oczekiwane <= 1.2)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.862,
+      "content_rel_s": 3.602,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 1759.1,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 0.997,
+      "voiced_fraction": 0.67,
+      "crest_db": 14.48,
+      "attack_s": 0.54,
+      "decay_s": 1.55,
+      "onset_count": 4,
+      "sustain_ratio": 0.448,
+      "mod_peak_hz": 1.13
+     }
+    }
+   ]
+  },
+  {
+   "id": "244",
+   "title": "Natural Connection",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "chosen": "v1",
+   "chosen_score": 2.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/244.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "zawołania ptaków są tonalne (tonal_frame_fraction=0.041, oczekiwane >= 0.25)",
+      "trele są szybkie (mod_peak_hz=1.660, oczekiwane 3.0–22.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.789,
+      "content_rel_s": 3.699,
+      "lufs": -20.14,
+      "low_all": 0.02,
+      "spectral_centroid_hz": 1905.0,
+      "spectral_flatness": 0.14,
+      "tonal_frame_fraction": 0.041,
+      "voiced_fraction": 0.009,
+      "crest_db": 24.16,
+      "attack_s": 0.13,
+      "decay_s": 0.37,
+      "onset_count": 17,
+      "sustain_ratio": 0.169,
+      "mod_peak_hz": 1.66
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/244.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "zawołania ptaków są tonalne (tonal_frame_fraction=0.155, oczekiwane >= 0.25)",
+      "trele są szybkie (mod_peak_hz=1.590, oczekiwane 3.0–22.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.559,
+      "content_rel_s": 3.289,
+      "lufs": -20.0,
+      "low_all": 0.053,
+      "spectral_centroid_hz": 2170.3,
+      "spectral_flatness": 0.116,
+      "tonal_frame_fraction": 0.155,
+      "voiced_fraction": 0.034,
+      "crest_db": 22.44,
+      "attack_s": 0.02,
+      "decay_s": 0.08,
+      "onset_count": 21,
+      "sustain_ratio": 0.161,
+      "mod_peak_hz": 1.59
+     }
+    }
+   ]
+  },
+  {
+   "id": "250",
+   "title": "Loxodon Mender",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/250.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.241,
+      "content_rel_s": 2.831,
+      "lufs": -20.24,
+      "low_all": 0.011,
+      "spectral_centroid_hz": 6016.1,
+      "spectral_flatness": 0.175,
+      "tonal_frame_fraction": 0.15,
+      "voiced_fraction": 0.0,
+      "crest_db": 26.96,
+      "attack_s": 0.02,
+      "decay_s": 0.11,
+      "onset_count": 5,
+      "sustain_ratio": 0.052,
+      "mod_peak_hz": 5.51
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/250.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.015,
+      "content_rel_s": 2.625,
+      "lufs": -20.34,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 6115.0,
+      "spectral_flatness": 0.225,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 27.36,
+      "attack_s": 0.03,
+      "decay_s": 0.04,
+      "onset_count": 5,
+      "sustain_ratio": 0.03,
+      "mod_peak_hz": 7.02
+     }
+    }
+   ]
+  },
+  {
+   "id": "253",
+   "title": "Inspiring Bard",
+   "archetype": "folk_music",
+   "archetype_label": "muzyka ludowa / taneczna",
+   "chosen": "v2",
+   "chosen_score": 1.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/253.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "taniec ma rytm (onset_count=1, oczekiwane >= 4)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.354,
+      "content_rel_s": 2.694,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 1676.1,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.993,
+      "crest_db": 16.75,
+      "attack_s": 0.11,
+      "decay_s": 0.34,
+      "onset_count": 1,
+      "sustain_ratio": 0.239,
+      "mod_peak_hz": 4.15
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/253.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "taniec ma rytm (onset_count=3, oczekiwane >= 4)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.218,
+      "content_rel_s": 2.508,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 654.0,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.838,
+      "crest_db": 14.93,
+      "attack_s": 0.4,
+      "decay_s": 0.92,
+      "onset_count": 3,
+      "sustain_ratio": 0.336,
+      "mod_peak_hz": 1.21
+     }
+    }
+   ]
+  },
+  {
+   "id": "292",
+   "title": "Rediscover the Way",
+   "archetype": "wind_gust",
+   "archetype_label": "podmuch wiatru",
+   "chosen": "v2",
+   "chosen_score": 2.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/292.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "wiatr jest szumowy (spectral_flatness=0.001, oczekiwane >= 0.05)",
+      "wiatr siedzi w środku pasma (spectral_centroid_hz=91.900, oczekiwane 300.0–3000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.725,
+      "content_rel_s": 3.305,
+      "lufs": -20.0,
+      "low_all": 0.952,
+      "spectral_centroid_hz": 91.9,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.3,
+      "crest_db": 15.1,
+      "attack_s": 0.49,
+      "decay_s": 1.17,
+      "onset_count": 14,
+      "sustain_ratio": 0.358,
+      "mod_peak_hz": 3.45
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/292.mp3",
+     "score": 3.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "podmuch płynie (sustain_ratio=0.275, oczekiwane >= 0.3)",
+      "wiatr jest szumowy (spectral_flatness=0.000, oczekiwane >= 0.05)",
+      "wiatr siedzi w środku pasma (spectral_centroid_hz=74.600, oczekiwane 300.0–3000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.893,
+      "content_rel_s": 3.333,
+      "lufs": -20.0,
+      "low_all": 0.974,
+      "spectral_centroid_hz": 74.6,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.622,
+      "crest_db": 17.03,
+      "attack_s": 0.68,
+      "decay_s": 0.75,
+      "onset_count": 16,
+      "sustain_ratio": 0.275,
+      "mod_peak_hz": 7.09
+     }
+    }
+   ]
+  },
+  {
+   "id": "344",
+   "title": "Pain for All",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v1",
+   "chosen_score": 1.5,
+   "spread": 11.74,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/344.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "stal błyszczy górą pasma (spectral_centroid_hz=1883.500, oczekiwane >= 2500.0)",
+      "uderzenie ma szumowy transient (spectral_flatness=0.000, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.184,
+      "content_rel_s": 1.514,
+      "lufs": -20.01,
+      "low_all": 0.234,
+      "spectral_centroid_hz": 1883.5,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.947,
+      "voiced_fraction": 0.889,
+      "crest_db": 19.95,
+      "attack_s": 0.02,
+      "decay_s": 0.56,
+      "onset_count": 1,
+      "sustain_ratio": 0.138,
+      "mod_peak_hz": 1.32
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/344.mp3",
+     "score": 13.24,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "stal błyszczy górą pasma (spectral_centroid_hz=1632.200, oczekiwane >= 2500.0)",
+      "cios ma energię w górze (high_all=0.256, oczekiwane >= 0.3)",
+      "uderzenie ma szumowy transient (spectral_flatness=0.000, oczekiwane >= 0.05)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.852,
+      "content_rel_s": 1.842,
+      "lufs": -21.72,
+      "low_all": 0.032,
+      "spectral_centroid_hz": 1632.2,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.937,
+      "voiced_fraction": 0.798,
+      "crest_db": 21.02,
+      "attack_s": 0.01,
+      "decay_s": 0.32,
+      "onset_count": 0,
+      "sustain_ratio": 0.103,
+      "mod_peak_hz": 1.09
+     }
+    }
+   ]
+  },
+  {
+   "id": "345",
+   "title": "Porcelain Legionnaire",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v1",
+   "chosen_score": 0.5,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/345.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.011, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.39,
+      "lufs": -20.45,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4769.3,
+      "spectral_flatness": 0.011,
+      "tonal_frame_fraction": 0.614,
+      "voiced_fraction": 0.545,
+      "crest_db": 28.41,
+      "attack_s": 0.01,
+      "decay_s": 0.06,
+      "onset_count": 5,
+      "sustain_ratio": 0.033,
+      "mod_peak_hz": 1.39
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/345.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.030, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.445,
+      "content_rel_s": 2.975,
+      "lufs": -19.99,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 3791.8,
+      "spectral_flatness": 0.03,
+      "tonal_frame_fraction": 0.57,
+      "voiced_fraction": 0.681,
+      "crest_db": 23.38,
+      "attack_s": 0.02,
+      "decay_s": 0.2,
+      "onset_count": 3,
+      "sustain_ratio": 0.084,
+      "mod_peak_hz": 3.39
+     }
+    }
+   ]
+  },
+  {
+   "id": "355",
+   "title": "Cathartic Reunion",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/355.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.524,
+      "content_rel_s": 2.124,
+      "lufs": -19.99,
+      "low_all": 0.008,
+      "spectral_centroid_hz": 3150.2,
+      "spectral_flatness": 0.086,
+      "tonal_frame_fraction": 0.362,
+      "voiced_fraction": 0.0,
+      "crest_db": 26.68,
+      "attack_s": 0.02,
+      "decay_s": 0.3,
+      "onset_count": 5,
+      "sustain_ratio": 0.071,
+      "mod_peak_hz": 1.89
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/355.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.093,
+      "content_rel_s": 1.603,
+      "lufs": -19.97,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 2321.5,
+      "spectral_flatness": 0.104,
+      "tonal_frame_fraction": 0.083,
+      "voiced_fraction": 0.0,
+      "crest_db": 24.32,
+      "attack_s": 0.02,
+      "decay_s": 0.12,
+      "onset_count": 6,
+      "sustain_ratio": 0.067,
+      "mod_peak_hz": 4.35
+     }
+    }
+   ]
+  },
+  {
+   "id": "434",
+   "title": "Epic Experiment",
+   "archetype": "war_machine",
+   "archetype_label": "silnik i mechanizm wojennej machiny",
+   "chosen": "v1",
+   "chosen_score": 1.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/434.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "machina musi być słyszalna też na małych głośnikach (mid_up=0.000, oczekiwane >= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.99,
+      "lufs": -20.0,
+      "low_all": 1.0,
+      "spectral_centroid_hz": 46.0,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.996,
+      "crest_db": 8.03,
+      "attack_s": 3.09,
+      "decay_s": 0.78,
+      "onset_count": 13,
+      "sustain_ratio": 0.882,
+      "mod_peak_hz": 4.01
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/434.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "machina musi być słyszalna też na małych głośnikach (mid_up=0.002, oczekiwane >= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.97,
+      "lufs": -20.0,
+      "low_all": 0.998,
+      "spectral_centroid_hz": 64.3,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.992,
+      "crest_db": 7.96,
+      "attack_s": 0.22,
+      "decay_s": 2.73,
+      "onset_count": 15,
+      "sustain_ratio": 0.812,
+      "mod_peak_hz": 1.52
+     }
+    }
+   ]
+  },
+  {
+   "id": "435",
+   "title": "Warrior's Sword",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v2",
+   "chosen_score": 0.5,
+   "spread": 0.5,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/435.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.001, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.63,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4433.5,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 0.948,
+      "voiced_fraction": 0.939,
+      "crest_db": 21.78,
+      "attack_s": 0.07,
+      "decay_s": 0.99,
+      "onset_count": 1,
+      "sustain_ratio": 0.147,
+      "mod_peak_hz": 1.37
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/435.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "stal uderza natychmiast (attack_s=0.130, oczekiwane <= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.16,
+      "lufs": -19.93,
+      "low_all": 0.02,
+      "spectral_centroid_hz": 9192.8,
+      "spectral_flatness": 0.062,
+      "tonal_frame_fraction": 0.441,
+      "voiced_fraction": 0.125,
+      "crest_db": 24.45,
+      "attack_s": 0.13,
+      "decay_s": 0.34,
+      "onset_count": 2,
+      "sustain_ratio": 0.163,
+      "mod_peak_hz": 1.4
+     }
+    }
+   ]
+  },
+  {
+   "id": "442",
+   "title": "Cenn's Tactician",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/442.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.677,
+      "content_rel_s": 3.397,
+      "lufs": -22.01,
+      "low_all": 0.795,
+      "spectral_centroid_hz": 232.5,
+      "spectral_flatness": 0.011,
+      "tonal_frame_fraction": 0.878,
+      "voiced_fraction": 0.094,
+      "crest_db": 21.28,
+      "attack_s": 0.03,
+      "decay_s": 0.08,
+      "onset_count": 14,
+      "sustain_ratio": 0.093,
+      "mod_peak_hz": 10.61
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/442.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.667,
+      "content_rel_s": 2.767,
+      "lufs": -20.37,
+      "low_all": 0.757,
+      "spectral_centroid_hz": 415.7,
+      "spectral_flatness": 0.059,
+      "tonal_frame_fraction": 0.4,
+      "voiced_fraction": 0.021,
+      "crest_db": 23.3,
+      "attack_s": 0.02,
+      "decay_s": 0.05,
+      "onset_count": 4,
+      "sustain_ratio": 0.036,
+      "mod_peak_hz": 4.82
+     }
+    }
+   ]
+  },
+  {
+   "id": "460",
+   "title": "Ivy Lane Denizen",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/460.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.78,
+      "lufs": -20.25,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 5376.1,
+      "spectral_flatness": 0.154,
+      "tonal_frame_fraction": 0.043,
+      "voiced_fraction": 0.04,
+      "crest_db": 25.56,
+      "attack_s": 0.01,
+      "decay_s": 0.03,
+      "onset_count": 13,
+      "sustain_ratio": 0.05,
+      "mod_peak_hz": 13.48
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/460.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.264,
+      "content_rel_s": 2.834,
+      "lufs": -19.97,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4351.2,
+      "spectral_flatness": 0.104,
+      "tonal_frame_fraction": 0.062,
+      "voiced_fraction": 0.114,
+      "crest_db": 24.11,
+      "attack_s": 0.02,
+      "decay_s": 0.03,
+      "onset_count": 11,
+      "sustain_ratio": 0.08,
+      "mod_peak_hz": 7.02
+     }
+    }
+   ]
+  },
+  {
+   "id": "478",
+   "title": "Spare from Evil",
+   "archetype": "glass_shatter",
+   "archetype_label": "tłuczenie szkła / kryształu",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/478.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.85,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 7084.2,
+      "spectral_flatness": 0.275,
+      "tonal_frame_fraction": 0.117,
+      "voiced_fraction": 0.119,
+      "crest_db": 19.65,
+      "attack_s": 0.16,
+      "decay_s": 0.65,
+      "onset_count": 10,
+      "sustain_ratio": 0.398,
+      "mod_peak_hz": 1.23
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/478.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.72,
+      "lufs": -20.05,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6658.0,
+      "spectral_flatness": 0.271,
+      "tonal_frame_fraction": 0.104,
+      "voiced_fraction": 0.0,
+      "crest_db": 18.76,
+      "attack_s": 1.6,
+      "decay_s": 0.16,
+      "onset_count": 14,
+      "sustain_ratio": 0.537,
+      "mod_peak_hz": 3.38
+     }
+    }
+   ]
+  },
+  {
+   "id": "522",
+   "title": "Hobble",
+   "archetype": "chain_rattle",
+   "archetype_label": "grzechot łańcuchów / kolczugi",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/522.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.78,
+      "lufs": -19.97,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 12118.7,
+      "spectral_flatness": 0.239,
+      "tonal_frame_fraction": 0.008,
+      "voiced_fraction": 0.0,
+      "crest_db": 22.91,
+      "attack_s": 0.11,
+      "decay_s": 0.11,
+      "onset_count": 22,
+      "sustain_ratio": 0.115,
+      "mod_peak_hz": 2.26
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/522.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.69,
+      "lufs": -19.97,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 11768.4,
+      "spectral_flatness": 0.2,
+      "tonal_frame_fraction": 0.012,
+      "voiced_fraction": 0.0,
+      "crest_db": 24.47,
+      "attack_s": 0.04,
+      "decay_s": 0.11,
+      "onset_count": 21,
+      "sustain_ratio": 0.16,
+      "mod_peak_hz": 2.24
+     }
+    }
+   ]
+  },
+  {
+   "id": "525",
+   "title": "Jill, Shiva's Dominant",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/525.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.912,
+      "content_rel_s": 3.522,
+      "lufs": -22.26,
+      "low_all": 0.011,
+      "spectral_centroid_hz": 5884.4,
+      "spectral_flatness": 0.39,
+      "tonal_frame_fraction": 0.004,
+      "voiced_fraction": 0.029,
+      "crest_db": 27.59,
+      "attack_s": 0.03,
+      "decay_s": 0.07,
+      "onset_count": 21,
+      "sustain_ratio": 0.038,
+      "mod_peak_hz": 5.86
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/525.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.609,
+      "content_rel_s": 3.259,
+      "lufs": -20.43,
+      "low_all": 0.177,
+      "spectral_centroid_hz": 3503.7,
+      "spectral_flatness": 0.35,
+      "tonal_frame_fraction": 0.009,
+      "voiced_fraction": 0.052,
+      "crest_db": 25.38,
+      "attack_s": 0.07,
+      "decay_s": 0.04,
+      "onset_count": 12,
+      "sustain_ratio": 0.078,
+      "mod_peak_hz": 2.29
+     }
+    }
+   ]
+  },
+  {
+   "id": "559",
+   "title": "Gaelicat",
+   "archetype": "beast_screech",
+   "archetype_label": "wrzask / pisk potwora",
+   "chosen": "v1",
+   "chosen_score": 1.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/559.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "wrzask uderza od razu (attack_s=0.420, oczekiwane <= 0.15)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.923,
+      "content_rel_s": 3.473,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 2261.6,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.888,
+      "crest_db": 16.82,
+      "attack_s": 0.42,
+      "decay_s": 0.3,
+      "onset_count": 3,
+      "sustain_ratio": 0.342,
+      "mod_peak_hz": 1.12
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/559.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "wrzask uderza od razu (attack_s=0.220, oczekiwane <= 0.15)",
+      "wrzask ma energię w górze (high_all=0.177, oczekiwane >= 0.2)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.832,
+      "content_rel_s": 3.562,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 1713.0,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.965,
+      "crest_db": 12.68,
+      "attack_s": 0.22,
+      "decay_s": 0.78,
+      "onset_count": 4,
+      "sustain_ratio": 0.439,
+      "mod_peak_hz": 1.98
+     }
+    }
+   ]
+  },
+  {
+   "id": "565",
+   "title": "Mana Cylix",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "chosen": "v1",
+   "chosen_score": 1.0,
+   "spread": 0.5,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/565.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "zawołania ptaków są tonalne (tonal_frame_fraction=0.218, oczekiwane >= 0.25)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.88,
+      "lufs": -24.97,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4535.4,
+      "spectral_flatness": 0.096,
+      "tonal_frame_fraction": 0.218,
+      "voiced_fraction": 0.3,
+      "crest_db": 29.59,
+      "attack_s": 0.02,
+      "decay_s": 0.03,
+      "onset_count": 29,
+      "sustain_ratio": 0.052,
+      "mod_peak_hz": 9.7
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/565.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "śpiew ptaków jest wysoki (spectral_centroid_hz=1102.200, oczekiwane 1500.0–6500.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.342,
+      "content_rel_s": 2.792,
+      "lufs": -20.01,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 1102.2,
+      "spectral_flatness": 0.019,
+      "tonal_frame_fraction": 0.699,
+      "voiced_fraction": 0.939,
+      "crest_db": 21.79,
+      "attack_s": 0.02,
+      "decay_s": 0.1,
+      "onset_count": 10,
+      "sustain_ratio": 0.042,
+      "mod_peak_hz": 7.32
+     }
+    }
+   ]
+  },
+  {
+   "id": "594",
+   "title": "Ironclad Slayer",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/594.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.8,
+      "lufs": -20.01,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 7040.0,
+      "spectral_flatness": 0.095,
+      "tonal_frame_fraction": 0.296,
+      "voiced_fraction": 0.194,
+      "crest_db": 21.95,
+      "attack_s": 0.02,
+      "decay_s": 0.2,
+      "onset_count": 8,
+      "sustain_ratio": 0.292,
+      "mod_peak_hz": 2.8
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/594.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "stal uderza natychmiast (attack_s=0.210, oczekiwane <= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.868,
+      "content_rel_s": 3.628,
+      "lufs": -20.03,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5453.2,
+      "spectral_flatness": 0.149,
+      "tonal_frame_fraction": 0.268,
+      "voiced_fraction": 0.594,
+      "crest_db": 22.58,
+      "attack_s": 0.21,
+      "decay_s": 0.18,
+      "onset_count": 6,
+      "sustain_ratio": 0.166,
+      "mod_peak_hz": 1.27
+     }
+    }
+   ]
+  },
+  {
+   "id": "608",
+   "title": "Skymarch Bloodletter",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v1",
+   "chosen_score": 0.5,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r028/v1/608.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.007, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.349,
+      "content_rel_s": 3.039,
+      "lufs": -19.99,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 5861.3,
+      "spectral_flatness": 0.007,
+      "tonal_frame_fraction": 0.649,
+      "voiced_fraction": 0.286,
+      "crest_db": 19.48,
+      "attack_s": 0.02,
+      "decay_s": 0.3,
+      "onset_count": 3,
+      "sustain_ratio": 0.26,
+      "mod_peak_hz": 1.35
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r028/v2/608.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "stal uderza natychmiast (attack_s=0.240, oczekiwane <= 0.1)",
+      "uderzenie ma szumowy transient (spectral_flatness=0.005, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.286,
+      "content_rel_s": 2.996,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6528.9,
+      "spectral_flatness": 0.005,
+      "tonal_frame_fraction": 0.665,
+      "voiced_fraction": 0.515,
+      "crest_db": 18.89,
+      "attack_s": 0.24,
+      "decay_s": 0.15,
+      "onset_count": 2,
+      "sustain_ratio": 0.308,
+      "mod_peak_hz": 1.37
+     }
+    }
+   ]
+  }
+ ]
+}
