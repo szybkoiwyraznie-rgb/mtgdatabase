@@ -789,6 +789,27 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "skrzek harpii strzegącej skarbu: jeden chrapliwy szerokopasmowy wrzask, szorstki i szumowy raczej niż śpiewny, szpony na pękniętym kamieniu", False),
     "578": ("A beast's sudden reversal: hooves wrenching around in the mud, a heavy morning star sweeping full-circle with a broad low whoosh of displaced air, no whistle and no pitched tone, hunters scattering.",
             "nagły zwrot bestii: kopyta w błocie, ciężki kiścień zatacza krąg z szerokim niskim świstem powietrza, bez gwizdu i bez tonu", False),
+    # --- r034: 7 najwiekszych wezlow podobienstwa. Pomiar: 175 par w pasmie
+    # 0,90-0,95 (129 kart w >=1 parze, 45 w >=3). Te karty maja rozne fabuly,
+    # ale model renderuje je identycznie - jako niski szerokopasmowy huk.
+    # Regeneracja jednego wezla zdjmuje najwiecej par naraz.
+    # Wzor: NAKAZ nie zakaz (z 578/r033: zakaz bez zamiennika zdjal cale pasmo,
+    # centroid 2546 -> 35 Hz). Kazdy prompt foregrounduje element charakterystyczny
+    # i daje mu hierarchie glosnosci - jedyny wzorzec dzialajacy niezawodnie (269).
+    "529": ("A colossal mercury wave: liquid metal sloshing with a bright glassy ring, thousands of tiny metal droplets tinkling as the crest falls over armour.",
+            "kolosalna fala rtęci przelewająca się z jasnym metalicznym brzękiem i tysiącem drobnych kropel", False),
+    "479": ("Heavy armour slamming onto rock: one sharp metallic plate crack as the loudest moment, then stone shards skittering and grit raining down on metal.",
+            "pancerz uderzający w skałę: ostry trzask płyty, potem odpryski kamienia i grad żwiru na metalu", False),
+    "290": ("A flame bursting to life: a dense bright crackle of sparks snapping as the loudest moment, then a turbulent roaring fire with popping embers.",
+            "buchnięcie płomienia: gęsty jasny trzask iskier, potem turbulentny ogień z pękającymi węglami", False),
+    "160": ("An elemental hound breaking loose: one wet snarling canine roar as the loudest moment, iron-hot claws raking basalt, fire crackling underneath.",
+            "ogar żywiołów zrywa się: mokry warczący ryk, żelazne pazury na bazalcie, trzaskający ogień", False),
+    "614": ("An old wyvern striking: one leathery wing snap for balance, then a heavy paw hammering a body onto rock with a dull crunch and sliding gravel.",
+            "wiwerna uderza: skórzasty trzask skrzydła, potem ciężka łapa wbija ciało w skałę ze żwirem", False),
+    "123": ("An ox caravan on a packed road: dry wooden axles creaking in a steady rhythm, harness ropes straining, one ox lowing, iron tyres on hard dirt.",
+            "karawana wołów na trakcie: suche skrzypienie osi, naprężone postronki, jedno muczenie", False),
+    "287": ("Dragon fury erupting: one deep reptilian roar as the loudest moment, then fire roaring upward into vast wings with sparks spiralling high.",
+            "smocza furia: głęboki gadzi ryk, potem ogień wzbijający się w skrzydła z iskrami w górze", False),
 }
 
 
