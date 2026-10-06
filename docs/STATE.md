@@ -2294,3 +2294,21 @@ Wniosek ogólny: **fade-out nie jest neutralny dla archetypów, których kontrak
 mierzy `decay_s`** — dla nich ogon jest treścią, nie ciszą.
 
 Flagi w korpusie: 54 → **52**. Archetypy bez zmian: 0 / 33 / 145.
+
+### Dwie ostatnie klasy flag — naprawa byłaby szkodliwa
+
+**`long_lead_silence` (`4`, `232`, `583`, `604`) — zostawione, bo cisza wiodąca
+jest tym, co trzyma je w oknie akceptacji.** Wszystkie cztery mają treść
+0,21–0,98 s, a pliki 2,48–4,00 s, więc **są w oknie 2,0–5,0 s wyłącznie dzięki
+ciszy na początku**. Trym zepchnąłby je na 0,36–1,13 s, czyli poza okno. To nie
+są karty do trymu, tylko karty o realnie krótkiej treści — i należą do puli 85,
+której pogłos już został odrzucony pomiarem (8 par bliźniaków).
+
+**`mono_collapse` (`298` Raise the Alarm) — zostawione, bo to fizyka, nie wada.**
+`mono_excess_lu` 4,07 przy progu 2,0, ale archetyp to `temple_bell`, a dzwon jest
+źródłem punktowym: zapadanie się do mono jest dla niego **poprawne**. Karta ma
+werdykt „trafiony", więc korekta mid/side ryzykowałaby utratę trafienia w imię
+metryki, która tu nie opisuje wady.
+
+To zamyka przegląd flag: z 52 pozostałych żadna nie jest jednocześnie prawdziwą
+wadą i bezpieczną do naprawy za zero kredytów.
