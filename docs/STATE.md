@@ -1306,3 +1306,43 @@ Zidentyfikowano i całkowicie zlikwidowano problem pozornej niesłyszalności sa
    - Liczba wszystkich flag w korpusie spadła do rekordowych **95** (z pierwotnych 140+).
 
 
+
+### Podsumowanie sesji — cztery rundy różnicowania, 175 → 81 par
+
+| runda | karty | generacje | pary przed → po | treść < 2 s |
+|---|---|---|---|---|
+| r033 | 2 (`speech_like`) | 4 | — | 85 |
+| r034 | 7 węzłów | 14 | 175 → 120 | 82 |
+| r035 | 7 węzłów | 14 | 120 → 99 | 80 |
+| r036 | 5 węzłów | 10 | 99 → 87 | 79 |
+| r037 | 7 węzłów | 14 | 87 → 81 | 78 |
+| **razem** | | **56** | **175 → 81 (−54 %)** | **85 → 78** |
+
+**Kredyty tej sesji: 2240** (56 generacji × 40). Liczba generacji pochodzi
+z `data/samples/generated-manifest.jsonl`, który jest autorytatywny co do ilości.
+**Stan konta nie jest weryfikowalny z repo** — manifest nie zapisuje, który klucz
+API został użyty, a właściciel dostarczył ich kilka. Wcześniejszy wpis
+„wydane 7760" przy rundach r027–r032 był wewnętrznie sprzeczny: suma tych rund
+wynosi 14 080, nie 7 760.
+
+**Co dało skutek, a co nie:**
+
+Skuteczne — **różnicowanie węzłów podobieństwa**. Regeneracja karty, która
+występuje w największej liczbie par, zdejmuje najwięcej par naraz. Wzorzec
+promptu: nakaz (nie zakaz) + hierarchia głośności dla elementu
+charakterystycznego karty.
+
+Nieskuteczne — **pogłos** jako naprawa krótkiej treści (8 par bliźniaków,
+odrzucony) oraz **regeneracja kart z metryką niesterowalną** (`attack_s`,
+`mod_peak_hz` — model nie realizuje liczb w prompcie).
+
+**Trzy wnioski metodyczne, które zostaną:**
+
+1. Treści mierzonej progiem **absolutnym** nie wolno porównywać między plikami
+   o różnej głośności — ściszenie wygląda jak utrata treści. Trzeba mierzyć też
+   względem własnego szczytu.
+2. **Fade-out nie jest neutralny** dla archetypów, których kontrakt mierzy
+   `decay_s` — dla nich ogon jest treścią, nie ciszą (`72` stone_slide).
+3. `postprocess` i audyt **inaczej definiują ciszę** (szczyt próbki vs RMS ramki),
+   więc trym ogona nie zdejmie flagi `long_trail_silence` tam, gdzie w ogonie
+   jest niskopoziomowy szum.
