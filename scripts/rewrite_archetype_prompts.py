@@ -558,13 +558,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "żelazne kroki Maruta miażdżące złoto na posadzce: cztery ogromne metaliczne kroki w równych odstępach, każdy miele monety", False),
     "463": ("A body slamming down hard onto ice: one instant deep weighted impact with no build-up, then two shorter cracking snaps of the ice sheet within the next second.",
             "ciało pada ciężko na lód: jedno natychmiastowe głębokie uderzenie, potem dwa krótsze trzaski pękającej tafli w ciągu sekundy", False),
-    "470": ("A sacrifice of fertile soil, then two trees bursting apart in ash: two successive deep woody explosions, each with a shower of crackling embers.",
-            "ofiara z żyznej gleby i wybuch dwóch drzew w popiele: dwie kolejne głębokie drewniane eksplozje z deszczem trzaskających iskier", False),
+    "470": ("A sacrifice of fertile soil, then two trees bursting apart in ash: two deep woody explosions, the second louder, each followed by a long shower of crackling embers.",
+            "ofiara z gleby i wybuch dwóch drzew w popiele: dwie drewniane eksplozje, druga głośniejsza, z długim deszczem iskier", False),
     "482": ("Two blades meeting edge to edge and pressing on: three violent steel strikes in "
            "quick succession, the first at the very first instant, each with a harsh gritty ring.",
             "dwa ostrza schodzą się krawędziami i napierają: trzy gwałtowne ciosy stali kolejno, pierwszy w pierwszej chwili, każdy z chropawym brzękiem", False),
-    "487": ("A geometric resonance shield breaking a fire projectile: four successive sharp crystalline shatter bursts as the shield facets break one by one.",
-            "geometryczna tarcza rezonansu rozbija ognisty pocisk: cztery kolejne ostre krystaliczne pęknięcia, faseta po fetce", False),
+    "487": ("A geometric resonance shield breaking a fire projectile: four successive crystalline shatter bursts, each facet snapping with a bright glassy ping, each louder than the last.",
+            "tarcza rezonansu rozbija ognisty pocisk: cztery kolejne krystaliczne pęknięcia, każde z jasnym szklistym trzaskiem", False),
     "488": ("Three artefacts being fused into a copper carapace: three successive resonant metallic lock-in clicks, each one deeper than the last.",
             "integracja trzech artefaktów z miedzianą skorupą zbrojmistrza: trzy kolejne rezonansowe metaliczne zatrzaśnięcia, każde głębsze", False),
     "494": ("A herd call answered by two giant reptiles charging in sync: one long rising bellow, then eight heavy footfalls in a fast even thunder.",
@@ -810,6 +810,24 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "karawana wołów na trakcie: suche skrzypienie osi, naprężone postronki, jedno muczenie", False),
     "287": ("Dragon fury erupting: one deep reptilian roar as the loudest moment, then fire roaring upward into vast wings with sparks spiralling high.",
             "smocza furia: głęboki gadzi ryk, potem ogień wzbijający się w skrzydła z iskrami w górze", False),
+    # --- r035: drugie pietro wezlow podobienstwa (po r034: 120 par, bylo 175).
+    # 7 kart BEZ archetypu - nie ma kontraktu do złamania. Pominięte celowo:
+    # 562 Shock (thunder_clap, TRAFIONY), 343 Puppeteer Clique (temple_bell,
+    # TRAFIONY) - regeneracja ryzykowalaby utrate trafienia.
+    # Wzor ten sam co w r034, ktory zadzialal: NAKAZ nie zakaz + hierarchia
+    # glosnosci dla elementu charakterystycznego. 470, 477, 57 maja centroid
+    # 237-341 Hz, czyli siedza w niskim huku, z ktorego r034 wyprowadzila
+    # poprzednia siodemke.
+    "477": ("An aven diving on cold currents: wind screaming past in a high thin shriek as the loudest moment, wings folding tight, a spear-head flaring with a glassy magical chime.",
+            "aven pikuje w zimnych prądach: wiatr świszczy wysoko i cienko, skrzydła składają się, grot rozbłyska szklistym tonem", False),
+    "448": ("A chaos spire erupting from a street: cobblestones bursting upward with sharp stone cracks, a crystal spike grinding skyward, rainbow discharges snapping off its facets.",
+            "iglica chaosu wybucha z ulicy: bruk trzaska ostro, kryształowy kolec zgrzyta w górę, tęczowe wyładowania strzelają", False),
+    "57": ("Silk-robed figures rising into the sky: heavy fabric billowing open with a soft rushing rustle as the loudest moment, one uplift whoosh climbing higher, a faint shimmer above.",
+            "postacie w jedwabiach wznoszą się w niebo: ciężka tkanina rozkłada się z miękkim szelestem, uniesienie pnie się w górę", False),
+    "550": ("A frost lynx freezing its prey: one leap, a touch, then ice snapping shut in a spreading series of sharp crystalline cracks, a bear's roar cut short mid-breath.",
+            "mroźny ryś zamraża ofiarę: skok, dotyk, lód zatrzaskuje się serią ostrych kryształowych pęknięć, ryk urywa się", False),
+    "438": ("Old ruins rotting into new soil: dead leaves crumbling with a dry papery rustle as the loudest moment, buried artifacts flaking apart, green pulses quickening beneath.",
+            "stare ruiny próchnieją w glebę: suche liście kruszą się z szelestem, artefakty łuszczą, zielone pulsy przyspieszają", False),
 }
 
 
