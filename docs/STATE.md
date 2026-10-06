@@ -2362,3 +2362,33 @@ podobieństwa — on je odsłania.** Każda operacja dodająca wspólny składni
 **Decyzja ostateczna: pogłos odrzucony**, i to nie z powodu samego pogłosu, tylko
 dlatego że korpus nie ma zapasu. Żeby go użyć, trzeba by najpierw odsunąć od
 progu same karty — a to wymaga regeneracji, czyli kredytów.
+
+### r034 — różnicowanie węzłów podobieństwa: 175 → 120 par
+
+Pomiar strukturalny z poprzedniego rozdziału pokazał, że problemem nie jest brak
+dopasowania do archetypu, tylko to, że **różne karty brzmią niemal tak samo**.
+Przykład: `314` (szelest kartek) i `577` (uderzenie żelaznego kostura) — 0,9402,
+a to zupełnie różne zdarzenia fizyczne. To jest główny problem właściciela
+w czystej postaci: jeśli dwie karty brzmią identycznie, przynajmniej jedna nie
+jest rozpoznawalna.
+
+Zregenerowano **7 największych węzłów** (kart występujących w największej liczbie
+par), bo jedna regeneracja węzła zdejmuje najwięcej par naraz:
+`529` 14 par, `479` 11, `290` 9, `160` 9, `614` 9, `123` 8, `287` 8.
+
+**Wynik: pary w paśmie 0,90–0,95 spadły z 175 do 120** (−55), bliźniaków nadal 0.
+
+Wzór promptu: **nakaz, nie zakaz** — każdy foregrounduje element charakterystyczny
+dla karty i nadaje mu hierarchię głośności („one sharp metallic plate crack as the
+loudest moment"). Z `578` w r033 wynika, że zakaz elementu bez podania zamiennika
+zdejmuje całe pasmo.
+
+Efekt uboczny, mierzalny: widma się rozdzieliły. Wszystkie siedem kart siedziało
+wcześniej w niskim szerokopasmowym huku; teraz centroid wynosi 609–5323 Hz
+(`529` rtęciowa fala 5323, `123` karawana 4582, `479` pancerz 4200, `287` smok 1936,
+`160` ogar 885, `614` wiwerna 767, `290` płomień 609). Średnia treść wzrosła
+z ~2,0 do **3,23 s**, wszystkie siedem ma zero flag, a liczba kart z treścią < 2 s
+spadła 85 → **82**.
+
+Archetypy bez zmian: 0 / 33 / 145 (żadna z siedmiu kart nie ma archetypu, więc nie
+były oceniane; regresji w pozostałych brak). **Kredyty: 560 w r034.**
