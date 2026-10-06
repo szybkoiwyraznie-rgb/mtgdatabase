@@ -2596,3 +2596,56 @@ Wniosek: trym ogona jest bezpieczny tylko dla plików, których treść nie opie
 się na materiale tuż przy progu ciszy, i tylko po sprawdzeniu obu metryk po
 operacji — audytowa `content_s` jest matematycznie niezmiennicza względem
 trymu ogona, ale pomiar progiem absolutnym zmienia się razem z głośnością.
+
+### r039 — piąte piętro węzłów: 81 → 65 par (najlepsza runda)
+
+Pierwsza runda na nowym kluczu (10 000 kredytów). **800 kredytów, 20 generacji.**
+
+**Zmiana doboru celów: krawędzie grafu, nie pojedyncze karty.** Wcześniej
+bierano kartę z największą liczbą par. Tym razem policzono, ile krawędzi
+grafu pokrywa dana grupa kart — 10 kart pokrywało **16 krawędzi**. Wziete
+wyłącznie karty bez archetypu (trafione są chronione kontraktem).
+
+| karta | pary przed | centroid przed → po | treść przed → po |
+|---|---|---|---|
+| `295` Fake Your Own Death | 3 (515, 168, 180) | 1047 → 480 Hz | 2,20 → 3,53 s |
+| `395` Unearth | 3 (285, 153, 278) | 7110 → 3050 Hz | 3,52 → 3,45 s |
+| `314` Revolutionist | 2 (577 **0,9402**, 585) | 2149 → 4907 Hz | 2,23 → 1,81 s |
+| `577` Thunderstaff | 2 (314 0,9402, 264) | 1992 → — | **cofnięta** |
+| `155` Demolish | 2 (243 0,9400, 601 0,9325) | 293 → 1037 Hz | 2,98 → 3,46 s |
+| `243` Willbender | 2 (155, 601) | 956 → 5641 Hz | 2,48 → 2,98 s |
+| `601` Exploding Borders | 2 (155, 243) | 232 → — | **cofnięta** |
+| `84` Garruk's Companion | 2 (255, 121) | 1238 → 569 Hz | 1,62 → 2,96 s |
+| `57` Veiled Ascension | 3 (265, 160, 62) | 270 → 3570 Hz | 2,47 → 3,63 s |
+| `272` Feral Invocation | 2 (59, 450) | 4454 → 3736 Hz | 1,78 → 3,27 s |
+
+**Wynik: pary 81 → 65 (−16, −20 %).** Postęp pięciu rund:
+**175 → 120 → 99 → 87 → 81 → 65**. Karty z treścią < 2 s: 78 → **77**.
+
+**Dwie cofnięte, każda z innego powodu:**
+
+- **`577` Thunderstaff — treść 2,07 → 0,56 s**, czyli w obu metrykach
+  (−45 dBFS i peak−45: 2,44 → 1,51 s). Wariant w momencie wyboru miał 3,91 s;
+  po postprodukcji (wyrównanie głośności) materiał wpadł pod próg. Pary bez
+  zmian (1 → 1), więc nie było za co płacić taką stratą.
+- **`601` Exploding Borders — zyskała parę** (0 → 1, nowa 0,9181 z `592`) i
+  straciła treść w obu metrykach. Cofnięta: stara wersja ma 0 par.
+
+**`314` Revolutionist zostawiona, choć straciła treść w obu metrykach** —
+1,81 s w metryce audytowej, ale dokładnie **2,00 s w metryce odpornej na
+głośność**, i likwiduje parę (1 → 0; po cofnięciu wraca 0,9162 z `585`).
+Jej flagę `long_trail_silence` zdjęto trymem z r038 za zero kredytów
+(plik 4,00 → 2,31 s, treść bez zmian).
+
+**W całym korpusie tylko jedna nowa flaga**, ta właśnie na `314` — i to
+jedyna zmiana w zestawie flag. Flagi 54 → 54. Archetypy **0 / 33 / 145**,
+regresji brak. 0 bliźniaków, 0 poza oknem, LUFS −20,03 (odch. 0,31).
+
+**Naprawa generatora promptów.** Przy dopisywaniu wpisów do `OVERRIDES`
+wstawiałem tekst wieloliniowy jako **jeden element listy**, co psuło
+mapowanie „indeks listy → numer linii": każdy 6-liniowy wpis przesuwał je o 5,
+więc dopisanie lądowało za zamykającym nawiasem słownika, prosto w docstring
+następnej funkcji. Plik się kompilował, kluczy nie przybywało — objaw mylący,
+bo `py_compile` przechodził. Teraz tekst jest rozbijany na osobne linie
+i wstawiany w jednym przejściu od końca; kontrola `len(literal) == len(OVERRIDES)`
+wykrywa taki błąd od razu.
