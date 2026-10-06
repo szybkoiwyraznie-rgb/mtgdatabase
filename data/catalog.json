@@ -3870,6 +3870,34 @@
       "title": "Chocobo Kick",
       "story": "Na bezkresnych, zielonych równinach w pobliżu Zamku Baron w uniwersum Final Fantasy opierzone wierzchowce chocobo słyną ze swojej niezwykłej zwinności i szybkości. Choć z natury wydają się łagodnymi towarzyszami podróży, w obliczu zagrożenia potrafią z zawrotną prędkością zerwać się do niszczycielskiego ataku. W ułamku sekundy żółty ptak wykonuje potężny wyskok, z impetem wbijając obie szponiaste łapy w pancerz wroga pośród oślepiającej fali uderzeniowej. Legendarna siła tego uderzenia bez trudu odrzuca najcięższego przeciwnika, dowodząc, że wierzchowce królestwa potrafią walczyć z równą furią, co najlepsi rycerze.",
       "versions": []
+    },
+    {
+      "id": "261",
+      "art_id": "261CMR",
+      "title": "Universal Solvent",
+      "story": "W podziemnych skarbcach metropolii Ghirapur na planie Kaladesh najgrubsze rygle Konsulatu okazują się bezradne wobec renegackiego geniuszu. Wytrawny wynalazca Thamaz z dzielnicy Weldfast z chirurgiczną precyzją aplikuje pojedynczą kroplę uniwersalnego rozpuszczalnika na masywny zamek pancernych wrót. W gwałtownej reakcji chemicznej polerowany mosiądz i hartowana stal topnieją niczym wosk, bezgłośnie ustępując pod naporem żrących oparów. Ta niezwykła substancja dowodzi, że w świecie nieustannej innowacji nawet najbardziej skomplikowane przeszkody można bez trudu obrócić w płynną masę.",
+      "versions": []
+    },
+    {
+      "id": "263",
+      "art_id": "263MH1",
+      "title": "Man-o'-War",
+      "story": "W ciepłych, krystalicznych wodach oblewających wybrzeża krainy Femeref na Dominarii zachwycające piękno morskich stworzeń skrywa śmiertelne niebezpieczeństwo. Unoszący się tuż pod powierzchnią żeglarz wabi wzrok mieniącym się w słońcu, opalizującym fioletem i szafirem pęcherzem pławnym. Wystarczy jednak najlżejszy dotyk zwisających w toni parzydełek, by bolesne wyładowanie bioelektryczne zmusiło każdego drapieżnika do panicznej ucieczki na brzeg. Jak ostrzegała filozofka Naimah, w bezlitosnym świecie natury zachwyt nad powabną formą może w mgnieniu oka zamienić się w paraliżujące cierpienie.",
+      "versions": []
+    },
+    {
+      "id": "266",
+      "art_id": "266M19",
+      "title": "Druid of the Cowl",
+      "story": "W prastarych, nienaruszonych koronach Kaptura wznoszących się ponad metropolią Ghirapur elficcy druidzi strzegą najstarszego dziedzictwa planu Kaladesh. Wytrawna strażniczka puszczy stoi na omszałym konarze, skupiając w dłoniach życiodajną energię zielonego eteru. Pod wpływem emanującej z jej kostura magii uśpione pnącza natychmiast rozkwitają złotymi pąkami, nasycając powietrze orzeźwiającą, pierwotną mocą natury. Podczas gdy u stóp prastarych drzew nieustannie rosną mosiężne wieże cywilizacji, to zielone sanktuarium pozostaje bezpiecznym bastionem życia, które pamięta wzniesienie pierwszych miejskich budowli.",
+      "versions": []
+    },
+    {
+      "id": "269",
+      "art_id": "269CLB",
+      "title": "Scouting Hawk",
+      "story": "Na bezkresnych, falujących na wietrze równinach Bretagardu na planie Kaldheim zwiadowcy klanu Beskir polegają na bystrym wzroku swoich skrzydlatych towarzyszy. Młoda wojowniczka wypuszcza ze skórzanej rękawicy wytresowanego jastrzębia, który z potężnym trzepotem skrzydeł wzbija się w poranne niebo. Krążąc wysoko ponad skalnymi kurhanami, drapieżnik bez trudu dostrzega bezpieczne szlaki i żyzne pastwiska ukryte za linią odległego horyzontu. Dzięki niezrównanej czujności ptasiego przewodnika klanowe karawany zawsze jako pierwsze odnajdują drogę do nowych, nienaruszonych ziem Północy.",
+      "versions": []
     }
   ]
 }
