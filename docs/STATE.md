@@ -2649,3 +2649,25 @@ następnej funkcji. Plik się kompilował, kluczy nie przybywało — objaw myl�
 bo `py_compile` przechodził. Teraz tekst jest rozbijany na osobne linie
 i wstawiany w jednym przejściu od końca; kontrola `len(literal) == len(OVERRIDES)`
 wykrywa taki błąd od razu.
+
+### Bilans sesji po r039
+
+| runda | kart | generacji | pary przed → po | treść < 2 s | kredyty |
+|---|---|---|---|---|---|
+| r034 | 7 węzłów | 14 | 175 → 120 | 82 | 560 |
+| r035 | 7 węzłów | 14 | 120 → 99 | 80 | 560 |
+| r036 | 5 węzłów | 10 | 99 → 87 | 79 | 400 |
+| r037 | 7 węzłów | 14 | 87 → 81 | 78 | 560 |
+| **r038** | 4 (trym, `156` i `12` cofnięte) | — | 81 → 81 | 78 | **0** |
+| **r039** | 10 węzłów | 20 | **81 → 65** | **77** | **800** |
+| **razem** | | **72** | **175 → 65 (−63 %)** | 85 → 77 | **2880** |
+
+**Budżet (klucz wgrany 2026-10-06, 10 000 kredytów):** wydane **800**,
+zostaje **9200**. Liczba generacji pochodzi z `data/samples/generated-manifest.jsonl`.
+Stan konta nadal nie jest weryfikowalny z repo — manifest nie zapisuje, który
+klucz został użyty.
+
+**Najskuteczniejsza runda to ta z doborem po krawędziach grafu** (r039: −16 par
+za 800 kredytów, czyli 50 kr./parę) — lepiej niż r034 (−55 par za 560, czyli
+10 kr./parę, ale przy znacznie gęstszym grafie). Wniosek: im rzadszy graf, tym
+ważniejsze, żeby jedna regeneracja zdejmowała kilka krawędzi naraz.
