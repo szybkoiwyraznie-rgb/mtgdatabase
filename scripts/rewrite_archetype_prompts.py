@@ -778,6 +778,17 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # naprawieniu poprzedniej.
     "269": ("One piercing hawk screech as the loudest moment of the take, hitting hard at the very first instant, bright and high, with two quick wingbeats after it kept clearly quieter than the cry.",
             "jastrząb: jeden przenikliwy krzyk jako najgłośniejszy moment, uderzający w pierwszej chwili, potem dwa cichsze uderzenia skrzydeł", False),
+    # --- r033: dwie karty bez archetypu z flaga speech_like. Próg flagi to
+    # mod_2_8hz_ratio > 0,55 (tempo sylab) + voiced > 0,35 + centroid 300-3000 Hz,
+    # czyli NIE wykrywa mowy, tylko modulację w tempie sylab. Pięć pozostałych
+    # kart z tą flagą ma tonalność wymaganą kontraktem (forest_birdsong >= 0,25,
+    # temple_bell >= 0,5) albo wprost w scenariuszu, więc ich nie ruszam.
+    # Tu przyczyna jest w prompcie: 578 prosił o 'morning star WHISTLING',
+    # a gwizd to czysty ton.
+    "130": ("A harpy guarding her hoard: one harsh ragged broadband screech, rough grating and noisy rather than sung or tonal, curved talons clattering on cracked stone, loose bone trinkets rattling.",
+            "skrzek harpii strzegącej skarbu: jeden chrapliwy szerokopasmowy wrzask, szorstki i szumowy raczej niż śpiewny, szpony na pękniętym kamieniu", False),
+    "578": ("A beast's sudden reversal: hooves wrenching around in the mud, a heavy morning star sweeping full-circle with a broad low whoosh of displaced air, no whistle and no pitched tone, hunters scattering.",
+            "nagły zwrot bestii: kopyta w błocie, ciężki kiścień zatacza krąg z szerokim niskim świstem powietrza, bez gwizdu i bez tonu", False),
 }
 
 

@@ -1,4 +1,4 @@
-name: TEMP r032 atak wieloudarzeniowy + karty po drgnieciu
+name: TEMP r033 speech_like bez archetypu
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -20,6 +20,18 @@ name: TEMP r032 atak wieloudarzeniowy + karty po drgnieciu
 #  d) 216, 292, 568 - regresje cofniete w r031, prompt przepisany
 # Postprocess ZAWSZE z --ids ograniczonym do batchu i --max-gain-db 26 dla cichych
 # wariantow (w r032 wariant -33,21 LUFS wyszedl na -30,66 przy korpusie -20,02).
+#
+# r033: 2 warianty x 2 karty = 4 generacje x 40 kredytow = 160 kredytow.
+# Cel: flaga speech_like na kartach BEZ archetypu (130, 578). Próg flagi to
+# mod_2_8hz_ratio > 0,55 (tempo sylab) + voiced_fraction > 0,35 + centroid
+# 300-3000 Hz - czyli NIE wykrywa mowy, tylko modulację w tempie sylab.
+# Pięć pozostałych kart z tą flagą ma tonalność WYMAGANĄ kontraktem
+# (forest_birdsong tonal >= 0,25: 124, 187, 521; temple_bell tonal >= 0,5: 163)
+# albo wprost w scenariuszu (489 krystaliczny ton), więc ich NIE regeneruję -
+# zabicie flagi złamałoby kontrakt archetypu.
+# Tu przyczyna jest w samym prompcie: 578 prosił o 'morning star WHISTLING
+# full-circle', a gwizd to czysty ton (tonal 0,93); 130 'harsh ragged screech'
+# wyszedł tonalny (tonal 0,72, voiced 0,69), choć skrzek harpii ma być szumowy.
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -32,7 +44,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "269,228,382,3,558,496,118,164,168,493,49,216,292,568"
+  IDS: "130,578"
 
 jobs:
   variants:
@@ -43,13 +55,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r032]
+      - name: Guard — tylko commit z markerem [generate-r033]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r032]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r033]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r032] — nic nie generuję"
+            echo "brak markera [generate-r033] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -68,25 +80,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r032
+          mkdir -p variants/r033
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r032/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r033/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r032 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r032/v$v" 2>&1 | tee -a variants/r032/generate.log
+              --ids "$IDS" --batch r033 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r033/v$v" 2>&1 | tee -a variants/r033/generate.log
           done
-          ls -la variants/r032 variants/r032/v1 variants/r032/v2 || true
+          ls -la variants/r033 variants/r033/v1 variants/r033/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r032 data/samples/generated-manifest.jsonl
+          git add -f variants/r033 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r032: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r032]"
+            git commit -m "r033: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r033]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
