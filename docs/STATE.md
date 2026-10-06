@@ -2184,3 +2184,32 @@ nie defekt.
 **Kredyty: 2320 (r031) + 1120 (r032).** Z czwartego klucza (10 000) zostało
 ~2320. Korpus: **557** plików, 63 z flagą, 0 bliźniaków, 0 poza oknem 2–5 s,
 LUFS −20,03 (σ 0,31), treść < 2 s: 85.
+
+### Pogłos na kartach bez archetypu — zmierzone i odrzucone
+
+Właściciel dopuścił pogłos jako tanią naprawę krótkiej treści, więc został
+zmierzony na pełnej puli, nie na wrażenie. Kandydaci: **61 kart bez archetypu**
+z treścią < 2 s (średnio 1,78 s); 24 karty z archetypem pominięte, bo pogłos
+łamie ich kontrakty (zmierzone wcześniej: 0/70/104 → 6/73/95).
+
+**Wynik `--apply` na 61 kartach:** średnia treść 1,78 → 1,96 s, 31 kart
+przekroczyło 2,0 s — ale pojawiło się **7 par bliźniaków** przy utrzymywanym
+dotąd zerze (6 z 7 par to karty z tego batchu).
+
+**Sprawdzone wyjaśnienie i jego obalenie.** Hipoteza: bliźniaki biorą się z tej
+samej realizacji szumu w syntetycznym IR, więc różne `--seed` na kartę je
+rozklei. Zmierzone: **8 par**, czyli gorzej. Podobieństwo nie pochodzi z
+realizacji szumu, tylko ze wspólnego charakteru pogłosu — ten sam damping
+i ten sam kształt zaniku nakładają na różne dźwięki identyczny ogon, a odcisk
+porównuje właśnie ogon, bo u krótkich kart dominuje.
+
+**Decyzja: cofnięte.** 8 bliźniaków za +0,21 s średnio to zła wymiana, a zasada
+właściciela brzmi „dobre 2 sekundy są lepsze niż złe 4". Korpus wrócił do
+0 bliźniaków. Żeby pogłos był używalny, musiałby mieć **różny kształt zaniku na
+kartę** (inny czas, inny damping, inna predelay), nie tylko inne ziarno.
+
+Stan pozostałych 33 kart „prawdopodobnie" też jest zmierzony, nie zgadywany:
+**9** ma metrykę niesterowalną (`attack_s`, `mod_peak_hz` — model nie realizuje
+liczb), **24** dostało już celowany prompt pod tę samą cechę 2–3 razy bez
+efektu, **0 świeżych**. Dalsza regeneracja tej puli to loteria, więc kredyty
+zostały nie wydane.
