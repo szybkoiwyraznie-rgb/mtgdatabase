@@ -1,35 +1,25 @@
-name: TEMP r031 pkt 1 sterowalne + 4 nowe karty
+name: TEMP r032 atak wieloudarzeniowy + karty po drgnieciu
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
-# 2026-10-05: klucz odnowiony (10 000 kredytow, 40 na generacje). Workflow bez
-# markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma HTTP 403 na
-# workflow_dispatch, a sandbox nie siega *.blob.core.windows.net (nie da sie
-# pobrac logow runa), wiec warianty generujemy z triggera push markerowanego
-# ([generate-r031]) i commitujemy na galaz sesji razem z logiem generacji -
-# log w repo to jedyny sposob, zeby zobaczyc blad API z sandboxa.
+# Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
+# HTTP 403 na workflow_dispatch, a sandbox nie siega *.blob.core.windows.net, wiec
+# warianty generujemy z triggera push markerowanego ([generate-r032]) i commitujemy
+# na galaz sesji razem z logiem generacji.
 #
-# r031: 2 warianty x 29 kart = 58 generacji x 40 kredytow = 2320 kredytow.
-#
-# DWA ZADANIA W JEDNEJ RUNDZIE:
-# 1) PUNKT 1 - 25 kart naprawczych. Z 48 kart 'prawdopodobnie' (wszystkie z jednym
-#    zlamanie) wybrane te, ktorych metryka jest sterowalna promptem I ktore nie
-#    dostaly jeszcze celowanego promptu pod te ceche. Pomijam swiadomie:
-#      attack_s, mod_peak_hz - zmierzone w r031: model nie realizuje liczb w
-#        prompcie ('over a third of a second' -> attack 0,24 s; 'five or six times
-#        a second' -> mod_peak 1,10 / 1,36 / 1,55 / 1,64 / 17,39 Hz na tych samych
-#        slowach, czyli w oba konce okna)
-#      karty probowane 2-3x bez efektu: sword_clash/flatness (17,345,435,608),
-#        insect_swarm/centroid (81,98,106,456), wind_gust/centroid (103,492,513),
-#        robot_servo/onset (204,611), insect_swarm/tonal (31), earth_rumble (49,168)
-# 2) NOWA DOSTAWA - 4 fabuly dodane do katalogu (557 lacznie): 261 Universal
-#    Solvent (steam_hiss), 263 Man-o'-War (electric_zap), 266 Druid of the Cowl
-#    (magic_shimmer), 269 Scouting Hawk (beast_screech). Numery 261/263/266/269
-#    byly wolne, sufiks setu wycinany zgodnie z flow (261CMR -> fabula 261).
-# Wszystkie 29 kart maja archetyp, wiec import idzie przez pick_archetype_variant.py.
-# Postprocess ZAWSZE z --ids ograniczonym do batchu: w r029 uruchomiony globalnie
-# zmienil 540 z 553 plikow, a --fix-mono podnosi podobienstwo i wypchnal pare
-# 529/592 na cosine 0,9501. Dla cichych wariantow --max-gain-db 26, nie 15:
-# w r031 wariant -33,21 LUFS wyszedl na -30,66 przy korpusie -20,02.
+# r032: 2 warianty x 14 kart = 28 generacji x 40 kredytow = 1120 kredytow.
+# Karty wybrane POMIAREM, nie zgadywaniem:
+#  a) 269 Scouting Hawk - attack_s liczy sie WSTECZ OD GLOBALNEGO SZCZYTU energii,
+#     dopoki obwiednia jest powyzej szczyt-20 dB (audit_semantic_match.py L166-172).
+#     Przy dzwieku wieloudarzeniowym (krzyk + trzepot) szczyt wypada w pozniejszej
+#     sekcji, wiec kontrakt attack_s <= 0,15 wymaga, zeby najglosniejszy byl PIERWSZY
+#     cios. Zmierzony przypadek: szczyt 2,160 s, poczatek ataku 1,010 s -> 1,15 s.
+#  b) karty, ktore w r031 drgnely ku celowi: 228 ioi_cv 0,896 -> 0,647 (cel <= 0,6),
+#     382 decay_s 0,12 -> 0,31 (cel >= 0,8), 496 score 1,5 -> 1,0
+#  c) karty, ktore naprawily poprzednia metryke i dostaly NOWA: 3 (flatness ->
+#     centroid 9548), 558 (centroid -> sustain 0,083), a takze 118, 164, 168, 493, 49
+#  d) 216, 292, 568 - regresje cofniete w r031, prompt przepisany
+# Postprocess ZAWSZE z --ids ograniczonym do batchu i --max-gain-db 26 dla cichych
+# wariantow (w r032 wariant -33,21 LUFS wyszedl na -30,66 przy korpusie -20,02).
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -42,7 +32,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "3,4,40,96,113,118,126,156,164,173,216,226,228,231,253,257,265,292,382,493,496,558,562,568,610,261,263,266,269"
+  IDS: "269,228,382,3,558,496,118,164,168,493,49,216,292,568"
 
 jobs:
   variants:
@@ -53,13 +43,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r031]
+      - name: Guard — tylko commit z markerem [generate-r032]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r031]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r032]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r031] — nic nie generuję"
+            echo "brak markera [generate-r032] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -78,25 +68,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r031
+          mkdir -p variants/r032
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r031/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r032/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r031 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r031/v$v" 2>&1 | tee -a variants/r031/generate.log
+              --ids "$IDS" --batch r032 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r032/v$v" 2>&1 | tee -a variants/r032/generate.log
           done
-          ls -la variants/r031 variants/r031/v1 variants/r031/v2 || true
+          ls -la variants/r032 variants/r032/v1 variants/r032/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r031 data/samples/generated-manifest.jsonl
+          git add -f variants/r032 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r031: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r031]"
+            git commit -m "r032: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r032]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
