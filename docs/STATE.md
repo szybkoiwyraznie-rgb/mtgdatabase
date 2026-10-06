@@ -2465,3 +2465,54 @@ Zostawiona, bo pomiar bezpośredni pokazał **spadek z 2 par do zera** — jest 
 odróżnialna od każdej karty w korpusie, a to był cel nadrzędny rundy.
 
 Archetypy bez zmian: 0 / 33 / 145, regresji brak. **Kredyty: 400 w r036.**
+
+### r037 — czwarte piętro węzłów: 87 → 81 par
+
+Siedem kart bez archetypu, wybranych tak, żeby jedna regeneracja naprawiła dwa
+problemy naraz — pary **oraz** za krótką treść (`461` miała 1,40 s, najkrótszą
+w korpusie; `50` 1,71 s).
+
+**Wynik: pary w paśmie 0,90–0,95 spadły 87 → 81.** Postęp czterech rund:
+**175 → 120 → 99 → 87 → 81**.
+
+Treść urosła na pięciu z siedmiu: `104` 1,96 → 2,93 s, `461` 1,40 → 2,16,
+`222` 2,55 → 3,21, `395` 2,28 → 3,52, `419` 2,03 → 3,23. Karty z treścią < 2 s:
+79 → **78**.
+
+**Dwie karty zmierzone w obu metrykach, bo straciły w audytowej** (lekacja
+z r035 — audyt liczy `content_s = dur − lead − trail`, więc odejmuje też ciszę
+wiodącą, a porównywanie plików o różnej głośności progiem absolutnym jest
+mylące):
+
+- **`50` Dream Twist — zostawiona.** Pary **2 → 0** (`512` 0,9156 i `396` 0,9146
+  zniknęły). Treść mierzona od ostatniej ramki nad progiem 1,81 → 2,16 s; spadek
+  w audycie brał się z nowej ciszy wiodącej, więc trym `--trim-lead-s 0,15`
+  zdjął flagę (plik 3,56 → 3,04 s).
+- **`401` Rage of Purphoros — zostawiona.** Pary **4 → 2** (w tym zniknęła para
+  0,9405 z `153` Balamb Garden, najbliższa progowi w całym korpusie). Treść
+  względem własnego szczytu 2,41 → 2,83 s.
+
+**Trym ogona na `401` byłby szkodliwy** i nie został wykonany: zepchnąłby plik
+na ~1,98 s, czyli pod dolną granicę okna akceptacji.
+
+### Rozjazd definicji ciszy między narzędziami
+
+Trym `461` uciął 0,27 s zamiast oczekiwanych ~1,44 s i flaga
+`long_trail_silence` została. Przyczyna znaleziona w kodzie, nie zgadywana:
+`postprocess_samples.trim_trailing_silence()` szuka ciszy po **szczycie próbki**
+(`np.abs(data).max(axis=1) > −45 dB`), a audyt liczy `trail_silence_s` po **RMS
+ramki 10 ms**. Szczyt jest znacznie czulszy — pojedyncza próbka nad progiem
+wystarczy, żeby uznać miejsce za dźwięk. Pomiar bezpośredni:
+
+| karta | ostatnia próbka nad −45 dB (postprocess) | ostatnia ramka nad −45 dB (audyt) | różnica |
+|---|---|---|---|
+| `461` | 3,332 s | 2,280 s | **1,05 s** szumu |
+| `401` | 2,256 s | 1,640 s | **0,62 s** szumu |
+
+To nie błąd rundy, tylko rozjazd definicji: oba narzędzia używają progu −45 dB,
+ale jedno mierzy szczyt, drugie RMS. **Trym ogona nie zdejmie flagi
+`long_trail_silence` tam, gdzie w ogonie jest niskopoziomowy szum** — a nie
+prawdziwa cisza. Żeby to naprawić, `trim_trailing_silence()` musiałby szukać
+ciszy po RMS ramki, tak jak audyt.
+
+Archetypy bez zmian: 0 / 33 / 145, regresji brak. **Kredyty: 560 w r037.**
