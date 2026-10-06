@@ -1,4 +1,4 @@
-name: TEMP r037 czwarte pietro wezlow podobienstwa
+name: TEMP r039 piate pietro wezlow podobienstwa
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,25 +107,28 @@ name: TEMP r037 czwarte pietro wezlow podobienstwa
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# r037: 2 warianty x 7 kart = 14 generacji x 40 kredytow = 560 kredytow.
-# Cel: czwarte pietro WEZLOW podobienstwa. Postep: 175 -> 120 -> 99 -> 87 par
-# w pasmie kosinusa 0,90-0,95. Struktura sie splaszczyla - najwieksze wezly
-# maja teraz 3 pary (w r034 bylo 14).
+# r039: 2 warianty x 10 kart = 20 generacji x 40 kredytow = 800 kredytow.
+# Cel: piate pietro WEZLOW podobienstwa. Postep: 175 -> 120 -> 99 -> 87 -> 81 par
+# w pasmie kosinusa 0,90-0,95. Po r038 (trym ogona za 0 kredytow) struktura:
+# 100 kart w >=1 parze, 46 w >=2, 13 w >=3.
 # Wezly z najwieksza liczba par to karty TRAFIONE z kontraktami (562 Shock 5 par,
-# 261 Universal Solvent 4, 23/26/358 po 3) - celowo NIE ruszane, bo regeneracja
-# ryzykowalaby utrate trafienia.
-# Wzieiete 7 kart BEZ archetypu. Kryterium: pary ORAZ za krotka tresc, zeby
-# jedna regeneracja naprawila dwa problemy naraz:
-#   104 Glitch Ghost Surveyor   3 pary | tresc 1,96 s | centroid 2193 Hz
-#   222 Maritime Guard          3 pary | tresc 2,55 s | centroid 2272 Hz
-#   395 Unearth                 3 pary | tresc 2,28 s | centroid 3273 Hz
-#   419 Fear of Burning Alive   3 pary | tresc 2,03 s | centroid  917 Hz
-#   401 Rage of Purphoros       3 pary | tresc 2,06 s | centroid 6752 Hz
-#   461 Negate                  2 pary | tresc 1,40 s | centroid  460 Hz
-#   50  Dream Twist             2 pary | tresc 1,71 s | centroid  394 Hz
-# Prompty celowo krotkie (~150 zn), bo doklejka --fill-take wchodzi w limit 450
-# (lekcja z r036: EN 213 zn dalo 479 zn ladunku i walidator odrzucil zapis).
-# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034/r035/r036).
+# 261 Universal Solvent 4) - celowo NIE ruszane, bo regeneracja ryzykowalaby
+# utrate trafienia.
+# Wziete 10 kart BEZ archetypu, dobranych po krawedziach grafu, nie po kawalku:
+#   295 Fake Your Own Death   3 pary (515, 168, 180) | centroid 1047 Hz
+#   395 Unearth               3 pary (285, 153, 278) | centroid 7110 Hz
+#   314 Revolutionist         2 pary (577 0,9402 - najsilniejsza para korpusu)
+#   577 Thunderstaff          2 pary (314 0,9402, 264)
+#   155 Demolish              2 pary (243 0,9400, 601 0,9325)
+#   243 Willbender            2 pary (155, 601)
+#   601 Exploding Borders     2 pary (155, 243) - z 155 i 243 tworza trojkat
+#   84  Garruk's Companion    2 pary (255, 121) | tresc 1,62 s
+#   57  Veiled Ascension      3 pary (265, 160, 62) | centroid 270 Hz
+#   272 Feral Invocation      2 pary (59, 450) | tresc 1,78 s
+# Razem pokrywamy 16 krawedzi grafu. 84 i 272 maja tez za krotka tresc, wiec
+# dostaly powtorzenia (dopuszczone przez wlasciciela: dwa szczekniecia zamiast
+# jednego, 3 uderzenia).
+# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r039).
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -138,7 +141,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "104,461,50,222,395,419,401"
+  IDS: "295,395,314,577,155,243,601,84,57,272"
 
 jobs:
   variants:
@@ -149,13 +152,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r037]
+      - name: Guard — tylko commit z markerem [generate-r039]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r037]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r039]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r037] — nic nie generuję"
+            echo "brak markera [generate-r039] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -174,25 +177,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r037
+          mkdir -p variants/r039
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r037/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r039/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r037 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r037/v$v" 2>&1 | tee -a variants/r037/generate.log
+              --ids "$IDS" --batch r039 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r039/v$v" 2>&1 | tee -a variants/r039/generate.log
           done
-          ls -la variants/r037 variants/r037/v1 variants/r037/v2 || true
+          ls -la variants/r039 variants/r039/v1 variants/r039/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r037 data/samples/generated-manifest.jsonl
+          git add -f variants/r039 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r037: 70 wariantow archetypowych (35 kart x 2) + log generacji [import-r037]"
+            git commit -m "r039: 20 wariantow (10 kart x 2) + log generacji [import-r039]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

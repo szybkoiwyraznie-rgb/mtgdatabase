@@ -822,8 +822,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "aven pikuje w zimnych prądach: wiatr świszczy wysoko i cienko, skrzydła składają się, grot rozbłyska szklistym tonem", False),
     "448": ("A chaos spire erupting from a street: cobblestones bursting upward with sharp stone cracks, a crystal spike grinding skyward, rainbow discharges snapping off its facets.",
             "iglica chaosu wybucha z ulicy: bruk trzaska ostro, kryształowy kolec zgrzyta w górę, tęczowe wyładowania strzelają", False),
-    "57": ("Silk-robed figures rising into the sky: heavy fabric billowing open with a soft rushing rustle as the loudest moment, one uplift whoosh climbing higher, a faint shimmer above.",
-            "postacie w jedwabiach wznoszą się w niebo: ciężka tkanina rozkłada się z miękkim szelestem, uniesienie pnie się w górę", False),
+    "57": (
+        "Silk robes billowing open: a long bright rustle of heavy fabric "
+        "unfolding and climbing upward, a shimmering thread above it. " + NO_M,
+        "jedwabne szaty rozkładają się: długi jasny szelest ciężkiej tkaniny pnącej się w górę, nad nią lśniąca nić",
+        False,
+    ),
     "550": ("A frost lynx freezing its prey: one leap, a touch, then ice snapping shut in a spreading series of sharp crystalline cracks, a bear's roar cut short mid-breath.",
             "mroźny ryś zamraża ofiarę: skok, dotyk, lód zatrzaskuje się serią ostrych kryształowych pęknięć, ryk urywa się", False),
     "438": ("Old ruins rotting into new soil: dead leaves crumbling with a dry papery rustle as the loudest moment, buried artifacts flaking apart, green pulses quickening beneath.",
@@ -860,12 +864,64 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "ciężkie księgi spadają i rozpływają się: trzy głuche uderzenia, każde urywa się w zimną migoczącą mgłę", False),
     "222": ("A merfolk guard sounding a shell horn over a storm coast: one long low blast curling out as the loudest moment, waves crashing and spray hissing beneath.",
             "morski strażnik dmie w muszlę nad sztormowym brzegiem: jeden długi niski sygnał, pod nim fale i syk piany", False),
-    "395": ("A corpse unearthed by rain: mud bursting upward in a wet heavy spray, rusted armour grinding free of the grave, gravel and roots tearing loose.",
-            "zmarły przebija się przez mokrą ziemię: błoto wybucha w górę, zardzewiała zbroja zgrzyta, żwir i korzenie się rwą", False),
+    "395": (
+        "Mud erupting in three wet heavy bursts, then rusted armour grinding "
+        "free with a long metallic scrape. Low and close. " + NO_M,
+        "błoto wybucha trzema mokrymi uderzeniami, potem zardzewiała zbroja zgrzyta długim metalicznym zgrzytem",
+        False,
+    ),
     "419": ("A fear of burning made flesh: a crushing heatwave rolling off a smouldering figure, paint blistering and peeling with sharp cracks, embers popping close.",
             "lęk przed spaleniem przybiera ciało: miażdżąca fala gorąca, farba pęcherzy i łuszczy się z ostrym trzaskiem", False),
     "401": ("Red hot metal searing and melting: a fierce sustained hiss, metal skin warping with sharp cracking pops, droplets of molten metal spitting and sizzling.",
             "rozżarzony metal topi się: ostry nieustanny syk, skóra metalu wygina się z trzaskiem, krople pryskają", False),
+    "295": (
+        "Wooden crate dragged across bare boards in three slow rasping "
+        "scrapes, each one ending in a hollow wooden knock. Dry and close. " + NO_M,
+        "drewniana skrzynia wleczona po deskach: trzy powolne zgrzyty, każdy kończy się głuchym stuknięciem",
+        False,
+    ),
+    "314": (
+        "Loose pages fluttering in a rapid bright flutter, dozens of crisp "
+        "paper edges clipping and snapping. Light and dry. " + NO_M,
+        "luźne karty trzepoczą w szybkim wirze: dziesiątki ostrych brzegów papieru strzelają i trzaskają, lekko i sucho",
+        False,
+    ),
+    "577": (
+        "An iron staff slamming down on stone: one deep ringing metallic "
+        "impact, then sharp electric arcs crackling bright above it. " + NO_M,
+        "żelazna laska uderza w kamień: jedno głębokie dzwoniące uderzenie metalu, nad nim ostre trzaski łuków",
+        False,
+    ),
+    "155": (
+        "A sharp detonation crack first, then a stone archway collapsing in a "
+        "long grinding rumble with bright debris spattering. " + NO_M,
+        "najpierw ostry trzask detonacji, potem kamienny łuk wali się w długim zgrzycie z jasnym pryskaniem odłamków",
+        False,
+    ),
+    "243": (
+        "A bolt of energy shrieking upward in a rising pitch sweep that bends "
+        "and curves, ending in a sharp hiss of quenching steam. " + NO_M,
+        "piorun energii z piskiem wznosi się w górę, skręca z toru i kończy ostrym sykiem gasnącej pary",
+        False,
+    ),
+    "601": (
+        "Viscous lava shoving into old forest: thick bubbling blasts and wet "
+        "hissing, ancient trunks bursting into flame one after another. " + NO_M,
+        "lepka lawa wciska się w las: gęste bulgoczące wybuchy i mokry syk, prastare pnie jeden po drugim stają w płomieniach",
+        False,
+    ),
+    "84": (
+        "A huge beast trampling a dead log: three loud dry cracks of "
+        "splintering wood in a row, each one snapping sharply. " + NO_M,
+        "wielka bestia tratuje zwalony pień: trzy głośne suche trzaski pękającego drewna, jeden za drugim",
+        False,
+    ),
+    "272": (
+        "Vines sprouting and wrapping tight around an arm: three sharp "
+        "creaking tightenings of green stems, then a low growl. " + NO_M,
+        "pnącza wyrastają i oplatają ramię: trzy ostre skrzypiące napięcia zielonych łodyg, potem niski warkot",
+        False,
+    ),
 }
 
 
