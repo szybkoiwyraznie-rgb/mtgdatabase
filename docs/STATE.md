@@ -2248,3 +2248,20 @@ w r026 („no bright ticking and no hiss" → centroid 163 Hz).
 
 **Kredyty: 160 w r033.** Korpus: 557 plików, 60 z flagą, 0 bliźniaków, 0 poza
 oknem 2–5 s, LUFS −20,03 (σ 0,31), `speech_like` 7 → 6.
+
+### Trym ogonów ciszy — podział puli pomiarem, nie „na oko"
+
+`long_trail_silence` miał 14 kart, ale trym nie jest dla wszystkich bezpieczny:
+obcięcie ogona skraca plik, więc tam, gdzie treść sama ma mniej niż 2,0 s,
+zepchnąłby plik pod dolną granicę okna akceptacji. Pomiar rozdzielił pulę:
+
+**8 bezpiecznych** (treść ≥ 2,0 s) — trymnięte z `--trim-trail-s 0,40`:
+`18` 4,00 → 3,01 s, `20` → 2,98, `67` → 2,83, `156` → 2,95, `298` → 3,95,
+`308` → 2,58, `320` → 3,36, `514` → 2,79. **Wszystkie 8 utrzymało werdykt**
+(6 „trafiony" i 2 poza audytem archetypów).
+
+**6 ryzykownych zostawionych w spokoju** — `4` (treść 0,45 s przy ogonie 3,55 s),
+`12` 1,80 s, `17` 1,17 s, `113` 1,24 s, `435` 1,74 s, `531` 1,17 s. Obcięcie
+ogona obniżyłoby plik pod 2,0 s, a to jest kryterium akceptacji właściciela.
+
+Flagi w korpusie: 60 → **54**. Archetypy bez zmian: 0 / 33 / 145.
