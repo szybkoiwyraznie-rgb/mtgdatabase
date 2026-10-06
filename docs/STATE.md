@@ -2435,3 +2435,33 @@ przy 156 po imporcie. Generator podmienia teraz istniejące wpisy przez `ast`,
 zamiast dopisywać.
 
 Archetypy bez zmian: 0 / 33 / 145, regresji brak. **Kredyty: 560 w r035.**
+
+### r036 — trzecie piętro węzłów: 99 → 87 par
+
+Pięć kart bez archetypu (`487`, `592`, `238`, `22`, `32`). Z listy węzłów
+**odrzucono sześć**, bo są „trafione" z kontraktami i regeneracja ryzykowałaby
+utratę trafienia: `562` Shock (`thunder_clap`), `343` Puppeteer Clique
+(`temple_bell`), `261` Universal Solvent (`steam_hiss`), `23` Brightwood Tracker
+(`temple_bell`), `26` Ember Beast (`stone_slide`), `358` Frontline War-Rager
+(`creature_roar`).
+
+**Wynik: pary w paśmie 0,90–0,95 spadły 99 → 87.** Postęp trzech rund:
+**175 → 120 → 99 → 87**.
+
+Treść poprawiła się na czterech z pięciu: `592` 1,73 → 2,70 s, `238` 2,19 → 3,50,
+`32` 2,35 → 2,99, `22` 2,45 → 2,57; `487` 2,86 → 2,61 s (ta karta w r035 wyszła
+za krótka — 1,09/1,30 s — i była cofnięta; teraz prompt jawnie rozkłada cztery
+uderzenia na cały take i przeszła). Karty z treścią < 2 s: 80 → **79**.
+
+**`487` — limit długości promptu.** Pierwszy zapis odrzucił walidator:
+479 znaków przy limicie 450. Przyczyna: generator sprawdzał `api_text_length`
+**bez doklejki `--fill-take`**, która dopisuje boilerplate „Signature sound of
+the card…". Skrócenie EN z 213 do 157 znaków przeszło.
+
+**`32` Shipwreck Moray — cel osiągnięty kosztem barwy.** Karta zyskała treść, ale
+centroid spadł 440 → 161 Hz i doszły flagi `boomy,dull`, czyli poszła głębiej
+w niski huk zamiast z niego wyjść; chmury bąbli z promptu model nie zrealizował.
+Zostawiona, bo pomiar bezpośredni pokazał **spadek z 2 par do zera** — jest teraz
+odróżnialna od każdej karty w korpusie, a to był cel nadrzędny rundy.
+
+Archetypy bez zmian: 0 / 33 / 145, regresji brak. **Kredyty: 400 w r036.**
