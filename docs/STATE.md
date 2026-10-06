@@ -2332,3 +2332,33 @@ Karta przywrócona ze stanu sprzed trymu: treść 2,090 s, plik 4,00 s, werdykt
 `duration_s ≥ 2,0`, ale też **`content_s ≥ 2,0` po operacji** — bo to treść jest
 kryterium akceptacji, a nie długość pliku. Z ośmiu trymniętych kart siedem miało
 zapas ≥ 0,05 s i przeszło bez szkody; `156` nie miało.
+
+### Dlaczego pogłos tworzy bliźniaki — pomiar strukturalny, nie hipoteza
+
+Wcześniejszy wniosek („podobieństwo bierze się ze wspólnego charakteru pogłosu,
+nie z realizacji szumu") był **tylko częściowo prawdziwy**. Test kontrolowany na
+11 kartach, które wcześniej utworzyły pary, rozdzielił przyczyny:
+
+| stan | pary ≥ 0,95 | `550/614` | `529/592` | średnia treść |
+|---|---|---|---|---|
+| przed pogłosem | 0 | 0,9031 | 0,9475 | 1,87 s |
+| A — wspólne parametry | **2** | 0,9559 | 0,9507 | 2,17 s |
+| B — inne per karta (damping 2600–9000 Hz, pre-delay 4–30 ms, wet 8–16 dB, ziarno) | **1** | 0,9517 | **0,9317** | 2,15 s |
+
+Zróżnicowany charakter pogłosu **pomaga** (2 → 1) i jedną parę wręcz oddala od
+progu (0,9475 → 0,9317), ale pary nie znosi. Prawdziwa przyczyna jest inna
+i mierzalna na całym korpusie:
+
+**Korpus siedzi tuż pod progiem bliźniaków.** Par w paśmie 0,90–0,95 jest **175**,
+a najbliżej progu: `160/290` 0,9489 (brak 0,0011), `529/592` 0,9475, `479/529`
+0,9462, `287/290` 0,9435. Z tych 175 par **89 dotyczy co najmniej jednej karty
+z treścią < 2 s** (18 — obu, 71 — jednej).
+
+Czyli: doklejenie ogona do 85 krótkich kart działa na 89 par, którym wystarczy
+podbić kosinus o mniej niż 0,05, żeby przekroczyły próg. **Pogłos nie tworzy
+podobieństwa — on je odsłania.** Każda operacja dodająca wspólny składnik
+(syntetyczny ogon, wspólny szum, ten sam filtr) zrobi to samo.
+
+**Decyzja ostateczna: pogłos odrzucony**, i to nie z powodu samego pogłosu, tylko
+dlatego że korpus nie ma zapasu. Żeby go użyć, trzeba by najpierw odsunąć od
+progu same karty — a to wymaga regeneracji, czyli kredytów.
