@@ -2312,3 +2312,23 @@ metryki, która tu nie opisuje wady.
 
 To zamyka przegląd flag: z 52 pozostałych żadna nie jest jednocześnie prawdziwą
 wadą i bezpieczną do naprawy za zero kredytów.
+
+### Poprawka: `156` cofnięte z trymu ogonów
+
+Licznik „treść < 2 s" pokazał 86 zamiast oczekiwanych 85. Przyczyna znaleziona
+porównaniem stanów: **`156` (heavy_impact) — treść 2,090 → 1,949 s**, czyli
+trym ogona z `--trim-trail-s 0,40` obciął 0,14 s treści na karcie, która była
+tylko 0,09 s nad progiem.
+
+Założenie „trym ogona nie rusza treści" jest **prawie** prawdziwe: `postprocess`
+mierzy treść po fade, więc fade na końcu skraca mierzony ogon dźwięku, nie tylko
+ciszę. Dla kart z zapasem (2,2 s i więcej) to niewidoczne; dla karty 0,09 s nad
+progiem — decydujące.
+
+Karta przywrócona ze stanu sprzed trymu: treść 2,090 s, plik 4,00 s, werdykt
+„trafiony". Licznik wrócił do 85.
+
+**Wniosek do zasady:** przy trymie ogona trzeba sprawdzać nie tylko
+`duration_s ≥ 2,0`, ale też **`content_s ≥ 2,0` po operacji** — bo to treść jest
+kryterium akceptacji, a nie długość pliku. Z ośmiu trymniętych kart siedem miało
+zapas ≥ 0,05 s i przeszło bez szkody; `156` nie miało.
