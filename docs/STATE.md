@@ -2213,3 +2213,38 @@ Stan pozostałych 33 kart „prawdopodobnie" też jest zmierzony, nie zgadywany:
 liczb), **24** dostało już celowany prompt pod tę samą cechę 2–3 razy bez
 efektu, **0 świeżych**. Dalsza regeneracja tej puli to loteria, więc kredyty
 zostały nie wydane.
+
+### r033 — `speech_like`: pięć fałszywych alarmów, jedna prawdziwa naprawa
+
+Siedem kart miało flagę `speech_like`, a mowa jest zakazana zawsze, więc wyglądało
+to na naruszenie zasady. Pomiar pokazał co innego: próg flagi to
+`mod_2_8hz_ratio > 0,55` (energia modulacji w tempie sylab) + `voiced_fraction
+> 0,35` + centroid 300–3000 Hz. **Flaga nie wykrywa mowy**, tylko modulację
+w tempie sylab — sam audyt oznacza ją „DO ODSŁUCHU, pewność niska, weryfikacja
+uchem". Wszystkie siedem kart siedziało tuż nad progiem (0,566–0,847).
+
+**Pięciu kart nie wolno ruszać**, bo właściwość odpalająca flagę jest wymagana:
+`124`, `187`, `521` (`forest_birdsong`, kontrakt `tonal_frame_fraction ≥ 0,25` —
+szybkie trele to z natury modulacja 2–8 Hz), `163` (`temple_bell`, `tonal ≥ 0,5`),
+`489` („narastający krystaliczny ton" wprost w scenariuszu). Zabicie flagi
+złamałoby kontrakt archetypu.
+
+Dwie karty bez archetypu nie miały tego konfliktu, a przyczyna była w prompcie.
+Wynik jednak rozdzielił się:
+
+- **`130` Scavenging Harpy — naprawione.** Prompt mówił „harsh ragged screech",
+  a wyszedł tonalny (tonal 0,72, voiced 0,69). Po zapisaniu wprost „rough grating
+  and noisy rather than sung or tonal": mod 0,579 → 0,371, voiced 0,69 → 0,04,
+  tonal 0,72 → 0,00, **0 flag**, treść 2,17 → 3,75 s.
+- **`578` Savage Surge — cofnięte.** Stary prompt prosił o „morning star
+  WHISTLING full-circle" (gwizd = czysty ton, tonal 0,93). Nowy mówił „broad low
+  whoosh of displaced air, no whistle and no pitched tone" i przesterował
+  w drugą stronę: **centroid 2546 → 35 Hz**, cztery nowe flagi
+  (`sub_dominant`, `muffled`, `boomy`, `dull`) zamiast jednej.
+
+Wniosek: zakaz konkretnego elementu („no whistle, no pitched tone") bez podania,
+co ma zostać w zamian, zdejmuje całe pasmo. To ten sam mechanizm co `610`
+w r026 („no bright ticking and no hiss" → centroid 163 Hz).
+
+**Kredyty: 160 w r033.** Korpus: 557 plików, 60 z flagą, 0 bliźniaków, 0 poza
+oknem 2–5 s, LUFS −20,03 (σ 0,31), `speech_like` 7 → 6.
