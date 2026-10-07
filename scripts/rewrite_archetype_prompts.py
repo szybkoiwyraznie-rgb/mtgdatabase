@@ -1118,10 +1118,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "589": (
-        "An acidic slime digests an armory: three separate steel fittings "
-        "fizz and slump into liquid, bright bubbles pop one by one, then the "
-        "last acid drip sizzles on stone.  " + NO_M,
-        "kwasowy szlam trawi zbrojownię: trzy stalowe elementy osobno syczą i zapadają się w ciecz, jasne pęcherze pękają jeden po drugim, a ostatnia kropla kwasu skwierczy na kamieniu",
+        "Acid slime eats steel: plates bend with a wet creak, three heavy "
+        "bubbles glug and burst; one sticky drop plops into a stone bowl. "
+        "Keep the gurgle close and the pops crisp. " + NO_M,
+        "szlam kwasowy zjada stal: płyty wyginają się z mokrym skrzypnięciem, trzy ciężkie pęcherze bulgoczą i pękają; lepka kropla kapie do kamiennej misy. Bulgotanie jest bliskie, pęcherze wyraziste",
         False,
     ),
     "242": (
