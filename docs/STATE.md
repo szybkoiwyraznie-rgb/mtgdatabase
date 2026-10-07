@@ -3695,3 +3695,76 @@ odłożyć.
 
 **r034–r055: 330 generacji, 175 → 21 par (−88 %), treść < 2 s 41 → 21.**
 Nowy klucz: 1280 / 10 000, zostaje **8720** (~13 rund po 8 kart).
+
+### r056 — runda zerowa: osiem świeżych kart, zero przyjętych
+
+640 kredytów, 16 generacji, 8 kart. **Żadna nie przeszła.** Eksperyment z
+dwoma długościami take'u, który miał otworzyć cztery karty blokowane
+górnym progiem `decay_s` (odkładane od r054), nie dowiózł żadnej z nich.
+
+| id | karta | archetyp | treść przed | treść po | werdykt | co nie wyszło |
+|----|-------|----------|-------------|----------|---------|---------------|
+| 583 | Kill Shot | arrow_flight | 0,21 s | 0,28 s | → prawdopodobnie | flatness 0,040 (≥ 0,1) |
+| 232 | Goblin Piker | plate_clank | 0,98 s | 0,19 s | → **nie trafiony** | onset_count 0 + flatness 0,018 |
+| 71 | Security Rhox | heavy_impact | 1,40 s | 0,94 s | trafiony | treść się **skurczyła** |
+| 469 | Chained Throatseeker | chain_rattle | 1,99 s | 2,06 s | trafiony | +0,07 s, ale nowa flaga `harsh` |
+| 4 | Mystic Sanctuary | water_splash | 0,45 s | 1,92 s | → prawdopodobnie | attack_s 0,670 (≤ 0,1) |
+| 558 | White Mage's Staff | temple_bell | 1,72 s | 1,26 s | → prawdopodobnie | centroid 3095 (≤ 3000), treść w dół |
+| 269 | Scouting Hawk | beast_screech | 1,84 s | 3,39 s | → prawdopodobnie | attack_s 0,820 (≤ 0,15) |
+| 26 | Ember Beast | stone_slide | 1,98 s | 3,07 s | → prawdopodobnie | decay_s 0,060 (≥ 0,5) |
+
+**`469` odrzucona mimo zachowanego werdyktu.** Jako jedyna przeszła
+kontrakt (`onset_count` 15, `decay_s` 0,120, centroid 12 972 ≥ 2000), ale
+przyrost treści to **+0,07 s**, a cena to nowa flaga `harsh` i skok
+centroidu 5096 → 12 972 Hz. Flagi korpusu wróciłyby do 54 za zysk, którego
+nie słychać. **Zasada: przyrost poniżej ~0,3 s nie jest wart nowej flagi.**
+
+**Co się sprawdziło:** projekt „zdarzenia rozdzielone przerwami" **działa**
+na `decay_s` — `469` dostała `decay_s` 0,120 i `onset_count` 15, `71`
+dostała `decay_s` 0,100 i `onset_count` 5. Cztery karty z górnym progiem
+`decay_s` przestały na nim przegrywać. Przegrały na **innych** metrykach.
+
+**Co się nie sprawdziło — trzy diagnozy:**
+
+1. **Krótki take (2,5 s) się nie wypełnia.** Grupa A dostała treść
+   0,19–2,06 s w pliku 2,48 s, czyli 8–83 % wypełnienia. Grupa B (4,0 s)
+   dostała 1,26–3,39 s, czyli 31–85 %, i to tam były najdłuższe wyniki.
+   **Wniosek: `duration_seconds` to ramka, a nie cel — 4,0 s daje modelowi
+   miejsce na treść, 2,5 s nie.** Eksperymentu z krótszym take'em nie
+   warto powtarzać bez zmiany promptu.
+2. **`onset_count = 0` trzeci raz z rzędu.** Po `113` i `434` z r055 teraz
+   `232`: prompt mówi „eight hard steel plate clanks", model robi jedną
+   ciągłą teksturę (flatness 0,018, tonal 0,923). Trzy karty w dwóch
+   rundach — to dziś **dominantny tryb porażki**.
+3. **`attack_s` rośnie, choć prompt mówi „at the very first instant".**
+   `4` 0,670 s, `269` 0,820 s, `558` 0,200 s. Model buduje narastanie
+   zamiast uderzyć. Samo sformułowanie nie wystarcza.
+
+**Koszt i stan:** 640 kredytów, korpus bez zmiany — 557 MP3, **53 flagi**,
+0 bliźniaków, **21 par**, treść < 2 s **21**, 0 poza 2–5 s, LUFS −20,08
+(odch. 0,48), archetypy **0 / 33 / 145**. Testy 6 OK, walidator 557/557
+(exit 0), site + ZIP 557.
+
+**r034–r056: 346 generacji, 175 → 21 par (−88 %), treść < 2 s 41 → 21.**
+Nowy klucz: 1920 / 10 000, zostaje **8080** (~12 rund po 8 kart).
+
+### Osobny defekt znaleziony przy okazji r056: 36 kart ma opis nie tego dźwięku co w pliku
+
+Porównanie `sample_scenario` z commitem, w którym dany MP3 zmienił się
+ostatni raz, pokazuje **36 / 557 kart (6,5 %)**, których opis na stronie
+nie odpowiada audio na dysku. Mechanizm zawsze ten sam: runda zmienia
+prompt i scenariusz, generuje, odrzuca wynik i cofa **plik**, ale
+**tekst zostaje nowy**. Przykłady:
+
+- `292` — plik: „łopot zwoju pergaminu i klekot drewnianych okiennic na
+  wietrze", tekst: „wiatr przetacza się przez górską przełęcz: szeroki
+  szumiący nurt powietrza…".
+- `145` — plik: „metalowy huk pękającej stalowej kapsuły", tekst:
+  „komora klonująca otwiera się w trzech etapach…".
+- `98` — plik: „wir świetlistych motyli wstrzymujący skok wampira",
+  tekst: „rój osiada na drewnie: jeden jednostajny ton bzyczenia…".
+
+Strona i ZIP pokazują te opisy (`build_site.py`: 557 scenariuszy), więc
+użytkownik czyta opis dźwięku, którego nie usłyszy. **Naprawa nie kosztuje
+kredytów** — wystarczy przywrócić `sample_scenario` i `prompt` z commitu,
+w którym plik audio zmienił się ostatni raz.
