@@ -1,4 +1,4 @@
-name: TEMP b072b regeneracja - 324 Spineseeker Centipede i 325 Narset's Rebuke
+name: TEMP b072c trzecia proba - tylko 325 Narset's Rebuke (crest)
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,41 +107,38 @@ name: TEMP b072b regeneracja - 324 Spineseeker Centipede i 325 Narset's Rebuke
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# b072b: REGENERACJA obu kart. 2 warianty x 2 karty = 4 generacje
-# x 40 kredytow = 160 kredytow (lacznie z pierwsza proba: 320).
+# b072c: TRZECIA PROBA, tylko karta 325. 2 warianty x 1 karta = 2
+# generacje x 40 kredytow = 80 kredytow (lacznie z b072 i b072b: 400).
 #
-# Pierwsza proba (b072) nie dowiozla kontraktow. Diagnoza per karta:
+# 324 ZAMKNIETA w b072b/v1 — wszystkie warunki mechanism_click spelnione:
+#   centroid 3224 (okno 800-6000)  crest 29,8 (>= 16)
+#   onset_count 20 (>= 3)          ioi_cv 0,521 (<= 0,8)
+#   Poprzednio 8072 i 6647 — prompt „hollow and woody LOW in the middle
+#   of the range" sciagnal centroid o polowe. Dziala, nie ruszac.
 #
-#  324 mechanism_click — oba warianty ZA JASNE: centroid 8043 (v1) i
-#      6676 (v2) przy kontrakcie 800-6000. Winny prompt:
-#      „bright and brittle in the upper middle". Model poszedl w syk.
-#      tame_spectrum.py dowiozlby okno (korekta -12 dB), ale to za
-#      duza ingerencja w NOWA karte — regeneracja jest tansza niz
-#      dzwiek przeciagniety korektorem.
-#      Nowy prompt: „hollow and woody LOW in the middle of the range".
-#      Cel: centroid 2000-4000.
-#  325 thunder_clap — oba warianty bez transjentu: crest 11,8 (v1) i
-#      10,8 (v2) przy kontrakcie >= 18, do tego mid_up 0,07 / 0,01
-#      (wymagane >= 0,08). Model zrobil jednostajny niski pomruk
-#      zamiast uderzenia. Tego zadne EQ nie doda — transjent musi
-#      wyjsc z generacji.
-#      Nowy prompt: „peaks INSTANTLY and hard" + „the dull rasp of
-#      shattered stone on top" (mid_up, ale „dull", zeby centroid nie
-#      wyjechal powyzej 800 Hz).
+# 325 thunder_clap — zostaje JEDEN warunek: crest_db >= 18.
+#   b072:  11,8 / 11,1  (do tego mid_up 0,08 / 0,01)
+#   b072b: 16,9 / 13,0  — v1 ma juz centroid 850 (prawie, limit 800),
+#          low_all 0,73, mid_up 0,27, decay 0,61. Brakuje 1,1 dB crestu.
 #
-# Kontrakty bez zmian:
-#  324 mechanism_click  onset>=3  crest>=16  centroid 800-6000  ioi_cv<=0,8
-#  325 thunder_clap     low_all>=0,5  centroid<=800  crest>=18
-#                       decay_s>=0,5  mid_up>=0,08
-# Take 4,0 s dla obu. Ladunek API: 441 i 448 / 450.
+# Dlaczego regeneracja, a nie EQ: crest_db = 20log10(peak/rms).
+#   - renormalizacja LUFS skaluje peak i RMS rowno -> crest bez zmiany;
+#   - półka tnąca górę (tame_spectrum) obcina przede wszystkim
+#     szerokopasmowy transjent, wiec crest SPADA zamiast rosnac.
+#   Nie ma w repo narzedzia do obwiedni (expander/gate), wiec szczyt
+#   musi wyjsc z generacji.
 #
-# REGENERACJA — dwie rzeczy, ktore trzeba zrobic, inaczej run idzie na
-# sucho (zero kredytow, zero plikow, log "No selected ready scenario"):
-#   1. batch w scenarios.jsonl MUSI byc rowny --batch z tego workflow
-#      (select_rows filtruje po row["batch"]). Przy pierwszym odpaleniu
-#      b072b wpisy mialy wciaz batch=b072 -> 0 wybranych.
-#   2. manifest NIE blokuje generacji (to out_file.exists() w --out),
-#      wiec czyszczenie go nie jest potrzebne i tylko kasuje historie.
+# Nowy prompt uczy model RELACJI POZIOMOW, nie tylko barwy:
+#   „one instantaneous hard crack struck in a single frame, then a long
+#    rolling tail of shattered stone that stays far quieter than the
+#    impact and never competes with it".
+#   Cel: crest >= 18 przy centroidzie <= 800. Ladunek API 445 / 450.
+#
+# Kontrakt thunder_clap: low_all>=0,5  centroid<=800  crest>=18
+#                        decay_s>=0,5  mid_up>=0,08
+# Take 4,0 s. UWAGA: --batch MUSI zgadzac sie z polem batch w
+# scenarios.jsonl (rowniez dla 325: b072b -> b072c), inaczej run idzie
+# na sucho.
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -154,7 +151,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "324,325"
+  IDS: "325"
 
 jobs:
   variants:
@@ -165,13 +162,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-b072b]
+      - name: Guard — tylko commit z markerem [generate-b072c]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b072b]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b072c]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b072b] — nic nie generuję"
+            echo "brak markera [generate-b072c] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -190,25 +187,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b072b
+          mkdir -p variants/b072c
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/b072b/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b072c/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch b072b --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b072b/v$v" 2>&1 | tee -a variants/b072b/generate.log
+              --ids "$IDS" --batch b072c --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b072c/v$v" 2>&1 | tee -a variants/b072c/generate.log
           done
-          ls -la variants/b072b variants/b072b/v1 variants/b072b/v2 || true
+          ls -la variants/b072c variants/b072c/v1 variants/b072c/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b072b data/samples/generated-manifest.jsonl
+          git add -f variants/b072c data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "b072b: 16 wariantow (8 kart x 2) + log generacji [import-b072b]"
+            git commit -m "b072c: 16 wariantow (8 kart x 2) + log generacji [import-b072c]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
