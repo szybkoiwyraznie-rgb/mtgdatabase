@@ -3789,3 +3789,66 @@ wysłaniem (obadwa wywalają CI, a lokalnie `| tail` ukrywa kod wyjścia):
 - `sample_scenario`: **≤ 220** znaków (`validate_sample_scenarios.py`,
   wychodzi z kodem **1** na ostrzeżeniach).
 
+
+## 2026-10-07 — Dostawa b071: 280 Sultai Scavenger i 323 Quandrix Campus
+
+Dostawa dwóch nowych fabuł, katalog **557 → 559**. 2 warianty × 2 karty =
+4 generacje × 40 kredytów = **160 kredytów**. Etykieta `b071` (ciąg dostaw
+`b001`–`b070`), nie `r057` — to nowe karty, nie korekta istniejących.
+
+**280KTK Sultai Scavenger → `creature_cackle`**
+
+Sępi ptakoczłek w pancerzu ze smoczych łusek i jadeitu, przysiadający na
+głowie omszałego pomnika nad bagnami Gurmag, obserwujący pochód oddziałów
+sibsig. Sygnatura: **seria ochrypłych gardłowych okrzyków padlinożercy** —
+ani śpiew (`forest_birdsong` byłby nietrafiony), ani pojedynczy wrzask
+(`beast_screech` już siedzi na `269` Scouting Hawk).
+
+Pułapka kontraktu: `mod_peak_hz` musi być w oknie **2,5–14 Hz**, czyli
+okrzyki muszą następować co najmniej 2,5 raza na sekundę. Szesnaście
+skrzeków w 4-sekundowym take'u daje ok. 4 Hz — środek okna. Gdyby ich
+było sześć (= 1,5 Hz), nie weszłoby w dolny próg.
+
+Wybrany **v1**: `onset_count` 16, `mod_peak_hz` 10,26, centroid 3486
+(kontrakt 700–4500). **trafiony, 0 pkt.**
+
+**323STX Quandrix Campus → `liquid_pour`**
+
+Kampus Kolegium Quandrix: lewitujące sześciany czystej wody, z których
+spływają grawitacyjne kaskady. Sygnatura: **jedna nieprzerwana kaskada**.
+Archetyp `liquid_pour` był dotąd **nieużyty** w korpusie (0 kart).
+
+Kontrast celowy wobec `150` Balamb Garden (`water_splash`, fontanna,
+centroid 5642 Hz): kaskada jest **ciągła i niżej w pasmie**, żeby nie
+powstała nowa para w grafie kosinusowym. Wybrany **v2**: sustain 0,328
+(kontrakt ≥ 0,3), centroid 3520 (kontrakt 500–4000). **trafiony, 0 pkt.**
+
+**Montaż po generacji (0 kredytów).** `280` wyszedł z flagą
+`long_lead_silence` (0,68 s ciszy na wejściu). `postprocess_samples.py
+--trim-lead-s 0,05 --trim-trail-s 0,30` uciął 0,602 s z przodu i 1,0 s
+z tyłu: 4,00 s → **2,40 s** przy nienaruszonej treści 2,03 s. Po cięciu
+**0 flag**, werdykt bez zmiany. To montaż, nie generacja, więc nic nie
+kosztuje — a `cut_internal_silence.py` by tu nie pomógł, bo on wycina
+dziury w środku, nie ciszę na krańcach.
+
+**Oba scenariusze przeszły korektę jakości.** Pierwsza wersja obu dostała
+po **56,5/100** w `audit_scenario_quality.py`, czyli poniżej mediany
+korpusu (64,0) i daleko od benchmarku 71 z dostaw `b069`/`b070`.
+`280` nie miał materiału/kontaktu, `323` nie miał słowa oznaczającego
+konkretny dźwięk. Po przepisaniu pod słowniki audytu — bez zmiany
+sygnatury dźwięku, tylko dopowiedzenie, *co* i *z czego* — oba mają
+**97,5/100** i zero problemów.
+
+**Stan korpusu po b071:** 559 MP3 · **53 flagi** (nowe karty nie dodały
+ani jednej) · 0 bliźniaków ≥ 0,95 · **21 par** przy 0,90 (bez zmiany —
+żadna nowa karta nie weszła w parę) · treść < 2 s: **21** · 0 poza
+2–5 s · LUFS −20,08 (odch. 0,48) · archetypy **0 / 33 / 147** (+2
+trafione) · testy 6 OK · walidator 559/559 (exit 0) · site + ZIP 559.
+
+**r034–b071: 350 generacji, 175 → 21 par (−88 %), treść < 2 s 41 → 21.**
+Nowy klucz: 2080 / 10 000, zostaje **7920** (~12 rund po 8 kart).
+
+Raporty: `data/samples/postprocess-b071.json`,
+`data/samples/scenario-quality.json`,
+`data/samples/audio-audit-2026-10-07-after-b071.{json,md}`,
+`data/samples/archetype-match-2026-10-07-after-b071.{json,md}`.
