@@ -3765,6 +3765,27 @@ prompt i scenariusz, generuje, odrzuca wynik i cofa **plik**, ale
   tekst: „rój osiada na drewnie: jeden jednostajny ton bzyczenia…".
 
 Strona i ZIP pokazują te opisy (`build_site.py`: 557 scenariuszy), więc
-użytkownik czyta opis dźwięku, którego nie usłyszy. **Naprawa nie kosztuje
-kredytów** — wystarczy przywrócić `sample_scenario` i `prompt` z commitu,
-w którym plik audio zmienił się ostatni raz.
+użytkownik czyta opis dźwięku, którego nie usłyszy.
+
+**Naprawione w następnym commicie** (0 kredytów): przywrócone
+`sample_scenario` i `prompt` z commitu, w którym plik audio zmienił się
+ostatni raz — po zmianie rozbieżność wynosi **0 / 557**. Jeden wyjątek
+obsłużony ręcznie: `23` Brightwood Tracker — stary prompt miał
+`music_allowed=true`, ale to dzwon klasztorny, nie muzyka, więc
+`music_allowed` zostało `false`, a do przywróconego promptu doklejono
+zakaz „No music." (bez tego walidator wychodził z kodem 1). Wszystkie
+metryki korpusu bez zmiany: 53 flagi, 21 par, 0/33/145, LUFS −20,08.
+
+### Reguła po r056: cofnięcie pliku to cofnięcie tekstu
+
+Checklista zamykania rundy dostaje jeden krok. Gdy karta wraca do starego
+sample, `(a)` MP3, `(b)` `duration_seconds` **i** `(c)` `sample_scenario`
+oraz `prompt` wracają razem. Punkt `(c)` był pomijany od r051 i przez
+sześć rund uzbierał 36 kart rozbieżności.
+
+Dwa limity dwóch różnych narzędzi trzeba sprawdzać naraz przed każdym
+wysłaniem (obadwa wywalają CI, a lokalnie `| tail` ukrywa kod wyjścia):
+- `prompt` po doklejce `--fill-take`: **≤ 450** znaków (limit API),
+- `sample_scenario`: **≤ 220** znaków (`validate_sample_scenarios.py`,
+  wychodzi z kodem **1** na ostrzeżeniach).
+
