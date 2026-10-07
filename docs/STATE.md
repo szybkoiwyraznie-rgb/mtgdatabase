@@ -21,13 +21,14 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 
 ## Aktualny stan produkcji
 
-- Katalog: `fabuły270926.csv` — **559 fabuł** (walidacja: 559 rekordów).
+- Katalog: `fabuły270926.csv` — **561 fabuł** (walidacja: 561 rekordów).
   ID fabuły to numeryczna część `Ilustracja` (`280KTK` → fabuła `280`).
-- Sample: **559 MP3** w `audio/samples/<id>.mp3`, **559 scenariuszy**
+- Sample: **561 MP3** w `audio/samples/<id>.mp3`, **561 scenariuszy**
   w `data/samples/scenarios.jsonl` — 100 % katalogu.
-- Ostatnia dostawa: `b071` — `280KTK` *Sultai Scavenger*
-  (`creature_cackle`) i `323STX` *Quandrix Campus* (`liquid_pour`),
-  obie **trafione, 0 pkt, 0 flag**.
+- Ostatnia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
+  (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
+  obie **trafione, 0 flag**. `324` weszła z jednej regeneracji,
+  `325` wymagała **pięciu prób** i montażu (reverb + półka −9 dB).
 - Ostatnia runda korekt: `r056` — zero przyjętych (diagnoza poniżej).
 
 Metryki korpusu (audyt `2026-10-07-after-b071`):
@@ -120,10 +121,10 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **559 fabuł**, scenariusze **559** (100 %), sample **559**.
-- Flagi **53**, pary ≥ 0,90 **21**, treść < 2 s **21**.
-- Archetypy: **0** nie trafionych, **33** prawdopodobnie, **147** trafionych.
-- Budżet: **7920 / 10 000** kredytów.
+- Katalog: **561 fabuł**, scenariusze **561** (100 %), sample **561**.
+- Flagi **53**, pary ≥ 0,90 **22**, treść < 2 s **21**.
+- Archetypy: **0** nie trafionych, **33** prawdopodobnie, **149** trafionych.
+- Budżet: **7360 / 10 000** kredytów (b072 kosztowała 560).
 
 ## Reguły i procedury
 
@@ -197,10 +198,42 @@ trzecim i czwartym podejściu (`292` — cztery, `87` — cztery) nie
 wchodzą; świeże (`244`, `280`, `323`) wchodzą od razu.
 
 **14. Check-lista zamknięcia rundy:** audyt `audit_samples_full.py` →
-`audit_archetype_match.py` → graf par (`wezly.py 0.90`, musi zostać 21) →
+`audit_archetype_match.py` → graf par (`wezly.py 0.90`, musi zostać 22) →
 kopie `-latest.json` → `compileall` + unittest → walidator **z kodem
 wyjścia** → `build_site.py` + `build_pack.py` → wpis w `STATE.md` →
 commit + push + `gh pr checks` → `git rm -r --cached variants`.
+
+**15. Regeneracja: `--batch` musi zgadzać się z polem `batch` w
+`scenarios.jsonl`.** `elevenlabs_sample_scout.py: select_rows()` filtruje
+po `row["batch"]`, więc po zmianie batchu w workflow trzeba przepisać
+pole w scenariuszu. Inaczej run idzie **na sucho**: `selected 0` →
+`No selected ready scenario` → zero kredytów, zero plików, a log
+wygląda jak udany (b072b spalił tak dwa odpalenia).
+
+**16. Manifest nie blokuje generacji — pomijanie idzie po pliku.**
+`elevenlabs_sample_scout.py` sprawdza `out_file.exists()` w katalogu
+`--out`, a nie `generated-manifest.jsonl`. Czyszczenie manifestu przed
+regeneracją jest więc **niepotrzebne i szkodliwe** (kasuje historię).
+
+**17. Dopisek „The sound fills the whole take…" blokuje `crest_db`.**
+`crest_db = 20log10(peak/rms)`, więc równo wypełniony take ma niski
+ crest. Wzorzec `562` *Shock* (jedyne trafione `thunder_clap`): crest
+18,83 przy **`audible_share` 0,478** — połowa take'u to cisza. Dla
+archetypów z progiem crestu pisz wprost „…dying away into silence
+before the end". Dopisek **nie jest** wymagany przez walidator.
+
+**18. Reverb podnosi `decay_s`, ale obniża `crest_db` — konflikt,
+którego kontrakt nie widzi.** `add_reverb_tail.py` na `325` dał decay
+0,34 → 0,85 s, ale crest 18,61 → 15,72. Używać tylko na take'ach
+z zapasem crestu ≥ 6 dB (`325` ostatecznie: 24,5 → 20,9).
+
+**19. Kolejność montażu: reverb → postprodukcja → `tame_spectrum` →
+postprodukcja.** Filtr górnoprzepustowy 25 Hz w `postprocess_samples.py`
+wycina sub-bas, którym `tame_spectrum` wyrobił centroid (`325`: centroid
+734 → 1017, `low_all` 0,504 → 0,302). Po korekcji trzeba puścić
+postprodukcję raz jeszcze. I **`--shelf-hz` ma być tam, gdzie jest
+energia**: domyślne 3500 Hz mija pasmo 250–2000 Hz, przez co korekcja
+rosła z −3 dB do −15 dB i i tak nie trafiała w okno.
 
 ## Indeks rund i dostaw
 
@@ -220,10 +253,11 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r055 | 2026-10-07 | 2 przyjęte (+2,23 s i +1,86 s), 5 cofniętych | `state-2026-10-06.md` |
 | r056 | 2026-10-07 | **0 przyjętych** — diagnoza: krótki take się nie wypełnia | `state-2026-10-06.md` |
 | b071 | 2026-10-07 | 2 nowe karty (280, 323), obie trafione z 0 flag | `state-2026-10-06.md` |
+| b072 | 2026-10-07 | 2 nowe karty (324, 325), obie trafione; 325 po 5 próbach | `state-2026-10-07.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
-**r034–b071 łącznie: 350 generacji, 175 → 21 par (−88 %), treść < 2 s
+**r034–b072 łącznie: 364 generacji, 175 → 22 par (−87 %), treść < 2 s
 41 → 21.**
 
 ## Co robić dalej
@@ -247,6 +281,7 @@ docs/archive/state-2026-09-28.md   start flow v2, r001–r009, b054–b058
 docs/archive/state-2026-10-01.md   b059–b070, r010–r015
 docs/archive/state-2026-10-05.md   kontrakty archetypów, r016–r033
 docs/archive/state-2026-10-06.md   r034–r056, dostawa b071
+docs/archive/state-2026-10-07.md   dostawa b072 (324, 325)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:
