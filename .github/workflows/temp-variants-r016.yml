@@ -134,6 +134,14 @@ name: TEMP b072b regeneracja - 324 Spineseeker Centipede i 325 Narset's Rebuke
 #  325 thunder_clap     low_all>=0,5  centroid<=800  crest>=18
 #                       decay_s>=0,5  mid_up>=0,08
 # Take 4,0 s dla obu. Ladunek API: 441 i 448 / 450.
+#
+# REGENERACJA — dwie rzeczy, ktore trzeba zrobic, inaczej run idzie na
+# sucho (zero kredytow, zero plikow, log "No selected ready scenario"):
+#   1. batch w scenarios.jsonl MUSI byc rowny --batch z tego workflow
+#      (select_rows filtruje po row["batch"]). Przy pierwszym odpaleniu
+#      b072b wpisy mialy wciaz batch=b072 -> 0 wybranych.
+#   2. manifest NIE blokuje generacji (to out_file.exists() w --out),
+#      wiec czyszczenie go nie jest potrzebne i tylko kasuje historie.
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
