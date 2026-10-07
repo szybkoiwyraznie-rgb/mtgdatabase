@@ -2953,6 +2953,75 @@ Raporty: `data/samples/audio-audit-2026-10-07-after-r043.json`,
 Kryteria doboru: stopień węzła → krańcowa liczba krawędzi całej transzy →
 priorytet krawędzi do chronionych węzłów → wzorzec czasowy obok widma.
 Po generacji sprawdzać oba warianty, odwracać zmiany bez zysku netto i mierzyć
-po trymie. **Następny cel:** klaster `589`/`103`/`367` i silna para `28`/`79`;
-unikać ponownego ruszania `589` bez nowego rozróżnienia, a dla `28` celować
-najpierw w `79`, bo obie warianty r042 `28` nie rozbiły klastra.
+po trymie.
+
+### r044 — dziesiąte piętro: 26 → 22 pary
+
+**640 kredytów, 16 generacji, 8 kart.** Cztery grafowe cele — jeden koniec
+każdej z ostatnich par między kartami bez trafionego archetypu:
+`367`→`589` (0,922), `577`→`264` (0,906), `527`→`119` (0,903),
+`467`→`57` (0,902). Do tego cztery sample bez par, ale z treścią <2 s:
+`27` Erase (1,32), `50` Dream Twist (1,50), `254` Snarespinner (1,84),
+`484` Guidestone Compass (1,84). Sekwencje mają uzasadnienie w fabule:
+kaskada odłamków, trzy księgi, dwa przebiegi ośmiu nóg pająka, zwalniające
+obroty kompasu.
+
+**Wynik: 26 → 22 pary (−4), bez nowych krawędzi.** Wszystkie cztery
+wybrane krawędzie zniknęły. Karty w ≥1 parze: 31 → **24**; w ≥2: 13 → **12**;
+w ≥3: 6 → **6**.
+
+Treść przed → po, audyt −45 dBFS:
+
+- `367` Battle-Rattle Shaman: 2,42 → **3,81 s**
+- `577` Thunderstaff: 2,07 → **3,32 s**; tym razem nowy prompt z jasnym,
+  dźwięcznym uderzeniem metalu zadziałał — centroid 1992 → 3201 Hz, bez par.
+- `527` Shiva, Warden of Ice: 2,18 → **3,78 s**
+- `467` Monastery Flock: 2,21 → **2,97 s** po ręcznym wyborze v1.
+  Automatyczny v2 miał 3,55 s, ale dodawał dwie nowe krawędzie (`278`, `123`);
+  v1 zostawił prawie 3 s treści i nie ma sąsiadów ≥0,90.
+- `27` Erase: 1,32 → **3,83 s**
+- `50` Dream Twist: 1,50 → **2,57 s**
+- `254` Snarespinner: 1,84 → **3,68 s**
+- `484` Guidestone Compass: 1,84 → **2,74 s**
+
+W korpusie treść <2 s spadła z 73 do **69**. 55 plików z flagą (bez zmian),
+0 bliźniaków ≥0,95, 0 plików poza 2–5 s, LUFS −20,04 (odch. 0,32).
+Archetypy **0 / 33 / 145**, regresji brak. Unittest 6 OK, walidator 557/557,
+strona i ZIP po 557 próbek.
+
+Raporty: `data/samples/audio-audit-2026-10-07-after-r044.json`,
+`data/samples/archetype-match-2026-10-07-after-r044.json`,
+`docs/audits/2026-10-07-archetype-match-after-r044.md`,
+`data/samples/variant-pick-r044.json`,
+`data/samples/postprocess-r044.json`,
+`data/samples/postprocess-r044-467-v1.json`.
+
+### Bilans sesji po r044
+
+| runda | kart | generacji | pary przed → po | kart w ≥1 parze | kredyty |
+|---|---|---|---|---|---|
+| r034 | 7 węzłów | 14 | 175 → 120 | — | 560 |
+| r035 | 7 węzłów | 14 | 120 → 99 | — | 560 |
+| r036 | 5 węzłów | 10 | 99 → 87 | — | 400 |
+| r037 | 7 węzłów | 14 | 87 → 81 | — | 560 |
+| r038 | 4 (trym) | — | 81 → 81 | — | **0** |
+| r039 | 10 węzłów | 20 | 81 → 65 | 86 | 800 |
+| r040 | 10 węzłów | 20 | 65 → 56 | 79 | 800 |
+| r041 | 10 węzłów | 20 | 56 → 43 | 63 | 800 |
+| r042 | 10 (8 finalnie) | 20 | 43 → 33 | 47 | 800 |
+| r043 | 10 (9 finalnie) | 20 | 33 → 26 | 31 | 800 |
+| **r044** | **8** | **16** | **26 → 22** | **24** | **640** |
+| **razem** | | **168** | **175 → 22 (−87 %)** | **— → 24*** | **6720** |
+
+\* Liczbę kart w ≥1 parze raportujemy od r039; na końcu r044 jest ich 24.
+**Budżet bieżącego klucza 10 000 kr (wgrany 2026-10-06):** wydane
+**4640**, pozostaje **5360** (r039–r044). Suma kosztów rund r034–r044 to
+6720 kr, ponieważ wcześniejsze transze opłacono z poprzedniego salda.
+
+**Pozostały graf jest prawie w całości nietykalny:** z 22 par tylko `589`–`103`
+(0,944) ma jeden koniec bez archetypu; `103` ma werdykt „prawdopodobnie”,
+a `589` właśnie przeszła r043, gdzie wariant v1 tworzył bliźniaka z chronioną
+`261`. Reszta to pary między węzłami trafionymi lub wcześniej próbowanymi
+„prawdopodobnie”. Kolejna próba `589` ma sens tylko z nowym, wyraźnie
+odmiennym projektem dźwięku; nie ruszać chronionych kart i nie wydawać 640 kr
+na losowe pokrywanie grafu.
