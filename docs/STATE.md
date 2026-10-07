@@ -2714,3 +2714,26 @@ względem trymu ogona. Flagi w korpusie 54 → **53**.
 
 Archetypy **0 / 33 / 145**, regresji brak. 0 bliźniaków, 0 poza oknem,
 LUFS −20,03 (odch. 0,32).
+
+### Bilans sesji po r040
+
+| runda | kart | generacji | pary przed → po | treść < 2 s | flagi | kredyty |
+|---|---|---|---|---|---|---|
+| r034 | 7 węzłów | 14 | 175 → 120 | 82 | — | 560 |
+| r035 | 7 węzłów | 14 | 120 → 99 | 80 | — | 560 |
+| r036 | 5 węzłów | 10 | 99 → 87 | 79 | — | 400 |
+| r037 | 7 węzłów | 14 | 87 → 81 | 78 | — | 560 |
+| r038 | 4 (trym) | — | 81 → 81 | 78 | 69 → 65 | **0** |
+| r039 | 10 węzłów | 20 | 81 → 65 | 77 | 65 → 65 | 800 |
+| **r040** | 10 węzłów | 20 | **65 → 56** | 77 | 65 → **63** | **800** |
+| **razem** | | **92** | **175 → 56 (−68 %)** | 85 → 77 | | **3680** |
+
+**Budżet (klucz wgrany 2026-10-06, 10 000 kredytów):** wydane **1600**,
+zostaje **8400**.
+
+**Co zdecydowało o skuteczności r039 i r040:** dobór po krawędziach grafu.
+Gdy regeneruje się jedną kartę, znikają jej krawędzie — ale jeśli sąsiad
+też był w tej samej transzy, liczy się tylko efekt krańcowy. Dlatego przed
+każdą rundą trzeba policzyć, ile par ma karta **po wzięciu pod uwagę
+pozostałych zmian w transzy** — inaczej pieniądze idą na karty, których
+krawędzie i tak by zniknęły (tak było z `222` w r040, cofniętą).
