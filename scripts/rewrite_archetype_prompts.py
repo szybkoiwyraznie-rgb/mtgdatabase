@@ -1107,10 +1107,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "77": (
-        "A veteran's triple-barrel gauntlet primes with three distinct metal "
-        "cylinder clicks, then fires three spaced gunshot cracks, each "
-        "trailing a brief electric snap; the final report rings out.  " + NO_M,
-        "potrójna rękawica weteranki uzbraja się trzema metalicznymi kliknięciami bębenka, potem padają trzy odrębne huknięcia, każde z krótkim elektrycznym trzaskiem; ostatni strzał dźwięczy",
+        "A veteran's triple-barrel gauntlet clicks three times, then fires "
+        "three spaced shots; each crack trails a brief electric snap, the "
+        "last ring fading.  " + NO_M,
+        "potrójna rękawica weteranki klika trzy razy, po czym padają trzy oddzielone strzały; każdy huk wieńczy krótki elektryczny trzask, ostatni dźwięczy i cichnie",
         False,
     ),
     "589": (
@@ -1121,17 +1121,15 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "242": (
-        "A knight's horse trots at an unhurried pace over polished marble: "
-        "four clear pairs of hard hoofbeats, a light plate-mail jingle, then "
-        "one final ringing step fading down the road.  " + NO_M,
-        "koń rycerza spokojnie kłusuje po wypolerowanym marmurze: cztery wyraźne pary twardych uderzeń kopyt, lekkie brzęknięcie zbroi i ostatni dźwięczny krok oddalający się drogą",
+        "A warhorse trots across polished marble: four measured pairs of hard "
+        "hooves, light armor jingles, and the final step rings away.  " + NO_M,
+        "koń bojowy kłusuje po wypolerowanym marmurze: cztery równe pary twardych kopyt, lekko brzęczy zbroja, ostatni krok dźwięcznie oddala się",
         False,
     ),
     "499": (
-        "A brass monument takes one crushing blow at its base; a long "
-        "fracture races through the terrace, then three marble blocks tear "
-        "loose and boom downward in staggered heavy impacts.  " + NO_M,
-        "mosiężny monument otrzymuje miażdżący cios u podstawy; długie pęknięcie biegnie przez taras, po czym trzy marmurowe bloki odrywają się i spadają w dół trzema ciężkimi, rozłożonymi w czasie uderzeniami",
+        "One crushing blow cracks a brass monument; the terrace splits and "
+        "three marble blocks fall in staggered heavy thuds.  " + NO_M,
+        "miażdżący cios pęka mosiężny monument; taras rozdziera się i trzy marmurowe bloki spadają ciężkimi, rozłożonymi uderzeniami",
         False,
     ),
 }
