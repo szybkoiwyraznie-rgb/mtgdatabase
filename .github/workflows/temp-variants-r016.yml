@@ -1,4 +1,4 @@
-name: TEMP r048 krotkie sample - kolejna osemka
+name: TEMP r049 krotkie sample - osiem kolejnych
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,14 +107,14 @@ name: TEMP r048 krotkie sample - kolejna osemka
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# r048: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
-# Po r048: 21 par; graf nie ma juz krawedzi miedzy dwiema kartami bez archetypu.
-# Kontynuacja cleanup content<2 s (zostalo56), osiem niepolaczonych sample:
-# 255 dwa widma wynurzajace sie z czarnego bagna, 542 spellbomb + odbijajaca sie
-# wlocznia, 87 trzy uderzenia skrzydel, 259 dwa przejscia szponow, 563 hamowanie
-# skrzydlami i ladowanie roca, 289 kolejne krople oleju, 94 misy ognia zapalane
-# jedna po drugiej, 219 kroki poszukiwaczy przez portal.
-# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r048).
+# r049: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
+# Po r049: 21 par; brak krawedzi miedzy dwiema kartami bez archetypu.
+# Z 51 pozostalych tresci <2s wybieramy niepolaczone sample 1,86-1,96s:
+# 116 wstegi ognia (flaga boomy), 311 kilka stlumionych uderzen bijatyki,
+# 179 luki na stronach, 547 nurkowanie i zdobycz, 65 tom otwiera sie i wiruja
+# kartki, 143 sztandar/rogaty kon, 379 obrona powietrzna z pociskiem, 497
+# wyładowania na przekladniach. Powtorzenia i cykle wynikaja z fabuly.
+# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r049).
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -127,7 +127,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "255,542,87,259,563,289,94,219"
+  IDS: "116,311,179,547,65,143,379,497"
 
 jobs:
   variants:
@@ -138,13 +138,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r048]
+      - name: Guard — tylko commit z markerem [generate-r049]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r048]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r049]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r048] — nic nie generuję"
+            echo "brak markera [generate-r049] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -163,25 +163,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r048
+          mkdir -p variants/r049
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r048/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r049/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r048 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r048/v$v" 2>&1 | tee -a variants/r048/generate.log
+              --ids "$IDS" --batch r049 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r049/v$v" 2>&1 | tee -a variants/r049/generate.log
           done
-          ls -la variants/r048 variants/r048/v1 variants/r048/v2 || true
+          ls -la variants/r049 variants/r049/v1 variants/r049/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r048 data/samples/generated-manifest.jsonl
+          git add -f variants/r049 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r048: 16 wariantow (8 kart x 2) + log generacji [import-r048]"
+            git commit -m "r049: 16 wariantow (8 kart x 2) + log generacji [import-r049]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

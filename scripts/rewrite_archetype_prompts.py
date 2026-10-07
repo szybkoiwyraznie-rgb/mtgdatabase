@@ -1318,6 +1318,62 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "drużyna poszukiwaczy przechodzi przez kryształowy portal: cztery kroki odbijają się echem w bramie, szkliste dzwonki odpowiadają na przybycie, portal nabrzmiewa brzęczeniem i wypuszcza podróżnych",
         False,
     ),
+    "116": (
+        "Fire coils around the standing ratfolk in two rapid sweeps; each "
+        "wave crackles bright over mail, sparks spit, embers scatter and "
+        "fade. " + NO_M,
+        "ogień oplata stojących szczurołudzi dwoma szybkimi falami; każda jasno trzaska nad kolczugą, iskry pryskają, żar rozsypuje się i gaśnie",
+        False,
+    ),
+    "311": (
+        "A muffled tavern brawl lands in three uneven thumps against the "
+        "wall; a stool splinters, boots scuffle, then the last blow rings "
+        "through the boards. " + NO_M,
+        "stłumiona bijatyka w tawernie uderza o ścianę trzema nierównymi łomotami; stołek pęka, buty szurają, ostatni cios dźwięczy przez deski",
+        False,
+    ),
+    "179": (
+        "A heavy index book cracks open; blue sparks leap between pages in "
+        "three quick jumps, sheets turn and flutter, the final arc snaps "
+        "shut. " + NO_M,
+        "ciężki indeks otwiera się trzaskiem; niebieskie iskry przeskakują między stronami trzema szybkimi skokami, kartki przewracają się i furkoczą, ostatni łuk trzaska",
+        False,
+    ),
+    "547": (
+        "A chrome dragon skims mirrored mercury, slices its talons into the "
+        "liquid with a sharp metallic splash, then lifts its catch on two "
+        "heavy wingbeats as ripples ring out. " + NO_M,
+        "chromowy smok ślizga się nad rtęciową taflą, wbija szpony ostrym metalicznym pluskiem, po czym unosi zdobycz dwoma ciężkimi uderzeniami skrzydeł, a kręgi dźwięczą",
+        False,
+    ),
+    "65": (
+        "A levitating tome snaps open; blue light flares, pages whirl through "
+        "two fast turns, ink wisps trail behind, then the book settles with a "
+        "soft paper slap. " + NO_M,
+        "lewitujący tom otwiera się z trzaskiem; błękitny blask wybucha, kartki wirują dwoma szybkimi obrotami, smugi atramentu podążają za nimi, księga osiada papierowym klapnięciem",
+        False,
+    ),
+    "143": (
+        "A horned mount stamps twice as a white battle banner snaps in two "
+        "strong gusts; armor jingles, reins pull taut, the cloth cracks once "
+        "more overhead. " + NO_M,
+        "rogaty wierzchowiec dwukrotnie tupie, gdy biały sztandar bojowy trzaska na dwóch podmuchach; zbroja brzęczy, wodze się napinają, płótno pęka jeszcze raz nad głową",
+        False,
+    ),
+    "379": (
+        "A guardian dives to a balcony in two hard wingbeats, claws scrape "
+        "stone to brake, then an energy bolt splashes against a blue shield "
+        "with a bright crackle. " + NO_M,
+        "obrońca nurkuje ku balkonowi dwoma mocnymi uderzeniami skrzydeł, szpony zgrzytają o kamień, potem pocisk energii rozbryzguje się o niebieską tarczę jasnym trzaskiem",
+        False,
+    ),
+    "497": (
+        "Electric arcs leap across gear teeth in three bursts; each snap "
+        "triggers a short metallic rattle, sparks spit, the iron gears buzz "
+        "as they lock. " + NO_M,
+        "elektryczne łuki przeskakują po zębach przekładni trzema seriami; każdy trzask wywołuje krótki metaliczny grzechot, iskry pryskają, żelazne koła brzęczą przy blokadzie",
+        False,
+    ),
 }
 
 
