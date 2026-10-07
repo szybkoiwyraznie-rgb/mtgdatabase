@@ -1,4 +1,4 @@
-name: TEMP r045 Acidic Slime one-edge experiment
+name: TEMP r046 krotkie sample - osiem kart
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,14 +107,15 @@ name: TEMP r045 Acidic Slime one-edge experiment
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# r045: 2 warianty x 1 karta = 2 generacje x 40 kredytow = 80 kredytow.
-# Po r045 zostalo 22 pary; jedyna krawedz z koncem bez archetypu to
-# 589 Acidic Slime - 103 Sweet Oblivion (prawdopodobnie), cosine 0,944.
-# 103 pozostaje nietknieta. 589 byla generowana w r043, ale v2 dodala krawedzie
-# do 103 i 367; po r045 zostal tylko cel 103. Wczesniejszy r043 v1 tworzyl
-# blizniaka 0,9599 z chroniona 261, wiec r045 ma wyraznie INNY charakter:
-# lepki mokry glug i pecherze, bez szerokiego syku/fizzu. Eksperyment jednorazowy.
-# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r045).
+# r046: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
+# Po r046: 21 par; nie ma juz krawedzi miedzy kartami bez archetypu. Pozostale
+# pary lacza wezly trafione / probowane prawdopodobnie.
+# Ta transza poprawia najkrotsze, niepolaczone sample (1,58-1,74 s), z rytmem
+# uzasadnionym zdarzeniem: skan runow i rozpad zaklecia (271), pekajacy lodowy
+# kolos (389), trzy uderzenia skrzydel (477), dwie fale piaskowej burzy (151),
+# dwa etapy znikniecia (512), pekniecia pancerza i chmura gazu (403), galaz i
+# dobycie noza (443), kolejne kroki ladowania statku (288). Bez par grafowych.
+# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r046).
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -127,7 +128,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "589"
+  IDS: "271,389,477,151,512,403,443,288"
 
 jobs:
   variants:
@@ -138,13 +139,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r045]
+      - name: Guard — tylko commit z markerem [generate-r046]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r045]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r046]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r045] — nic nie generuję"
+            echo "brak markera [generate-r046] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -163,25 +164,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r045
+          mkdir -p variants/r046
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r045/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r046/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r045 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r045/v$v" 2>&1 | tee -a variants/r045/generate.log
+              --ids "$IDS" --batch r046 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r046/v$v" 2>&1 | tee -a variants/r046/generate.log
           done
-          ls -la variants/r045 variants/r045/v1 variants/r045/v2 || true
+          ls -la variants/r046 variants/r046/v1 variants/r046/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r045 data/samples/generated-manifest.jsonl
+          git add -f variants/r046 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r045: 2 warianty (1 karta x 2) + log generacji [import-r045]"
+            git commit -m "r046: 16 wariantow (8 kart x 2) + log generacji [import-r046]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

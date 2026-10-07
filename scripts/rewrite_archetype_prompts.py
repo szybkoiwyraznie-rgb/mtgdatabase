@@ -827,8 +827,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # glosnosci dla elementu charakterystycznego. 470, 477, 57 maja centroid
     # 237-341 Hz, czyli siedza w niskim huku, z ktorego r034 wyprowadzila
     # poprzednia siodemke.
-    "477": ("An aven diving on cold currents: wind screaming past in a high thin shriek as the loudest moment, wings folding tight, a spear-head flaring with a glassy magical chime.",
-            "aven pikuje w zimnych prądach: wiatr świszczy wysoko i cienko, skrzydła składają się, grot rozbłyska szklistym tonem", False),
+    "477": (
+        "An aven banks through icy air with three strong wingbeats, folds its "
+        "wings, then sweeps past with a sharp spearhead chime and rushing "
+        "cold current. " + NO_M,
+        "aven skręca w lodowym powietrzu trzema mocnymi uderzeniami skrzydeł, składa je, po czym przelatuje z ostrym dźwiękiem grotu i pędem zimnego prądu",
+        False,
+    ),
     "448": (
         "A chaos spire erupting from a street: cobblestones bursting upward "
         "with sharp stone cracks, a crystal spike grinding gritty and low.  " + NO_M,
@@ -1175,6 +1180,55 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "through two wavering passes, then a precise click marks their "
         "alignment; the ring hum lingers. " + NO_M,
         "mosiężne pierścienie wirują w kamiennej obudowie: delikatny metaliczny świst zwalnia przez dwa chwiejące obroty, potem precyzyjne kliknięcie oznacza zestrojenie; brzęczenie jeszcze chwilę trwa",
+        False,
+    ),
+    "271": (
+        "A sunbeam sweeps over concealed runes in three distinct passes; each "
+        "revealed mark crackles, then the forbidden spell breaks into brittle "
+        "sparks that fade away. Let the final snap dominate. " + NO_M,
+        "promień słońca omiata ukryte runy trzema osobnymi przejściami; każdy odsłonięty znak trzaska, potem zaklęcie pęka w kruche iskry, które gasną. Najmocniejszy jest ostatni trzask",
+        False,
+    ),
+    "389": (
+        "An ice colossus buckles at a touch: one knee cracks into packed "
+        "snow, frost plates split in two brittle bursts, then a long cold "
+        "breath settles. " + NO_M,
+        "lodowy kolos ugina się pod dotykiem: jedno kolano pęka w ubitym śniegu, lodowe płyty rozszczepiają się dwoma kruchymi trzaskami, potem osiada długi zimny wydech",
+        False,
+    ),
+    "151": (
+        "A golden sandstorm sweeps across the field in two gusts; each tears "
+        "away an illusion with a sharp glassy snap, then grit patters down "
+        "over stone. " + NO_M,
+        "złota burza piaskowa przechodzi przez pole dwoma podmuchami; każdy zrywa iluzję ostrym szklistym trzaskiem, potem ziarnisty piasek bębni o kamień",
+        False,
+    ),
+    "512": (
+        "A ninja passes through a warped wall: wood bends inward in two "
+        "hollow pulses, a rescuing hand grabs empty air, and the blue "
+        "afterimage snaps shut. " + NO_M,
+        "ninja przechodzi przez zniekształconą ścianę: drewno ugina się dwoma pustymi pulsami, wyciągnięta dłoń chwyta powietrze, a błękitny ślad zamyka się trzaskiem",
+        False,
+    ),
+    "403": (
+        "A dementia bat's metal carapace splits in two sharp cracks; a "
+        "pressurized necrogen cloud hisses free in a long breath, droplets "
+        "pattering on stone. " + NO_M,
+        "metalowy pancerz nietoperza pęka dwoma ostrymi trzaskami; sprężona chmura nekrogenu uchodzi długim sykiem, krople bębnią o kamień",
+        False,
+    ),
+    "443": (
+        "At a dying fire, a villager snaps a branch; after a pause, a knife "
+        "rasps slowly from its sheath, embers popping as the last log "
+        "settles. " + NO_M,
+        "przy dogasającym ogniu wieśniak łamie gałąź; po chwili nóż powoli wysuwa się z pochwy, żar trzaska, gdy ostatnie polano osiada",
+        False,
+    ),
+    "288": (
+        "A wedge ship powers up: the hatch hisses open, three cables snap "
+        "into sockets, a rising coil buzz shakes the copper hull, one bright "
+        "charge crackles. " + NO_M,
+        "klinowy statek uruchamia napęd: właz syczy, trzy kable wskakują w gniazda, narastające brzęczenie cewek trzęsie miedzianym kadłubem, wyładowanie rozbłyska",
         False,
     ),
 }
