@@ -512,8 +512,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "trzy osobne krople spadają z tafli wody w równych odstępach, każda z czystym szklistym dźwiękiem i własnym kręgiem", False),
     "212": ("Thick blood sloshing in a glass carafe: four slow heavy glugs one after another, with the small glass flasks chiming softly between them.",
             "gęsta krew chlupoce w szklanej karafce: cztery powolne ciężkie bulgoty kolejno, z miękkim brzękiem szkła między nimi", False),
-    "218": ("Three tanks of dark green substance bubbling in turn: each one gives two or three thick wet blorp sounds, one tank after the next across the whole take.",
-            "trzy zbiorniki ciemnozielonej substancji bulgoczą po kolei: każdy daje dwa-trzy grube mokre bulgoty", False),
+    "218": (
+        "Three tanks of dark green sludge bubbling: thick wet blorps with a "
+        "glassy tank resonance over each one, one tank after the next.  " + NO_M,
+        "trzy zbiorniki ciemnozielonej mazi bulgoczą: gęste mokre bulgoty zeszklonym rezonansem zbiornika nad każdym z nich, jeden po drugim",
+        False,
+    ),
     "227": ("A row of wet joint cracks as a body rearranges itself: six distinct cracking pops in an uneven rhythm, each one sharp and separate.",
             "szereg mokrych trzasków stawów układających nowe ciało: sześć wyraźnych trzasków w nierównym rytmie", False),
     "252": ("Two short commanding brass horn calls over ruins, the second a little higher than the first, each one ringing out fully before the next.",
@@ -563,8 +567,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "482": ("Two blades meeting edge to edge and pressing on: three violent steel strikes in "
            "quick succession, the first at the very first instant, each with a harsh gritty ring.",
             "dwa ostrza schodzą się krawędziami i napierają: trzy gwałtowne ciosy stali kolejno, pierwszy w pierwszej chwili, każdy z chropawym brzękiem", False),
-    "487": ("A geometric resonance shield breaking a fire projectile: four crystalline shatter bursts spread across the take, each a bright glassy ping, the last loudest.",
-            "tarcza rezonansu rozbija pocisk: cztery krystaliczne pęknięcia rozłożone na cały take, każde z jasnym szklistym dzwonieniem", False),
+    "487": (
+        "A resonance shield shattering a fire projectile: four hard "
+        "crystalline impacts, each a bright glassy ping over a solid low "
+        "thud.  " + NO_M,
+        "tarcza rezonansu rozbija pocisk ognia: cztery twarde krystaliczne uderzenia, każde z jasnym szklistym dzwonkiem nad solidnym niskim łupnięciem",
+        False,
+    ),
     "488": ("Three artefacts being fused into a copper carapace: three successive resonant metallic lock-in clicks, each one deeper than the last.",
             "integracja trzech artefaktów z miedzianą skorupą zbrojmistrza: trzy kolejne rezonansowe metaliczne zatrzaśnięcia, każde głębsze", False),
     "494": ("A herd call answered by two giant reptiles charging in sync: one long rising bellow, then eight heavy footfalls in a fast even thunder.",
@@ -973,6 +982,57 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "A panic spellbomb bursting: a sharp cracking shockwave, then a steel "
         "spear clattering and ringing on the floor.  " + NO_M,
         "spellbomb paniki wybucha: ostry trzask fali uderzeniowej, potem stalowa włócznia szczęka i dzwoni o podłogę",
+        False,
+    ),
+    "134": (
+        "An aven gliding low over the sea: a long smooth wind rush, then two "
+        "clear gull cries ringing out over the hissing wave crests.  " + NO_M,
+        "ptakoczłek ślizga się nisko nad morzem: długi gładki szum wiatru, potem dwa wyraźne krzyki mewy nad syczącymi grzbietami fal",
+        False,
+    ),
+    "69": (
+        "A brass gauntlet raking a tome: sharp metal styli scraping across "
+        "parchment in three long strokes, pages shredding into gritty dust.  " + NO_M,
+        "mosiężna rękawica zdziera litery: ostre metalowe rysiki skrobią po pergaminie trzema długimi pociągnięciami, karty szarpią się w ziarnisty pył",
+        False,
+    ),
+    "376": (
+        "A swollen corpse rising: soaked leaves sliding off with wet "
+        "squelching rustles, a shirt seam tearing wide, a dead lantern "
+        "clanking.  " + NO_M,
+        "napęczniały nieżywy odszczepieniec wstaje: mokre liście zsuwają się z mlaszczącym szelestem, szew koszuli pęka, martwa latarnia szczęka",
+        False,
+    ),
+    "305": (
+        "A charred sheet collapsing into flakes: a dry granular crumble "
+        "breaking into many separate papery crackles, falling and settling.  " + NO_M,
+        "zwęglony arkusz rozpada się w płatki: suchy ziarnisty rozpad łamiący się na wiele osobnych papierowych trzasków, opadanie i osiadanie",
+        False,
+    ),
+    "575": (
+        "A spear thrust through dragon scale: a bright steel tip punching "
+        "clean through, scale plates rasping in step, armour ringing.  " + NO_M,
+        "pchnięcie włócznią w smoczą łuskę: jasny stalowy grot przebija na wylot, płyty łuski ocierają się rytmicznie, zbroja dzwoni",
+        False,
+    ),
+    "174": (
+        "A brass valve blowing open with a low metallic thump, then a fierce "
+        "pressurised steam hiss with sharp electric crackles spitting over "
+        "it.  " + NO_M,
+        "mosiężny zawór otwiera się z niskim metalicznym łupnięciem, potem gwałtowny syk pary pod ciśnieniem i ostre trzaski elektryczne",
+        False,
+    ),
+    "182": (
+        "Stone slabs sweeping past: a fast heavy air whoosh with bright grit "
+        "and small pebbles rattling and skittering off the stone.  " + NO_M,
+        "kamienne płyty przelatują: szybki ciężki świst powietrza z jasnym żwirem i drobnymi kamykami szczękającymi i ślizgającymi się po kamieniu",
+        False,
+    ),
+    "554": (
+        "A hatchling hissing sharply from the ferns, then a colossal mother "
+        "crashes through the thicket with a rolling roar and snapping "
+        "branches.  " + NO_M,
+        "pisklę syczy ostro w paprociach, potem kolosalna matka przebija się przez gąszcz z przetaczającym się rykiem i trzaskiem łamanych gałęzi",
         False,
     ),
 }
