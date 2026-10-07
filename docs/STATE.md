@@ -2737,3 +2737,47 @@ też był w tej samej transzy, liczy się tylko efekt krańcowy. Dlatego przed
 każdą rundą trzeba policzyć, ile par ma karta **po wzięciu pod uwagę
 pozostałych zmian w transzy** — inaczej pieniądze idą na karty, których
 krawędzie i tak by zniknęły (tak było z `222` w r040, cofniętą).
+
+### r041 — siódme piętro węzłów: 56 → 43 par
+
+**800 kredytów, 20 generacji, 10 kart.**
+
+**Nowe kryterium doboru: krawędzie do węzłów CHRONIONYCH.** Sąsiada, który
+jest trafiony w kontrakcie, nie wolno regenerować — taka krawędź da się zdjąć
+**tylko z jednej strony**, więc te karty mają priorytet. `487` Stoic Rebuttal
+miała obie krawędzie do węzłów trafionych (`6` Azorius Justiciar 0,9234
+i `261` Universal Solvent 0,9069) — najlepszy możliwy cel w całym korpusie.
+
+Reszta: `134` (112T, 121), `218` (298T), `182` (67T), `554` (202T) oraz
+klastry między kartami bez archetypu: `69`+`376` (3 krawędzie), `305`, `575`,
+`174`. Razem **16 krawędzi**.
+
+**Wynik: pary 56 → 43 (−13).** Postęp siedmiu rund:
+**175 → 120 → 99 → 87 → 81 → 65 → 56 → 43**. Karty w ≥1 parze: 79 → **63**,
+w ≥2: 23 → **15**, w ≥3: 8 → **6**.
+
+Osiem z dziesięciu kart zyskało treść, cztery bardzo wyraźnie:
+`69` 2,13 → 3,74 s, `305` 2,14 → 3,66 s, `376` 1,97 → 3,43 s,
+`182` 2,17 → 3,47 s. Karty z treścią < 2 s w korpusie: 77 (bez zmiany).
+
+**Różnicowanie widmem.** Tam gdzie sąsiad siedział w tym samym pasmie
+centroidu, prompt dokładał brakujące pasmo. `575` Dromoka Warrior: 737 Hz przy
+sąsiadach 945 i 744 Hz, więc dostała „bright steel tip" i „armour ringing" —
+centroid 737 → **2740 Hz**. `487` miała 8234 Hz przy sąsiadach 10807 i 7316 Hz,
+więc dostała „solid low thud" pod każde szklane dzwonienie — centroid spadł do
+1301 Hz, czyli wyraźnie poza pasmo obu sąsiadów.
+
+**Dwie straciły treść, obie zostały:**
+
+- **`487`** — metryka odporna na głośność **poprawiła się** (2,95 → 3,13 s)
+  i likwiduje 2 krawędzie do węzłów chronionych.
+- **`218`** Trigon of Corruption — treść spadła w obu metrykach
+  (3,88 → 1,83 s absolutnie, 3,90 → 2,67 s peak−45), ale usuwa parę z `298`
+  Raise the Alarm, który jest trafiony. Tej krawędzi nie da się zdjąć inaczej,
+  bo `298` jest chroniony. Zostawiona z tego powodu.
+
+**Dwie flagi zdjęte trymem** (`487`, `218 long_trail_silence`) — treść bez
+zmian. Flagi w korpusie 53 → 54.
+
+Archetypy **0 / 33 / 145**, regresji brak. 0 bliźniaków, 0 poza oknem,
+LUFS −20,04 (odch. 0,32).
