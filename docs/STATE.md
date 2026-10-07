@@ -2671,3 +2671,46 @@ klucz został użyty.
 za 800 kredytów, czyli 50 kr./parę) — lepiej niż r034 (−55 par za 560, czyli
 10 kr./parę, ale przy znacznie gęstszym grafie). Wniosek: im rzadszy graf, tym
 ważniejsze, żeby jedna regeneracja zdejmowała kilka krawędzi naraz.
+
+### r040 — szóste piętro węzłów: 65 → 56 par
+
+**800 kredytów, 20 generacji, 10 kart.** Dobór po krawędziach grafu, jak w r039.
+
+Graf po r039: 86 kart w ≥1 parze, 31 w ≥2, 10 w ≥3. Wybrane 10 kart bez
+archetypu, pokrywających **14 krawędzi** w czterech klastrach:
+
+- **klaster B**: `419` (318, 495, 222) + `222` (602) + `602` (495) — 5 krawędzi
+- **klaster A**: `60` (592, 401) + `592` (401) + `401` (592, 60) — 3 krawędzie
+- **klaster C**: `458` (475, 137) + `475` (542) + `542` (67) — 4 krawędzie
+- **`448`** (103, 261) — `261` Universal Solvent jest trafiony, więc krawędź
+  zdjęto od strony `448`
+
+**Wynik: pary 65 → 56.** Postęp sześciu rund:
+**175 → 120 → 99 → 87 → 81 → 65 → 56**.
+
+Największe zyski treści: `60` 2,18 → 3,98 s, `602` 1,76 → 3,48 s,
+`401` 1,52 → 3,22 s (była najkrótsza w korpusie), `458` 2,09 → 3,46 s,
+`419` 3,23 → 3,71 s. Karty z treścią < 2 s: 77 (bez zmiany).
+
+**Jedna cofnięta — `222` Maritime Guard, bo nie wniosła nic.** Jej pary
+(0 → 0): krawędzie z `419` i `602` złamały się przez regenerację tamtych kart,
+więc `222` była zbędna. Cofnięcie przywróciło treść 3,21 s i nie kosztowało
+ani jednej pary.
+
+**Trzy straciły treść, ale zostały — każda z policzonego powodu:**
+
+- **`592`** — metryka odporna na głośność **poprawiła się** (2,86 → 3,48 s),
+  a cofnięcie stworzyłoby parę **0,9517** z `448`, czyli bliźniaka powyżej
+  progu 0,95.
+- **`542`** (1,79 s absolutnie, 2,14 s peak−45) i **`448`** (2,36 / 3,41 s) —
+  cofnięcie kosztowałoby parę albo nie dawało nic.
+- **`448`** dodatkowo: nowe pary są z `344` i `27`, czyli kartami bez
+  kontraktu, więc da się je naprawić w kolejnej rundzie — w przeciwieństwie
+  do poprzedniej pary z `261`, który jest trafiony.
+
+**Cztery flagi zdjęte trymem za zero kredytów** (`448`, `475`, `542`, `592`)
+— treść nie uległa zmianie, bo audytowa `content_s` jest niezmiennicza
+względem trymu ogona. Flagi w korpusie 54 → **53**.
+
+Archetypy **0 / 33 / 145**, regresji brak. 0 bliźniaków, 0 poza oknem,
+LUFS −20,03 (odch. 0,32).
