@@ -887,9 +887,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "395": (
-        "Mud erupting in three wet heavy bursts, then rusted armour grinding "
-        "free with a long metallic scrape. Low and close. " + NO_M,
-        "błoto wybucha trzema mokrymi uderzeniami, potem zardzewiała zbroja zgrzyta długim metalicznym zgrzytem",
+        "A corpse unearthed: three wet heavy bursts of mud, then rusted "
+        "armour grinding free and roots tearing loose with sharp dry snaps.  " + NO_M,
+        "zmarły przebija się przez ziemię: trzy mokre ciężkie wybuchy błota, potem zardzewiała zbroja zgrzyta i korzenie rwą się z suchym trzaskiem",
         False,
     ),
     "419": (
@@ -1004,9 +1004,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "305": (
-        "A charred sheet collapsing into flakes: a dry granular crumble "
-        "breaking into many separate papery crackles, falling and settling.  " + NO_M,
-        "zwęglony arkusz rozpada się w płatki: suchy ziarnisty rozpad łamiący się na wiele osobnych papierowych trzasków, opadanie i osiadanie",
+        "An illusion collapsing: a dry crumbling sheet breaking into flakes "
+        "over a soft low thud, papery crackles settling downward.  " + NO_M,
+        "iluzja się rozpada: suchy arkusz kruszy się w płatki nad miękkim niskim łupnięciem, papierowe trzaski opadają w dół",
         False,
     ),
     "575": (
@@ -1033,6 +1033,54 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "crashes through the thicket with a rolling roar and snapping "
         "branches.  " + NO_M,
         "pisklę syczy ostro w paprociach, potem kolosalna matka przebija się przez gąszcz z przetaczającym się rykiem i trzaskiem łamanych gałęzi",
+        False,
+    ),
+    "180": (
+        "A transformed brute breathing in a dark alley: ragged strained "
+        "breaths one after another, broken glass grinding under a heavy boot. " + NO_M,
+        "przemieniony brutal oddycha w ciemnej uliczce: jeden za drugim urywane, wysilone oddechy, pod ciężkim butem chrzęści stłuczone szkło",
+        False,
+    ),
+    "485": (
+        "A werewolf watching from a ridge: slow deep breaths, claws scraping "
+        "into cold stone, a distant lantern creaking in the fog.  " + NO_M,
+        "wilkołak czatuje na grzbiecie: powolne głębokie oddechy, pazury skrobiące w zimny kamień, daleka latarnia skrzypi we mgle",
+        False,
+    ),
+    "615": (
+        "A naga balancing on a stone beam: scales whispering across stone, "
+        "then twin bronze blades slicing the air in two sharp cuts.  " + NO_M,
+        "naga balansuje na kamiennej belce: łuski szepczą po kamieniu, potem dwa ostre cięcia podwójnych spiżowych ostrzy",
+        False,
+    ),
+    "100": (
+        "A ceremonial escort mech readying: a long energy halberd humming a "
+        "steady tone, a pale shield unfolding with a soft snap.  " + NO_M,
+        "mech eskortowy szykuje się: długa energetyczna halabarda nuci stały ton, blada tarcza rozkłada się z miękkim trzaskiem",
+        False,
+    ),
+    "28": (
+        "A deep underwater bubble collapsing: a round low pulse rising in "
+        "pitch, then a bright wet plink as it bursts at the surface.  " + NO_M,
+        "głęboka podwodna bańka zapada się: niski okrągły puls wznoszący się tonem, potem jasny mokry plaśnięcie na powierzchni",
+        False,
+    ),
+    "34": (
+        "A massive body plunging into molten rock: a thick viscous splash, "
+        "then sizzling spatter searing on hot stone in sharp hissing bursts.  " + NO_M,
+        "potężne ciało wpada w stopioną skałę: gęsty lepki plusk, potem skwierczące rozpryski palące się na gorącym kamieniu ostrymi sykami",
+        False,
+    ),
+    "46": (
+        "Fresh green shoots springing open: many soft sappy pops one after "
+        "another, leaves unfurling, light and lively.  " + NO_M,
+        "świeże zielone pędy rozwierają się: jeden po drugim miękkie soczyste strzały, liście rozwijają się, lekko i żywo",
+        False,
+    ),
+    "102": (
+        "A heavy body diving through air: a rising airy whoosh building in "
+        "pitch and speed, wind tearing past, cut short at the lowest point.  " + NO_M,
+        "ciężkie ciało pikuje w powietrzu: wznoszący się świst narastający tonem i prędkością, rozdzierany wiatr, urywa się w najniższym punkcie",
         False,
     ),
 }
