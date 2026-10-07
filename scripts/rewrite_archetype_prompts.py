@@ -820,8 +820,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # poprzednia siodemke.
     "477": ("An aven diving on cold currents: wind screaming past in a high thin shriek as the loudest moment, wings folding tight, a spear-head flaring with a glassy magical chime.",
             "aven pikuje w zimnych prądach: wiatr świszczy wysoko i cienko, skrzydła składają się, grot rozbłyska szklistym tonem", False),
-    "448": ("A chaos spire erupting from a street: cobblestones bursting upward with sharp stone cracks, a crystal spike grinding skyward, rainbow discharges snapping off its facets.",
-            "iglica chaosu wybucha z ulicy: bruk trzaska ostro, kryształowy kolec zgrzyta w górę, tęczowe wyładowania strzelają", False),
+    "448": (
+        "A chaos spire erupting from a street: cobblestones bursting upward "
+        "with sharp stone cracks, a crystal spike grinding gritty and low.  " + NO_M,
+        "iglica chaosu wybucha z ulicy: bruk trzaska ostro w górę, kryształowy kolec zgrzyta chropowato i nisko",
+        False,
+    ),
     "57": (
         "Silk robes billowing open: a long bright rustle of heavy fabric "
         "unfolding and climbing upward, a shimmering thread above it. " + NO_M,
@@ -841,8 +845,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # - tym razem prompt jawnie rozklada cztery uderzenia na caly take.
     # 22 i 32 maja centroid 440-493 Hz, czyli siedza w niskim huku; 32 ma
     # 'burst of bubbles' w scenariuszu, wiec dostaje hierarchie glosnosci.
-    "592": ("A stone reliquary smashed down onto an altar: heavy stone cracking apart, then iron fittings crunching and tearing loose one by one, grit and debris rattling across the slab.",
-            "kamienny relikwiarz rozbity o ołtarz: kamień pęka, żelazne okucia zgrzytają i wyrywają się kolejno, gruzy szeleszczą", False),
+    "592": (
+        "A stone reliquary smashed on an altar: one heavy stone crack, then "
+        "iron fittings crunching loose one after another, grit rattling "
+        "across the slab.  " + NO_M,
+        "kamienny relikwiarz rozbity o ołtarz: jeden ciężki trzask kamienia, potem żelazne okucia pękają jedno po drugim, żwir szeleszczy po płycie",
+        False,
+    ),
     "238": ("A dwarf war roller grinding forward: iron drums crushing a wrecked chariot, wood splintering in sharp cracks and metal buckling, gravel spraying off the tread.",
             "krasnoludzki walec wojenny miele wrak rydwanu: żelazne bębny, drewno trzaska, metal się wygina, żwir pryska", False),
     "22": ("One enormous boulder heave: deep stone grinding against rock, then a sharp ground crack underfoot as the loudest moment, pebbles and grit showering down after it.",
@@ -862,18 +871,31 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "zaklęcie zduszone w locie: kula ognia nadlatuje, strumienie wody i pnącza miażdżą ją z gwałtownym sykiem pary", False),
     "50": ("Heavy books falling and dissolving: three muffled thumps of tumbling tomes, each cut short as it unravels into a cold shimmering mist that keeps drifting.",
             "ciężkie księgi spadają i rozpływają się: trzy głuche uderzenia, każde urywa się w zimną migoczącą mgłę", False),
-    "222": ("A merfolk guard sounding a shell horn over a storm coast: one long low blast curling out as the loudest moment, waves crashing and spray hissing beneath.",
-            "morski strażnik dmie w muszlę nad sztormowym brzegiem: jeden długi niski sygnał, pod nim fale i syk piany", False),
+    "222": (
+        "A conch shell horn blown in three clear blasts: a bright ringing "
+        "tonal note held each time, waves crashing and spray hissing beneath. " + NO_M,
+        "morski strażnik dmie w muszlę: trzy wyraźne sygnały, za każdym razem jasny dzwoniący ton, pod nim fale i syk piany",
+        False,
+    ),
     "395": (
         "Mud erupting in three wet heavy bursts, then rusted armour grinding "
         "free with a long metallic scrape. Low and close. " + NO_M,
         "błoto wybucha trzema mokrymi uderzeniami, potem zardzewiała zbroja zgrzyta długim metalicznym zgrzytem",
         False,
     ),
-    "419": ("A fear of burning made flesh: a crushing heatwave rolling off a smouldering figure, paint blistering and peeling with sharp cracks, embers popping close.",
-            "lęk przed spaleniem przybiera ciało: miażdżąca fala gorąca, farba pęcherzy i łuszczy się z ostrym trzaskiem", False),
-    "401": ("Red hot metal searing and melting: a fierce sustained hiss, metal skin warping with sharp cracking pops, droplets of molten metal spitting and sizzling.",
-            "rozżarzony metal topi się: ostry nieustanny syk, skóra metalu wygina się z trzaskiem, krople pryskają", False),
+    "419": (
+        "A smouldering figure exhaling heat: dry paint blistering and peeling "
+        "in rapid sharp cracks, embers popping close, a dry crackling rush.  " + NO_M,
+        "postać z lęku przed spaleniem: sucha farba pęcherzy i łuszczy się szybkimi ostrymi trzaskami, węgle strzelają blisko, suchy trzaskający powiew",
+        False,
+    ),
+    "401": (
+        "Red hot metal searing: a fierce sustained hiss with molten droplets "
+        "spitting and sizzling in rapid bursts, metal skin warping and "
+        "cracking.  " + NO_M,
+        "rozżarzony metal topi się: ostry nieustanny syk, krople stopionego metalu pryskają i skwierczą szybkimi seriami, skóra metalu pęka",
+        False,
+    ),
     "295": (
         "Wooden crate dragged across bare boards in three slow rasping "
         "scrapes, each one ending in a hollow wooden knock. Dry and close. " + NO_M,
@@ -920,6 +942,37 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "Vines sprouting and wrapping tight around an arm: three sharp "
         "creaking tightenings of green stems, then a low growl. " + NO_M,
         "pnącza wyrastają i oplatają ramię: trzy ostre skrzypiące napięcia zielonych łodyg, potem niski warkot",
+        False,
+    ),
+    "602": (
+        "Obsidian shards chiming into being: a cluster of bright glassy "
+        "chimes ringing out one after another, a warbled metallic hum "
+        "beneath.  " + NO_M,
+        "obsydianowe odłamki dzwoniąc pojawiają się jeden po drugim: jasne szklane dźwięki, pod nimi metaliczny pomruk",
+        False,
+    ),
+    "60": (
+        "A crystal waterfall pouring steadily: one continuous bright rush of "
+        "falling water, a soft splashing veil over it, calm and even.  " + NO_M,
+        "krystaliczny wodospad wlewa się stale: jeden ciągły jasny szum spadającej wody, nad nim miękka zasłona plusku",
+        False,
+    ),
+    "458": (
+        "An arynx leaping a canyon: claws scraping off the rim, a long rush "
+        "of wind, then a heavy landing scattering gravel.  " + NO_M,
+        "arynx skacze nad kanionem: pazury zdrapują z krawędzi, długi powiew wiatru, potem ciężkie lądowanie rozrzucające żwir",
+        False,
+    ),
+    "475": (
+        "A mech arm swung as a club: torn metal groaning through the air, "
+        "then terminals bursting in showers of sharp blue sparks.  " + NO_M,
+        "mechowe ramię jako maczuga: poszarpany metal jęczy w powietrzu, potem terminale pękają fontannami ostrych niebieskich iskier",
+        False,
+    ),
+    "542": (
+        "A panic spellbomb bursting: a sharp cracking shockwave, then a steel "
+        "spear clattering and ringing on the floor.  " + NO_M,
+        "spellbomb paniki wybucha: ostry trzask fali uderzeniowej, potem stalowa włócznia szczęka i dzwoni o podłogę",
         False,
     ),
 }
