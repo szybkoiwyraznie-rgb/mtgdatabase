@@ -1,4 +1,4 @@
-name: TEMP b072d czwarta proba - tylko 325 Narset's Rebuke (crest + dol pasma)
+name: TEMP b072e piata proba - tylko 325 Narset's Rebuke (ogon)
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,46 +107,46 @@ name: TEMP b072d czwarta proba - tylko 325 Narset's Rebuke (crest + dol pasma)
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# b072d: CZWARTA PROBA, tylko karta 325. 2 warianty x 1 karta = 2
-# generacje x 40 kredytow = 80 kredytow (lacznie na 325: 320, cala
-# dostawa b072: 480).
+# b072e: PIATA PROBA, tylko karta 325. 2 warianty x 1 karta = 2
+# generacje x 40 kredytow = 80 kredytow (lacznie na 325: 400, cala
+# dostawa b072: 560).
 #
-# 324 ZAMKNIETA i zaimportowana: b072b/v1 po postprodukcji ma crest
-# 25,3, centroid 3524, onset 17, ioi_cv 0,405 — mechanism_click
-# trafiony. Zostala w audio/samples/324.mp3.
+# 324 ZAMKNIETA i zaimportowana (b072b/v1, postprodukcja): crest 25,3,
+# centroid 3524, onset 17, ioi_cv 0,405, 0 flag, brak pary blizniaka.
 #
-# 325 thunder_clap — historia czterech prob:
-#   b072   crest 11,8 / 11,1   (brakowalo tez mid_up)
-#   b072b  crest 16,9 / 13,0   v1 mial centroid 850 przy limicie 800
-#   b072c  crest 18,4 / 18.8   ALE low_all 0,003 / 0,010 i centroid
-#          2952 / 1498 — prompt „nauczyl" model relacji poziomow
-#          (ogon duzo ciszej niz uderzenie), przez co crest wreszcie
-#          wszedl, ale zniknal niski korpus, bo wycialem z niego
-#          fraze „a heavy low body under it".
+# 325 thunder_clap — piec prob, zawsze jeden warunek brakuje:
+#   b072   crest 11,8 / 11,1        (+ mid_up)
+#   b072b  crest 16,9 / 13,0        (v1: centroid 850 przy limicie 800)
+#   b072c  crest 18,4 / 18,8  ALE   low_all 0,003, centroid 2952
+#   b072d  crest 18,6, centroid 71, low_all 0,916, mid_up 0,084
+#          — zostal tylko decay_s 0,36 (wymagane >= 0,5)
 #
-# KLUCZOWE ODKRYCIE — wzorzec 562 Shock (jedyna istniejaca karta
-# thunder_clap, trafiona):
-#   crest 18,83  centroid 345  low_all 0,522  decay 1,24
-#   **audible_share 0,478** — polowa take'u to cisza.
-#   Wlasnie to daje crest >= 18 przy dlugim zaniku: glosny szczyt +
-#   wybrzmienie + prawdziwe cisze. Tymczasem nasz szablonowy dopisek
-#   „The sound fills the whole take, start to finish" robil dokladnie
-#   odwrotna rzecz — wszystkie take'i 325 mialy audible_share 0,99.
-#   Dopisek NIE jest wymagany przez validate_sample_scenarios.py
-#   (tylko konwencja — ma go 224 z 561 scenariuszy).
+# PROBA MONTAZU (0 kredytow) na b072d/v1: add_reverb_tail.py
+#   wet-db -10 / -14 / -18 daly IDENTYCZNY wynik (sufit floor-db -30
+#   dBFS przy materiale o LUFS -28, wiec reverb i tak startowal z
+#   sufitu). decay_s 0,36 -> 0,85 CEL OSIAGNIETY, ale crest spadl
+#   18,61 -> 15,72. Reverb dodaje energii do RMS wiec crest MUSI
+#   spasc — kontrakt chce obu naraz. Odrzucone.
 #
-# Nowy prompt laczy troje:
-#   - transient: „one instantaneous hard crack struck in a single frame"
-#   - korpus:    „over a deep low body"   (low_all, centroid)
-#   - ogon:      „far quieter than the impact, decaying into silence"
-#                (crest) + „starts instantly ... no silence at the
-#                beginning" (bez flagi long_lead_silence)
-# Cel: crest >= 18, centroid <= 800, low_all >= 0,5. API 443 / 450.
+# ANALIZA vs WZORZEC 562 Shock (jedyne trafione thunder_clap):
+#   cecha        562       b072d/v1
+#   centroid     345         71      <- v1 ZA CIEMNE
+#   low_all      0,522      0,916    <- v1 prawie sam sub-bas
+#   mid_up       0,478      0,084    <- v1 na krawedzi progu 0,08
+#   decay_s      1,24       0,36     <- v1 nie ma dlugiego grzmotu
+#   crest        18,83      18,61
+#   audible_sh   0,478      0,084
+#   Winny „deep low body" z b072d: zrobil z karty sub-basowy dron.
+#
+# Nowy prompt: mniej „deep", wiecej srodka i dluzszy GLOSNY ogon:
+#   crack (crest) + „rasp of shattered stone" (mid_up) + „heavy low
+#   rumble that stays loud for over a second" (decay_s, low_all) +
+#   „dying away into silence before the end" (ochrona crestu).
+# API 429 / 450.
 #
 # Kontrakt thunder_clap: low_all>=0,5  centroid<=800  crest>=18
 #                        decay_s>=0,5  mid_up>=0,08
-# Take 4,0 s. UWAGA: --batch MUSI zgadzac sie z polem batch w
-# scenarios.jsonl (325: b072c -> b072d).
+# Take 4,0 s. batch 325: b072d -> b072e.
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -170,13 +170,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-b072d]
+      - name: Guard — tylko commit z markerem [generate-b072e]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b072d]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b072e]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b072d] — nic nie generuję"
+            echo "brak markera [generate-b072e] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -195,25 +195,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b072d
+          mkdir -p variants/b072e
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/b072d/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b072e/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch b072d --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b072d/v$v" 2>&1 | tee -a variants/b072d/generate.log
+              --ids "$IDS" --batch b072e --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b072e/v$v" 2>&1 | tee -a variants/b072e/generate.log
           done
-          ls -la variants/b072d variants/b072d/v1 variants/b072d/v2 || true
+          ls -la variants/b072e variants/b072e/v1 variants/b072e/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b072d data/samples/generated-manifest.jsonl
+          git add -f variants/b072e data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "b072d: 16 wariantow (8 kart x 2) + log generacji [import-b072d]"
+            git commit -m "b072e: 16 wariantow (8 kart x 2) + log generacji [import-b072e]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
