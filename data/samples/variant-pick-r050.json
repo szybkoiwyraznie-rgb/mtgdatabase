@@ -1,0 +1,198 @@
+{
+  "variants_dir": "/home/user/mtgdatabase/variants/r050",
+  "applied": true,
+  "results": [
+    {
+      "id": "604",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r050/v1/604.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.73,
+          "lufs": -17.22,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r050/v2/604.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.13,
+          "lufs": -18.18,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r050/v2/19.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.04,
+          "lufs": -25.61,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r050/v1/19.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.16,
+          "lufs": -16.11,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "403",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r050/v2/403.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.76,
+          "lufs": -13.74,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r050/v1/403.mp3",
+          "duration_s": 4.0,
+          "content_s": 1.5,
+          "lufs": -12.7,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "87",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r050/v1/87.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.2,
+          "lufs": -16.19,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r050/v2/87.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.88,
+          "lufs": -16.89,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "267",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r050/v1/267.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.3,
+          "lufs": -12.65,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r050/v2/267.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.87,
+          "lufs": -12.49,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "337",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r050/v1/337.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.09,
+          "lufs": -18.13,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r050/v2/337.mp3",
+          "duration_s": 4.0,
+          "content_s": 1.89,
+          "lufs": -20.17,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "490",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r050/v1/490.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.99,
+          "lufs": -23.34,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r050/v2/490.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.88,
+          "lufs": -23.35,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "115",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r050/v2/115.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.3,
+          "lufs": -19.94,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r050/v1/115.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.95,
+          "lufs": -16.48,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    }
+  ]
+}

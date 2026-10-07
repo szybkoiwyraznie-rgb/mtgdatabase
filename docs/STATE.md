@@ -3304,3 +3304,42 @@ na którym opiera się ich rozpoznawalność.
 
 **r034–r049: 234 generacje, 175 → 21 par (−88 %), 9360 kr łącznie.**
 Bieżący klucz: 7280 / 10 000, zostaje **2720**.
+
+### r050 — wyniki: pięć krótkich sample nad progiem, graf bez zmian
+
+640 kredytów, 16 generacji, 8 kart. Pięć nowych audio nad progiem 2 s:
+**`604` Vampire's Bite 0,89 → 3,72 s (+2,83)**, `267` 1,82 → 3,30 s (+1,48),
+`19` 1,51 → 3,14 s (+1,63), `490` 1,85 → 3,14 s (+1,29), `337` 1,85 → 2,05 s.
+
+**Trzy cofnięte, każda z innego powodu:**
+
+- **`87` Angelic Benediction — centroid spadł 635 → 97 Hz** i doszły trzy flagi
+  (`boomy`, `dull`, `muffled`). Treść wprawdzie urosła 1,80 → 3,19 s, ale
+  zamiast uderzeń skrzydeł wyszedł niski pomruk — dźwięk nie do poznania,
+  czyli naruszony główny wymóg właściciela.
+- **`115` Merfolk Mesmerist — zyskała parę** (0,9111 z `609`), choć treść
+  urosła 1,92 → 3,28 s.
+- **`403` Dementia Bat — nie przeszła**: treść 1,68 → 1,69 s, czyli bez zmiany,
+  i doszła flaga `long_trail_silence`.
+
+Flagę `337` (`long_trail_silence`) zdjęto trymem za zero kredytów.
+
+**Graf bez zmian: 21 par.** Treść < 2 s: **45 → 41**. Flagi 54 (jedna nowa:
+`harsh` na `267`, jedna zdjęta: `long_lead_silence` na `604`), 0 bliźniaków,
+0 poza oknem, LUFS −20,08 (odch. 0,48). Archetypy **0 / 33 / 145**, regresji
+brak. Testy 6 OK, walidator 557/557, site + ZIP 557.
+
+### Po r050: graf jest przy ścianie, celem staje się długość
+
+Po r049 zostało **21 par**, ale tylko **5 krawędzi daje się zdjąć**: 16 z 21
+par łączy **dwa węzły trafione**, czyli chronione kontraktem z obu stron.
+Jedyne karty z werdyktem „prawdopodobnie", które mają pary, to `496` (3),
+`98` (1) i `103` (1) — po nich wyczerpiemy możliwości.
+
+Natomiast **41 kart ma treść poniżej 2 s**, czyli poniżej kryterium
+właściciela. Z tego 19 jest trafionych (nie ruszamy), 5 to „prawdopodobnie"
+(ryzyko werdyktu), a **17 nie ma archetypu** — te są bezpieczne i to one
+będą celem następnych rund.
+
+**r034–r050: 250 generacji, 175 → 21 par (−88 %), 10 000 kr łącznie.**
+Bieżący klucz: 7920 / 10 000, zostaje **2080** (czyli ~5 rund po 8 kart).
