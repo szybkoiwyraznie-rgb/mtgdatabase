@@ -707,8 +707,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # dostal szum i stracil attack_s; robot_servo dostal cztery kliky i stracil
     # tonal_frame_fraction do 0,04 przy wymaganym >= 0,35). Dlatego cecha CHRONIONA
     # idzie pierwsza i jako element dominujacy, a poprawka dopiero po niej.
-    "17": ("One hard bright steel strike at the very first instant, no build-up, and that strike is a harsh broadband burst of gritty metallic noise, rough-edged, not a clean ring.",
-            "dwa ostrza krawędziami: jeden twardy jasny cios w pierwszej chwili, z chrapliwego szerokopasmowego szumu stali", False),
+    "17": (
+        "Three dagger strikes in a row, the first the loudest with no build-up: a "
+        "harsh burst of gritty metallic noise each time, bright steel ringing thin "
+        "behind it. " + NO_M,
+        "trzy cięcia sztyletem jedno po drugim, pierwsze najgłośniejsze i bez narastania: za każdym razem ostry wybuch ziarnistego metalicznego szumu, z tyłu cienko dzwoniąca jasna stal",
+        False,
+    ),
     "20": ("A sword hitting a sword: an instantaneous hard bright impact at the very first sample, made of harsh broadband gritty metal noise with a rough noisy edge, no smooth pitch.",
             "miecz uderza o miecz: natychmiastowy twardy jasny cios z chrapliwego szumu, bez gładkiego tonu", False),
     "345": ("A porcelain blade striking: one hard impact with zero wind-up at the very start, built from harsh broadband gritty ceramic-and-steel noise, bright and rough-edged.",
@@ -729,8 +734,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "ciężkie drzwi: długie tonalne skrzypienie wybrzmiewające ponad sekundę, wysokość faluje łagodnie trzy-cztery razy na sekundę", False),
     "303": ("Heavy doors: a long tonal creak that rings on past a second, its pitch wobbling at a steady medium rate of about five or six times a second - faster than a slow slide.",
             "ciężkie drzwi: długie tonalne skrzypienie ponad sekundę, wysokość chwieje się w średnim tempie pięć-sześć razy na sekundę", False),
-    "531": ("Heavy doors: a drawn-out tonal creak ringing on past a second with a steady medium pitch wobble, about five or six fluctuations a second rather than one slow slide.",
-            "przeciągłe tonalne skrzypienie ponad sekundę ze średnim falowaniem wysokości pięć-sześć razy na sekundę", False),
+    "531": (
+        "Heavy doors pushed slowly open: a long drawn-out tonal creak that rises and "
+        "falls five or six times, groaning and wavering, held for the whole take, "
+        "ending in a soft wooden clunk. " + NO_M,
+        "ciężkie drzwi uchylają się powoli: długie przeciągłe tonalne skrzypienie, które wznosi się i opada pięć lub sześć razy, jęcząc i falując, trzymane przez cały take, kończące się miękkim drewnianym stuknięciem",
+        False,
+    ),
     "103": ("A broad gust that builds slowly over a third of a second and holds, broadband hissing air noise whose weight sits low - deep rumbling air, no bright hiss on top.",
             "wiatr w gałęziach: szeroki podmuch narastający powoli i trzymany, o ciężarze nisko, bez jasnego syku", False),
     "492": ("Tall grass laid down by a gust over a barrow: a broad swell of wind that builds slowly and holds, deep and low in the range, broadband air noise with no bright hiss above it.",
@@ -751,8 +761,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # probowane 2-3 razy bez efektu.
     "3": ("A bonfire of dry wood: a dense shower of crackles and pops pitched in the middle of the range, warm and woody rather than bright or hissy.",
             "ognisko z suchego drewna: gęsty deszcz trzasków w środku pasma, ciepły i drewniany raczej niż jasny czy syczący", False),
-    "4": ("A body slamming into a pool: a bright wide hissing spray of water droplets flying up, sharp and sparkling in the upper range, with only a brief gurgle under it.",
-            "ciało wpada do wody: jasny szeroki syk kropel rozbryzgujących się w górę, ostry i iskrzący w górze pasma", False),
+    "4": (
+        "Three bodies slamming into a pool in a row, the first the loudest: three "
+        "bright sprays of hissing water droplets, sharp and sparkling in the upper "
+        "range, ripples lapping between them. " + NO_M,
+        "trzy ciała wpadają do sadzawki jedno po drugim, pierwsze najgłośniejsze: trzy jasne rozbryzgi syczących kropel wody, ostre i skrzące się w górze pasma, między nimi pluskająca fala",
+        False,
+    ),
     "40": ("Thick armour plates knocked together: two or three mid-pitched metal clanks, weighty and dull rather than bright, each plate struck separately.",
             "grube płyty pancerza zderzają się: dwa-trzy klanki w środku pasma, ciężkie i matowe raczej niż jasne", False),
     "96": ("A stream of emerald magic: one continuous flowing shimmering tone with a clear sustained pitch and bright sparkling overtones, smooth and even throughout.",
@@ -996,10 +1011,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "542": (
-        "A panic spellbomb bursts with a sharp pressure crack; its steel "
-        "spear bounces and clatters across stone in several bright ringing "
-        "strikes, then rolls to a stop. " + NO_M,
-        "spellbomb paniki wybucha ostrym trzaskiem ciśnienia; stalowa włócznia podskakuje i grzechocze po kamieniu serią jasnych dźwięcznych uderzeń, po czym zatrzymuje się",
+        "A panic spellbomb bursts with a sharp pressure crack; the steel spear bounces "
+        "across stone in five bright ringing strikes in a row, then rolls to a stop. " + NO_M,
+        "bomba zaklęć wybucha ostrym trzaskiem ciśnienia; stalowa włócznia odbija się od kamienia pięcioma jasnymi dzwoniącymi uderzeniami jedno po drugim, po czym zatrzymuje się",
         False,
     ),
     "134": (
@@ -1218,10 +1232,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "403": (
-        "A metal carapace splitting in three sharp cracks, then a long "
-        "pressurised necrogen hiss, droplets pattering on stone one after "
-        "another.  " + NO_M,
-        "metalowy pancerz pęka trzema ostrymi trzaskami, potem długi sprężony syk nekrogenu, krople bębnią o kamień jedna po drugiej",
+        "A metal carapace bursting open in three sharp cracks in a row, a long "
+        "pressurised hiss of escaping gas, then droplets pattering on stone one after "
+        "another. " + NO_M,
+        "metalowy pancerz pęka trzema ostrymi trzaskami jeden po drugim, długi ciśnieniowy syk ulatniającego się gazu, potem krople bębniące o kamień jedna po drugiej",
         False,
     ),
     "443": (
@@ -1281,9 +1295,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "87": (
-        "Five slow wingbeats passing overhead in a row: deep feathery whumps "
-        "and rushes of air, then a long soft feather rustle fading out.  " + NO_M,
-        "pięć powolnych uderzeń skrzydeł przelatujących nad głową: głębokie łupnięcia piór i pędy powietrza, potem długi miękki szelest piór cichnący w dal",
+        "Five wingbeats passing overhead in a row: five airy rushes of feathers, each "
+        "a soft mid-range whump of displaced air, a long rustle of pinions between "
+        "them. " + NO_M,
+        "pięć uderzeń skrzydeł przelatujących nad głową jedno po drugim: pięć przewiewnych powiewów piór, każdy miękkim średniotonowym udarem przemieszczanego powietrza, między nimi długi szelest lotek",
         False,
     ),
     "259": (
@@ -1343,10 +1358,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "547": (
-        "A chrome dragon skims mirrored mercury, slices its talons into the "
-        "liquid with a sharp metallic splash, then lifts its catch on two "
-        "heavy wingbeats as ripples ring out. " + NO_M,
-        "chromowy smok ślizga się nad rtęciową taflą, wbija szpony ostrym metalicznym pluskiem, po czym unosi zdobycz dwoma ciężkimi uderzeniami skrzydeł, a kręgi dźwięczą",
+        "A chrome dragon fishing: three dives in a row, talons slicing liquid metal "
+        "with a sharp bright splash each time, then two heavy wingbeats lifting the "
+        "catch. " + NO_M,
+        "chromowy smok łowi: trzy nurkowania jedno po drugim, szpony tną ciekły metal z ostrym jasnym pluskiem za każdym razem, potem dwa ciężkie uderzenia skrzydeł unoszące zdobycz",
         False,
     ),
     "65": (
@@ -1460,10 +1475,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "526": (
-        "Dark power over steel plate: three violet energy waves in a row as the "
-        "loudest moment, armour plates humming and straining, deep subterranean rumble "
-        "under. " + NO_M,
-        "mroczna moc spływa na stalowy pancerz: trzy fioletowe fale energii jedna po drugiej jako najgłośniejszy moment, płyty pancerza brzęczą i pracują, pod spodem głęboki podziemny pomruk",
+        "Violet energy pouring over steel plate in three waves: three bright crackling "
+        "surges as the loudest moment, armour plates ringing and straining, sparks "
+        "spitting. " + NO_M,
+        "fioletowa energia spływa na stalowy pancerz trzema falami: trzy jasne trzaskające uderzenia jako najgłośniejszy moment, płyty pancerza dzwonią i pracują, pryskają iskry",
         False,
     ),
 }
