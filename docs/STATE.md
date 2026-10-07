@@ -3415,3 +3415,69 @@ werdyktowo, ale z r049–r051 widać, że szansa jest rzędu 1/3.
 
 **r034–r051: 266 generacji, 175 → 21 par (−88 %).**
 Bieżący klucz: 8560 / 10 000, zostaje **1440** (dwie rundy po 8 kart).
+
+### r052 — wyniki: sześć krótkich sample nad progiem, dwie karty cofnięte
+
+640 kredytów, 16 generacji, 8 kart. Po r051 nie było już ani jednej
+„bezpiecznej i nietkniętej\" karty z treścią poniżej 2 s, więc r052 wzięła
+dwóch grup: najkrótsze karty, których **kontrakt archetypu nie ma górnego
+progu `decay_s`** (czyli długi take nie łamie werdyktu), oraz cztery karty
+bez archetypu ponowione z nowym promptem.
+
+| id | karta | archetyp | stara treść | nowa treść | delta |
+|----|-------|----------|-------------|------------|-------|
+| 531 | Disa the Restless | door_creak | 1,17 s | 3,84 s | **+2,67** |
+| 403 | Dementia Bat | — | 1,68 s | 3,64 s | **+1,96** |
+| 526 | Canonized in Blood | — | 1,99 s | 3,18 s | **+1,19** |
+| 17 | Selhoff Occultist | sword_clash | 1,17 s | 2,23 s | **+1,06** |
+| 547 | Quicksilver Fisher | — | 1,91 s | 2,63 s | **+0,72** |
+| 542 | Panic Spellbomb | — | 1,75 s | 2,00 s | +0,25 |
+| 4 | Mystic Sanctuary | water_splash | 0,45 s | *cofnięta* | — |
+| 87 | Angelic Benediction | — | 1,80 s | *cofnięta* | — |
+
+**Reguła wynikowa, która się potwierdziła:** słowa „deep\", „subterranean\",
+„under\", „below\" model realizuje **dosłownie jako czysty sub-bas**
+(`low_all` = 1,00). W r051 przez nie poleciały `526` (centroid 78 Hz) i
+`87` (97 Hz). W r052 `526` dostała „sparks spitting\" i wyszła przy
+**8639 Hz** — to ten sam pomysł na kartę, inaczej opisany.
+
+**Dwie cofnięte:**
+
+- **`87` Angelic Benediction — oba warianty znowu wyszły sub-basem**
+  (centroid 54 i 155 Hz, `low_all` 0,99 / 0,95), mimo że z promptu
+  zniknęło słowo „deep\", a w jego miejsce weszło „mid-range whump of
+  displaced air\". Trzecie podejście do tej karty — prawdopodobnie
+  model ma silną preferencję dla niskich częstotliwości przy uderzeniach
+  skrzydeł i każde „whump\" zamienia na pomruk.
+- **`4` Mystic Sanctuary — treść urosła 0,45 → 1,47 s, ale karta
+  zyskała DWIE PARY** (0,9368 z `261` Universal Solvent i 0,9029 z `103`),
+  czyli 21 → 23 pary. Skoro i tak nie doszła do progu 2 s, dwóch krawędzi
+  nie jest warte — ta sama zasada co przy `311` w r049 i `115` w r050.
+
+Ogony i czołówki przytrimowane za zero kredytów: `17` (ogon 1,72 → 0,40 s,
+plik 4,00 → 2,68 s) i `4` przed cofnięciem. `531` nie potrzebowała trymu —
+nowy sample kończy się czysto, więc flaga `long_trail_silence` zniknęła
+sama.
+
+**Graf bez zmian: 21 par.** Treść < 2 s: **35 → 29**. Flagi 54 (bez zmiany:
++1 `harsh` na `403`, −2 `long_trail_silence`, −1 `tonal_sustained`,
++1 `long_lead_silence` na `542`), 0 bliźniaków, 0 poza oknem 2–5 s,
+LUFS −20,09 (odch. 0,48). Archetypy **0 / 33 / 145** bez regresji —
+`4` wróciła na trafioną, `17` i `531` zostały przy „prawdopodobnie\"
+(`17` 0,5 → 1,0 pkt za `attack_s` 0,140; `531` 1,0 → 1,0, zmiana
+naruszenia z `mod_peak_hz` na `decay_s` 0,070). Testy 6 OK,
+walidator 557/557, site + ZIP 557.
+
+### Po r052: 29 kart nadal poniżej progu, budżet na jedną rundę
+
+Z 29 pozostałych kart o treści < 2 s **19 jest trafionych** (chronionych
+werdyktem), 3 to „prawdopodobnie\" (`292`, `98`, `435`), a 7 nie ma
+archetypu: `87`, `115`, `311`, `337`, `545`, `219`, `561`. Z tej siódemki
+tylko `87` nie dostała jeszcze trafionego wariantu — pozostałe sześć
+dostało technikę w r047–r051 i zostało krótkich. W pierwszej dziesiątce
+najkrótszych **dziewięć kart jest trafionych**, więc każda kolejna runda
+w to uderzająca będzie ważyć treść przeciwko werdyktowi.
+
+**r034–r052: 282 generacje, 175 → 21 par (−88 %), treść < 2 s 41 → 29.**
+Bieżący klucz: 9200 / 10 000, zostaje **800** (jedna runda po 8 kart
+albo dwie krótsze).
