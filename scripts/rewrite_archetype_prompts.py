@@ -992,9 +992,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "542": (
-        "A panic spellbomb bursting: a sharp cracking shockwave, then a steel "
-        "spear clattering and ringing on the floor.  " + NO_M,
-        "spellbomb paniki wybucha: ostry trzask fali uderzeniowej, potem stalowa włócznia szczęka i dzwoni o podłogę",
+        "A panic spellbomb bursts with a sharp pressure crack; its steel "
+        "spear bounces and clatters across stone in several bright ringing "
+        "strikes, then rolls to a stop. " + NO_M,
+        "spellbomb paniki wybucha ostrym trzaskiem ciśnienia; stalowa włócznia podskakuje i grzechocze po kamieniu serią jasnych dźwięcznych uderzeń, po czym zatrzymuje się",
         False,
     ),
     "134": (
@@ -1266,6 +1267,55 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "stone cracks, sharp shards ricochet across the floor, and the last "
         "impact scatters burning scrolls. " + NO_M,
         "diabeł kuźni rozbija archiwalny filar trzema uderzeniami żelaznego pręta: kamień pęka, ostre odłamki odbijają się od posadzki, a ostatnie uderzenie rozrzuca płonące zwoje",
+        False,
+    ),
+    "255": (
+        "Two drowned warriors rise from black swamp water in separate hollow "
+        "whooshes; foamy water shivers, a glassy spirit hiss climbs and fades "
+        "after the second apparition. " + NO_M,
+        "dwaj utopieni wojownicy unoszą się nad czarną wodą dwoma osobnymi pustymi świstami; piana drży, szklisty syk ducha wznosi się i cichnie po drugim widmie",
+        False,
+    ),
+    "87": (
+        "Three slow wingbeats pass overhead: the first deep feathery whump, a "
+        "second closer rush of air, then a lighter beat and soft feather "
+        "rustle fading away. " + NO_M,
+        "trzy powolne uderzenia skrzydeł przelatują nad głową: pierwsze głębokie łupnięcie piór, drugi bliższy pęd powietrza, potem lżejszy trzepot i cichnący szelest",
+        False,
+    ),
+    "259": (
+        "A massive predator's hooked claws rake down fractured obsidian "
+        "twice: the first catches with a glassy rasp, the next tears free a "
+        "cascade of sharp stone slivers. " + NO_M,
+        "zakrzywione szpony ogromnego drapieżnika dwukrotnie rysują pęknięty obsydian: pierwszy zgrzyt jest szklisty, drugi wyrywa kaskadę ostrych kamiennych drzazg",
+        False,
+    ),
+    "563": (
+        "A great roc lands on a sandstone shelf: three heavy wingbeats brake "
+        "its descent, talons grind into the cracked ledge, a cold power stone "
+        "pulses once beneath its feet. " + NO_M,
+        "wielki rok ląduje na półce piaskowca: trzy ciężkie uderzenia skrzydeł hamują spadanie, szpony wgryzają się w pękniętą półkę, kamień mocy raz pulsuje pod łapami",
+        False,
+    ),
+    "289": (
+        "Three thick oil drops fall one by one onto a copper root; each wet "
+        "slap rings a bright metal tick, slow sticky drips follow, and the "
+        "root creaks open at the end. " + NO_M,
+        "trzy gęste krople oleju spadają kolejno na miedziany korzeń; każdemu mokremu klapnięciu odpowiada jasny metaliczny tik, potem lepki ściek i skrzypnięcie korzenia",
+        False,
+    ),
+    "94": (
+        "Fortress braziers ignite one after another along the wall: separate "
+        "warm whoomps, flames rising in sequence, the last bowl catching with "
+        "a bright crackle and settling to a steady fire. " + NO_M,
+        "ofiarne misy zapalają się po kolei wzdłuż muru: osobne ciepłe buchnięcia, płomienie wstają jeden za drugim, ostatnia misa chwyta jasnym trzaskiem i przechodzi w równy ogień",
+        False,
+    ),
+    "219": (
+        "An adventuring party crosses a crystal portal: four bootsteps echo "
+        "through the gate, glassy chimes answer each arrival, then the portal "
+        "hum swells and releases them. " + NO_M,
+        "drużyna poszukiwaczy przechodzi przez kryształowy portal: cztery kroki odbijają się echem w bramie, szkliste dzwonki odpowiadają na przybycie, portal nabrzmiewa brzęczeniem i wypuszcza podróżnych",
         False,
     ),
 }
