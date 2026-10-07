@@ -918,9 +918,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "577": (
-        "An iron staff slamming down on stone: one deep ringing metallic "
-        "impact, then sharp electric arcs crackling bright above it. " + NO_M,
-        "żelazna laska uderza w kamień: jedno głębokie dzwoniące uderzenie metalu, nad nim ostre trzaski łuków",
+        "An iron-shod thunderstaff plants firmly on slate, blooming into one "
+        "deep ringing metal note; three thin electric arcs crackle upward and "
+        "sustain as a bright steady buzz.  " + NO_M,
+        "żelazna laska burzy mocno osiada na łupku, rozkwitając jednym głębokim metalicznym dźwiękiem; trzy cienkie łuki elektryczne trzaskają w górę i trwają jako jasne, stałe brzęczenie",
         False,
     ),
     "155": (
@@ -973,9 +974,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "475": (
-        "A mech arm swung as a club: torn metal groaning through the air, "
-        "then terminals bursting in showers of sharp blue sparks.  " + NO_M,
-        "mechowe ramię jako maczuga: poszarpany metal jęczy w powietrzu, potem terminale pękają fontannami ostrych niebieskich iskier",
+        "A hydraulic mech arm winds back with a strained piston whine, then "
+        "crashes down as a metal club; gears lock with a heavy clang and a "
+        "burst of sharp blue electrical sparks.  " + NO_M,
+        "hydrauliczne ramię mecha cofa się z jękiem tłoka, po czym wali jak metalowa maczuga; przekładnie blokują się ciężkim brzękiem, a z nich wytryskują ostre niebieskie iskry",
         False,
     ),
     "542": (
@@ -1029,10 +1031,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "554": (
-        "A hatchling hissing sharply from the ferns, then a colossal mother "
-        "crashes through the thicket with a rolling roar and snapping "
-        "branches.  " + NO_M,
-        "pisklę syczy ostro w paprociach, potem kolosalna matka przebija się przez gąszcz z przetaczającym się rykiem i trzaskiem łamanych gałęzi",
+        "A hatchling warning: three bright clipped reptile chirrs close in "
+        "the ferns; a huge mother answers twice with a distant throaty roar "
+        "and a rush through snapped branches. Keep the little call foremost.  " + NO_M,
+        "ostrzeżenie pisklęcia: trzy jasne, krótkie reptyle trele w paprociach; ogromna matka odpowiada dwoma odległymi gardłowymi rykami i szelestem łamanych gałęzi. Na pierwszym planie głos pisklęcia",
         False,
     ),
     "180": (
@@ -1081,6 +1083,55 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "A heavy body diving through air: a rising airy whoosh building in "
         "pitch and speed, wind tearing past, cut short at the lowest point.  " + NO_M,
         "ciężkie ciało pikuje w powietrzu: wznoszący się świst narastający tonem i prędkością, rozdzierany wiatr, urywa się w najniższym punkcie",
+        False,
+    ),
+    "79": (
+        "A colossal rune-carved stone shelters a camp: taut tent lines shiver "
+        "and twang twice over a steady high crystalline stone hum, the bright "
+        "wires ringing as wind rises and fades.  " + NO_M,
+        "kolosalny kamień z runami osłania obóz: napięte linki namiotów drżą i dwa razy brzęczą nad stałym wysokim krystalicznym pomrukiem kamienia, jasne druty dźwięczą, gdy wiatr narasta i cichnie",
+        False,
+    ),
+    "291": (
+        "A plague beast releases contagion in three uneven wet exhalations, "
+        "each followed by a gritty spore hiss and a soft patter of droplets "
+        "settling on dead leaves.  " + NO_M,
+        "bestia plagi uwalnia skażenie trzema nierównymi mokrymi wydechami; po każdym następuje ziarnisty syk zarodników i miękki stuk kropel osiadających na martwych liściach",
+        False,
+    ),
+    "570": (
+        "A heavy iron watergate rises from a flooded channel: a chain ratchet "
+        "clanks through three measured pulls, then the loaded grate groans "
+        "and a sheet of water slaps the stone basin.  " + NO_M,
+        "ciężka żelazna śluza wynurza się z zalanego kanału: zapadka łańcucha klekocze przy trzech równych pociągnięciach, potem napięta krata jęczy, a tafla wody uderza o kamienną nieckę",
+        False,
+    ),
+    "77": (
+        "A veteran's triple-barrel gauntlet primes with three distinct metal "
+        "cylinder clicks, then fires three spaced gunshot cracks, each "
+        "trailing a brief electric snap; the final report rings out.  " + NO_M,
+        "potrójna rękawica weteranki uzbraja się trzema metalicznymi kliknięciami bębenka, potem padają trzy odrębne huknięcia, każde z krótkim elektrycznym trzaskiem; ostatni strzał dźwięczy",
+        False,
+    ),
+    "589": (
+        "An acidic slime digests an armory: three separate steel fittings "
+        "fizz and slump into liquid, bright bubbles pop one by one, then the "
+        "last acid drip sizzles on stone.  " + NO_M,
+        "kwasowy szlam trawi zbrojownię: trzy stalowe elementy osobno syczą i zapadają się w ciecz, jasne pęcherze pękają jeden po drugim, a ostatnia kropla kwasu skwierczy na kamieniu",
+        False,
+    ),
+    "242": (
+        "A knight's horse trots at an unhurried pace over polished marble: "
+        "four clear pairs of hard hoofbeats, a light plate-mail jingle, then "
+        "one final ringing step fading down the road.  " + NO_M,
+        "koń rycerza spokojnie kłusuje po wypolerowanym marmurze: cztery wyraźne pary twardych uderzeń kopyt, lekkie brzęknięcie zbroi i ostatni dźwięczny krok oddalający się drogą",
+        False,
+    ),
+    "499": (
+        "A brass monument takes one crushing blow at its base; a long "
+        "fracture races through the terrace, then three marble blocks tear "
+        "loose and boom downward in staggered heavy impacts.  " + NO_M,
+        "mosiężny monument otrzymuje miażdżący cios u podstawy; długie pęknięcie biegnie przez taras, po czym trzy marmurowe bloki odrywają się i spadają w dół trzema ciężkimi, rozłożonymi w czasie uderzeniami",
         False,
     ),
 }

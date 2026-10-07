@@ -1,4 +1,4 @@
-name: TEMP r042 osme pietro wezlow podobienstwa
+name: TEMP r043 dziewiate pietro wezlow podobienstwa
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,26 +107,21 @@ name: TEMP r042 osme pietro wezlow podobienstwa
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# r042: 2 warianty x 10 kart = 20 generacji x 40 kredytow = 800 kredytow.
-# Cel: osme pietro WEZLOW podobienstwa. Postep: 175 -> 120 -> 99 -> 87 -> 81
-# -> 65 -> 56 -> 43 par. Po r042: 63 karty w >=1 parze, 15 w >=2, tylko 6 w >=3.
+# r043: 2 warianty x 10 kart = 20 generacji x 40 kredytow = 800 kredytow.
+# Po r043: 33 pary, 47 kart w >=1, 11 w >=2, 6 w >=3.
+# Jedyna pozostala krawedz do wezla chronionego: 554 Cherished Hatchling ->
+# 145 Clone Shell (T). 554 bylo juz zmienione w r041; wracamy do niego, bo
+# druga strona jest chroniona i tej pary nie da sie zdjac inaczej.
+# Pozostale cele to pojedyncze krawedzie, po jednym koncu na pare:
+#   79/28 (0,940), 291/546 (0,928), 570/46 (0,922), 77/288 (0,912),
+#   589/165 (0,912), 242/90 (0,910), 577/264 (0,906), 475/160 (0,906),
+#   499/585 (0,905). Wybrany koniec ma tresc bliska/pod 2 s albo jego sasiad
+# byl juz próbowany w r043 (28, 46), wiec nie placimy za obie strony.
 #
-# Graf jest juz rzadki, wiec priorytet ma to, czego nie da sie odlozyc:
-# KRAWEDZIE DO WEZLOW CHRONIONYCH (regeneracja sasiada grozi utrata trafienia).
-#   180 Homicidal Brute     -> 515 Warmaker Gunship (T)
-#   485 Moonscarred Werewolf-> 112 Flurry of Wings (T)
-#   615 Tah-Crop Skirmisher -> 150 Balamb Garden, SeeD (T)
-# Dalej klastry miedzy zwyklymi kartami: 305 (401, 103) + 100 (401) oraz
-# 395 (458, 287) — razem 5 krawedzi. Z klastra 305/401/100 bierzemy 305 i 100,
-# ZEBY NIE RUSZAC 401 i jej zysku tresci z r040 (1,52 -> 3,22 s).
-# Reszta to pojedyncze pary, w tym NAJSILNIEJSZA w korpusie: 28/79 (0,940).
-#
-# ROZNICOWANIE: przy rzadkim grafie samo widmo przestaje wystarczac, bo
-# fingerprint to 24 ramki melowe — wiec dokładamy tez WZORZEC CZASOWY:
-# rytm oddechu (180, 485), dwa ostre ciecia (615), narastajacy ton (28, 102),
-# wiele miekkich strzalow (46). 28 i 102 dostaly wznoszacy sie przelot, bo
-# oba siedzialy bardzo nisko (336 i 687 Hz) przy rownie niskich sasiadach.
-# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r042).
+# ROZNICOWANIE: rytm trzech strzalow (77), cztery pary kopyt (242), trzy
+# pociagniecia zapadki (570), trzy kwasowe syki (589), oddechy bestii (291),
+# organiczne trele (554) i osobny dlugi trzask mosiadzu/kamienia (499).
+# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r043).
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -139,7 +134,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "180,485,615,305,100,395,28,34,46,102"
+  IDS: "554,79,291,570,77,589,242,577,475,499"
 
 jobs:
   variants:
@@ -150,13 +145,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r042]
+      - name: Guard — tylko commit z markerem [generate-r043]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r042]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r043]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r042] — nic nie generuję"
+            echo "brak markera [generate-r043] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -175,25 +170,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r042
+          mkdir -p variants/r043
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r042/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r043/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r042 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r042/v$v" 2>&1 | tee -a variants/r042/generate.log
+              --ids "$IDS" --batch r043 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r043/v$v" 2>&1 | tee -a variants/r043/generate.log
           done
-          ls -la variants/r042 variants/r042/v1 variants/r042/v2 || true
+          ls -la variants/r043 variants/r043/v1 variants/r043/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r042 data/samples/generated-manifest.jsonl
+          git add -f variants/r043 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r042: 20 wariantow (10 kart x 2) + log generacji [import-r042]"
+            git commit -m "r043: 20 wariantow (10 kart x 2) + log generacji [import-r043]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
