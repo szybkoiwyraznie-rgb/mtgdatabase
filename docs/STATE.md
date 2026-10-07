@@ -3269,3 +3269,38 @@ Pozostałe 21 par łączą węzły trafione lub wcześniej próbowane
 „prawdopodobnie”. Następne rundy skupiać na 51 krótkich próbkach, wybierając
 małe, semantycznie uzasadnione sekwencje; po każdej rundzie zostawiać tylko
 warianty, które przechodzą pomiar długości, podobieństwa i flag.
+
+### r049 — wyniki: sześć krótkich sample nad progiem
+
+640 kredytów, 16 generacji, 8 kart. Sześć nowych audio nad progiem 2 s:
+`143` 3,76 s (+1,84), `116` 3,66 s (+1,80), `65` 3,50 s (+1,58),
+`497` 3,36 s (+1,40), `311`… **nie**, `379` 2,63 s (+0,70), `179` 2,60 s (+0,69).
+
+**Dwie cofnięte:**
+
+- **`311` Guildsworn Prowler — zyskała 2 pary** (0,9191 z `485` i 0,9032 z `396`),
+  choć treść urosła 1,89 → 3,13 s. Treść nie jest warta dwóch krawędzi,
+  skoro graf jest głównym celem rund.
+- **`547` Quicksilver Fisher — nie przeszła**: treść 1,91 → 1,87 s, czyli nadal
+  pod progiem, i doszła flaga `long_trail_silence`.
+
+**Graf bez zmian: 21 par.** Treść < 2 s: **51 → 45**. Flagi 54 (bez nowych),
+0 bliźniaków, 0 poza oknem, LUFS −20,08 (odch. 0,48). Archetypy **0 / 33 / 145**,
+regresji brak. Testy 6 OK, walidator 557/557, site + ZIP 557.
+
+### Uwaga o LUFS: wysoki współczynnik szczytu blokuje normalizację
+
+Przy okazji r049 wyszło ograniczenie, które warto zapisać, bo będzie wracać:
+sample o **wysokim współczynniku szczytu** nie osiągną celu −20 LUFS, bo limit
+true peak −1 dBTP zatrzymuje wzmocnienie. `143` potrzebowała +8,46 dB,
+limiter uciął −10,59 dB i wyszło −25,13 LUFS; `65` potrzebowała +5,36 dB,
+limiter uciął −10,89 dB i wyszło −21,94.
+
+**To nie jest nowa klasa problemu** — korpus już miał 10 kart poza −20 ± 1 dB
+(`3` przy −25,36, `563` przy −25,25). Po r049 jest ich 12. Przy 557 plikach
+to 2 %. Zostawione świadomie: żeby te karty były głośniejsze, trzeba by
+zmniejszyć współczynnik szczytu kompresją, a to zniszczyłoby atak uderzeniowy,
+na którym opiera się ich rozpoznawalność.
+
+**r034–r049: 234 generacje, 175 → 21 par (−88 %), 9360 kr łącznie.**
+Bieżący klucz: 7280 / 10 000, zostaje **2720**.
