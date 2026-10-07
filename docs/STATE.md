@@ -2869,9 +2869,90 @@ krawędzi do węzłów chronionych — jedyna strona, którą wolno regenerować
 sprawdzenie obu wariantów, odwrócenie nieopłacalnych zmian oraz ręczny wybór
 bez nowych kredytów.
 
-**Następny sensowny cel:** ocenić, czy `554` Cherished Hatchling da się ponownie
-odróżnić od chronionej `145` — to jedyna pozostała krawędź chroniona. Wśród
-zwykłych węzłów najsilniejsza jest para `28`/`79` (0,940), ale `28` właśnie
-wróciła z nieudanej próby, więc przed kolejnym wydatkiem trzeba najpierw ocenić
-warianty i efekt krańcowy. Graf ma 33 pary, zatem koszt kolejnej rundy na parę
-może być wyższy niż r042 (80 kr/parę).
+**Decyzja podjęta w r043:** krawędź `554`–`145` została zdjęta; przy doborze
+kolejnej transzy nie ma już krawędzi od karty bez archetypu do węzła w pełni
+trafionego. Najsilniejsza niechroniona para pozostaje `28`/`79` (0,940).
+
+### r043 — dziewiąte piętro węzłów: 33 → 26 par
+
+**800 kredytów, 20 generacji, 10 kart.** Dziesięć wybranych krawędzi:
+`554`→`145`T (ostatnia krawędź chroniona), `79`→`28` (0,940), `291`→`546`
+(0,928), `570`→`46` (0,922), `77`→`288` (0,912), `589`→`165` (0,912),
+`242`→`90` (0,910), `577`→`264` (0,906), `475`→`160` (0,906), `499`→`585`
+(0,905). Każda para miała tylko jeden wybrany koniec; dla `79` i `570`
+wybrano sąsiada karty próbowanej już w r042.
+
+**Wynik końcowy: 33 → 26 par (−7).** Z dziesięciu pierwotnych krawędzi
+zdjęto dziewięć; `577` przywrócono do oryginału. `589` usunęła starą krawędź,
+ale utworzyła dwie nowe (`103` 0,944 i `367` 0,922), więc graf zyskał netto
+siedem mniej par. Karty w ≥1 parze: 47 → **31**; w ≥2: 11 → **13**
+(wzrost przez klaster `589`/`103`/`367`); w ≥3: 6 → **6**.
+
+Treść przed → po, audyt −45 dBFS:
+
+- `554` Cherished Hatchling: 2,90 → **3,22 s**; usunięta krawędź do chronionej
+  `145` Clone Shell.
+- `79` Holdout Settlement: 2,96 → **3,79 s**.
+- `291` Plague Reaver: 2,10 → **3,78 s**.
+- `570` Dimir Guildgate: 1,89 → **3,26 s**.
+- `77` Annie Flash, the Veteran: 1,46 → **3,44 s**.
+- `589` Acidic Slime: 2,04 → **2,83 s**; zachowano v2. Wariant v1 tworzył
+  trzy krawędzie, w tym bliźniaka 0,9599 z chronioną `261`; v2 tworzy dwie
+  nowe krawędzie (do `103` i `367`), ale żadnej >0,95.
+- `242` Knight of the Skyward Eye: 1,68 → **2,53 s** po darmowym trymie ogona.
+  Trym usunął nową krawędź do `344` i flagę `long_trail_silence`.
+- `475` Ruinous Rampage: 2,27 → **3,49 s**.
+- `499` Vandalize: 1,90 → **2,19 s**; trym ogona skrócił plik do 2,76 s
+  i usunął `long_trail_silence`.
+- `577` Thunderstaff: **cofnięty** do 2,07 s. v1 był niemal samym basem
+  (centroid 96 Hz; `muffled`/`boomy`/`dull`) i łączył się z `32`; v2 był
+  czyściejszy, lecz tworzył nową krawędź do chronionej `562` Shock. Żaden
+  wariant nie zmniejszał liczby krawędzi, więc bezkosztowo przywrócono plik
+  sprzed r043 (krawędź do `264`).
+
+Cztery poprzednio krótkie próbki (`570`, `77`, `242`, `499`) przekroczyły
+2 s treści. W całym korpusie treść < 2 s spadła z 77 do **73**.
+W końcowym audycie nie przybyła żadna flaga: 55 plików z flagą (tyle samo co
+po r042), zero bliźniaków ≥0,95, zero plików poza 2–5 s, LUFS −20,04
+(odch. 0,32). Archetypy **0 / 33 / 145**, regresji brak.
+
+**Workflow i walidacja:** pierwszy trigger zatrzymał się przed generacją —
+payload `554` miał 482/450 znaków przez klauzulę pobieraną ze starego promptu;
+kredytów nie wydano. Skrócono `77`, `242`, `499` i poprawiono preflight na
+pełnym wierszu. Drugi workflow: walidator 557/557, **generated=10, failed=0**.
+Lokalnie: unittest 6 OK, walidator 557/557, strona i ZIP po 557 próbek.
+
+Raporty: `data/samples/audio-audit-2026-10-07-after-r043.json`,
+`data/samples/archetype-match-2026-10-07-after-r043.json`,
+`docs/audits/2026-10-07-archetype-match-after-r043.md`,
+`data/samples/variant-pick-r043.json`,
+`data/samples/postprocess-r043.json`,
+`data/samples/postprocess-r043-trim.json`.
+
+### Bilans sesji po r043
+
+| runda | kart | generacji | pary przed → po | kart w ≥1 parze | kredyty |
+|---|---|---|---|---|---|
+| r034 | 7 węzłów | 14 | 175 → 120 | — | 560 |
+| r035 | 7 węzłów | 14 | 120 → 99 | — | 560 |
+| r036 | 5 węzłów | 10 | 99 → 87 | — | 400 |
+| r037 | 7 węzłów | 14 | 87 → 81 | — | 560 |
+| r038 | 4 (trym) | — | 81 → 81 | — | **0** |
+| r039 | 10 węzłów | 20 | 81 → 65 | 86 | 800 |
+| r040 | 10 węzłów | 20 | 65 → 56 | 79 | 800 |
+| r041 | 10 węzłów | 20 | 56 → 43 | 63 | 800 |
+| r042 | 10 (8 finalnie) | 20 | 43 → 33 | 47 | 800 |
+| **r043** | **10 (9 finalnie)** | **20** | **33 → 26** | **31** | **800** |
+| **razem** | | **152** | **175 → 26 (−85 %)** | **— → 31*** | **6080** |
+
+\* Liczbę kart w ≥1 parze raportujemy od r039; na końcu r043 jest ich 31.
+**Budżet bieżącego klucza 10 000 kr (wgrany 2026-10-06):** wydane
+**4000**, pozostaje **6000** (r039–r043). Suma kosztów rund r034–r043 to
+6080 kr, ponieważ wcześniejsze transze opłacono z poprzedniego salda.
+
+Kryteria doboru: stopień węzła → krańcowa liczba krawędzi całej transzy →
+priorytet krawędzi do chronionych węzłów → wzorzec czasowy obok widma.
+Po generacji sprawdzać oba warianty, odwracać zmiany bez zysku netto i mierzyć
+po trymie. **Następny cel:** klaster `589`/`103`/`367` i silna para `28`/`79`;
+unikać ponownego ruszania `589` bez nowego rozróżnienia, a dla `28` celować
+najpierw w `79`, bo obie warianty r042 `28` nie rozbiły klastra.
