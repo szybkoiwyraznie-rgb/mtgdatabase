@@ -1,4 +1,4 @@
-name: TEMP r055 krotkie sample - piec poprawek z r054 i trzy nowe
+name: TEMP r056 krotkie sample - cztery z progiem decay i cztery bez
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,28 +107,38 @@ name: TEMP r055 krotkie sample - piec poprawek z r054 i trzy nowe
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# r055: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
-# Piec POPRAWEK z r054 — kazda z diagnoza, dlaczego poprzedni prompt nie
-# dowiozl kontraktu, i z poprawka skierowana w DOKLADNIE te metryke:
-#  113 robot_servo   - tonal 0,023 (prog 0,35). Stary sample ma f0 173,9 Hz
-#      i tonal 0,382, czyli ledwo nad progiem. Nowy prompt: „one smooth
-#      steady hum at a single unwavering mid-low pitch, held PURE".
-#  292 wind_gust     - centroid 7522 (kontrakt 300–3000). Winny byl dopisek
-#      „thin mid-range whistle". Teraz: „mid-weighted", bez gwizdu.
-#  344 sword_clash   - attack_s 2,020 (prog <= 0,1): model polozyl szczyt na
-#      koncu. Teraz: „the very first one is BY FAR the loudest moment".
-#  145 beast_screech - high_all 0,167 (prog 0,2), zabraklo 0,033. Teraz:
-#      „shrill metallic ring" nad kazdym hukiem.
-#  434 war_machine   - w r054 oba warianty: centroid 45/31 Hz, mid_up 0,01
-#      (prog 0,1). Teraz: „a LOUD gritty metal grinding in the middle of
-#      the range" — kontrakt wymaga rownoczesnie low_all >= 0,35.
-# Trzy NOWE karty, tez bez gornego progu decay_s:
-#  244 Natural Connection  1,46 s | forest_birdsong | tonal 1,000
-#   12 Merchant's Dockhand 1,80 s | robot_servo     | tonal 0,545
-#    5 Academy Journeymage 1,87 s | magic_shimmer   | sustain >= 0,3
-# ZASADA OCHRONNA jak w r054: spadek werdyktu = powrot do starego sample.
-# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci + liczba powtorzen
-# (r034-r055).
+# r056: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
+# Skład: osiem SWIEZYCH kart — zadna nie dostawala jeszcze poprawki
+# dlugosci. Wniosek z r055: karta po trzecim i czwartym podejsciu
+# (292 — cztery, 87 — cztery) konsekwentnie nie wchodzi, a swieza karta
+# (244) weszla od razu.
+#
+# DWA TAKE'I. To pierwsza runda, w ktorej duration_seconds jest rozny
+# per karta (scenarios.jsonl, nie domyslne 4,0 z DURATION):
+#   2,5 s — 583, 232, 71, 469   (kontrakt ma GORNY prog decay_s)
+#   4,0 s — 4, 558, 269, 26     (brak progu decay_s)
+# Cztery odkladane od r054 wchodza dopiero teraz, bo zrozumielismy mechanike:
+# decay_s = szczyt -> pierwsza ramka ponizej szczyt-20 dB (audit_semantic_
+# match.py:174). Zdarzenia ROZDZIELONE PRZERWAMI daja jednoczesnie krotki
+# decay_s (przerwa spada ponizej progu) i wysoki onset_count (kazde
+# zdarzenie to osobny skok). Dlugi take z jednym zdarzeniem nie mial szansy.
+#
+# Kontrakty:
+#   583 arrow_flight  attack<=0,1  decay<=0,8  flat>=0,10  centroid 800-6000
+#   232 plate_clank   crest>=17    onset>=2    centroid 1000-6000  decay<=1,2
+#    71 heavy_impact  crest>=14    attack<=0,15 decay<=1,4  low_all>=0,20
+#   469 chain_rattle  onset>=6     centroid>=2000  decay<=1,0
+#     4 water_splash  flat>=0,08   high_all>=0,25 crest>=15  attack<=0,1
+#   558 temple_bell   tonal>=0,5   centroid 400-3000  sustain>=0,2
+#   269 beast_screech crest>=12    attack<=0,15 centroid 600-4500 high_all>=0,2
+#    26 stone_slide   low_all>=0,25 centroid<=2000  decay>=0,5
+#
+# Wszystkie osiem sa TERAZ „trafione" — obowiazuje zasada ochronna:
+# spadek werdyktu = powrot do starego sample jednym `git checkout --`.
+#
+# UWAGA (r055): --apply w rewrite_archetype_prompts.py nadpisuje
+# duration_seconds stalą DURATION (4,0). Tutaj take'i sa ustawione
+# RECZNIE po --apply i sa czescia zmiany — nie wolno ich nadpisac.
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -141,7 +151,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "113,292,344,145,434,244,12,5"
+  IDS: "583,232,71,469,4,558,269,26"
 
 jobs:
   variants:
@@ -152,13 +162,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r055]
+      - name: Guard — tylko commit z markerem [generate-r056]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r055]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r056]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r055] — nic nie generuję"
+            echo "brak markera [generate-r056] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -177,25 +187,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r055
+          mkdir -p variants/r056
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r055/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r056/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r055 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r055/v$v" 2>&1 | tee -a variants/r055/generate.log
+              --ids "$IDS" --batch r056 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r056/v$v" 2>&1 | tee -a variants/r056/generate.log
           done
-          ls -la variants/r055 variants/r055/v1 variants/r055/v2 || true
+          ls -la variants/r056 variants/r056/v1 variants/r056/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r055 data/samples/generated-manifest.jsonl
+          git add -f variants/r056 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r055: 16 wariantow (8 kart x 2) + log generacji [import-r055]"
+            git commit -m "r056: 16 wariantow (8 kart x 2) + log generacji [import-r056]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

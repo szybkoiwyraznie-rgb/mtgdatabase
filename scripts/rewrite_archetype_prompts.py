@@ -621,8 +621,11 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "140": ("A fighter rolling up from a packed yard: five separate steel plates clanking one "
            "after another, each distinct, sharply struck and mid-pitched, with a gritty scrape.",
             "przewrotka po ubitym placu: pięć osobnych płyt zbroi dzwoni kolejno, każda wyraźna i ze środka pasma", False),
-    "232": ("A goblin shifting in oversized plate armour: six uneven dull steel clanks, each plate knocking separately, mid-pitched and weighty, with short scrapes between.",
-            "goblin przestępuje w za dużej zbroi: sześć nierównych głuchych brzęków, każda płyta osobno, ze środka pasma", False),
+    "232": (
+        "Eight hard steel plate clanks, uneven, the first by far the loudest: each a bright metallic knock in the upper middle with a gritty edge, stopping instantly, gaps between. " + NO_M,
+        "osiem twardych brzęknięć stalowych płyt w nierównym rytmie, pierwsze najgłośniejsze: każde jasnym metalicznym stukiem w górze środka pasma z ziarnistą krawędzią, gasnącym natychmiast",
+        False,
+    ),
     "16": ("A heavy breastplate lifted off a stone table: four separate steel plates clanking one after another, each distinct and sharply struck, mid-pitched with body.",
             "podniesienie ciężkiego napierśnika ze stołu: cztery osobne płyty dzwonią kolejno, każda wyraźna i z ciałem", False),
     "460": ("A horned breastplate buckled onto a young centaur: five firm knocks of plate against plate, each separate and mid-pitched, with a short leather creak between.",
@@ -672,8 +675,11 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "ryk wojownika przybierającego postać niedźwiedzia: długi głęboki piersiowy ryk z olbrzymim niskim ciałem pod spodem, masywny", False),
     "478": ("Claws raking a hard glassy barrier: a bright scraping screech then a shattering burst of many small glass shards ticking down, at least eight separate tinkling impacts.",
             "zgrzyt pazurów po szklistej barierze: jasny pisk zgrzytu, potem pęknięcie z gradem odłamków, co najmniej osiem osobnych dzwięków", False),
-    "26": ("A molten beast's heavy step: a deep low grinding slide of cracked rock, rumbling and rolling across the whole take with crackling fissures beneath.",
-            "ciężki krok żarnej bestii: głęboki niski zgrzyt osuwających się pękniętych skał, toczy się przez cały sample", False),
+    "26": (
+        "A heavy slide of cracked rock rolling without stopping: a gritty rasping grind of stone on stone in the lower middle, shifting gravel on top, crackling fissures beneath. " + NO_M,
+        "ciężkie osuwisko pękającej skały toczące się bez przerwy: ziarnisty zgrzyt kamienia o kamień w dolnej połowie środka pasma, przesyp żwiru na wierzchu, trzaski szczelin pod spodem",
+        False,
+    ),
     "129": ("A forging hammer striking steel armour in a raised salute: four hard bright hammer blows in a steady rhythm, each with a sharp metallic ring that dies quickly.",
             "kuty młot uderza o stalowy pancerz: cztery twarde jasne uderzenia równym rytmem, każde z ostrym brzękiem, który szybko gaśnie", False),
     "23": ("An iron monastery bell struck once and left to ring: a mid-pitched struck tone that swells and sustains evenly across the whole take, with a faint second hum beneath.",
@@ -809,10 +815,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "3": ("A bonfire of dry wood: a dense shower of crackles and pops pitched in the middle of the range, warm and woody rather than bright or hissy.",
             "ognisko z suchego drewna: gęsty deszcz trzasków w środku pasma, ciepły i drewniany raczej niż jasny czy syczący", False),
     "4": (
-        "Three bodies slamming into a pool in a row, the first the loudest: three "
-        "bright sprays of hissing water droplets, sharp and sparkling in the upper "
-        "range, ripples lapping between them. " + NO_M,
-        "trzy ciała wpadają do sadzawki jedno po drugim, pierwsze najgłośniejsze: trzy jasne rozbryzgi syczących kropel wody, ostre i skrzące się w górze pasma, między nimi pluskająca fala",
+        "Six bright water splashes, the first by far the loudest at the very first instant: each a sharp hiss of fine droplets high in the range, quiet ripples lapping between. " + NO_M,
+        "sześć jasnych plusków w nierównym rytmie, pierwszy najgłośniejszy i bijący w pierwszej chwili: każdy ostrym sykiem drobnych kropel wysoko w paśmie, z cichym chlupotem między nimi",
         False,
     ),
     "40": ("Thick armour plates knocked together: two or three mid-pitched metal clanks, weighty and dull rather than bright, each plate struck separately.",
@@ -848,8 +852,11 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "ziemia pęka: jedno głębokie pęknięcie, potem niski toczący się grzmot gasnący niezwykle powoli, słyszalny do samego końca", False),
     "496": ("A volcano erupting close by: a broad roaring eruption of grinding rocky noise with enormous deep bass weight, gritty and broadband rather than a smooth tone.",
             "wulkan wybucha blisko: szeroki huczący wybuch mielącego skalnego szumu z olbrzymim basem, chropawy i szerokopasmowy", False),
-    "558": ("A bronze temple bell struck once: a low mid-range tone that holds a steady even level while it rings rather than fading quickly, sustained to the end.",
-            "brązowy dzwon świątynny uderzony raz: niski ton w środku pasma trzymający równy poziom, nie gasnący szybko", False),
+    "558": (
+        "A bronze temple bell struck three times, the first by far the loudest: each a pure steady mid-range tone holding an even level as it rings, the rings overlapping. " + NO_M,
+        "brązowy dzwon świątynny uderzony trzy razy, pierwsze uderzenie najgłośniejsze: każde czystym tonem w środku pasma trzymającym równy poziom, dzwonienia nachodzą na siebie",
+        False,
+    ),
     "562": ("A thunderclap overhead: one very sharp sudden crack that peaks hard and abruptly, then a deep rolling rumble fading slowly.",
             "grzmot nad głową: jeden bardzo ostry nagły trzask osiągający szczyt twardo i nagle, potem głęboki toczący się pomruk", False),
     # --- r032: 14 kart wybranych pomiarem, nie zgadywaniem. 269 - kontrakt
@@ -857,15 +864,11 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # PIERWSZY cios (attack_s liczy sie wstecz od globalnego szczytu). Reszta to
     # karty, ktore w r031 drgnely ku celowi albo dostaly nowa metryke po
     # naprawieniu poprzedniej.
-    "269": ("One piercing hawk screech as the loudest moment of the take, hitting hard at the very first instant, bright and high, with two quick wingbeats after it kept clearly quieter than the cry.",
-            "jastrząb: jeden przenikliwy krzyk jako najgłośniejszy moment, uderzający w pierwszej chwili, potem dwa cichsze uderzenia skrzydeł", False),
-    # --- r033: dwie karty bez archetypu z flaga speech_like. Próg flagi to
-    # mod_2_8hz_ratio > 0,55 (tempo sylab) + voiced > 0,35 + centroid 300-3000 Hz,
-    # czyli NIE wykrywa mowy, tylko modulację w tempie sylab. Pięć pozostałych
-    # kart z tą flagą ma tonalność wymaganą kontraktem (forest_birdsong >= 0,25,
-    # temple_bell >= 0,5) albo wprost w scenariuszu, więc ich nie ruszam.
-    # Tu przyczyna jest w prompcie: 578 prosił o 'morning star WHISTLING',
-    # a gwizd to czysty ton.
+    "269": (
+        "Three piercing hawk screeches, the first by far the loudest at the very first instant: each a bright harsh cry in the upper middle, two soft wingbeats between. " + NO_M,
+        "trzy przenikliwe krzyki jastrzębia, pierwszy najgłośniejszy i uderzający w pierwszej chwili: każdy jasnym wrzaskiem w górze środka pasma, między nimi dwa cichsze uderzenia skrzydeł",
+        False,
+    ),
     "130": ("A harpy guarding her hoard: one harsh ragged broadband screech, rough grating and noisy rather than sung or tonal, curved talons clattering on cracked stone, loose bone trinkets rattling.",
             "skrzek harpii strzegącej skarbu: jeden chrapliwy szerokopasmowy wrzask, szorstki i szumowy raczej niż śpiewny, szpony na pękniętym kamieniu", False),
     "578": ("A beast's sudden reversal: hooves wrenching around in the mud, a heavy morning star sweeping full-circle with a broad low whoosh of displaced air, no whistle and no pitched tone, hunters scattering.",
@@ -1537,6 +1540,21 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "the first the loudest, each with a shrill metallic ring and a wet gush over "
         "iron plates. " + NO_M,
         "komora klonująca otwiera się w trzech etapach: trzy głośne rezonujące metaliczne huki, pierwszy najgłośniejszy, każdy z piskliwym metalicznym dzwonieniem i mokrym chluśnięciem na żelazne płyty",
+        False,
+    ),
+    "583": (
+        "Three arrows shot past, the first by far the loudest: each a sharp noisy rush of air that starts instantly at full level and cuts off clean, bright in the upper middle, short gaps between. " + NO_M,
+        "trzy strzały przelatują jedna po drugiej, pierwsza najgłośniejsza: każda ostrym szumem powietrza startującym natychmiast na pełnym poziomie, jasnym w górze środka pasma, z przerwami",
+        False,
+    ),
+    "71": (
+        "Three heavy body impacts, the first by far the loudest at the very first instant: each a thick low-mass thud with a gritty crunch that stops short, gaps between. " + NO_M,
+        "trzy ciężkie uderzenia ciała o barierę, pierwsze najgłośniejsze i bijące w pierwszej chwili: każde masywnym tąpnięciem w niskim paśmie z chrupiącym trzonem, urywającym się szybko",
+        False,
+    ),
+    "469": (
+        "Ten short bright metallic chain link clinks in an uneven rattle, the first by far the loudest: each a hard high steel tick that stops instantly, tiny gaps between. " + NO_M,
+        "dziesięć krótkich metalicznych stuknięć ogniw łańcucha w nierównym grzechocie, pierwsze najgłośniejsze: każde twardym wysokim tyknięciem stali gasnącym natychmiast",
         False,
     ),
 }
