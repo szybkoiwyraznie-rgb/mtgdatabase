@@ -3130,9 +3130,75 @@ Raporty: `data/samples/audio-audit-2026-10-07-after-r046.json`,
 **5360**, pozostaje **4640** (r039–r046). Suma kosztów rund r034–r046 to
 7440 kr, wcześniejsze transze opłacono z poprzedniego salda.
 
-R045 rozbiła ostatnią parę, w której jeden koniec nie miał archetypu; po r046
-nie ma już krawędzi między dwiema kartami bez archetypu. Pozostałe grafowe
-pary łączą węzły trafione lub wcześniej próbowane „prawdopodobnie” — nie
-ruszać ich hurtowo. Następne rundy mają sens jako małe transze mierzalnych
-próbek <2 s, tylko jeśli fabuła uzasadnia powtórzenie lub wieloetapową akcję;
-obecnie zostały 62. Nie wracać do `long_lead_silence` bez świeżego pomiaru.
+Po r045 usunięto ostatnią krawędź z końcem bez archetypu; pozostałe 21 par
+są między węzłami trafionymi lub wcześniej próbowanymi „prawdopodobnie”.
+
+### r047 — ósmy cleanup krótkiej treści: 62 → 56
+
+**640 kredytów, 16 generacji, 8 kart.** Wybrano niepołączone sample o treści
+1,70–1,91 s z kilkoma naturalnymi etapami: trzy zbiorniki szlamu (`218`), susy
+tanuki (`449`), dwa przejścia cierni (`450`), przejęcie zaklęcia (`545`),
+nurkowanie i zasłonięcie zdobyczy (`561`), wir kart (`314`), rozbicie filaru
+(`393`), rozpad relikwiarza (`592`).
+
+**Sześć przekroczyło 2 s, dwa zostały tuż pod progiem:**
+
+- `218` Trigon of Corruption: 1,71 → **3,80 s**; flaga `tonal_sustained`
+  zdjęta, bulgotanie rozdzielone na trzy mokre zdarzenia.
+- `449` Greater Tanuki: 1,70 → **2,84 s** po ręcznym wyborze v2; v1 dawał
+  tylko 2,02 s i długi ogon.
+- `450` Thornhide Wolves: 1,73 → **3,35 s**.
+- `545` Fuel for the Cause: 1,74 → **1,96 s**; po trymie plik ma 2,37 s,
+  brak flag, treść względna 2,32 s.
+- `561` Time to Feed: 1,75 → **1,99 s**; po trymie plik ma 2,47 s,
+  brak flag, treść względna 2,28 s.
+- `314` Revolutionist: 1,81 → **3,30 s**.
+- `393` Forge Devil: 1,86 → **3,13 s**.
+- `592` Glorifier of Suffering: 1,91 → **2,82 s**.
+
+`545` i `561` pozostały setną/dwiema setnymi pod audytowym progiem — żaden
+wariant nie utrzymał 2 s absolutnej treści po normalizacji. Zostawiono je jako
+krótkie, wieloetapowe dźwięki bez flag, zamiast sztucznie podbijać poziom.
+Graf bez zmian: **21 par** (23 karty w ≥1, 11 w ≥2, 6 w ≥3); nowych
+podobieństw brak. Korpus: 557 MP3, **54** pliki z flagą (−1), 0 bliźniaków,
+0 poza 2–5 s, treść <2 s: **56**, LUFS −20,05 (odch. 0,32). Archetypy
+**0 / 33 / 145**, regresji brak. Testy 6 OK, walidator 557/557, strona i ZIP
+po 557 próbek.
+
+Raporty: `data/samples/audio-audit-2026-10-07-after-r047.json`,
+`data/samples/archetype-match-2026-10-07-after-r047.json`,
+`docs/audits/2026-10-07-archetype-match-after-r047.md`,
+`data/samples/variant-pick-r047.json`,
+`data/samples/postprocess-r047.json`,
+`data/samples/postprocess-r047-449-v2.json`,
+`data/samples/postprocess-r047-trim.json`.
+
+### Bilans sesji po r047
+
+| runda | kart | generacji | pary przed → po | kart w ≥1 parze | kredyty |
+|---|---|---|---|---|---|
+| r034 | 7 węzłów | 14 | 175 → 120 | — | 560 |
+| r035 | 7 węzłów | 14 | 120 → 99 | — | 560 |
+| r036 | 5 węzłów | 10 | 99 → 87 | — | 400 |
+| r037 | 7 węzłów | 14 | 87 → 81 | — | 560 |
+| r038 | 4 (trym) | — | 81 → 81 | — | **0** |
+| r039 | 10 węzłów | 20 | 81 → 65 | 86 | 800 |
+| r040 | 10 węzłów | 20 | 65 → 56 | 79 | 800 |
+| r041 | 10 węzłów | 20 | 56 → 43 | 63 | 800 |
+| r042 | 10 (8 finalnie) | 20 | 43 → 33 | 47 | 800 |
+| r043 | 10 (9 finalnie) | 20 | 33 → 26 | 31 | 800 |
+| r044 | 8 | 16 | 26 → 22 | 24 | 640 |
+| r045 | 1 | 2 | 22 → 21 | 23 | 80 |
+| r046 | 8 (7 finalnie) | 16 | 21 → 21 | 23 | 640 |
+| **r047** | **8** | **16** | **21 → 21** | **23** | **640** |
+| **razem** | | **202** | **175 → 21 (−88 %)** | **— → 23*** | **8080** |
+
+\* Liczbę kart w ≥1 parze raportujemy od r039; na końcu r047 jest ich 23.
+**Budżet bieżącego klucza 10 000 kr (wgrany 2026-10-06):** wydane
+**6000**, pozostaje **4000** (r039–r047). Suma kosztów rund r034–r047 to
+8080 kr, wcześniejsze transze opłacono z poprzedniego salda.
+
+Graf jest nasycony, a krótkich treści zostało 56. Dalsze rundy powinny
+pozostać małe i sceniczne — wyłącznie gdy rytm, powtórzenie lub kilka etapów
+wynikają wprost z fabuły. Unikać hurtowej regeneracji, chronionych archetypów
+i ponownych prób dwóch kart (`545`, `561`) bez nowego pomysłu na przebieg.
