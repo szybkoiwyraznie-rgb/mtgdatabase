@@ -2782,7 +2782,68 @@ zmian. Flagi w korpusie 53 → 54.
 Archetypy **0 / 33 / 145**, regresji brak. 0 bliźniaków, 0 poza oknem,
 LUFS −20,04 (odch. 0,32).
 
-### Bilans sesji po r041
+### r042 — ósme piętro węzłów: 43 → 33 pary
+
+**800 kredytów, 20 generacji, 10 kandydatów.** Dobór pokrywał 12 krawędzi:
+trzy do węzłów chronionych (`180`→`515`T, `485`→`112`T, `615`→`150`T),
+klastry `305` (`401`, `103`), `100` (`401`) i `395` (`458`, `287`) oraz
+pojedyncze krawędzie `28`→`79` (0,940 — najsilniejsza pozostała), `34`→`76`,
+`46`→`570`, `102`→`436`. `554`→`145`T pominięto w tej transzy, bo `554`
+była właśnie regenerowana w r041; to jedyna pozostała krawędź do węzła
+chronionego i kandydat do ponownej oceny w następnej rundzie.
+
+**Wynik końcowy: 43 → 33 pary (−10).** Karty w ≥1 parze: 63 → **47**,
+w ≥2: 15 → **11**, w ≥3: 6 → **6**. Z 12 planowanych krawędzi zdjęto
+10; pozostałe dwie należą do kart przywróconych po nieudanym wyborze wariantu.
+Runda wykonała 20 generacji, ale tylko **8 próbek** ma finalne nowe audio.
+
+Treść (próg audytu −45 dBFS):
+
+- `180` Homicidal Brute: 2,14 → **3,88 s** (+1,74)
+- `485` Moonscarred Werewolf: 2,23 → **3,47 s** (+1,24)
+- `615` Tah-Crop Skirmisher: 2,37 → **3,14 s** (+0,77)
+- `100` Emissary Escort: 2,23 → **2,89 s** (+0,66)
+- `34` Volcanic Submersion: 2,17 → **2,59 s** (+0,42)
+- `102` Fiery Fall: 2,03 → **2,33 s** (+0,30)
+- `305` Illusory Demon: 3,66 → 3,29 s (−0,37)
+- `395` Unearth: 3,45 → 3,27 s (−0,18)
+
+`28` i `46` cofnięto do audio sprzed r042:
+
+- **`28` Kraken's Eye:** wybrany v2 miał 3,13 s treści, ale tworzył 3 pary
+  zamiast pierwotnej jednej (`79`, 0,940); v1 też tworzył 3. Oryginał ma
+  2,08 s treści i zachowuje najbliższą krawędź bez dalszego rozlewania klastra.
+- **`46` Selesnya Charm:** oba warianty były poniżej 2 s (v2: 1,71; v1: 1,39),
+  a v2 nie zmniejszał liczby krawędzi. Oryginał ma 2,31 s i parę z `570`.
+
+**Ręczny wybór `100` bez dodatkowych kredytów.** Automatyka wybrała dłuższy
+wariant v1 (3,52 s), ale wnosił dwie nowe pary (`30`, `285`). v2 miał 3,03 s
+surowej treści; po postprocessie 2,89 s i zero par. Jego zbyt jasny ogon
+temperowano półką **−6 dB powyżej 8 kHz**: centroid spadł z 10 266 do 8 695 Hz,
+a flaga `harsh` zniknęła. Pozostała jedna nowa flaga w korpusie:
+`102 dull` (centroid 687 → 182 Hz); zachowano ją, bo treść wzrosła, a para
+z `436` zniknęła. Nie ma regresji archetypów.
+
+**Różnicowanie czasowe obok widma.** Gdy widma są zbieżne, dodano wzorzec
+zdarzeń: urywane oddechy (`180`), wolny oddech kontra furkot skrzydeł (`485`),
+dwa cięcia ostrzy (`615`), narastanie w tonie (`28`, potem cofnięta;
+`102`, pozostawiona). Dla `100` dobrano wariant bez par i łagodnie opanowano
+wysokie pasmo zamiast wracać do wariantu tworzącego podobieństwa.
+
+Archetypy **0 / 33 / 145**, regresji brak. Korpus: 557 MP3, 0 bliźniaków,
+0 plików poza 2–5 s, 77 próbek z treścią < 2 s, LUFS −20,04 (odch. 0,32),
+55 kart z flagą. Testy: 6 OK; walidator: 557/557; zbudowano stronę i ZIP po
+557 próbek.
+
+Raporty: `data/samples/audio-audit-2026-10-07-after-r042.json`,
+`data/samples/archetype-match-2026-10-07-after-r042.json`,
+`docs/audits/2026-10-07-archetype-match-after-r042.md`,
+`data/samples/variant-pick-r042.json`,
+`data/samples/postprocess-r042.json`,
+`data/samples/postprocess-r042-100-v2.json`,
+`data/samples/tame-spectrum-r042.json`.
+
+### Bilans sesji po r042
 
 | runda | kart | generacji | pary przed → po | kart w ≥1 parze | kredyty |
 |---|---|---|---|---|---|
@@ -2793,21 +2854,24 @@ LUFS −20,04 (odch. 0,32).
 | r038 | 4 (trym) | — | 81 → 81 | — | **0** |
 | r039 | 10 węzłów | 20 | 81 → 65 | 86 | 800 |
 | r040 | 10 węzłów | 20 | 65 → 56 | 79 | 800 |
-| **r041** | 10 węzłów | 20 | **56 → 43** | **63** | **800** |
-| **razem** | | **112** | **175 → 43 (−75 %)** | 175 → 63 | **4480** |
+| r041 | 10 węzłów | 20 | 56 → 43 | 63 | 800 |
+| **r042** | **10 (8 finalnie)** | **20** | **43 → 33** | **47** | **800** |
+| **razem** | | **132** | **175 → 33 (−81 %)** | **175 → 47** | **5280** |
 
-**Budżet (klucz wgrany 2026-10-06, 10 000 kredytów):** wydane **2400**,
-zostaje **7600**.
+**Budżet bieżącego klucza 10 000 kr (wgrany 2026-10-06):** wydane
+**3200**, pozostaje **6800** (r039–r042). Suma kosztów rund r034–r042 to
+5280 kr, bo wcześniejsze transze opłacono z poprzedniego salda.
 
-**Trzy kryteria doboru, w kolejności odkrywania:**
+**Kryteria doboru ewoluowały:** (1) największy stopień węzła, (2) maksymalna
+liczba krawędzi po policzeniu efektu krańcowego całej transzy, (3) priorytet
+krawędzi do węzłów chronionych — jedyna strona, którą wolno regenerować,
+(4) przy rzadkim grafie także wzorzec czasowy, a nie samo widmo; po generacji
+sprawdzenie obu wariantów, odwrócenie nieopłacalnych zmian oraz ręczny wybór
+bez nowych kredytów.
 
-1. **r034–r038:** karta z największą liczbą par. Działa, póki graf jest gęsty.
-2. **r039–r040:** krawędzie grafu — ile krawędzi pokrywa dana grupa kart.
-   Odkrycie: trzeba liczyć efekt **krańcowy**, bo krawędź znika też wtedy, gdy
-   zmieni się sąsiad (stąd cofnięcie `222` w r040, która nie wniosła nic).
-3. **r041:** priorytet dla krawędzi do węzłów **chronionych** — tych nie da się
-   zdjąć z drugiej strony, więc są jedyną szansą.
-
-Wartość pary rośnie wraz z rzadkością grafu: r034 usuwał parę za ~10 kr.,
-r041 za ~62 kr. — ale to nadal jedyny sposób, bo karty trafione (145) są
-poza zasięgiem.
+**Następny sensowny cel:** ocenić, czy `554` Cherished Hatchling da się ponownie
+odróżnić od chronionej `145` — to jedyna pozostała krawędź chroniona. Wśród
+zwykłych węzłów najsilniejsza jest para `28`/`79` (0,940), ale `28` właśnie
+wróciła z nieudanej próby, więc przed kolejnym wydatkiem trzeba najpierw ocenić
+warianty i efekt krańcowy. Graf ma 33 pary, zatem koszt kolejnej rundy na parę
+może być wyższy niż r042 (80 kr/parę).

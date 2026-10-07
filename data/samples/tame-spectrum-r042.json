@@ -1,0 +1,21 @@
+{
+  "centroid_min": 0.0,
+  "centroid_max": 9000.0,
+  "shelf_hz": 8000.0,
+  "step_db": 3.0,
+  "applied": true,
+  "files": [
+    {
+      "id": 100,
+      "correction_db": -6.0,
+      "steps": 2,
+      "centroid_before": 10266.5,
+      "centroid_after": 8693.0,
+      "flatness_before": 0.0255,
+      "flatness_after": 0.0259,
+      "in_window": true,
+      "start_fade_applied": false,
+      "lufs_after": -20.0
+    }
+  ]
+}
