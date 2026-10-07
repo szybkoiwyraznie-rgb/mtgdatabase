@@ -3615,3 +3615,83 @@ jednym `git show`.
 
 **r034–r054: 314 generacji, 175 → 21 par (−88 %), treść < 2 s 41 → 23.**
 Nowy klucz: 640 / 10 000, zostaje **9360** (~14 rund po 8 kart).
+
+### r055 — dwie karty przyjęte, pięć poprawek z r054 nie dowiozło metryki
+
+Druga runda po doładowaniu klucza. 640 kredytów, 16 generacji, 8 kart.
+Skład: **pięć poprawek** z r054 (każda z diagnozą, która metryka nie
+dowiozła kontraktu) + **trzy nowe** karty, też bez górnego progu `decay_s`.
+
+| id | karta | archetyp | stara treść | nowa treść | delta | werdykt |
+|----|-------|----------|-------------|------------|-------|---------|
+| 244 | Natural Connection | forest_birdsong | 1,46 s | 3,69 s | **+2,23** | trafiony → trafiony |
+| 344 | Pain for All | sword_clash | 1,43 s | 3,29 s | **+1,86** | trafiony → trafiony |
+| 113 | Welder Automaton | robot_servo | 1,24 s | *cofnięta* | — | trafiony → prawdopodobnie |
+| 434 | Epic Experiment | war_machine | 1,20 s | *cofnięta* | — | trafiony → prawdopodobnie |
+| 12 | Merchant's Dockhand | robot_servo | 1,80 s | *cofnięta* | — | trafiony → prawdopodobnie |
+| 5 | Academy Journeymage | magic_shimmer | 1,87 s | *cofnięta* | — | trafiony → prawdopodobnie |
+| 292 | Rediscover the Way | wind_gust | 1,38 s | *cofnięta* | — | bez zmiany, ale gorszy dźwięk |
+| 145 | Clone Shell | beast_screech | 1,52 s | *pominięta* | — | oba warianty krótsze |
+
+**Dwie przyjęte, obie trafione → trafione:**
+
+- **`244`** Natural Connection — centroid 2317 (kontrakt 1500–6500),
+  `tonal` 0,997. Poprzedni sample miał `tonal` **1,000** i flatness 0,001,
+  czyli model zrobił czysty ton zamiast śpiewu. Prompt z jawną liczbą
+  (**dziesięć** krótkich ćwierknięć w nierównym rytmie) i podkładem
+  zgrzytu kamienia dowiózł i tonalność, i długość.
+- **`344`** Pain for All — `attack_s` **≤ 0,1** (w r054 było 2,020),
+  crest 21,0, centroid 5356, `high_all` w normie. Poprawka z r054 zadziałała:
+  „the very first one is **by far** the loudest moment of the whole take".
+
+**Pięć cofniętych — co dokładnie nie wyszło:**
+
+- **`113`** — `onset_count=0`, oczekiwane ≥ 2. v1 to czysty ton 11 kHz
+  (centroid 10 990) bez żadnego kliknięcia; v2 to sub-bas 135 Hz
+  (`low` 0,99). Serwo uciekło w skrajność w obie strony.
+- **`434`** — `onset_count=0`, oczekiwane ≥ 2. v2 (centroid 628,
+  `low_all` 0,82, `mid_up` 0,18) spełnia wszystkie progi spektralne, ale
+  model nie zrobił ani jednego uderzenia: „six heavy pound strikes"
+  rozmyło się w jednostajny warkot. **Wniosek: progi spektralne to
+  połowa kontraktu — `onset_count` jest równie twardy.**
+- **`12`** — `tonal_frame_fraction` **0,000** przy progu 0,35. Oba
+  warianty ~7,3 kHz, czyli wyżej niż stary sample (4635 Hz), który miał
+  `tonal` 0,545 i był **trafiony**. Brak dźwięczności.
+- **`5`** — `tonal_frame_fraction` 0,028 przy progu 0,3. v2 ma
+  `high_all` 0,98, ale migotanie wyszło szumowe, nie tonalne.
+- **`292`** — werdykt **się nie zmienił** (prawdopodobnie 1,0 pkt przed
+  i po), treść urosła 1,38 → 2,69 s, ale nowy dźwięk to czysty dron
+  (`tonal` **1,000**, flatness 0,009, centroid 887 Hz), a nie wiatr.
+  Naruszenie tylko się zamieniło (sustain → flatness). **Zamiana jednego
+  naruszenia na drugie przy tym samym werdykcie to nie jest postęp** —
+  cofnięta, mimo że metryka długości by się zgodziła.
+
+**`145` pominięta przed audytem:** oba warianty mają treść 1,02 s, czyli
+*mniej* niż 1,52 s starego sample. Nie było czego wybierać.
+
+**Graf bez zmian: 21 par.** Treść < 2 s: **23 → 21**. Flagi 53 (bez
+zmiany), 0 bliźniaków, 0 poza oknem 2–5 s, LUFS −20,08 (odch. 0,48).
+Archetypy **0 / 33 / 145** bez regresji. Testy 6 OK, walidator 557/557,
+site + ZIP 557.
+
+### Uwaga techniczna: `--apply` w `rewrite_archetype_prompts.py` nadpisuje `duration_seconds`
+
+Po `rewrite_archetype_prompts.py --ids … --apply` pole `duration_seconds`
+w `data/samples/scenarios.jsonl` dostaje wartość domyślną (4,0), a nie
+rzeczywistą długość pliku. W r055 wyszło to dopiero w audycie jako
+`duration_mismatch` na karcie `145` (plik 2,48 s, scenariusz 4,0).
+**Po każdym `--apply` trzeba przeliczyć `duration_seconds` z `sf.info()`.**
+Koszt naprawy: jeden audyt (~40 s). Koszt przeoczenia: fałszywa flaga
+w korpusie.
+
+### Wniosek z r055: 3/8 w r054, 2/8 w r055 — pula trafionych topnieje powoli
+
+r054 i r055 razem: **5 z 16** trafionych kart urosło średnio o **+2,06 s**
+bez utraty werdyktu. Karty, które dostają **trzecie i czwarte podejście**
+(`292` — cztery, `87` — cztery, `219`/`561` — po dwa), konsekwentnie nie
+wchodzą. Wniosek praktyczny: **nowa karta ma większą szansę niż poprawka
+do poprawki.** Następna runda powinna brać świeże karty, a `292` i `87`
+odłożyć.
+
+**r034–r055: 330 generacji, 175 → 21 par (−88 %), treść < 2 s 41 → 21.**
+Nowy klucz: 1280 / 10 000, zostaje **8720** (~13 rund po 8 kart).
