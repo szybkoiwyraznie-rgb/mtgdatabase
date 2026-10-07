@@ -878,8 +878,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "hologram zwiadowcy przelatuje z migotaniem: urywane cyfrowe zacięcia trzaskają serią, za nimi cienkie iskry", False),
     "461": ("A spell snuffed mid-flight: a fireball roaring in, then water jets and thick vines erupting to crush it with a violent steam hiss that keeps building.",
             "zaklęcie zduszone w locie: kula ognia nadlatuje, strumienie wody i pnącza miażdżą ją z gwałtownym sykiem pary", False),
-    "50": ("Heavy books falling and dissolving: three muffled thumps of tumbling tomes, each cut short as it unravels into a cold shimmering mist that keeps drifting.",
-            "ciężkie księgi spadają i rozpływają się: trzy głuche uderzenia, każde urywa się w zimną migoczącą mgłę", False),
+    "50": (
+        "Three heavy books thud onto stone one by one, pages bursting into a "
+        "flutter; after the last, cold luminous mist unfurls and hangs. " + NO_M,
+        "trzy ciężkie księgi uderzają o kamień jedna po drugiej, kartki wybuchają furkotem; po ostatniej rozwija się zimna świetlista mgła i pozostaje w powietrzu",
+        False,
+    ),
     "222": (
         "A conch shell horn blown in three clear blasts: a bright ringing "
         "tonal note held each time, waves crashing and spray hissing beneath. " + NO_M,
@@ -918,10 +922,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "577": (
-        "An iron-shod thunderstaff plants firmly on slate, blooming into one "
-        "deep ringing metal note; three thin electric arcs crackle upward and "
-        "sustain as a bright steady buzz.  " + NO_M,
-        "żelazna laska burzy mocno osiada na łupku, rozkwitając jednym głębokim metalicznym dźwiękiem; trzy cienkie łuki elektryczne trzaskają w górę i trwają jako jasne, stałe brzęczenie",
+        "Steel thunderstaff strikes slate: one bright metal clang rings; "
+        "three thin electric crackles answer in a rising pattern. The clang "
+        "is loudest. " + NO_M,
+        "stalowa laska burzy uderza o łupek: rozlega się jeden czysty, dźwięczny brzęk metalu, po czym odpowiadają mu trzy cienkie elektryczne trzaski narastającym wzorem. Najgłośniejszy jest metaliczny dźwięk",
         False,
     ),
     "155": (
@@ -1130,6 +1134,47 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "One crushing blow cracks a brass monument; the terrace splits and "
         "three marble blocks fall in staggered heavy thuds.  " + NO_M,
         "miażdżący cios pęka mosiężny monument; taras rozdziera się i trzy marmurowe bloki spadają ciężkimi, rozłożonymi uderzeniami",
+        False,
+    ),
+    "367": (
+        "A shaman shakes a hollow gourd in three slow double strokes: woody "
+        "clacks, dry seeds rattling inside, copper rings quivering briefly. " + NO_M,
+        "szaman potrząsa pustą tykwą trzema powolnymi podwójnymi ruchami: drewniane stuki, grzechoczące ziarna i krótko drżące miedziane dzwonki",
+        False,
+    ),
+    "527": (
+        "Shiva's ice form locks the battlefield: a cold crystalline rush, "
+        "three sharp fractures racing outward, then armor and hooves freeze "
+        "with brittle clinks. " + NO_M,
+        "lodowa postać Shivy zamraża pole bitwy: zimny krystaliczny pęd, trzy ostre pęknięcia biegnące na zewnątrz, potem zbroja i kopyta zamierają z kruchym brzękiem",
+        False,
+    ),
+    "467": (
+        "A mountain flock bursts from monastery towers in three hard "
+        "wingbeats; feathers flutter dryly, then small birds call as a "
+        "rushing gust sweeps past the stone walls. " + NO_M,
+        "górskie stado zrywa się z wież klasztoru trzema mocnymi uderzeniami skrzydeł; pióra sucho furkoczą, potem małe ptaki nawołują, gdy pęd powietrza omiata kamienne mury",
+        False,
+    ),
+    "27": (
+        "A curse snaps apart in three crisp glassy fractures; countless tiny "
+        "brittle shards scatter in a bright cascade, then dissolve into a "
+        "thin fading shimmer. " + NO_M,
+        "klątwa pęka trzema czystymi, szklistymi trzaskami; niezliczone drobne kruche odłamki rozsypują się jasną kaskadą, po czym znikają w cienkim, gasnącym migotaniu",
+        False,
+    ),
+    "254": (
+        "A giant spider scuttles across ironwood in two rapid runs of eight "
+        "hard feet tapping bark; a short pause, then one final pair of dry "
+        "clicks. " + NO_M,
+        "wielki pająk przebiega po żelaznym drewnie dwoma szybkimi seriami ośmiu twardych stóp stukających w korę; krótka pauza, potem ostatnia para suchych kliknięć",
+        False,
+    ),
+    "484": (
+        "Brass rings spin inside a stone housing: a fine metallic whirl slows "
+        "through two wavering passes, then a precise click marks their "
+        "alignment; the ring hum lingers. " + NO_M,
+        "mosiężne pierścienie wirują w kamiennej obudowie: delikatny metaliczny świst zwalnia przez dwa chwiejące obroty, potem precyzyjne kliknięcie oznacza zestrojenie; brzęczenie jeszcze chwilę trwa",
         False,
     ),
 }
