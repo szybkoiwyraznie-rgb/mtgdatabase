@@ -3470,14 +3470,91 @@ walidator 557/557, site + ZIP 557.
 
 ### Po r052: 29 kart nadal poniżej progu, budżet na jedną rundę
 
-Z 29 pozostałych kart o treści < 2 s **19 jest trafionych** (chronionych
-werdyktem), 3 to „prawdopodobnie\" (`292`, `98`, `435`), a 7 nie ma
-archetypu: `87`, `115`, `311`, `337`, `545`, `219`, `561`. Z tej siódemki
-tylko `87` nie dostała jeszcze trafionego wariantu — pozostałe sześć
-dostało technikę w r047–r051 i zostało krótkich. W pierwszej dziesiątce
-najkrótszych **dziewięć kart jest trafionych**, więc każda kolejna runda
-w to uderzająca będzie ważyć treść przeciwko werdyktowi.
+Z 29 pozostałych kart o treści < 2 s 19 jest trafionych (chronionych
+werdyktem), 3 to „prawdopodobnie" (`292`, `98`, `435`), a 7 nie ma
+archetypu (`87`, `115`, `219`, `311`, `337`, `545`, `561`). Z tej
+siódemki `115` i `311` są **nietykalne**: w r049/r050 zyskały po ~1,4 s
+treści, ale kosztem trzech par łącznie, a graf to wynik 19 rund.
 
 **r034–r052: 282 generacje, 175 → 21 par (−88 %), treść < 2 s 41 → 29.**
-Bieżący klucz: 9200 / 10 000, zostaje **800** (jedna runda po 8 kart
-albo dwie krótsze).
+Bieżący klucz: 9200 / 10 000, zostaje **800** — czyli dokładnie jedna
+runda po 8 kart.
+
+### r053 — wyniki: trzy krótkie sample nad progiem, pięć kart cofniętych
+
+640 kredytów, 16 generacji, 8 kart — **ostatnia runda w budżecie tego
+klucza**. Wzięte cztery karty bez archetypu ponowione z większą liczbą
+powtórzeń oraz cztery, których kontrakt nagradza długi take.
+
+| id | karta | archetyp | stara treść | nowa treść | delta |
+|----|-------|----------|-------------|------------|-------|
+| 545 | Fuel for the Cause | — | 1,96 s | 3,61 s | **+1,65** |
+| 337 | Glaring Aegis | — | 1,96 s | 2,54 s | **+0,58** |
+| 435 | Warrior's Sword | sword_clash | 1,70 s | 2,19 s | **+0,49** |
+| 87 | Angelic Benediction | — | 1,80 s | *cofnięta* | — |
+| 98 | Fleeting Distraction | insect_swarm | 1,82 s | *cofnięta* | — |
+| 219 | Prishe's Wanderings | — | 1,98 s | *cofnięta* | — |
+| 292 | Rediscover the Way | wind_gust | 1,38 s | *cofnięta* | — |
+| 561 | Time to Feed | — | 1,99 s | *cofnięta* | — |
+
+**Pięć cofniętych — pięć różnych powodów**, i to jest najważniejszy
+wynik tej rundy:
+
+- **`87` — czwarte podejście, pierwsze udane spektralnie, ale para.**
+  Poprzednie trzy warianty wyszły sub-basem (centroid 97 / 54 / 155 Hz);
+  tym razem prompt poszedł w górę pasma („dry rustling whisper in the
+  upper range") i rzeczywiście wyszedł **9903 Hz**. Treść 1,80 → 2,30 s,
+  ale nowy sample złapał **parę 0,9112 z `526`** — obie karty są teraz
+  jasnym, trzaskającym szumem. Ta sama zasada co przy `311`, `115` i `4`:
+  treść nie jest warta krawędzi.
+- **`98` — pierwszy „nie trafiony" od r021.** `v1` miał aż 4,00 s treści,
+  ale centroid **10 280 Hz** przy kontrakcie 1000–6000 Hz i do tego za
+  mało tonalny: wynik 2,5 pkt, czyli werdykt „nie trafiony" (0 → 1).
+  `v2` mieścił się w kontrakcie, ale wyszedł przy **−52 LUFS** — po
+  wzmocnieniu o +26 dB (limit) i tak został na −26,58 LUFS, czyli 6,5 LU
+  poniżej korpusu. Karta wróciła do starego sample.
+- **`219` — oba warianty krótsze niż stary sample** (1,17 i 1,61 s
+  przy 1,98 s). „Eight bootsteps" model zignorował.
+- **`292` — oba warianty znowu sub-basem** (centroid 72 i 80 Hz,
+  `low_all` 0,99 / 0,98), choć wind_gust wymaga 300–3000 Hz.
+- **`561` — treść zmierzona na surowym pliku 2,51 s, po normalizacji
+  do −20 LUFS spadła do 0,57 s.** Klasyczny artefakt absolutnego progu
+  −45 dBFS: materiał był cichy i po wyrównaniu głośności wypadł pod próg.
+
+**Wniosek, który się powtarza od r050:** miara `content_s` na surowym
+wariancie jest optymistyczna. Normalizacja do −20 LUFS potrafi ją
+skurczyć o połowę (`561`), a czasem rozciągnąć. Decyzję o przyjęciu
+wariantu trzeba podejmować dopiero po pełnym audycie, nie po wyborze.
+
+Ogon `435` przytrimowany za zero kredytów (1,81 → 0,40 s, plik
+4,00 → 2,59 s, treść bez zmiany).
+
+**Graf bez zmian: 21 par.** Treść < 2 s: **29 → 26**. Flagi **54 → 53**
+(jedna nowa `harsh` na `87`, potem zdjęta wraz z cofnięciem; −1
+`tonal_sustained`), 0 bliźniaków, 0 poza oknem 2–5 s, LUFS −20,08
+(odch. 0,48). Archetypy **0 / 33 / 145** bez regresji. Testy 6 OK,
+walidator 557/557, site + ZIP 557.
+
+### Po r053: koniec klucza, 26 kart wciąż poniżej progu
+
+Zostało **160 kredytów**, czyli cztery generacje — za mało na rundę.
+Z 26 kart o treści < 2 s:
+
+- **19 trafionych** — każda kolejna runda będzie ważyć treść przeciwko
+  werdyktowi, a r053 pokazała, że to się nie zawsze opłaca (`98`);
+- **2 „prawdopodobnie"**: `292` wind_gust (1,38 s, dwa sub-basowe
+  warianty w r053) i `98` insect_swarm (1,82 s, w r053 wariant „nie
+  trafiony");
+- **5 bez archetypu**: `87`, `115`, `219`, `311`, `561`. Z tej piątki
+  `115` i `311` są nietykalne (pary), `219` i `561` dostały po dwie
+  próby, a `87` cztery — i żadna nie weszła.
+
+Najkrótsze karty korpusu to dziś **`583` (0,21 s) i `4` (0,45 s)**, obie
+trafione, obie z kontraktem, który zabrania długiego take
+(`arrow_flight` decay ≤ 0,8 s, `water_splash` attack ≤ 0,1 s przy
+4-sekundowym pliku pełnym ciszy). Bez nowego klucza następny krok to
+decyzja właściciela: doładować kredyty i brać się za 19 trafionych
+kart z krótką treścią, czy uznać 26/557 (4,7 %) za wystarczające.
+
+**r034–r053: 298 generacji, 175 → 21 par (−88 %), treść < 2 s 41 → 26.**
+Bieżący klucz: 9840 / 10 000, zostaje **160**.
