@@ -513,9 +513,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "212": ("Thick blood sloshing in a glass carafe: four slow heavy glugs one after another, with the small glass flasks chiming softly between them.",
             "gęsta krew chlupoce w szklanej karafce: cztery powolne ciężkie bulgoty kolejno, z miękkim brzękiem szkła między nimi", False),
     "218": (
-        "Three tanks of dark green sludge bubbling: thick wet blorps with a "
-        "glassy tank resonance over each one, one tank after the next.  " + NO_M,
-        "trzy zbiorniki ciemnozielonej mazi bulgoczą: gęste mokre bulgoty zeszklonym rezonansem zbiornika nad każdym z nich, jeden po drugim",
+        "Three sludge tanks burble in turn: thick uneven glugs, separate wet "
+        "bubble pops and a glass vessel rattling after each; one viscous drop "
+        "plops onto stone at the end. " + NO_M,
+        "trzy zbiorniki szlamu bulgoczą po kolei: gęste nierówne gulgoty, osobne mokre pęknięcia pęcherzy i brzęk szkła po każdym; na koniec lepka kropla kapie na kamień",
         False,
     ),
     "227": ("A row of wet joint cracks as a body rearranges itself: six distinct cracking pops in an uneven rhythm, each one sharp and separate.",
@@ -860,10 +861,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # 22 i 32 maja centroid 440-493 Hz, czyli siedza w niskim huku; 32 ma
     # 'burst of bubbles' w scenariuszu, wiec dostaje hierarchie glosnosci.
     "592": (
-        "A stone reliquary smashed on an altar: one heavy stone crack, then "
-        "iron fittings crunching loose one after another, grit rattling "
-        "across the slab.  " + NO_M,
-        "kamienny relikwiarz rozbity o ołtarz: jeden ciężki trzask kamienia, potem żelazne okucia pękają jedno po drugim, żwir szeleszczy po płycie",
+        "A stone reliquary crashes onto an altar: one deep crack, iron "
+        "fittings break loose in several quick snaps, grit rattles across the "
+        "slab, then the final clasp falls with a bright clink. " + NO_M,
+        "kamienny relikwiarz spada na ołtarz: głębokie pęknięcie, żelazne okucia puszczają serią szybkich trzasków, żwir grzechocze po płycie, a ostatnia sprzączka brzęczy jasno",
         False,
     ),
     "238": ("A dwarf war roller grinding forward: iron drums crushing a wrecked chariot, wood splintering in sharp cracks and metal buckling, gravel spraying off the tread.",
@@ -921,9 +922,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "314": (
-        "Loose pages fluttering in a rapid bright flutter, dozens of crisp "
-        "paper edges clipping and snapping. Light and dry. " + NO_M,
-        "luźne karty trzepoczą w szybkim wirze: dziesiątki ostrych brzegów papieru strzelają i trzaskają, lekko i sucho",
+        "Loose pages spiral upward in two fast turns; dozens of crisp paper "
+        "edges flutter and snap together, then the spinning stack lands with "
+        "a dry slap. " + NO_M,
+        "luźne karty wirują w górę dwoma szybkimi obrotami; dziesiątki ostrych brzegów furkoczą i trzaskają, po czym wirujący stos opada suchym klapnięciem",
         False,
     ),
     "577": (
@@ -1229,6 +1231,41 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "into sockets, a rising coil buzz shakes the copper hull, one bright "
         "charge crackles. " + NO_M,
         "klinowy statek uruchamia napęd: właz syczy, trzy kable wskakują w gniazda, narastające brzęczenie cewek trzęsie miedzianym kadłubem, wyładowanie rozbłyska",
+        False,
+    ),
+    "449": (
+        "A giant tanuki rushes through Jukai in three bounding strides: paws "
+        "flatten saplings, branches snap across its coat, then a close "
+        "breathy huff as it bursts into a clearing. " + NO_M,
+        "wielki tanuki pędzi przez Jukai trzema susami: łapy miażdżą młode drzewa, gałęzie strzelają o futro, a przy wyjściu na polanę rozlega się bliski sapnięty chuch",
+        False,
+    ),
+    "450": (
+        "Thorn canes rake a wolf's bark-hard hide in two rough passes: dry "
+        "bristles scrape, several sharp thorn snaps crack, then the branches "
+        "whip back through leaves. " + NO_M,
+        "cierniowe pędy dwukrotnie szorują po twardej jak kora skórze wilka: suche włókna trą, kilka ostrych kolców pęka, a gałęzie odskakują przez liście",
+        False,
+    ),
+    "545": (
+        "A metal hand catches an incoming spell with a hard glassy clack; "
+        "bright energy streams down three conduits, the oil tank swells and "
+        "releases a pressurized bubbling burst. " + NO_M,
+        "metalowa dłoń chwyta nadlatujące zaklęcie twardym szklanym klepnięciem; jasna energia płynie trzema przewodami, zbiornik oleju pęcznieje i wypuszcza ciśnieniowy wybuch pęcherzy",
+        False,
+    ),
+    "561": (
+        "A griffin stoops through branches, slams its prey into mud, then "
+        "spreads both wings in two heavy beats to mantle the catch; one sharp "
+        "beak strike finishes the hunt. " + NO_M,
+        "grif przelatuje przez gałęzie i ciska zdobycz w błoto, potem dwoma ciężkimi uderzeniami rozpościera skrzydła nad łupem; ostre dziobnięcie kończy polowanie",
+        False,
+    ),
+    "393": (
+        "A forge devil breaks an archive pillar with three iron-bar blows: "
+        "stone cracks, sharp shards ricochet across the floor, and the last "
+        "impact scatters burning scrolls. " + NO_M,
+        "diabeł kuźni rozbija archiwalny filar trzema uderzeniami żelaznego pręta: kamień pęka, ostre odłamki odbijają się od posadzki, a ostatnie uderzenie rozrzuca płonące zwoje",
         False,
     ),
 }
