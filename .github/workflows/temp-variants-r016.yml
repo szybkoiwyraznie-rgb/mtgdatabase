@@ -1,4 +1,4 @@
-name: TEMP r049 krotkie sample - osiem kolejnych
+name: TEMP r050 krotkie sample - osiem bez archetypu
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,14 +107,24 @@ name: TEMP r049 krotkie sample - osiem kolejnych
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# r049: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
-# Po r049: 21 par; brak krawedzi miedzy dwiema kartami bez archetypu.
-# Z 51 pozostalych tresci <2s wybieramy niepolaczone sample 1,86-1,96s:
-# 116 wstegi ognia (flaga boomy), 311 kilka stlumionych uderzen bijatyki,
-# 179 luki na stronach, 547 nurkowanie i zdobycz, 65 tom otwiera sie i wiruja
-# kartki, 143 sztandar/rogaty kon, 379 obrona powietrzna z pociskiem, 497
-# wyładowania na przekladniach. Powtorzenia i cykle wynikaja z fabuly.
-# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r049).
+# r050: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
+# Cel NIE jest juz grafem, tylko dlugoscia. Po r050 zostalo 21 par, ale tylko
+# 5 krawedzi daje sie zdjac: wszystkie pozostale pary lacza DWA wezly TRAFIONE
+# (chronione kontraktem z obu stron). Jedyne karty z werdyktem „prawdopodobnie"
+# majace pary to 496 (3), 98 (1) i 103 (1) — i to bylby koniec mozliwosci.
+# Wiekszy zysk jest w drugim punkcie kryterium wlasciciela: dlugosc 2-5 s.
+# 45 kart ma tresc < 2 s; z tego 19 jest TRAFIONYCH (nie ruszamy), 5 to
+# „prawdopodobnie" (ryzyko werdyktu), a 21 nie ma archetypu — te sa bezpieczne.
+# Wziete 8 najkrotszych bez archetypu:
+#   604 Vampire's Bite  0,89 s | 19 Twiddle 1,51 s | 403 Dementia Bat 1,68 s
+#   87  Angelic Benediction 1,80 s | 267 Hunter's Blowgun 1,82 s
+#   337 Glaring Aegis 1,85 s | 490 Awaken the Sleeper 1,85 s
+#   115 Merfolk Mesmerist 1,92 s
+# Pominiete 311 i 547 (cofniete w r050) oraz 542 (przytrimowana w r040).
+# TECHNIKA: kazdy z tych sample ma JEDNO zdarzenie, wiec prompt dostaje jawna
+# liczbe powtorzen (2-5) — wlasciciel wprost to dopuscil („dwa szczekniecia
+# zamiast jednego, 3 uderzenia").
+# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r050).
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -127,7 +137,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "116,311,179,547,65,143,379,497"
+  IDS: "604,19,403,87,267,337,490,115"
 
 jobs:
   variants:
@@ -138,13 +148,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r049]
+      - name: Guard — tylko commit z markerem [generate-r050]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r049]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r050]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r049] — nic nie generuję"
+            echo "brak markera [generate-r050] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -163,25 +173,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r049
+          mkdir -p variants/r050
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r049/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r050/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r049 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r049/v$v" 2>&1 | tee -a variants/r049/generate.log
+              --ids "$IDS" --batch r050 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r050/v$v" 2>&1 | tee -a variants/r050/generate.log
           done
-          ls -la variants/r049 variants/r049/v1 variants/r049/v2 || true
+          ls -la variants/r050 variants/r050/v1 variants/r050/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r049 data/samples/generated-manifest.jsonl
+          git add -f variants/r050 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r049: 16 wariantow (8 kart x 2) + log generacji [import-r049]"
+            git commit -m "r050: 16 wariantow (8 kart x 2) + log generacji [import-r050]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

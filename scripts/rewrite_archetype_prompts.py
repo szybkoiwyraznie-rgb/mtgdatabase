@@ -1214,10 +1214,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "403": (
-        "A dementia bat's metal carapace splits in two sharp cracks; a "
-        "pressurized necrogen cloud hisses free in a long breath, droplets "
-        "pattering on stone. " + NO_M,
-        "metalowy pancerz nietoperza pęka dwoma ostrymi trzaskami; sprężona chmura nekrogenu uchodzi długim sykiem, krople bębnią o kamień",
+        "A metal carapace splitting in three sharp cracks, then a long "
+        "pressurised necrogen hiss, droplets pattering on stone one after "
+        "another.  " + NO_M,
+        "metalowy pancerz pęka trzema ostrymi trzaskami, potem długi sprężony syk nekrogenu, krople bębnią o kamień jedna po drugiej",
         False,
     ),
     "443": (
@@ -1277,10 +1277,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "87": (
-        "Three slow wingbeats pass overhead: the first deep feathery whump, a "
-        "second closer rush of air, then a lighter beat and soft feather "
-        "rustle fading away. " + NO_M,
-        "trzy powolne uderzenia skrzydeł przelatują nad głową: pierwsze głębokie łupnięcie piór, drugi bliższy pęd powietrza, potem lżejszy trzepot i cichnący szelest",
+        "Five slow wingbeats passing overhead in a row: deep feathery whumps "
+        "and rushes of air, then a long soft feather rustle fading out.  " + NO_M,
+        "pięć powolnych uderzeń skrzydeł przelatujących nad głową: głębokie łupnięcia piór i pędy powietrza, potem długi miękki szelest piór cichnący w dal",
         False,
     ),
     "259": (
@@ -1372,6 +1371,46 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "triggers a short metallic rattle, sparks spit, the iron gears buzz "
         "as they lock. " + NO_M,
         "elektryczne łuki przeskakują po zębach przekładni trzema seriami; każdy trzask wywołuje krótki metaliczny grzechot, iskry pryskają, żelazne koła brzęczą przy blokadzie",
+        False,
+    ),
+    "604": (
+        "A bruxa feeding on marble: a body dropped hard, then fangs working "
+        "twice at the throat with wet tearing, a long satisfied exhale, blood "
+        "dripping.  " + NO_M,
+        "bruxa pożywia się na marmurze: ciało upuszczone ciężko, potem kły pracują dwukrotnie przy gardle z mokrym darciem, długi zadowolony wydech, krew kapie",
+        False,
+    ),
+    "19": (
+        "Three candles snuffed out one after another: three soft puffs of "
+        "air, each with a brief arcane crackle and a thin trail of smoke "
+        "hiss.  " + NO_M,
+        "trzy świece gaszone jedna po drugiej: trzy miękkie dmuchnięcia, każde z krótkim magicznym trzaskiem i cienkim sykiem dymu",
+        False,
+    ),
+    "267": (
+        "Two darts blown in a row from a blowgun: two sharp puffs of breath, "
+        "two slender darts hissing through leaves, two faint thuds striking "
+        "home.  " + NO_M,
+        "dwa strzały z dmuchawki jeden po drugim: dwa ostre dmuchnięcia, dwie smukłe strzałki syczące wśród liści, dwa głuche stuknięcia w cel",
+        False,
+    ),
+    "337": (
+        "A bronze shield struck three times in a row: three bright metallic "
+        "clangs, each with a long shimmering ring-out like a small gong.  " + NO_M,
+        "brązowa tarcza uderzona trzy razy z rzędu: trzy jasne metaliczne dźwięki, każdy z długim migotliwym wybrzmieniem jak mały gong",
+        False,
+    ),
+    "490": (
+        "A wooden shaft snapping: one sharp dry crack, then a long "
+        "splintering tear as the halves pull apart, splinters raining down.  " + NO_M,
+        "drzewce pęka: jeden suchy ostry trzask, potem długie drzazgowe darciem gdy połówki rozchodzą się, drzazgi sypią się w dół",
+        False,
+    ),
+    "115": (
+        "Three fast swirls swept through waist-deep water in a row: loud "
+        "churning and splashing each time, water streaming and dripping "
+        "between them.  " + NO_M,
+        "trzy szybkie zamaszyste wiry przez wodę po pas jeden po drugim: za każdym razem głośne kłębowisko i plusk, woda spływa i kapie pomiędzy nimi",
         False,
     ),
 }
