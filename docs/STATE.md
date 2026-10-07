@@ -3068,9 +3068,71 @@ Raporty: `data/samples/audio-audit-2026-10-07-after-r045.json`,
 **4720**, pozostaje **5280** (r039–r045). Suma kosztów rund r034–r045 to
 6800 kr, wcześniejsze transze opłacono z poprzedniego salda.
 
-Po r045 nie ma już krawędzi między dwiema kartami bez archetypu. Pozostałe
-21 par łączą węzły trafione lub wcześniej próbowane „prawdopodobnie” — ich nie
-ruszać hurtowo. Następna transza, jeśli kontynuować, powinna poprawiać mierzone
-sample <2 s, wybierając tylko sceny z naturalnym rytmem/serią zdarzeń; obecnie
-pozostało ich 69. Nie wracać do pojedynczych, semantycznie krótkich dźwięków
-ani do `long_lead_silence` bez świeżego pomiaru zysku.
+### r046 — ósmy content clean-up: 69 → 62 krótkie sample
+
+**640 kredytów, 16 generacji, 8 kart.** Po nasyceniu grafu wybrano osiem
+najkrótszych niepołączonych próbek (1,58–1,74 s) z naturalnymi sekwencjami:
+`271` odsłonięcie runów i rozpad zaklęcia, `389` pękający lód, `477` uderzenia
+skrzydeł, `151` dwie fale burzy piaskowej, `512` zniknięcie w ścianie,
+`403` pancerz nietoperza i gaz, `443` złamana gałąź i nóż, `288` ładowanie
+statku.
+
+**Siedem próbek dostało finalnie nowe audio; `403` cofnięto.** Oba warianty
+`403` były krótsze od oryginału (0,91 s i 0,41 s), więc zachowano istniejące
+1,68 s zamiast pogarszać dźwięk. Pozostałe siedem przekroczyło 2 s:
+
+- `271` Expose to Daylight: 1,58 → **2,88 s**
+- `389` Bring Low: 1,60 → **3,71 s**
+- `477` Jeskai Windscout: 1,62 → **2,27 s** po ręcznym wyborze v1 + krótkim
+  trymie ogona. Automatyczny v2 (2,84 s) tworzył nowe krawędzie z `261`
+  (0,918) i `103` (0,908); v1 nie ma bliskich sąsiadów.
+- `151` Revealing Wind: 1,63 → **2,66 s**
+- `512` Vanish from Sight: 1,65 → **2,26 s**; łagodna półka −3 dB przy 180 Hz
+  usunęła `boomy`, centroid wzrósł z 142 do 329 Hz, bez nowych par.
+- `443` Scorned Villager: 1,69 → **2,82 s**
+- `288` Wedgelight Rammer: 1,74 → **3,45 s**
+
+Graf bez zmian: **21 par**, 23 karty w ≥1, 11 w ≥2, 6 w ≥3. Korpus:
+557 MP3, 55 plików z flagą (bez zmiany), 0 bliźniaków, 0 poza 2–5 s,
+62 sample z treścią <2 s, LUFS −20,05 (odch. 0,32). Archetypy
+**0 / 33 / 145**, regresji brak. Testy 6 OK, walidator 557/557, strona i ZIP
+po 557 próbek.
+
+Raporty: `data/samples/audio-audit-2026-10-07-after-r046.json`,
+`data/samples/archetype-match-2026-10-07-after-r046.json`,
+`docs/audits/2026-10-07-archetype-match-after-r046.md`,
+`data/samples/variant-pick-r046.json`,
+`data/samples/postprocess-r046.json`,
+`data/samples/postprocess-r046-477-v1.json`,
+`data/samples/postprocess-r046-512-spectral.json`.
+
+### Bilans sesji po r046
+
+| runda | kart | generacji | pary przed → po | kart w ≥1 parze | kredyty |
+|---|---|---|---|---|---|
+| r034 | 7 węzłów | 14 | 175 → 120 | — | 560 |
+| r035 | 7 węzłów | 14 | 120 → 99 | — | 560 |
+| r036 | 5 węzłów | 10 | 99 → 87 | — | 400 |
+| r037 | 7 węzłów | 14 | 87 → 81 | — | 560 |
+| r038 | 4 (trym) | — | 81 → 81 | — | **0** |
+| r039 | 10 węzłów | 20 | 81 → 65 | 86 | 800 |
+| r040 | 10 węzłów | 20 | 65 → 56 | 79 | 800 |
+| r041 | 10 węzłów | 20 | 56 → 43 | 63 | 800 |
+| r042 | 10 (8 finalnie) | 20 | 43 → 33 | 47 | 800 |
+| r043 | 10 (9 finalnie) | 20 | 33 → 26 | 31 | 800 |
+| r044 | 8 | 16 | 26 → 22 | 24 | 640 |
+| r045 | 1 | 2 | 22 → 21 | 23 | 80 |
+| **r046** | **8 (7 finalnie)** | **16** | **21 → 21** | **23** | **640** |
+| **razem** | | **186** | **175 → 21 (−88 %)** | **— → 23*** | **7440** |
+
+\* Liczbę kart w ≥1 parze raportujemy od r039; na końcu r046 jest ich 23.
+**Budżet bieżącego klucza 10 000 kr (wgrany 2026-10-06):** wydane
+**5360**, pozostaje **4640** (r039–r046). Suma kosztów rund r034–r046 to
+7440 kr, wcześniejsze transze opłacono z poprzedniego salda.
+
+R045 rozbiła ostatnią parę, w której jeden koniec nie miał archetypu; po r046
+nie ma już krawędzi między dwiema kartami bez archetypu. Pozostałe grafowe
+pary łączą węzły trafione lub wcześniej próbowane „prawdopodobnie” — nie
+ruszać ich hurtowo. Następne rundy mają sens jako małe transze mierzalnych
+próbek <2 s, tylko jeśli fabuła uzasadnia powtórzenie lub wieloetapową akcję;
+obecnie zostały 62. Nie wracać do `long_lead_silence` bez świeżego pomiaru.
