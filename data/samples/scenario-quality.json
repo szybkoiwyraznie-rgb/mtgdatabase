@@ -1,5 +1,5 @@
 {
-  "count": 559,
+  "count": 561,
   "median_score": 64.0,
   "below_threshold": 10,
   "threshold": 40.0,
@@ -7214,6 +7214,18 @@
       ]
     },
     {
+      "id": "324",
+      "title": "Spineseeker Centipede",
+      "scenario": "skolopendra: równy klekot chitynowych odnóży, dwadzieścia suchych stuknięć o deski",
+      "score": 92.0,
+      "sound_hits": 2,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": []
+    },
+    {
       "id": "383",
       "title": "Supernatural Stamina",
       "scenario": "ciężkie drewniane drzwi: długie falujące skrzypienie i miękki trzask",
@@ -7419,6 +7431,18 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 11,
+      "problems": []
+    },
+    {
+      "id": "325",
+      "title": "Narset's Rebuke",
+      "scenario": "fala magii: potężny niski huk z trzaskiem pękającej skały i długim grzmotem",
+      "score": 99.0,
+      "sound_hits": 3,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 12,
       "problems": []
     },
     {

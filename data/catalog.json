@@ -3912,6 +3912,20 @@
       "title": "Quandrix Campus",
       "story": "W sercu kampusu Kolegium Quandrix na uniwersytecie Strixhaven na planie Arcavios prawa natury i matematyki łączą się w niezwykłą harmonię. Pośród geometrycznie ukształtowanych alei studenci numeromancji z zachwytem obserwują lewitujące w powietrzu sześciany czystej wody, z których spływają grawitacyjne kaskady. Kamienne ścieżki i kwietniki układają się w doskonałe fraktalne wzory, a unoszące się w powietrzu świetliste równania pozwalają młodym adeptom precyzyjnie przewidywać przyszłe sploty zdarzeń. Dla poszukiwaczy arkanicznego piękna te pełne logiki ogrody stanowią idealne miejsce do zgłębiania tajemnic ukrytych w samej strukturze wszechświata.",
       "versions": []
+    },
+    {
+      "id": "324",
+      "art_id": "324DSK",
+      "title": "Spineseeker Centipede",
+      "story": "W nieskończonych, wypaczonych korytarzach nawiedzonego Domu na planie Duskmourn koszmary z dziecięcych lęków przybierają namacalną postać. Spomiędzy gnijących desek podłogi i łuszczących się tapet bezszelestnie wypełza drapieżna skolopendra o pancerzu przypominającym odsłonięty kręgosłup. Jej chitynowe odnóża metodycznie przeszukują porzucony dobytek dawnych mieszkańców, wyczuwając ukryte przejścia w labiryncie upiornej posiadłości. W miarę jak Dom pochłania kolejne ofiary i pamiątki po nich, nienasycony insektoid rośnie w siłę, stając się wiecznie czujnym strażnikiem mrocznych piwnic Valgavotha.",
+      "versions": []
+    },
+    {
+      "id": "325",
+      "art_id": "325TDM",
+      "title": "Narset's Rebuke",
+      "story": "Na smaganych alpejskim wichrem graniach Tarkiru długo tłumiony konflikt pomiędzy dwojgiem dawnych towarzyszy znajduje swój gwałtowny finał. Nieugięta Narset wyprowadza mistrzowski cios, uwalniając niszczycielską falę trójkolorowej jeskańskiej magii, która z pełną siłą uderza w zaskoczonego Sarkhana Vola. Potężny podmuch błękitu, płomienia i uświęconego światła odrzuca smoczego szamana w tył, wytrącając oręż z jego rąk i bezlitośnie rozbijając jego ochronne zaklęcia. Zdeterminowana mistrzyni nie pozwoli, by obsesyjne dążenia do wskrzeszenia smoczej dominacji zaprzepaściły wszystko, co poświęciła dla ocalenia wolności swego ludu.",
+      "versions": []
     }
   ]
 }

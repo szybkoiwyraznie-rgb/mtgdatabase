@@ -1,4 +1,4 @@
-name: TEMP b071 dostawa - 280 Sultai Scavenger i 323 Quandrix Campus
+name: TEMP b072 dostawa - 324 Spineseeker Centipede i 325 Narset's Rebuke
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,32 +107,31 @@ name: TEMP b071 dostawa - 280 Sultai Scavenger i 323 Quandrix Campus
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# b071: DOSTAWA dwoch nowych fabul. 2 warianty x 2 karty = 4 generacje
-# x 40 kredytow = 160 kredytow. Katalog rosnie 557 -> 559.
+# b072: DOSTAWA dwoch nowych fabul. 2 warianty x 2 karty = 4 generacje
+# x 40 kredytow = 160 kredytow. Katalog rosnie 559 -> 561.
 #
-# To nie jest korekta istniejacych sample'ow, tylko nowe karty, wiec
-# etykieta batcha to b071 (ciag dostaw b001-b070), nie r057 (ciag rund
-# korekcyjnych).
+#  324DSK Spineseeker Centipede  mechanism_click  dwadziescia suchych
+#         chitynowych stukniec odnozy o deski podlogi, rownym rytmem.
+#         Kontrakt: onset_count >= 3, crest >= 16, centroid 800-6000,
+#         ioi_cv <= 0,8.
+#         Ryzyko: mechanism_click ma juz 4 karty i WSZYSTKIE sa niskie
+#         i gluche (drewno o mosiadz, zapadka, bez jasnego trzasku).
+#         Ten prompt celowo prosi o dzwiek JASNY i KRUCHY w gorze srodka
+#         pasma, zeby nie powstala nowa para w grafie kosinusowym.
+#         ioi_cv <= 0,8 wymaga ROWNYCH odstepow, wiec prompt mowi
+#         ,a steady even rhythm".
+#  325TDM Narset's Rebuke        thunder_clap     fala magii odrzucajaca
+#         Sarkhana w tyl i rozbijajaca jego oslony.
+#         Kontrakt: low_all >= 0,5, centroid <= 800, crest >= 18,
+#         decay_s >= 0,5, mid_up >= 0,08.
+#         Archetyp ma tylko jedna karte (562 Shock) — tam pojedynczy
+#         ostry trzask. Tu celowo ciezszy korpus i DLUGI toczacy sie
+#         ogon (decay >= 0,5), zeby sie rozrozniac.
+#         Uwaga: centroid <= 800, czyli blast ma byc CIEMNY — dlatego
+#         w prompcie jest ,dull shatter", nie jasne szklo.
 #
-#  280KTK Sultai Scavenger  creature_cackle  ochryple gardlowe okrzyki
-#         sepeigo ptakoczleka nad bagnami Gurmag. Kontrakt:
-#         onset_count >= 3, centroid 700-4500, mod_peak 2,5-14 Hz,
-#         content_rel >= 1,0.
-#         mod_peak to pulap: 16 krokow w 4 s to ok. 4 Hz, w srodku okna.
-#         Za wolno (np. 6 okrzykow = 1,5 Hz) nie wejdzie w dolny prog.
-#  323STX Quandrix Campus   liquid_pour      jedna nieprzerwana kaskada
-#         z lewitujacego szescianu wody. Archetyp dotad NIEUZYTY w korpusie.
-#         Kontrakt: sustain >= 0,3, flatness >= 0,05, centroid 500-4000,
-#         content_rel >= 1,5.
-#         Celowy kontrast z 150 Balamb Garden (water_splash, fontanna,
-#         centroid 5642): kaskada ma byc CIAGLA i nizej w pasmie.
-#
-# Oba take'i po 4,0 s — wniosek z r056: krotszy take sie nie wypelnia.
-#
-# WAZNE (r031, r056): walidator zabrania slowa „layer" w prompcie, wiec
-# zapisany prompt konczy sie na „No music, no speech, no ambience bed.",
-# a zakaz „No multi-layer cinematic scene." dokłada scout w locie przed
-# wyslaniem. Realny ladunek API: 415 i 432 / 450 znakow.
+# Oba take'i po 4,0 s (wniosek z r056: krotszy take sie nie wypelnia).
+# Realny ladunek API: 446 i 411 / 450 znakow.
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -145,7 +144,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "280,323"
+  IDS: "324,325"
 
 jobs:
   variants:
@@ -156,13 +155,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-b071]
+      - name: Guard — tylko commit z markerem [generate-b072]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b071]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b072]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b071] — nic nie generuję"
+            echo "brak markera [generate-b072] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -181,25 +180,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b071
+          mkdir -p variants/b072
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/b071/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b072/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch b071 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b071/v$v" 2>&1 | tee -a variants/b071/generate.log
+              --ids "$IDS" --batch b072 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b072/v$v" 2>&1 | tee -a variants/b072/generate.log
           done
-          ls -la variants/b071 variants/b071/v1 variants/b071/v2 || true
+          ls -la variants/b072 variants/b072/v1 variants/b072/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b071 data/samples/generated-manifest.jsonl
+          git add -f variants/b072 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "b071: 16 wariantow (8 kart x 2) + log generacji [import-b071]"
+            git commit -m "b072: 16 wariantow (8 kart x 2) + log generacji [import-b072]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
