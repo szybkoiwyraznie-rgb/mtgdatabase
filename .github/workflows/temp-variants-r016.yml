@@ -1,4 +1,4 @@
-name: TEMP r056 krotkie sample - cztery z progiem decay i cztery bez
+name: TEMP b071 dostawa - 280 Sultai Scavenger i 323 Quandrix Campus
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,38 +107,32 @@ name: TEMP r056 krotkie sample - cztery z progiem decay i cztery bez
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# r056: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
-# Skład: osiem SWIEZYCH kart — zadna nie dostawala jeszcze poprawki
-# dlugosci. Wniosek z r055: karta po trzecim i czwartym podejsciu
-# (292 — cztery, 87 — cztery) konsekwentnie nie wchodzi, a swieza karta
-# (244) weszla od razu.
+# b071: DOSTAWA dwoch nowych fabul. 2 warianty x 2 karty = 4 generacje
+# x 40 kredytow = 160 kredytow. Katalog rosnie 557 -> 559.
 #
-# DWA TAKE'I. To pierwsza runda, w ktorej duration_seconds jest rozny
-# per karta (scenarios.jsonl, nie domyslne 4,0 z DURATION):
-#   2,5 s — 583, 232, 71, 469   (kontrakt ma GORNY prog decay_s)
-#   4,0 s — 4, 558, 269, 26     (brak progu decay_s)
-# Cztery odkladane od r054 wchodza dopiero teraz, bo zrozumielismy mechanike:
-# decay_s = szczyt -> pierwsza ramka ponizej szczyt-20 dB (audit_semantic_
-# match.py:174). Zdarzenia ROZDZIELONE PRZERWAMI daja jednoczesnie krotki
-# decay_s (przerwa spada ponizej progu) i wysoki onset_count (kazde
-# zdarzenie to osobny skok). Dlugi take z jednym zdarzeniem nie mial szansy.
+# To nie jest korekta istniejacych sample'ow, tylko nowe karty, wiec
+# etykieta batcha to b071 (ciag dostaw b001-b070), nie r057 (ciag rund
+# korekcyjnych).
 #
-# Kontrakty:
-#   583 arrow_flight  attack<=0,1  decay<=0,8  flat>=0,10  centroid 800-6000
-#   232 plate_clank   crest>=17    onset>=2    centroid 1000-6000  decay<=1,2
-#    71 heavy_impact  crest>=14    attack<=0,15 decay<=1,4  low_all>=0,20
-#   469 chain_rattle  onset>=6     centroid>=2000  decay<=1,0
-#     4 water_splash  flat>=0,08   high_all>=0,25 crest>=15  attack<=0,1
-#   558 temple_bell   tonal>=0,5   centroid 400-3000  sustain>=0,2
-#   269 beast_screech crest>=12    attack<=0,15 centroid 600-4500 high_all>=0,2
-#    26 stone_slide   low_all>=0,25 centroid<=2000  decay>=0,5
+#  280KTK Sultai Scavenger  creature_cackle  ochryple gardlowe okrzyki
+#         sepeigo ptakoczleka nad bagnami Gurmag. Kontrakt:
+#         onset_count >= 3, centroid 700-4500, mod_peak 2,5-14 Hz,
+#         content_rel >= 1,0.
+#         mod_peak to pulap: 16 krokow w 4 s to ok. 4 Hz, w srodku okna.
+#         Za wolno (np. 6 okrzykow = 1,5 Hz) nie wejdzie w dolny prog.
+#  323STX Quandrix Campus   liquid_pour      jedna nieprzerwana kaskada
+#         z lewitujacego szescianu wody. Archetyp dotad NIEUZYTY w korpusie.
+#         Kontrakt: sustain >= 0,3, flatness >= 0,05, centroid 500-4000,
+#         content_rel >= 1,5.
+#         Celowy kontrast z 150 Balamb Garden (water_splash, fontanna,
+#         centroid 5642): kaskada ma byc CIAGLA i nizej w pasmie.
 #
-# Wszystkie osiem sa TERAZ „trafione" — obowiazuje zasada ochronna:
-# spadek werdyktu = powrot do starego sample jednym `git checkout --`.
+# Oba take'i po 4,0 s — wniosek z r056: krotszy take sie nie wypelnia.
 #
-# UWAGA (r055): --apply w rewrite_archetype_prompts.py nadpisuje
-# duration_seconds stalą DURATION (4,0). Tutaj take'i sa ustawione
-# RECZNIE po --apply i sa czescia zmiany — nie wolno ich nadpisac.
+# WAZNE (r031, r056): walidator zabrania slowa „layer" w prompcie, wiec
+# zapisany prompt konczy sie na „No music, no speech, no ambience bed.",
+# a zakaz „No multi-layer cinematic scene." dokłada scout w locie przed
+# wyslaniem. Realny ladunek API: 415 i 432 / 450 znakow.
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -151,7 +145,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "583,232,71,469,4,558,269,26"
+  IDS: "280,323"
 
 jobs:
   variants:
@@ -162,13 +156,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r056]
+      - name: Guard — tylko commit z markerem [generate-b071]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r056]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b071]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r056] — nic nie generuję"
+            echo "brak markera [generate-b071] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -187,25 +181,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r056
+          mkdir -p variants/b071
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r056/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b071/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r056 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r056/v$v" 2>&1 | tee -a variants/r056/generate.log
+              --ids "$IDS" --batch b071 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b071/v$v" 2>&1 | tee -a variants/b071/generate.log
           done
-          ls -la variants/r056 variants/r056/v1 variants/r056/v2 || true
+          ls -la variants/b071 variants/b071/v1 variants/b071/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r056 data/samples/generated-manifest.jsonl
+          git add -f variants/b071 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r056: 16 wariantow (8 kart x 2) + log generacji [import-r056]"
+            git commit -m "b071: 16 wariantow (8 kart x 2) + log generacji [import-b071]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

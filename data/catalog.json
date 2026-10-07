@@ -3898,6 +3898,20 @@
       "title": "Scouting Hawk",
       "story": "Na bezkresnych, falujących na wietrze równinach Bretagardu na planie Kaldheim zwiadowcy klanu Beskir polegają na bystrym wzroku swoich skrzydlatych towarzyszy. Młoda wojowniczka wypuszcza ze skórzanej rękawicy wytresowanego jastrzębia, który z potężnym trzepotem skrzydeł wzbija się w poranne niebo. Krążąc wysoko ponad skalnymi kurhanami, drapieżnik bez trudu dostrzega bezpieczne szlaki i żyzne pastwiska ukryte za linią odległego horyzontu. Dzięki niezrównanej czujności ptasiego przewodnika klanowe karawany zawsze jako pierwsze odnajdują drogę do nowych, nienaruszonych ziem Północy.",
       "versions": []
+    },
+    {
+      "id": "280",
+      "art_id": "280KTK",
+      "title": "Sultai Scavenger",
+      "story": "Na grząskich, wiecznie parujących moczarach Gurmag na planie Tarkir skrzydlaci wojownicy klanu Sultai pełnią ponurą straż nad armiami nieumarłych. Sępi ptakoczłek w pancerzu ze smoczych łusek i jadeitu przysiada na głowie omszałego pomnika, bacznie obserwując powolny pochód oddziałów sibsig. Dla podniebnych padlinożerców eskorta bezmyślnych ciał stanowi nieustanne źródło pożywienia, pozwalając im bez trudu przetrwać w najbardziej zdradliwych zakątkach puszczy. Gdy sułtańskie zastępy ruszają na wojenny szlak, ci drapieżni zwiadowcy szybują tuż nad taflą wody, czerpiąc siłę z niekończącego się żniwa śmierci.",
+      "versions": []
+    },
+    {
+      "id": "323",
+      "art_id": "323STX",
+      "title": "Quandrix Campus",
+      "story": "W sercu kampusu Kolegium Quandrix na uniwersytecie Strixhaven na planie Arcavios prawa natury i matematyki łączą się w niezwykłą harmonię. Pośród geometrycznie ukształtowanych alei studenci numeromancji z zachwytem obserwują lewitujące w powietrzu sześciany czystej wody, z których spływają grawitacyjne kaskady. Kamienne ścieżki i kwietniki układają się w doskonałe fraktalne wzory, a unoszące się w powietrzu świetliste równania pozwalają młodym adeptom precyzyjnie przewidywać przyszłe sploty zdarzeń. Dla poszukiwaczy arkanicznego piękna te pełne logiki ogrody stanowią idealne miejsce do zgłębiania tajemnic ukrytych w samej strukturze wszechświata.",
+      "versions": []
     }
   ]
 }
