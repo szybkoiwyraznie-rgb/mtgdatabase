@@ -3343,3 +3343,75 @@ będą celem następnych rund.
 
 **r034–r050: 250 generacji, 175 → 21 par (−88 %), 10 000 kr łącznie.**
 Bieżący klucz: 7920 / 10 000, zostaje **2080** (czyli ~5 rund po 8 kart).
+
+### r051 — wyniki: sześć krótkich sample nad progiem, dwie karty cofnięte
+
+640 kredytów, 16 generacji, 8 kart. Tym razem dobór wyszedł z **historii
+promptów**, nie z samej tabeli metryk: z 41 kart o treści poniżej 2 s
+część dostała już współczesną technikę (dopisek „the sound fills the whole
+take\" + jawna liczba powtórzeń) i mimo to została krótka. Wzięte więc
+zostały karty, które jej **nie dostały** — siedem bez archetypu (ostatni
+batch to dostawa `b0NN` albo stare rundy `r007`–`r010b`) plus jedna z
+archetypem.
+
+| id | karta | stara treść | nowa treść | delta |
+|----|-------|-------------|------------|-------|
+| 41 | Severed Strands | 1,93 s | 3,79 s | **+1,86** |
+| 584 | Merfolk Falconer | 1,97 s | 3,72 s | **+1,75** |
+| 526 | Canonized in Blood | 1,99 s | *cofnięta* | — |
+| 294 | Tumbleweed Rising | 1,99 s | 3,46 s | **+1,47** |
+| 519 | Lurking Green Dragon | 1,97 s | 3,44 s | **+1,47** |
+| 7 | Mindstab | 1,26 s | *cofnięta* | — |
+| 59 | Mysidian Elder | 1,94 s | 2,68 s | **+0,74** |
+| 13 | Soulmender | 1,96 s | 2,00 s | +0,04 |
+
+**Dwie cofnięte, obie z tego samego powodu co `87` w r050:**
+
+- **`526` Canonized in Blood — centroid spadł 2510 → 78 Hz.** Oba warianty
+  wyszły jako czysty sub-bas (udział pasm poniżej 250 Hz: 0,99 i 1,00),
+  czyli pomruk niesłyszalny na zwykłych głośnikach. Treść wprawdzie urosła
+  1,99 → 3,52 s, ale prompt z „deep subterranean rumble\" został zrealizowany
+  dosłownie i wyłącznie.
+- **`7` Mindstab — naruszony kontrakt `psychic_shriek`.** Kontrakt wymaga
+  centroidu 1200–7000 Hz; `v1` wyszedł przy 326 Hz, `v2` przy 927 Hz.
+  Dodatkowo `v2` (dłuższy: 3,20 s) utknął przy **−28,25 LUFS**, bo limit
+  true peak −1 dBTP zablokował wzmocnienie (GR −11,44 dB) — 8 LU poniżej
+  korpusu. `v1` normalizuje się czysto do −20,00, ale łamie kontrakt, więc
+  karta wróciła do starego sample (1,26 s, trafiony).
+
+`13` urosła tylko o 0,04 s, ale wystarczyło, żeby przekroczyć próg; ogon
+(1,94 s ciszy) przytrimowany za zero kredytów — plik 4,00 → 2,46 s, treść
+bez zmiany, flaga `long_trail_silence` zdjęta.
+
+**Wniosek do zapamiętania:** technika działa na karty, które jej jeszcze
+nie dostały (6 z 8 przeszło, średnia treści wybranego wariantu 3,36 s),
+a nie działa na te, które ją dostały i zostały krótkie (`17`, `531`, `292`,
+`435`, `12`, `98`, `545`, `219`, `561`). Drugi wniosek: wszystkie 16 plików
+z tej rundy wróciło przy **dokładnie 4,00 s** (po 65 245 bajtów) — model
+tym razem wziął `duration_seconds` dosłownie, i to jest główne źródło
+skoku treści.
+
+**Graf bez zmian: 21 par** (23 karty w ≥1 parze, 11 w ≥2, 6 w ≥3).
+Treść < 2 s: **41 → 35**. Flagi 54 (bez nowych), 0 bliźniaków, 0 poza oknem
+2–5 s, LUFS −20,08 (odch. 0,48). Archetypy **0 / 33 / 145**, regresji brak.
+Testy 6 OK, walidator 557/557, site + ZIP 557.
+
+### Po r051: bezpiecznych kart z krótką treścią już nie ma
+
+Z 35 pozostałych kart o treści < 2 s **tylko 4 nie dostały jeszcze
+współczesnej techniki** — i wszystkie cztery są trafione:
+
+| id | treść | archetyp | kontrakt blokuje długi take? |
+|----|-------|----------|------------------------------|
+| 583 | 0,21 s | arrow_flight | **tak** — `decay_s <= 0,8` |
+| 71 | 1,40 s | heavy_impact | nie — `decay_s <= 1,4`, trzy uderzenia się zmieszczą |
+| 145 | 1,52 s | beast_screech | nie — kontrakt nie ma progu `decay_s` |
+| 469 | 1,99 s | chain_rattle | nie — `onset_count >= 6` sprzyja długiemu take |
+
+Pozostałe 31 kart dostało już technikę i zostało krótkich; w tej grupie
+jest 11 kart **bez archetypu** (`403`, `87`, `115`, `311`, `547`, `337`,
+`542`, `545`, `219`, `526`, `561`), więc ponawianie ich jest bezpieczne
+werdyktowo, ale z r049–r051 widać, że szansa jest rzędu 1/3.
+
+**r034–r051: 266 generacji, 175 → 21 par (−88 %).**
+Bieżący klucz: 8560 / 10 000, zostaje **1440** (dwie rundy po 8 kart).
