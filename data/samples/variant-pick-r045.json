@@ -1,0 +1,30 @@
+{
+  "variants_dir": "/home/user/mtgdatabase/variants/r045",
+  "applied": true,
+  "results": [
+    {
+      "id": "589",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r045/v2/589.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.48,
+          "lufs": -17.33,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r045/v1/589.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.43,
+          "lufs": -21.94,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    }
+  ]
+}

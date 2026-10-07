@@ -3018,10 +3018,59 @@ Raporty: `data/samples/audio-audit-2026-10-07-after-r044.json`,
 **4640**, pozostaje **5360** (r039–r044). Suma kosztów rund r034–r044 to
 6720 kr, ponieważ wcześniejsze transze opłacono z poprzedniego salda.
 
-**Pozostały graf jest prawie w całości nietykalny:** z 22 par tylko `589`–`103`
-(0,944) ma jeden koniec bez archetypu; `103` ma werdykt „prawdopodobnie”,
-a `589` właśnie przeszła r043, gdzie wariant v1 tworzył bliźniaka z chronioną
-`261`. Reszta to pary między węzłami trafionymi lub wcześniej próbowanymi
-„prawdopodobnie”. Kolejna próba `589` ma sens tylko z nowym, wyraźnie
-odmiennym projektem dźwięku; nie ruszać chronionych kart i nie wydawać 640 kr
-na losowe pokrywanie grafu.
+**Stan po r044:** 22 krawędzie pozostawały w całości między dopasowanymi lub
+wcześniej próbowanymi „prawdopodobnie”; jedyny wyjątek miał koniec bez
+archetypu — `589`–`103` (0,944). Zamiast modyfikować chronione `103`, r045
+wykonała mały eksperyment tylko na `589`.
+
+### r045 — Acidic Slime: 22 → 21 par
+
+**80 kredytów, 2 generacje, 1 karta.** Nowy projekt brzmienia zastąpił szeroki
+syk lepkim, mokrym bulgotaniem metalu trawionego kwasem. Wybrany v2 ma treść
+**3,46 s** (przed: 2,83 s), centroid **8332 → 4409 Hz**, zero flag i zero
+sąsiadów ≥0,90. Usunięto jedyną krawędź do `103` (0,944); nie powstały nowe.
+`103` pozostała nietknięta.
+
+**Wynik: 22 → 21 par.** Karty w ≥1 parze: 24 → **23**; w ≥2: 12 → **11**;
+w ≥3: 6 → **6**. Korpus: 557 próbek, 55 z flagą (bez zmiany), 0 bliźniaków,
+0 poza 2–5 s, treść <2 s: 69, LUFS −20,04 (odch. 0,32). Archetypy
+**0 / 33 / 145**, regresji brak. Testy 6 OK, walidator 557/557, strona i ZIP
+po 557 próbek.
+
+Preflight najpierw wykrył payload 455/450; skrócono prompt do **424/450** przed
+workflow, więc wadliwy wariant nie zużył kredytów. GitHub: generated=1,
+failed=0.
+Raporty: `data/samples/audio-audit-2026-10-07-after-r045.json`,
+`data/samples/archetype-match-2026-10-07-after-r045.json`,
+`docs/audits/2026-10-07-archetype-match-after-r045.md`,
+`data/samples/variant-pick-r045.json`, `data/samples/postprocess-r045.json`.
+
+### Bilans sesji po r045
+
+| runda | kart | generacji | pary przed → po | kart w ≥1 parze | kredyty |
+|---|---|---|---|---|---|
+| r034 | 7 węzłów | 14 | 175 → 120 | — | 560 |
+| r035 | 7 węzłów | 14 | 120 → 99 | — | 560 |
+| r036 | 5 węzłów | 10 | 99 → 87 | — | 400 |
+| r037 | 7 węzłów | 14 | 87 → 81 | — | 560 |
+| r038 | 4 (trym) | — | 81 → 81 | — | **0** |
+| r039 | 10 węzłów | 20 | 81 → 65 | 86 | 800 |
+| r040 | 10 węzłów | 20 | 65 → 56 | 79 | 800 |
+| r041 | 10 węzłów | 20 | 56 → 43 | 63 | 800 |
+| r042 | 10 (8 finalnie) | 20 | 43 → 33 | 47 | 800 |
+| r043 | 10 (9 finalnie) | 20 | 33 → 26 | 31 | 800 |
+| r044 | 8 | 16 | 26 → 22 | 24 | 640 |
+| **r045** | **1** | **2** | **22 → 21** | **23** | **80** |
+| **razem** | | **170** | **175 → 21 (−88 %)** | **— → 23*** | **6800** |
+
+\* Liczbę kart w ≥1 parze raportujemy od r039; na końcu r045 jest ich 23.
+**Budżet bieżącego klucza 10 000 kr (wgrany 2026-10-06):** wydane
+**4720**, pozostaje **5280** (r039–r045). Suma kosztów rund r034–r045 to
+6800 kr, wcześniejsze transze opłacono z poprzedniego salda.
+
+Po r045 nie ma już krawędzi między dwiema kartami bez archetypu. Pozostałe
+21 par łączą węzły trafione lub wcześniej próbowane „prawdopodobnie” — ich nie
+ruszać hurtowo. Następna transza, jeśli kontynuować, powinna poprawiać mierzone
+sample <2 s, wybierając tylko sceny z naturalnym rytmem/serią zdarzeń; obecnie
+pozostało ich 69. Nie wracać do pojedynczych, semantycznie krótkich dźwięków
+ani do `long_lead_silence` bez świeżego pomiaru zysku.
