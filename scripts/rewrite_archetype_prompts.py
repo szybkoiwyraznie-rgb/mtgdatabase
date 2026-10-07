@@ -608,10 +608,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "73": ("A golden construct's blade snapping out and striking: an instant bright steel hit at the very first moment, then three more crisp clashes with a harsh metallic ring.",
             "ostrze konstrukta wysuwa się i uderza: natychmiastowy jasny cios stali, potem trzy kolejne szczęki z ostrym brzękiem", False),
     "344": (
-        "Crossed kavu blades: five harsh gritty steel clashes in a row, the first "
-        "landing at full force with no build-up, each ringing bright across the whole "
-        "take. " + NO_M,
-        "skrzyżowane ostrza kavu: pięć ostrych ziarnistych starć stali jedno po drugim, pierwsze z pełną siłą bez narastania, każde dzwoniące jasno przez cały take",
+        "Crossed kavu blades: five harsh gritty steel clashes in a row, and the very "
+        "first one is by far the loudest moment of the whole take, landing at full "
+        "force with no build-up. " + NO_M,
+        "skrzyżowane ostrza kavu: pięć ostrych ziarnistych starć stali jedno po drugim, z których pierwsze jest zdecydowanie najgłośniejszym momentem całego take, uderzające z pełną siłą bez narastania",
         False,
     ),
     "525": ("A rapier thrust throwing a wave of glacial spikes: one instant bright steel impact, then four sharp cracking strikes as the ice splinters, each with a glassy metallic ring.",
@@ -647,10 +647,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "434": (
-        "A mizzium reactor overloading: a low throbbing engine note held unbroken "
-        "while six heavy metallic pounds strike over it, gritty mid-range grinding "
-        "between them. " + NO_M,
-        "reaktor mizzium przeciążony: niski pulsujący ton silnika trzymany bez przerwy, podczas gdy sześć ciężkich metalicznych uderzeń bije nad nim, z ziarnistym zgrzytem środka pasma pomiędzy nimi",
+        "A mizzium reactor overloading: a low engine throb held unbroken, with a loud "
+        "gritty metal grinding in the middle of the range over it and six heavy "
+        "rhythmic pound strikes. " + NO_M,
+        "reaktor mizzium przeciążony: niski puls silnika trzymany bez przerwy, nad nim głośny ziarnisty zgrzyt metalu w środku pasma i sześć ciężkich rytmicznych uderzeń",
         False,
     ),
     "2": ("A stone thrown into deep water: one bright hard splash at the very first instant, then a hissing spray of droplets and three smaller plops spreading outward.",
@@ -662,10 +662,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "292": (
-        "Wind sweeping across a mountain pass: a broad noisy hiss of air that swells "
-        "slowly, holds, then swells twice more, with a thin mid-range whistle through "
-        "it. " + NO_M,
-        "wiatr przetacza się przez górską przełęcz: szeroki szumiący syk powietrza, który narasta powoli, trzyma poziom, po czym wzbiera jeszcze dwa razy, z cienkim gwizdem środka pasma w tle",
+        "Wind sweeping across a mountain pass: a broad noisy rush of air, "
+        "mid-weighted, that swells slowly, holds steady, then swells twice more before "
+        "fading. " + NO_M,
+        "wiatr przetacza się przez górską przełęcz: szeroki szumiący nurt powietrza o środkowym ciężarze, który narasta powoli, trzyma poziom, po czym wzbiera jeszcze dwa razy przed wygaśnięciem",
         False,
     ),
     "173": ("A warrior's roar taking bear form: a long deep chest roar with enormous low-frequency body underneath, dark and massive, sustained across the whole take.",
@@ -680,12 +680,26 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "żelazny dzwon klasztorny uderzony raz i zostawiony: ton ze środka pasma narasta i równo wybrzmiewa przez cały sample", False),
     "522": ("Luminous chains snapping taut around a running beast: a long bright rattling cascade of many small links, at least ten separate metallic ticks across the whole take.",
             "świetliste łańcuchy napinają się na biegnącej bestii: długa jasna kaskada grzechotu wielu ogniw, co najmniej dziesięć osobnych stuków", False),
-    "244": ("A stone monolith pushed out of clay soil in a forest: four deep gritty scraping pushes in an even rhythm, with tonal bird calls answering between them.",
-            "kamienny monolit wypychany z gliny w lesie: cztery głębokie chropawe pchnięcia równym rytmem, z dzwięcznymi ptasimi zawołaniami między nimi", False),
-    "12": ("A dock robot's servo running: a smooth continuous tonal hum at a steady pitch with an even buzzing undertone, plus two soft mechanical clicks, held for the whole take.",
-            "serwo robota dźwigowego: gładki ciągły tonalny pomruk o stałej wysokości z równym brzęczeniem i dwoma miękkimi klikami", False),
-    "5": ("An arcane spell igniting: a bright crystalline shimmer high in the treble, sparkling glassy overtones rising, swelling and holding steadily across the whole take.",
-            "zaklęcie zapala się: jasne krystaliczne migotanie wysoko w górze pasma, szkliste iskry narastają i trwają przez cały sample", False),
+    "244": (
+        "Songbirds replying to one another in a forest: ten short clear piping chirps "
+        "in an uneven rhythm, each a bright tonal whistle, stone grinding beneath. " + NO_M,
+        "ptaki śpiewające odpowiadają sobie w lesie: dziesięć krótkich wyraźnych szczebiotliwych treli w nierównym rytmie, każda jasnym tonalnym gwizdem, pod spodem zgrzyt kamienia",
+        False,
+    ),
+    "12": (
+        "A dock robot's servo running: one smooth continuous tonal hum at a steady "
+        "pitch held unbroken, with an even buzzing undertone and eight soft mechanical "
+        "clicks over it. " + NO_M,
+        "serwo portowego robota w ruchu: jeden gładki ciągły tonalny pomruk o stałej wysokości trzymany bez przerwy, z jednostajnym bzyczącym podkładem i ośmioma miękkimi mechanicznymi kliknięciami",
+        False,
+    ),
+    "5": (
+        "An arcane spell igniting: a bright crystalline shimmer swelling and holding "
+        "steadily, with sparkling glassy overtones ringing high above it for the whole "
+        "take. " + NO_M,
+        "arcydzieło magii się zapala: jasne krystaliczne migotanie narastające i trzymane jednostajnie, z iskrzącymi szklanymi alikwotami dzwoniącymi wysoko nad nim przez cały take",
+        False,
+    ),
     "253": ("An elven bard's lute at dawn: a short plucked phrase of five or six separate clear string notes played with even rhythm, warm and bright.",
             "lutnia elfiego barda o świcie: krótka fraza z pięciu-sześciu osobnych wyraźnych dźwięków strun w równym rytmie", False),
     # --- r029: 33 karty, kazda z DOKLADNIE jednym zlamanym progiem kontraktu.
@@ -806,10 +820,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "96": ("A stream of emerald magic: one continuous flowing shimmering tone with a clear sustained pitch and bright sparkling overtones, smooth and even throughout.",
             "strumień szmaragdowej magii: jeden ciągły płynący migotliwy ton o wyraźnej wysokości i jasnych iskrzących alikwotach", False),
     "113": (
-        "A welder drone's servo: one continuous electronic tone at a fixed pitch held "
-        "unbroken for the whole take, with six precise mechanical clicks locking into "
-        "place over it. " + NO_M,
-        "serwo spawalniczego drona: jeden ciągły elektroniczny ton o stałej wysokości trzymany bez przerwy przez cały take, z sześcioma precyzyjnymi mechanicznymi kliknięciami wpadającymi na swoje miejsce",
+        "A welder drone's servo: one smooth steady hum at a single unwavering mid-low "
+        "pitch, held pure and unbroken, with six precise clicks locking into place "
+        "over it. " + NO_M,
+        "serwo spawalniczego drona: jeden gładki jednostajny pomruk o jednej niezmiennej średnio-niskiej wysokości, trzymany czysto i bez przerwy, z sześcioma precyzyjnymi kliknięciami wpadającymi na swoje miejsce",
         False,
     ),
     "118": ("A monster's close roar: a guttural bellow sitting clearly in the low middle of the range, rough and raspy, well above a pure sub-bass rumble.",
@@ -1519,10 +1533,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "145": (
-        "A cloning pod bursting open in three stages: three loud resonant metal bangs "
-        "in a row, the first the loudest, each followed by a wet gush of stasis liquid "
-        "splashing over iron plates. " + NO_M,
-        "komora klonująca otwiera się w trzech etapach: trzy głośne rezonujące metaliczne huki jedno po drugim, pierwszy najgłośniejszy, po każdym mokry chluśnięcie płynu stazy na żelazne płyty",
+        "A cloning pod bursting open in three stages: three loud resonant metal bangs, "
+        "the first the loudest, each with a shrill metallic ring and a wet gush over "
+        "iron plates. " + NO_M,
+        "komora klonująca otwiera się w trzech etapach: trzy głośne rezonujące metaliczne huki, pierwszy najgłośniejszy, każdy z piskliwym metalicznym dzwonieniem i mokrym chluśnięciem na żelazne płyty",
         False,
     ),
 }
