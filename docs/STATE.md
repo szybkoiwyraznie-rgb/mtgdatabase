@@ -3198,7 +3198,74 @@ Raporty: `data/samples/audio-audit-2026-10-07-after-r047.json`,
 **6000**, pozostaje **4000** (r039–r047). Suma kosztów rund r034–r047 to
 8080 kr, wcześniejsze transze opłacono z poprzedniego salda.
 
-Graf jest nasycony, a krótkich treści zostało 56. Dalsze rundy powinny
-pozostać małe i sceniczne — wyłącznie gdy rytm, powtórzenie lub kilka etapów
-wynikają wprost z fabuły. Unikać hurtowej regeneracji, chronionych archetypów
-i ponownych prób dwóch kart (`545`, `561`) bez nowego pomysłu na przebieg.
+Po r047 pozostało 56 próbek z treścią <2 s.
+
+### r048 — dziewiąty cleanup krótkiej treści: 56 → 51
+
+**640 kredytów, 16 generacji, 8 kart.** Wybrano niepołączone sample o treści
+1,47–1,93 s z fabularnie uzasadnionym rytmem: duchy unoszą się parami (`255`),
+spellbomb i odbijająca się włócznia (`542`), skrzydła (`87`), szpony (`259`),
+lądowanie roca (`563`), krople oleju (`289`), zapalające się misy (`94`),
+drużyna przez portal (`219`).
+
+**Pięć próbek przekroczyło 2 s, trzy warianty cofnięto:**
+
+- `255` Urborg Uprising: 1,47 → **2,22 s**, v1 z trymem ogona 0,05 s.
+  Dłuższy trym utworzył parę z `487`; minimalny trym ją omija.
+- `259` Kozilek's Predator: 1,81 → **3,59 s**.
+- `563` Koilos Roc: 1,81 → **3,31 s**.
+- `289` Rustvine Cultivator: 1,86 → **2,59 s**.
+- `94` Fortify: 1,93 → **3,34 s**.
+- `542` Panic Spellbomb cofnięta: oba przetworzone warianty były krótsze od
+  oryginału (1,71 s / 1,54 s vs 1,75 s).
+- `87` Angelic Benediction cofnięta: oba warianty były niemal wyłącznie basem
+  (muffled/boomy/dull) — dłuższa obwiednia nie uzasadniała gorszego dźwięku.
+- `219` Prishe's Wanderings cofnięta: v1 tworzył nową parę z chronioną `2`,
+  v2 nie dobił do 2 s; oryginał 1,98 s zachowuje czyste, niepodobne audio.
+
+`218`, poprawiona w r047, tym razem otrzymała trzy nieciągłe bulgoty i wzrosła
+z 1,71 do 3,80 s; flaga `tonal_sustained` pozostała zdjęta. Runda usunęła
+**zero par** i dodała zero podobieństw: graf bez zmian, 21 krawędzi, 23 karty
+w ≥1 parze. Korpus 557 MP3, 54 pliki z flagą, 0 bliźniaków, 0 poza 2–5 s,
+treść <2 s spadła z 56 do **51**, LUFS −20,07 (odch. 0,42). Archetypy
+**0 / 33 / 145**, regresji brak. Testy 6 OK, walidator 557/557, strona i ZIP
+po 557 próbek.
+
+Raporty: `data/samples/audio-audit-2026-10-07-after-r048.json`,
+`data/samples/archetype-match-2026-10-07-after-r048.json`,
+`docs/audits/2026-10-07-archetype-match-after-r048.md`,
+`data/samples/variant-pick-r048.json`,
+`data/samples/postprocess-r048.json`,
+`data/samples/postprocess-r048-255-v1.json`.
+
+### Bilans sesji po r048
+
+| runda | kart | generacji | pary przed → po | kart w ≥1 parze | kredyty |
+|---|---|---|---|---|---|
+| r034 | 7 węzłów | 14 | 175 → 120 | — | 560 |
+| r035 | 7 węzłów | 14 | 120 → 99 | — | 560 |
+| r036 | 5 węzłów | 10 | 99 → 87 | — | 400 |
+| r037 | 7 węzłów | 14 | 87 → 81 | — | 560 |
+| r038 | 4 (trym) | — | 81 → 81 | — | **0** |
+| r039 | 10 węzłów | 20 | 81 → 65 | 86 | 800 |
+| r040 | 10 węzłów | 20 | 65 → 56 | 79 | 800 |
+| r041 | 10 węzłów | 20 | 56 → 43 | 63 | 800 |
+| r042 | 10 (8 finalnie) | 20 | 43 → 33 | 47 | 800 |
+| r043 | 10 (9 finalnie) | 20 | 33 → 26 | 31 | 800 |
+| r044 | 8 | 16 | 26 → 22 | 24 | 640 |
+| r045 | 1 | 2 | 22 → 21 | 23 | 80 |
+| r046 | 8 (7 finalnie) | 16 | 21 → 21 | 23 | 640 |
+| **r047** | **8** | **16** | **21 → 21** | **23** | **640** |
+| **r048** | **8 (5 finalnie)** | **16** | **21 → 21** | **23** | **640** |
+| **razem** | | **218** | **175 → 21 (−88 %)** | **— → 23*** | **8720** |
+
+\* Liczbę kart w ≥1 parze raportujemy od r039; na końcu r048 jest ich 23.
+**Budżet bieżącego klucza 10 000 kr:** wydane **6640**, pozostaje **3360**
+(r039–r048). Suma kosztów rund r034–r048 to 8720 kr; wcześniejsze transze
+opłacono z poprzedniego salda.
+
+Graf jest nasycony: brak krawędzi między dwiema kartami bez archetypu.
+Pozostałe 21 par łączą węzły trafione lub wcześniej próbowane
+„prawdopodobnie”. Następne rundy skupiać na 51 krótkich próbkach, wybierając
+małe, semantycznie uzasadnione sekwencje; po każdej rundzie zostawiać tylko
+warianty, które przechodzą pomiar długości, podobieństwa i flag.
