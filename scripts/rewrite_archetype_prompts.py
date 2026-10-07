@@ -458,10 +458,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # --- druga poprawka po r020: audyt pokazał, że model nie dowozi ---
     # 7: atak 0,90 s przy progu 0,10 — wymuszamy brak narastania.
     "7": (
-        "Three mind stabs in a row, the first the loudest and at full volume from the "
-        "very first millisecond: a piercing high tonal shriek held and wavering each "
-        "time. " + NO_M,
-        "trzy pchnięcia psychiczne jeden po drugim, pierwsze najgłośniejsze i od pierwszej milisekundy na pełnym poziomie: za każdym razem przenikliwy wysoki tonalny krzyk trzymany i falujący",
+        "Three mind stabs in a row, the first at full volume with no fade-in: a "
+        "piercing tonal scream held and wavering each time, pitched in the upper "
+        "middle of the range. " + NO_M,
+        "trzy pchnięcia psychiczne jedno po drugim, pierwsze na pełnym poziomie bez narastania: za każdym razem przenikliwy tonalny krzyk trzymany i falujący, umiejscowiony w górnej połowie środka pasma",
         False,
     ),
     # 31 i 456: kontrakt chce harmonicznego bzyczenia, a „suchy szelest" dał szum 8,5-9,3 kHz.
@@ -607,8 +607,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "ostrze scala się po pęknięciu: jeden jasny twardy szczęk w pierwszej chwili, potem cztery ostre metaliczne kliki", False),
     "73": ("A golden construct's blade snapping out and striking: an instant bright steel hit at the very first moment, then three more crisp clashes with a harsh metallic ring.",
             "ostrze konstrukta wysuwa się i uderza: natychmiastowy jasny cios stali, potem trzy kolejne szczęki z ostrym brzękiem", False),
-    "344": ("Crossed kavu blades: one violent steel strike landing at the very first instant, then three more harsh gritty clashes in quick succession ringing across the whole take.",
-            "krzyżowe ostrza kavu: jeden gwałtowny cios w pierwszej chwili, potem trzy chrapliwe szczęki kolejno", False),
+    "344": (
+        "Crossed kavu blades: five harsh gritty steel clashes in a row, the first "
+        "landing at full force with no build-up, each ringing bright across the whole "
+        "take. " + NO_M,
+        "skrzyżowane ostrza kavu: pięć ostrych ziarnistych starć stali jedno po drugim, pierwsze z pełną siłą bez narastania, każde dzwoniące jasno przez cały take",
+        False,
+    ),
     "525": ("A rapier thrust throwing a wave of glacial spikes: one instant bright steel impact, then four sharp cracking strikes as the ice splinters, each with a glassy metallic ring.",
             "fala lodowcowych kolców od ciosu rapiera: natychmiastowy jasny cios, potem cztery ostre trzaski pękanego lodu", False),
     "594": ("A sword wrenched out of mud and struck: an instant hard bright steel clash at the very first moment, then three more gritty ringing strikes.",
@@ -634,19 +639,33 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "grząskie tupnięcie orka w błocie: pięć ciężkich mokrych kroków równym rytmem, każdy niski z rozbryzgiem", False),
     "442": ("A rank of defenders stamping in unison: four heavy boot stamps in a strict even rhythm, each one deep and low with a grounded thud.",
             "równoczesne tupnięcie szeregu obrońców: cztery ciężkie kroki w ścisłym równym rytmie, każdy głęboki i niski", False),
-    "565": ("Dew dripping into a wooden bowl in a forest clearing: six clear piped drops in an uneven rhythm, each with a soft tonal plink, and small bird chirps answering between them.",
-            "krople rosy do drewnianej czary: sześć czystych dzwięcznych kropli w nierównym rytmie, z ptasimi świergotami między nimi", False),
-    "434": ("A mizzium reactor overloading: a very low throbbing engine note with thick bass building under four heavy rhythmic metallic pounds, gritty in the mid-range.",
-            "przeciążenie reaktora mizzium: bardzo niski pulsujący ton z grubym basem i czterema ciężkimi rytmicznymi uderzeniami", False),
+    "565": (
+        "Songbirds answering one another in a forest clearing: eight clear piping "
+        "chirps in an uneven rhythm, each a short bright tonal whistle, dew dripping "
+        "between them. " + NO_M,
+        "ptaki śpiewające w leśnej polanie odpowiadają sobie: osiem wyraźnych szczebiotliwych treli w nierównym rytmie, każdy krótkim jasnym tonalnym gwizdem, między nimi kapiąca rosa",
+        False,
+    ),
+    "434": (
+        "A mizzium reactor overloading: a low throbbing engine note held unbroken "
+        "while six heavy metallic pounds strike over it, gritty mid-range grinding "
+        "between them. " + NO_M,
+        "reaktor mizzium przeciążony: niski pulsujący ton silnika trzymany bez przerwy, podczas gdy sześć ciężkich metalicznych uderzeń bije nad nim, z ziarnistym zgrzytem środka pasma pomiędzy nimi",
+        False,
+    ),
     "2": ("A stone thrown into deep water: one bright hard splash at the very first instant, then a hissing spray of droplets and three smaller plops spreading outward.",
             "kamień rzucony w głęboką wodę: jeden jasny twardy plusk w pierwszej chwili, potem syk drobnego rozbryzgu i trzy mniejsze pluski", False),
-    "559": ("A sharp cat screech starting at the very first instant, then two more rasping cries, each with a leathery wing snap underneath.",
-            "ostry skrzek kota od pierwszej chwili, potem dwa chrapliwe zawołania, każde z trzaskiem skórzastych skrzydeł", False),
+    "559": (
+        "A gaelicat screaming: four sharp rasping screeches in a row, the first at "
+        "full force with no build-up, each with a leathery wing snap underneath. " + NO_M,
+        "gaelicat wrzeszczy: cztery ostre chrapliwe wrzaski jeden po drugim, pierwszy z pełną siłą bez narastania, każdy z trzaskiem skórzastego skrzydła pod spodem",
+        False,
+    ),
     "292": (
-        "A long gust crossing a mountain pass: a swelling hissing rush of turbulent "
-        "air that grows slowly, holds at a steady level, then swells twice more before "
-        "fading. " + NO_M,
-        "długi podmuch wiatru przez górską przełęcz: narastający syk burzliwego powietrza, które rośnie powoli, trzyma jednostajny poziom, po czym wzbiera jeszcze dwa razy przed wygaśnięciem",
+        "Wind sweeping across a mountain pass: a broad noisy hiss of air that swells "
+        "slowly, holds, then swells twice more, with a thin mid-range whistle through "
+        "it. " + NO_M,
+        "wiatr przetacza się przez górską przełęcz: szeroki szumiący syk powietrza, który narasta powoli, trzyma poziom, po czym wzbiera jeszcze dwa razy, z cienkim gwizdem środka pasma w tle",
         False,
     ),
     "173": ("A warrior's roar taking bear form: a long deep chest roar with enormous low-frequency body underneath, dark and massive, sustained across the whole take.",
@@ -786,8 +805,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "grube płyty pancerza zderzają się: dwa-trzy klanki w środku pasma, ciężkie i matowe raczej niż jasne", False),
     "96": ("A stream of emerald magic: one continuous flowing shimmering tone with a clear sustained pitch and bright sparkling overtones, smooth and even throughout.",
             "strumień szmaragdowej magii: jeden ciągły płynący migotliwy ton o wyraźnej wysokości i jasnych iskrzących alikwotach", False),
-    "113": ("A drone's servo locking: one clear continuous electronic tone at a fixed pitch, dominant and unbroken like a tuning fork, with just two faint clicks over it.",
-            "serwo drona się blokuje: jeden wyraźny ciągły elektroniczny ton o stałej wysokości, dominujący jak kamerton, z dwoma cichymi klikami", False),
+    "113": (
+        "A welder drone's servo: one continuous electronic tone at a fixed pitch held "
+        "unbroken for the whole take, with six precise mechanical clicks locking into "
+        "place over it. " + NO_M,
+        "serwo spawalniczego drona: jeden ciągły elektroniczny ton o stałej wysokości trzymany bez przerwy przez cały take, z sześcioma precyzyjnymi mechanicznymi kliknięciami wpadającymi na swoje miejsce",
+        False,
+    ),
     "118": ("A monster's close roar: a guttural bellow sitting clearly in the low middle of the range, rough and raspy, well above a pure sub-bass rumble.",
             "bliski ryk potwora: gardłowy wrzask wyraźnie w niskim środku pasma, chropawy, dobrze ponad czystym infrabasem", False),
     "126": ("Wild birds feeding from a hand: several clear melodic chirps on distinct notes, each one tonal and bright, with soft wing flutters between them.",
@@ -1492,6 +1516,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "surges as the loudest moment, armour plates ringing and straining, sparks "
         "spitting. " + NO_M,
         "fioletowa energia spływa na stalowy pancerz trzema falami: trzy jasne trzaskające uderzenia jako najgłośniejszy moment, płyty pancerza dzwonią i pracują, pryskają iskry",
+        False,
+    ),
+    "145": (
+        "A cloning pod bursting open in three stages: three loud resonant metal bangs "
+        "in a row, the first the loudest, each followed by a wet gush of stasis liquid "
+        "splashing over iron plates. " + NO_M,
+        "komora klonująca otwiera się w trzech etapach: trzy głośne rezonujące metaliczne huki jedno po drugim, pierwszy najgłośniejszy, po każdym mokry chluśnięcie płynu stazy na żelazne płyty",
         False,
     ),
 }
