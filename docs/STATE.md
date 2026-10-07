@@ -2781,3 +2781,33 @@ zmian. Flagi w korpusie 53 → 54.
 
 Archetypy **0 / 33 / 145**, regresji brak. 0 bliźniaków, 0 poza oknem,
 LUFS −20,04 (odch. 0,32).
+
+### Bilans sesji po r041
+
+| runda | kart | generacji | pary przed → po | kart w ≥1 parze | kredyty |
+|---|---|---|---|---|---|
+| r034 | 7 węzłów | 14 | 175 → 120 | — | 560 |
+| r035 | 7 węzłów | 14 | 120 → 99 | — | 560 |
+| r036 | 5 węzłów | 10 | 99 → 87 | — | 400 |
+| r037 | 7 węzłów | 14 | 87 → 81 | — | 560 |
+| r038 | 4 (trym) | — | 81 → 81 | — | **0** |
+| r039 | 10 węzłów | 20 | 81 → 65 | 86 | 800 |
+| r040 | 10 węzłów | 20 | 65 → 56 | 79 | 800 |
+| **r041** | 10 węzłów | 20 | **56 → 43** | **63** | **800** |
+| **razem** | | **112** | **175 → 43 (−75 %)** | 175 → 63 | **4480** |
+
+**Budżet (klucz wgrany 2026-10-06, 10 000 kredytów):** wydane **2400**,
+zostaje **7600**.
+
+**Trzy kryteria doboru, w kolejności odkrywania:**
+
+1. **r034–r038:** karta z największą liczbą par. Działa, póki graf jest gęsty.
+2. **r039–r040:** krawędzie grafu — ile krawędzi pokrywa dana grupa kart.
+   Odkrycie: trzeba liczyć efekt **krańcowy**, bo krawędź znika też wtedy, gdy
+   zmieni się sąsiad (stąd cofnięcie `222` w r040, która nie wniosła nic).
+3. **r041:** priorytet dla krawędzi do węzłów **chronionych** — tych nie da się
+   zdjąć z drugiej strony, więc są jedyną szansą.
+
+Wartość pary rośnie wraz z rzadkością grafu: r034 usuwał parę za ~10 kr.,
+r041 za ~62 kr. — ale to nadal jedyny sposób, bo karty trafione (145) są
+poza zasięgiem.
