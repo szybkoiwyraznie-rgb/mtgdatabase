@@ -3558,3 +3558,60 @@ kart z krótką treścią, czy uznać 26/557 (4,7 %) za wystarczające.
 
 **r034–r053: 298 generacji, 175 → 21 par (−88 %), treść < 2 s 41 → 26.**
 Bieżący klucz: 9840 / 10 000, zostaje **160**.
+
+### r054 — pierwsza runda po doładowaniu klucza: trzy trafione karty wydłużone bez utraty werdyktu
+
+Właściciel dołożył klucz 10 000 kredytów, więc ruszają karty **TRAFIONE**
+z treścią poniżej 2 s — do tej pory nietykalne, bo nie było czym zapłacić
+za ewentualną regresję. 640 kredytów, 16 generacji, 8 kart.
+
+**Kryterium wyboru:** kontrakt archetypu nie ma górnego progu `decay_s`
+(bo długi take by go złamał). Odłożone na później: `583` arrow_flight
+(decay ≤ 0,8), `232` plate_clank (≤ 1,2), `71` heavy_impact (≤ 1,4),
+`469` chain_rattle (≤ 1,0).
+
+| id | karta | archetyp | stara treść | nowa treść | delta | werdykt |
+|----|-------|----------|-------------|------------|-------|---------|
+| 559 | Gaelicat | beast_screech | 1,32 s | 3,68 s | **+2,36** | trafiony → trafiony |
+| 7 | Mindstab | psychic_shriek | 1,26 s | 3,52 s | **+2,26** | trafiony → trafiony |
+| 565 | Mana Cylix | forest_birdsong | 1,08 s | 2,67 s | **+1,59** | trafiony → trafiony |
+| 113 | Welder Automaton | robot_servo | 1,24 s | *cofnięta* | — | trafiony → prawdopodobnie |
+| 344 | Pain for All | sword_clash | 1,43 s | *cofnięta* | — | trafiony → prawdopodobnie |
+| 145 | Clone Shell | beast_screech | 1,52 s | *cofnięta* | — | trafiony → prawdopodobnie |
+| 292 | Rediscover the Way | wind_gust | 1,38 s | *cofnięta* | — | prawdopodobnie → nie trafiony |
+| 434 | Epic Experiment | war_machine | 1,20 s | *pominięta* | — | oba warianty złe |
+
+**Zasada ochronna zadziałała:** każda karta, której werdykt spadł, wróciła
+do starego sample. Cztery cofnięte, każda zdiagnozowana co do metryki:
+
+- **`113`** — `tonal_frame_fraction` 0,023 przy progu 0,35. Ton serwa
+  wyszedł przy 7,7 kHz i audyt nie uznał go za tonalny.
+- **`344`** — `attack_s` 2,020 przy progu ≤ 0,1. Model położył
+  najgłośniejsze uderzenie **na końcu**, nie na początku.
+- **`145`** — `high_all` 0,167 przy progu 0,2. Zabrakło 0,033, czyli
+  najbliższy przypadek w całej rundzie.
+- **`292`** — `spectral_centroid_hz` 7522 przy kontrakcie 300–3000.
+  Dopisek „thin mid-range whistle" wystrzelił centroid w górę; do tego
+  flatness 0,010 i sustain 0,152. Trzy naruszenia = 3,0 pkt = „nie
+  trafiony" (drugi taki przypadek w historii, po `98` w r053).
+
+**`434` pominięta przed audytem:** oba warianty wyszły jako czysty
+sub-bas (centroid 45 i 31 Hz, `mid_up` 0,01 przy progu 0,1). Kontrakt
+`war_machine` **wymaga** `low_all` ≥ 0,35, więc niskie pasmo jest tu
+konieczne — ale model poszedł w nim na całość i zgubił środek.
+
+**Graf bez zmian: 21 par.** Treść < 2 s: **26 → 23**. Flagi 53 (bez
+zmiany), 0 bliźniaków, 0 poza oknem 2–5 s, LUFS −20,08 (odch. 0,48).
+Archetypy **0 / 33 / 145** bez regresji. Testy 6 OK, walidator 557/557,
+site + ZIP 557.
+
+### Wniosek z r054: da się wydłużać trafione karty
+
+Trzy z ośmiu trafionych kart urosły średnio o **+2,07 s** i **żadna nie
+straciła werdyktu**. To znaczy, że 19 trafionych kart z krótką treścią nie
+jest ścianą — trzeba tylko trafiać w wąskie okno kontraktu, a każda
+pomyłka jest widoczna od razu w `audit_archetype_match.py` i odwracalna
+jednym `git show`.
+
+**r034–r054: 314 generacji, 175 → 21 par (−88 %), treść < 2 s 41 → 23.**
+Nowy klucz: 640 / 10 000, zostaje **9360** (~14 rund po 8 kart).
