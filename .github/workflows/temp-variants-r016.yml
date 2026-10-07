@@ -1,4 +1,4 @@
-name: TEMP r050 krotkie sample - osiem bez archetypu
+name: TEMP r051 krotkie sample - siedem bez archetypu i Mindstab
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,24 +107,32 @@ name: TEMP r050 krotkie sample - osiem bez archetypu
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# r050: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
-# Cel NIE jest juz grafem, tylko dlugoscia. Po r050 zostalo 21 par, ale tylko
-# 5 krawedzi daje sie zdjac: wszystkie pozostale pary lacza DWA wezly TRAFIONE
-# (chronione kontraktem z obu stron). Jedyne karty z werdyktem „prawdopodobnie"
-# majace pary to 496 (3), 98 (1) i 103 (1) — i to bylby koniec mozliwosci.
-# Wiekszy zysk jest w drugim punkcie kryterium wlasciciela: dlugosc 2-5 s.
-# 45 kart ma tresc < 2 s; z tego 19 jest TRAFIONYCH (nie ruszamy), 5 to
-# „prawdopodobnie" (ryzyko werdyktu), a 21 nie ma archetypu — te sa bezpieczne.
-# Wziete 8 najkrotszych bez archetypu:
-#   604 Vampire's Bite  0,89 s | 19 Twiddle 1,51 s | 403 Dementia Bat 1,68 s
-#   87  Angelic Benediction 1,80 s | 267 Hunter's Blowgun 1,82 s
-#   337 Glaring Aegis 1,85 s | 490 Awaken the Sleeper 1,85 s
-#   115 Merfolk Mesmerist 1,92 s
-# Pominiete 311 i 547 (cofniete w r050) oraz 542 (przytrimowana w r040).
-# TECHNIKA: kazdy z tych sample ma JEDNO zdarzenie, wiec prompt dostaje jawna
-# liczbe powtorzen (2-5) — wlasciciel wprost to dopuscil („dwa szczekniecia
-# zamiast jednego, 3 uderzenia").
-# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r050).
+# r051: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
+# Cel pozostaje ten sam co w r050: DLUGOSC tresci, nie graf. 41 kart ma
+# tresc < 2 s. Tabela pomiarowa (data/samples/audio-audit-latest.json +
+# archetype-match po r050) pokazuje, ktore z nich dostaly juz wspolczesna
+# technike (dopisek „the sound fills the whole take" + jawna liczba
+# powtorzen) - te, ktore ja dostaly i tak zostaly krotkie (17, 531, 292,
+# 435, 12, 98, 545, 219, 561), sa odporne i nie warto do nich wracac.
+# Wziete 7 kart BEZ archetypu, ktore nigdy nie dostaly tej techniki
+# (ostatni batch to dostawa b0NN albo staranne rundy r007-r010b):
+#   41  Severed Strands      1,93 s | ostatni batch r007
+#   59  Mysidian Elder       1,94 s | ostatni batch r010b
+#   13  Soulmender           1,96 s | ostatni batch b002  (nigdy nie naprawiana)
+#   519 Lurking Green Dragon 1,97 s | ostatni batch b043
+#   584 Merfolk Falconer     1,97 s | ostatni batch b049
+#   294 Tumbleweed Rising    1,99 s | ostatni batch b026
+#   526 Canonized in Blood   1,99 s | ostatni batch b043
+# Oraz jedna karta Z archetypem, najkrotsza w korpusie wsrod nielezanych:
+#    7  Mindstab             1,26 s | psychic_shriek, TRAFIONY, batch r021
+# Wyjatek od reguly „nie ruszaj trafionych": kontrakt psychic_shriek nie ma
+# progu decay_s (attack <= 0,1 / tonal >= 0,3 / centroid 1200-7000 / crest >= 10),
+# wiec wydluzenie take nie lamie kontraktu. Najgorsze karty korpusu (583
+# arrow_flight 0,21 s i 4 water_splash 0,45 s) zostaja NIETKNIETE: ich
+# kontrakty wymagaja decay_s <= 0,8 / 1,4 s, czyli zabraniaja dlugiego take.
+# TECHNIKA: jawna liczba powtorzen (3-4) + hierarchia glosnosci - ta sama,
+# ktora w r050 podniosla 604 z 0,89 na 3,72 s.
+# Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci (r034-r051).
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -137,7 +145,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "604,19,403,87,267,337,490,115"
+  IDS: "41,59,13,519,584,294,526,7"
 
 jobs:
   variants:
@@ -148,13 +156,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r050]
+      - name: Guard — tylko commit z markerem [generate-r051]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r050]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r051]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r050] — nic nie generuję"
+            echo "brak markera [generate-r051] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -173,25 +181,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r050
+          mkdir -p variants/r051
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r050/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r051/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r050 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r050/v$v" 2>&1 | tee -a variants/r050/generate.log
+              --ids "$IDS" --batch r051 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r051/v$v" 2>&1 | tee -a variants/r051/generate.log
           done
-          ls -la variants/r050 variants/r050/v1 variants/r050/v2 || true
+          ls -la variants/r051 variants/r051/v1 variants/r051/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r050 data/samples/generated-manifest.jsonl
+          git add -f variants/r051 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r050: 16 wariantow (8 kart x 2) + log generacji [import-r050]"
+            git commit -m "r051: 16 wariantow (8 kart x 2) + log generacji [import-r051]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

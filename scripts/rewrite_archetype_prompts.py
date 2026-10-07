@@ -457,9 +457,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
 
     # --- druga poprawka po r020: audyt pokazał, że model nie dowozi ---
     # 7: atak 0,90 s przy progu 0,10 — wymuszamy brak narastania.
-    "7": ("A mind stab: a sudden piercing shriek at full volume from the very first "
-          "millisecond, no fade-in at all, a high tonal scream cut off short. " + NO_M,
-          "pchnięcie psychiczne: nagły przenikliwy krzyk od pierwszej milisekundy, bez narastania", False),
+    "7": (
+        "Three mind stabs in a row, the first the loudest and at full volume from the "
+        "very first millisecond: a piercing high tonal shriek held and wavering each "
+        "time. " + NO_M,
+        "trzy pchnięcia psychiczne jeden po drugim, pierwsze najgłośniejsze i od pierwszej milisekundy na pełnym poziomie: za każdym razem przenikliwy wysoki tonalny krzyk trzymany i falujący",
+        False,
+    ),
     # 31 i 456: kontrakt chce harmonicznego bzyczenia, a „suchy szelest" dał szum 8,5-9,3 kHz.
     # 568: tonal_frame_fraction 0,000 — serwo wyszło szumowe, ma być ton o stałej wysokości.
     # r023 (kliki przecinające ton) dał najwyżej onset 1 i stonizowany ton
@@ -1411,6 +1415,55 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "churning and splashing each time, water streaming and dripping "
         "between them.  " + NO_M,
         "trzy szybkie zamaszyste wiry przez wodę po pas jeden po drugim: za każdym razem głośne kłębowisko i plusk, woda spływa i kapie pomiędzy nimi",
+        False,
+    ),
+    "41": (
+        "Ritual shears snipping three taut cords in a row: three bright metallic "
+        "scissor snips, each blade ringing thin, each cut fibre parting with a dry "
+        "snap. " + NO_M,
+        "rytualne nożyce przecinają trzy napięte nici jedna po drugiej: trzy jasne metaliczne cięcia, każde ostrze cienko dzwoni, każda przecięta nić pęka suchym trzaskiem",
+        False,
+    ),
+    "59": (
+        "A mage flame flaring three times above an open palm: three bright airy "
+        "whooshes as the loudest moment, a steady gas hiss between them, tiny spark "
+        "pops on top. " + NO_M,
+        "płomień maga rozbłyska trzy razy nad otwartą dłonią: trzy jasne powiewy jako najgłośniejszy moment, między nimi jednostajny syk gazu, nad tym trzaski iskier",
+        False,
+    ),
+    "13": (
+        "Three gentle healing pulses sent one after another: three soft warm chime "
+        "swells as the loudest moment, golden sparkles drifting down like dust between "
+        "them. " + NO_M,
+        "trzy łagodne impulsy uzdrawiania jeden po drugim: trzy miękkie ciepłe uderzenia dzwonu jako najgłośniejszy moment, złote iskry opadające jak pył pomiędzy nimi",
+        False,
+    ),
+    "519": (
+        "A dragon breathing in the canopy: four slow deep breaths in a row as the "
+        "loudest moment, each with a long hiss of venomous vapour curling from the "
+        "nostrils. " + NO_M,
+        "smok oddycha w koronach drzew: cztery powolne głębokie oddechy jeden po drugim jako najgłośniejszy moment, każdy z długim sykiem jadowitej pary z nozdrzy",
+        False,
+    ),
+    "584": (
+        "A falcon returning to the glove: three heavy wing beats braking hard as the "
+        "loudest moment, talons closing on the padded brace, a soft chirr as the hood "
+        "slips on. " + NO_M,
+        "sokół wraca na rękawicę: trzy ciężkie uderzenia skrzydeł hamujących jako najgłośniejszy moment, szpony zaciskają się na rękawicy, miękkie ćwierknięcie gdy kaptur się nasuwa",
+        False,
+    ),
+    "294": (
+        "A tumbleweed rising: three long drags of dry brittle branches over hard "
+        "ground as the loudest moment, thin twigs cracking and snapping, dust grit "
+        "spraying. " + NO_M,
+        "żywiołak z chwastów powstaje: trzy długie pociągnięcia suchych kruchych gałęzi po twardej ziemi jako najgłośniejszy moment, cienkie patyki trzaskają i pękają, pryska kurz i żwir",
+        False,
+    ),
+    "526": (
+        "Dark power over steel plate: three violet energy waves in a row as the "
+        "loudest moment, armour plates humming and straining, deep subterranean rumble "
+        "under. " + NO_M,
+        "mroczna moc spływa na stalowy pancerz: trzy fioletowe fale energii jedna po drugiej jako najgłośniejszy moment, płyty pancerza brzęczą i pracują, pod spodem głęboki podziemny pomruk",
         False,
     ),
 }
