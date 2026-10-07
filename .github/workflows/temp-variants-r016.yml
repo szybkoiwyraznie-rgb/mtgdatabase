@@ -1,4 +1,4 @@
-name: TEMP r052 krotkie sample - cztery najkrotsze i cztery ponowione
+name: TEMP r053 krotkie sample - cztery bez archetypu, cztery z kontraktem
 
 # TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
 # Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
@@ -107,33 +107,30 @@ name: TEMP r052 krotkie sample - cztery najkrotsze i cztery ponowione
 # Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
 # + hierarchia glosnosci dla elementu charakterystycznego.
 #
-# r052: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
-# Po r051 zostalo 35 kart z trescia < 2 s, ale ZADNA z nich nie jest juz
-# „bezpieczna i nietknieta": tylko 4 nie dostaly wspolczesnej techniki
-# i wszystkie cztery sa trafione (583/71/145/469). Trzy z nich blokuje
-# kontrakt (583 arrow_flight: decay_s <= 0,8; 71 heavy_impact: decay_s
-# <= 1,4 - trzy uderzenia nie zmieszcza sie w oknie), wiec r052 bierze
-# inna mieszanke:
-#   a) NAJKROTSZE karty korpusu, ktorych kontrakt NIE ma gornego progu
-#      decay_s - czyli dlugi take nie lamie werdyktu:
-#        4  Mystic Sanctuary  0,45 s | water_splash   | TRAFIONY
-#      531  Disa the Restless 1,17 s | door_creak     | prawdopodobnie
-#       17  Selhoff Occultist 1,17 s | sword_clash    | prawdopodobnie
-#      403  Dementia Bat      1,68 s | brak archetypu | bezpieczna
-#      4 to druga najgorsza karta korpusu po 583. 17 i 531 sa tylko
-#      „prawdopodobnie", wiec nie ma tu trafienia do stracenia.
-#   b) cztery karty BEZ archetypu ponawiane z nowym promptem (w r049-r051
-#      nie zyskaly albo wyszly zle):
-#       87  Angelic Benediction 1,80 s - w r050 centroid 635 -> 97 Hz
-#      542  Panic Spellbomb     1,75 s - r048
-#      547  Quicksilver Fisher  1,91 s - r049, bez przyrostu
-#      526  Canonized in Blood  1,99 s - w r051 centroid 2510 -> 78 Hz
-# REGULA WYNIKOWA r051/r050: slowa „deep", „subterranean", „under",
-# „below" model realizuje DOSLOWNIE jako czysty sub-bas (low_all = 1,00).
-# W promptach r052 ich nie ma - 526 dostaje „sparks spitting", 87
-# „mid-range whump of displaced air".
+# r053: 2 warianty x 8 kart = 16 generacji x 40 kredytow = 640 kredytow.
+# Po r052 zostalo 29 kart z trescia < 2 s: 19 trafionych, 3 „prawdopodobnie"
+# i 7 bez archetypu (87, 115, 219, 311, 337, 545, 561). Dwie z tej siodemki
+# sa NIETYKALNE: 115 i 311 zyskaly w r049/r050 po ~1,4 s tresci, ale
+# kosztem trzech par lacznie, a graf to wynik 19 rund (175 -> 21 par).
+# Wziete wiec:
+#   a) cztery karty BEZ archetypu, ktore dostaly technike w r047-r051
+#      i zostaly krotkie - ponowione z wieksza liczba powtorzen:
+#      219 Prishe's Wanderings 1,98 s | 337 Glaring Aegis 1,96 s
+#      545 Fuel for the Cause  1,96 s | 561 Time to Feed  1,99 s
+#      337 w r050 urosla 1,85 -> 2,05 s przy TRZECH uderzeniach, wiec
+#      teraz dostaje PIEC.
+#   b) cztery karty, ktorych kontrakt NAGRODZE dlugi take:
+#       98 Fleeting Distraction 1,82 s | insect_swarm | sustain >= 0,4
+#      292 Rediscover the Way   1,38 s | wind_gust    | attack >= 0,3
+#      435 Warrior's Sword      1,70 s | sword_clash  | bez progu decay_s
+#       87 Angelic Benediction  1,80 s | brak archetypu, czwarte podejscie
+# 98 to jedyna karta „prawdopodobnie", ktora ma pare (0,9276 z 266):
+# wydluzenie bzyczenia moze przy okazji zdjac te krawedz.
+# 87 idzie czwarty raz, tym razem bez slowa „whump": trzy poprzednie
+# warianty wyszly sub-basem (centroid 97 / 54 / 155 Hz), wiec prompt
+# idzie w gore pasma („dry rustling whisper in the upper range").
 # Wzor promptu: NAKAZ nie zakaz + hierarchia glosnosci + jawna liczba
-# powtorzen (r034-r052).
+# powtorzen (r034-r053).
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -146,7 +143,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "4,17,531,403,87,547,542,526"
+  IDS: "219,337,545,561,87,98,292,435"
 
 jobs:
   variants:
@@ -157,13 +154,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r052]
+      - name: Guard — tylko commit z markerem [generate-r053]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r052]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r053]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r052] — nic nie generuję"
+            echo "brak markera [generate-r053] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -182,25 +179,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r052
+          mkdir -p variants/r053
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r052/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r053/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r052 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r052/v$v" 2>&1 | tee -a variants/r052/generate.log
+              --ids "$IDS" --batch r053 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r053/v$v" 2>&1 | tee -a variants/r053/generate.log
           done
-          ls -la variants/r052 variants/r052/v1 variants/r052/v2 || true
+          ls -la variants/r053 variants/r053/v1 variants/r053/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r052 data/samples/generated-manifest.jsonl
+          git add -f variants/r053 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r052: 16 wariantow (8 kart x 2) + log generacji [import-r052]"
+            git commit -m "r053: 16 wariantow (8 kart x 2) + log generacji [import-r053]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

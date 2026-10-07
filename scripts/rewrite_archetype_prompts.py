@@ -642,8 +642,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "kamień rzucony w głęboką wodę: jeden jasny twardy plusk w pierwszej chwili, potem syk drobnego rozbryzgu i trzy mniejsze pluski", False),
     "559": ("A sharp cat screech starting at the very first instant, then two more rasping cries, each with a leathery wing snap underneath.",
             "ostry skrzek kota od pierwszej chwili, potem dwa chrapliwe zawołania, każde z trzaskiem skórzastych skrzydeł", False),
-    "292": ("A slow building gust: a swelling hissing rush of turbulent air that grows, then holds at a steady level continuously through the whole second half of the take.",
-            "powoli narastający podmuch: wzbierający szumiący pęd powietrza, który rośnie, a potem trwa równo przez całą drugą połowę", False),
+    "292": (
+        "A long gust crossing a mountain pass: a swelling hissing rush of turbulent "
+        "air that grows slowly, holds at a steady level, then swells twice more before "
+        "fading. " + NO_M,
+        "długi podmuch wiatru przez górską przełęcz: narastający syk burzliwego powietrza, które rośnie powoli, trzyma jednostajny poziom, po czym wzbiera jeszcze dwa razy przed wygaśnięciem",
+        False,
+    ),
     "173": ("A warrior's roar taking bear form: a long deep chest roar with enormous low-frequency body underneath, dark and massive, sustained across the whole take.",
             "ryk wojownika przybierającego postać niedźwiedzia: długi głęboki piersiowy ryk z olbrzymim niskim ciałem pod spodem, masywny", False),
     "478": ("Claws raking a hard glassy barrier: a bright scraping screech then a shattering burst of many small glass shards ticking down, at least eight separate tinkling impacts.",
@@ -718,12 +723,21 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "miecz uderza o miecz: natychmiastowy twardy jasny cios z chrapliwego szumu, bez gładkiego tonu", False),
     "345": ("A porcelain blade striking: one hard impact with zero wind-up at the very start, built from harsh broadband gritty ceramic-and-steel noise, bright and rough-edged.",
             "porcelanowe ostrze uderza: twarde uderzenie bez zamachu, z chrapliwego szerokopasmowego szumu", False),
-    "435": ("A crimson blade striking as it crystallises: an instant hard bright impact in the very first moment, a harsh broadband burst of gritty metal noise with no clean ring.",
-            "karmazynowe ostrze uderza: natychmiastowy twardy jasny cios, chrapliwy szerokopasmowy szum bez tonu", False),
+    "435": (
+        "A crimson blade striking three times in a row, the first the loudest: a harsh "
+        "broadband burst of gritty metal noise each time, bright shards ringing after "
+        "it. " + NO_M,
+        "karmazynowe ostrze uderza trzy razy z rzędu, pierwszy raz najgłośniej: za każdym razem ostry szerokopasmowy wybuch ziarnistego metalicznego szumu, po nim dzwoniące jasne odłamki",
+        False,
+    ),
     "608": ("Two blades meeting edge to edge: a sudden hard bright steel clash at the very first instant, harsh broadband gritty noise, rough rather than ringing.",
             "dwa ostrza krawędziami: nagły twardy jasny szczęk w pierwszej chwili, chrapliwy szum bez dzwonienia", False),
-    "98": ("One steady pitched drone held unbroken from start to finish with a clear fundamental note, buzzing in the middle of the range, warm and rounded, with no high whine and no hiss above it.",
-            "rój osiada na drewnie: jeden równy bzyk trzymany bez przerwy z wyraźnym tonem, w środku pasma, bez pisku", False),
+    "98": (
+        "A swarm settling on wood: one steady pitched drone buzzing in the middle of "
+        "the range, warm and rounded, held unbroken for the whole take. " + NO_M,
+        "rój osiada na drewnie: jeden jednostajny ton bzyczenia trzymany bez przerwy i brzęczący w środku pasma, ciepły i zaokrąglony, wytrzymany przez cały take bez przerwy",
+        False,
+    ),
     "106": ("A single sustained buzzing drone on one clear pitch, unbroken and smooth from the first moment to the last, sitting in the middle of the range with nothing shrill on top.",
             "chmara much: jeden ciągły bzyk na jednym wyraźnym tonie, nieprzerwany, w środku pasma, bez pisku", False),
     "456": ("One sharp crack, then a single sustained buzzing drone held unbroken on a clear pitch, thick and rounded, sitting in the middle of the range with no bright hiss.",
@@ -1267,17 +1281,16 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "545": (
-        "A metal hand catches an incoming spell with a hard glassy clack; "
-        "bright energy streams down three conduits, the oil tank swells and "
-        "releases a pressurized bubbling burst. " + NO_M,
-        "metalowa dłoń chwyta nadlatujące zaklęcie twardym szklanym klepnięciem; jasna energia płynie trzema przewodami, zbiornik oleju pęcznieje i wypuszcza ciśnieniowy wybuch pęcherzy",
+        "A metal hand catching three spells in a row: three hard glassy clacks as the "
+        "loudest moment, energy hissing down conduits each time, the oil tank bubbling "
+        "over. " + NO_M,
+        "metalowa dłoń chwyta trzy zaklęcia jedno po drugim: trzy twarde szklane klepnięcia jako najgłośniejszy moment, energia sycząca przewodami za każdym razem, zbiornik oleju kipiący",
         False,
     ),
     "561": (
-        "A griffin stoops through branches, slams its prey into mud, then "
-        "spreads both wings in two heavy beats to mantle the catch; one sharp "
-        "beak strike finishes the hunt. " + NO_M,
-        "grif przelatuje przez gałęzie i ciska zdobycz w błoto, potem dwoma ciężkimi uderzeniami rozpościera skrzydła nad łupem; ostre dziobnięcie kończy polowanie",
+        "A griffin stooping: branches rattling, prey slammed into mud, then both wings "
+        "spreading in four heavy beats, two sharp beak strikes finishing the hunt. " + NO_M,
+        "gryf spada: gałęzie grzechoczą, zdobycz ciskana w błoto, potem oba skrzydła rozpościerają się w czterech ciężkich uderzeniach, dwa ostre dziobnięcia kończą polowanie",
         False,
     ),
     "393": (
@@ -1295,10 +1308,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "87": (
-        "Five wingbeats passing overhead in a row: five airy rushes of feathers, each "
-        "a soft mid-range whump of displaced air, a long rustle of pinions between "
+        "An angel descending: five airy rushes of feathers one after another, each a "
+        "dry rustling whisper in the upper range, silken pinions dragging between "
         "them. " + NO_M,
-        "pięć uderzeń skrzydeł przelatujących nad głową jedno po drugim: pięć przewiewnych powiewów piór, każdy miękkim średniotonowym udarem przemieszczanego powietrza, między nimi długi szelest lotek",
+        "anioł zstępuje: pięć przewiewnych powiewów piór jeden po drugim, każdy suchym szeleszczącym szeptem w górze pasma, jedwabiste lotki wlokące się pomiędzy nimi",
         False,
     ),
     "259": (
@@ -1330,10 +1343,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "219": (
-        "An adventuring party crosses a crystal portal: four bootsteps echo "
-        "through the gate, glassy chimes answer each arrival, then the portal "
-        "hum swells and releases them. " + NO_M,
-        "drużyna poszukiwaczy przechodzi przez kryształowy portal: cztery kroki odbijają się echem w bramie, szkliste dzwonki odpowiadają na przybycie, portal nabrzmiewa brzęczeniem i wypuszcza podróżnych",
+        "A party crossing a crystal portal: eight bootsteps echoing one after another, "
+        "a glassy chime answering each step, then the portal hum swelling and "
+        "releasing them. " + NO_M,
+        "drużyna przechodzi przez kryształowy portal: osiem kroków odbijających się echem jeden po drugim, szklisty dzwonek odpowiadający na każdy krok, potem nabrzmiewający brzęk portalu wypuszczający wędrowców",
         False,
     ),
     "116": (
@@ -1414,9 +1427,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "337": (
-        "A bronze shield struck three times in a row: three bright metallic "
-        "clangs, each with a long shimmering ring-out like a small gong.  " + NO_M,
-        "brązowa tarcza uderzona trzy razy z rzędu: trzy jasne metaliczne dźwięki, każdy z długim migotliwym wybrzmieniem jak mały gong",
+        "A bronze shield struck five times in a row: five bright metallic clangs as "
+        "the loudest moment, each with a long shimmering ring-out like a small gong. " + NO_M,
+        "brązowa tarcza uderzona pięć razy z rzędu: pięć jasnych metalicznych dźwięków jako najgłośniejszy moment, każdy z długim migotliwym wybrzmieniem jak mały gong",
         False,
     ),
     "490": (
