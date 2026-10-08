@@ -21,14 +21,17 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 
 ## Aktualny stan produkcji
 
-- Katalog: `fabuły270926.csv` — **561 fabuł** (walidacja: 561 rekordów).
+- Katalog: `fabuły270926.csv` — **563 fabuł** (walidacja: 563 rekordów).
   ID fabuły to numeryczna część `Ilustracja` (`280KTK` → fabuła `280`).
-- Sample: **561 MP3** w `audio/samples/<id>.mp3`, **561 scenariuszy**
+- Sample: **563 MP3** w `audio/samples/<id>.mp3`, **563 scenariuszy**
   w `data/samples/scenarios.jsonl` — 100 % katalogu.
-- Ostatnia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
+- Ostatnia dostawa: `b073` — `327BLB` *Brave-Kin Duo* (`water_splash`)
+  i `328LRW` *Bog Hoodlums* (`heavy_impact`), obie **trafione, 0 flag**.
+  `328` weszła z pierwszej tury; `327` dopiero po zmianie archetypu
+  z `liquid_pour` na `water_splash` — patrz reguła 25.
+- Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
-  obie **trafione, 0 flag**. `324` weszła z jednej regeneracji,
-  `325` wymagała **pięciu prób** i montażu (reverb + półka −9 dB).
+  obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
 - Ostatnia runda: `r057` — 3 z 8 kart urosły (`558` +1,91 s,
   `4` +0,69 s, `26` +0,54 s), treść < 2 s **21 → 19**, flagi 53 → 52.
 - Ostatnia korekta EQ: `r058eq` — **zero kredytów**, półka widmowa na
@@ -44,11 +47,11 @@ Metryki korpusu (audyt `2026-10-08-after-eq`):
 | pliki z flagą | **46** |
 | bliźniaki ≥ 0,95 | **0** |
 | identyczny PCM | **0** |
-| pary ≥ 0,90 (graf kosinusowy) | **22** |
+| pary ≥ 0,90 (graf kosinusowy) | **23** |
 | treść < 2 s | **19** |
 | poza oknem 2–5 s | **0** |
-| LUFS średnio | **−20,08** (odch. 0,48) |
-| archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 147** |
+| LUFS średnio | **-20.09** (odch. 0.48) |
+| archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 151** |
 
 Budżet: klucz 10 000 kredytów, **wydane 2080, zostaje 7920**.
 Realny koszt to **40 kredytów za generację**; pełna runda 8 kart po
@@ -127,10 +130,10 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **561 fabuł**, scenariusze **561** (100 %), sample **561**.
-- Flagi **46**, pary ≥ 0,90 **22**, treść < 2 s **19**.
-- Archetypy: **0** nie trafionych, **33** prawdopodobnie, **149** trafionych.
-- Budżet: **6720 / 10 000** kredytów (b072: 560, r057: 640).
+- Katalog: **563 fabuł**, scenariusze **563** (100 %), sample **563**.
+- Flagi **46**, pary ≥ 0,90 **23**, treść < 2 s **19**.
+- Archetypy: **0** nie trafionych, **33** prawdopodobnie, **151** trafionych.
+- Budżet: **6360 / 10 000** kredytów (b072: 560, r057: 640, b073: 360).
 
 ## Reguły i procedury
 
@@ -270,6 +273,16 @@ warianty czekają na serwerze, a lokalnie wygląda jakby run się nie
 udał. Po każdym resecie: `git rev-parse --abbrev-ref @{u}` i w razie
 `fatal: no upstream` — `git branch --set-upstream-to=origin/<branch>`.
 
+**25. Sprawdzić, czy kontrakt archetypu jest osiągalny, zanim się w
+niego wyceluje.** `liquid_pour` żąda `sustain_ratio` ≥ 0,3, a trzy
+karty już do niego przypisane mają 0,085 / 0,238 / 0,379 — próg
+spełnia jedna. Sześć generacji dla `327` (b073 + b073b = 360 kr)
+nie doszło ani razu (najlepsze 0,120). Ten sam plik z pierwszej
+tury spełniał `water_splash` w całości. Zasada: przed wyborem
+archetypu zmierzyć sporną metrykę na istniejących kartach tej
+klasy; jeśli większość jej nie domyka, wziąć inny archetyp dla
+tego samego dźwięku.
+
 **24. Korekcję EQ aplikować tylko tam, gdzie zdejmuje flagę.** Próba na
 27 kartach (`16 dull` + `11 harsh`) dała ten sam zysk flag (52 → 46),
 ale 19 kart bez zysku dorzuciło **2 nowe pary** i podbiło maksimum
@@ -298,6 +311,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | b072 | 2026-10-07 | 2 nowe karty (324, 325), obie trafione; 325 po 5 próbach | `state-2026-10-07.md` |
 | r057 | 2026-10-08 | 3 z 8 krótkich weszły, treść < 2 s 21 → 19 | `state-2026-10-08.md` |
 | r058eq | 2026-10-08 | EQ za 0 kr: 7 kart, `dull` 16 → 11, `harsh` 11 → 9, flagi 52 → 46, pary 23 → 22 | `state-2026-10-08.md` |
+| b073 | 2026-10-08 | 2 nowe karty (327, 328), obie trafione z 0 flag; 327 po zmianie archetypu | `state-2026-10-08-b073.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -331,7 +345,8 @@ docs/archive/state-2026-10-01.md   b059–b070, r010–r015
 docs/archive/state-2026-10-05.md   kontrakty archetypów, r016–r033
 docs/archive/state-2026-10-06.md   r034–r056, dostawa b071
 docs/archive/state-2026-10-07.md   dostawa b072 (324, 325)
-docs/archive/state-2026-10-08.md   runda r057 (krótka treść)
+docs/archive/state-2026-10-08.md   runda r057 i korekta EQ r058eq
+docs/archive/state-2026-10-08-b073.md   dostawa b073 (327, 328)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:
