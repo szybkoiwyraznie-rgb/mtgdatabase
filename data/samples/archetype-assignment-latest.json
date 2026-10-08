@@ -944,7 +944,7 @@
    "archetype": "robot_servo",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A drone's servo locking: one clear continuous electronic tone at a fixed pitch, dominant and unbroken like a tuning fork, with just two faint clicks over it. Si"
+   "prompt": "A welder drone's servo locking up: one smooth steady hum at a single unwavering mid-low pitch, held at one even volume across the whole take, with two light cli"
   },
   {
    "id": "114",

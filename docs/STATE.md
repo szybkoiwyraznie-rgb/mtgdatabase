@@ -32,7 +32,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: `r057` — 3 z 8 kart urosły (`558` +1,91 s,
+- Ostatnia runda: `r058` — z 3 kart weszła **jedna**, ale najgorsza
+  w swojej klasie: `113` *Welder Automaton* urosła z **1,24 → 3,96 s**
+  treści (fade 150 ms domknął kontrakt). `232` i `434` cofnięte.
+- Poprzednia runda: `r057` — 3 z 8 kart urosły (`558` +1,91 s,
   `4` +0,69 s, `26` +0,54 s), treść < 2 s **21 → 19**, flagi 53 → 52.
 - Ostatnia korekta EQ: `r058eq` — **zero kredytów**, półka widmowa na
   7 kartach: `dull` 16 → 11 (`74`, `102`, `120`, `173`, `214`; +3 dB przy
@@ -44,11 +47,11 @@ Metryki korpusu (audyt `2026-10-08-after-eq`):
 
 | metryka | wartość |
 |---|---|
-| pliki z flagą | **46** |
+| pliki z flagą | **45** |
 | bliźniaki ≥ 0,95 | **0** |
 | identyczny PCM | **0** |
 | pary ≥ 0,90 (graf kosinusowy) | **23** |
-| treść < 2 s | **19** |
+| treść < 2 s | **18** |
 | poza oknem 2–5 s | **0** |
 | LUFS średnio | **-20.09** (odch. 0.48) |
 | archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 151** |
@@ -131,9 +134,9 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 ## Stan liczbowy
 
 - Katalog: **563 fabuł**, scenariusze **563** (100 %), sample **563**.
-- Flagi **46**, pary ≥ 0,90 **23**, treść < 2 s **19**.
+- Flagi **45**, pary ≥ 0,90 **23**, treść < 2 s **18**.
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **151** trafionych.
-- Budżet: **6360 / 10 000** kredytów (b072: 560, r057: 640, b073: 360).
+- Budżet: **6000 / 10 000** kredytów (b072: 560, r057: 640, b073: 360, r058: 360).
 
 ## Reguły i procedury
 
@@ -312,6 +315,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r057 | 2026-10-08 | 3 z 8 krótkich weszły, treść < 2 s 21 → 19 | `state-2026-10-08.md` |
 | r058eq | 2026-10-08 | EQ za 0 kr: 7 kart, `dull` 16 → 11, `harsh` 11 → 9, flagi 52 → 46, pary 23 → 22 | `state-2026-10-08.md` |
 | b073 | 2026-10-08 | 2 nowe karty (327, 328), obie trafione z 0 flag; 327 po zmianie archetypu | `state-2026-10-08-b073.md` |
+| r058 | 2026-10-08 | 3 najgorsze karty swoich klas; weszła 113 (1,24 → 3,96 s), 232 i 434 cofnięte | `state-2026-10-08-r058.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -320,10 +324,15 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Kolejna runda `r057`** — tylko świeże karty, take 4,0 s, łatka na
-   `onset_count = 0` (przerwy między zdarzeniami wprost). Z 21 krótkich
-   kart wyłączone są `115` i `311` (nietykalne: zyskały ~1,4 s kosztem
-   3 par) oraz `219`, `87`, `292` (po 2–4 próbach bez efektu).
+1. **Kolejna runda `r059`** — `232` i `434` z r058 wracają z nową
+   diagnozą, bo długość już dowiozły (+2,7 s każda):
+   `232` (`plate_clank`) brakuje tylko **crest 15,6 → 17** —
+   przycinanie ogona go nie rusza (15,1–15,6 przy każdym cięciu),
+   więc potrzebny jest twardszy, bardziej uderzeniowy materiał
+   z generatora; `434` (`war_machine`) ma **onset_count 0/1/0** przy
+   progu ≥ 2 i `low_all` 0,015–0,051 przy progu 0,35 — model robi
+   jasny szum zamiast dudniącej machiny, korektorem tego nie naprawię.
+   `269` i `23` nadal odłożone (reguła 2: przyrost poniżej 0,3 s).
 2. **Wątek bez kredytów — po `r058eq`:** `dull` zeszło z 16 na 11,
    `harsh` z 11 na 9. Tanich ruchów już nie ma: `harsh` wymaga
    −12…−15 dB przy 8 kHz na kartach z 0,94–0,98 energii w paśmie
@@ -347,6 +356,7 @@ docs/archive/state-2026-10-06.md   r034–r056, dostawa b071
 docs/archive/state-2026-10-07.md   dostawa b072 (324, 325)
 docs/archive/state-2026-10-08.md   runda r057 i korekta EQ r058eq
 docs/archive/state-2026-10-08-b073.md   dostawa b073 (327, 328)
+docs/archive/state-2026-10-08-r058.md   runda r058 (113, 232, 434)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:
