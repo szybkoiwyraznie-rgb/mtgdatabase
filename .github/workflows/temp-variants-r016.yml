@@ -1,48 +1,46 @@
-name: TEMP r057 - osiem krotkich kart, latka na konkretna metryke
+name: TEMP b073 - dwie nowe karty (327 Brave-Kin Duo, 328 Bog Hoodlums)
 
-# r057: osiem kart z trescia ponizej 2 s. 8 kart x 2 warianty = 16
-# generacji x 40 kredytow = 640 kredytow.
+# b073: dostawa wlasiciciela. 2 karty x 3 warianty = 6 generacji x 40
+# kredytow = 240 kredytow.
 #
-# PUNKT WYJSCIA. Po r056 korpus ma 21 kart z `content_s` < 2 s (miara
-# z STATE.md: czas pliku minus cisza na krawedziach, prog -45 dBFS).
-# Wszystkie 21 dostalo juz przynajmniej jedna probe; r056 wziela osiem
-# „swiezych" i ZADNA nie weszla (0/8). Dzis nietknieta wspolczesna
-# technika zostala tylko `23` (ostatni prompt z r028).
+# KARTY
 #
-# DOBOR — nie najkrotsze, ale te z NAJKONKRETNIEJSZA DIAGNOZA. Kazda
-# latka celuje w jedna metryke, ktora w poprzedniej probie nie dowiozla:
+#   327BLB  Brave-Kin Duo   Bloomburrow. Kroleczy wedrowiec dzieli sie
+#                           orzezwiajaca woda z mysim towarzyszem.
+#                           archetyp: liquid_pour
+#   328LRW  Bog Hoodlums    Lorwyn, moczary Stinkdrank. Dwoch boggartow
+#                           z sękatymi maczugami tarauje zbutwiale pnie.
+#                           archetyp: heavy_impact
 #
-#   232 plate_clank     r056: onset_count 0 + flatness 0,018 (za tonalne)
-#                       -> „six separate ... with clear silence between
-#                          them" + „dry and unpitched" (flatness >= 0,03)
-#   434 war_machine     r055: v2 spelnil widmo, ale onset_count 0
-#                       -> „each one landing separately with a short
-#                          pause between them"
-#   113 robot_servo     r055: v1 czysty ton 11 kHz, v2 sub-bas 135 Hz,
-#                       oba bez onsetow -> ton + „two sharp clicks spaced
-#                          far apart" (tonal >= 0,35 i onset >= 2 naraz)
-#   269 beast_screech   r056: attack_s 0,820 (prog <= 0,15)
-#                       -> fraza wyprobowana na 344 w r055 (2,020 -> 0,1):
-#                          „by far the loudest moment of the whole take"
-#     4 water_splash    r056: attack_s 0,670 (prog <= 0,1) -> ta sama latka
-#    26 stone_slide     r056: decay_s 0,060 (prog >= 0,5) -> „holds the
-#                          same loud rumbling level" zamiast piku i zaniku
-#   558 temple_bell     r056: centroid 3095 przy limicie 3000
-#                       -> „low, dark bronze ... well below the middle
-#                          of the range"
-#    23 temple_bell     swieza (prompt z r028) -> wypelnienie take'u;
-#                          celowo INACZEJ niz 558 (zelazo, srodek pasma),
-#                          zeby nie powstala para — 558 i 23 nie sa dziś
-#                          w zadnej parze i tak musi zostac.
+# DOBOR ARCHETYPOW
 #
-# Take 4,0 s dla wszystkich (regula 6: krotki take sie nie wypelnia —
-# w r056 grupa 2,5 s dostala 8-83 % wypelnienia, grupa 4,0 s: 31-85 %).
+#   liquid_pour (3 karty: 218, 293, 502). 218 i 293 to GESTY, CIEMNY
+#   szlam i bulgoczacy kociol; 502 to magia. 327 idzie w kontrze:
+#   CIENKI, CZYSTY strumien wody — wyzszy, bardziej szumowy, bez gestego
+#   bulgotu. Kontrakt: sustain >= 0.3, flatness >= 0.05,
+#   centroid 500-4000, content_rel >= 1.5.
 #
-# ZASADA OCHRONNA (regula 1): wszystkie osiem kart jest dziś TRAFIONYCH.
-# Spadek werdyktu = powrot do starego sample, nawet jesli tresc urosnie.
-# Odrzucamy tez przyrost < 0,3 s, jesli cena jest nowa flaga (regula 2).
+#   heavy_impact (13 kart). Roznica wobec 366 (groty w TARCZE — suche,
+#   twarde drewno) i 561 (ciało w BLOTO): tu dominuje MOKRE,
+#   PROCHNIEJACE drewno — kloda nasiaknieta woda, chrzescenie i
+#   chlupot. Kontrakt: crest >= 14, attack <= 0.15, decay <= 1.4,
+#   low_all >= 0.2.
 #
-# batch w scenarios.jsonl: r057 (MUSI sie zgadzac z --batch).
+# ZASADY Z b072, ktorych tu pilnujemy
+#
+#   - Pisac o MATERIAL i PASMIE, nie o jasnosci. W b072 slowo "bright"
+#     zamienilo sie w syk (centroid 8072). Dlatego 327 ma "thin clean
+#     water ... in the middle of the range", a 328 "wood and wet earth
+#     ... the splintering crack clearly in the middle of the range".
+#   - Nie pisac "deep" ani "dull": w b072d "deep low body" zrobilo
+#     sub-basowy dron (audible_share 0,084). 328 dostaje mase przez
+#     "heavy low blow", a nie przez "deep".
+#   - Speech zakazane. 328 rezygnuje z "dzikiego chichotu" boggartow
+#     na rzecz maczug w butwiejacym pniu — wokal by ryzykowal flage.
+#
+# Take 3,0 s dla obu (okno wlasiciciela 2-5 s).
+#
+# batch w scenarios.jsonl: b073 (MUSI sie zgadzac z --batch).
 #
 # Po imporcie: postprocess ZAWSZE z --ids ograniczonym do batchu i
 # --max-gain-db 26 dla cichych — domyslne 15 dB nie dobija do -20 LUFS,
@@ -59,7 +57,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "232,434,113,269,4,26,558,23"
+  IDS: "327,328"
 
 jobs:
   variants:
@@ -70,13 +68,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r057]
+      - name: Guard — tylko commit z markerem [generate-b073]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r057]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b073]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r057] — nic nie generuję"
+            echo "brak markera [generate-b073] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -95,25 +93,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r057
-          for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/r057/generate.log
+          mkdir -p variants/b073
+          for v in 1 2 3; do
+            echo "=== wariant v$v ===" | tee -a variants/b073/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r057 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r057/v$v" 2>&1 | tee -a variants/r057/generate.log
+              --ids "$IDS" --batch b073 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b073/v$v" 2>&1 | tee -a variants/b073/generate.log
           done
-          ls -la variants/r057 variants/r057/v1 variants/r057/v2 || true
+          ls -la variants/b073 variants/b073/v1 variants/b073/v2 variants/b073/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r057 data/samples/generated-manifest.jsonl
+          git add -f variants/b073 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r057: 16 wariantow (8 kart x 2) + log generacji [import-r057]"
+            git commit -m "b073: 6 wariantow (2 karty x 3) + log generacji [import-b073]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

@@ -3926,6 +3926,20 @@
       "title": "Narset's Rebuke",
       "story": "Na smaganych alpejskim wichrem graniach Tarkiru długo tłumiony konflikt pomiędzy dwojgiem dawnych towarzyszy znajduje swój gwałtowny finał. Nieugięta Narset wyprowadza mistrzowski cios, uwalniając niszczycielską falę trójkolorowej jeskańskiej magii, która z pełną siłą uderza w zaskoczonego Sarkhana Vola. Potężny podmuch błękitu, płomienia i uświęconego światła odrzuca smoczego szamana w tył, wytrącając oręż z jego rąk i bezlitośnie rozbijając jego ochronne zaklęcia. Zdeterminowana mistrzyni nie pozwoli, by obsesyjne dążenia do wskrzeszenia smoczej dominacji zaprzepaściły wszystko, co poświęciła dla ocalenia wolności swego ludu.",
       "versions": []
+    },
+    {
+      "id": "327",
+      "art_id": "327BLB",
+      "title": "Brave-Kin Duo",
+      "story": "Na ukwieconych traktach Doliny na planie Bloomburrow niezwykłe przyjaźnie stają się źródłem największej odwagi. Troskliwy króliczy wędrowiec zatrzymuje się na leśnej ścieżce, dzieląc się orzeźwiającą wodą ze swoim drobnym, lecz nieustraszonym mysim towarzyszem. Wzajemne zaufanie i serdeczne słowa otaczają obu małych bohaterów ciepłym blaskiem, dodając im sił do pokonania kolejnych etapów wyprawy. Choć otaczający świat kryje wiele niebezpieczeństw, to właśnie ta niezłomna więź pozwala małym mieszkańcom puszczy śmiało wyruszać w nieznane.",
+      "versions": []
+    },
+    {
+      "id": "328",
+      "art_id": "328LRW",
+      "title": "Bog Hoodlums",
+      "story": "W bulgoczących, wiecznie parujących oparach moczarów Stinkdrank na planie Lorwyn złośliwe boggarty nieustannie szukają nowych okazji do awantury. Dwaj uzbrojeni w sękate maczugi rozbójnicy z dzikim chichotem wyskakują z błotnistej topieli, taranując zbutwiałe pnie w bezmyślnym, gwałtownym pędzie. Ci mali leśni brutale zupełnie nie dbają o obronę ani taktykę, żyjąc wyłącznie dreszczem bezpośredniego starcia i chęcią zdominowania każdego napotkanego wędrowca. Gdy ich zuchwały wrzask rozbrzmiewa pośród bagnistych wierzb, zaskoczeni podróżni wiedzą, że jedynym ratunkiem przed zgrają jest natychmiastowa ucieczka.",
+      "versions": []
     }
   ]
 }
