@@ -2368,7 +2368,7 @@
    "archetype": "wind_gust",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A parchment scroll flapping hard in a gust while wooden shutters knock against their frames: paper snapping and rattling, wood clattering on wood, dust grains t"
+   "prompt": "A strong gust of wind rushing past: broadband hissing white noise of turbulent air, swelling and easing in waves, with no whistle, no pitched note, no tonal hum"
   },
   {
    "id": "293",
@@ -4256,7 +4256,7 @@
    "archetype": "arrow_flight",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "An arrow shot past the listener: a sharp bowstring twang followed by a fast fletched whoosh cutting through the air. Signature sound of the card Kill Shot — One"
+   "prompt": "An arrow loosed at a target: a sharp bowstring twang, then the fletched shaft hissing through the air, the whoosh swelling and fading as it flies off, ending in"
   },
   {
    "id": "584",

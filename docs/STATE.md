@@ -36,6 +36,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   *Epic Experiment* urosła z **1,20 → 3,91 s** treści, kontrakt
   `war_machine` spełniony. Cena: nowy bliźniak `325-434` (0,9422).
   `232` znów cofnięta — crest 12,9–14,9 przy progu 17.
+- Poprzednia runda: `r060` — z 3 kart weszły dwie: `583` *Kill Shot*
+  z **0,21 → 2,66 s** i `292` *Rediscover the Way* z **1,38 → 3,22 s**.
+  Kluczem była klauzula `--fill-take`, której żadna z nich nigdy nie
+  dostała. `71` cofnięta: wszystkie warianty wyszły za ciemne.
 - Poprzednia runda: `r058` — z 3 kart weszła jedna, najgorsza w swojej
   klasie: `113` *Welder Automaton* urosła z **1,24 → 3,96 s** treści
   (fade 150 ms domknął kontrakt). `232` i `434` cofnięte.
@@ -51,16 +55,17 @@ Metryki korpusu (audyt `2026-10-08-after-eq`):
 
 | metryka | wartość |
 |---|---|
-| pliki z flagą | **41** |
+| pliki z flagą | **40** |
 | bliźniaki ≥ 0,95 | **0** |
 | identyczny PCM | **0** |
 | pary ≥ 0,90 (graf kosinusowy) | **23** |
-| treść < 2 s | **17** |
+| treść < 2 s | **15** |
 | poza oknem 2–5 s | **0** |
 | LUFS średnio | **-20.09** (odch. 0.48) |
 | archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 151** |
 
-Budżet: klucz 10 000 kredytów, **wydane 2080, zostaje 7920**.
+Budżet: klucz 10 000 kredytów, **wydane 4600, zostaje 5400**.
+Rozbicie na rundy jest w sekcji „Ile zostało" poniżej.
 Realny koszt to **40 kredytów za generację**; pełna runda 8 kart po
 2 warianty = 16 generacji = **640 kredytów**, dostawa 2 kart = 160.
 
@@ -138,10 +143,10 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 ## Stan liczbowy
 
 - Katalog: **563 fabuł**, scenariusze **563** (100 %), sample **563**.
-- Flagi **41**, pary ≥ 0,90 **26**, treść < 2 s **17**.
+- Flagi **40**, pary ≥ 0,90 **26**, treść < 2 s **15**.
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **151** trafionych.
-- Budżet: **5760 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
-  r058: 360, r059: 240).
+- Budżet: **5400 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
+  r058: 360, r059: 240, r060: 360).
 
 ## Reguły i procedury
 
@@ -323,6 +328,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r058 | 2026-10-08 | 3 najgorsze karty swoich klas; weszła 113 (1,24 → 3,96 s), 232 i 434 cofnięte | `state-2026-10-08-r058.md` |
 | r058b | 2026-10-08 | darmowe domknięcia krawędzi: 72 i 278 bez flag, 0 kredytów | `state-2026-10-08-r058b.md` |
 | r059b | 2026-10-08 | `cut_start_hard` przeliczone na skok z ciszy; 2 fałszywe alarmy zdjęte, 9 prawdziwych trzasków naprawionych | `state-2026-10-08-r059b.md` |
+| r060 | 2026-10-08 | klauzula `--fill-take` na 3 karty, które jej nigdy nie dostały; 583 (0,21 → 2,66 s) i 292 (1,38 → 3,22 s) weszły | `state-2026-10-08-r060.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -331,19 +337,24 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Kolejna runda `r060`** — `232` pudłuje drugi raz z rzędu
-   (r058: crest 13,5–15,6; r059: 12,9–14,9 przy progu 17). Próba
-   z promptem na wzór kart przechodzących ruszyła go tylko o 1,5 dB.
-   Korpus `plate_clank` ma crest od 19,9 w górę, czyli brakuje ~5 dB,
-   a trzy rundy dały łącznie +1,6 dB — **przestać go ruszać**, to nie
-   jest karta do naprawy promptem. Zostaje `269` (+0,16 s do progu)
-   i `23` (+0,28 s), obie poniżej reguły 2.
-   Odkrycie do wykorzystania: kontrakty `thunder_clap` i `war_machine`
-   są **zagnieżdżone** — każdy grzmot spełnia war_machine (centroid
-   ≤ 800 mieści się w ≤ 2600, low_all ≥ 0,5 w ≥ 0,35). Dlatego
-   `325` spełnia oba, a `434` v3 zrobiła się z nim bliźniakiem.
-   Celować w centroid **800–2400**: machina spełni kontrakt,
-   a nie wejdzie w pasmo grzmotu.
+1. **Kolejna runda `r061`** — trzy karty, które **nigdy nie dostały**
+   klauzuli `--fill-take`. To jedyny wniosek, jaki trzeba było wyciągnąć
+   z r060: `583` i `292` urosły o 2,45 i 1,84 s po jej dodaniu, a żadna
+   z nich nie miała jej przez 3–4 poprzednie podejścia.
+   ```
+   98  insect_swarm   tresc 1,82 s  mediana 3,91  (brak fill-take)
+   71  heavy_impact   tresc 1,40 s  mediana 2,51  (brak fill-take)
+    5  magic_shimmer  tresc 1,87 s  mediana 2,69  (brak fill-take)
+   ```
+   `98` jest dodatkowo „prawdopodobnie 1,0", więc może tylko zyskać.
+   `71` wraca z konkretną poprawką: w r060 wszystkie warianty wyszły
+   za ciemne (centroid 51–66 Hz, podczas gdy klasa `heavy_impact`
+   mieści się w 111–2538, a przechodzące 463/328/210 mają
+   1552/1174/2538). Winny był mój „low tail" — zastąpić go
+   „clearly in the middle of the range", jak w kartach wzorcowych.
+   `12` (robot_servo, luka 2,17 s) omijam: fill-take ma od r055
+   i nadal stoi na 1,80 s, czyli dźwignia jest tam wyczerpana.
+   `232` nadal odłożona po trzech nieudanych rundach.
 2. **Wątek bez kredytów — po `r058eq`:** `dull` zeszło z 16 na 11,
    `harsh` z 11 na 9. Tanich ruchów już nie ma: `harsh` wymaga
    −12…−15 dB przy 8 kHz na kartach z 0,94–0,98 energii w paśmie
@@ -371,6 +382,7 @@ docs/archive/state-2026-10-08-r058.md   runda r058 (113, 232, 434)
 docs/archive/state-2026-10-08-r058b.md  krawędzie: 72, 278 (0 kredytów)
 docs/archive/state-2026-10-08-r059.md   runda r059 (434 weszła, 232 cofnięta)
 docs/archive/state-2026-10-08-r059b.md  nowa definicja cut_start_hard + 9 napraw
+docs/archive/state-2026-10-08-r060.md   runda r060 (583, 292 weszły, 71 cofnięta)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:

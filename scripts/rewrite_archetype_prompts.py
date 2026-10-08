@@ -673,15 +673,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "trafienia",
         False,
     ),
-    "71": (
-        "A body slamming against an invisible force wall: one instant deep weighted "
-        "impact with no build-up, two shorter wobbling shudders right after it, "
-        "and a low tail. " + NO_M,
-        "cialo uderzajace w niewidzialna sciane sily: jeden natychmiastowy gleboke wazki cios "
-        "bez narastania, potem dwa krotsze chybotliwe wstrzasy sciany w ciagu nastepnej sekundy "
-        "i niski ogon",
-        False,
-    ),
     "173": ("A warrior's roar taking bear form: a long deep chest roar with enormous low-frequency body underneath, dark and massive, sustained across the whole take.",
             "ryk wojownika przybierającego postać niedźwiedzia: długi głęboki piersiowy ryk z olbrzymim niskim ciałem pod spodem, masywny", False),
     "478": ("Claws raking a hard glassy barrier: a bright scraping screech then a shattering burst of many small glass shards ticking down, at least eight separate tinkling impacts.",
