@@ -17,7 +17,7 @@ name: "TEMP r067 - 52, 501 i 355: dwa archetypy, ktore dzialaja"
 # korbowod — bez zadnego przymiotnika barwy.
 #
 # 52 wraca PO RAZ TRZECI i diagnoza jest juz waska. W r064 polegla na
-# barwie (centroid 8309-9512). W r066 rzeczowniki BARWE NAPRAWILY:
+# barwie (centroid 8309-9512). W r067 rzeczowniki BARWE NAPRAWILY:
 # v1 5936 i v3 5392 sa w oknie 800-6000. Ale wszystkie trzy zlamaly
 # ioi_cv, czyli ROWNOSC RYTMU:
 #
@@ -27,7 +27,7 @@ name: "TEMP r067 - 52, 501 i 355: dwa archetypy, ktore dzialaja"
 # po prostu o rowny odstep nie zadal. Zostal JEDEN warunek.
 #
 # 355 lezy w plate_clank, archetypie ktory odpowiedzial na lancuch
-# zdarzen trzy razy z rzedu: 491 w r064 (+0,54 s), 445 w r066 (+1,47 s,
+# zdarzen trzy razy z rzedu: 491 w r064 (+0,54 s), 445 w r067 (+1,47 s,
 # a wszystkie trzy warianty przeszly kontrakt). Prompt 355 ma juz
 # lancuch („five separate steel plates clanking one after another"),
 # ale konczy sie przymiotnikiem „distinct and mid-pitched" bez
@@ -45,59 +45,64 @@ name: "TEMP r067 - 52, 501 i 355: dwa archetypy, ktore dzialaja"
 # W r067 dodatkowo, po raz pierwszy: rowny odstep miedzy zdarzeniami
 # musi byc wprost w zgloszeniu, nie tylko ich liczba.
 
-on:
-  push:
-    paths:
-      - 'scripts/**'
-      - 'data/samples/**'
-      - 'audio/samples/**'
-  workflow_dispatch:
+env:
+  SCENARIOS: data/samples/scenarios.jsonl
+  MANIFEST: data/samples/generated-manifest.jsonl
+  IDS: "52,501,355"
 
 jobs:
-  generate:
+  variants:
     runs-on: ubuntu-latest
-    env:
-      IDS: "52,501,355"
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: arena/01a108e2-mtgdatabase
+
       - name: Guard — tylko commit z markerem [generate-r067]
+        id: guard
         run: |
           if git log -1 --pretty=%B | grep -qF '[generate-r067]'; then
-            echo "commit zawiera [generate-r067] — generuję"
+            echo "run=1" >> "$GITHUB_OUTPUT"
           else
             echo "brak markera [generate-r067] — nic nie generuję"
-            exit 0
           fi
-      - uses: actions/checkout@v4
+
       - uses: actions/setup-python@v5
+        if: steps.guard.outputs.run == '1'
         with:
-          python-version: '3.11'
-      - name: Zależności
-        run: |
-          python -m pip install --upgrade pip
-          pip install numpy scipy soundfile pyloudnorm pyyaml
-      - name: Walidacja przed generowaniem
-        run: |
-          python scripts/validate_sample_scenarios.py
-      - name: Trzy warianty na kartę
+          python-version: "3.12"
+
+      - name: Validate scenarios
+        if: steps.guard.outputs.run == '1'
+        run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
+
+      - name: Generate 3 variants per story
+        if: steps.guard.outputs.run == '1'
+        continue-on-error: true
         env:
-          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
           mkdir -p variants/r067
-          : > variants/r067/generate.log
           for v in 1 2 3; do
             echo "=== wariant v$v ===" | tee -a variants/r067/generate.log
-            python scripts/generate_samples.py \
+            python scripts/elevenlabs_sample_scout.py \
+              --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
               --ids "$IDS" --batch r067 --force --retries 3 --prompt-influence 0.35 \
-              --out-dir "variants/r067/v$v" 2>&1 | tee -a variants/r067/generate.log
+              --out "variants/r067/v$v" 2>&1 | tee -a variants/r067/generate.log
           done
-      - name: Commit wariantów
+          ls -la variants/r067 variants/r067/v1 variants/r067/v2 variants/r067/v3 || true
+
+      - name: Commit variants and log back to the session branch
+        if: always() && steps.guard.outputs.run == '1'
         run: |
-          git config user.name  "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add variants/r067 || true
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f variants/r067 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
-            echo "brak nowych wariantów do zapisania"
+            echo "nic do zacommitowania"
           else
-            git commit -m "[import-r067] warianty z runs: wczesniej wygenerowane"
-            git push
+            git commit -m "r067: 9 wariantow (3 karty x 3) + log generacji [import-r067]"
+            git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
