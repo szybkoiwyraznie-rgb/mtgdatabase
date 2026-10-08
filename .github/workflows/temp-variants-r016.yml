@@ -1,44 +1,44 @@
-name: "TEMP r065 - 553, 524 i 67: rzeczowniki zamiast przymiotnikow barwy"
+name: "TEMP r066 - 52, 372 i 445: rzeczowniki, tak jak w r065"
 
-# r065: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# r066: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
 #
-# DOBOR — cel ten sam co w r064 (karty 2,0-2,6 s najgorsze w swojej
-# klasie), ale kryterium wziete z wniosku r064, nie z luki do mediany:
+# DOBOR — jedna powtorka i dwie swieze karty:
 #
-#  553 sword_clash   tresc 2,12 s  luka 0,83 s  1 proba  bez fill-take
-#  524 sword_clash   tresc 2,24 s  luka 0,71 s  1 proba  bez fill-take
-#   67 war_machine   tresc 2,12 s  luka 1,52 s  3 proba  fill-take od r029
+#   52 mechanism_click  tresc 2,20 s  luka 1,22 s  4 prob  bez fill-take
+#  372 stone_slide      tresc 2,25 s  luka 0,61 s  1 proba  bez fill-take
+#  445 plate_clank      tresc 2,27 s  luka 0,70 s  4 prob  bez fill-take
 #
-# 553 i 524 to profil, ktory juz dwa razy zaprocentowal: JEDNA proba,
-# brak fill-take, prompt bez domkniecia — tak wygladaly 247 (+1,94 s)
-# i 491 (+0,54 s). 553 ma dodatkowo kontrakt JUZ TERAZ ZLAMANY
-# (score 1,0), bo jej prompt opisuje ciecz („steel sliding into a tarry
-# basin... one slow drip"), a nie klinge. Nowy prompt moze naprawic
-# dlugosc i rozpoznawalnosc naraz.
+# 52 wraca CELOWO. W r064 polegla na barwie (centroid 8309-9512 przy
+# oknie 800-6000), a jej prompt byl samymi przymiotnikami („low dull
+# wooden... deep and soft-edged... no bright ticking"). To najwieksza
+# luka w korpusie i najprostszy sprawdzian wniosku z r065. Dostaje
+# wylacznie rzeczowniki: drewniany kolęk, mosiezne kolo zebate,
+# dzwignia, zapadka.
 #
-# 67 wraca z najwieksza luka w calym korpusie (1,52 s). Okno
-# kontraktowe ma szerokie (centroid <= 2600, mid_up >= 0,1,
-# low_all >= 0,35), wiec ryzyko barwowe jest tu mniejsze niz w r064.
+# 372 ma tylko JEDNA probe i prompt bez domkniecia („One deep grinding
+# scrape... slow, heavy and resonant") — profil, ktory dal juz
+# 247 (+1,94 s), 491 (+0,54 s) i 553 (+1,02 s).
 #
-# NAJWAZNIEJSZE — wniosek z r064, wazy wiecej niz dobor kart:
-# MODEL IGNORUJE PRZYMIOTNIKI BARWY I REALIZUJE RZECZOWNIKI.
-#   52  dostal „low dull wooden knocks... no bright ticking and no
-#       hiss" -> centroid 8309-9512 przy oknie 800-6000, czyli 2,5x
-#       za jasno.
-#  260  dostal „huge roaring calls" -> centroid 118-166 przy oknie
-#       150-1600, czyli za ciemno.
-#  491  dostal same rzeczowniki („six plates snapping into place with
-#       a firm woody clank") -> kontrakt w calosci, zero flag, +0,54 s.
-# Dlatego wszystkie trzy prompty ponizej sa zbudowane WYLACZNIE
-# z rzeczownikow i czasownikow: tłok, koła zębate, łańcuch, stal,
-# misa, relikwiarz, ostrze, syk. Ani jednego przymiotnika barwy.
+# 445 jest w plate_clank, czyli w archetypie, ktory w r064 zadzialal
+# najczysciej (491). Jej prompt ma juz lancuch („four clear hoof
+# crunches"), ale bez domkniecia i z przymiotnikiem „clear".
 #
-# ODPOCZYWAJA: 52 i 260 po r064 (oba polegly na barwie), 4, 145, 23,
-# 98, 12, 232 — bez zmian.
+# ZASADA Z r065 OBOWIAZUJE WE WSZYSTKICH TRZECH: zero przymiotnikow
+# barwy, tylko rzeczowniki i czasowniki. r065 potwierdzila hipoteze z
+# r064 — 67 z rzeczownikami dala +1,84 s i czysty kontrakt, podczas
+# gdy 52 i 260 z przymiotnikami polegly na barwie w przeciwnych
+# kierunkach (za jasno / za ciemno).
 #
-# Take 4,0 s dla wszystkich. Payload 410-440/450 znakow, PL <= 220.
+# UWAGA NA LIMITY: payload <= 450 zn. (scout dokleja 32 zn. zakazow),
+# a polski sample_scenario <= 220 zn. Oba sprawdza
+# validate_sample_scenarios.py przed generacja.
 #
-# batch w scenarios.jsonl: r065 (MUSI sie zgadzac z --batch).
+# ODPOCZYWAJA: 524 (attack_s jest binarny — prompt musi zaczynac sie
+# od uderzenia), 4, 145, 23, 98, 12, 232, 260 — bez zmian.
+#
+# Take 4,0 s dla wszystkich. Payload 423-447/450 znakow.
+#
+# batch w scenarios.jsonl: r066 (MUSI sie zgadzac z --batch).
 #
 # Po imporcie: postprocess ZAWSZE z --ids ograniczonym do batchu i
 # --max-gain-db 26 dla cichych — domyslne 15 dB nie dobija do -20 LUFS,
@@ -56,7 +56,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "553,524,67"
+  IDS: "52,372,445"
 
 jobs:
   variants:
@@ -67,13 +67,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r065]
+      - name: Guard — tylko commit z markerem [generate-r066]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r065]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r066]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r065] — nic nie generuję"
+            echo "brak markera [generate-r066] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -92,25 +92,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r065
+          mkdir -p variants/r066
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r065/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r066/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r065 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r065/v$v" 2>&1 | tee -a variants/r065/generate.log
+              --ids "$IDS" --batch r066 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r066/v$v" 2>&1 | tee -a variants/r066/generate.log
           done
-          ls -la variants/r065 variants/r065/v1 variants/r065/v2 variants/r065/v3 || true
+          ls -la variants/r066 variants/r066/v1 variants/r066/v2 variants/r066/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r065 data/samples/generated-manifest.jsonl
+          git add -f variants/r066 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r065: 9 wariantow (3 karty x 3) + log generacji [import-r065]"
+            git commit -m "r066: 9 wariantow (3 karty x 3) + log generacji [import-r066]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

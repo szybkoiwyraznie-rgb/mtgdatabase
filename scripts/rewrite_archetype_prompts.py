@@ -487,9 +487,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # mechanism_click: profile r025 mówiły „mid-pitched, dry and woody rather
     # than hissy", a centroid i tak wyszedł 7,7-10,6 kHz przy oknie 800-6000.
     # Model czyta „click" jako jasny trzask, więc nazywamy wprost czego NIE ma być.
-    "52": ("A clockwork mechanism turning: a row of low dull wooden knocks in a steady rhythm, "
-           "deep and soft-edged, with no bright ticking and no hiss. " + NO_M,
-           "mechanizm zegarowy: rząd niskich głuchych drewnianych stuków, bez jasnego cykania i syku", False),
+    "52": (
+        "A clockwork mechanism: a wooden peg released by a brass cog, then "
+        "a lever dropping and a ratchet catching, at least ten wooden and "
+        "brass knocks one after another, the mechanism working on to the end." + NO_M,
+        "mechanizm zegarowy: drewniany kołek puszczony przez mosiężne koło zębate, potem spadająca dźwignia i łapiąca zapadka, co najmniej dziesięć drewnianych i mosiężnych stuków jeden po drugim, mechanizm pracuje do końca",
+        False,
+    ),
     "132": ("A small gear train stepping: firm low knocks of wood on brass, dark and round, "
             "evenly spaced, without any high-pitched snap. " + NO_M,
             "przekładnia: niskie głuche stuki drewna o mosiądz, ciemne i bez wysokiego trzasku", False),
@@ -939,6 +943,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "aven skręca w lodowym powietrzu trzema mocnymi uderzeniami skrzydeł, składa je, po czym przelatuje z ostrym dźwiękiem grotu i pędem zimnego prądu",
         False,
     ),
+    "445": (
+        "A warhorse crossing frozen ground: four hoof crunches breaking the "
+        "crust, steel tack clinking between them, then three more crunches, "
+        "the last clink to the end." + NO_M,
+        "koń bojowy idzie po zamarzniętym gruncie: cztery chrupnięcia kopyt w skorupie, między nimi brzęk stalowej uprzęży, potem trzy kolejne chrupnięcia, ostatni brzęk do końca",
+        False,
+    ),
     "448": (
         "A chaos spire erupting from a street: cobblestones bursting upward "
         "with sharp stone cracks, a crystal spike grinding gritty and low.  " + NO_M,
@@ -1111,6 +1122,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "A brass gauntlet raking a tome: sharp metal styli scraping across "
         "parchment in three long strokes, pages shredding into gritty dust.  " + NO_M,
         "mosiężna rękawica zdziera litery: ostre metalowe rysiki skrobią po pergaminie trzema długimi pociągnięciami, karty szarpią się w ziarnisty pył",
+        False,
+    ),
+    "372": (
+        "A stone fossil shifting on a pedestal: gravel grinding under the "
+        "base, the fossil scraping forward in two pushes, grit trickling, "
+        "the grinding running to the end." + NO_M,
+        "kamienna skamielina przesuwa się na cokole: żwir zgrzyta pod podstawą, skamielina przesuwa się dwoma pchnięciami, sypie się piasek, zgrzyt trwa do końca",
         False,
     ),
     "376": (
