@@ -1,0 +1,18 @@
+=== wariant v1 ===
+selected 3 scenario(s)
+OK 52: variants/r064/v1/52.mp3 (65245 bytes)
+OK 260: variants/r064/v1/260.mp3 (65245 bytes)
+OK 491: variants/r064/v1/491.mp3 (65245 bytes)
+done: generated=3, skipped=0, failed=0
+=== wariant v2 ===
+selected 3 scenario(s)
+OK 52: variants/r064/v2/52.mp3 (65245 bytes)
+OK 260: variants/r064/v2/260.mp3 (65245 bytes)
+OK 491: variants/r064/v2/491.mp3 (65245 bytes)
+done: generated=3, skipped=0, failed=0
+=== wariant v3 ===
+selected 3 scenario(s)
+OK 52: variants/r064/v3/52.mp3 (65245 bytes)
+OK 260: variants/r064/v3/260.mp3 (65245 bytes)
+OK 491: variants/r064/v3/491.mp3 (65245 bytes)
+done: generated=3, skipped=0, failed=0
