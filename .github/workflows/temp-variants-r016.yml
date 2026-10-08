@@ -1,152 +1,52 @@
-name: TEMP b072e piata proba - tylko 325 Narset's Rebuke (ogon)
+name: TEMP r057 - osiem krotkich kart, latka na konkretna metryke
 
-# TYMCZASOWY / ZAPARKOWANY: pilot archetypowy.
-# Workflow bez markera nic nie robi, wiec CI pozostaje zielone. Token bota Arena ma
-# HTTP 403 na workflow_dispatch, a sandbox nie siega *.blob.core.windows.net, wiec
-# warianty generujemy z triggera push markerowanego ([generate-r032]) i commitujemy
-# na galaz sesji razem z logiem generacji.
+# r057: osiem kart z trescia ponizej 2 s. 8 kart x 2 warianty = 16
+# generacji x 40 kredytow = 640 kredytow.
 #
-# r032: 2 warianty x 14 kart = 28 generacji x 40 kredytow = 1120 kredytow.
-# Karty wybrane POMIAREM, nie zgadywaniem:
-#  a) 269 Scouting Hawk - attack_s liczy sie WSTECZ OD GLOBALNEGO SZCZYTU energii,
-#     dopoki obwiednia jest powyzej szczyt-20 dB (audit_semantic_match.py L166-172).
-#     Przy dzwieku wieloudarzeniowym (krzyk + trzepot) szczyt wypada w pozniejszej
-#     sekcji, wiec kontrakt attack_s <= 0,15 wymaga, zeby najglosniejszy byl PIERWSZY
-#     cios. Zmierzony przypadek: szczyt 2,160 s, poczatek ataku 1,010 s -> 1,15 s.
-#  b) karty, ktore w r031 drgnely ku celowi: 228 ioi_cv 0,896 -> 0,647 (cel <= 0,6),
-#     382 decay_s 0,12 -> 0,31 (cel >= 0,8), 496 score 1,5 -> 1,0
-#  c) karty, ktore naprawily poprzednia metryke i dostaly NOWA: 3 (flatness ->
-#     centroid 9548), 558 (centroid -> sustain 0,083), a takze 118, 164, 168, 493, 49
-#  d) 216, 292, 568 - regresje cofniete w r031, prompt przepisany
-# Postprocess ZAWSZE z --ids ograniczonym do batchu i --max-gain-db 26 dla cichych
-# wariantow (w r032 wariant -33,21 LUFS wyszedl na -30,66 przy korpusie -20,02).
+# PUNKT WYJSCIA. Po r056 korpus ma 21 kart z `content_s` < 2 s (miara
+# z STATE.md: czas pliku minus cisza na krawedziach, prog -45 dBFS).
+# Wszystkie 21 dostalo juz przynajmniej jedna probe; r056 wziela osiem
+# „swiezych" i ZADNA nie weszla (0/8). Dzis nietknieta wspolczesna
+# technika zostala tylko `23` (ostatni prompt z r028).
 #
-# r033: 2 warianty x 2 karty = 4 generacje x 40 kredytow = 160 kredytow.
-# Cel: flaga speech_like na kartach BEZ archetypu (130, 578). Próg flagi to
-# mod_2_8hz_ratio > 0,55 (tempo sylab) + voiced_fraction > 0,35 + centroid
-# 300-3000 Hz - czyli NIE wykrywa mowy, tylko modulację w tempie sylab.
-# Pięć pozostałych kart z tą flagą ma tonalność WYMAGANĄ kontraktem
-# (forest_birdsong tonal >= 0,25: 124, 187, 521; temple_bell tonal >= 0,5: 163)
-# albo wprost w scenariuszu (489 krystaliczny ton), więc ich NIE regeneruję -
-# zabicie flagi złamałoby kontrakt archetypu.
-# Tu przyczyna jest w samym prompcie: 578 prosił o 'morning star WHISTLING
-# full-circle', a gwizd to czysty ton (tonal 0,93); 130 'harsh ragged screech'
-# wyszedł tonalny (tonal 0,72, voiced 0,69), choć skrzek harpii ma być szumowy.
+# DOBOR — nie najkrotsze, ale te z NAJKONKRETNIEJSZA DIAGNOZA. Kazda
+# latka celuje w jedna metryke, ktora w poprzedniej probie nie dowiozla:
 #
-# r034: 2 warianty x 7 kart = 14 generacji x 40 kredytow = 560 kredytow.
-# Cel: 7 najwiekszych WEZLOW podobienstwa. Pomiar strukturalny korpusu:
-# 175 par w pasmie kosinusa 0,90-0,95, 129 kart w co najmniej jednej parze,
-# 45 kart w co najmniej trzech. Najblizej progu 160/290 = 0,9489 (brak 0,0011).
-# Te karty maja ROZNE fabuly, ale model renderuje je identycznie - jako niski
-# szerokopasmowy huk. To jest glowny problem wlasciciela w czystej postaci:
-# jesli dwie karty brzmia niemal tak samo, przynajmniej jedna nie jest
-# rozpoznawalna. Regeneracja jednego wezla zdjmuje najwiecej par naraz:
-#   529 Turn the Tide       14 par | 0,9475 z Glorifier of Suffering
-#   479 Impact Tremors      11 par | 0,9462 z Turn the Tide
-#   290 Soulbright Flamekin  9 par | 0,9489 z Fiery Hellhound
-#   160 Fiery Hellhound      9 par | 0,9489 z Soulbright Flamekin
-#   614 Hunt the Weak        9 par | 0,9411 z Sarkhan's Rage
-#   123 Trade Route Envoy    8 par | 0,9344 z Breaching Hippocamp
-#   287 Sarkhan's Rage       8 par | 0,9435 z Soulbright Flamekin
-# Wzor promptu: NAKAZ, nie zakaz - z 578 (r033) wynika, ze zakaz elementu bez
-# podania zamiennika zdejmuje cale pasmo (centroid 2546 -> 35 Hz).
+#   232 plate_clank     r056: onset_count 0 + flatness 0,018 (za tonalne)
+#                       -> „six separate ... with clear silence between
+#                          them" + „dry and unpitched" (flatness >= 0,03)
+#   434 war_machine     r055: v2 spelnil widmo, ale onset_count 0
+#                       -> „each one landing separately with a short
+#                          pause between them"
+#   113 robot_servo     r055: v1 czysty ton 11 kHz, v2 sub-bas 135 Hz,
+#                       oba bez onsetow -> ton + „two sharp clicks spaced
+#                          far apart" (tonal >= 0,35 i onset >= 2 naraz)
+#   269 beast_screech   r056: attack_s 0,820 (prog <= 0,15)
+#                       -> fraza wyprobowana na 344 w r055 (2,020 -> 0,1):
+#                          „by far the loudest moment of the whole take"
+#     4 water_splash    r056: attack_s 0,670 (prog <= 0,1) -> ta sama latka
+#    26 stone_slide     r056: decay_s 0,060 (prog >= 0,5) -> „holds the
+#                          same loud rumbling level" zamiast piku i zaniku
+#   558 temple_bell     r056: centroid 3095 przy limicie 3000
+#                       -> „low, dark bronze ... well below the middle
+#                          of the range"
+#    23 temple_bell     swieza (prompt z r028) -> wypelnienie take'u;
+#                          celowo INACZEJ niz 558 (zelazo, srodek pasma),
+#                          zeby nie powstala para — 558 i 23 nie sa dziś
+#                          w zadnej parze i tak musi zostac.
 #
-# r035: 2 warianty x 7 kart = 14 generacji x 40 kredytow = 560 kredytow.
-# Cel: drugie pietro WEZLOW podobienstwa. Po r034 zostalo 120 par w pasmie
-# kosinusa 0,90-0,95 (bylo 175), 119 kart w co najmniej jednej parze, 32 w trzech.
-# Wzieiete 7 kart BEZ archetypu - nie ma kontraktu do złamania:
-#   477 Jeskai Windscout          7 par | tresc 1,95 s | centroid  321 Hz
-#   487 Stoic Rebuttal            6 par | tresc 2,86 s | centroid 3239 Hz
-#   470 Springbloom Druid         5 par | tresc 3,20 s | centroid  237 Hz
-#   448 Rupture Spire             4 par | tresc 2,16 s | centroid 1997 Hz
-#   57  Veiled Ascension          4 par | tresc 1,84 s | centroid  341 Hz
-#   550 Frost Lynx                4 par | tresc 1,43 s | centroid 1160 Hz
-#   438 Circle of the Land Druid  4 par | tresc 2,24 s | centroid 7871 Hz
-# POMINIEte celowo: 562 Shock (thunder_clap, TRAFIONY) i 343 Puppeteer Clique
-# (temple_bell, TRAFIONY) - regeneracja ryzykowalaby utrate trafienia.
-# Wzor promptu ten sam co w r034, ktory zadzialal (175 -> 120 par): NAKAZ nie
-# zakaz + hierarchia glosnosci dla elementu charakterystycznego. 470, 477, 57
-# maja centroid 237-341 Hz, czyli siedza w tym samym niskim szerokopasmowym
-# huku, z ktorego r034 wyprowadzila poprzednia siodemke.
+# Take 4,0 s dla wszystkich (regula 6: krotki take sie nie wypelnia —
+# w r056 grupa 2,5 s dostala 8-83 % wypelnienia, grupa 4,0 s: 31-85 %).
 #
-# r036: 2 warianty x 5 kart = 10 generacji x 40 kredytow = 400 kredytow.
-# Cel: trzecie pietro WEZLOW podobienstwa. Po r035 zostalo 99 par w pasmie
-# kosinusa 0,90-0,95 (postep: 175 -> 120 -> 99), 114 kart w >=1 parze, 25 w >=3.
-# Wzieiete 5 kart BEZ archetypu - nie ma kontraktu do złamania:
-#   487 Stoic Rebuttal          4 pary | tresc 2,86 s | centroid 3239 Hz
-#   592 Glorifier of Suffering  4 pary | tresc 1,73 s | centroid 1840 Hz
-#   238 Ramroller               4 pary | tresc 2,19 s | centroid 2102 Hz
-#   22  Titan's Strength        3 pary | tresc 2,45 s | centroid  493 Hz
-#   32  Shipwreck Moray         3 pary | tresc 2,35 s | centroid  440 Hz
-# ODRZUCONE z listy wezlow, bo sa TRAFIONE z kontraktami i regeneracja
-# ryzykowalaby utrate trafienia: 562 Shock (thunder_clap), 343 Puppeteer Clique
-# (temple_bell), 261 Universal Solvent (steam_hiss), 23 Brightwood Tracker
-# (temple_bell), 26 Ember Beast (stone_slide), 358 Frontline War-Rager
-# (creature_roar).
-# 487 bylo probowane w r035 i cofniete, bo warianty wyszly krotkie (v1 1,09 s,
-# v2 1,30 s) - tym razem prompt jawnie rozklada cztery uderzenia na caly take.
-# Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
-# + hierarchia glosnosci dla elementu charakterystycznego.
+# ZASADA OCHRONNA (regula 1): wszystkie osiem kart jest dziś TRAFIONYCH.
+# Spadek werdyktu = powrot do starego sample, nawet jesli tresc urosnie.
+# Odrzucamy tez przyrost < 0,3 s, jesli cena jest nowa flaga (regula 2).
 #
-# r036: 2 warianty x 5 kart = 10 generacji x 40 kredytow = 400 kredytow.
-# Cel: trzecie pietro WEZLOW podobienstwa. Po r035 zostalo 99 par w pasmie
-# kosinusa 0,90-0,95 (postep: 175 -> 120 -> 99), 114 kart w >=1 parze, 25 w >=3.
-# Wzieiete 5 kart BEZ archetypu - nie ma kontraktu do złamania:
-#   487 Stoic Rebuttal          4 pary | tresc 2,86 s | centroid 3239 Hz
-#   592 Glorifier of Suffering  4 pary | tresc 1,73 s | centroid 1840 Hz
-#   238 Ramroller               4 pary | tresc 2,19 s | centroid 2102 Hz
-#   22  Titan's Strength        3 pary | tresc 2,45 s | centroid  493 Hz
-#   32  Shipwreck Moray         3 pary | tresc 2,35 s | centroid  440 Hz
-# ODRZUCONE z listy wezlow, bo sa TRAFIONE z kontraktami i regeneracja
-# ryzykowalaby utrate trafienia: 562 Shock (thunder_clap), 343 Puppeteer Clique
-# (temple_bell), 261 Universal Solvent (steam_hiss), 23 Brightwood Tracker
-# (temple_bell), 26 Ember Beast (stone_slide), 358 Frontline War-Rager
-# (creature_roar).
-# 487 bylo probowane w r035 i cofniete, bo warianty wyszly krotkie (v1 1,09 s,
-# v2 1,30 s) - tym razem prompt jawnie rozklada cztery uderzenia na caly take.
-# Wzor promptu ten sam co w r034/r035, ktory zadzialal: NAKAZ nie zakaz
-# + hierarchia glosnosci dla elementu charakterystycznego.
+# batch w scenarios.jsonl: r057 (MUSI sie zgadzac z --batch).
 #
-# b072e: PIATA PROBA, tylko karta 325. 2 warianty x 1 karta = 2
-# generacje x 40 kredytow = 80 kredytow (lacznie na 325: 400, cala
-# dostawa b072: 560).
-#
-# 324 ZAMKNIETA i zaimportowana (b072b/v1, postprodukcja): crest 25,3,
-# centroid 3524, onset 17, ioi_cv 0,405, 0 flag, brak pary blizniaka.
-#
-# 325 thunder_clap — piec prob, zawsze jeden warunek brakuje:
-#   b072   crest 11,8 / 11,1        (+ mid_up)
-#   b072b  crest 16,9 / 13,0        (v1: centroid 850 przy limicie 800)
-#   b072c  crest 18,4 / 18,8  ALE   low_all 0,003, centroid 2952
-#   b072d  crest 18,6, centroid 71, low_all 0,916, mid_up 0,084
-#          — zostal tylko decay_s 0,36 (wymagane >= 0,5)
-#
-# PROBA MONTAZU (0 kredytow) na b072d/v1: add_reverb_tail.py
-#   wet-db -10 / -14 / -18 daly IDENTYCZNY wynik (sufit floor-db -30
-#   dBFS przy materiale o LUFS -28, wiec reverb i tak startowal z
-#   sufitu). decay_s 0,36 -> 0,85 CEL OSIAGNIETY, ale crest spadl
-#   18,61 -> 15,72. Reverb dodaje energii do RMS wiec crest MUSI
-#   spasc — kontrakt chce obu naraz. Odrzucone.
-#
-# ANALIZA vs WZORZEC 562 Shock (jedyne trafione thunder_clap):
-#   cecha        562       b072d/v1
-#   centroid     345         71      <- v1 ZA CIEMNE
-#   low_all      0,522      0,916    <- v1 prawie sam sub-bas
-#   mid_up       0,478      0,084    <- v1 na krawedzi progu 0,08
-#   decay_s      1,24       0,36     <- v1 nie ma dlugiego grzmotu
-#   crest        18,83      18,61
-#   audible_sh   0,478      0,084
-#   Winny „deep low body" z b072d: zrobil z karty sub-basowy dron.
-#
-# Nowy prompt: mniej „deep", wiecej srodka i dluzszy GLOSNY ogon:
-#   crack (crest) + „rasp of shattered stone" (mid_up) + „heavy low
-#   rumble that stays loud for over a second" (decay_s, low_all) +
-#   „dying away into silence before the end" (ochrona crestu).
-# API 429 / 450.
-#
-# Kontrakt thunder_clap: low_all>=0,5  centroid<=800  crest>=18
-#                        decay_s>=0,5  mid_up>=0,08
-# Take 4,0 s. batch 325: b072d -> b072e.
+# Po imporcie: postprocess ZAWSZE z --ids ograniczonym do batchu i
+# --max-gain-db 26 dla cichych — domyslne 15 dB nie dobija do -20 LUFS,
+# gdy wariant wyjdzie bardzo cicho.
 # Plik i katalog variants/ kasujemy po wyborze wariantow.
 on:
   push:
@@ -159,7 +59,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "325"
+  IDS: "232,434,113,269,4,26,558,23"
 
 jobs:
   variants:
@@ -170,13 +70,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-b072e]
+      - name: Guard — tylko commit z markerem [generate-r057]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b072e]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r057]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b072e] — nic nie generuję"
+            echo "brak markera [generate-r057] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -195,25 +95,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b072e
+          mkdir -p variants/r057
           for v in 1 2; do
-            echo "=== wariant v$v ===" | tee -a variants/b072e/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r057/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch b072e --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b072e/v$v" 2>&1 | tee -a variants/b072e/generate.log
+              --ids "$IDS" --batch r057 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r057/v$v" 2>&1 | tee -a variants/r057/generate.log
           done
-          ls -la variants/b072e variants/b072e/v1 variants/b072e/v2 || true
+          ls -la variants/r057 variants/r057/v1 variants/r057/v2 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b072e data/samples/generated-manifest.jsonl
+          git add -f variants/r057 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "b072e: 16 wariantow (8 kart x 2) + log generacji [import-b072e]"
+            git commit -m "r057: 16 wariantow (8 kart x 2) + log generacji [import-r057]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
