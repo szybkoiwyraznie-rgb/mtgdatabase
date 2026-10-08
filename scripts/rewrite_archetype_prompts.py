@@ -657,10 +657,29 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "292": (
-        "Wind sweeping across a mountain pass: a broad noisy rush of air, "
-        "mid-weighted, that swells slowly, holds steady, then swells twice more before "
-        "fading. " + NO_M,
-        "wiatr przetacza się przez górską przełęcz: szeroki szumiący nurt powietrza o środkowym ciężarze, który narasta powoli, trzyma poziom, po czym wzbiera jeszcze dwa razy przed wygaśnięciem",
+        "A strong gust of wind rushing past: broadband hissing white noise of "
+        "turbulent air, swelling and easing in waves, with no whistle, no pitched "
+        "note, no tonal hum. " + NO_M,
+        "silny podmuch wiatru pedzacy obok: szerokopasmowy szum bialego halasu turbulentnego "
+        "powietrza, wzbierajacy i slabnacy falami, bez gwizdu i bez dzwiezczacego tonu",
+        False,
+    ),
+    "583": (
+        "An arrow loosed at a target: a sharp bowstring twang, then the fletched shaft "
+        "hissing through the air, the whoosh swelling and fading as it flies off, "
+        "ending in a soft distant thud as it strikes home. " + NO_M,
+        "strzala wypuszczona do celu: ostre szarpniecie cieciwy, potem syk lotki przecinajacej "
+        "powietrze, swist wzbierajacy i powoli cichnacy w oddali, na koniec miekki gluchy stuk "
+        "trafienia",
+        False,
+    ),
+    "71": (
+        "A body slamming against an invisible force wall: one instant deep weighted "
+        "impact with no build-up, two shorter wobbling shudders right after it, "
+        "and a low tail. " + NO_M,
+        "cialo uderzajace w niewidzialna sciane sily: jeden natychmiastowy gleboke wazki cios "
+        "bez narastania, potem dwa krotsze chybotliwe wstrzasy sciany w ciagu nastepnej sekundy "
+        "i niski ogon",
         False,
     ),
     "173": ("A warrior's roar taking bear form: a long deep chest roar with enormous low-frequency body underneath, dark and massive, sustained across the whole take.",
