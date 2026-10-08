@@ -605,6 +605,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # heavy_impact <= 1,4 s), kart NIE ruszamy - wydłużanie by je złamalo.
     "250": ("A steel blade snapping back together: one bright hard clash at the very first instant, then four short sharp metallic clicks as the crack seals, each with a gritty shimmer.",
             "ostrze scala się po pęknięciu: jeden jasny twardy szczęk w pierwszej chwili, potem cztery ostre metaliczne kliki", False),
+    "71": (
+        "A rhino soldier slams into a force wall: one instant deep impact, "
+        "then his armour plates clattering and the barrier cracking with "
+        "sharp splintering snaps, mid-range." + NO_M,
+        "nosoroż uderza w barierę siły: jeden natychmiastowy głęboki impet, potem płyty pancerza łomoczą i bariera pęka z ostrymi trzaskami, środek pasma",
+        False,
+    ),
     "73": ("A golden construct's blade snapping out and striking: an instant bright steel hit at the very first moment, then three more crisp clashes with a harsh metallic ring.",
             "ostrze konstrukta wysuwa się i uderza: natychmiastowy jasny cios stali, potem trzy kolejne szczęki z ostrym brzękiem", False),
     "344": (
@@ -671,32 +678,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "strzala wypuszczona do celu: ostre szarpniecie cieciwy, potem syk lotki przecinajacej "
         "powietrze, swist wzbierajacy i powoli cichnacy w oddali, na koniec miekki gluchy stuk "
         "trafienia",
-        False,
-    ),
-    "98": (
-        "A cloud of glowing blue butterflies swirling around a predator: a deep "
-        "droning buzz of countless delicate wings with a warm harmonic core, dense "
-        "and even, holding steadily without a break. " + NO_M,
-        "chmara swiecacych niebieskich motyli otaczajaca drapieznika: gleboki "
-        "brzeczacy dron niezliczonych delikatnych skrzydel o cieplym harmonicznym "
-        "rdzeniu, gesty i rowny, trzymajacy sie bez przerwy",
-        False,
-    ),
-    "71": (
-        "A body slamming against an invisible force wall: one instant deep "
-        "weighted impact, then two shorter wobbling shudders in the next second, "
-        "clearly mid-range. " + NO_M,
-        "cialo uderzajace mocno w niewidzialna sciane sily: jeden natychmiastowy "
-        "gleboki wazki cios bez narastania, potem dwa krotsze chybotliwe wstrzasy "
-        "sciany w ciagu nastepnej sekundy, wstrzasy wyraznie w srodku pasma",
-        False,
-    ),
-    "5": (
-        "An arcane spell igniting: one continuous flowing crystalline shimmer with a "
-        "clear sustained pitch, bright sparkling overtones, smooth and even "
-        "throughout, holding steadily without a break. " + NO_M,
-        "zapalajace sie zaklecie: jeden ciagly plynacy krystaliczny migot o wyraznym "
-        "trzymanym tonie, jasne skrzace alikwoty, gladki i rowny od poczatku do konca",
         False,
     ),
     "173": ("A warrior's roar taking bear form: a long deep chest roar with enormous low-frequency body underneath, dark and massive, sustained across the whole take.",
@@ -839,8 +820,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # probowane 2-3 razy bez efektu.
     "3": ("A bonfire of dry wood: a dense shower of crackles and pops pitched in the middle of the range, warm and woody rather than bright or hissy.",
             "ognisko z suchego drewna: gęsty deszcz trzasków w środku pasma, ciepły i drewniany raczej niż jasny czy syczący", False),
-    "4": ("Three bodies slamming into a pool in a row, the first impact by far the loudest moment of the whole take: three bright sprays of hissing water droplets, sparkling in the upper range, ripples between them.",
-            "trzy ciała wpadają do sadzawki jedno po drugim, pierwsze uderzenie zdecydowanie najgłośniejsze: trzy rozbryzgi syczących kropel, między nimi pluskająca fala", False),
+    "4": (
+        "Five bodies slam into a pool one after another, the first impact "
+        "the loudest: each a bright hissing spray of water droplets, "
+        "churning and dripping to the end." + NO_M,
+        "pięć ciał wpada do sadzawki jedno po drugim, pierwsze uderzenie najgłośniejsze: za każdym razem jasny syczący rozbryzg kropel, woda kłębi się i kapie do końca",
+        False,
+    ),
     "40": ("Thick armour plates knocked together: two or three mid-pitched metal clanks, weighty and dull rather than bright, each plate struck separately.",
             "grube płyty pancerza zderzają się: dwa-trzy klanki w środku pasma, ciężkie i matowe raczej niż jasne", False),
     "96": ("A stream of emerald magic: one continuous flowing shimmering tone with a clear sustained pitch and bright sparkling overtones, smooth and even throughout.",
@@ -1554,10 +1540,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "145": (
-        "A cloning pod bursting open in three stages: three loud resonant metal bangs, "
-        "the first the loudest, each with a shrill metallic ring and a wet gush over "
-        "iron plates. " + NO_M,
-        "komora klonująca otwiera się w trzech etapach: trzy głośne rezonujące metaliczne huki, pierwszy najgłośniejszy, każdy z piskliwym metalicznym dzwonieniem i mokrym chluśnięciem na żelazne płyty",
+        "A cloning pod bursts open in a chain, the first metal bang the "
+        "loudest: a shrill metallic ring, then more seal pops and hatches "
+        "giving way, thick liquid splashing over iron plates to the end." + NO_M,
+        "komora klonująca pęka łańcuchowo, pierwszy metaliczny huk najgłośniejszy: piskliwy metaliczny dzwon, potem kolejne uszczelki i włazy ustępują, gęsty płyn chlapie o żelazne płyty do końca",
         False,
     ),
 }
