@@ -3152,7 +3152,7 @@
    "archetype": "plate_clank",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A heavy armored warhorse walking through icy snow: four clear hoof crunches breaking frozen crust, with steel tack and plate armor clinking between steps. No mu"
+   "prompt": "A warhorse crossing frozen ground: four hoof crunches breaking the crust, steel tack clinking between them, then three more crunches, the last clink to the end."
   },
   {
    "id": "446",

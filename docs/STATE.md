@@ -36,6 +36,13 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   *Epic Experiment* urosła z **1,20 → 3,91 s** treści, kontrakt
   `war_machine` spełniony. Cena: nowy bliźniak `325-434` (0,9422).
   `232` znów cofnięta — crest 12,9–14,9 przy progu 17.
+- Poprzednia runda: `r066` — z 3 kart weszła jedna, ale za to
+  największy pojedynczy skok od r063: `445` *Locthwain Paladin*
+  **2,27 → 3,74 s** (+1,47), kontrakt `plate_clank` w całości,
+  zero flag. `52` cofnięta po raz drugi — tym razem nie na barwie,
+  lecz na **rytmie**: wszystkie trzy łamały `ioi_cv` (1,33–2,23 przy
+  progu 0,8), czyli mechanizm stukał nierówno. `372` cofnięta, bo jej
+  najlepszy wariant dobrałby nową parę bliźniaków (0,9212 z `97`).
 - Poprzednia runda: `r065` — z 3 kart weszły **dwie**, razem
   **+2,86 s**: `67` *Scorpion Sentinel* **2,12 → 3,96 s** (drugi
   wynik w historii, po `247`) i `553` *Coat with Venom*
@@ -96,7 +103,7 @@ Metryki korpusu (audyt `2026-10-08-after-eq`):
 | LUFS średnio | **-20.09** (odch. 0.48) |
 | archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 151** |
 
-Budżet: klucz 10 000 kredytów, **wydane 6400, zostaje 3600**.
+Budżet: klucz 10 000 kredytów, **wydane 6760, zostaje 3240**.
 Rozbicie na rundy jest w sekcji „Ile zostało" poniżej.
 Realny koszt to **40 kredytów za generację**; pełna runda 8 kart po
 2 warianty = 16 generacji = **640 kredytów**, dostawa 2 kart = 160.
@@ -177,9 +184,9 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 - Katalog: **563 fabuł**, scenariusze **563** (100 %), sample **563**.
 - Flagi **39**, pary ≥ 0,90 **25**, treść < 2 s **12**.
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **151** trafionych.
-- Budżet: **3600 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
+- Budżet: **3240 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
   r058: 360, r059: 240, r060: 360, r061: 360, r062: 360, r063: 360,
-  r064: 360, r065: 360).
+  r064: 360, r065: 360, r066: 360).
 
 ## Reguły i procedury
 
@@ -367,6 +374,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r063 | 2026-10-08 | łańcuch zdarzeń na 23, 469 i 247; weszły 469 (1,99 → 3,43 s) i 247 (2,06 → 4,00 s), 23 cofnięta | `state-2026-10-08-r063.md` |
 | r064 | 2026-10-08 | łańcuch zdarzeń na kartach 2,0–2,6 s; weszła 491 (2,13 → 2,67 s), 52 za jasna i 260 za ciemna — cofnięte | `state-2026-10-08-r064.md` |
 | r065 | 2026-10-08 | rzeczowniki zamiast przymiotników barwy; weszły 67 (2,12 → 3,96 s) i 553 (2,12 → 3,14 s), 524 cofnięta | `state-2026-10-08-r065.md` |
+| r066 | 2026-10-08 | rzeczowniki na 52, 372 i 445; weszła 445 (2,27 → 3,74 s), 52 cofnięta na rytmie, 372 za parę z 97 | `state-2026-10-08-r066.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -375,31 +383,32 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Kolejna runda `r066`** — jedna powtórka i dwie świeże karty:
+1. **Kolejna runda `r067`** — dwie karty z największymi lukami i jedna
+   z archetypu, który odpowiada najlepiej:
    ```
-    52 mechanism_click  tresc 2,20 s  luka 1,22 s  4 prob  bez fill-take
-   372 stone_slide      tresc 2,25 s  luka 0,61 s  1 proba  bez fill-take
-   445 plate_clank      tresc 2,27 s  luka 0,70 s  4 prob  bez fill-take
+    52 mechanism_click  tresc 2,20 s  luka 1,22 s  5 prob  bez fill-take
+   501 war_machine      tresc 2,75 s  luka 1,19 s  3 prob  fill-take od r029
+   355 plate_clank      tresc 2,01 s  luka 0,99 s  2 prob  fill-take od r028
    ```
-   `52` wraca celowo: w r064 poległa na barwie (centroid 8309–9512 przy
-   oknie 800–6000), a jej prompt był samymi przymiotnikami („low dull
-   wooden... deep and soft-edged... no bright ticking"). To największa
-   luka w korpusie i najprostszy sprawdzian wniosku z r065 — dostanie
-   wyłącznie rzeczowniki: mosiężne koło zębate, drewniany kołek,
-   dźwignia, zapadka.
-   `372` ma tylko **1 próbę** i prompt bez domknięcia („One deep
-   grinding scrape... slow, heavy and resonant") — profil, który dał
-   `247` +1,94 s, `491` +0,54 s i `553` +1,02 s.
-   `445` jest w `plate_clank`, czyli w archetypie, który w r064
-   zadziałał najczyściej (`491`). Jej prompt ma już łańcuch („four
-   clear hoof crunches"), ale bez domknięcia i z przymiotnikiem
-   „clear".
-   `524` odpoczywa: jej archetyp `sword_clash` wymaga `attack_s` ≤ 0,1,
-   czyli uderzenia w pierwszej chwili, a opis „reliquary clicking
-   open, blade springing out" daje z definicji narastanie. Kiedyś
-   wróci, ale z promptem zaczynającym się od uderzenia.
-   **Zasada z r065 obowiązuje we wszystkich trzech:** zero
-   przymiotników barwy, tylko rzeczowniki i czasowniki.
+   `501` to ten sam archetyp, w którym rzeczowniki dały `67` +1,84 s
+   w r065. Jej obecny prompt jest jeszcze przymiotnikowy („two heavy
+   blasts with a low thump, over loud gritty metallic knocking...
+   carried clearly in the middle of the range") — dostanie sam
+   mechanizm: cylinder, zawór, pompa, korbowód.
+   `52` wraca po raz trzeci i tym razem diagnoza jest wąska. W r064
+   poległa na barwie (centroid 8309–9512), w r066 rzeczowniki barwę
+   **naprawiły** (v1 5936, v3 5392 — oba w oknie 800–6000), ale
+   wszystkie trzy złamały `ioi_cv` (1,33–2,23 przy progu 0,8):
+   mechanizm stukał nierówno. Został jeden warunek — równy odstęp.
+   Obecny sample ma `ioi_cv` 0,252, czyli wzorzec jest w korpusie.
+   `355` leży w `plate_clank`, archetypie który odpowiedział na
+   łańcuch zdarzeń trzy razy z rzędu (`491` +0,54 s, `445` +1,47 s,
+   a w r066 wszystkie trzy warianty `445` przeszły kontrakt). Jej
+   prompt ma już łańcuch („five separate steel plates"), ale kończy
+   się przymiotnikiem „distinct and mid-pitched" bez domknięcia.
+   `372` odpoczywa: jej najlepszy wariant dobrałby parę z `97`
+   (0,9212), a drugi złamał `low_all` o 0,001 (0,249 przy progu 0,25).
+   `524`, `4`, `145`, `23`, `98`, `12`, `232`, `260` — bez zmian.
    `553` i `524` to ten sam profil, który dał `247` (+1,94 s) i `491`
    (+0,54 s): **jedna próba, brak fill-take, prompt bez domknięcia.**
    `553` ma dodatkowo kontrakt już teraz **złamany** (score 1,0),
@@ -451,6 +460,7 @@ docs/archive/state-2026-10-08-r062.md   runda r062 (71 weszła, 4 i 145 cofnięt
 docs/archive/state-2026-10-08-r063.md   runda r063 (469 i 247 weszły, 23 cofnięta)
 docs/archive/state-2026-10-08-r064.md   runda r064 (491 weszła, 52 i 260 cofnięte)
 docs/archive/state-2026-10-08-r065.md   runda r065 (67 i 553 weszły, 524 cofnięta)
+docs/archive/state-2026-10-08-r066.md   runda r066 (445 weszła, 52 i 372 cofnięte)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:
