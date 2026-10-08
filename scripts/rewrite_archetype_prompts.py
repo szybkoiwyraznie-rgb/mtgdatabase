@@ -487,13 +487,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # mechanism_click: profile r025 mówiły „mid-pitched, dry and woody rather
     # than hissy", a centroid i tak wyszedł 7,7-10,6 kHz przy oknie 800-6000.
     # Model czyta „click" jako jasny trzask, więc nazywamy wprost czego NIE ma być.
-    "52": (
-        "A clockwork mechanism turning: at least ten low dull wooden knocks "
-        "in a steady rhythm one after another, deep and soft-edged, with no "
-        "bright ticking and no hiss, the knocking running on to the end." + NO_M,
-        "mechanizm zegarowy: co najmniej dziesięć niskich głuchych drewnianych stuków jeden po drugim w równym rytmie, bez jasnego cykania i syku, stukanie trwa do końca",
-        False,
-    ),
+    "52": ("A clockwork mechanism turning: a row of low dull wooden knocks in a steady rhythm, "
+           "deep and soft-edged, with no bright ticking and no hiss. " + NO_M,
+           "mechanizm zegarowy: rząd niskich głuchych drewnianych stuków, bez jasnego cykania i syku", False),
     "132": ("A small gear train stepping: firm low knocks of wood on brass, dark and round, "
             "evenly spaced, without any high-pitched snap. " + NO_M,
             "przekładnia: niskie głuche stuki drewna o mosiądz, ciemne i bez wysokiego trzasku", False),
@@ -533,13 +529,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "dwa krótkie władcze sygnały mosiężnego rogu nad ruinami, drugi nieco wyżej, każdy w pełni wybrzmiewa", False),
     "256": ("Nightmare visions seeping into a sleeping mind: three rising dissonant whispers of air, each swelling and falling away, layered one after another.",
             "koszmarne wizje sączą się do umysłu śpiącej kobiety: trzy narastające dysonansowe szmery powietrza kolejno", False),
-    "260": (
-        "A giant predator roaring from a cave: two huge roaring calls one "
-        "after the other, the second louder, each with a long stone echo "
-        "that keeps rolling, the last one trailing right to the end." + NO_M,
-        "wielki drapieżnik ryczy z jaskini: dwa potężne ryki jeden po drugim, drugi głośniejszy, każdy z długim kamiennym echem, ostatnie wybrzmiewa do końca",
-        False,
-    ),
     "264": ("An iron grate exploding outward and hitting an invisible spirit shield: one hard burst, then three successive metallic rebounds as the bars strike the barrier.",
             "krata eksploduje i zatrzymuje się na tarczy ducha: jeden wybuch, potem trzy kolejne metaliczne odbicia od bariery", False),
     "268": ("A building rhythm of open hands slapping bark and tree trunks: six to eight slaps getting faster and louder around the clearing.",
@@ -646,6 +635,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "skrzyżowane ostrza kavu: pięć ostrych ziarnistych starć stali jedno po drugim, z których pierwsze jest zdecydowanie najgłośniejszym momentem całego take, uderzające z pełną siłą bez narastania",
         False,
     ),
+    "524": (
+        "A lightblade igniting from the hilt: the reliquary clicking open, "
+        "the blade springing out in two stages, radiance hissing, then two "
+        "thrusts one after the other, the hiss running to the end." + NO_M,
+        "świetlista klinga zapala się od rękojeści: relikwiarz otwiera się z klikiem, ostrze wyskakuje w dwóch etapach, blask syczy, potem dwa pchnięcia jedno po drugim, syk trwa do końca",
+        False,
+    ),
     "525": ("A rapier thrust throwing a wave of glacial spikes: one instant bright steel impact, then four sharp cracking strikes as the ice splinters, each with a glassy metallic ring.",
             "fala lodowcowych kolców od ciosu rapiera: natychmiastowy jasny cios, potem cztery ostre trzaski pękanego lodu", False),
     "594": ("A sword wrenched out of mud and struck: an instant hard bright steel clash at the very first moment, then three more gritty ringing strikes.",
@@ -747,8 +743,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "cios wielkiego miecza: brutalne uderzenie z chrapliwego szerokopasmowego zgrzytu, bez gładkiego tonu", False),
     "9": ("A gust of wind: broadband hissing white noise of turbulent air, swelling and easing, with no whistle, no pitched note and no tonal hum anywhere in it.",
             "podmuch wiatru: szerokopasmowy szumiący szum białego turbulentnego powietrza, bez gwizdu i bez tonu", False),
-    "67": ("A war machine's engine: a deep rumble kept low in level, with loud gritty metallic knocking and clanking clearly forward in the middle of the range.",
-            "silnik machiny: głęboki pomruk nisko, a głośny chrapliwy metaliczny stukot wyraźnie w środku pasma", False),
+    "67": (
+        "A war machine's engine: a piston knocking, a second piston "
+        "joining in, gears grinding and a chain running over a sprocket, "
+        "the clanking keeping on without a break to the end." + NO_M,
+        "silnik machiny: stuka tłok, dołącza drugi, zgrzytają koła zębate i biegnie łańcuch po kole napędowym, stukot trwa bez przerwy do końca",
+        False,
+    ),
     "80": ("An armored vehicle idling: a moderate low engine rumble under loud gritty mechanical clatter and metal knocking that sits forward in the mid range.",
             "opancerzony pojazd na biegu: umiarkowany pomruk pod głośnym chrapliwym metalicznym terkotem w środku", False),
     "501": ("A double plasma volley from a reactor: two heavy blasts with a low thump, over loud gritty metallic knocking and clanking carried clearly in the middle of the range.",
@@ -1149,6 +1150,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "Stone slabs sweeping past: a fast heavy air whoosh with bright grit "
         "and small pebbles rattling and skittering off the stone.  " + NO_M,
         "kamienne płyty przelatują: szybki ciężki świst powietrza z jasnym żwirem i drobnymi kamykami szczękającymi i ślizgającymi się po kamieniu",
+        False,
+    ),
+    "553": (
+        "Blades anointed in venom: steel drawn against steel in three long "
+        "scraping passes, a blade lifted out of a basin with the liquid "
+        "dragging off it, two more scraping passes to the end." + NO_M,
+        "ostrza namaszczone jadem: stal ociera się o stal w trzech długich pociągnięciach, ostrze wyjmowane z misy z ociekającą cieczą, jeszcze dwa pociągnięcia do końca",
         False,
     ),
     "554": (
