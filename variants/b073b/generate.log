@@ -1,0 +1,12 @@
+=== wariant v1 ===
+selected 1 scenario(s)
+OK 327: variants/b073b/v1/327.mp3 (48945 bytes)
+done: generated=1, skipped=0, failed=0
+=== wariant v2 ===
+selected 1 scenario(s)
+OK 327: variants/b073b/v2/327.mp3 (48945 bytes)
+done: generated=1, skipped=0, failed=0
+=== wariant v3 ===
+selected 1 scenario(s)
+OK 327: variants/b073b/v3/327.mp3 (48945 bytes)
+done: generated=1, skipped=0, failed=0
