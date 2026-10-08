@@ -1,7 +1,30 @@
-name: TEMP b073 - dwie nowe karty (327 Brave-Kin Duo, 328 Bog Hoodlums)
+name: TEMP b073b - 327 Brave-Kin Duo, przepisany prompt pod sustain_ratio
 
-# b073: dostawa wlasiciciela. 2 karty x 3 warianty = 6 generacji x 40
-# kredytow = 240 kredytow.
+# b073b: DRUGA PROBA dla 327. 1 karta x 3 warianty = 3 generacje x 40
+# kredytow = 120 kredytow (lacznie z b073: 360).
+#
+# 328 jest DOWIEZIONA (v2, trafiony, 0 flag) i juz lezy w
+# audio/samples/328.mp3 — tu jej nie ruszamy.
+#
+# CO NIE WYSZLO W b073. Wszystkie trzy warianty 327 dostaly
+# "prawdopodobnie" i ten sam jeden zarzut:
+#
+#   sustain_ratio 0,107 / 0,120 / (v3 tez centroid 4998) przy progu >= 0,3
+#
+# sustain_ratio = ulamek ramek w granicach 12 dB od szczytu
+# (audit_semantic_match.py). Pierwszy prompt mowil "korek wyciagniety z
+# manierki, ... potem chleptanie" — korek zrobil krotki glosny pik,
+# ktory wywindowal szczyt, a cale nalewanie i chleptanie zostalo
+# ponizej 12 dB. Dodatkowo trzy ODDZIELNE zdarzenia (korek / lanje /
+# chleptanie) z przerwami z definicji nie moga utrzymac poziomu.
+#
+# NAPRAWA: jedno zdarzenie ciagle. Z promptu wylatuja korek i
+# chleptanie, zostaje samo nieprzerwane lanje trzymajace rowny poziom
+# przez caly take. Osobny detal ikoniczny: ton nalewania powoli rosnie,
+# gdy kubek sie napelnia.
+#
+# Reszta zalozen bez zmian: pisac o materiale i pasmie, nie o jasnosci;
+# nie uzywac "deep"/"dull"; take 3,0 s.
 #
 # KARTY
 #
@@ -57,7 +80,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "327,328"
+  IDS: "327"
 
 jobs:
   variants:
@@ -68,13 +91,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-b073]
+      - name: Guard — tylko commit z markerem [generate-b073b]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b073]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b073b]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b073] — nic nie generuję"
+            echo "brak markera [generate-b073b] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -93,25 +116,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b073
+          mkdir -p variants/b073b
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/b073/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b073b/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch b073 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b073/v$v" 2>&1 | tee -a variants/b073/generate.log
+              --ids "$IDS" --batch b073b --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b073b/v$v" 2>&1 | tee -a variants/b073b/generate.log
           done
-          ls -la variants/b073 variants/b073/v1 variants/b073/v2 variants/b073/v3 || true
+          ls -la variants/b073b variants/b073b/v1 variants/b073b/v2 variants/b073b/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b073 data/samples/generated-manifest.jsonl
+          git add -f variants/b073b data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "b073: 6 wariantow (2 karty x 3) + log generacji [import-b073]"
+            git commit -m "b073: 6 wariantow (2 karty x 3) + log generacji [import-b073b]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
