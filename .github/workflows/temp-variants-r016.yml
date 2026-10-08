@@ -1,50 +1,40 @@
-name: "TEMP r060 - 583, 292 i 71: klauzula wypelnienia taktu + prompty na wzor przechodzacych"
+name: "TEMP r061 - 98, 71 i 5: fill-take, ktorego nigdy nie dostaly"
 
-# r060: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# r061: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
 #
-# DOBOR — najgorsze w swojej klasie, czyli najwieksza roznica do mediany
-# tresci w archetypie (nie „najkrotsze"):
+# DOBOR — jedyny wniosek z r060: `583` i `292` urosly o 2,45 i 1,84 s po
+# dodaniu klauzuli --fill-take, ktorej nie mialy przez 3-4 poprzednie
+# podejscia. Bierzemy trzy kolejne karty, ktore likewise jej nie dostaly:
 #
-#   583 arrow_flight   tresc 0,21 s  przy medianie 2,34 (2/3 kart >= 2 s)
-#   292 wind_gust      tresc 1,38 s  przy medianie 2,71 (5/6 kart >= 2 s)
-#    71 heavy_impact   tresc 1,40 s  przy medianie 2,51 (4/5 kart >= 2 s)
+#   98 insect_swarm    tresc 1,82 s  przy medianie 3,91  (bez fill-take)
+#   71 heavy_impact    tresc 1,40 s  przy medianie 2,51  (bez fill-take)
+#    5 magic_shimmer   tresc 1,87 s  przy medianie 2,69  (bez fill-take)
 #
-# `583` to najgorszy sample w korpusie: plik ma 3,30 s, a dzwiek siedzi na
-# samym koncu — przed nim 2,9 s ciszy (flaga long_lead_silence). Sama
-# tresc to 0,21 s, dziesięciokrotnie mniej niz nastepna karta w kolejce.
+# `98` jest dodatkowo „prawdopodobnie 1,0" (centroid 8860 Hz przy progu
+# 1000-6000), wiec moze tylko zyskac. `5` i `71` sa trafione, wiec
+# obowiazuje regula 1: spadek werdyktu = powrot do starego.
 #
-# GLOWNY LEW: KLAUZULA FILL-TAKE. Tylko `4` z całej siedemnastki miala ja
-# dotychczas — `583`, `292` i `71` NIGDY. A to wlasnie ona robila roznice
-# w r057 (+2,63 / +2,80 / +2,58 s) i r058 (+2,6…2,8 s we wszystkich 9
-# wariantach). `292` probowano juz 4 razy przy take 4,0 s, ale bez tej
-# klauzuli; `71` tylko 2 razy i zawsze przy krotkim take 2,5 s
-# (regula 6: krotki take sie nie wypelnia).
+# `12` (robot_servo, luka 2,17 s) omijam: fill-take ma od r055 i nadal
+# stoi na 1,80 s, czyli dzwignia jest tam wyczerpana.
 #
-# PROMPTY NA WZOR PRZECHODZACYCH (wniosek z r059, gdzie 434 weszla
-# w jednej rundzie po dwoch nieudanych):
-#   583  — kontrakt arrow_flight spelniaja dziś karty 207 i 370, czyli
-#          w istocie ciecze: szerokopasmowy, ciagly szum. Nasz prompt
-#          opisywal KROTKE zdarzenie „twang + swist". Teraz lot jest
-#          rozciagniety i konczy sie gluchym trafieniem (karta to
-#          „Kill Shot — One perfect arrow", wiec trafienie jest jak
-#          najbardziej na miejscu, a nie sztucznym przedluzeniem).
-#   292  — przechodzace 9 i 43 mowia „broadband hissing white noise of
-#          turbulent air, swelling and easing". Nasz opisywal ZDARZENIA
-#          (skrzydlo pergaminu, okiennice, ziarnka kurzu), wiec model
-#          robil serie stukniec, a nie podmuch. Stad tez sustain 0,258
-#          przy progu 0,3 — podmuch musi byc ciagly, nie poszatkowany.
-#    71  — przechodzace 463: „one instant deep weighted impact with no
-#          build-up, then two shorter cracking snaps ... within the next
-#          second" + fill-take. Nasz mowil o JEDNYM ciosie i ogonie.
-#          Dokladamy dwa krotsze wstrzasy po uderzeniu.
+# PROMPTY NA WZOR PRZECHODZACYCH (dziala od r059):
+#   98  przechodzace 574, 166 i 540 mowia o CIAGLYM dronie: „a deep
+#       droning buzz with a warm harmonic core, holding steadily without
+#       a break". Nasz opisywal ZDARZENIA („dense delicate wing
+#       flutters, one confused startled hiss, wings drifting apart"),
+#       wiec model robil krotkie trzepotanie zamiast roju.
+#   71  wraca po r060, gdzie wszystkie warianty wyszly za ciemne
+#       (centroid 51-66 Hz, klasa heavy_impact to 111-2538, wzorce
+#       463/328/210 maja 1552/1174/2538). Winny byl moj „low tail".
+#       Teraz wstrzasy sa wprost „clearly mid-range".
+#    5  wzorzec 96 (2,93 s, ma fill-take): „one continuous flowing
+#       shimmering tone with a clear sustained pitch and bright
+#       sparkling overtones, smooth and even throughout". Nasz mowil
+#       „high in the treble", co ciagnelo centroid w gore (4985).
 #
-# Take 4,0 s dla wszystkich. Payload 410-433/450 znakow, PL <= 220.
+# Take 4,0 s dla wszystkich. Payload 379-418/450 znakow, PL <= 220.
 #
-# ZASADA OCHRONNA (regula 1): 583 i 71 sa dzis TRAFIONE 0 pkt, wiec
-# spadek werdyktu = powrot do starego. 292 jest „prawdopodobnie 1,0"
-# (sustain 0,258 przy progu 0,3) — czyli moze tylko zyskac.
-#
-# batch w scenarios.jsonl: r060 (MUSI sie zgadzac z --batch).
+# batch w scenarios.jsonl: r061 (MUSI sie zgadzac z --batch).
 #
 # Po imporcie: postprocess ZAWSZE z --ids ograniczonym do batchu i
 # --max-gain-db 26 dla cichych — domyslne 15 dB nie dobija do -20 LUFS,
@@ -61,7 +51,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "583,292,71"
+  IDS: "98,71,5"
 
 jobs:
   variants:
@@ -72,13 +62,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r060]
+      - name: Guard — tylko commit z markerem [generate-r061]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r060]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r061]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r060] — nic nie generuję"
+            echo "brak markera [generate-r061] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -97,25 +87,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r060
+          mkdir -p variants/r061
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r060/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r061/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r060 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r060/v$v" 2>&1 | tee -a variants/r060/generate.log
+              --ids "$IDS" --batch r061 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r061/v$v" 2>&1 | tee -a variants/r061/generate.log
           done
-          ls -la variants/r060 variants/r060/v1 variants/r060/v2 variants/r060/v3 || true
+          ls -la variants/r061 variants/r061/v1 variants/r061/v2 variants/r061/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r060 data/samples/generated-manifest.jsonl
+          git add -f variants/r061 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r060: 9 wariantow (3 karty x 3) + log generacji [import-r060]"
+            git commit -m "r061: 9 wariantow (3 karty x 3) + log generacji [import-r061]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

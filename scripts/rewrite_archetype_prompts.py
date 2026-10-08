@@ -673,6 +673,32 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "trafienia",
         False,
     ),
+    "98": (
+        "A cloud of glowing blue butterflies swirling around a predator: a deep "
+        "droning buzz of countless delicate wings with a warm harmonic core, dense "
+        "and even, holding steadily without a break. " + NO_M,
+        "chmara swiecacych niebieskich motyli otaczajaca drapieznika: gleboki "
+        "brzeczacy dron niezliczonych delikatnych skrzydel o cieplym harmonicznym "
+        "rdzeniu, gesty i rowny, trzymajacy sie bez przerwy",
+        False,
+    ),
+    "71": (
+        "A body slamming against an invisible force wall: one instant deep "
+        "weighted impact, then two shorter wobbling shudders in the next second, "
+        "clearly mid-range. " + NO_M,
+        "cialo uderzajace mocno w niewidzialna sciane sily: jeden natychmiastowy "
+        "gleboki wazki cios bez narastania, potem dwa krotsze chybotliwe wstrzasy "
+        "sciany w ciagu nastepnej sekundy, wstrzasy wyraznie w srodku pasma",
+        False,
+    ),
+    "5": (
+        "An arcane spell igniting: one continuous flowing crystalline shimmer with a "
+        "clear sustained pitch, bright sparkling overtones, smooth and even "
+        "throughout, holding steadily without a break. " + NO_M,
+        "zapalajace sie zaklecie: jeden ciagly plynacy krystaliczny migot o wyraznym "
+        "trzymanym tonie, jasne skrzace alikwoty, gladki i rowny od poczatku do konca",
+        False,
+    ),
     "173": ("A warrior's roar taking bear form: a long deep chest roar with enormous low-frequency body underneath, dark and massive, sustained across the whole take.",
             "ryk wojownika przybierającego postać niedźwiedzia: długi głęboki piersiowy ryk z olbrzymim niskim ciałem pod spodem, masywny", False),
     "478": ("Claws raking a hard glassy barrier: a bright scraping screech then a shattering burst of many small glass shards ticking down, at least eight separate tinkling impacts.",
