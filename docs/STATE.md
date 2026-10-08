@@ -36,6 +36,14 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   *Epic Experiment* urosła z **1,20 → 3,91 s** treści, kontrakt
   `war_machine` spełniony. Cena: nowy bliźniak `325-434` (0,9422).
   `232` znów cofnięta — crest 12,9–14,9 przy progu 17.
+- Poprzednia runda: `r067` — z 3 kart weszły **dwie**, razem
+  **+2,08 s**: `52` *Divest* **2,20 → 3,21 s** i `355` *Cathartic
+  Reunion* **2,01 → 3,08 s**, obie trafione, obie bez flag i bez
+  nowych par. `52` weszła za **piątym** razem — wystarczyło dopisać
+  równy odstęp (`ioi_cv` z 1,33–2,23 w r066 na 0,795 w r067).
+  `501` cofnięta: wszystkie trzy warianty łamały `low_all`
+  (0,022–0,131 przy progu 0,35), bo „steam venting" zrobiło z
+  machiny wojennej syk.
 - Poprzednia runda: `r066` — z 3 kart weszła jedna, ale za to
   największy pojedynczy skok od r063: `445` *Locthwain Paladin*
   **2,27 → 3,74 s** (+1,47), kontrakt `plate_clank` w całości,
@@ -103,7 +111,7 @@ Metryki korpusu (audyt `2026-10-08-after-eq`):
 | LUFS średnio | **-20.09** (odch. 0.48) |
 | archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 151** |
 
-Budżet: klucz 10 000 kredytów, **wydane 6760, zostaje 3240**.
+Budżet: klucz 10 000 kredytów, **wydane 7120, zostaje 2880**.
 Rozbicie na rundy jest w sekcji „Ile zostało" poniżej.
 Realny koszt to **40 kredytów za generację**; pełna runda 8 kart po
 2 warianty = 16 generacji = **640 kredytów**, dostawa 2 kart = 160.
@@ -186,7 +194,7 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **151** trafionych.
 - Budżet: **3240 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
   r058: 360, r059: 240, r060: 360, r061: 360, r062: 360, r063: 360,
-  r064: 360, r065: 360, r066: 360).
+  r064: 360, r065: 360, r066: 360, r067: 360).
 
 ## Reguły i procedury
 
@@ -375,6 +383,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r064 | 2026-10-08 | łańcuch zdarzeń na kartach 2,0–2,6 s; weszła 491 (2,13 → 2,67 s), 52 za jasna i 260 za ciemna — cofnięte | `state-2026-10-08-r064.md` |
 | r065 | 2026-10-08 | rzeczowniki zamiast przymiotników barwy; weszły 67 (2,12 → 3,96 s) i 553 (2,12 → 3,14 s), 524 cofnięta | `state-2026-10-08-r065.md` |
 | r066 | 2026-10-08 | rzeczowniki na 52, 372 i 445; weszła 445 (2,27 → 3,74 s), 52 cofnięta na rytmie, 372 za parę z 97 | `state-2026-10-08-r066.md` |
+| r067 | 2026-10-08 | 52 dostała równy odstęp i weszła za 5. razem (2,20 → 3,21 s); 355 weszła (2,01 → 3,08 s); 501 cofnięta na `low_all` | `state-2026-10-08-r067.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -383,13 +392,31 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Kolejna runda `r067`** — dwie karty z największymi lukami i jedna
-   z archetypu, który odpowiada najlepiej:
+1. **Kolejna runda `r068`** — trzy karty z największymi lukami, każda
+   z inną, już znaną przyczyną porażki:
    ```
-    52 mechanism_click  tresc 2,20 s  luka 1,22 s  5 prob  bez fill-take
-   501 war_machine      tresc 2,75 s  luka 1,19 s  3 prob  fill-take od r029
-   355 plate_clank      tresc 2,01 s  luka 0,99 s  2 prob  fill-take od r028
+   501 war_machine      tresc 2,75 s  luka 1,19 s  4 prob  fill-take od r029
+   565 forest_birdsong  tresc 2,67 s  luka 1,02 s  4 prob  fill-take od r054
+   308 sword_clash      tresc 2,06 s  luka 0,96 s  4 prob  fill-take
    ```
+   `501` wraca po jednym pudle, którego przyczyna jest znana co do
+   słowa: „a valve opening with steam venting" zrobiło z machiny
+   wojennej syk (`low_all` 0,022–0,131 przy progu 0,35, `mid_up`
+   0,87–0,98). Obecny sample ma `low_all` 0,725 i centroid 459, więc
+   wzorzec jest w korpusie — wystarczy wyrzucić parę. Dostanie same
+   niskie części: tłok, korbowód, koło zamachowe, łańcuch.
+   `565` ma już w prompcie łańcuch („eight clear piping chirps"), ale
+   kończy się przymiotnikiem („each a short bright tonal whistle")
+   i nie ma domknięcia. `forest_birdsong` i tak wymaga `onset_count`
+   ≥ 4, więc łańcuch jest tu naturalny.
+   `308` to `sword_clash`, archetyp z najostrzejszym warunkiem
+   wstępnym: `attack_s` ≤ 0,1, czyli uderzenie w pierwszej chwili
+   (to samo, co wyłożyło `524` w r065). Obecny sample spełnia go
+   z zapasem (0,03), więc łańcuch **musi** zacząć się od uderzenia,
+   a narastanie może przyjść dopiero po nim.
+   `372` i `260` odpoczywają: `372` dobrała parę 0,9212 z `97`,
+   `260` pudłowała na barwie cztery razy. `4`, `145`, `23`, `98`,
+   `12`, `232`, `524` — bez zmian.
    `501` to ten sam archetyp, w którym rzeczowniki dały `67` +1,84 s
    w r065. Jej obecny prompt jest jeszcze przymiotnikowy („two heavy
    blasts with a low thump, over loud gritty metallic knocking...
@@ -461,6 +488,7 @@ docs/archive/state-2026-10-08-r063.md   runda r063 (469 i 247 weszły, 23 cofni�
 docs/archive/state-2026-10-08-r064.md   runda r064 (491 weszła, 52 i 260 cofnięte)
 docs/archive/state-2026-10-08-r065.md   runda r065 (67 i 553 weszły, 524 cofnięta)
 docs/archive/state-2026-10-08-r066.md   runda r066 (445 weszła, 52 i 372 cofnięte)
+docs/archive/state-2026-10-08-r067.md   runda r067 (52 i 355 weszły, 501 cofnięta)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:

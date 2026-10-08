@@ -1,49 +1,43 @@
-name: "TEMP r067 - 52, 501 i 355: dwa archetypy, ktore dzialaja"
+name: "TEMP r068 - 501, 565 i 308: trzy znane przyczyny pudla"
 
-# r067: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# r068: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
 #
-# DOBOR — dwie karty z najwiekszymi lukami i jedna z najlepszego archetypu:
+# DOBOR — trzy karty z najwiekszymi lukami, kazda z inna, juz ZNANA
+# przyczyna porazki:
 #
-#   52 mechanism_click  tresc 2,20 s  luka 1,22 s  5 prob  bez fill-take
-#  501 war_machine      tresc 2,75 s  luka 1,19 s  3 prob  fill-take od r029
-#  355 plate_clank      tresc 2,01 s  luka 0,99 s  2 prob  fill-take od r028
+#  501 war_machine      tresc 2,75 s  luka 1,19 s  4 prob  fill-take od r029
+#  565 forest_birdsong  tresc 2,67 s  luka 1,02 s  4 prob  fill-take od r054
+#  308 sword_clash      tresc 2,06 s  luka 0,96 s  4 prob  fill-take
 #
-# 501 to TEN SAM archetyp, w ktorym rzeczowniki DZIALAJA: r065 dala
-# 67 +1,84 s („piston, gears, chain, sprocket") i 553 +1,02 s („steel
-# drawn against steel, blade lifted out of a basin"). Obecny prompt 501
-# jest jeszcze przymiotnikowy („two heavy blasts with a low thump,
-# over loud gritty metallic knocking... carried clearly in the middle
-# of the range"). Dostanie sam mechanizm: cylinder, zawor, pompa,
-# korbowod — bez zadnego przymiotnika barwy.
+# 501 wraca po jednym pudle, ktorego przyczyna jest znana CO DO SLOWA.
+# W r067 wrzucilem „a valve opening with steam venting" i para zmienila
+# machine w czajnik:
 #
-# 52 wraca PO RAZ TRZECI i diagnoza jest juz waska. W r064 polegla na
-# barwie (centroid 8309-9512). W r067 rzeczowniki BARWE NAPRAWILY:
-# v1 5936 i v3 5392 sa w oknie 800-6000. Ale wszystkie trzy zlamaly
-# ioi_cv, czyli ROWNOSC RYTMU:
+#   low_all   v1 0,022   v2 0,131   v3 0,131      prog >= 0,35
+#   mid_up    v1 0,978   v2 0,869   v3 0,870      (prawie cala energia w gorze)
 #
-#   ioi_cv   v1 2,231   v2 1,370   v3 1,327     prog <= 0,8
+# Obecny sample 501 ma low_all 0,725 i centroid 459 — wzorzec jest
+# w korpusie, wiec wystarczy NIE popsuc. Wylatuje para, zostaja same
+# niskie czesci: tlok, korbowod, kolo zamachowe, lancuch.
 #
-# Obecny sample ma ioi_cv 0,252 — wzorzec jest w korpusie, moj prompt
-# po prostu o rowny odstep nie zadal. Zostal JEDEN warunek.
+# 565 ma juz lancuch („eight clear piping chirps in an uneven rhythm"),
+# ale konczy sie przymiotnikiem („each a short bright tonal whistle")
+# i nie ma domkniecia. forest_birdsong i tak wymaga onset_count >= 4,
+# wiec lancuch jest tu naturalny.
 #
-# 355 lezy w plate_clank, archetypie ktory odpowiedzial na lancuch
-# zdarzen trzy razy z rzedu: 491 w r064 (+0,54 s), 445 w r067 (+1,47 s,
-# a wszystkie trzy warianty przeszly kontrakt). Prompt 355 ma juz
-# lancuch („five separate steel plates clanking one after another"),
-# ale konczy sie przymiotnikiem „distinct and mid-pitched" bez
-# domkniecia.
-#
-# 372 ODPOCZYWA. Jej v2 (2,90 s, zero flag, trafiony 0) dobrala pare
-# 0,9212 z karta 97 — wiecej niz warta 0,65 s zysku. v3 zlamal low_all
-# o 0,001.
+# 308 to sword_clash, archetyp z najostrzejszym warunkiem wstepnym:
+# attack_s <= 0,1, czyli uderzenie w pierwszej chwili (to samo wylozylo
+# 524 w r065). Obecny sample spelnia go z zapasem (0,03), wiec lancuch
+# MUSI zaczac sie od uderzenia, a narastanie dopiero po nim.
 #
 # ZASADA OBOWIAZUJE WE WSZYSTKICH TRZECH:
 #   ZERO przymiotnikow barwy (dark/bright/low/deep/metallic/soft).
 #   Tylko rzeczowniki (co uderza) i czasowniki (co robi),
 #   plus jawne domkniecie „to the end".
 #
-# W r067 dodatkowo, po raz pierwszy: rowny odstep miedzy zdarzeniami
-# musi byc wprost w zgloszeniu, nie tylko ich liczba.
+# NOWE od r067: rzeczowniki TEZ niosa barwe. Para, gwizd, syk i brzek
+# szkla rozjasniaja tak samo jak przymiotnik „bright". Sprawdzac, jakie
+# ZJAWISKO FIZYCZNE niesie dany rzeczownik, nie tylko czy to rzeczownik.
 
 on:
   push:
@@ -56,7 +50,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "52,501,355"
+  IDS: "501,565,308"
 
 jobs:
   variants:
@@ -67,13 +61,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r067]
+      - name: Guard — tylko commit z markerem [generate-r068]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r067]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r068]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r067] — nic nie generuję"
+            echo "brak markera [generate-r068] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -92,25 +86,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r067
+          mkdir -p variants/r068
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r067/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r068/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r067 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r067/v$v" 2>&1 | tee -a variants/r067/generate.log
+              --ids "$IDS" --batch r068 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r068/v$v" 2>&1 | tee -a variants/r068/generate.log
           done
-          ls -la variants/r067 variants/r067/v1 variants/r067/v2 variants/r067/v3 || true
+          ls -la variants/r068 variants/r068/v1 variants/r068/v2 variants/r068/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r067 data/samples/generated-manifest.jsonl
+          git add -f variants/r068 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r067: 9 wariantow (3 karty x 3) + log generacji [import-r067]"
+            git commit -m "r068: 9 wariantow (3 karty x 3) + log generacji [import-r068]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

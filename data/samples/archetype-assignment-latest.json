@@ -456,7 +456,7 @@
    "archetype": "mechanism_click",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A clockwork mechanism turning: a row of low dull wooden knocks in a steady rhythm, deep and soft-edged, with no bright ticking and no hiss. Signature sound of t"
+   "prompt": "A clockwork mechanism turning: a brass cog releasing a wooden peg, then a lever dropping, then a ratchet catching, eight wooden and brass knocks at an even spac"
   },
   {
    "id": "53",
@@ -2760,7 +2760,7 @@
    "archetype": "plate_clank",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "Armour and keepsakes set down on a workbench: five separate steel plates clanking one after another, each distinct and mid-pitched, with a dull wooden knock ben"
+   "prompt": "Armour set down on a workbench: a steel breastplate dropped, a helmet and a buckler clanking after it, then three more plates dropped one after another, the las"
   },
   {
    "id": "358",
