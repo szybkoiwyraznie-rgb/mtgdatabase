@@ -567,6 +567,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "żelazne kroki Maruta miażdżące złoto na posadzce: cztery ogromne metaliczne kroki w równych odstępach, każdy miele monety", False),
     "463": ("A body slamming down hard onto ice: one instant deep weighted impact with no build-up, then two shorter cracking snaps of the ice sheet within the next second.",
             "ciało pada ciężko na lód: jedno natychmiastowe głębokie uderzenie, potem dwa krótsze trzaski pękającej tafli w ciągu sekundy", False),
+    "469": (
+        "A chained predator lunging again and again: heavy links snapping "
+        "taut and grinding, the cage rattling under each lunge, at least "
+        "ten separate metallic clanks, a wet growl to a frenzy." + NO_M,
+        "skuty łańcuchem drapieżnik rzuca się raz za razem: ciężkie ogniwa napinają się i zgrzytają, klatka grzechocze przy każdym skoku, co najmniej dziesięć osobnych metalicznych stuków, mokry warkot do szału",
+        False,
+    ),
     "470": ("A sacrifice of fertile soil, then two trees bursting apart in ash: two deep woody explosions, the second louder, each followed by a long shower of crackling embers.",
             "ofiara z gleby i wybuch dwóch drzew w popiele: dwie drewniane eksplozje, druga głośniejsza, z długim deszczem iskier", False),
     "482": ("Two blades meeting edge to edge and pressing on: three violent steel strikes in "
@@ -603,6 +610,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # konkretnej rodziny + jawna liczba powtorzen. Tam, gdzie kontrakt
     # ogranicza czas (arrow_flight decay <= 0,8 s, whip_crack <= 0,5 s,
     # heavy_impact <= 1,4 s), kart NIE ruszamy - wydłużanie by je złamalo.
+    "247": (
+        "A boggart scout running down an earth tunnel: quick light "
+        "bare-foot steps pattering over damp clay, keeping on without a "
+        "break to the end. No boots, no marching." + NO_M,
+        "boggart biegnie tunelem: szybkie lekkie kroki bosych stóp tupoczą po wilgotnej glinie, tupot trwa bez przerwy do końca",
+        False,
+    ),
     "250": ("A steel blade snapping back together: one bright hard clash at the very first instant, then four short sharp metallic clicks as the crack seals, each with a gritty shimmer.",
             "ostrze scala się po pęknięciu: jeden jasny twardy szczęk w pierwszej chwili, potem cztery ostre metaliczne kliki", False),
     "71": (
@@ -688,8 +702,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "ciężki krok żarnej bestii: głęboki niski zgrzyt pękniętych skał trzymający równy głośny poziom przez cały sample, bez piku i zaniku", False),
     "129": ("A forging hammer striking steel armour in a raised salute: four hard bright hammer blows in a steady rhythm, each with a sharp metallic ring that dies quickly.",
             "kuty młot uderza o stalowy pancerz: cztery twarde jasne uderzenia równym rytmem, każde z ostrym brzękiem, który szybko gaśnie", False),
-    "23": ("An iron monastery bell struck once: a hard iron clapper hitting a heavy bell, one struck tone in the middle of the range that holds its level evenly while it rings, sustained across the take.",
-            "żelazny dzwon uderzony raz: głęboki dzwon żelaza i brązu wybrzmiewa równo", False),
+    "23": (
+        "An iron monastery bell struck three times in a row: a hard iron "
+        "clapper, three struck tones in the middle of the range, the first "
+        "the loudest moment, the last ringing on evenly to the end." + NO_M,
+        "żelazny dzwon klasztorny uderzony trzy razy z rzędu: twardy żelazny serce, trzy uderzone tony w środku pasma, pierwszy najgłośniejszy, ostatni dzwoni równo do końca",
+        False,
+    ),
     "522": ("Luminous chains snapping taut around a running beast: a long bright rattling cascade of many small links, at least ten separate metallic ticks across the whole take.",
             "świetliste łańcuchy napinają się na biegnącej bestii: długa jasna kaskada grzechotu wielu ogniw, co najmniej dziesięć osobnych stuków", False),
     "244": (
@@ -820,13 +839,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # probowane 2-3 razy bez efektu.
     "3": ("A bonfire of dry wood: a dense shower of crackles and pops pitched in the middle of the range, warm and woody rather than bright or hissy.",
             "ognisko z suchego drewna: gęsty deszcz trzasków w środku pasma, ciepły i drewniany raczej niż jasny czy syczący", False),
-    "4": (
-        "Five bodies slam into a pool one after another, the first impact "
-        "the loudest: each a bright hissing spray of water droplets, "
-        "churning and dripping to the end." + NO_M,
-        "pięć ciał wpada do sadzawki jedno po drugim, pierwsze uderzenie najgłośniejsze: za każdym razem jasny syczący rozbryzg kropel, woda kłębi się i kapie do końca",
-        False,
-    ),
+    "4": ("Three bodies slamming into a pool in a row, the first impact by far the loudest moment of the whole take: three bright sprays of hissing water droplets, sparkling in the upper range, ripples between them.",
+            "trzy ciała wpadają do sadzawki jedno po drugim, pierwsze uderzenie zdecydowanie najgłośniejsze: trzy rozbryzgi syczących kropel, między nimi pluskająca fala", False),
     "40": ("Thick armour plates knocked together: two or three mid-pitched metal clanks, weighty and dull rather than bright, each plate struck separately.",
             "grube płyty pancerza zderzają się: dwa-trzy klanki w środku pasma, ciężkie i matowe raczej niż jasne", False),
     "96": ("A stream of emerald magic: one continuous flowing shimmering tone with a clear sustained pitch and bright sparkling overtones, smooth and even throughout.",
@@ -1540,10 +1554,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "145": (
-        "A cloning pod bursts open in a chain, the first metal bang the "
-        "loudest: a shrill metallic ring, then more seal pops and hatches "
-        "giving way, thick liquid splashing over iron plates to the end." + NO_M,
-        "komora klonująca pęka łańcuchowo, pierwszy metaliczny huk najgłośniejszy: piskliwy metaliczny dzwon, potem kolejne uszczelki i włazy ustępują, gęsty płyn chlapie o żelazne płyty do końca",
+        "A cloning pod bursting open in three stages: three loud resonant metal bangs, "
+        "the first the loudest, each with a shrill metallic ring and a wet gush over "
+        "iron plates. " + NO_M,
+        "komora klonująca otwiera się w trzech etapach: trzy głośne rezonujące metaliczne huki, pierwszy najgłośniejszy, każdy z piskliwym metalicznym dzwonieniem i mokrym chluśnięciem na żelazne płyty",
         False,
     ),
 }

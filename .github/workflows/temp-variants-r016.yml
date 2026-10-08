@@ -1,41 +1,50 @@
-name: "TEMP r062 - 4, 145 i 71: fill-take tam, gdzie jeszcze go nie bylo"
+name: "TEMP r063 - 23, 469 i 247: lancuch zdarzen zamiast jednego uderzenia"
 
-# r062: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# r063: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
 #
-# DOBOR — z 14 kart ponizej 2 s treści bierzemy trzy, w ktorych jest
-# realna luka i ktore nie sa spalone:
+# DOBOR — lekcja z r062. Tam fill-take dostaly trzy karty, a zadzialala
+# tylko jedna: `71` (+0,90 s, centroid 268 -> 1157 Hz). `4` i `145`
+# wyszly gorzej, choc tez dostaly klauzule. Roznica byla w srodku
+# promptu, nie w klauzuli:
 #
-#    4 water_splash    tresc 1,14 s  klasa 4 karty, mediana 2,37
-#   71 heavy_impact    tresc 1,40 s  klasa 5 kart, mediana 2,51
-#  145 beast_screech   tresc 1,52 s  klasa 3 karty, mediana 1,84
+#   71  „one instant deep impact, then his armour plates clattering and
+#       the barrier cracking with sharp splintering snaps" — LANCUCH
+#       odrebnych zdarzen.
+#   4   „five bodies slam into a pool one after another" — powtorzenie
+#       tego samego, model robil piec szybkich pluskow i ucinal.
 #
-# `4` dostala fill-take w r057 i urosla o 0,69 s (z 0,45), wiec klauzula
-# dziala — ale samo „trzy ciala wpadaja" dalo tylko 1,14 s. Teraz jest
-# ich piec i sa rozlozone rownomiernie, a woda chlupie do samego konca.
+# Wiec bierzemy trzy karty, w których ciag zdarzen jest naturalny
+# i żadna nie dostala jeszcze fill-take:
 #
-# `145` i `71` dostaja fill-take po raz pierwszy. `145` i tak miala juz
-# „trzy metaliczne huki", teraz dochodzi lancuch: wiecej uszczelek,
-# wlazy, chlupanie plynu.
+#   23 temple_bell       tresc 1,72 s  mediana klasy 2,62  najlepsza 3,71
+#  469 chain_rattle      tresc 1,99 s  mediana klasy 2,69  najlepsza 3,39
+#  247 heavy_footsteps   tresc 2,06 s  mediana klasy 3,27  najlepsza 3,74
 #
-# `71` to trzecia i ostatnia proba. r060 i r061 razem daly centroid
-# 48-66 Hz i mid_up 0,008-0,038, czyli ponad 99% energii ponizej 250 Hz
-# — na telefonie nieslyszalne, gorzej niz najgorsza karta w klasie
-# (156: mid_up 0,041). Przymiotnik „clearly mid-range" nie ruszyl
-# centroidu ani o 10 Hz, bo semantyka („głuche, gumowate uderzenie")
-# ciagnie model w sam dol. Wiec zamiast opisywac BARWE wprowadzamy
-# ZRODLO srodka pasma: pancerz nosorozca i pekajaca bariera.
+# Wszystkie trzy maja kontrakt SPELNIONY W CALOSCI (score 0), wiec
+# obowiazuje regula 1 w najostrzejszej postaci: wariant lamiacy
+# kontrakt odpada nawet przy duzym przyroscie tresci — tak polegla
+# `145` w r062 (1,68 s tresci, ale centroid 5990 przy progu 600-4500).
+#
+# CO ZMIENIAMY W PROMPTACH:
+#   23  bylo „struck once" — jednym uderzeniem nie da sie wypelnic
+#       4 s. Teraz trzy uderzenia, ostatnie wybrzmiewa do konca.
+#  469  wzor `522` (najlepsza w klasie, 3,39 s) mowi wprost: „at least
+#       ten separate metallic ticks across the whole take". Bierzemy
+#       to samo: dziesiec osobnych stukow, powtarzane skoki.
+#  247  najmniej wyeksploatowana karta w puli — tylko 1 proba. Stary
+#       prompt konczyl sie slowami „then stopping", czyli sam kazal
+#       modelowi skonczyc. Teraz: „keeping on without a break to the
+#       end".
 #
 # ODPOCZYWAJA:
-#   98 insect_swarm — w r061 wszystkie trzy warianty wypadly na
-#      „nie trafiony" (sustain 0,020-0,075 przy progu 0,4). Karta
-#      daje trzepotanie, kontrakt wymaga dronu. Nie ma sensu dalej.
-#   12 robot_servo (luka 0,20 s) i 469 chain_rattle (0,01 s) —
-#      ponizej progu oplacalnosci.
+#    4 water_splash  (9 prob) i 145 beast_scroll (5) — po r062, gdzie
+#       zaden z szesciu wariantow nie przebil stanu obecnego.
+#   98 insect_swarm — kontrakt wymaga dronu, karta daje trzepotanie.
 #   232 plate_clank — odlozona po trzech nieudanych rundach.
 #
-# Take 4,0 s dla wszystkich. Payload 438-444/450 znakow, PL <= 220.
+# Take 4,0 s dla wszystkich. Payload 431-445/450 znakow, PL <= 220.
 #
-# batch w scenarios.jsonl: r062 (MUSI sie zgadzac z --batch).
+# batch w scenarios.jsonl: r063 (MUSI sie zgadzac z --batch).
 #
 # Po imporcie: postprocess ZAWSZE z --ids ograniczonym do batchu i
 # --max-gain-db 26 dla cichych — domyslne 15 dB nie dobija do -20 LUFS,
@@ -52,7 +61,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "4,145,71"
+  IDS: "23,469,247"
 
 jobs:
   variants:
@@ -63,13 +72,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r062]
+      - name: Guard — tylko commit z markerem [generate-r063]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r062]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r063]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r062] — nic nie generuję"
+            echo "brak markera [generate-r063] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -88,25 +97,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r062
+          mkdir -p variants/r063
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r062/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r063/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r062 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r062/v$v" 2>&1 | tee -a variants/r062/generate.log
+              --ids "$IDS" --batch r063 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r063/v$v" 2>&1 | tee -a variants/r063/generate.log
           done
-          ls -la variants/r062 variants/r062/v1 variants/r062/v2 variants/r062/v3 || true
+          ls -la variants/r063 variants/r063/v1 variants/r063/v2 variants/r063/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r062 data/samples/generated-manifest.jsonl
+          git add -f variants/r063 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r062: 9 wariantow (3 karty x 3) + log generacji [import-r062]"
+            git commit -m "r063: 9 wariantow (3 karty x 3) + log generacji [import-r063]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
