@@ -3,8 +3,8 @@
   "median_score": 64.0,
   "below_threshold": 10,
   "threshold": 40.0,
-  "no_sound_word": 187,
-  "no_material": 233,
+  "no_sound_word": 189,
+  "no_material": 234,
   "results": [
     {
       "id": "266",
@@ -641,6 +641,20 @@
       "words": 22,
       "problems": [
         "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
+      "id": "113",
+      "title": "Welder Automaton",
+      "scenario": "serwo drona się blokuje: jeden wyraźny ciągły elektroniczny ton o stałej wysokości, dominujący jak kamerton, z dwoma cichymi klikami",
+      "score": 46.5,
+      "sound_hits": 0,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 19,
+      "problems": [
+        "brak słowa opisującego konkretny dźwięk"
       ]
     },
     {
@@ -1529,6 +1543,21 @@
       "id": "433",
       "title": "Inspire Awe",
       "scenario": "objawienie bogini lasu unieruchamiające oddział hoplitów",
+      "score": 50.0,
+      "sound_hits": 0,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 6,
+      "problems": [
+        "brak słowa opisującego konkretny dźwięk",
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
+      "id": "434",
+      "title": "Epic Experiment",
+      "scenario": "przeciążenie reaktora mizzium w wieży Nivix",
       "score": 50.0,
       "sound_hits": 0,
       "material_hits": 0,
@@ -2770,6 +2799,20 @@
       "id": "221",
       "title": "Mark of the Vampire",
       "scenario": "dwa szybkie mokre ukłucia kłów i cichy puls pod skórą",
+      "score": 57.0,
+      "sound_hits": 0,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 10,
+      "problems": [
+        "brak słowa opisującego konkretny dźwięk"
+      ]
+    },
+    {
+      "id": "232",
+      "title": "Goblin Piker",
+      "scenario": "niepewne przestępowanie goblina w za dużej zbroi z długą piką",
       "score": 57.0,
       "sound_hits": 0,
       "material_hits": 1,
@@ -4272,20 +4315,6 @@
       ]
     },
     {
-      "id": "434",
-      "title": "Epic Experiment",
-      "scenario": "sześć ciężkich uderzeń stali w niskim zgrzycie metalu",
-      "score": 64.0,
-      "sound_hits": 0,
-      "material_hits": 2,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 8,
-      "problems": [
-        "brak słowa opisującego konkretny dźwięk"
-      ]
-    },
-    {
       "id": "480",
       "title": "Zoraline, Cosmos Caller",
       "scenario": "szklisty strumień astralnego pyłu i pierwszy gwałtowny oddech zwiadowcy",
@@ -4795,6 +4824,18 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 7,
+      "problems": []
+    },
+    {
+      "id": "23",
+      "title": "Brightwood Tracker",
+      "scenario": "żelazny dzwon klasztorny: uderzony ton ze środka pasma, równy i długi",
+      "score": 71.0,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 11,
       "problems": []
     },
     {
@@ -5353,6 +5394,20 @@
       "problems": []
     },
     {
+      "id": "269",
+      "title": "Scouting Hawk",
+      "scenario": "jastrząb: jeden przenikliwy krzyk jako najgłośniejszy moment, uderzający w pierwszej chwili, potem dwa cichsze uderzenia skrzydeł",
+      "score": 72.0,
+      "sound_hits": 2,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 16,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
       "id": "374",
       "title": "Thistledown Players",
       "scenario": "wędrowna kapela myszy: fujarka i skrzypce prowadzą marszową melodię, bęben i dzwonki trzymają krok",
@@ -5727,20 +5782,6 @@
       ]
     },
     {
-      "id": "269",
-      "title": "Scouting Hawk",
-      "scenario": "jastrząb: jeden przenikliwy krzyk, pierwsza chwila zdecydowanie najgłośniejsza, potem dwa cichsze uderzenia skrzydeł",
-      "score": 76.5,
-      "sound_hits": 2,
-      "material_hits": 0,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 13,
-      "problems": [
-        "brak materiału/kontaktu (co uderza o co)"
-      ]
-    },
-    {
       "id": "554",
       "title": "Cherished Hatchling",
       "scenario": "ostrzeżenie pisklęcia: trzy jasne, krótkie reptyle trele w paprociach; ogromna matka odpowiada dwoma odległymi gardłowymi rykami i szelestem łamanych gałęzi. Na pierwszym planie głos pisklęcia",
@@ -5863,18 +5904,6 @@
       "problems": [
         "brak materiału/kontaktu (co uderza o co)"
       ]
-    },
-    {
-      "id": "23",
-      "title": "Brightwood Tracker",
-      "scenario": "żelazny dzwon uderzony raz: głęboki dzwon żelaza i brązu wybrzmiewa równo",
-      "score": 78.0,
-      "sound_hits": 1,
-      "material_hits": 2,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 11,
-      "problems": []
     },
     {
       "id": "37",
@@ -7099,18 +7128,6 @@
       "problems": []
     },
     {
-      "id": "113",
-      "title": "Welder Automaton",
-      "scenario": "serwo drona: jednostajny pomruk metalu z dwoma stukami stali",
-      "score": 92.0,
-      "sound_hits": 2,
-      "material_hits": 2,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 9,
-      "problems": []
-    },
-    {
       "id": "122",
       "title": "Blazing Torch",
       "scenario": "mokre trzeszczenie smołowanego płótna i syk kapiącej smoły",
@@ -7158,18 +7175,6 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 10,
-      "problems": []
-    },
-    {
-      "id": "232",
-      "title": "Goblin Piker",
-      "scenario": "sześć osobnych głuchych stuków i brzęków blachy pancerza",
-      "score": 92.0,
-      "sound_hits": 2,
-      "material_hits": 2,
-      "visual_hits": 0,
-      "abstract_hits": 0,
-      "words": 8,
       "problems": []
     },
     {

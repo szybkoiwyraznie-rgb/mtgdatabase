@@ -29,6 +29,8 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**. `324` weszła z jednej regeneracji,
   `325` wymagała **pięciu prób** i montażu (reverb + półka −9 dB).
+- Ostatnia runda: `r057` — 3 z 8 kart urosły (`558` +1,91 s,
+  `4` +0,69 s, `26` +0,54 s), treść < 2 s **21 → 19**, flagi 53 → 52.
 - Ostatnia runda korekt: `r056` — zero przyjętych (diagnoza poniżej).
 
 Metryki korpusu (audyt `2026-10-07-after-b071`):
@@ -122,9 +124,9 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 ## Stan liczbowy
 
 - Katalog: **561 fabuł**, scenariusze **561** (100 %), sample **561**.
-- Flagi **53**, pary ≥ 0,90 **22**, treść < 2 s **21**.
+- Flagi **52**, pary ≥ 0,90 **23**, treść < 2 s **19**.
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **149** trafionych.
-- Budżet: **7360 / 10 000** kredytów (b072 kosztowała 560).
+- Budżet: **6720 / 10 000** kredytów (b072: 560, r057: 640).
 
 ## Reguły i procedury
 
@@ -198,7 +200,7 @@ trzecim i czwartym podejściu (`292` — cztery, `87` — cztery) nie
 wchodzą; świeże (`244`, `280`, `323`) wchodzą od razu.
 
 **14. Check-lista zamknięcia rundy:** audyt `audit_samples_full.py` →
-`audit_archetype_match.py` → graf par (`wezly.py 0.90`, musi zostać 22) →
+`audit_archetype_match.py` → graf par (`wezly.py 0.90`, musi zostać 23) →
 kopie `-latest.json` → `compileall` + unittest → walidator **z kodem
 wyjścia** → `build_site.py` + `build_pack.py` → wpis w `STATE.md` →
 commit + push + `gh pr checks` → `git rm -r --cached variants`.
@@ -235,6 +237,35 @@ postprodukcję raz jeszcze. I **`--shelf-hz` ma być tam, gdzie jest
 energia**: domyślne 3500 Hz mija pasmo 250–2000 Hz, przez co korekcja
 rosła z −3 dB do −15 dB i i tak nie trafiała w okno.
 
+**20. Dobór kart do rundy po DIAGNOZIE, nie po długości.** r056 wzięła
+osiem „świeżych" kart wybranych z tabeli najkrótszych — nie weszła
+żadna. r057 wzięła osiem wybranych po tym, **która konkretna metryka
+nie dowiozła**, i weszły trzy. Liczy się nie to, jak bardzo karta
+odstaje, tylko czy wiadomo, w co uderzyć.
+
+**21. Dwie miary treści — nie mylić ich.** `content_s` = czas pliku
+minus cisza na krawędziach przy progu **bezwzględnym −45 dBFS**; to
+jest „treść < 2 s" z tego pliku i z okna akceptacji 2–5 s.
+`content_rel_s` = to samo przy progu **względnym** i to od niej zależy
+flaga `short_content` (< 0,8 s). Po b072: **21** kart wg `content_s`,
+ale tylko **7** wg `content_rel_s`. Normalizacja do −20 LUFS potrafi
+`content_s` skurczyć o połowę, więc decyzję o przyjęciu wariantu
+podejmujemy dopiero po `postprocess_samples.py`.
+
+**22. Wpisy `OVERRIDES` mają dwa style zapisu** i wycinanie ich
+regexem kończy się katastrofą. Część wpisów jest zwarta
+(`"...", "...", False),`), część wieloliniowa (`    ),`) — regex na
+`^    ),$` przeskakuje do następnego wieloliniowego i kasuje po drodze
+cudze wpisy (raz wycięło 4961 znaków zamiast 355). Zakresy liczyć
+przez `ast`: węzeł to **`AnnAssign`**, nie `Assign`, bo `OVERRIDES` ma
+adnotację typu. Przed każdą edycją: `cp` pliku do `/tmp`.
+
+**23. Po `git reset --hard` branch traci upstream.** `git pull`
+wychodzi wtedy bez błędu, ale **nic nie pobiera** — wygenerowane
+warianty czekają na serwerze, a lokalnie wygląda jakby run się nie
+udał. Po każdym resecie: `git rev-parse --abbrev-ref @{u}` i w razie
+`fatal: no upstream` — `git branch --set-upstream-to=origin/<branch>`.
+
 ## Indeks rund i dostaw
 
 Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
@@ -254,11 +285,12 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r056 | 2026-10-07 | **0 przyjętych** — diagnoza: krótki take się nie wypełnia | `state-2026-10-06.md` |
 | b071 | 2026-10-07 | 2 nowe karty (280, 323), obie trafione z 0 flag | `state-2026-10-06.md` |
 | b072 | 2026-10-07 | 2 nowe karty (324, 325), obie trafione; 325 po 5 próbach | `state-2026-10-07.md` |
+| r057 | 2026-10-08 | 3 z 8 krótkich weszły, treść < 2 s 21 → 19 | `state-2026-10-08.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
-**r034–b072 łącznie: 364 generacji, 175 → 22 par (−87 %), treść < 2 s
-41 → 21.**
+**r034–r057 łącznie: 380 generacji, 175 → 23 par (−87 %), treść < 2 s
+41 → 19.**
 
 ## Co robić dalej
 
@@ -282,6 +314,7 @@ docs/archive/state-2026-10-01.md   b059–b070, r010–r015
 docs/archive/state-2026-10-05.md   kontrakty archetypów, r016–r033
 docs/archive/state-2026-10-06.md   r034–r056, dostawa b071
 docs/archive/state-2026-10-07.md   dostawa b072 (324, 325)
+docs/archive/state-2026-10-08.md   runda r057 (krótka treść)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:
