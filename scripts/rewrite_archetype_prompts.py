@@ -487,9 +487,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # mechanism_click: profile r025 mówiły „mid-pitched, dry and woody rather
     # than hissy", a centroid i tak wyszedł 7,7-10,6 kHz przy oknie 800-6000.
     # Model czyta „click" jako jasny trzask, więc nazywamy wprost czego NIE ma być.
-    "52": ("A clockwork mechanism turning: a row of low dull wooden knocks in a steady rhythm, "
-           "deep and soft-edged, with no bright ticking and no hiss. " + NO_M,
-           "mechanizm zegarowy: rząd niskich głuchych drewnianych stuków, bez jasnego cykania i syku", False),
+    "52": (
+        "A clockwork mechanism turning: at least ten low dull wooden knocks "
+        "in a steady rhythm one after another, deep and soft-edged, with no "
+        "bright ticking and no hiss, the knocking running on to the end." + NO_M,
+        "mechanizm zegarowy: co najmniej dziesięć niskich głuchych drewnianych stuków jeden po drugim w równym rytmie, bez jasnego cykania i syku, stukanie trwa do końca",
+        False,
+    ),
     "132": ("A small gear train stepping: firm low knocks of wood on brass, dark and round, "
             "evenly spaced, without any high-pitched snap. " + NO_M,
             "przekładnia: niskie głuche stuki drewna o mosiądz, ciemne i bez wysokiego trzasku", False),
@@ -529,6 +533,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "dwa krótkie władcze sygnały mosiężnego rogu nad ruinami, drugi nieco wyżej, każdy w pełni wybrzmiewa", False),
     "256": ("Nightmare visions seeping into a sleeping mind: three rising dissonant whispers of air, each swelling and falling away, layered one after another.",
             "koszmarne wizje sączą się do umysłu śpiącej kobiety: trzy narastające dysonansowe szmery powietrza kolejno", False),
+    "260": (
+        "A giant predator roaring from a cave: two huge roaring calls one "
+        "after the other, the second louder, each with a long stone echo "
+        "that keeps rolling, the last one trailing right to the end." + NO_M,
+        "wielki drapieżnik ryczy z jaskini: dwa potężne ryki jeden po drugim, drugi głośniejszy, każdy z długim kamiennym echem, ostatnie wybrzmiewa do końca",
+        False,
+    ),
     "264": ("An iron grate exploding outward and hitting an invisible spirit shield: one hard burst, then three successive metallic rebounds as the bars strike the barrier.",
             "krata eksploduje i zatrzymuje się na tarczy ducha: jeden wybuch, potem trzy kolejne metaliczne odbicia od bariery", False),
     "268": ("A building rhythm of open hands slapping bark and tree trunks: six to eight slaps getting faster and louder around the clearing.",
@@ -816,6 +827,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     ),
     "103": ("A broad gust that builds slowly over a third of a second and holds, broadband hissing air noise whose weight sits low - deep rumbling air, no bright hiss on top.",
             "wiatr w gałęziach: szeroki podmuch narastający powoli i trzymany, o ciężarze nisko, bez jasnego syku", False),
+    "491": (
+        "Nature armoring an ally: bark hardening into plates up the arms, at "
+        "least six separate plates snapping into place one after another "
+        "with a firm woody clank, the last still settling to the end." + NO_M,
+        "natura pancerzy sojusznika: kora twardnieje w płyty wzdłuż ramion, co najmniej sześć osobnych płyt wskakuje na miejsce jedna po drugiej z twardym drewnianym stukiem, ostatnia wciąż się układa do końca",
+        False,
+    ),
     "492": ("Tall grass laid down by a gust over a barrow: a broad swell of wind that builds slowly and holds, deep and low in the range, broadband air noise with no bright hiss above it.",
             "wysoka trawa kładziona podmuchem nad kurhanem: szeroki narastający wiatr, głęboki i niski, bez syku", False),
     "513": ("A wide gust sweeping open ground: air that builds slowly over a third of a second and holds, deep low broadband rumbling wind, with no bright hiss or whistle on top.",
