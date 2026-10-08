@@ -487,9 +487,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # mechanism_click: profile r025 mówiły „mid-pitched, dry and woody rather
     # than hissy", a centroid i tak wyszedł 7,7-10,6 kHz przy oknie 800-6000.
     # Model czyta „click" jako jasny trzask, więc nazywamy wprost czego NIE ma być.
-    "52": ("A clockwork mechanism turning: a row of low dull wooden knocks in a steady rhythm, "
-           "deep and soft-edged, with no bright ticking and no hiss. " + NO_M,
-           "mechanizm zegarowy: rząd niskich głuchych drewnianych stuków, bez jasnego cykania i syku", False),
+    "52": ("A clockwork mechanism turning: a brass cog releasing a wooden peg, then a lever dropping, then a ratchet catching, eight wooden and brass knocks at an even spacing, "
+           "the mechanism working on to the end. " + NO_M,
+           "mechanizm zegarowy: mosiężne koło zwalnia drewniany kołek, potem dźwignia i zapadka, osiem stuków w równym odstępie do końca", False),
     "132": ("A small gear train stepping: firm low knocks of wood on brass, dark and round, "
             "evenly spaced, without any high-pitched snap. " + NO_M,
             "przekładnia: niskie głuche stuki drewna o mosiądz, ciemne i bez wysokiego trzasku", False),
@@ -654,8 +654,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "grzechot stalowego kropierza rumaka: siedem szybkich osobnych brzęków w nierównej grupie, ze środka pasma", False),
     "56": ("Chitin plates snapping shut one after another: six short dry clicks, each distinct and mid-pitched, evenly spaced with a faint gritty edge.",
             "chitynowe płytki zatrzaskują się kolejno: sześć krótkich suchych klików, każdy wyraźny i ze środka pasma", False),
-    "355": ("Armour and keepsakes set down on a workbench: five separate steel plates clanking one after another, each distinct and mid-pitched, with a dull wooden knock beneath.",
-            "odkładanie zbroi na stół warsztatu: pięć osobnych płyt dzwoni kolejno, każda wyraźna, z głuchym drewnianym stukiem", False),
+    "355": ("Armour set down on a workbench: a steel breastplate dropped, a helmet and a buckler clanking after it, then three more plates dropped one after another, the last plate clanging to the end.",
+            "odkładanie zbroi na stół: napierśnik, hełm i puklerz dzwonią kolejno, potem trzy następne płyty, ostatnia do końca", False),
     "39": ("An orc stamping into soft mud: five heavy sodden footsteps in a steady even rhythm, each deep and low with a wet mud splash, filling the whole take.",
             "grząskie tupnięcie orka w błocie: pięć ciężkich mokrych kroków równym rytmem, każdy niski z rozbryzgiem", False),
     "442": ("A rank of defenders stamping in unison: four heavy boot stamps in a strict even rhythm, each one deep and low with a grounded thud.",
@@ -745,8 +745,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     ),
     "80": ("An armored vehicle idling: a moderate low engine rumble under loud gritty mechanical clatter and metal knocking that sits forward in the mid range.",
             "opancerzony pojazd na biegu: umiarkowany pomruk pod głośnym chrapliwym metalicznym terkotem w środku", False),
-    "501": ("A double plasma volley from a reactor: two heavy blasts with a low thump, over loud gritty metallic knocking and clanking carried clearly in the middle of the range.",
-            "podwójna salwa plazmowa: dwa ciężkie wybuchy z basowym łupnięciem, nad głośnym metalicznym stukotem w środku", False),
+    "501": ("A war machine reactor working: a piston knocking, a valve opening with steam venting, gears grinding and a pump stroking, the clanking keeping on without a break to the end.",
+            "reaktor machiny wojennej: tłok stuka, zawór puszcza parę, koła zębate mielą i pompa pracuje bez przerwy do końca", False),
     "49": ("The ground tearing between worlds: a deep split with loud grinding and snapping rock carried clearly in the middle of the range, not only sub-bass.",
             "ziemia rozdziera się między światami: głębokie pęknięcie z głośnym mielącym i trzaskającym kamieniem wyraźnie w środku pasma", False),
     "168": ("A deep mountain landslide: boulders grinding with very low heavy weight, deep and dark, the rumble sitting well below the middle of the range.",
