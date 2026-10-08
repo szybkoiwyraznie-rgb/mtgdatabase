@@ -576,7 +576,7 @@
    "archetype": "war_machine",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A war machine's engine: a deep rumble kept low in level, with loud gritty metallic knocking and clanking clearly forward in the middle of the range. Signature s"
+   "prompt": "A war machine's engine: a piston knocking, a second piston joining in, gears grinding and a chain running over a sprocket, the clanking keeping on without a bre"
   },
   {
    "id": "68",
@@ -4016,7 +4016,7 @@
    "archetype": "sword_clash",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "Blades anointed in venom: steel sliding into a tarry basin, thick liquid dragging as it lifts, one slow drip falling back into the dark pool. No music, no speec"
+   "prompt": "Blades anointed in venom: steel drawn against steel in three long scraping passes, a blade lifted out of a basin with the liquid dragging off it, two more scrap"
   },
   {
    "id": "554",

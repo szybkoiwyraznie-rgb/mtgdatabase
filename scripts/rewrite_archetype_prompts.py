@@ -635,13 +635,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "skrzyżowane ostrza kavu: pięć ostrych ziarnistych starć stali jedno po drugim, z których pierwsze jest zdecydowanie najgłośniejszym momentem całego take, uderzające z pełną siłą bez narastania",
         False,
     ),
-    "524": (
-        "A lightblade igniting from the hilt: the reliquary clicking open, "
-        "the blade springing out in two stages, radiance hissing, then two "
-        "thrusts one after the other, the hiss running to the end." + NO_M,
-        "świetlista klinga zapala się od rękojeści: relikwiarz otwiera się z klikiem, ostrze wyskakuje w dwóch etapach, blask syczy, potem dwa pchnięcia jedno po drugim, syk trwa do końca",
-        False,
-    ),
     "525": ("A rapier thrust throwing a wave of glacial spikes: one instant bright steel impact, then four sharp cracking strikes as the ice splinters, each with a glassy metallic ring.",
             "fala lodowcowych kolców od ciosu rapiera: natychmiastowy jasny cios, potem cztery ostre trzaski pękanego lodu", False),
     "594": ("A sword wrenched out of mud and struck: an instant hard bright steel clash at the very first moment, then three more gritty ringing strikes.",

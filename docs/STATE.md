@@ -36,6 +36,14 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   *Epic Experiment* urosła z **1,20 → 3,91 s** treści, kontrakt
   `war_machine` spełniony. Cena: nowy bliźniak `325-434` (0,9422).
   `232` znów cofnięta — crest 12,9–14,9 przy progu 17.
+- Poprzednia runda: `r065` — z 3 kart weszły **dwie**, razem
+  **+2,86 s**: `67` *Scorpion Sentinel* **2,12 → 3,96 s** (drugi
+  wynik w historii, po `247`) i `553` *Coat with Venom*
+  **2,12 → 3,14 s**. Obie dostały prompt zbudowany wyłącznie
+  z rzeczowników — ani jednego przymiotnika barwy. `524` cofnięta:
+  wszystkie trzy warianty łamały `attack_s` (0,22–0,55 s przy progu
+  0,1), czyli „reliquary clicking open, blade springing out" dało
+  powolne narastanie zamiast uderzenia.
 - Poprzednia runda: `r064` — z 3 kart weszła jedna: `491`
   *Nature's Embrace* **2,13 → 2,67 s**, kontrakt `plate_clank`
   spełniony, zero nowych flag. `52` i `260` cofnięte z tego samego
@@ -88,7 +96,7 @@ Metryki korpusu (audyt `2026-10-08-after-eq`):
 | LUFS średnio | **-20.09** (odch. 0.48) |
 | archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 151** |
 
-Budżet: klucz 10 000 kredytów, **wydane 6040, zostaje 3960**.
+Budżet: klucz 10 000 kredytów, **wydane 6400, zostaje 3600**.
 Rozbicie na rundy jest w sekcji „Ile zostało" poniżej.
 Realny koszt to **40 kredytów za generację**; pełna runda 8 kart po
 2 warianty = 16 generacji = **640 kredytów**, dostawa 2 kart = 160.
@@ -169,9 +177,9 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 - Katalog: **563 fabuł**, scenariusze **563** (100 %), sample **563**.
 - Flagi **39**, pary ≥ 0,90 **25**, treść < 2 s **12**.
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **151** trafionych.
-- Budżet: **3960 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
+- Budżet: **3600 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
   r058: 360, r059: 240, r060: 360, r061: 360, r062: 360, r063: 360,
-  r064: 360).
+  r064: 360, r065: 360).
 
 ## Reguły i procedury
 
@@ -358,6 +366,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r062 | 2026-10-08 | fill-take na 4, 145 i 71; weszła tylko 71 (1,40 → 2,30 s, centroid 268 → 1157 Hz), 4 i 145 cofnięte | `state-2026-10-08-r062.md` |
 | r063 | 2026-10-08 | łańcuch zdarzeń na 23, 469 i 247; weszły 469 (1,99 → 3,43 s) i 247 (2,06 → 4,00 s), 23 cofnięta | `state-2026-10-08-r063.md` |
 | r064 | 2026-10-08 | łańcuch zdarzeń na kartach 2,0–2,6 s; weszła 491 (2,13 → 2,67 s), 52 za jasna i 260 za ciemna — cofnięte | `state-2026-10-08-r064.md` |
+| r065 | 2026-10-08 | rzeczowniki zamiast przymiotników barwy; weszły 67 (2,12 → 3,96 s) i 553 (2,12 → 3,14 s), 524 cofnięta | `state-2026-10-08-r065.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -366,14 +375,31 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Kolejna runda `r065`** — cel zostaje ten sam (karty 2,0–2,6 s
-   najgorsze w swojej klasie), ale dobór biorę z wniosku r064, a nie
-   z luki do mediany:
+1. **Kolejna runda `r066`** — jedna powtórka i dwie świeże karty:
    ```
-   553 sword_clash   tresc 2,12 s  luka 0,83 s  1 proba  bez fill-take
-   524 sword_clash   tresc 2,24 s  luka 0,71 s  1 proba  bez fill-take
-    67 war_machine   tresc 2,12 s  luka 1,52 s  3 proba  fill-take od r029
+    52 mechanism_click  tresc 2,20 s  luka 1,22 s  4 prob  bez fill-take
+   372 stone_slide      tresc 2,25 s  luka 0,61 s  1 proba  bez fill-take
+   445 plate_clank      tresc 2,27 s  luka 0,70 s  4 prob  bez fill-take
    ```
+   `52` wraca celowo: w r064 poległa na barwie (centroid 8309–9512 przy
+   oknie 800–6000), a jej prompt był samymi przymiotnikami („low dull
+   wooden... deep and soft-edged... no bright ticking"). To największa
+   luka w korpusie i najprostszy sprawdzian wniosku z r065 — dostanie
+   wyłącznie rzeczowniki: mosiężne koło zębate, drewniany kołek,
+   dźwignia, zapadka.
+   `372` ma tylko **1 próbę** i prompt bez domknięcia („One deep
+   grinding scrape... slow, heavy and resonant") — profil, który dał
+   `247` +1,94 s, `491` +0,54 s i `553` +1,02 s.
+   `445` jest w `plate_clank`, czyli w archetypie, który w r064
+   zadziałał najczyściej (`491`). Jej prompt ma już łańcuch („four
+   clear hoof crunches"), ale bez domknięcia i z przymiotnikiem
+   „clear".
+   `524` odpoczywa: jej archetyp `sword_clash` wymaga `attack_s` ≤ 0,1,
+   czyli uderzenia w pierwszej chwili, a opis „reliquary clicking
+   open, blade springing out" daje z definicji narastanie. Kiedyś
+   wróci, ale z promptem zaczynającym się od uderzenia.
+   **Zasada z r065 obowiązuje we wszystkich trzech:** zero
+   przymiotników barwy, tylko rzeczowniki i czasowniki.
    `553` i `524` to ten sam profil, który dał `247` (+1,94 s) i `491`
    (+0,54 s): **jedna próba, brak fill-take, prompt bez domknięcia.**
    `553` ma dodatkowo kontrakt już teraz **złamany** (score 1,0),
@@ -424,6 +450,7 @@ docs/archive/state-2026-10-08-r061.md   runda r061 (5 weszła, 98 i 71 cofnięte
 docs/archive/state-2026-10-08-r062.md   runda r062 (71 weszła, 4 i 145 cofnięte)
 docs/archive/state-2026-10-08-r063.md   runda r063 (469 i 247 weszły, 23 cofnięta)
 docs/archive/state-2026-10-08-r064.md   runda r064 (491 weszła, 52 i 260 cofnięte)
+docs/archive/state-2026-10-08-r065.md   runda r065 (67 i 553 weszły, 524 cofnięta)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:
