@@ -2008,7 +2008,7 @@
    "archetype": "heavy_footsteps",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A nimble boggart scout dashing down a narrow, root-lined earth tunnel: quick, light, closely spaced bare-foot steps pattering over damp packed clay with a few s"
+   "prompt": "A boggart scout running down an earth tunnel: quick light bare-foot steps pattering over damp clay, keeping on without a break to the end. No boots, no marching"
   },
   {
    "id": "248",
@@ -3344,7 +3344,7 @@
    "archetype": "chain_rattle",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A chained predator scenting oil: heavy links snapping taut and grinding, a cage rattling under sudden lunges, a wet growl building to a frenzy. No music, no spe"
+   "prompt": "A chained predator lunging again and again: heavy links snapping taut and grinding, the cage rattling under each lunge, at least ten separate metallic clanks, a"
   },
   {
    "id": "470",

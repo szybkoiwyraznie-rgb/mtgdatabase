@@ -36,6 +36,14 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   *Epic Experiment* urosła z **1,20 → 3,91 s** treści, kontrakt
   `war_machine` spełniony. Cena: nowy bliźniak `325-434` (0,9422).
   `232` znów cofnięta — crest 12,9–14,9 przy progu 17.
+- Poprzednia runda: `r063` — z 3 kart weszły **dwie**, razem
+  **+3,38 s** treści, zero nowych flag i zero nowych par:
+  `469` *Chained Throatseeker* **1,99 → 3,43 s** i `247`
+  *Subterranean Scout* **2,06 → 4,00 s**. Obie dostały ten sam
+  zabieg, który uratował `71` w r062: opis ŁAŃCUCHA zdarzeń zamiast
+  jednego uderzenia. `23` cofnięta — żaden wariant nie trzyma poziomu
+  (`sustain_ratio` 0,052–0,068 przy progu 0,2), a to właśnie
+  wybrzmiewanie jest istotą dzwonu.
 - Poprzednia runda: `r062` — z 3 kart weszła jedna, ale ta jedna była
   warta całej rundy: `71` *Security Rhox* z **1,40 → 2,30 s**, przy czym
   centroid skoczył 268 → **1157 Hz**, a udział energii powyżej 250 Hz
@@ -67,12 +75,12 @@ Metryki korpusu (audyt `2026-10-08-after-eq`):
 | bliźniaki ≥ 0,95 | **0** |
 | identyczny PCM | **0** |
 | pary ≥ 0,90 (graf kosinusowy) | **25** |
-| treść < 2 s | **13** |
+| treść < 2 s | **12** |
 | poza oknem 2–5 s | **0** |
 | LUFS średnio | **-20.09** (odch. 0.48) |
 | archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 151** |
 
-Budżet: klucz 10 000 kredytów, **wydane 5320, zostaje 4680**.
+Budżet: klucz 10 000 kredytów, **wydane 5680, zostaje 4320**.
 Rozbicie na rundy jest w sekcji „Ile zostało" poniżej.
 Realny koszt to **40 kredytów za generację**; pełna runda 8 kart po
 2 warianty = 16 generacji = **640 kredytów**, dostawa 2 kart = 160.
@@ -151,10 +159,10 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 ## Stan liczbowy
 
 - Katalog: **563 fabuł**, scenariusze **563** (100 %), sample **563**.
-- Flagi **39**, pary ≥ 0,90 **25**, treść < 2 s **13**.
+- Flagi **39**, pary ≥ 0,90 **25**, treść < 2 s **12**.
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **151** trafionych.
-- Budżet: **4680 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
-  r058: 360, r059: 240, r060: 360, r061: 360, r062: 360).
+- Budżet: **4320 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
+  r058: 360, r059: 240, r060: 360, r061: 360, r062: 360, r063: 360).
 
 ## Reguły i procedury
 
@@ -339,6 +347,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r060 | 2026-10-08 | klauzula `--fill-take` na 3 karty, które jej nigdy nie dostały; 583 (0,21 → 2,66 s) i 292 (1,38 → 3,22 s) weszły | `state-2026-10-08-r060.md` |
 | r061 | 2026-10-08 | kolejne 3 karty bez fill-take; weszła 5 (1,87 → 2,30 s) z przyciętym ogonem, 98 i 71 cofnięte | `state-2026-10-08-r061.md` |
 | r062 | 2026-10-08 | fill-take na 4, 145 i 71; weszła tylko 71 (1,40 → 2,30 s, centroid 268 → 1157 Hz), 4 i 145 cofnięte | `state-2026-10-08-r062.md` |
+| r063 | 2026-10-08 | łańcuch zdarzeń na 23, 469 i 247; weszły 469 (1,99 → 3,43 s) i 247 (2,06 → 4,00 s), 23 cofnięta | `state-2026-10-08-r063.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -347,30 +356,28 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Kolejna runda `r063`** — trzy karty, z których **żadna** nie
-   dostała `--fill-take`, a każda ma semantycznie naturalną repetycję:
+1. **Kolejna runda `r064`** — pula poniżej 2 s jest praktycznie
+   wyczerpana (12 kart, z czego `232`, `4`, `145`, `23`, `12`, `98`
+   odpoczywają, `115`/`311` są nietykalne, a `219`, `561`, `269` stoją
+   na medianie własnej klasy). Przesuwamy więc cel na karty **2,0–2,6 s,
+   które są najgorsze w swojej klasie**. Te same trzy kryteria co w r063
+   (łańcuch zdarzeń, brak fill-take, mało prób) dają:
    ```
-    23 temple_bell       tresc 1,72 s  luka 0,90 s  najlepsza w klasie 3,71 s
-   469 chain_rattle      tresc 1,99 s  luka 0,70 s  najlepsza w klasie 3,39 s
-   247 heavy_footsteps   tresc 2,06 s  luka 1,21 s  najlepsza w klasie 3,74 s
+    52 mechanism_click   tresc 2,20 s  luka 1,22 s  najlepsza w klasie 3,42 s
+   260 creature_roar     tresc 2,13 s  luka 1,02 s  najlepsza w klasie 3,15 s
+   491 plate_clank       tresc 2,13 s  luka 0,84 s  najlepsza w klasie 2,97 s
    ```
    Wszystkie trzy mają **kontrakt spełniony w całości** (score 0), więc
-   obowiązuje reguła 1 w najostrzejszej postaci: wariant, który psuje
-   kontrakt, odpada nawet przy dużym przyroście treści — tak właśnie
-   poległa `145` w r062 (1,68 s treści, ale centroid 5990 Hz przy
-   progu 600–4500).
-   Dobór nie jest przypadkowy. r062 pokazała, że **sama klauzula
-   fill-take nie wystarcza**: dostały ją też `4` i `145` i obie wyszły
-   gorzej. Zadziałało coś innego — opis ŁAŃCUCHA odrębnych zdarzeń
-   (pancerz łomocze, bariera pęka) zamiast jednego uderzenia z
-   przymiotnikiem. Dlatego bierzemy trzy karty, w których ciąg
-   zdarzeń jest naturalny: uderzenia dzwonu, ogniwa łańcucha, kroki.
-   `247` ma dodatkowo tylko **1 próbę** za sobą, więc to najmniej
-   wyeksploatowana karta w całej puli.
-   `4` (9 prób) i `145` (5) odpoczywają po r062. `98` (insect_swarm)
-   nadal: kontrakt wymaga dronu, karta daje trzepotanie. `12`
-   (luka 0,20 s) i `561` (0,01 s) poniżej progu opłacalności.
-   `232` odłożona po trzech nieudanych rundach.
+   reguła 1 obowiązuje najostrzej. `491` ma tylko **1 próbę** za sobą —
+   to ten sam argument, który w r063 dał `247` +1,94 s. `67`
+   (war_machine, luka 1,52 s — największa w całym korpusie) zostaje
+   na później, bo ma już fill-take od r029, czyli potrzebuje innej
+   dźwigni niż te trzy.
+   We wszystkich trzech stary prompt opisuje **jedno** zdarzenie:
+   `52` „a row of low dull wooden knocks" (ale bez słowa o końcu),
+   `260` „one short, inhuman demon roar", `491` „bark hardening plate
+   by plate" bez domknięcia. Dokładnie ten wzór — jedno zdarzenie i
+   brak domknięcia — miały `469` i `247` przed r063.
 2. **Wątek bez kredytów — po `r058eq`:** `dull` zeszło z 16 na 11,
    `harsh` z 11 na 9. Tanich ruchów już nie ma: `harsh` wymaga
    −12…−15 dB przy 8 kHz na kartach z 0,94–0,98 energii w paśmie
@@ -401,6 +408,7 @@ docs/archive/state-2026-10-08-r059b.md  nowa definicja cut_start_hard + 9 napraw
 docs/archive/state-2026-10-08-r060.md   runda r060 (583, 292 weszły, 71 cofnięta)
 docs/archive/state-2026-10-08-r061.md   runda r061 (5 weszła, 98 i 71 cofnięte)
 docs/archive/state-2026-10-08-r062.md   runda r062 (71 weszła, 4 i 145 cofnięte)
+docs/archive/state-2026-10-08-r063.md   runda r063 (469 i 247 weszły, 23 cofnięta)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:
