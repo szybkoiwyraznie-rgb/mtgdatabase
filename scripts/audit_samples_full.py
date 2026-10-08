@@ -46,8 +46,16 @@ ROOT = Path(__file__).resolve().parent.parent
 # progi (kalibracja opisana w raporcie)
 # ---------------------------------------------------------------------------
 SILENCE_DB = -45.0           # próg ciszy dla obwiedni 10 ms
-CUT_START_DB = -12.0         # start od razu na pełnym poziomie
-CUT_START_MARGIN = 4.0       # ...i w granicach N dB od maksimum pliku
+# Ucięcie na starcie mierzone SKOKIEM z ciszy, nie poziomem w oknie.
+# Kalibracja 2026-10-08 (r058b/r059) na 563 plikach: próg 0,15 odcina
+# dwa falszywe alarmy (430 startuje od -106 dBFS, 504 od -38 dBFS — oba
+# od czystej ciszy) i wyłapuje 15 prawdziwych, których pierwsza probka
+# ma od -15 do -23 dBFS. Stare progi (CUT_START_DB / CUT_START_MARGIN)
+# zostaly wylaczone: poziom pierwszych 15 ms nie rozróżnia uciecia od
+# szybkiego ataku, bo uderzenie tez dochodzi do szczytu w 15 ms.
+CUT_START_STEP = 0.15        # pierwsza probka powyżej 15% szczytu pliku
+CUT_START_DB = -12.0         # [NIEUŻYWANE] start od razu na pełnym poziomie
+CUT_START_MARGIN = 4.0       # [NIEUŻYWANE] ...i w granicach N dB od maksimum
 CUT_END_DB = -30.0
 CUT_END_MARGIN = 15.0
 LEAD_SILENCE_S = 0.6
@@ -508,6 +516,13 @@ def analyze(path: Path, expected: float | None, music_allowed: bool = False) -> 
         "content_rel_s": round(max(0.0, dur - lead_rel - trail_rel), 3),
         "start_15ms_db": round(segment_rms_db(mono, fs, 0.0, 0.015), 2),
         "start_50ms_db": round(segment_rms_db(mono, fs, 0.0, 0.050), 2),
+        # Skok z ciszy na pierwszej probce, jako ulamek szczytu pliku.
+        # To JEDYNA miara, ktora odróżnia prawdziwe uciecie (plik zaczyna
+        # sie w trakcie przebiegu, wiec pierwsza probka jest juz glosna)
+        # od szybkiego ataku (plik startuje od zera i pnie sie do szczytu).
+        # Poziom w oknie 15 ms tego nie potrafi: 430 i 504 byly flagowane,
+        # choć startuja od -106 i -38 dBFS, a 286 (start od -15 dBFS) nie.
+        "start_step_ratio": round(float(np.abs(mono[0])) / peak, 4) if mono.size and peak > 0 else 0.0,
         "end_10ms_db": round(segment_rms_db(mono, fs, dur - 0.010, dur), 2),
         "end_30ms_db": round(segment_rms_db(mono, fs, dur - 0.030, dur), 2),
         "end_100ms_db": round(segment_rms_db(mono, fs, dur - 0.100, dur), 2),
@@ -536,7 +551,10 @@ def add_flags(metrics: list[dict]) -> dict:
     for m in metrics:
         flags: list[str] = []
         # --- krawędzie -----------------------------------------------------
-        if m["start_15ms_db"] > CUT_START_DB and m["start_15ms_db"] > m["max_frame_db"] - CUT_START_MARGIN:
+        # Prawdziwe uciecie na starcie = plik zaczyna sie juz glosno.
+        # Nie poziom pierwszych 15 ms — ten jest wysoki rowniez przy
+        # czystym, szybkim ataku, przez co flaga łapała 430 i 504.
+        if m.get("start_step_ratio", 0.0) > CUT_START_STEP:
             flags.append("cut_start_hard")
         if m["end_10ms_db"] > CUT_END_DB or m["end_10ms_db"] > m["max_frame_db"] - CUT_END_MARGIN:
             flags.append("cut_end_hard")
@@ -677,8 +695,10 @@ def build_markdown(metrics: list[dict], stats: dict, pairs: list[dict],
     A("  stworów i skrzypienie drewna potrafią ją udawać — pewność niska.")
     A("- **Bliźniaki brzmieniowe**: wysoki kosinus log-mel oznacza „podobna barwa i przebieg")
     A("  w czasie\", a nie „ten sam plik\". Dwa różne uderzenia miecza *mają prawo* być podobne.")
-    A("- **`cut_start_hard`** dla dźwięków ciągłych (deszcz, tłum, bitwa) bywa naturalne —")
-    A("  kategoria utrzymana z poprzedniego audytu dla porównywalności.")
+    A("- **`cut_start_hard`** od 2026-10-08 mierzy **skok z ciszy na pierwszej próbce**")
+    A("  (`start_step_ratio`, próg 0,15 szczytu), nie poziom pierwszych 15 ms. Poprzednia")
+    A("  definicja nie odróżniała ucięcia od szybkiego ataku: flagowała pliki startujące")
+    A("  od czystej ciszy, a przepuszczała te zaczynające się w trakcie przebiegu.")
     A("- **True peak i peak** liczone są na **zdekodowanym** MP3, więc zależą od dekodera;")
     A("  wartości > 0 dBFS to normalny overshoot kodera, nie błąd generacji.")
     A("- **Infradźwięki vs „ciemny dźwięk\"**: LUFS jest ważony percepcyjnie (filtr K tłumi")

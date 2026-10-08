@@ -51,7 +51,7 @@ Metryki korpusu (audyt `2026-10-08-after-eq`):
 
 | metryka | wartość |
 |---|---|
-| pliki z flagą | **43** |
+| pliki z flagą | **41** |
 | bliźniaki ≥ 0,95 | **0** |
 | identyczny PCM | **0** |
 | pary ≥ 0,90 (graf kosinusowy) | **23** |
@@ -138,7 +138,7 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 ## Stan liczbowy
 
 - Katalog: **563 fabuł**, scenariusze **563** (100 %), sample **563**.
-- Flagi **43**, pary ≥ 0,90 **24**, treść < 2 s **17**.
+- Flagi **41**, pary ≥ 0,90 **26**, treść < 2 s **17**.
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **151** trafionych.
 - Budżet: **5760 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
   r058: 360, r059: 240).
@@ -322,6 +322,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | b073 | 2026-10-08 | 2 nowe karty (327, 328), obie trafione z 0 flag; 327 po zmianie archetypu | `state-2026-10-08-b073.md` |
 | r058 | 2026-10-08 | 3 najgorsze karty swoich klas; weszła 113 (1,24 → 3,96 s), 232 i 434 cofnięte | `state-2026-10-08-r058.md` |
 | r058b | 2026-10-08 | darmowe domknięcia krawędzi: 72 i 278 bez flag, 0 kredytów | `state-2026-10-08-r058b.md` |
+| r059b | 2026-10-08 | `cut_start_hard` przeliczone na skok z ciszy; 2 fałszywe alarmy zdjęte, 9 prawdziwych trzasków naprawionych | `state-2026-10-08-r059b.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -369,6 +370,7 @@ docs/archive/state-2026-10-08-b073.md   dostawa b073 (327, 328)
 docs/archive/state-2026-10-08-r058.md   runda r058 (113, 232, 434)
 docs/archive/state-2026-10-08-r058b.md  krawędzie: 72, 278 (0 kredytów)
 docs/archive/state-2026-10-08-r059.md   runda r059 (434 weszła, 232 cofnięta)
+docs/archive/state-2026-10-08-r059b.md  nowa definicja cut_start_hard + 9 napraw
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:
