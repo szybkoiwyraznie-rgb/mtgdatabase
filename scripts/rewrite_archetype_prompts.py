@@ -621,8 +621,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "140": ("A fighter rolling up from a packed yard: five separate steel plates clanking one "
            "after another, each distinct, sharply struck and mid-pitched, with a gritty scrape.",
             "przewrotka po ubitym placu: pięć osobnych płyt zbroi dzwoni kolejno, każda wyraźna i ze środka pasma", False),
-    "232": ('A goblin shifting in plate armour: six separate hard steel plate knocks, each a sharp hit with a gritty unpitched scrape of steel on steel, clear silence between them, no ringing tone.',
-            'goblin przestępuje w za dużej zbroi: sześć oddzielnych twardych stuknięć płyt, każde z chrzęstem stali o stal, wyraźne przerwy między nimi', False),
+    "232": ('A goblin shifting in oversized armour: five separate steel plates clanking one after another, each distinct and sharply struck, mid-pitched with body, a gritty scrape of steel between them.',
+            'niepewne przestępowanie goblina w za dużej zbroi: pięć osobnych płyt dzwoniących jedna po drugiej, ostro uderzonych, w środku pasma', False),
     "16": ("A heavy breastplate lifted off a stone table: four separate steel plates clanking one after another, each distinct and sharply struck, mid-pitched with body.",
             "podniesienie ciężkiego napierśnika ze stołu: cztery osobne płyty dzwonią kolejno, każda wyraźna i z ciałem", False),
     "460": ("A horned breastplate buckled onto a young centaur: five firm knocks of plate against plate, each separate and mid-pitched, with a short leather creak between.",
@@ -646,8 +646,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "ptaki śpiewające w leśnej polanie odpowiadają sobie: osiem wyraźnych szczebiotliwych treli w nierównym rytmie, każdy krótkim jasnym tonalnym gwizdem, między nimi kapiąca rosa",
         False,
     ),
-    "434": ('A mizzium reactor overloading: a gritty metal grinding rasp clearly in the middle of the range, a heavy engine throb underneath, and six heavy pound strikes, each landing separately with a pause between.',
-            'przeciążenie reaktora mizzium: zgrzytliwy metalowy chrzęst wyraźnie w środku pasma, pod nim ciężkie dudnienie silnika, sześć uderzeń osobno z krótką przerwą', False),
+    "434": ('A mizzium reactor overloading: a deep low engine rumble underneath, with loud gritty metallic knocking and clanking forward in the mid range, and heavy pressure vents blasting open one after another.',
+            'przeciążenie reaktora mizzium: niski pomruk silnika, nad nim głośne metalowe stukanie, kolejne zawory wyrywające się jeden po drugim', False),
     "2": ("A stone thrown into deep water: one bright hard splash at the very first instant, then a hissing spray of droplets and three smaller plops spreading outward.",
             "kamień rzucony w głęboką wodę: jeden jasny twardy plusk w pierwszej chwili, potem syk drobnego rozbryzgu i trzy mniejsze pluski", False),
     "559": (

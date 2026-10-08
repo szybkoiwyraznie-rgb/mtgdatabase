@@ -1,57 +1,54 @@
-name: TEMP r058 - trzy najgorsze karty swoich klas, latka na jedna metryke
+name: TEMP r059 - 232 i 434 po nowej diagnozie, prompty na wzor kart przechodzacych
 
-# r058: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# r059: 2 karty x 3 warianty = 6 generacji x 40 kredytow = 240 kredytow.
 #
-# DOBOR — nie „najkrotsze", ale NAJGORSZE W SWOIM ARCHETYPIE. Kazda z
-# trzech jest dzis najslabsza karta swojej klasy pod wzgledem tresci,
-# a mediana klasy lezy wysoko, wiec zapas jest duzy:
+# OBIE KARTY JUZ DOWIOZLY DLUGOSC w r058 (+2,72 s i +2,61 s tresci), ale
+# polegly na kontraktach i zostaly wycofane wraz z tekstem (regula 1:
+# spadek werdyktu = powrot do starego). Wiec nie ruszamy dlugosci —
+# ruszamy MATERIAL. A dokladnie: przestajemy zgadywac i bierzemy prompty
+# na wzor kart, ktore juz przechodza ten sam kontrakt.
 #
-#   232 plate_clank     tresc 0,98 s  przy medianie klasy 2,97 (18/19 >= 2 s)
-#   434 war_machine     tresc 1,20 s  przy medianie klasy 3,06 (5/6 >= 2 s)
-#   113 robot_servo     tresc 1,24 s  przy medianie klasy 3,97 (4/6 >= 2 s)
+# 232 plate_clank — brakuje crest i flatness:
+#   r058 dalo      crest 13,45 / 15,54 / 15,50   (prog >= 17)
+#                  flatness 0,0066 / 0,0199 / 0,0024 (prog >= 0,03)
+#   korpus (19 trafionych): crest min 19,91, mediana 23,17
+#                           flatness min 0,0378, mediana 0,1068
+#   -> brakuje 4,4 dB crestu do NAJGORSZEJ karty, ktora przechodzi.
+#   Co robia te przechodzace (16, 140, 40): "four/five separate steel
+#   plates clanking one after another, each distinct and sharply struck,
+#   mid-pitched". Nasz r058 mowil "six hard steel plate knocks ... with a
+#   gritty unpitched scrape" — scrape jest ciagly, wiec zbija crest,
+#   a "unpitched" zamiast "mid-pitched" wypycha centroid.
+#   POPRAWKA: "mid-pitched with body", scrape tylko "between them".
 #
-# DLACZEGO NIE 269 I 23 (też odrzucone w r057):
+# 434 war_machine — centroid 5-17x za jasny:
+#   r058 dalo      centroid 5774 / 4434 / 2273  (prog <= 2600)
+#                  low_all 0,022 / 0,051 / 0,015 (prog >= 0,35)
+#                  onset_count 0 / 1 / 0          (prog >= 2)
+#   korpus (6 trafionych): centroid min 210, mediana 344, MAX 459.
+#   -> przepasc. Wzorce (67, 80, 241) brzmia: "a deep rumble kept low in
+#      level, with loud gritty metallic knocking and clanking clearly
+#      forward in the middle of the range".
+#   Nasz r058 mowil "a gritty metal GRINDING RASP" — zgrzyt to szerokopasmowy
+#   szum, stad centroid > 2200. Model w r057 poszedl w sam dol (mid_up
+#   0,028), w r058 w sama gore (low_all 0,015): wahadlo odbilo.
+#   POPRAWKA: "knocking and clanking" zamiast "grinding rasp".
 #
-#   269 beast_screech   tresc 1,84 s = MEDIANA klasy (1/3 kart >= 2 s).
-#                       2 s jest dla tego archetypu nietypowe, a latka
-#                       na attack_s polegla tu dwukrotnie (1,06 i 0,60
-#                       przy progu 0,15) — choć ta sama fraza dowiozla
-#                       344 w r055 (2,020 -> <= 0,1) i 4 w r057.
-#                       Przyrost do progu to tylko +0,16 s, ponizej
-#                       progu oplacalnosci z reguly 2.
-#    23 temple_bell     tresc 1,72 s, brakuje 0,28 s — tez ponizej
-#                       reguly 2. Dwa podejscia w r057 SKROCILY ja
-#                       (-0,75 i -0,82), wiec trzecie jest ryzykowne.
+# WNIOSKI Z r058b, ktore tu wchodza:
+#   - flaga to hipoteza, nie diagnoza (430 i 504 maja cut_start_hard,
+#     ale startuja od zera — to falszywe alarmy, zostawiamy je);
+#   - fade-out naprawia sustain TYLKO gdy szczyt stoi na krawędzi (72 tak,
+#     292 nie — tam szczyt w 32% dlugosci). Zadnej z tych dwoch kart nie
+#     uratuje sie montazem, wiec idziemy do generatora.
 #
-# CO POLEGLO W r057 I JEST NAPRAWIANE. Wazne: dlugosc juz wyszla
-# (+2,63 / +2,80 / +2,58 s). Polegly konkretne metryki kontraktu:
+# Take 4,0 s dla obu (regula 6: krotki take sie nie wypelnia).
+# Limity: payload 440/450 znakow, sample_scenario PL <= 220.
 #
-#   232 plate_clank     crest 15,3 (prog >= 17) i flatness 0,0098
-#                       (prog >= 0,03). Korpus: crest mediana 23,1
-#                       (min 19,9), flatness mediana 0,079.
-#                       -> „dull steel clanks" zrobilo miekkie i
-#                          tonalne uderzenia. Teraz: „hard", „sharp hit",
-#                          „gritty unpitched scrape", „no ringing tone".
-#   434 war_machine     mid_up 0,028 (prog >= 0,1) — model zrobil sam dol.
-#                       Korpus: mid_up mediana 0,857 (min 0,285).
-#                       -> zgrzyt idzie PIERWSZY i z deklaracja pasma,
-#                          dudnienie tylko „underneath". Bez „deep"
-#                          (w b072d zrobilo sub-basowy dron).
-#   113 robot_servo     sustain 0,005 / 0,033 (prog >= 0,2). Korpus:
-#                       0,990 i 0,995, czyli tony ciagle.
-#                       -> w r057 peakiem zostaly „two sharp clicks".
-#                          Teraz hum jest najglosniejszy i trzyma rowny
-#                          poziom, a klikniecia sa „far quieter than
-#                          the hum" (sustain = ulamek ramek w granicach
-#                          12 dB od szczytu).
+# ZASADA OCHRONNA (regula 1): obie karty sa dzis TRAFIONE na starych
+# plikach. Spadek werdyktu = powrot do starego sample, nawet jesli tresc
+# urosnie. Odrzucamy tez przyrost < 0,3 s, jesli cena jest nowa flaga.
 #
-# Take 4,0 s dla wszystkich (regula 6: krotki take sie nie wypelnia).
-#
-# ZASADA OCHRONNA (regula 1): wszystkie trzy karty sa dzis TRAFIONE.
-# Spadek werdyktu = powrot do starego sample, nawet jesli tresc urosnie.
-# Odrzucamy tez przyrost < 0,3 s, jesli cena jest nowa flaga (regula 2).
-#
-# batch w scenarios.jsonl: r058 (MUSI sie zgadzac z --batch).
+# batch w scenarios.jsonl: r059 (MUSI sie zgadzac z --batch).
 #
 # Po imporcie: postprocess ZAWSZE z --ids ograniczonym do batchu i
 # --max-gain-db 26 dla cichych — domyslne 15 dB nie dobija do -20 LUFS,
@@ -68,7 +65,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "232,434,113"
+  IDS: "232,434"
 
 jobs:
   variants:
@@ -79,13 +76,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r058]
+      - name: Guard — tylko commit z markerem [generate-r059]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r058]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r059]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r058] — nic nie generuję"
+            echo "brak markera [generate-r059] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -104,25 +101,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r058
+          mkdir -p variants/r059
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r058/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r059/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r058 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r058/v$v" 2>&1 | tee -a variants/r058/generate.log
+              --ids "$IDS" --batch r059 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r059/v$v" 2>&1 | tee -a variants/r059/generate.log
           done
-          ls -la variants/r058 variants/r058/v1 variants/r058/v2 variants/r058/v3 || true
+          ls -la variants/r059 variants/r059/v1 variants/r059/v2 variants/r059/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r058 data/samples/generated-manifest.jsonl
+          git add -f variants/r059 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r058: 9 wariantow (3 karty x 3) + log generacji [import-r058]"
+            git commit -m "r059: 6 wariantow (2 karty x 3) + log generacji [import-r059]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
