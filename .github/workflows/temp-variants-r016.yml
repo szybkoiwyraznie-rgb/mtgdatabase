@@ -45,6 +45,14 @@ name: "TEMP r067 - 52, 501 i 355: dwa archetypy, ktore dzialaja"
 # W r067 dodatkowo, po raz pierwszy: rowny odstep miedzy zdarzeniami
 # musi byc wprost w zgloszeniu, nie tylko ich liczba.
 
+on:
+  push:
+    branches:
+      - arena/01a108e2-mtgdatabase
+
+permissions:
+  contents: write
+
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
