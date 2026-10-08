@@ -31,17 +31,21 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   `325` wymagała **pięciu prób** i montażu (reverb + półka −9 dB).
 - Ostatnia runda: `r057` — 3 z 8 kart urosły (`558` +1,91 s,
   `4` +0,69 s, `26` +0,54 s), treść < 2 s **21 → 19**, flagi 53 → 52.
+- Ostatnia korekta EQ: `r058eq` — **zero kredytów**, półka widmowa na
+  7 kartach: `dull` 16 → 11 (`74`, `102`, `120`, `173`, `214`; +3 dB przy
+  2 kHz), `harsh` 11 → 9 (`86`, `267`; −3 dB przy 8 kHz). Flagi 52 → 46,
+  pary ≥ 0,90 **23 → 22**, nowych flag 0, werdykty bez zmiany.
 - Ostatnia runda korekt: `r056` — zero przyjętych (diagnoza poniżej).
 
-Metryki korpusu (audyt `2026-10-07-after-b071`):
+Metryki korpusu (audyt `2026-10-08-after-eq`):
 
 | metryka | wartość |
 |---|---|
-| pliki z flagą | **53** |
+| pliki z flagą | **46** |
 | bliźniaki ≥ 0,95 | **0** |
 | identyczny PCM | **0** |
-| pary ≥ 0,90 (graf kosinusowy) | **21** |
-| treść < 2 s | **21** |
+| pary ≥ 0,90 (graf kosinusowy) | **22** |
+| treść < 2 s | **19** |
 | poza oknem 2–5 s | **0** |
 | LUFS średnio | **−20,08** (odch. 0,48) |
 | archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 147** |
@@ -124,7 +128,7 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 ## Stan liczbowy
 
 - Katalog: **561 fabuł**, scenariusze **561** (100 %), sample **561**.
-- Flagi **52**, pary ≥ 0,90 **23**, treść < 2 s **19**.
+- Flagi **46**, pary ≥ 0,90 **22**, treść < 2 s **19**.
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **149** trafionych.
 - Budżet: **6720 / 10 000** kredytów (b072: 560, r057: 640).
 
@@ -266,6 +270,13 @@ warianty czekają na serwerze, a lokalnie wygląda jakby run się nie
 udał. Po każdym resecie: `git rev-parse --abbrev-ref @{u}` i w razie
 `fatal: no upstream` — `git branch --set-upstream-to=origin/<branch>`.
 
+**24. Korekcję EQ aplikować tylko tam, gdzie zdejmuje flagę.** Próba na
+27 kartach (`16 dull` + `11 harsh`) dała ten sam zysk flag (52 → 46),
+ale 19 kart bez zysku dorzuciło **2 nowe pary** i podbiło maksimum
+kosinusa 0,9415 → 0,9461 (próg bliźniaków 0,95). Po zawężeniu do 7 kart,
+które faktycznie straciły flagę: pary 23 → **22**, maksimum bez zmiany.
+Zasada: korekta bez efektu to czyste ryzyko — wycinać ją z `--ids`.
+
 ## Indeks rund i dostaw
 
 Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
@@ -286,11 +297,12 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | b071 | 2026-10-07 | 2 nowe karty (280, 323), obie trafione z 0 flag | `state-2026-10-06.md` |
 | b072 | 2026-10-07 | 2 nowe karty (324, 325), obie trafione; 325 po 5 próbach | `state-2026-10-07.md` |
 | r057 | 2026-10-08 | 3 z 8 krótkich weszły, treść < 2 s 21 → 19 | `state-2026-10-08.md` |
+| r058eq | 2026-10-08 | EQ za 0 kr: 7 kart, `dull` 16 → 11, `harsh` 11 → 9, flagi 52 → 46, pary 23 → 22 | `state-2026-10-08.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
-**r034–r057 łącznie: 380 generacji, 175 → 23 par (−87 %), treść < 2 s
-41 → 19.**
+**r034–r058eq łącznie: 380 generacji + 7 korekt EQ, 175 → 22 par
+(−87 %), treść < 2 s 41 → 19, flagi 53 → 46.**
 
 ## Co robić dalej
 
@@ -298,8 +310,13 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    `onset_count = 0` (przerwy między zdarzeniami wprost). Z 21 krótkich
    kart wyłączone są `115` i `311` (nietykalne: zyskały ~1,4 s kosztem
    3 par) oraz `219`, `87`, `292` (po 2–4 próbach bez efektu).
-2. **Osobny wątek bez kredytów:** 11 kart z flagą `harsh` i 16 z `dull`
-   — największe grupy flag w korpusie.
+2. **Wątek bez kredytów — po `r058eq`:** `dull` zeszło z 16 na 11,
+   `harsh` z 11 na 9. Tanich ruchów już nie ma: `harsh` wymaga
+   −12…−15 dB przy 8 kHz na kartach z 0,94–0,98 energii w paśmie
+   powietrznym (`226`, `6`, `522` nie mieszczą się nawet przy −15 dB),
+   a `dull` przy +3 dB nie dobija do progu 0,005 energii > 2 kHz na
+   `339`, `496`, `32`, `51`, `118`, `358`, `159`, `37`, `83`, `468`.
+   Obie grupy domykają się tylko nowym materiałem (kredyty).
 3. Pilnować `check_required_reading.py` przy każdym dopisywaniu do tego
    pliku (limit 50 000 tokenów).
 
