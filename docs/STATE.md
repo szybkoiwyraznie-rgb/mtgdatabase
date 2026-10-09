@@ -41,6 +41,13 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   Wszystkie siedem weszły **trafione i bez flag**; korpus urósł
   z 563 do **570**, a liczba flag i par nie drgnęła. Szczegóły
   w `docs/archive/state-2026-10-09-b074.md`.
+- Poprzednia runda: `r071` — **trzy z trzech**, pierwsza taka runda
+  w tej serii. `608` *Skymarch Bloodletter* **2,23 → 3,63 s (+1,40)**,
+  `435` *Warrior's Sword* **2,19 → 3,36 s (+1,17)**, `17` *Selhoff
+  Occultist* **2,23 → 2,73 s (+0,50)** — razem **+3,07 s**. Ważniejsze
+  od długości: archetypy przesunęły się z 33/158 na **30/161**, czyli
+  trzy karty przeszły z *prawdopodobnie* na *trafiony*. Flagi i pary
+  bez zmian (38 / 25).
 - Poprzednia runda: `r070` — z 3 kart weszła **jedna, ale największa
   w tej serii**: `308` *Greatsword of Tyr* **2,06 → 3,31 s (+1,25)**,
   `sword_clash` w całości. Wzorzec
@@ -224,9 +231,9 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 - Katalog: **570 fabuł**, scenariusze **570** (100 %), sample **570**.
 - Flagi **38**, pary ≥ 0,90 **25**, treść < 2 s **12**.
-- Archetypy: **0** nie trafionych, **33** prawdopodobnie, **158** trafionych.
-- Budżet: **8200 / 10 000** kredytów na drugim kluczu (r068: 360,
-  r069: 360, r070: 360, r071: 360 w toku). Pierwszy klucz 10 000 zamknęły: b072 560,
+- Archetypy: **0** nie trafionych, **30** prawdopodobnie, **161** trafionych.
+- Budżet: **7840 / 10 000** kredytów na drugim kluczu (r068: 360,
+  r069: 360, r070: 360, r071: 360, r072: 360 w toku). Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,
   r062 360, r063 360, r064 360, r065 360, r066 360, r067 360,
   b074 840, b074b 600, b074c 480, b074d 240, b074e 120.
@@ -423,6 +430,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r068 | 2026-10-09 | 501 bez pary weszła (2,75 → 3,80 s), 565 weszła (2,67 → 3,24 s), 308 cofnięta na `attack_s` | `state-2026-10-09-r068.md` |
 | r069 | 2026-10-09 | 74 weszła (2,76 → 3,20 s) i wyleczyła flagę `boomy`; 308 cofnięta, bo była krótsza; 177 bez głosu | `state-2026-10-09-r069.md` |
 | r070 | 2026-10-09 | 308 weszła (2,06 → 3,31 s, +1,25) — wzorzec trafiony na 3 z 3; 224 trafiona, ale tylko +0,04 s; 452 cofnięta, krótsza | `state-2026-10-09-r070.md` |
+| r071 | 2026-10-09 | **trzy z trzech**: 608 (+1,40), 435 (+1,17), 17 (+0,50) = +3,07 s; trzy karty z „prawdopodobnie" na „trafiony" | `state-2026-10-09-r071.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -431,28 +439,31 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Runda `r071` w toku** — wzorzec z `308` przeniesiony na trzy
-   następne miecze, każdy z innym łańcuchem:
+1. **Runda `r072` w toku** — wzorzec schodzi o szczebel niżej, na
+   trzy kolejne miecze:
    ```
-   435 sword_clash  tresc 2,19 s  luka 0,95 s  5 prob  fill-take
-   608 sword_clash  tresc 2,23 s  luka 0,91 s  6 prob  fill-take
-    17 sword_clash  tresc 2,23 s  luka 0,91 s  6 prob  fill-take
+   524 sword_clash  tresc 2,24 s  luka 1,05 s  2 prob  bez fill-take
+    20 sword_clash  tresc 2,28 s  luka 1,01 s  6 prob  fill-take
+   224 sword_clash  tresc 2,47 s  luka 0,82 s  2 prob  bez fill-take
    ```
-   Wzorzec, który zadziałał na `308`, brzmi: **trzask, dwa długie zgrzyty, trzeci trzask,
-   cięcie do końca.** Długość bierze się z dwóch rzeczy naraz —
-   z liczby zdarzeń i z tego, że zgrzyt jest *rozciągnięty*, a nie
-   punktowy. Trzy karty dostają trzy różne łańcuchy, żeby nie zrobić
-   z nich bliźniaków (próg pary to kosinus 0,90):
+   Wszystkie trzy są już **trafione** i mają atak w normie
+   (0,03 / 0,05 / 0,03) — ta sama diagnoza co w `r071`: nie atak,
+   tylko długość. Dostają trzy różne łańcuchy, żeby nie zrobić z nich
+   bliźniaków:
    ```
-   435  ostrze po guzie tarczy   trzask, zgrzyt, trzask, zgrzyt, trzask
-   608  dwa ostrza krawędziami   trzask, dwa zgrzyty, trzask
-    17  sztylet po kamieniu      trzask, zgrzyt, trzask, zgrzyt (na zgrzycie koniec)
+   524  ostrze z pochwy      trzask, zgrzyt, trzask, zgrzyt  (koniec na zgrzycie)
+    20  miecz o miecz        trzask, dwa zgrzyty, trzask     (koniec na trzasku)
+   224  ostrze po pancerzu   trzask, zgrzyt, trzask, zgrzyt, trzask
    ```
-   Oś liczby: 5 / 3 / 4 zdarzenia. Oś materiału: żelazo / stal / kamień.
-   Oś następstwa: koniec na trzasku / na trzasku / na zgrzycie.
-   Wszystkie trzy mają `attack_s` w normie już teraz (0,05 / 0,02 /
-   0,14), więc tu nie chodzi o atak, tylko o długość — to inna
-   diagnoza niż w `308`, która atak łamała.
+   Oś liczby: 4 / 3 / 5 zdarzeń. Oś materiału: stal o stal / stal o
+   stal / stal po płycie. `224` wraca po `r070`, gdzie dostała ten sam
+   wzorzec **bez** trzeciego trzasku i wyszła 2,51 s — teraz dostaje
+   pięć zdarzeń, tak jak `308`, której trzask dokładał 1,25 s.
+
+   Uwaga z `r071`: `435` v3 ma kosinus **0,8814** do karty `344`,
+   czyli 0,019 pod progiem pary. Jeśli po `r072` podobnych marginesów
+   przybędzie, `sword_clash` zacznie się zbiegać ku sobie i trzeba
+   będzie wrócić do różnicowania materiału, nie liczby zdarzeń.
 
 2. **Lekcja z r070, która zmienia sposób pracy:** `--apply` w
    `rewrite_archetype_prompts.py` przepisuje też pole `music_allowed`
