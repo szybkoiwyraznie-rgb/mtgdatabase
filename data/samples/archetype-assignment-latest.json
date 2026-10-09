@@ -1768,7 +1768,7 @@
    "archetype": "plate_clank",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A stitched skaab shifting its armour: two hard sharp metal plate strikes that peak abruptly and separately, each far more sudden than the scraping around it. Si"
+   "prompt": "Armour plates clashing on a stitched body in the first instant: one hard crack of the plates, then a second crack, then a third crack, then a fourth crack, the "
   },
   {
    "id": "217",
@@ -4128,7 +4128,7 @@
    "archetype": "plate_clank",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A sphinx's claws raking through chitin armour in flight: wing feathers snapping, claws punching in with a hard crack, then a long wet tearing rip as the shell s"
+   "prompt": "Claws striking chitin armour in the first instant: one hard crack of the plates, then a second crack, then a third crack, then a fourth crack, the striking to t"
   },
   {
    "id": "568",

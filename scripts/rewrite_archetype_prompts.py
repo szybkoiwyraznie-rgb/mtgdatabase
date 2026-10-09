@@ -432,6 +432,20 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "gromoraptor składa skrzydła: krótki świat powietrza, trzask błyskawicy, potem grzmot trwający ponad sekundę i cichnący przed końcem", False),
     "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
             "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
+    "548": (
+        "Armoured shoulders turning in the first instant: one hard crack of the "
+        "plates, then a second crack, then a third crack, then a fourth crack, the "
+        "striking to the end. " + NO_M,
+        "pancerne naramienniki obracają się w pierwszej chwili: jeden twardy trzask płyt, potem drugi trzask, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
+    "534": (
+        "Plate armour clashing on a body in the first instant: one hard crack of "
+        "the plates, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "płytowy pancerz stuka na ciele w pierwszej chwili: jeden twardy trzask płyt, potem drugi trzask, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
             "rustic, feet stamping the beat. " + NO_S,
             "wiejska muzyka: skrzypce grają żywą taneczną melodię nad bębenkiem, stopy wybijają rytm", True),
@@ -657,13 +671,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "first one is by far the loudest moment of the whole take, landing at full "
         "force with no build-up. " + NO_M,
         "skrzyżowane ostrza kavu: pięć ostrych ziarnistych starć stali jedno po drugim, z których pierwsze jest zdecydowanie najgłośniejszym momentem całego take, uderzające z pełną siłą bez narastania",
-        False,
-    ),
-    "524": (
-        "A lightblade striking in the first instant: one hard crack of the blade, "
-        "then two long rasping cuts of steel drawn along steel, then a third "
-        "crack, the shearing to the end. " + NO_M,
-        "świetlne ostrze uderza w pierwszej chwili: jeden twardy trzask klingi, potem dwa długie zgrzyty stali o stal, potem trzeci trzask, cięcie do końca",
         False,
     ),
     "525": ("A rapier thrust throwing a wave of glacial spikes: one instant bright steel impact, then four sharp cracking strikes as the ice splinters, each with a glassy metallic ring.",
@@ -901,8 +908,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "bliski ryk potwora: gardłowy wrzask wyraźnie w niskim środku pasma, chropawy, dobrze ponad czystym infrabasem", False),
     "126": ("Wild birds feeding from a hand: several clear melodic chirps on distinct notes, each one tonal and bright, with soft wing flutters between them.",
             "dzikie ptaki karmione z ręki: kilka wyraźnych melodyjnych świergotów na różnych nutach, każdy tonalny i jasny", False),
-    "156": ("A heavy flat stone slab slamming onto marble: one massive crushing impact with deep weighty low frequency thud, then a short sharp crack of stone.",
-            "ciężka kamienna płyta uderza o marmur: jedno miazdzące uderzenie z głębokim basowym łupnięciem, potem krótki ostry trzask", False),
+    "156": (
+        "A stone slab slamming onto marble in the first instant: one crushing "
+        "impact, then a second impact, then a third impact, then a fourth "
+        "impact, the striking to the end. " + NO_M,
+        "kamienna płyta wali w marmur w pierwszej chwili: jedno miażdżące uderzenie, potem drugie, potem trzecie, potem czwarte, uderzanie do końca",
+        False,
+    ),
     "164": ("A great winged creature taking off: several crisp wingbeats with a bright leathery snap and a high rushing hiss of air, each beat clearly in the middle of the range.",
             "wielka skrzydlata istota startuje: kilka sprężystych uderzeń skrzydeł z jasnym skórzanym trzaskiem i wysokim pędem powietrza", False),
     "216": (

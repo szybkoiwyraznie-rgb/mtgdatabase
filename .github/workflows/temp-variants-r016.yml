@@ -1,42 +1,47 @@
-name: "TEMP r075 - 524, 567 i 216: regiony wolne, nie ogon"
+name: "TEMP r076 - 156, 534, 548: krotki zanik, wolne regiony"
 
-# r075: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
-# Po tej paczce na drugim kluczu zostanie 6760.
+# r076: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# Po tej paczce na drugim kluczu zostanie 6400.
 #
-#  524 sword_clash   tresc 2,24 s  luka 1,07 s  4 prob  region WOLNY (0 sasiadow >=0,80)
-#  567 plate_clank   tresc 2,48 s  luka 0,56 s  3 prob  region WOLNY (0 sasiadow >=0,80)
-#  216 plate_clank   tresc 2,53 s  luka 0,51 s  3 prob  region WOLNY (0 sasiadow >=0,80)
+#  156 heavy_impact  tresc 2,09 s  luka 0,42 s  2 flagi  0 sasiadow >=0,80
+#  534 plate_clank   tresc 2,73 s  luka 0,44 s           0 sasiadow >=0,80
+#  548 plate_clank   tresc 2,68 s  luka 0,50 s           0 sasiadow >=0,80
 #
-# Dobor po r074, ktora wyszla ZERO Z TRZECH — i to z pouczajacego
-# powodu. Wszystkie trzy tamte karty (260 creature_roar, 332
-# thunder_clap, 372 stone_slide) mialy centroid 255 / 652 / 435 Hz,
-# czyli niskie dudnienie. Wybrane zostaly po jednej liczbie — luce
-# do mediany klasy. Fingerprint pokazal, ze to za malo: wszystkie
-# dziewiec wariantow wpadlo w jeden gesto zaludniony rog przestrzeni
-# (317, 558, 562, 496, 241, 23, 347 — juz maja miedzy soba pary
-# 0,90-0,93). Najlepszy wariant 332 mial 4,00 s, werdykt trafiony
-# i zero flag, a i tak poszedl do kosza za trzy nowe pary.
+# Wybor idzie po dwoch kryteriach wypracowanych w r074 i r075.
 #
-# Nowa procedura wyboru: liczy sie nie tylko luka, ale i to, ilu
-# sasiadow ma karta. Ponizej policzone jest >=0,80 i >=0,85; wiecej
-# niz dwoch sasiadow >=0,85 oznacza region zajety.
+# PO PIERWSZE: kontrakt z KROTKIM zanikiem. r075 pokazala, ze
+# plate_clank (decay_s <= 1,2) przyjal lancuch zdarzen bez walki —
+# szesc z szesciu wariantow trafionych. Archetypy wymagajace
+# dlugiego zaniku (thunder_clap, stone_slide, earth_rumble,
+# creature_roar) wpadaja w ten sam zajety rog, bo ogon to wlasnie
+# to, co maja wspolne z istniejacym klastrym 317/558/562/496.
+# Tam, gdzie kontrakt kaze gasnac, lancuch zdarzen jest bezpieczny.
+# heavy_impact (decay_s <= 1,4) i plate_clank (<= 1,2) sa w tej
+# grupie.
 #
-#  524  najblizszy 0,5660 | >=0,80: 0 | >=0,85: 0
-#  567  najblizszy 0,7823 | >=0,80: 0 | >=0,85: 0
-#  216  najblizszy 0,7692 | >=0,80: 0 | >=0,85: 0
+# PO DRUGIE: region wolny. Wszystkie trzy karty maja ZERO sasiadow
+# o kosinusie >= 0,80 i zero >= 0,85.
 #
-# 524 — 0 z 6 dotychczas, wszystkie na attack_s (0,58 / 1,46 / 2,07
-# oraz 3,21 / 2,90 / 1,32). W r072 i r073 dostawala „drawn from a
-# scabbard", czyli material, ktory sam w sobie zaprasza powolne
-# ciagniecie. Tu dostaje DOKLADNY tekst, ktory w 308 dal 3/3, z
-# czasownikiem uderzenia w otwarciu (striking) i inna nazwa broni.
-# To czysty test hipotezy z r072.
+#  156  najblizszy 0,7635 | >=0,80: 0 | >=0,85: 0
+#  534  najblizszy 0,7726 | >=0,80: 0 | >=0,85: 0
+#  548  najblizszy 0,6254 | >=0,80: 0 | >=0,85: 0
 #
-# 567 i 216 — plate_clank. Kontrakt ma decay_s <= 1,2, wiec nie mozna
-# przedluzac ogonem (to wlasnie ogon zabil 332). Lancuch jest samych
-# zdarzen: cztery trzaski bez wybrzmiewania, „striking to the end".
-# plate_clank wymaga tez onset_count >= 2 i crest >= 17, wiec same
-# uderzenia powinny przejsc latwo.
+# 156 — jedyna karta w tej transzy, ktora ma flagi: `boomy` i
+# `long_trail_silence`, czyli dwie z 38 w calym korpusie. Jej
+# obecny prompt konczy sie na „a short sharp crack of stone",
+# po czym model zostawia prawie dwie sekundy ciszy (trail). Jesli
+# lancuch czterech uderzen wypelni take, wejda trzy rzeczy naraz:
+# dlugosc, obie flagi i brak ciszy. heavy_impact wymaga przy tym
+# attack_s <= 0,15, wiec „in the first instant" jest obowiazkowe.
+#
+# 534 i 548 — plate_clank, ten sam szkielet co 567 i 216 w r075:
+# cztery trzaski, bez wybrzmiewania, „striking to the end".
+# Rozni je tylko material w otwarciu (pancerz na ciele / naramienniki).
+#
+# Uwaga z r075: zajetosc liczyc tez PO wygenerowaniu. 524 miala zero
+# sasiadow przed runda, a jej v1 i tak zrobila pare 0,9316 z karta
+# 243. Region wokol OBECNEGO sampla bywa pusty, a region docelowy
+# juz nie.
 #
 on:
   push:
@@ -49,7 +54,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "216,524,567"
+  IDS: "156,534,548"
 
 jobs:
   variants:
@@ -60,13 +65,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r075]
+      - name: Guard — tylko commit z markerem [generate-r076]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r075]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r076]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r075] — nic nie generuję"
+            echo "brak markera [generate-r076] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -85,25 +90,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r075
+          mkdir -p variants/r076
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r075/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r076/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r075 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r075/v$v" 2>&1 | tee -a variants/r075/generate.log
+              --ids "$IDS" --batch r076 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r076/v$v" 2>&1 | tee -a variants/r076/generate.log
           done
-          ls -la variants/r075 variants/r075/v1 variants/r075/v2 variants/r075/v3 || true
+          ls -la variants/r076 variants/r076/v1 variants/r076/v2 variants/r076/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r075 data/samples/generated-manifest.jsonl
+          git add -f variants/r076 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r075: 9 wariantow (3 karty x 3) + log generacji [import-r075]"
+            git commit -m "r076: 9 wariantow (3 karty x 3) + log generacji [import-r076]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
