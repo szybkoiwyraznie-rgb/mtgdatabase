@@ -412,6 +412,13 @@ DURATIONS = (4.0, 4.5, 3.5)
 
 # Karty, których prompt musi zostać ręczny (fabuła narzuca konkretne źródło).
 OVERRIDES: dict[str, tuple[str, str, bool]] = {
+    "224": (
+        "A blade on armour in the first instant: one hard crack, then a long rasp "
+        "of steel over plate, a second crack, a second rasp, then a third crack, "
+        "shearing to the end. " + NO_M,
+        "ostrze uderza w pancerz w pierwszej chwili: twardy trzask klingi, potem długi zgrzyt stali po płycie, potem drugi trzask, potem drugi zgrzyt, potem trzeci trzask, cięcie wytrzymane do końca",
+        False,
+    ),
     "312": ("A goblin jester cackling: a series of sharp mocking cackles, five rapid jeering "
             "bursts, high and cruel. " + NO_M,
             "chichot błazna: seria ostrych kpiących chichotów, pięć szybkich wybuchów", False),
@@ -792,8 +799,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "sztylet uderza w kamień w pierwszej chwili: twardy trzask klingi, potem zgrzyt stali po kamieniu, potem drugi trzask, potem drugi zgrzyt po kamieniu, skrobanie wytrzymane do końca",
         False,
     ),
-    "20": ("A sword hitting a sword: an instantaneous hard bright impact at the very first sample, made of harsh broadband gritty metal noise with a rough noisy edge, no smooth pitch.",
-            "miecz uderza o miecz: natychmiastowy twardy jasny cios z chrapliwego szumu, bez gładkiego tonu", False),
+    "20": (
+        "A sword hitting a sword in the first instant: one hard crack of the "
+        "blade, then two long rasping cuts of steel drawn along steel, then a "
+        "third crack, the shearing held to the end. " + NO_M,
+        "miecz uderza o miecz w pierwszej chwili: jeden twardy trzask klingi, potem dwa długie zgrzyty stali o stal, potem trzeci trzask, cięcie wytrzymane do końca",
+        False,
+    ),
     "345": ("A porcelain blade striking: one hard impact with zero wind-up at the very start, built from harsh broadband gritty ceramic-and-steel noise, bright and rough-edged.",
             "porcelanowe ostrze uderza: twarde uderzenie bez zamachu, z chrapliwego szerokopasmowego szumu", False),
     "435": (
@@ -1465,6 +1477,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "three quick jumps, sheets turn and flutter, the final arc snaps "
         "shut. " + NO_M,
         "ciężki indeks otwiera się trzaskiem; niebieskie iskry przeskakują między stronami trzema szybkimi skokami, kartki przewracają się i furkoczą, ostatni łuk trzaska",
+        False,
+    ),
+    "524": (
+        "A blade drawn from a scabbard in the first instant: one hard crack, then a "
+        "long rasp of steel drawn along steel, then a second crack, then a second "
+        "rasp, the scraping to the end. " + NO_M,
+        "ostrze wyciągane z pochwy w pierwszej chwili: twardy trzask klingi, potem długi zgrzyt stali o stal, potem drugi trzask, potem drugi długi zgrzyt, skrobanie wytrzymane do końca",
         False,
     ),
     "547": (
