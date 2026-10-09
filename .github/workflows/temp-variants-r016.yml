@@ -1,43 +1,41 @@
-name: "TEMP r068 - 501, 565 i 308: trzy znane przyczyny pudla"
+name: "TEMP b074 - 7 nowych kart: 329, 332-334, 336, 338, 340"
 
-# r068: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# b074: 7 kart x 3 warianty = 21 generacji x 40 kredytow = 840 kredytow.
 #
-# DOBOR — trzy karty z najwiekszymi lukami, kazda z inna, juz ZNANA
-# przyczyna porazki:
+# To NIE jest runda naprawcza, tylko paczka nowych kart: numery 329,
+# 332, 333, 334, 336, 338 i 340 byly lukami w numeracji — nie mialy
+# ani fabuly w fabuly270926.csv, ani wpisu w scenarios.jsonl, ani
+# pliku w audio/samples. Fabuly dopisane na koncu CSV (TSV, CRLF),
+# katalog przebudowany import_collection.py (570 wpisow).
 #
-#  501 war_machine      tresc 2,75 s  luka 1,19 s  4 prob  fill-take od r029
-#  565 forest_birdsong  tresc 2,67 s  luka 1,02 s  4 prob  fill-take od r054
-#  308 sword_clash      tresc 2,06 s  luka 0,96 s  4 prob  fill-take
+# Dobor archetypow pod to, co w fabule jest pierwszoplanowe:
 #
-# 501 wraca po jednym pudle, ktorego przyczyna jest znana CO DO SLOWA.
-# W r067 wrzucilem „a valve opening with steam venting" i para zmienila
-# machine w czajnik:
+#  329 Blinding Drone      magic_shimmer   snop oślepiającej energii
+#  332 Blitz Thunder-Raptor thunder_clap   grzmot po pikowaniu
+#  333 Bring to Trial      plate_clank     wrota aresztu i kajdany
+#  334 Skyscythe Engulfer  sword_clash     kosa tnie metalowe pnie
+#  336 Zombie Boa          steam_hiss      suche łuski i syk
+#  338 Brine Giant         water_splash    wynurzenie i druzgotanie pirsów
+#  340 Ambulatory Edifice  robot_servo     monument rozkłada stalowe nogi
 #
-#   low_all   v1 0,022   v2 0,131   v3 0,131      prog >= 0,35
-#   mid_up    v1 0,978   v2 0,869   v3 0,870      (prawie cala energia w gorze)
+# ZASADY Z r067 OBOWIAZUJA WE WSZYSTKICH SIEDMIU:
+#   - łańcuch zdarzeń ma trzy osie: LICZBA, MATERIAŁ, NASTĘPSTWO.
+#     Trzeba napisać wszystkie trzy naraz.
+#   - ZERO przymiotników barwy (dark/bright/low/deep/metallic/soft).
+#   - Rzeczowniki TEŻ niosą barwę: para, gwizd i syk rozjaśniają tak
+#     samo jak przymiotnik „bright". Sprawdzać, jakie ZJAWISKO
+#     FIZYCZNE niesie dany rzeczownik.
+#   - jawne domknięcie „to the end".
 #
-# Obecny sample 501 ma low_all 0,725 i centroid 459 — wzorzec jest
-# w korpusie, wiec wystarczy NIE popsuc. Wylatuje para, zostaja same
-# niskie czesci: tlok, korbowod, kolo zamachowe, lancuch.
-#
-# 565 ma juz lancuch („eight clear piping chirps in an uneven rhythm"),
-# ale konczy sie przymiotnikiem („each a short bright tonal whistle")
-# i nie ma domkniecia. forest_birdsong i tak wymaga onset_count >= 4,
-# wiec lancuch jest tu naturalny.
-#
-# 308 to sword_clash, archetyp z najostrzejszym warunkiem wstepnym:
-# attack_s <= 0,1, czyli uderzenie w pierwszej chwili (to samo wylozylo
-# 524 w r065). Obecny sample spelnia go z zapasem (0,03), wiec lancuch
-# MUSI zaczac sie od uderzenia, a narastanie dopiero po nim.
-#
-# ZASADA OBOWIAZUJE WE WSZYSTKICH TRZECH:
-#   ZERO przymiotnikow barwy (dark/bright/low/deep/metallic/soft).
-#   Tylko rzeczowniki (co uderza) i czasowniki (co robi),
-#   plus jawne domkniecie „to the end".
-#
-# NOWE od r067: rzeczowniki TEZ niosa barwe. Para, gwizd, syk i brzek
-# szkla rozjasniaja tak samo jak przymiotnik „bright". Sprawdzac, jakie
-# ZJAWISKO FIZYCZNE niesie dany rzeczownik, nie tylko czy to rzeczownik.
+# Warunki wstępne kontraktów, o które łatwo się potknąć:
+#   magic_shimmer  attack_s >= 0,1   — NIE wolno zacząć od uderzenia
+#   sword_clash    attack_s <= 0,1   — wręcz przeciwnie, MUSI zacząć
+#   water_splash   attack_s <= 0,1   — od chlupnięcia
+#   thunder_clap   low_all  >= 0,5   — świst skrzydeł ma być KRÓTKI,
+#                                      żeby nie podciągnąć centroidu
+#                                      powyżej 800 Hz
+#   steam_hiss     high_all >= 0,3   — tu syk jest POŻĄDANY (inaczej
+#                                      niż w 501, gdzie zabił low_all)
 
 on:
   push:
@@ -50,7 +48,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "501,565,308"
+  IDS: "329,332,333,334,336,338,340"
 
 jobs:
   variants:
@@ -61,13 +59,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r068]
+      - name: Guard — tylko commit z markerem [generate-b074]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r068]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b074]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r068] — nic nie generuję"
+            echo "brak markera [generate-b074] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -86,25 +84,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r068
+          mkdir -p variants/b074
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r068/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b074/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r068 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r068/v$v" 2>&1 | tee -a variants/r068/generate.log
+              --ids "$IDS" --batch b074 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b074/v$v" 2>&1 | tee -a variants/b074/generate.log
           done
-          ls -la variants/r068 variants/r068/v1 variants/r068/v2 variants/r068/v3 || true
+          ls -la variants/b074 variants/b074/v1 variants/b074/v2 variants/b074/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r068 data/samples/generated-manifest.jsonl
+          git add -f variants/b074 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r068: 9 wariantow (3 karty x 3) + log generacji [import-r068]"
+            git commit -m "b074: 21 wariantow (7 kart x 3) + log generacji [import-b074]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

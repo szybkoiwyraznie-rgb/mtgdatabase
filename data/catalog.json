@@ -3940,6 +3940,55 @@
       "title": "Bog Hoodlums",
       "story": "W bulgoczących, wiecznie parujących oparach moczarów Stinkdrank na planie Lorwyn złośliwe boggarty nieustannie szukają nowych okazji do awantury. Dwaj uzbrojeni w sękate maczugi rozbójnicy z dzikim chichotem wyskakują z błotnistej topieli, taranując zbutwiałe pnie w bezmyślnym, gwałtownym pędzie. Ci mali leśni brutale zupełnie nie dbają o obronę ani taktykę, żyjąc wyłącznie dreszczem bezpośredniego starcia i chęcią zdominowania każdego napotkanego wędrowca. Gdy ich zuchwały wrzask rozbrzmiewa pośród bagnistych wierzb, zaskoczeni podróżni wiedzą, że jedynym ratunkiem przed zgrają jest natychmiastowa ucieczka.",
       "versions": []
+    },
+    {
+      "id": "329",
+      "art_id": "329OGW",
+      "title": "Blinding Drone",
+      "story": "Wśród zniekształconych ruin Tazeem na planie Zendikar fanatyczni wyznawcy z kultu Wiecznych Pielgrzymów witają powrót pradawnych niszczycieli świata. Unoszący się nad skamieniałym traktem pomiot Kozileka uwalnia z lewitujących płyt obsydianu potężny snop nienaturalnego, oślepiającego światła. Błyskawiczny rozbłysk geometrycznej energii w ułamku sekundy poraża wzrok nacierającego wojownika, zmuszając go do bezradnego upadku na kolana przed obcą potęgą. Jak głosi arcykapłanka Ayli, w obliczu przebudzonych bóstw każdy śmiertelny opór musi ostatecznie ugiąć się w pokłonie przed bezwzględną siłą kosmosu.",
+      "versions": []
+    },
+    {
+      "id": "332",
+      "art_id": "332IKO",
+      "title": "Blitz of the Thunder-Raptor",
+      "story": "Ponad poszarpanymi, czerwonymi kanionami planu Thunder Junction podniebne drapieżniki polują z bezszelestną, zabójczą precyzją. Szybujący w chmurach burzowych gromoraptor składa potężne skrzydła, przechodząc w naddźwiękowe pikowanie ku spalonej słońcem mesie. W ułamku sekundy z rozwartego dzioba bestii wystrzeliwuje oślepiający promień błękitnej błyskawicy, który obraca cel w pył i wyładowania czystej energii. Na bezdrożach pogranicza najstraszniejszy okazuje się moment, w którym szum skrzydeł nagle cichnie, zwiastując nieuchronne uderzenie niszczycielskiego gromu.",
+      "versions": []
+    },
+    {
+      "id": "333",
+      "art_id": "333RNA",
+      "title": "Bring to Trial",
+      "story": "Przed monumentalnym gmachem trybunału w dzielnicy Mezzio na planie New Capenna prawo egzekwowane jest z bezwzględną, gangsterską elegancją. Funkcjonariusze z rodziny Brokerów w nienagannie skrojonych garniturach eskortują potężnego rhoxa skutego w zasilane substancją Halo kajdany. Kolosalny awanturnik z pokorą schyla swój rogaty łeb, z trudem mieszcząc się w masywnych, brązowych wrotach aresztu śledczego. Nawet najbardziej niszczycielscy siłacze metropolii muszą ostatecznie uznać wyższość miejskich paragrafów, gdy na ich drodze staje zorganizowany aparat sprawiedliwości.",
+      "versions": []
+    },
+    {
+      "id": "334",
+      "art_id": "334ONE",
+      "title": "Skyscythe Engulfer",
+      "story": "W nieprzebytych, miedzianych ostępach lasu Tangle na planie Mirrodin drapieżne bestie Nowej Phyrexii osiągają kolosalne, niszczycielskie rozmiary. Potężny potwór o pancerzu z patynowanej miedzi i gigantycznych podniebnych kosach z łatwością taranuje heksagonalne pnie drzew, rozrywając metaliczną puszczę na strzępy. Nawet najgroźniejszy ze smoków, legendarny Skithiryx, omija to terytorium z daleka, wiedząc, że bestia bez trudu strąca z nieba wszystko, co odważy się wzbić nad korony lasu. Ukryci w plątaninie korzeni zwiadowcy mirrańskiego ruchu oporu pod wodzą Kary Vrist mogą jedynie w bezsilnym podziwie obserwować potęgę, której żaden żywy obrońca nie zdoła zatrzymać.",
+      "versions": []
+    },
+    {
+      "id": "336",
+      "art_id": "336APC",
+      "title": "Zombie Boa",
+      "story": "Poza ochronną barierą Hekmy na planie Amonkhet bezlitosna Klątwa Wędrowania nie pozwala zmarłym zaznać wiecznego spokoju. W wyschniętych szuwarach rzeki Luxa z mułu wyłania się kolosalny, ożywiony wąż o spękanych, wysuszonych na słońcu łuskach. Choć martwe cielsko potwora dawno przestało potrzebować pokarmu do przetrwania, pradawne przekleństwo nieustannie pcha go ku polowaniu na żywe istoty. Przemierzając jałowe mielizny z bezwzględną cierpliwością, ten nieumarły drapieżnik czeka w bezruchu na każdego wędrowca, który odważy się przekroczyć bezpieczne granice oazy.",
+      "versions": []
+    },
+    {
+      "id": "338",
+      "art_id": "338THB",
+      "title": "Brine Giant",
+      "story": "W lśniącym bielą marmurów porcie polis Meletis na planie Theros spokój mędrców zostaje zniszczony przez potęgę morskich głębin. Kolosalny solankowy olbrzym o ciele obrośniętym koralem i wodorostami wyłania się z morskiej toni, wzbijając niszczycielskie fale wzdłuż całego nabrzeża. Jednym zamachem potężnego ramienia tytan druzgoce kamienne pirsy i bez trudu unosi w powietrze wojenną triremę niczym dziecięcą zabawkę. Przerażone wyrocznie ze świątynnych tarasów mogą jedynie z bezsilnością obserwować kataklizm, którego nadejścia nie zdołały przewidzieć w żadnym ze swoich proroctw.",
+      "versions": []
+    },
+    {
+      "id": "340",
+      "art_id": "340ONE",
+      "title": "Ambulatory Edifice",
+      "story": "Na zardzewiałych pobojowiskach Mirrodinu siły lokalnego oporu wielokrotnie przekonują się o podstępnej naturze biomechanicznych najeźdźców. Gdy wyczerpani partyzanci świętują pozorne zwycięstwo, stojący nieopodal bazaltowy monument nagle ożywa, rozwijając potężne, pajęcze odnóża ze stali. Ze szczelin pulsującego szkarłatem gmachu bucha fala trującej energii, paraliżując i osłabiając zaskoczonych mirrańskich obrońców. W bezwzględnym świecie Nowej Phyrexii nawet z pozoru martwe bryły kamienia i żelaza mogą w ułamku sekundy przeistoczyć się w polujące machiny zagłady.",
+      "versions": []
     }
   ]
 }
