@@ -41,6 +41,16 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   Wszystkie siedem weszły **trafione i bez flag**; korpus urósł
   z 563 do **570**, a liczba flag i par nie drgnęła. Szczegóły
   w `docs/archive/state-2026-10-09-b074.md`.
+- Poprzednia runda: `r077` — z 3 kart weszła **jedna**: `491` *Nature's
+  Embrace* **2,67 → 3,45 s (+0,78)**, `plate_clank`, zero flag.
+  Wygrała jedyna karta w transzy, której materiał **nie był stalą**
+  — dostała korę. Hipoteza z `r076` (że winny jest czasownik ruchu
+  w otwarciu) **nie potwierdziła się**: `548` i `140` dostały
+  „clashing" zamiast „turning" i „rolling" i żadna nie urosła.
+  Czasownik uderzenia jest konieczny, ale nie wystarczający.
+  Zamiast tego wygląda na to, że cztery stuki **stali o stal**
+  brzmią dla modelu jak jeden długi dźwięk, więc nie ma powodu ich
+  rozciągać. `548` idzie na odpoczynek (0/6 w dwóch rundach).
 - Poprzednia runda: `r076` — z 3 kart weszła **jedna**, ale ta jedna
   wyleczyła flagę: `156` *Summary Judgment* **2,09 → 2,47 s (+0,38)**
   i koniec flagi `boomy` (w korpusie z 7 na **6**). `534` i `548`
@@ -274,9 +284,9 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
   treść < 2 s **12**. Najczęstsze: `dull` 11, `harsh` 9, `boomy` 6,
   `speech_like` 6, `tonal_sustained` 5.
 - Archetypy: **0** nie trafionych, **30** prawdopodobnie, **161** trafionych.
-- Budżet: **6400 / 10 000** kredytów na drugim kluczu (r068: 360,
+- Budżet: **6040 / 10 000** kredytów na drugim kluczu (r068: 360,
   r069: 360, r070: 360, r071: 360, r072: 360, r073: 360, r074: 360,
-  r075: 360, r076: 360, r077: 360 w toku). Pierwszy klucz 10 000 zamknęły: b072 560,
+  r075: 360, r076: 360, r077: 360, r078: 360 w toku). Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,
   r062 360, r063 360, r064 360, r065 360, r066 360, r067 360,
   b074 840, b074b 600, b074c 480, b074d 240, b074e 120.
@@ -479,6 +489,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r074 | 2026-10-09 | **zero z trzech**; 332 odrzucona mimo 4,00 s i zera flag za trzy nowe pary — długie niskie dudnienie to region zajęty | `state-2026-10-09-r074.md` |
 | r075 | 2026-10-09 | 216 i 567 weszły (+0,95 każda); 524 trafiona po 7 próbach, ale para 0,9316 z 243; pierwszy dobór po sprawdzaniu zajętości regionu | `state-2026-10-09-r075.md` |
 | r076 | 2026-10-09 | 156 weszła (2,09 → 2,47 s) i wyleczyła `boomy`; 534 i 548 cofnięte — 7 z 8 trafionych wariantów wyszło krótszych | `state-2026-10-09-r076.md` |
+| r077 | 2026-10-09 | 491 weszła (2,67 → 3,45 s) — jedyna niestalowa w transzy; 140 i 548 nie urosły mimo „clashing"; hipoteza z r076 obalona | `state-2026-10-09-r077.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -487,28 +498,46 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Runda `r077` w toku** — `r076` pokazała, że przy tym samym
-   szkielecie długość zależy od **materiału w otwarciu**, więc `r077`
-   jest jawnym testem tej reguły w drugą stronę:
+1. **Runda `r078` w toku** — dobór idzie po **materiale**, nie po
+   luce do mediany klasy:
    ```
-   548 plate_clank  luka 0,50 s  4 prob  turning  -> clashing
-   491 plate_clank  luka 0,51 s  2 prob  nowy material: KORA, nie stal
-   140 plate_clank  luka 0,48 s  2 prob  rolling  -> clashing
+   333 plate_clank   luka 0,55 s  1 prob  BRĄZ — wrota, nie pancerz
+   210 heavy_impact  luka -0,03 s  1 prob  KAMIEŃ — kostur o posadzkę
+    71 heavy_impact  luka 0,21 s   5 prob  BARIERA — nosorożec o ścianę siły
    ```
-   Wszystkie trzy: kontrakt z krótkim zanikiem (`decay_s <= 1,2`)
-   i region wolny (zero sąsiadów ≥ 0,80).
-   ```text
-   r075  216  Armour plates CLASHING on a stitched body  -> 3,48 s
-   r075  567  Claws STRIKING chitin armour               -> 3,43 s
-   r076  548  Armoured shoulders TURNING                 -> 2,38 / 3,14 / 2,50
-   r076  534  Plate armour clashing on a body            -> 1,25 / 1,65 / 1,10
-   ```
-   `548` i `140` wracają z czasownikiem uderzenia (*clashing*)
-   zamiast czasownika ruchu (*turning, rolling*). `491` dostaje
-   inny materiał — **korę** zamiast stali — żeby trzymać transzę
-   z dala od bliźniactwa, bo 548 i 140 są obie stalowe.
+   Wszystkie trzy: kontrakt z krótkim zanikiem (`plate_clank` ≤ 1,2,
+   `heavy_impact` ≤ 1,4) i region wolny. Żadne otwarcie nie zawiera
+   czasownika ruchu.
 
-2. **Łańcuch zdarzeń nie gwarantuje długości, tylko szansę na nią.**
+   Uzasadnienie z `r077`, gdzie przy tym samym szkielecie wygrała
+   jedyna niestalowa karta:
+   ```text
+   r077  491  BARK plates snapping onto an arm     -> 3,45 s  WESZLA
+   r075  567  Claws striking CHITIN armour         -> 3,43 s  WESZLA
+   r077  140  STEEL plates clashing on a chest     -> 2,42 s
+   r077  548  STEEL plates clashing on a shoulder  -> 1,28 s
+   r075  216  Armour plates clashing (stal)        -> 3,48 s  WESZLA
+   ```
+   Hipoteza: cztery stuki **stali o stal** brzmią dla modelu jak
+   jeden długi dźwięk, więc nie ma powodu rozciągać ich w czasie.
+   Różny materiał wymusza różne barwy, a różne barwy wymagają
+   czasu. `216` jest wyjątkiem — wyszła długa mimo stali. To
+   hipoteza na pięciu kartach, nie prawo; `r078` ją testuje.
+
+   `210` ma lukę **ujemną** (−0,03), czyli więcej treści niż wynosi
+   mediana `heavy_impact`. Wybrana mimo to, bo kontrakt
+   `heavy_impact` jest najłatwiejszy z bezpiecznych (crest ≥ 14,
+   attack ≤ 0,15, decay ≤ 1,4, low_all ≥ 0,2), a karta miała tylko
+   jedną próbę.
+
+2. **Czasownik uderzenia jest konieczny, ale nie wystarczający.**
+   `r076` słusznie uznała, że „turning" i „rolling" szkodzą; `r077`
+   pokazała, że samo „clashing" nie wystarczy — `140` i `548`
+   dostały je i żadna nie urosła. Reguła z `r074` (materiał to
+   rzeczownik, czynność to czasownik) zostaje, ale trzeba do niej
+   dopisać dobór materiału.
+
+3. **Łańcuch zdarzeń nie gwarantuje długości, tylko szansę na nią.**
    W `r075` trafił dwa razy na dwie karty, w `r076` zero razy na
    dwie — ten sam szkielet, inny wynik. Zmienną pod kontrolą jest
    materiał w otwarcie: rzeczownik (*plates, armour, chest*) plus
@@ -516,24 +545,24 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    (*turning, rolling, shifting*) odbiera łańcuchowi tempo.
    **To reguła z `r074`, którą złamałam własnoręcznie w `r076`.**
 
-3. **Zajętość liczyć też po wygenerowaniu, nie tylko przed wyborem.**
+4. **Zajętość liczyć też po wygenerowaniu, nie tylko przed wyborem.**
    `524` miała **zero** sąsiadów ≥ 0,80 przed rundą, a jej v1 i tak
    zrobiła parę 0,9316 z `243`. Region wokół *obecnego* sampla bywa
    pusty, a region, w który trafia *nowy*, już nie — obecny sample
    nie jest dobrym przewodnikiem po miejscu docelowym.
 
-4. **Reguła 1 działa w obie strony.** Instaluję wariant tylko wtedy,
+5. **Reguła 1 działa w obie strony.** Instaluję wariant tylko wtedy,
    gdy jest **co najmniej tak dobry w werdykcie** jak obecny **i**
    wyraźnie dłuższy. `prawdopodobnie` zamiast `trafiony` to
    pogorszenie, nawet przy +1 s treści — długość jest środkiem do
    ikoniczności, nie celem samym w sobie.
 
-5. **Przed wyborem karty sprawdzać zajętość regionu.** Policzyć, ilu
+6. **Przed wyborem karty sprawdzać zajętość regionu.** Policzyć, ilu
    sąsiadów ma kosinus ≥ 0,85; więcej niż dwóch oznacza region
    zajęty. Wtedy nie wydłużać ogonem, tylko liczbą zdarzeń o różnej
    barwie — o ile kontrakt na to pozwala.
 
-6. **Lekcja z r070, która zmienia sposób pracy:** `--apply` w
+7. **Lekcja z r070, która zmienia sposób pracy:** `--apply` w
    `rewrite_archetype_prompts.py` przepisuje też pole `music_allowed`
    na podstawie trzeciego elementu w `OVERRIDES`. Wpis dla `452`
    dostał `False` („bez muzyki"), więc chór dostał zakaz muzyki
@@ -545,14 +574,14 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    walidator na CI (lokalnie `tail -1` ukrył błędy), więc żadne
    kredyty nie poszły na zmarnowany run.
 
-7. **Kopie zapasowe wyłącznie w repozytorium, nigdy w `/tmp`.**
+8. **Kopie zapasowe wyłącznie w repozytorium, nigdy w `/tmp`.**
    `/tmp` nie jest częścią workspace'u i znika między wywołaniami —
    w `r074` i `r075` próba cofnięcia plików z `/tmp/pre-r07X.jsonl`
    kończyła się na `cannot stat`, bo kopia już nie istniała. Kopia
    przed rundą idzie do `.arena-backup/` (katalog jest w
    `.gitignore`). Bez tego jedyna droga powrotna to ręczna
    rekonstrukcja z JSON-a — działa, ale kosztuje dwa razy tyle.
-8. **Limit długości jest liczony od ładunku API, nie od promptu.**
+9. **Limit długości jest liczony od ładunku API, nie od promptu.**
    `validate_sample_scenarios.py` wywołuje `api_payload()` ze scouta,
    który po prompt dokleja jeszcze „ No multi-layer cinematic scene."
    (32 znaki). Dlatego prompt 446 znaków może być za długi. Numerek
@@ -560,7 +589,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    liczy **sam prompt z rozwinięciem**, więc zawyża i bywa
    mylący — wiążący jest wynik walidatora, nie ten numer.
 
-9. **Praca bezkosztowa** — żadna z nich nie wymaga generowania, więc
+10. **Praca bezkosztowa** — żadna z nich nie wymaga generowania, więc
    można ją robić równolegle z rundami:
    - **Dobór archetypu po fakcie.** `340` nie przeszła `robot_servo`
      w pięciu podejściach i piętnastu wariantach, a okazało się, że
@@ -614,7 +643,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    rzeczownik („six plates snapping into place with a firm woody
    clank") i wyszedł czysto. W r065 opisuję tylko zdarzenia i
    materiał, zero przymiotników barwy.
-10. **Wątek bez kredytów — po `r058eq`:** `dull` zeszło z 16 na 11,
+11. **Wątek bez kredytów — po `r058eq`:** `dull` zeszło z 16 na 11,
    `harsh` z 11 na 9. Tanich ruchów już nie ma: `harsh` wymaga
    −12…−15 dB przy 8 kHz na kartach z 0,94–0,98 energii w paśmie
    powietrznym (`226`, `6`, `522` nie mieszczą się nawet przy −15 dB),
