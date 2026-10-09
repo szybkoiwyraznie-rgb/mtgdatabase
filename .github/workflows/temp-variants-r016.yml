@@ -1,49 +1,38 @@
-name: "TEMP r068 - 501, 565 i 308: trzy znane przyczyny pudla"
+name: "TEMP r069 - 74, 177 i 308: trojkat uderzenie-rytm-glos"
 
-# r068: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
-# UWAGA: klucz 10 000 kredytow jest WYCZERPANY paczka b074 (7 nowych
-# kart, 2280 kredytow). Ta paczka czeka na doladowanie — nie wolno
-# jej odpalic bez kredytow, bo generacja zwroci blad.
+# r069: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# Drugi klucz: po tej paczce zostanie 8920.
 #
-# Trzy karty z najwiekszymi lukami, kazda z inna, juz ZNANA przyczyna
-# porazki:
+# Trzy karty, trzy rozne osie lancucha zdarzen:
 #
-#  501 war_machine      tresc 2,75 s  luka 1,19 s  4 prob  fill-take od r029
-#  565 forest_birdsong  tresc 2,67 s  luka 1,02 s  4 prob  fill-take od r054
-#  308 sword_clash      tresc 2,06 s  luka 0,96 s  4 prob  fill-take
+#  308 sword_clash      tresc 2,06 s  luka 0,98 s  6 prob  fill-take
+#   74 heavy_footsteps  tresc 2,76 s  luka 0,60 s  3 prob  bez fill-take
+#  177 creature_roar    tresc 2,38 s  luka 0,77 s  4 prob  fill-take
 #
-# 501: w r067 „a valve opening with steam venting" zrobilo z machiny
-# wojennej syk — low_all 0,022-0,131 przy progu 0,35, mid_up 0,87-0,98
-# (prawie cala energia w gorze pasma). Obecny sample ma low_all 0,725
-# i centroid 459, czyli wzorzec jest w korpusie — wystarczy NIE popsuc.
-# Wylatuje para, zostaja same niskie czesci: tlok, korbowod, kolo
-# zamachowe, lancuch.
+# 308 — oś UDERZENIE. W r068 wszystkie trzy warianty lamaly attack_s
+# (1,25-2,40 przy progu <= 0,1): model budowal narastanie. Tym razem
+# biorę WZORZEC Z KARTY 334, ktora w b074c weszla od reki z attack
+# 0,080: „A scythe striking a metal tree in the first instant: one
+# hard crack of the blade, then two long rasping cuts of steel
+# through copper, shearing to the end." Prawie slowo w slowo, tylko
+# podmienione na wielki miecz. Roznica wzgledem r068: „crack"
+# zamiast „impact" i zero trzeciego uderzenia na koncu.
 #
-# 565: ma juz lancuch („eight clear piping chirps in an uneven
-# rhythm"), ale konczy sie przymiotnikiem („each a short bright
-# tonal whistle") i nie ma domkniecia. forest_birdsong i tak wymaga
-# onset_count >= 4, wiec lancuch jest tu naturalny.
+# 74 — oś RYTM. heavy_footsteps wymaga ioi_cv <= 0,6, czyli rownych
+# odstepow. To ta sama oś, ktora w r067 wprowadzila 52 do korpusu po
+# pieciu probach (ioi_cv 2,23 -> 0,795 po dopisaniu „at an even
+# spacing"). Obecny sample juz ma ioi_cv 0,431 i tylko dwa
+# przejscia, wiec zostaje wydluzyc: osiem krokow, potem cztery.
 #
-# 308: sword_clash ma najostrzejszy warunek wstepny ze wszystkich —
-# attack_s <= 0,1, czyli uderzenie w pierwszej chwili (to samo
-# wylozylo 524 w r065). Obecny sample spelnia go z zapasem (0,03),
-# wiec lancuch MUSI zaczac sie od uderzenia, a narastanie dopiero
-# po nim.
+# 177 — oś GŁOS. creature_roar wymaga voiced_fraction >= 0,3 i
+# flatness <= 0,15, czyli dzwieku z gardla, nie szumu. Obecny prompt
+# to „two short deep bellows with a raspy edge" — „deep" to
+# przymiotnik barwy, ktorego od r065 nie uzywamy. Zostaja same
+# rzeczowniki: ryk z piersi, trzy razy, kazdy uciety.
 #
-# ZASADY (obowiazuja od r065, potwierdzone w r066, r067 i b074):
-#   - Lancuch zdarzen ma trzy osie: LICZBA, MATERIAL, NASTEPSTWO.
-#     Trzeba napisac wszystkie trzy naraz.
-#   - ZERO przymiotnikow barwy (dark/bright/low/deep/metallic/soft).
-#   - Rzeczowniki TEZ niosa barwe. Para, gwizd, syk i brzek szkla
-#     rozjasniaja tak samo jak przymiotnik „bright". Sprawdzac, jakie
-#     ZJAWISKO FIZYCZNE niesie dany rzeczownik.
-#   - Jawne domkniecie „to the end".
-#   - NOWE z b074: „swelling from nothing" model bierze doslownie
-#     i daje cisze na poczatku. Wolny atak opisywac jako dzwiek
-#     obecny od pierwszej chwili i dopiero narastajacy.
-#   - NOWE z b074: zanim uznac karte za przegrana, sprawdzic jej
-#     istniejace warianty przeciwko INNYM archetypom. 340 przeszla
-#     pod steam_hiss po pieciu nieudanych probach pod robot_servo.
+# Zasady obowiazuja: lancuch na trzech osiach (liczba, material,
+# nastepstwo), zero przymiotnikow barwy, rzeczowniki tez niosa barwe,
+# domkniecie „to the end".
 
 on:
   push:
@@ -56,7 +45,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "501,565,308"
+  IDS: "74,177,308"
 
 jobs:
   variants:
@@ -67,13 +56,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r068]
+      - name: Guard — tylko commit z markerem [generate-r069]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r068]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r069]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r068] — nic nie generuję"
+            echo "brak markera [generate-r069] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -92,25 +81,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r068
+          mkdir -p variants/r069
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r068/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r069/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r068 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r068/v$v" 2>&1 | tee -a variants/r068/generate.log
+              --ids "$IDS" --batch r069 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r069/v$v" 2>&1 | tee -a variants/r069/generate.log
           done
-          ls -la variants/r068 variants/r068/v1 variants/r068/v2 variants/r068/v3 || true
+          ls -la variants/r069 variants/r069/v1 variants/r069/v2 variants/r069/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r068 data/samples/generated-manifest.jsonl
+          git add -f variants/r069 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r068: 9 wariantow (3 karty x 3) + log generacji [import-r068]"
+            git commit -m "r069: 9 wariantow (3 karty x 3) + log generacji [import-r069]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

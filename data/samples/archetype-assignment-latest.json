@@ -3600,7 +3600,7 @@
    "archetype": "war_machine",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A double plasma volley from a reactor: two heavy blasts with a low thump, over loud gritty metallic knocking and clanking carried clearly in the middle of the r"
+   "prompt": "A war machine reactor working: a piston knocking, a crankshaft turning over, gears grinding and a flywheel spinning down, the clanking keeping on without a brea"
   },
   {
    "id": "502",
@@ -4112,7 +4112,7 @@
    "archetype": "forest_birdsong",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "Songbirds answering one another in a forest clearing: eight clear piping chirps in an uneven rhythm, each a short bright tonal whistle, dew dripping between the"
+   "prompt": "Songbirds answering one another in a forest clearing: eight piping chirps, a trill between them, then six more chirps, the last trill running to the end. Signat"
   },
   {
    "id": "566",
