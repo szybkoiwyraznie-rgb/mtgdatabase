@@ -415,7 +415,7 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "312": ("A goblin jester cackling: a series of sharp mocking cackles, five rapid jeering "
             "bursts, high and cruel. " + NO_M,
             "chichot błazna: seria ostrych kpiących chichotów, pięć szybkich wybuchów", False),
-    "340": ("A steel mechanism unfolding: a servo holding one constant whining pitch throughout, four steel legs locking out with a click each against the whine, the whine running to the end.",
+    "340": ("An edifice coming alive: one continuous servo tone at a constant pitch, dominant and unbroken like a tuning fork, with two soft clicks of steel legs locking out under it, the tone running to the end.",
             "stalowy mechanizm się rozkłada: jeden ciągły jęk serva na jednej stałej wysokości, potem cztery nogi z kliknięciem, jęk do końca", False),
     "338": ("A colossal giant rising from the sea: one crash of water thrown up, then a stone pier struck apart, then spray and rubble raining down into the water, the crashing to the end.",
             "olbrzym wynurza się i druzgocze kamienny port: wyrzut wody, głazy pirsu rozbijane, gruz wpadający do wody, do końca", False),
@@ -423,7 +423,7 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "podniebna kosa uderza w metalowy pień w pierwszej chwili: twarde uderzenie, dwa długie zgrzyty stali przez miedź, trzecie cięcie, do końca", False),
     "332": ("A raptor folding its wings: one short whistle of air, then a crack of lightning, then a roll of thunder that stays loud for over a second before dying away into silence before the end.",
             "gromoraptor składa skrzydła: krótki świat powietrza, trzask błyskawicy, potem grzmot trwający ponad sekundę i cichnący przed końcem", False),
-    "329": ("Obsidian plates lifting: a whine of stone swelling from nothing, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
+    "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
             "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
             "rustic, feet stamping the beat. " + NO_S,

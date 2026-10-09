@@ -1,35 +1,33 @@
-name: "TEMP b074c - 4 ostatnie z b074: 329, 334, 338, 340"
+name: "TEMP b074d - ostatnie dwie z b074: 329 i 340"
 
-# b074c: 4 karty x 3 warianty = 12 generacji x 40 kredytow = 480 kredytow.
+# b074d: 2 karty x 3 warianty = 6 generacji x 40 kredytow = 240 kredytow.
 #
-# Stan po dwoch paczkach: 7 nowych kart, weszly trzy —
+# Stan: z 7 nowych kart weszlo szesc —
 #   333 Bring to Trial  plate_clank   2,63 s  trafiony
 #   336 Zombie Boa      steam_hiss    3,06 s  trafiony
-#   332 Blitz Thunder-  thunder_clap  2,29 s  trafiony   (b074b v1)
+#   332 Blitz Thunder-  thunder_clap  2,29 s  trafiony
+#   334 Skyscythe       sword_clash   3,70 s  trafiony  (+ --fix-mono)
+#   338 Brine Giant     water_splash  3,06 s  trafiony
 #
-# Zostaly cztery. Kazda z nich ma JUZ zdiagnozowane dwa podejscia, wiec
-# teraz lacze to, co w kazdym z nich dzialalo:
+# Zostaly dwie:
 #
-#  329 magic_shimmer  b074:  attack 0,44-0,91 (dobry prog >= 0,1), ale
-#                            centroid 610/274/120 — za ciemno.
-#                     b074b: centroid 2171-4459 (jasno!), ale attack
-#                            0,02-0,08 — za szybko.
-#                     TERAZ: jasnosc z b074b + „swelling from nothing",
-#                            czyli wymuszony wolny atak.
-#  334 sword_clash    b074:  attack 0,88-2,82 — model budowal narastanie.
-#                     b074b: attack 0,080 juz dobry, centroid 6905 dobry,
-#                            brakuje TYLKO crest_db (prog >= 18).
-#                     TERAZ: „one hard crack" zamiast „impact", czyli
-#                            ostrzejszy, bardziej uderzeniowy poczatek.
-#  338 water_splash   b074:  v2 trafiony, ale dwie pary (0,9248 i 0,9045).
-#                     b074b: przerysowalem w dol — centroid 608-992 i
-#                            flatness ponizej 0,08. Za ciezko, za malo wody.
-#                     TERAZ: powrot do jasnego chlupniecia z b074, ale
-#                            z innym materialem (pirs + mgielka + gruz).
-#  340 robot_servo    dwa podejscia, wciaz szum zamiast serva:
-#                            centroid 4205-6790, tonal_frame ponizej 0,35.
-#                     TERAZ: bazalt wylatuje calkiem. Zostaje jeden ciagly
-#                            jek na stalej wysokosci i klikniecia na tle.
+#  329 magic_shimmer  b074c v2 jest trafiony (0), ale dostal flagę
+#                     long_lead_silence: 1,07 s ciszy na początku,
+#                     bo napisałem „swelling from nothing" i model
+#                     wziął to dosłownie. --trim-lead-s nie pomaga
+#                     (lead zostaje 1,07 s przy każdej wartości).
+#                     TERAZ: ton ma brzmieć OD PIERWSZEJ CHWILI
+#                     i dopiero narastać.
+#  340 robot_servo    trzy podejścia (9 wariantów), za każdym razem
+#                     tonal_frame_fraction i sustain_ratio poniżej
+#                     progu, centroid 4205-8596. Przyczyna: stawiałem
+#                     kliknięcia nóg na równi z tonem serva, więc
+#                     szerokopasmowy szum zagłuszał ton.
+#                     WZORC Z KARTY 204: „one continuous clean tone at
+#                     a constant pitch, dominant and unbroken like a
+#                     tuning fork, with just two very soft clicks
+#                     barely audible over it". Ton dominuje,
+#                     kliknięcia są pod nim.
 
 on:
   push:
@@ -42,7 +40,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "329,334,338,340"
+  IDS: "329,340"
 
 jobs:
   variants:
@@ -53,13 +51,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-b074c]
+      - name: Guard — tylko commit z markerem [generate-b074d]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b074c]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b074d]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b074c] — nic nie generuję"
+            echo "brak markera [generate-b074d] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -78,25 +76,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b074c
+          mkdir -p variants/b074d
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/b074c/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b074d/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch b074c --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b074c/v$v" 2>&1 | tee -a variants/b074c/generate.log
+              --ids "$IDS" --batch b074d --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b074d/v$v" 2>&1 | tee -a variants/b074d/generate.log
           done
-          ls -la variants/b074c variants/b074c/v1 variants/b074c/v2 variants/b074c/v3 || true
+          ls -la variants/b074d variants/b074d/v1 variants/b074d/v2 variants/b074d/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b074c data/samples/generated-manifest.jsonl
+          git add -f variants/b074d data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "b074c: 12 wariantow (4 karty x 3) + log generacji [import-b074c]"
+            git commit -m "b074d: 6 wariantow (2 karty x 3) + log generacji [import-b074d]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
