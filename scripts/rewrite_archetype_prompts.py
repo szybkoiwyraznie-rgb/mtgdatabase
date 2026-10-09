@@ -412,11 +412,6 @@ DURATIONS = (4.0, 4.5, 3.5)
 
 # Karty, których prompt musi zostać ręczny (fabuła narzuca konkretne źródło).
 OVERRIDES: dict[str, tuple[str, str, bool]] = {
-    "210": (
-        "A rune staff cracking on a stone floor in the first instant: one hard crack, then a second crack, then a third crack, then a fourth crack, the striking to the end. " + NO_M,
-        "runowy kostur pęka o kamienną posadzkę w pierwszej chwili: jeden twardy trzask, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
-        False,
-    ),
     "224": (
         "A blade striking plate in the first instant: one hard crack of the blade, "
         "then two long rasping cuts of steel drawn along steel, then a third crack, "
@@ -427,11 +422,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "312": ("A goblin jester cackling: a series of sharp mocking cackles, five rapid jeering "
             "bursts, high and cruel. " + NO_M,
             "chichot błazna: seria ostrych kpiących chichotów, pięć szybkich wybuchów", False),
-    "333": (
-        "Bronze gates clashing shut in the first instant: one hard crack of the gates, then a second crack, then a third crack, then a fourth crack, the striking to the end. " + NO_M,
-        "brązowe wrota zamykają się z trzaskiem w pierwszej chwili: jeden twardy trzask wrót, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
-        False,
-    ),
     "340": ("An edifice coming alive: a smooth continuous servo whirr with a steady hum, held unbroken across the whole take, and two precise clicks of steel legs locking out.",
             "stalowy mechanizm się rozkłada: jeden ciągły jęk serva na jednej stałej wysokości, potem cztery nogi z kliknięciem, jęk do końca", False),
     "338": ("A colossal giant rising from the sea: one crash of water thrown up, then a stone pier struck apart, then spray and rubble raining down into the water, the crashing to the end.",
@@ -654,10 +644,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "250": ("A steel blade snapping back together: one bright hard clash at the very first instant, then four short sharp metallic clicks as the crack seals, each with a gritty shimmer.",
             "ostrze scala się po pęknięciu: jeden jasny twardy szczęk w pierwszej chwili, potem cztery ostre metaliczne kliki", False),
     "71": (
-        "A rhino soldier slamming a force wall in the first instant: one hard "
-        "crack of the wall, then a second crack, then a third crack, then a "
-        "fourth crack, the striking to the end. " + NO_M,
-        "nosorożec-bojownik wali w barierę siłową w pierwszej chwili: jeden twardy trzask bariery, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        "A rhino soldier slams into a force wall: one instant deep impact, "
+        "then his armour plates clattering and the barrier cracking with "
+        "sharp splintering snaps, mid-range." + NO_M,
+        "nosoroż uderza w barierę siły: jeden natychmiastowy głęboki impet, potem płyty pancerza łomoczą i bariera pęka z ostrymi trzaskami, środek pasma",
         False,
     ),
     "73": ("A golden construct's blade snapping out and striking: an instant bright steel hit at the very first moment, then three more crisp clashes with a harsh metallic ring.",
