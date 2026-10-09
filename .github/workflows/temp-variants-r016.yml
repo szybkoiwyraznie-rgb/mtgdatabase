@@ -1,35 +1,35 @@
-name: "TEMP b074b - 5 powtorek z b074: 329, 332, 334, 338, 340"
+name: "TEMP b074c - 4 ostatnie z b074: 329, 334, 338, 340"
 
-# b074b: 5 kart x 3 warianty = 15 generacji x 40 kredytow = 600 kredytow.
+# b074c: 4 karty x 3 warianty = 12 generacji x 40 kredytow = 480 kredytow.
 #
-# Z pierwszej paczki b074 (7 nowych kart) weszly dwie:
-#   333 Bring to Trial   plate_clank   v1  2,63 s  trafiony (0)
-#   336 Zombie Boa       steam_hiss    v3  3,06 s  trafiony (0)
+# Stan po dwoch paczkach: 7 nowych kart, weszly trzy —
+#   333 Bring to Trial  plate_clank   2,63 s  trafiony
+#   336 Zombie Boa      steam_hiss    3,06 s  trafiony
+#   332 Blitz Thunder-  thunder_clap  2,29 s  trafiony   (b074b v1)
 #
-# Piec pozostalych dostaje nowe prompty, bo kazda polegla z INNEJ,
-# znanej przyczyny:
+# Zostaly cztery. Kazda z nich ma JUZ zdiagnozowane dwa podejscia, wiec
+# teraz lacze to, co w kazdym z nich dzialalo:
 #
-#  329 magic_shimmer  centroid 610/274/120 — wszystkie ZA CIEMNE na
-#                     high_all >= 0,4. Wina mojego promptu: napisalem
-#                     „a low hum", czyli wpuscilem przymiotnik barwy
-#                     tylnymi drzwiami. Teraz: „a rising whine of
-#                     stone" i „a glassy shimmer".
-#  332 thunder_clap   v1/v3 centroid 1650/1764 (prog <= 800) — swist
-#                     skrzydel za dlugi. v2 lamie decay_s. Teraz swist
-#                     krotszy, a grzmot ma wyraznie wybrzmiewac.
-#                     332 BEZ --fill-take, bo kontrakt wymaga decay_s
-#                     >= 0,5, czyli wybrzmienia przed koncem.
-#  334 sword_clash    attack_s 0,88-2,82 przy progu <= 0,1 — model
-#                     budowal narastanie zamiast zaczac od uderzenia.
-#                     Teraz uderzenie jest w pierwszym slowie zdarzenia.
-#  338 water_splash   v2 Trafiony, ale dwie pary: 0,9248 z 495 i
-#                     0,9045 z 160. Zmieniony material, zeby zabrzmiec
-#                     inaczej: nie woda sama, tylko woda + walace sie
-#                     glazy pirsu + gruz wpadajacy do wody.
-#  340 robot_servo    tonal_frame_fraction i sustain_ratio — bazaltowy
-#                     trzask to szerokopasmowy szum i zagluszyl servo.
-#                     Teraz servo na pierwszym planie, trzask tylko
-#                     zaznaczony.
+#  329 magic_shimmer  b074:  attack 0,44-0,91 (dobry prog >= 0,1), ale
+#                            centroid 610/274/120 — za ciemno.
+#                     b074b: centroid 2171-4459 (jasno!), ale attack
+#                            0,02-0,08 — za szybko.
+#                     TERAZ: jasnosc z b074b + „swelling from nothing",
+#                            czyli wymuszony wolny atak.
+#  334 sword_clash    b074:  attack 0,88-2,82 — model budowal narastanie.
+#                     b074b: attack 0,080 juz dobry, centroid 6905 dobry,
+#                            brakuje TYLKO crest_db (prog >= 18).
+#                     TERAZ: „one hard crack" zamiast „impact", czyli
+#                            ostrzejszy, bardziej uderzeniowy poczatek.
+#  338 water_splash   b074:  v2 trafiony, ale dwie pary (0,9248 i 0,9045).
+#                     b074b: przerysowalem w dol — centroid 608-992 i
+#                            flatness ponizej 0,08. Za ciezko, za malo wody.
+#                     TERAZ: powrot do jasnego chlupniecia z b074, ale
+#                            z innym materialem (pirs + mgielka + gruz).
+#  340 robot_servo    dwa podejscia, wciaz szum zamiast serva:
+#                            centroid 4205-6790, tonal_frame ponizej 0,35.
+#                     TERAZ: bazalt wylatuje calkiem. Zostaje jeden ciagly
+#                            jek na stalej wysokosci i klikniecia na tle.
 
 on:
   push:
@@ -42,7 +42,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "329,332,334,338,340"
+  IDS: "329,334,338,340"
 
 jobs:
   variants:
@@ -53,13 +53,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-b074b]
+      - name: Guard — tylko commit z markerem [generate-b074c]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b074b]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b074c]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b074b] — nic nie generuję"
+            echo "brak markera [generate-b074c] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -78,25 +78,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b074b
+          mkdir -p variants/b074c
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/b074b/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b074c/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch b074b --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b074b/v$v" 2>&1 | tee -a variants/b074b/generate.log
+              --ids "$IDS" --batch b074c --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b074c/v$v" 2>&1 | tee -a variants/b074c/generate.log
           done
-          ls -la variants/b074b variants/b074b/v1 variants/b074b/v2 variants/b074b/v3 || true
+          ls -la variants/b074c variants/b074c/v1 variants/b074c/v2 variants/b074c/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b074b data/samples/generated-manifest.jsonl
+          git add -f variants/b074c data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "b074b: 15 wariantow (5 kart x 3) + log generacji [import-b074b]"
+            git commit -m "b074c: 12 wariantow (4 karty x 3) + log generacji [import-b074c]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
