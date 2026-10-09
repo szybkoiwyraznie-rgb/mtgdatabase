@@ -671,10 +671,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "442": ("A rank of defenders stamping in unison: four heavy boot stamps in a strict even rhythm, each one deep and low with a grounded thud.",
             "równoczesne tupnięcie szeregu obrońców: cztery ciężkie kroki w ścisłym równym rytmie, każdy głęboki i niski", False),
     "565": (
-        "Songbirds answering one another in a forest clearing: eight clear piping "
-        "chirps in an uneven rhythm, each a short bright tonal whistle, dew dripping "
-        "between them. " + NO_M,
-        "ptaki śpiewające w leśnej polanie odpowiadają sobie: osiem wyraźnych szczebiotliwych treli w nierównym rytmie, każdy krótkim jasnym tonalnym gwizdem, między nimi kapiąca rosa",
+        "Songbirds answering one another in a forest clearing: eight piping chirps, a trill between them, then six more chirps, the last trill running "
+        "to the end. " + NO_M,
+        "ptaki w leśnej polanie odpowiadają sobie: osiem treli, gwizd między nimi, potem sześć następnych, ostatnia trel do końca",
         False,
     ),
     "434": ('A mizzium reactor overloading: a deep low engine rumble underneath, with loud gritty metallic knocking and clanking forward in the mid range, and heavy pressure vents blasting open one after another.',
@@ -742,8 +741,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # Prompt celuje w ta jedna ceche. Uwaga: insect_swarm potrzebuje raz
     # nizszego centroidu (98, 106, 456, 81), a raz wiecej tonalnosci (31, 540) -
     # dlatego tylko wpisy per karta, profil rodzinny by je pogodzic nie mogl.
-    "308": ("A greatsword clashing: one brutal steel impact built from harsh broadband scraping noise, gritty and rough, with no smooth pitched ring underneath.",
-            "cios wielkiego miecza: brutalne uderzenie z chrapliwego szerokopasmowego zgrzytu, bez gładkiego tonu", False),
+    "308": ("A greatsword hitting in the very first instant: one hard impact of the blade, then two long rasping scrapes of steel drawn along steel, then a third impact, the scraping running to the end.",
+            "wielki miecz uderza w pierwszej chwili: twarde uderzenie ostrza, dwa długie zgrzyty stali o stal, trzecie uderzenie, zgrzyt do końca", False),
     "9": ("A gust of wind: broadband hissing white noise of turbulent air, swelling and easing, with no whistle, no pitched note and no tonal hum anywhere in it.",
             "podmuch wiatru: szerokopasmowy szumiący szum białego turbulentnego powietrza, bez gwizdu i bez tonu", False),
     "67": (
@@ -755,8 +754,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     ),
     "80": ("An armored vehicle idling: a moderate low engine rumble under loud gritty mechanical clatter and metal knocking that sits forward in the mid range.",
             "opancerzony pojazd na biegu: umiarkowany pomruk pod głośnym chrapliwym metalicznym terkotem w środku", False),
-    "501": ("A double plasma volley from a reactor: two heavy blasts with a low thump, over loud gritty metallic knocking and clanking carried clearly in the middle of the range.",
-            "podwójna salwa plazmowa: dwa ciężkie wybuchy z basowym łupnięciem, nad głośnym metalicznym stukotem w środku", False),
+    "501": ("A war machine reactor working: a piston knocking, a crankshaft turning over, gears grinding and a flywheel spinning down, the clanking keeping on without a break to the end.",
+            "reaktor machiny wojennej: tłok stuka, korbowód się obraca, koła zębate mielą i koło zamachowe zwalnia, stukot bez przerwy do końca", False),
     "49": ("The ground tearing between worlds: a deep split with loud grinding and snapping rock carried clearly in the middle of the range, not only sub-bass.",
             "ziemia rozdziera się między światami: głębokie pęknięcie z głośnym mielącym i trzaskającym kamieniem wyraźnie w środku pasma", False),
     "168": ("A deep mountain landslide: boulders grinding with very low heavy weight, deep and dark, the rumble sitting well below the middle of the range.",
