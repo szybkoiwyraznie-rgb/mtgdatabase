@@ -1,25 +1,25 @@
 {
- "total": 563,
- "covered": 436,
+ "total": 570,
+ "covered": 443,
  "unassigned": 127,
  "by_archetype": {
   "stone_slide": 37,
-  "plate_clank": 35,
-  "sword_clash": 32,
-  "magic_shimmer": 29,
+  "plate_clank": 36,
+  "sword_clash": 33,
+  "magic_shimmer": 30,
   "temple_bell": 27,
   "door_creak": 25,
   "heavy_footsteps": 23,
   "creature_roar": 20,
   "forest_birdsong": 16,
-  "water_splash": 15,
+  "water_splash": 16,
   "wind_gust": 15,
   "heavy_impact": 14,
   "insect_swarm": 13,
   "mechanism_click": 12,
+  "steam_hiss": 11,
   "wing_flutter": 11,
   "robot_servo": 9,
-  "steam_hiss": 9,
   "arrow_flight": 9,
   "undead_groan": 8,
   "fire_crackle": 6,
@@ -28,11 +28,11 @@
   "electric_zap": 6,
   "glass_shatter": 6,
   "war_machine": 6,
+  "thunder_clap": 6,
   "beast_screech": 5,
   "earth_rumble": 5,
   "arcane_choir": 5,
   "folk_music": 5,
-  "thunder_clap": 5,
   "whip_crack": 4,
   "liquid_pour": 3,
   "psychic_shriek": 2,
@@ -4545,6 +4545,62 @@
    "rule": "ręczna deklaracja",
    "confidence": "manual",
    "prompt": "A gnarled wooden club smashing into a waterlogged rotten log: one heavy low blow, a wet splintering crack of punky wood breaking apart, and a muddy squelch, the"
+  },
+  {
+   "id": "329",
+   "title": "Blinding Drone",
+   "archetype": "magic_shimmer",
+   "rule": "ręczna deklaracja",
+   "confidence": "manual",
+   "prompt": "Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, th"
+  },
+  {
+   "id": "332",
+   "title": "Blitz of the Thunder-Raptor",
+   "archetype": "thunder_clap",
+   "rule": "ręczna deklaracja",
+   "confidence": "manual",
+   "prompt": "A raptor folding its wings: one short whistle of air, then a crack of lightning, then a roll of thunder that stays loud for over a second before dying away into"
+  },
+  {
+   "id": "333",
+   "title": "Bring to Trial",
+   "archetype": "plate_clank",
+   "rule": "ręczna deklaracja",
+   "confidence": "manual",
+   "prompt": "Shackles clanking, then the heavy bronze gates of a jail swung shut: four chain links, one massive slam of the gates, then the bar dropping, the last clank runn"
+  },
+  {
+   "id": "334",
+   "title": "Skyscythe Engulfer",
+   "archetype": "sword_clash",
+   "rule": "ręczna deklaracja",
+   "confidence": "manual",
+   "prompt": "A scythe striking a metal tree in the first instant: one hard crack of the blade, then two long rasping cuts of steel through copper, shearing to the end. Signa"
+  },
+  {
+   "id": "336",
+   "title": "Zombie Boa",
+   "archetype": "steam_hiss",
+   "rule": "ręczna deklaracja",
+   "confidence": "manual",
+   "prompt": "A colossal snake dragging its cracked scales over mud: one long rasp of scales, then a dry hiss held between breaths, then two more rasps, the hiss running to t"
+  },
+  {
+   "id": "338",
+   "title": "Brine Giant",
+   "archetype": "water_splash",
+   "rule": "ręczna deklaracja",
+   "confidence": "manual",
+   "prompt": "A colossal giant rising from the sea: one crash of water thrown up, then a stone pier struck apart, then spray and rubble raining down into the water, the crash"
+  },
+  {
+   "id": "340",
+   "title": "Ambulatory Edifice",
+   "archetype": "steam_hiss",
+   "rule": "ręczna deklaracja",
+   "confidence": "manual",
+   "prompt": "An edifice coming alive: a smooth continuous servo whirr with a steady hum, held unbroken across the whole take, and two precise clicks of steel legs locking ou"
   }
  ],
  "unassigned_rows": [

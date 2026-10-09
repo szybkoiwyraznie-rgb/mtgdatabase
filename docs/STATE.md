@@ -36,6 +36,11 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   *Epic Experiment* urosła z **1,20 → 3,91 s** treści, kontrakt
   `war_machine` spełniony. Cena: nowy bliźniak `325-434` (0,9422).
   `232` znów cofnięta — crest 12,9–14,9 przy progu 17.
+- Ostatnia paczka: **`b074`** — **7 nowych kart**, które były lukami
+  w numeracji (`329`, `332`, `333`, `334`, `336`, `338`, `340`).
+  Wszystkie siedem weszły **trafione i bez flag**; korpus urósł
+  z 563 do **570**, a liczba flag i par nie drgnęła. Szczegóły
+  w `docs/archive/state-2026-10-09-b074.md`.
 - Poprzednia runda: `r067` — z 3 kart weszły **dwie**, razem
   **+2,08 s**: `52` *Divest* **2,20 → 3,21 s** i `355` *Cathartic
   Reunion* **2,01 → 3,08 s**, obie trafione, obie bez flag i bez
@@ -111,7 +116,9 @@ Metryki korpusu (audyt `2026-10-08-after-eq`):
 | LUFS średnio | **-20.09** (odch. 0.48) |
 | archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 151** |
 
-Budżet: klucz 10 000 kredytów, **wydane 7120, zostaje 2880**.
+Budżet: klucz 10 000 kredytów, **wydane 10 000, zostaje 0** —
+  klucz wyczerpany paczką `b074`. Dalsze generacje wymagają
+  doładowania.
 Rozbicie na rundy jest w sekcji „Ile zostało" poniżej.
 Realny koszt to **40 kredytów za generację**; pełna runda 8 kart po
 2 warianty = 16 generacji = **640 kredytów**, dostawa 2 kart = 160.
@@ -194,7 +201,8 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **151** trafionych.
 - Budżet: **3240 / 10 000** kredytów (b072: 560, r057: 640, b073: 360,
   r058: 360, r059: 240, r060: 360, r061: 360, r062: 360, r063: 360,
-  r064: 360, r065: 360, r066: 360, r067: 360).
+  r064: 360, r065: 360, r066: 360, r067: 360, b074: 840, b074b: 600,
+  b074c: 480, b074d: 240, b074e: 120).
 
 ## Reguły i procedury
 
@@ -384,6 +392,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r065 | 2026-10-08 | rzeczowniki zamiast przymiotników barwy; weszły 67 (2,12 → 3,96 s) i 553 (2,12 → 3,14 s), 524 cofnięta | `state-2026-10-08-r065.md` |
 | r066 | 2026-10-08 | rzeczowniki na 52, 372 i 445; weszła 445 (2,27 → 3,74 s), 52 cofnięta na rytmie, 372 za parę z 97 | `state-2026-10-08-r066.md` |
 | r067 | 2026-10-08 | 52 dostała równy odstęp i weszła za 5. razem (2,20 → 3,21 s); 355 weszła (2,01 → 3,08 s); 501 cofnięta na `low_all` | `state-2026-10-08-r067.md` |
+| b074 | 2026-10-09 | 7 nowych kart z luk w numeracji; wszystkie weszły trafione i bez flag; 340 wymagała zmiany archetypu na `steam_hiss` | `state-2026-10-09-b074.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -392,8 +401,13 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Kolejna runda `r068`** — trzy karty z największymi lukami, każda
-   z inną, już znaną przyczyną porażki:
+1. **Budżet wyzerowany — następna generacja wymaga doładowania
+   klucza.** Paczka `b074` (7 nowych kart) zjadła ostatnie 2280
+   kredytów: `b074` 840, `b074b` 600, `b074c` 480, `b074d` 240,
+   `b074e` 120. Dopóki klucz nie jest doładowany, zostaje praca
+   bezkosztowa (poniżej).
+2. **Runda `r068` czeka na kredyty** — trzy karty z największymi
+   lukami, każda z inną, już znaną przyczyną porażki:
    ```
    501 war_machine      tresc 2,75 s  luka 1,19 s  4 prob  fill-take od r029
    565 forest_birdsong  tresc 2,67 s  luka 1,02 s  4 prob  fill-take od r054
@@ -403,8 +417,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    słowa: „a valve opening with steam venting" zrobiło z machiny
    wojennej syk (`low_all` 0,022–0,131 przy progu 0,35, `mid_up`
    0,87–0,98). Obecny sample ma `low_all` 0,725 i centroid 459, więc
-   wzorzec jest w korpusie — wystarczy wyrzucić parę. Dostanie same
-   niskie części: tłok, korbowód, koło zamachowe, łańcuch.
+   wzorzec jest w korpusie — wystarczy nie popsuć. Para wylatuje,
+   zostają same niskie części: tłok, korbowód, koło zamachowe.
    `565` ma już w prompcie łańcuch („eight clear piping chirps"), ale
    kończy się przymiotnikiem („each a short bright tonal whistle")
    i nie ma domknięcia. `forest_birdsong` i tak wymaga `onset_count`
@@ -417,6 +431,23 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    `372` i `260` odpoczywają: `372` dobrała parę 0,9212 z `97`,
    `260` pudłowała na barwie cztery razy. `4`, `145`, `23`, `98`,
    `12`, `232`, `524` — bez zmian.
+3. **Praca bezkosztowa, możliwa od razu** — żadna z nich nie wymaga
+   generowania, więc można ją robić teraz:
+   - **Dobór archetypu po fakcie.** `340` nie przeszła `robot_servo`
+     w pięciu podejściach i piętnastu wariantach, a okazało się, że
+     te same pliki są **trafione** pod `steam_hiss`. Wniosek: zanim
+     uznać kartę za przegraną, sprawdzić jej istniejące warianty
+     przeciwko innym archetypom — to zero kredytów.
+   - **`--fix-mono` na 25 parach i flagach stereo.** Flaga
+     `mono_collapse` zniknęła na `334` po jednym przejściu
+     (`lr_correlation` 0,195 → 0,589).
+   - **Ręczne cięcie ciszy.** `329` miała 1,07 s ciszy na początku,
+     której nie brał `--trim-lead-s`. Ucięcie z marginesem 0,20 s
+     dało lead 0,04 s, zero flag i kosinus 0,8757 (bez pary).
+     Uwaga: po cięciu trzeba skorygować `duration_seconds` w
+     `scenarios.jsonl`, bo inaczej wchodzi `duration_mismatch`,
+     a fingerprint przesuwa się na tyle, że może dobrać parę.
+   - **Ponowny audyt** i porównanie z ostatnim raportem.
    `501` to ten sam archetyp, w którym rzeczowniki dały `67` +1,84 s
    w r065. Jej obecny prompt jest jeszcze przymiotnikowy („two heavy
    blasts with a low thump, over loud gritty metallic knocking...
@@ -489,6 +520,7 @@ docs/archive/state-2026-10-08-r064.md   runda r064 (491 weszła, 52 i 260 cofni�
 docs/archive/state-2026-10-08-r065.md   runda r065 (67 i 553 weszły, 524 cofnięta)
 docs/archive/state-2026-10-08-r066.md   runda r066 (445 weszła, 52 i 372 cofnięte)
 docs/archive/state-2026-10-08-r067.md   runda r067 (52 i 355 weszły, 501 cofnięta)
+docs/archive/state-2026-10-09-b074.md   paczka b074 (7 nowych kart, 5 paczek generacji)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:

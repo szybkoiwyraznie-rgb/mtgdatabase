@@ -1,20 +1,49 @@
-name: "TEMP b074e - 340 Ambulatory Edifice, proba piata"
+name: "TEMP r068 - 501, 565 i 308: trzy znane przyczyny pudla"
 
-# b074e: 1 karta x 3 warianty = 3 generacje x 40 kredytow = 120 kredytow.
-# To OSTATNIE generacje z budzetu (zostanie 0).
+# r068: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# UWAGA: klucz 10 000 kredytow jest WYCZERPANY paczka b074 (7 nowych
+# kart, 2280 kredytow). Ta paczka czeka na doladowanie — nie wolno
+# jej odpalic bez kredytow, bo generacja zwroci blad.
 #
-# Z siedmiu nowych kart weszlo szesc: 329, 332, 333, 334, 336, 338.
-# Zostala tylko 340 Ambulatory Edifice — cztery podejscia, dwanascie
-# wariantow, za kazdym razem to samo: tonal_frame_fraction i
-# sustain_ratio ponizej progu, centroid 4205-11004.
+# Trzy karty z najwiekszymi lukami, kazda z inna, juz ZNANA przyczyna
+# porazki:
 #
-# Ostatnia proba bierze wzorzec wprost z karty 12 (robot_servo,
-# trafiony, centroid 4635), jedynej, w ktorej ten archetyp wyszedl
-# gladko: „A robot servos engaging: a smooth continuous mechanical
-# whirr with a steady hum and a precise click at the end."
-# Kluczowe slowa: SMOOTH, CONTINUOUS, STEADY. Poprzednie proby mialy
-# „crack", „click each" i „locking out" jako rownorzedne zdarzenia,
-# wiec model robil serię trzaskow zamiast ciaglego tonu.
+#  501 war_machine      tresc 2,75 s  luka 1,19 s  4 prob  fill-take od r029
+#  565 forest_birdsong  tresc 2,67 s  luka 1,02 s  4 prob  fill-take od r054
+#  308 sword_clash      tresc 2,06 s  luka 0,96 s  4 prob  fill-take
+#
+# 501: w r067 „a valve opening with steam venting" zrobilo z machiny
+# wojennej syk — low_all 0,022-0,131 przy progu 0,35, mid_up 0,87-0,98
+# (prawie cala energia w gorze pasma). Obecny sample ma low_all 0,725
+# i centroid 459, czyli wzorzec jest w korpusie — wystarczy NIE popsuc.
+# Wylatuje para, zostaja same niskie czesci: tlok, korbowod, kolo
+# zamachowe, lancuch.
+#
+# 565: ma juz lancuch („eight clear piping chirps in an uneven
+# rhythm"), ale konczy sie przymiotnikiem („each a short bright
+# tonal whistle") i nie ma domkniecia. forest_birdsong i tak wymaga
+# onset_count >= 4, wiec lancuch jest tu naturalny.
+#
+# 308: sword_clash ma najostrzejszy warunek wstepny ze wszystkich —
+# attack_s <= 0,1, czyli uderzenie w pierwszej chwili (to samo
+# wylozylo 524 w r065). Obecny sample spelnia go z zapasem (0,03),
+# wiec lancuch MUSI zaczac sie od uderzenia, a narastanie dopiero
+# po nim.
+#
+# ZASADY (obowiazuja od r065, potwierdzone w r066, r067 i b074):
+#   - Lancuch zdarzen ma trzy osie: LICZBA, MATERIAL, NASTEPSTWO.
+#     Trzeba napisac wszystkie trzy naraz.
+#   - ZERO przymiotnikow barwy (dark/bright/low/deep/metallic/soft).
+#   - Rzeczowniki TEZ niosa barwe. Para, gwizd, syk i brzek szkla
+#     rozjasniaja tak samo jak przymiotnik „bright". Sprawdzac, jakie
+#     ZJAWISKO FIZYCZNE niesie dany rzeczownik.
+#   - Jawne domkniecie „to the end".
+#   - NOWE z b074: „swelling from nothing" model bierze doslownie
+#     i daje cisze na poczatku. Wolny atak opisywac jako dzwiek
+#     obecny od pierwszej chwili i dopiero narastajacy.
+#   - NOWE z b074: zanim uznac karte za przegrana, sprawdzic jej
+#     istniejace warianty przeciwko INNYM archetypom. 340 przeszla
+#     pod steam_hiss po pieciu nieudanych probach pod robot_servo.
 
 on:
   push:
@@ -27,7 +56,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "340"
+  IDS: "501,565,308"
 
 jobs:
   variants:
@@ -38,13 +67,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-b074e]
+      - name: Guard — tylko commit z markerem [generate-r068]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b074e]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r068]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b074e] — nic nie generuję"
+            echo "brak markera [generate-r068] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -63,25 +92,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b074e
+          mkdir -p variants/r068
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/b074e/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r068/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch b074e --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b074e/v$v" 2>&1 | tee -a variants/b074e/generate.log
+              --ids "$IDS" --batch r068 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r068/v$v" 2>&1 | tee -a variants/r068/generate.log
           done
-          ls -la variants/b074e variants/b074e/v1 variants/b074e/v2 variants/b074e/v3 || true
+          ls -la variants/r068 variants/r068/v1 variants/r068/v2 variants/r068/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b074e data/samples/generated-manifest.jsonl
+          git add -f variants/r068 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "b074e: 3 warianty (1 karta x 3) + log generacji [import-b074e]"
+            git commit -m "r068: 9 wariantow (3 karty x 3) + log generacji [import-r068]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
