@@ -413,10 +413,10 @@ DURATIONS = (4.0, 4.5, 3.5)
 # Karty, których prompt musi zostać ręczny (fabuła narzuca konkretne źródło).
 OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "224": (
-        "A blade on armour in the first instant: one hard crack, then a long rasp "
-        "of steel over plate, a second crack, a second rasp, then a third crack, "
-        "shearing to the end. " + NO_M,
-        "ostrze uderza w pancerz w pierwszej chwili: twardy trzask klingi, potem długi zgrzyt stali po płycie, potem drugi trzask, potem drugi zgrzyt, potem trzeci trzask, cięcie wytrzymane do końca",
+        "A blade striking plate in the first instant: one hard crack of the blade, "
+        "then two long rasping cuts of steel drawn along steel, then a third crack, "
+        "the shearing to the end. " + NO_M,
+        "ostrze uderza w płytowy pancerz w pierwszej chwili: jeden twardy trzask klingi, potem dwa długie zgrzyty stali o stal, potem trzeci trzask, cięcie do końca",
         False,
     ),
     "312": ("A goblin jester cackling: a series of sharp mocking cackles, five rapid jeering "
@@ -634,8 +634,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "boggart biegnie tunelem: szybkie lekkie kroki bosych stóp tupoczą po wilgotnej glinie, tupot trwa bez przerwy do końca",
         False,
     ),
-    "250": ("A steel blade snapping back together: one bright hard clash at the very first instant, then four short sharp metallic clicks as the crack seals, each with a gritty shimmer.",
-            "ostrze scala się po pęknięciu: jeden jasny twardy szczęk w pierwszej chwili, potem cztery ostre metaliczne kliki", False),
+    "250": (
+        "A steel blade snapping back together in the first instant: one hard crack "
+        "of the blade, then two long rasping cuts of steel drawn along steel, then "
+        "a third crack, the shearing to the end. " + NO_M,
+        "stalowe ostrze składa się z powrotem w pierwszej chwili: jeden twardy trzask klingi, potem dwa długie zgrzyty stali o stal, potem trzeci trzask, cięcie do końca",
+        False,
+    ),
     "71": (
         "A rhino soldier slams into a force wall: one instant deep impact, "
         "then his armour plates clattering and the barrier cracking with "
@@ -1480,10 +1485,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "524": (
-        "A blade drawn from a scabbard in the first instant: one hard crack, then a "
-        "long rasp of steel drawn along steel, then a second crack, then a second "
-        "rasp, the scraping to the end. " + NO_M,
-        "ostrze wyciągane z pochwy w pierwszej chwili: twardy trzask klingi, potem długi zgrzyt stali o stal, potem drugi trzask, potem drugi długi zgrzyt, skrobanie wytrzymane do końca",
+        "A lightblade drawn from a scabbard in the first instant: one hard crack of "
+        "the blade, then two long rasping cuts of steel drawn along steel, then a "
+        "third crack, the shearing to the end. " + NO_M,
+        "świetlne ostrze wyciągane z pochwy w pierwszej chwili: jeden twardy trzask klingi, potem dwa długie zgrzyty stali o stal, potem trzeci trzask, cięcie do końca",
         False,
     ),
     "547": (
