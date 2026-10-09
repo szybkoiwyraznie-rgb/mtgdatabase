@@ -41,6 +41,19 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   Wszystkie siedem weszły **trafione i bez flag**; korpus urósł
   z 563 do **570**, a liczba flag i par nie drgnęła. Szczegóły
   w `docs/archive/state-2026-10-09-b074.md`.
+- Poprzednia runda: `r074` — **zero z trzech**, pierwsza pusta runda.
+  260, 332 i 372 cofnięte; korpus po niej jest identyczny z korpusem
+  przed nią (38 flag, 25 par, archetypy 0/30/161, ani jedna zmiana
+  treści). Dwie rzeczy warte zapamiętania. Po pierwsze, **reguła 1
+  działa też w górę**: 260 i 372 mają dziś sample *trafione*, a
+  wszystkie sześć wariantów wyszło *prawdopodobnie* — czyli gorzej,
+  mimo że każdy był dłuższy. Prawdopodobnie zamiast trafionego to
+  pogorszenie, nie postęp. Po drugie, `332` v2 była najlepszym
+  wariantem od tygodni (4,00 s, trafiona, zero flag) i **i tak
+  poszła do kosza** — fingerprint pokazał trzy nowe pary (0,9227 /
+  0,9106 / 0,9104). Wszystkie trzy warianty wpadły w jeden gęsto
+  zaludniony róg: długie niskie dudnienie (317, 558, 562, 496, 241,
+  23, 347 mają już między sobą pary 0,90–0,93).
 - Poprzednia runda: `r072` — z 3 kart weszła **jedna**: `20` *Jeskai
   Devotee* **2,28 → 3,09 s (+0,81)**. `224` i `524` cofnięte, obie
   0/3, i obie z tego samego powodu: `attack_s` (2,11 / 0,56 / 2,04
@@ -241,8 +254,9 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 - Katalog: **570 fabuł**, scenariusze **570** (100 %), sample **570**.
 - Flagi **38**, pary ≥ 0,90 **25**, treść < 2 s **12**.
 - Archetypy: **0** nie trafionych, **30** prawdopodobnie, **161** trafionych.
-- Budżet: **7480 / 10 000** kredytów na drugim kluczu (r068: 360,
-  r069: 360, r070: 360, r071: 360, r072: 360, r073: 360 w toku). Pierwszy klucz 10 000 zamknęły: b072 560,
+- Budżet: **7120 / 10 000** kredytów na drugim kluczu (r068: 360,
+  r069: 360, r070: 360, r071: 360, r072: 360, r073: 360, r074: 360,
+  r075: 360 w toku). Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,
   r062 360, r063 360, r064 360, r065 360, r066 360, r067 360,
   b074 840, b074b 600, b074c 480, b074d 240, b074e 120.
@@ -441,6 +455,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r070 | 2026-10-09 | 308 weszła (2,06 → 3,31 s, +1,25) — wzorzec trafiony na 3 z 3; 224 trafiona, ale tylko +0,04 s; 452 cofnięta, krótsza | `state-2026-10-09-r070.md` |
 | r071 | 2026-10-09 | **trzy z trzech**: 608 (+1,40), 435 (+1,17), 17 (+0,50) = +3,07 s; trzy karty z „prawdopodobnie" na „trafiony" | `state-2026-10-09-r071.md` |
 | r072 | 2026-10-09 | 20 weszła (2,28 → 3,09 s); 224 i 524 cofnięte 0/3 — obie złamały `attack_s` po skróceniu czasownika w otwarciu | `state-2026-10-09-r072.md` |
+| r073 | 2026-10-09 | 224 weszła (2,47 → 3,56 s, +1,09) na dokładnym tekście z 308; 250 trafiona, ale krótsza; 524 znów atak | `state-2026-10-09-r073.md` |
+| r074 | 2026-10-09 | **zero z trzech**; 332 odrzucona mimo 4,00 s i zera flag za trzy nowe pary — długie niskie dudnienie to region zajęty | `state-2026-10-09-r074.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -449,34 +465,40 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Runda `r073` w toku** — test hipotezy z `r072`: wszystkie trzy
-   karty dostają **dokładny** tekst, który w `308` dał 3/3, ze
-   zmienionym tylko rzeczownikiem materiału:
+1. **Runda `r075` w toku** — pierwszy dobór po nowej procedurze,
+   z `r074`. Liczy się nie tylko luka do mediany klasy, ale i to,
+   **ilu sąsiadów ma karta** — bo `332` pokazała, że wydłużanie w
+   gęsty region kończy się parami, nie długością:
    ```
-   524 sword_clash  tresc 2,24 s  luka 1,05 s  3 prob  2. podejscie
-   224 sword_clash  tresc 2,47 s  luka 0,82 s  3 prob  3. podejscie
-   250 sword_clash  tresc 2,70 s  luka 0,59 s  2 prob  1. podejscie
+   524 sword_clash  luka 1,07 s  najblizszy 0,5660  sasiadow >=0,80: 0
+   567 plate_clank  luka 0,56 s  najblizszy 0,7823  sasiadow >=0,80: 0
+   216 plate_clank  luka 0,51 s  najblizszy 0,7692  sasiadow >=0,80: 0
    ```
-   ```text
-   524  A lightblade drawn from a scabbard ...   (swietlne ostrze)
-   224  A blade striking plate ...               (plytowy pancerz)
-   250  A steel blade snapping back together ... (stalowe ostrze)
-   ```
-   Wszystkie trzy kończą identycznie: *one hard crack of the blade,
-   then two long rasping cuts of steel drawn along steel, then a third
-   crack, the shearing to the end.* Czasownik uderzenia w otwarciu
-   (*striking*) i pełna fraza „of the blade" wracają.
+   Dla porównania karty z `r074`: `260` miała **14** sąsiadów ≥ 0,80
+   i 6 ≥ 0,85; `372` — 18 i 3; `452` — 14 i 6. Region był zajęty,
+   zanim cokolwiek wygenerowano.
 
-   Bilans wzorca po pięciu rundach: **10 trafionych z 24** wariantów,
-   **5 kart z 7** dało instalowalny wynik (308, 608, 17, 20, 435).
-   Transza trzech kart to w przybliżeniu **dwie** instalacje — tak
-   planować kolejki, nie z nadzieją na trzy z trzech.
+   `524` dostaje **dokładny** tekst, który w `308` dał 3/3, z czasownikiem
+   uderzenia w otwarciu (`striking`) — czysty test hipotezy z `r072`,
+   że poprzednie 0/6 wzięło się z materiału „drawn from a scabbard",
+   który sam zaprasza powolne ciągnięcie.
+   `567` i `216` to `plate_clank`, którego kontrakt ma `decay_s <= 1,2`
+   — czyli **nie wolno przedłużać ogonem**, bo to właśnie ogon zabił
+   `332`. Łańcuch jest samych zdarzeń: cztery trzaski, bez
+   wybrzmiewania, „striking to the end".
 
-   Ryzyko tej transzy: trzy bardzo podobne prompty. Sprawdzane będą
-   nie tylko pary z korpusem (próg 0,90), ale i wzajemne
-   podobieństwo trzech nowych sampli między sobą.
+2. **Reguła 1 działa w obie strony.** Instaluję wariant tylko wtedy,
+   gdy jest **co najmniej tak dobry w werdykcie** jak obecny **i**
+   wyraźnie dłuższy. `prawdopodobnie` zamiast `trafiony` to
+   pogorszenie, nawet przy +1 s treści — długość jest środkiem do
+   ikoniczności, nie celem samym w sobie.
 
-2. **Lekcja z r070, która zmienia sposób pracy:** `--apply` w
+3. **Przed wyborem karty sprawdzać zajętość regionu.** Policzyć, ilu
+   sąsiadów ma kosinus ≥ 0,85; więcej niż dwóch oznacza region
+   zajęty. Wtedy nie wydłużać ogonem, tylko liczbą zdarzeń o różnej
+   barwie — o ile kontrakt na to pozwala.
+
+4. **Lekcja z r070, która zmienia sposób pracy:** `--apply` w
    `rewrite_archetype_prompts.py` przepisuje też pole `music_allowed`
    na podstawie trzeciego elementu w `OVERRIDES`. Wpis dla `452`
    dostał `False` („bez muzyki"), więc chór dostał zakaz muzyki
@@ -488,7 +510,14 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    walidator na CI (lokalnie `tail -1` ukrył błędy), więc żadne
    kredyty nie poszły na zmarnowany run.
 
-3. **Limit długości jest liczony od ładunku API, nie od promptu.**
+5. **Kopie zapasowe wyłącznie w repozytorium, nigdy w `/tmp`.**
+   `/tmp` nie jest częścią workspace'u i znika między wywołaniami —
+   w `r074` i `r075` próba cofnięcia plików z `/tmp/pre-r07X.jsonl`
+   kończyła się na `cannot stat`, bo kopia już nie istniała. Kopia
+   przed rundą idzie do `.arena-backup/` (katalog jest w
+   `.gitignore`). Bez tego jedyna droga powrotna to ręczna
+   rekonstrukcja z JSON-a — działa, ale kosztuje dwa razy tyle.
+6. **Limit długości jest liczony od ładunku API, nie od promptu.**
    `validate_sample_scenarios.py` wywołuje `api_payload()` ze scouta,
    który po prompt dokleja jeszcze „ No multi-layer cinematic scene."
    (32 znaki). Dlatego prompt 446 znaków może być za długi. Numerek
@@ -496,7 +525,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    liczy **sam prompt z rozwinięciem**, więc zawyża i bywa
    mylący — wiążący jest wynik walidatora, nie ten numer.
 
-4. **Praca bezkosztowa** — żadna z nich nie wymaga generowania, więc
+7. **Praca bezkosztowa** — żadna z nich nie wymaga generowania, więc
    można ją robić równolegle z rundami:
    - **Dobór archetypu po fakcie.** `340` nie przeszła `robot_servo`
      w pięciu podejściach i piętnastu wariantach, a okazało się, że
@@ -550,7 +579,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    rzeczownik („six plates snapping into place with a firm woody
    clank") i wyszedł czysto. W r065 opisuję tylko zdarzenia i
    materiał, zero przymiotników barwy.
-5. **Wątek bez kredytów — po `r058eq`:** `dull` zeszło z 16 na 11,
+8. **Wątek bez kredytów — po `r058eq`:** `dull` zeszło z 16 na 11,
    `harsh` z 11 na 9. Tanich ruchów już nie ma: `harsh` wymaga
    −12…−15 dB przy 8 kHz na kartach z 0,94–0,98 energii w paśmie
    powietrznym (`226`, `6`, `522` nie mieszczą się nawet przy −15 dB),
