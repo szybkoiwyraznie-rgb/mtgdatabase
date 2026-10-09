@@ -797,17 +797,14 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "345": ("A porcelain blade striking: one hard impact with zero wind-up at the very start, built from harsh broadband gritty ceramic-and-steel noise, bright and rough-edged.",
             "porcelanowe ostrze uderza: twarde uderzenie bez zamachu, z chrapliwego szerokopasmowego szumu", False),
     "435": (
-        "A blade striking a shield boss in the first instant: one hard crack of the "
-        "blade, then a long rasp of steel drawn over iron, then a second crack, "
-        "then a second rasp, then a third crack, the shearing held to the end. "
+        "A blade striking a shield boss in the first instant: one hard crack, then a long rasp of steel over iron, a second crack, a second rasp, then a third crack, shearing to the end."
         + NO_M,
         "ostrze uderza w guz tarczy w pierwszej chwili: twardy trzask klingi, potem długi zgrzyt stali po żelazie, potem drugi trzask, potem drugi długi zgrzyt, potem trzeci trzask, cięcie wytrzymane do końca",
         False,
     ),
     "608": (
-        "Two blades meeting edge to edge in the first instant: one hard crack of "
-        "the blade, then two long rasping cuts of steel drawn along steel, then a "
-        "third crack, the shearing held to the end. " + NO_M,
+        "Two blades meeting edge to edge in the first instant: one hard crack, then two long rasping cuts of steel drawn along steel, then a third crack, the shearing held to the end."
+        + NO_M,
         "dwa ostrza krawędziami w pierwszej chwili: jeden twardy trzask klingi, potem dwa długie zgrzyty stali o stal, potem trzeci trzask, cięcie wytrzymane do końca",
         False,
     ),

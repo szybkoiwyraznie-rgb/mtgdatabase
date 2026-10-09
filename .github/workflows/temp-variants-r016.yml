@@ -41,7 +41,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "224,308,452"
+  IDS: "17,435,608"
 
 jobs:
   variants:
