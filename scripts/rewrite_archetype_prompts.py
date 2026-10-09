@@ -412,10 +412,8 @@ DURATIONS = (4.0, 4.5, 3.5)
 
 # Karty, których prompt musi zostać ręczny (fabuła narzuca konkretne źródło).
 OVERRIDES: dict[str, tuple[str, str, bool]] = {
-    "74": ("A cavalry charge crossing open ground: eight heavy stomps evenly spaced one after another, then four more, the last stomp landing to the end.",
-           "szarża kawalerii przez otwarte pole: osiem ciężkich kroków w równym odstępie, potem cztery następne, ostatni do końca", False),
-    "177": ("A horned beast bellowing: one chest bellow, then a second, then a third, each punched out and cut off, the last one rolling on to the end.",
-            "rogate bestia ryczy: jeden ryk z piersi, potem drugi, potem trzeci, każdy ucięty, ostatni niesie się do końca", False),
+    "224": ("A blade striking armour in the very first instant: one hard crack of the blade, then two long rasping cuts of steel drawn over steel, shearing to the end.",
+            "ostrze uderza w pancerz w pierwszej chwili: twardy trzask klingi, dwa długie zgrzyty stali o stal, cięcie do końca", False),
     "312": ("A goblin jester cackling: a series of sharp mocking cackles, five rapid jeering "
             "bursts, high and cruel. " + NO_M,
             "chichot błazna: seria ostrych kpiących chichotów, pięć szybkich wybuchów", False),
@@ -429,6 +427,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "gromoraptor składa skrzydła: krótki świat powietrza, trzask błyskawicy, potem grzmot trwający ponad sekundę i cichnący przed końcem", False),
     "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
             "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
+    "452": ("A choir chanting in a stone hall: one sustained chord held, then a second chord, then a third, the voices held together to the end.",
+            "chór w kamiennej hali: jeden wytrzymany akord, potem drugi, potem trzeci, głosy trzymane razem do końca", False),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
             "rustic, feet stamping the beat. " + NO_S,
             "wiejska muzyka: skrzypce grają żywą taneczną melodię nad bębenkiem, stopy wybijają rytm", True),
@@ -745,8 +745,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # Prompt celuje w ta jedna ceche. Uwaga: insect_swarm potrzebuje raz
     # nizszego centroidu (98, 106, 456, 81), a raz wiecej tonalnosci (31, 540) -
     # dlatego tylko wpisy per karta, profil rodzinny by je pogodzic nie mogl.
-    "308": ("A greatsword striking in the first instant: one hard crack of the blade, then two long rasping cuts of steel drawn along steel, shearing to the end.",
-            "wielki miecz uderza w pierwszej chwili: twardy trzask ostrza, potem dwa długie zgrzyty stali o stal, cięcie do końca", False),
+    "308": ("A greatsword striking in the first instant: one hard crack of the blade, then two long rasping cuts of steel drawn along steel, then a third crack, the shearing to the end.",
+            "wielki miecz uderza w pierwszej chwili: twardy trzask ostrza, dwa długie zgrzyty stali o stal, trzeci trzask, cięcie do końca", False),
     "9": ("A gust of wind: broadband hissing white noise of turbulent air, swelling and easing, with no whistle, no pitched note and no tonal hum anywhere in it.",
             "podmuch wiatru: szerokopasmowy szumiący szum białego turbulentnego powietrza, bez gwizdu i bez tonu", False),
     "67": (
