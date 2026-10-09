@@ -1,6 +1,6 @@
-name: "TEMP r070 - 224, 308 i 452: sprawdzony wzorzec na dwa miecze"
+name: "TEMP r071 - 224, 308 i 452: sprawdzony wzorzec na dwa miecze"
 
-# r070: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# r071: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
 # Po tej paczce na drugim kluczu zostanie 8560.
 #
 #  308 sword_clash   tresc 2,06 s  luka 0,98 s  7 prob  fill-take
@@ -52,13 +52,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r070]
+      - name: Guard — tylko commit z markerem [generate-r071]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r070]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r071]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r070] — nic nie generuję"
+            echo "brak markera [generate-r071] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -77,25 +77,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r070
+          mkdir -p variants/r071
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r070/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r071/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r070 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r070/v$v" 2>&1 | tee -a variants/r070/generate.log
+              --ids "$IDS" --batch r071 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r071/v$v" 2>&1 | tee -a variants/r071/generate.log
           done
-          ls -la variants/r070 variants/r070/v1 variants/r070/v2 variants/r070/v3 || true
+          ls -la variants/r071 variants/r071/v1 variants/r071/v2 variants/r071/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r070 data/samples/generated-manifest.jsonl
+          git add -f variants/r071 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r070: 9 wariantow (3 karty x 3) + log generacji [import-r070]"
+            git commit -m "r071: 9 wariantow (3 karty x 3) + log generacji [import-r071]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

@@ -412,8 +412,6 @@ DURATIONS = (4.0, 4.5, 3.5)
 
 # Karty, których prompt musi zostać ręczny (fabuła narzuca konkretne źródło).
 OVERRIDES: dict[str, tuple[str, str, bool]] = {
-    "224": ("A blade striking armour in the very first instant: one hard crack of the blade, then two long rasping cuts of steel drawn over steel, shearing to the end.",
-            "ostrze uderza w pancerz w pierwszej chwili: twardy trzask klingi, dwa długie zgrzyty stali o stal, cięcie do końca", False),
     "312": ("A goblin jester cackling: a series of sharp mocking cackles, five rapid jeering "
             "bursts, high and cruel. " + NO_M,
             "chichot błazna: seria ostrych kpiących chichotów, pięć szybkich wybuchów", False),
@@ -427,8 +425,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "gromoraptor składa skrzydła: krótki świat powietrza, trzask błyskawicy, potem grzmot trwający ponad sekundę i cichnący przed końcem", False),
     "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
             "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
-    "452": ("A choir chanting in a stone hall: one sustained chord held, then a second chord, then a third, the voices held together to the end.",
-            "chór w kamiennej hali: jeden wytrzymany akord, potem drugi, potem trzeci, głosy trzymane razem do końca", False),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
             "rustic, feet stamping the beat. " + NO_S,
             "wiejska muzyka: skrzypce grają żywą taneczną melodię nad bębenkiem, stopy wybijają rytm", True),
@@ -790,10 +786,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # tonal_frame_fraction do 0,04 przy wymaganym >= 0,35). Dlatego cecha CHRONIONA
     # idzie pierwsza i jako element dominujacy, a poprawka dopiero po niej.
     "17": (
-        "Three dagger strikes in a row, the first the loudest with no build-up: a "
-        "harsh burst of gritty metallic noise each time, bright steel ringing thin "
-        "behind it. " + NO_M,
-        "trzy cięcia sztyletem jedno po drugim, pierwsze najgłośniejsze i bez narastania: za każdym razem ostry wybuch ziarnistego metalicznego szumu, z tyłu cienko dzwoniąca jasna stal",
+        "A dagger striking stone in the first instant: one hard crack of the blade, "
+        "then a rasp of steel drawn over stone, then a second crack, then a second "
+        "rasp, the scraping held to the end. " + NO_M,
+        "sztylet uderza w kamień w pierwszej chwili: twardy trzask klingi, potem zgrzyt stali po kamieniu, potem drugi trzask, potem drugi zgrzyt po kamieniu, skrobanie wytrzymane do końca",
         False,
     ),
     "20": ("A sword hitting a sword: an instantaneous hard bright impact at the very first sample, made of harsh broadband gritty metal noise with a rough noisy edge, no smooth pitch.",
@@ -801,14 +797,20 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "345": ("A porcelain blade striking: one hard impact with zero wind-up at the very start, built from harsh broadband gritty ceramic-and-steel noise, bright and rough-edged.",
             "porcelanowe ostrze uderza: twarde uderzenie bez zamachu, z chrapliwego szerokopasmowego szumu", False),
     "435": (
-        "A crimson blade striking three times in a row, the first the loudest: a harsh "
-        "broadband burst of gritty metal noise each time, bright shards ringing after "
-        "it. " + NO_M,
-        "karmazynowe ostrze uderza trzy razy z rzędu, pierwszy raz najgłośniej: za każdym razem ostry szerokopasmowy wybuch ziarnistego metalicznego szumu, po nim dzwoniące jasne odłamki",
+        "A blade striking a shield boss in the first instant: one hard crack of the "
+        "blade, then a long rasp of steel drawn over iron, then a second crack, "
+        "then a second rasp, then a third crack, the shearing held to the end. "
+        + NO_M,
+        "ostrze uderza w guz tarczy w pierwszej chwili: twardy trzask klingi, potem długi zgrzyt stali po żelazie, potem drugi trzask, potem drugi długi zgrzyt, potem trzeci trzask, cięcie wytrzymane do końca",
         False,
     ),
-    "608": ("Two blades meeting edge to edge: a sudden hard bright steel clash at the very first instant, harsh broadband gritty noise, rough rather than ringing.",
-            "dwa ostrza krawędziami: nagły twardy jasny szczęk w pierwszej chwili, chrapliwy szum bez dzwonienia", False),
+    "608": (
+        "Two blades meeting edge to edge in the first instant: one hard crack of "
+        "the blade, then two long rasping cuts of steel drawn along steel, then a "
+        "third crack, the shearing held to the end. " + NO_M,
+        "dwa ostrza krawędziami w pierwszej chwili: jeden twardy trzask klingi, potem dwa długie zgrzyty stali o stal, potem trzeci trzask, cięcie wytrzymane do końca",
+        False,
+    ),
     "98": (
         "A swarm settling on wood: one steady pitched drone buzzing in the middle of "
         "the range, warm and rounded, held unbroken for the whole take. " + NO_M,
