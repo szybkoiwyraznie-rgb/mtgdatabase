@@ -41,6 +41,17 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   Wszystkie siedem weszły **trafione i bez flag**; korpus urósł
   z 563 do **570**, a liczba flag i par nie drgnęła. Szczegóły
   w `docs/archive/state-2026-10-09-b074.md`.
+- Poprzednia runda: `r070` — z 3 kart weszła **jedna, ale największa
+  w tej serii**: `308` *Greatsword of Tyr* **2,06 → 3,31 s (+1,25)**,
+  `sword_clash` w całości. Wzorzec
+  z karty `334` (trzask, dwa długie zgrzyty, trzeci trzask) zadziałał
+  na **wszystkich trzech** wariantach — pierwszy raz w tej serii
+  trzy na trzy trafione. `224` dostała ten sam wzorzec i jej v2 też
+  był trafiony, ale miał 2,51 s wobec obecnych 2,47 s, czyli +0,04 s
+  — za mało, żeby ruszać plik. `452` cofnięta: oba trafione warianty
+  były krótsze niż obecne 2,60 s, a v1 dostał jeszcze `mono_collapse`.
+  Korpus bez zmian w liczbach (flagi 38, pary 25), bo jedyna
+  instalacja nie dodała żadnej flagi ani pary.
 - Poprzednia runda: `r069` — z 3 kart weszła **jedna**, ale za to
   wyleczyła jedną flagę: `74` *Rush of Battle* **2,76 → 3,20 s**
   (+0,44), `heavy_footsteps` w całości. Jej stary sample miał flagę
@@ -214,8 +225,8 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 - Katalog: **570 fabuł**, scenariusze **570** (100 %), sample **570**.
 - Flagi **38**, pary ≥ 0,90 **25**, treść < 2 s **12**.
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **158** trafionych.
-- Budżet: **8560 / 10 000** kredytów na drugim kluczu (r068: 360,
-  r069: 360, r070: 360 w toku). Pierwszy klucz 10 000 zamknęły: b072 560,
+- Budżet: **8200 / 10 000** kredytów na drugim kluczu (r068: 360,
+  r069: 360, r070: 360, r071: 360 w toku). Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,
   r062 360, r063 360, r064 360, r065 360, r066 360, r067 360,
   b074 840, b074b 600, b074c 480, b074d 240, b074e 120.
@@ -411,6 +422,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | b074 | 2026-10-09 | 7 nowych kart z luk w numeracji; wszystkie weszły trafione i bez flag; 340 wymagała zmiany archetypu na `steam_hiss` | `state-2026-10-09-b074.md` |
 | r068 | 2026-10-09 | 501 bez pary weszła (2,75 → 3,80 s), 565 weszła (2,67 → 3,24 s), 308 cofnięta na `attack_s` | `state-2026-10-09-r068.md` |
 | r069 | 2026-10-09 | 74 weszła (2,76 → 3,20 s) i wyleczyła flagę `boomy`; 308 cofnięta, bo była krótsza; 177 bez głosu | `state-2026-10-09-r069.md` |
+| r070 | 2026-10-09 | 308 weszła (2,06 → 3,31 s, +1,25) — wzorzec trafiony na 3 z 3; 224 trafiona, ale tylko +0,04 s; 452 cofnięta, krótsza | `state-2026-10-09-r070.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -419,35 +431,50 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Runda `r070` w toku** — dwa miecze na jednym wzorcu i chór:
+1. **Runda `r071` w toku** — wzorzec z `308` przeniesiony na trzy
+   następne miecze, każdy z innym łańcuchem:
    ```
-   308 sword_clash   tresc 2,06 s  luka 0,98 s  7 prob  fill-take
-   452 arcane_choir  tresc 2,60 s  luka 0,70 s  4 prob  muzyka
-   224 sword_clash   tresc 2,47 s  luka 0,57 s  2 prob  bez fill-take
+   435 sword_clash  tresc 2,19 s  luka 0,95 s  5 prob  fill-take
+   608 sword_clash  tresc 2,23 s  luka 0,91 s  6 prob  fill-take
+    17 sword_clash  tresc 2,23 s  luka 0,91 s  6 prob  fill-take
    ```
-   `308` to przypadek graniczny. W r068 łamała `attack_s`
-   (1,25–2,40); w r069 wzorzec z karty `334` naprawił atak — v1
-   miał attack 0,020 i był **trafiony**, ale wyszedł za krótki:
-   1,66 s wobec obecnych 2,06 s. Reguła 1 pozwala instalować tylko
-   to, co nie psuje werdyktu, więc skrócenie też odpada. Próba raz
-   jeszcze: ten sam wzorzec plus trzecie zdarzenie.
-   `224` to ta sama oś, ale karta świeża (2 przejścia) i z promptem,
-   który w ogóle nie jest łańcuchem („metallic ticking and pinging
-   of hot sword blades cooling"). Dostaje ten sam wzorzec co `308`.
-   Jeśli zadziała na obu, będzie to najmocniejszy dotąd dowód, że
-   wzorzec jest przenośny; jeśli na żadnej — że `308` ma pecha
-   do swoich rzeczowników.
-   `452` to chór. `arcane_choir` wymaga `tonal_frame` ≥ 0,45,
-   `voiced_fraction` ≥ 0,25, `sustain` ≥ 0,35 i `decay` ≥ 0,8 —
-   głosy dają to naturalnie. Obecny prompt jest samymi przymiotniami
-   („mystical", „soft", „harmonious") i nie ma łańcucha.
-   Dostaje łańcuch z akordów. Uwaga proceduralna: karta ma
-   `music_allowed = true`, więc prompt nie dostaje sufiksu `NO_M`
-   i musi nazywać źródło — chór je nazywa.
-   `372` i `260` odpoczywają: `372` dobrała parę 0,9212 z `97`,
-   `260` pudłowała na barwie cztery razy. `4`, `145`, `23`, `98`,
-   `12`, `232`, `524` — bez zmian.
-2. **Praca bezkosztowa** — żadna z nich nie wymaga generowania, więc
+   Wzorzec, który zadziałał na `308`, brzmi: **trzask, dwa długie zgrzyty, trzeci trzask,
+   cięcie do końca.** Długość bierze się z dwóch rzeczy naraz —
+   z liczby zdarzeń i z tego, że zgrzyt jest *rozciągnięty*, a nie
+   punktowy. Trzy karty dostają trzy różne łańcuchy, żeby nie zrobić
+   z nich bliźniaków (próg pary to kosinus 0,90):
+   ```
+   435  ostrze po guzie tarczy   trzask, zgrzyt, trzask, zgrzyt, trzask
+   608  dwa ostrza krawędziami   trzask, dwa zgrzyty, trzask
+    17  sztylet po kamieniu      trzask, zgrzyt, trzask, zgrzyt (na zgrzycie koniec)
+   ```
+   Oś liczby: 5 / 3 / 4 zdarzenia. Oś materiału: żelazo / stal / kamień.
+   Oś następstwa: koniec na trzasku / na trzasku / na zgrzycie.
+   Wszystkie trzy mają `attack_s` w normie już teraz (0,05 / 0,02 /
+   0,14), więc tu nie chodzi o atak, tylko o długość — to inna
+   diagnoza niż w `308`, która atak łamała.
+
+2. **Lekcja z r070, która zmienia sposób pracy:** `--apply` w
+   `rewrite_archetype_prompts.py` przepisuje też pole `music_allowed`
+   na podstawie trzeciego elementu w `OVERRIDES`. Wpis dla `452`
+   dostał `False` („bez muzyki"), więc chór dostał zakaz muzyki
+   wewnątrz promptu, który sam miał być chórem. Wygenerowane
+   warianty były z góry skażone. Przy wycofywaniu karty trzeba
+   przywracać **cztery** pola, nie trzy: `prompt`,
+   `sample_scenario`, `batch`, `duration_seconds` — i sprawdzać
+   `music_allowed`, bo `--apply` mógł je zmienić. Wyłapał to
+   walidator na CI (lokalnie `tail -1` ukrył błędy), więc żadne
+   kredyty nie poszły na zmarnowany run.
+
+3. **Limit długości jest liczony od ładunku API, nie od promptu.**
+   `validate_sample_scenarios.py` wywołuje `api_payload()` ze scouta,
+   który po prompt dokleja jeszcze „ No multi-layer cinematic scene."
+   (32 znaki). Dlatego prompt 446 znaków może być za długi. Numerek
+   wypisywany przez `rewrite_archetype_prompts.py` (np. „507/450")
+   liczy **sam prompt z rozwinięciem**, więc zawyża i bywa
+   mylący — wiążący jest wynik walidatora, nie ten numer.
+
+4. **Praca bezkosztowa** — żadna z nich nie wymaga generowania, więc
    można ją robić równolegle z rundami:
    - **Dobór archetypu po fakcie.** `340` nie przeszła `robot_servo`
      w pięciu podejściach i piętnastu wariantach, a okazało się, że
@@ -501,7 +528,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
    rzeczownik („six plates snapping into place with a firm woody
    clank") i wyszedł czysto. W r065 opisuję tylko zdarzenia i
    materiał, zero przymiotników barwy.
-2. **Wątek bez kredytów — po `r058eq`:** `dull` zeszło z 16 na 11,
+5. **Wątek bez kredytów — po `r058eq`:** `dull` zeszło z 16 na 11,
    `harsh` z 11 na 9. Tanich ruchów już nie ma: `harsh` wymaga
    −12…−15 dB przy 8 kHz na kartach z 0,94–0,98 energii w paśmie
    powietrznym (`226`, `6`, `522` nie mieszczą się nawet przy −15 dB),
