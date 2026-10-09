@@ -1,36 +1,38 @@
-name: "TEMP r078 - 333, 210, 71: brąz, kamień, bariera"
+name: "TEMP r079 - 333 i 534: piec wariantow na karte"
 
-# r078: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
-# Po tej paczce na drugim kluczu zostanie 5680.
+# r079: 2 karty x 5 wariantow = 10 generacji x 40 kredytow = 400 kredytow.
+# Po tej paczce na drugim kluczu zostanie 5280.
 #
-#  333 plate_clank    tresc 2,63 s  luka 0,55 s  1 prob  0 sasiadow >=0,85
-#  210 heavy_impact   tresc 2,54 s  luka -0,03 s  1 prob  0 sasiadow >=0,80
-#   71 heavy_impact   tresc 2,30 s  luka 0,21 s  5 prob  0 sasiadow >=0,85
+#  534 plate_clank  tresc 2,73 s  luka 0,44 s  3 prob  0 sasiadow >=0,80
+#  333 plate_clank  tresc 2,63 s  luka 0,55 s  2 prob  0 sasiadow >=0,80
 #
-# Wszystkie trzy: kontrakt z KROTKIM zanikiem (plate_clank <= 1,2,
-# heavy_impact <= 1,4) i region wolny.
+# PIERWSZA TRANsza PO ZMIANIE STRATEGII. r078 zakonczyla sie
+# zero z trzech i obalila trzecia hipoteze z rzedu (lancuch
+# zdarzen -> czasownik uderzenia -> material). Zostalo policzone:
 #
-# Dobor idzie po MATERIAL, nie po luce. r077 pokazala, ze przy
-# tym samym szkielecie wygrala karta z INNYM materialem: 491
-# (KORA) dała 3,45 s, podczas gdy 548 i 140 (obie STAL, obie z
-# „clashing") wyszły krotsze niz obecne. Hipoteza: cztery stuki
-# stali o stale brzmia dla modelu jak jeden dlugi dzwiek, wiec
-# nie ma powodu rozciagac go w czasie. Rozny material wymusza
-# rozne barwy, a rozne barwy wymagaja czasu.
+#   r077  ten sam prompt -> 0,36 s i 3,45 s
+#   r078  ten sam prompt -> 0,76 s i 2,64 s
 #
-#  333  BRĄZ — „Bronze gates clashing shut" (wrota, nie pancerz)
-#  210  KAMIEŃ — „A rune staff cracking on a stone floor"
-#   71  BARIERA — „A rhino soldier slamming a force wall"
+# Rozrzut dlugosci wewnatrz jednego promptu jest wiekszy niz
+# roznice miedzy promptami. Szukanie kolejnej zmiennej w tekscie
+# ma malejacy zwrot; zwiekszenie liczby prob jest tym, co da sie
+# zaplanowac.
 #
-# Zadne otwarcie nie zawiera czasownika ruchu (turning, rolling,
-# shifting) — to reguly z r074, ktora zlamalam w r076 i za ktora
-# zaplacilam siedmioma krotszymi wariantami.
+# Dlatego: PIEC wariantow na DWOCH kartach zamiast trzech na
+# trzech. 10 generacji za 400 kredytow, czyli 200 na karte
+# zamiast 120. Jesli wariancja jest glowna zmienna, piec prob
+# powinno dac lepszy plon niz trzy — z jednego promptu r077
+# wyciagnelabym 3,45 s przy pieciu probach tak samo jak przy
+# trzech, ale karty takie jak 534 czy 548 dostaly szanse, ktorej
+# trzy proby im nie daly.
 #
-# 210 jest ciekawa o tyle, ze jej luka do mediany klasy jest
-# UJEMNA (-0,03), czyli ma wiecej tresci niz wynosi mediana
-# heavy_impact. Wybrana zostala mimo to, bo kontrakt heavy_impact
-# jest najlatwiejszy z bezpiecznych (crest >= 14, attack <= 0,15,
-# decay <= 1,4, low_all >= 0,2) i karta miala tylko jedna probe.
+# Obie karty sa plate_clank, region wolny, kontrakt z krotkim
+# zanikiem (decay_s <= 1,2). 534 probowana trzy razy, 333 dwa.
+# Szkielet bez zmian: cztery trzaski, bez wybrzmiewania,
+# „striking to the end".
+#
+# Zmiana w workflow: petla `for v in 1 2 3 4 5`. Odbior i ocena
+# musza objac piec wariantow na karte, nie trzy.
 #
 on:
   push:
@@ -43,7 +45,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "71,210,333"
+  IDS: "333,534"
 
 jobs:
   variants:
@@ -54,13 +56,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r078]
+      - name: Guard — tylko commit z markerem [generate-r079]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r078]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r079]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r078] — nic nie generuję"
+            echo "brak markera [generate-r079] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -72,32 +74,32 @@ jobs:
         if: steps.guard.outputs.run == '1'
         run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
 
-      - name: Generate 3 variants per story
+      - name: Generate 5 variants per story
         if: steps.guard.outputs.run == '1'
         continue-on-error: true
         env:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r078
-          for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r078/generate.log
+          mkdir -p variants/r079
+          for v in 1 2 3 4 5; do
+            echo "=== wariant v$v ===" | tee -a variants/r079/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r078 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r078/v$v" 2>&1 | tee -a variants/r078/generate.log
+              --ids "$IDS" --batch r079 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r079/v$v" 2>&1 | tee -a variants/r079/generate.log
           done
-          ls -la variants/r078 variants/r078/v1 variants/r078/v2 variants/r078/v3 || true
+          ls -la variants/r079 variants/r079/v1 variants/r079/v2 variants/r079/v3 variants/r079/v4 variants/r079/v5 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r078 data/samples/generated-manifest.jsonl
+          git add -f variants/r079 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r078: 9 wariantow (3 karty x 3) + log generacji [import-r078]"
+            git commit -m "r079: 9 wariantow (3 karty x 3) + log generacji [import-r079]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

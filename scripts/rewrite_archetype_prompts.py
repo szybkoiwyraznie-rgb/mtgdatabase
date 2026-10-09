@@ -422,6 +422,11 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "312": ("A goblin jester cackling: a series of sharp mocking cackles, five rapid jeering "
             "bursts, high and cruel. " + NO_M,
             "chichot błazna: seria ostrych kpiących chichotów, pięć szybkich wybuchów", False),
+    "333": (
+        "Bronze gates clashing shut in the first instant: one hard crack of the gates, then a second crack, then a third crack, then a fourth crack, the striking to the end. " + NO_M,
+        "brązowe wrota zamykają się w pierwszej chwili: jeden twardy trzask wrót, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "340": ("An edifice coming alive: a smooth continuous servo whirr with a steady hum, held unbroken across the whole take, and two precise clicks of steel legs locking out.",
             "stalowy mechanizm się rozkłada: jeden ciągły jęk serva na jednej stałej wysokości, potem cztery nogi z kliknięciem, jęk do końca", False),
     "338": ("A colossal giant rising from the sea: one crash of water thrown up, then a stone pier struck apart, then spray and rubble raining down into the water, the crashing to the end.",
@@ -432,6 +437,11 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "gromoraptor składa skrzydła: krótki świat powietrza, trzask błyskawicy, potem grzmot trwający ponad sekundę i cichnący przed końcem", False),
     "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
             "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
+    "534": (
+        "Plate armour clashing on a body in the first instant: one hard crack of the plates, then a second crack, then a third crack, then a fourth crack, the striking to the end. " + NO_M,
+        "płytowy pancerz stuka na ciele w pierwszej chwili: jeden twardy trzask płyt, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
             "rustic, feet stamping the beat. " + NO_S,
             "wiejska muzyka: skrzypce grają żywą taneczną melodię nad bębenkiem, stopy wybijają rytm", True),
