@@ -1,36 +1,36 @@
-name: "TEMP r077 - 548, 491, 140: clashing zamiast turning"
+name: "TEMP r078 - 333, 210, 71: brąz, kamień, bariera"
 
-# r077: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
-# Po tej paczce na drugim kluczu zostanie 6040.
+# r078: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# Po tej paczce na drugim kluczu zostanie 5680.
 #
-#  548 plate_clank  tresc 2,68 s  luka 0,50 s  4 prob  0 sasiadow >=0,80
-#  491 plate_clank  tresc 2,67 s  luka 0,51 s  2 prob  0 sasiadow >=0,80
-#  140 plate_clank  tresc 2,70 s  luka 0,48 s  2 prob  0 sasiadow >=0,80
+#  333 plate_clank    tresc 2,63 s  luka 0,55 s  1 prob  0 sasiadow >=0,85
+#  210 heavy_impact   tresc 2,54 s  luka -0,03 s  1 prob  0 sasiadow >=0,80
+#   71 heavy_impact   tresc 2,30 s  luka 0,21 s  5 prob  0 sasiadow >=0,85
 #
-# Wszystkie trzy: kontrakt z KROTKIM zanikiem (plate_clank,
-# decay_s <= 1,2) i region WOLNY (zero sasiadow >= 0,80 i >= 0,85).
+# Wszystkie trzy: kontrakt z KROTKIM zanikiem (plate_clank <= 1,2,
+# heavy_impact <= 1,4) i region wolny.
 #
-# 548 — POWROT po r076, gdzie wszystkie trzy warianty wyszly
-# krotsze (2,38 / 3,14 / 2,50 s). Winno jest otwarcie: „Armoured
-# shoulders TURNING". „turning" to powolna czynnosc, wiec model
-# dostal sygnal, ze ma czas. W r074 zapisalam regule — MATERIAL TO
-# RZECZOWNIK, CZYNNOSC TO CZASOWNIK — i wlasnie ja zlamalam
-# wlasnorecznie, dwa wpisy pozniej. Teraz jest „Steel plates
-# CLASHING on a shoulder": rzeczownik (plates) + czasownik
-# uderzenia (clashing). To jawny test, czy regula dziala takze
-# w druga strone.
+# Dobor idzie po MATERIAL, nie po luce. r077 pokazala, ze przy
+# tym samym szkielecie wygrala karta z INNYM materialem: 491
+# (KORA) dała 3,45 s, podczas gdy 548 i 140 (obie STAL, obie z
+# „clashing") wyszły krotsze niz obecne. Hipoteza: cztery stuki
+# stali o stale brzmia dla modelu jak jeden dlugi dzwiek, wiec
+# nie ma powodu rozciagac go w czasie. Rozny material wymusza
+# rozne barwy, a rozne barwy wymagaja czasu.
 #
-# 491 — inny material niz stal: KORA. Otwarcie „Bark plates
-# snapping onto an arm". Roznicowanie materialem, nie liczba
-# zdarzen — 548 i 140 sa obie stalowe, wiec 491 jest ta karta,
-# ktora ma trzymac transze z dala od blizniactwa.
+#  333  BRĄZ — „Bronze gates clashing shut" (wrota, nie pancerz)
+#  210  KAMIEŃ — „A rune staff cracking on a stone floor"
+#   71  BARIERA — „A rhino soldier slamming a force wall"
 #
-# 140 — „Steel plates clashing on a chest". Otwarcie mowilo
-# „A fighter rolling up from a packed yard": rolling tez jest
-# powolna czynnosc, wiec idzie do wymiany na ten sam powod co 548.
+# Zadne otwarcie nie zawiera czasownika ruchu (turning, rolling,
+# shifting) — to reguly z r074, ktora zlamalam w r076 i za ktora
+# zaplacilam siedmioma krotszymi wariantami.
 #
-# Szkielet wszystkich trzech jest ten sam co w 216 i 567 w r075:
-# cztery trzaski bez wybrzmiewania, „striking to the end".
+# 210 jest ciekawa o tyle, ze jej luka do mediany klasy jest
+# UJEMNA (-0,03), czyli ma wiecej tresci niz wynosi mediana
+# heavy_impact. Wybrana zostala mimo to, bo kontrakt heavy_impact
+# jest najlatwiejszy z bezpiecznych (crest >= 14, attack <= 0,15,
+# decay <= 1,4, low_all >= 0,2) i karta miala tylko jedna probe.
 #
 on:
   push:
@@ -43,7 +43,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "140,491,548"
+  IDS: "71,210,333"
 
 jobs:
   variants:
@@ -54,13 +54,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r077]
+      - name: Guard — tylko commit z markerem [generate-r078]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r077]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r078]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r077] — nic nie generuję"
+            echo "brak markera [generate-r078] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -79,25 +79,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r077
+          mkdir -p variants/r078
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r077/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r078/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r077 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r077/v$v" 2>&1 | tee -a variants/r077/generate.log
+              --ids "$IDS" --batch r078 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r078/v$v" 2>&1 | tee -a variants/r078/generate.log
           done
-          ls -la variants/r077 variants/r077/v1 variants/r077/v2 variants/r077/v3 || true
+          ls -la variants/r078 variants/r078/v1 variants/r078/v2 variants/r078/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r077 data/samples/generated-manifest.jsonl
+          git add -f variants/r078 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r077: 9 wariantow (3 karty x 3) + log generacji [import-r077]"
+            git commit -m "r078: 9 wariantow (3 karty x 3) + log generacji [import-r078]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
