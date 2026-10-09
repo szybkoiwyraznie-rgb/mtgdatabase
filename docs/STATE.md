@@ -41,6 +41,14 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   Wszystkie siedem weszły **trafione i bez flag**; korpus urósł
   z 563 do **570**, a liczba flag i par nie drgnęła. Szczegóły
   w `docs/archive/state-2026-10-09-b074.md`.
+- Poprzednia runda: `r069` — z 3 kart weszła **jedna**, ale za to
+  wyleczyła jedną flagę: `74` *Rush of Battle* **2,76 → 3,20 s**
+  (+0,44), `heavy_footsteps` w całości. Jej stary sample miał flagę
+  `boomy`, nowy nie ma żadnej — korpus zszedł z 39 na **38** flag.
+  `308` cofnięta, choć v1 była trafiona: miała tylko 1,66 s wobec
+  obecnych 2,06 s, czyli instalacja by ją skróciła. `177` cofnięta —
+  wszystkie trzy łamały `voiced_fraction` (próg 0,3), czyli nie było
+  w nich głosu.
 - Poprzednia runda: `r068` — z 3 kart weszły **dwie**, razem
   **+1,62 s**: `501` *Exterminator Magmarch* **2,75 → 3,80 s** i `565`
   *Mana Cylix* **2,67 → 3,24 s**, obie trafione i bez flag. `501`
@@ -114,7 +122,7 @@ Metryki korpusu (audyt `2026-10-09-after-r068`):
 
 | metryka | wartość |
 |---|---|
-| pliki z flagą | **39** |
+| pliki z flagą | **38** |
 | bliźniaki ≥ 0,95 | **0** |
 | identyczny PCM | **0** |
 | pary ≥ 0,90 (graf kosinusowy) | **25** |
@@ -204,10 +212,10 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 ## Stan liczbowy
 
 - Katalog: **570 fabuł**, scenariusze **570** (100 %), sample **570**.
-- Flagi **39**, pary ≥ 0,90 **25**, treść < 2 s **12**.
+- Flagi **38**, pary ≥ 0,90 **25**, treść < 2 s **12**.
 - Archetypy: **0** nie trafionych, **33** prawdopodobnie, **158** trafionych.
-- Budżet: **9280 / 10 000** kredytów na drugim kluczu (r068: 360,
-  r069: 360 w toku). Pierwszy klucz 10 000 zamknęły: b072 560,
+- Budżet: **8560 / 10 000** kredytów na drugim kluczu (r068: 360,
+  r069: 360, r070: 360 w toku). Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,
   r062 360, r063 360, r064 360, r065 360, r066 360, r067 360,
   b074 840, b074b 600, b074c 480, b074d 240, b074e 120.
@@ -402,6 +410,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r067 | 2026-10-08 | 52 dostała równy odstęp i weszła za 5. razem (2,20 → 3,21 s); 355 weszła (2,01 → 3,08 s); 501 cofnięta na `low_all` | `state-2026-10-08-r067.md` |
 | b074 | 2026-10-09 | 7 nowych kart z luk w numeracji; wszystkie weszły trafione i bez flag; 340 wymagała zmiany archetypu na `steam_hiss` | `state-2026-10-09-b074.md` |
 | r068 | 2026-10-09 | 501 bez pary weszła (2,75 → 3,80 s), 565 weszła (2,67 → 3,24 s), 308 cofnięta na `attack_s` | `state-2026-10-09-r068.md` |
+| r069 | 2026-10-09 | 74 weszła (2,76 → 3,20 s) i wyleczyła flagę `boomy`; 308 cofnięta, bo była krótsza; 177 bez głosu | `state-2026-10-09-r069.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -410,29 +419,31 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Runda `r069` w toku** — trzy karty, z których każda testuje
-   inną oś łańcucha zdarzeń:
+1. **Runda `r070` w toku** — dwa miecze na jednym wzorcu i chór:
    ```
-   308 sword_clash      tresc 2,06 s  luka 0,98 s  6 prob  fill-take
-    74 heavy_footsteps  tresc 2,76 s  luka 0,60 s  3 prob  bez fill-take
-   177 creature_roar    tresc 2,38 s  luka 0,77 s  4 prob  fill-take
+   308 sword_clash   tresc 2,06 s  luka 0,98 s  7 prob  fill-take
+   452 arcane_choir  tresc 2,60 s  luka 0,70 s  4 prob  muzyka
+   224 sword_clash   tresc 2,47 s  luka 0,57 s  2 prob  bez fill-take
    ```
-   `308` — oś **uderzenie**. W r068 wszystkie trzy warianty łamały
-   `attack_s` (1,25–2,40 przy progu 0,1): model budował narastanie.
-   Teraz biorę wzorzec z karty `334`, która w `b074c` weszła od ręki
-   z attack 0,080 — „one hard crack of the blade, then two long
-   rasping cuts, shearing to the end". Prawie słowo w słowo.
-   `74` — oś **rytm**. `heavy_footsteps` wymaga `ioi_cv` ≤ 0,6,
-   czyli równych odstępów. To ta sama oś, która w r067 wprowadziła
-   `52` do korpusu po pięciu próbach (`ioi_cv` 2,23 → 0,795 po
-   dopisaniu „at an even spacing"). Obecny sample ma już
-   `ioi_cv` 0,431, więc zostaje go wydłużyć: osiem kroków, potem
-   cztery następne.
-   `177` — oś **głos**. `creature_roar` wymaga `voiced_fraction`
-   ≥ 0,3 i `flatness` ≤ 0,15, czyli dźwięku z gardła, nie szumu.
-   Obecny prompt to „two short deep bellows with a raspy edge" —
-   „deep" jest przymiotnikiem barwy, a tych od r065 nie używamy.
-   Zostają same rzeczowniki: ryk z piersi, trzy razy, każdy ucięty.
+   `308` to przypadek graniczny. W r068 łamała `attack_s`
+   (1,25–2,40); w r069 wzorzec z karty `334` naprawił atak — v1
+   miał attack 0,020 i był **trafiony**, ale wyszedł za krótki:
+   1,66 s wobec obecnych 2,06 s. Reguła 1 pozwala instalować tylko
+   to, co nie psuje werdyktu, więc skrócenie też odpada. Próba raz
+   jeszcze: ten sam wzorzec plus trzecie zdarzenie.
+   `224` to ta sama oś, ale karta świeża (2 przejścia) i z promptem,
+   który w ogóle nie jest łańcuchem („metallic ticking and pinging
+   of hot sword blades cooling"). Dostaje ten sam wzorzec co `308`.
+   Jeśli zadziała na obu, będzie to najmocniejszy dotąd dowód, że
+   wzorzec jest przenośny; jeśli na żadnej — że `308` ma pecha
+   do swoich rzeczowników.
+   `452` to chór. `arcane_choir` wymaga `tonal_frame` ≥ 0,45,
+   `voiced_fraction` ≥ 0,25, `sustain` ≥ 0,35 i `decay` ≥ 0,8 —
+   głosy dają to naturalnie. Obecny prompt jest samymi przymiotniami
+   („mystical", „soft", „harmonious") i nie ma łańcucha.
+   Dostaje łańcuch z akordów. Uwaga proceduralna: karta ma
+   `music_allowed = true`, więc prompt nie dostaje sufiksu `NO_M`
+   i musi nazywać źródło — chór je nazywa.
    `372` i `260` odpoczywają: `372` dobrała parę 0,9212 z `97`,
    `260` pudłowała na barwie cztery razy. `4`, `145`, `23`, `98`,
    `12`, `232`, `524` — bez zmian.
@@ -527,6 +538,7 @@ docs/archive/state-2026-10-08-r066.md   runda r066 (445 weszła, 52 i 372 cofni�
 docs/archive/state-2026-10-08-r067.md   runda r067 (52 i 355 weszły, 501 cofnięta)
 docs/archive/state-2026-10-09-b074.md   paczka b074 (7 nowych kart, 5 paczek generacji)
 docs/archive/state-2026-10-09-r068.md   runda r068 (501 i 565 weszły, 308 cofnięta)
+docs/archive/state-2026-10-09-r069.md   runda r069 (74 weszła, 308 i 177 cofnięte)
 docs/archive/state-2026-10-09-b074.md   paczka b074 (7 nowych kart, 5 paczek generacji)
 ```
 
