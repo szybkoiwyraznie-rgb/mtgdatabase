@@ -419,13 +419,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "ostrze uderza w płytowy pancerz w pierwszej chwili: jeden twardy trzask klingi, potem dwa długie zgrzyty stali o stal, potem trzeci trzask, cięcie do końca",
         False,
     ),
-    "260": (
-        "A predator roaring from a cave in the first instant: one long bellow from "
-        "the chest, then a second bellow, then a third bellow, the voice held to "
-        "the end. " + NO_M,
-        "drapieżnik ryczy z jaskini w pierwszej chwili: jeden długi ryk z piersi, potem drugi ryk, potem trzeci ryk, głos wytrzymany do końca",
-        False,
-    ),
     "312": ("A goblin jester cackling: a series of sharp mocking cackles, five rapid jeering "
             "bursts, high and cruel. " + NO_M,
             "chichot błazna: seria ostrych kpiących chichotów, pięć szybkich wybuchów", False),
@@ -435,13 +428,8 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "olbrzym wynurza się i druzgocze kamienny port: wyrzut wody, głazy pirsu rozbijane, gruz wpadający do wody, do końca", False),
     "334": ("A scythe striking a metal tree in the first instant: one hard crack of the blade, then two long rasping cuts of steel through copper, shearing to the end.",
             "podniebna kosa uderza w metalowy pień w pierwszej chwili: twarde uderzenie, dwa długie zgrzyty stali przez miedź, trzecie cięcie, do końca", False),
-    "332": (
-        "A storm breaking over a ridge in the first instant: one crack of "
-        "lightning, then a long roll of thunder, then a second crack, then a "
-        "second long roll, the rolling held to the end. " + NO_M,
-        "burza zrywa się nad grzbietem w pierwszej chwili: jeden trzask pioruna, potem długi grzmot, potem drugi trzask, potem drugi długi grzmot, grzmot wytrzymany do końca",
-        False,
-    ),
+    "332": ("A raptor folding its wings: one short whistle of air, then a crack of lightning, then a roll of thunder that stays loud for over a second before dying away into silence before the end.",
+            "gromoraptor składa skrzydła: krótki świat powietrza, trzask błyskawicy, potem grzmot trwający ponad sekundę i cichnący przed końcem", False),
     "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
             "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
@@ -580,13 +568,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "krok smoczej arystokratki po galerii z ciężką złoconą ramą: sześć mierzonych kroków na kamieniu, każdy z brzękiem złocenia", False),
     # `35` Halo Forager ma już wpis wyżej (pięć uderzeń skrzydeł + „filling the
     # whole take") — celowo nie duplikujemy, bo dict cicho przesłania.
-    "372": (
-        "A stone fossil shifting on a rock pedestal: one deep grinding scrape, then "
-        "a second scrape, then a third scrape, the grinding held to the end. "
-        + NO_M,
-        "kamienna skamielina przesuwa się na kamiennym cokole: jeden głęboki zgrzyt, potem drugi zgrzyt, potem trzeci zgrzyt, tarcie wytrzymane do końca",
-        False,
-    ),
     "360": ("A quill writing by itself over glowing parchment: a continuous scratchy nib running across the whole take, with four short pauses and resumptions.",
             "samo piszące pióro nad świecącym pergaminem: ciągły skrobiący dźwięk stalówki przez cały sample z czterema krótkimi pauzami", False),
     "362": ("A mechanical monkey climbing out of a vending automaton: five successive clanking ratchet steps, then a small brass plaque dropping with a chink.",
