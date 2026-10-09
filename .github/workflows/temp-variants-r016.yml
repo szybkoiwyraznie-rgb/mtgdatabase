@@ -1,35 +1,43 @@
-name: "TEMP r074 - 224, 308 i 452: sprawdzony wzorzec na dwa miecze"
+name: "TEMP r075 - 524, 567 i 216: regiony wolne, nie ogon"
 
-# r074: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
-# Po tej paczce na drugim kluczu zostanie 8560.
+# r075: 3 karty x 3 warianty = 9 generacji x 40 kredytow = 360 kredytow.
+# Po tej paczce na drugim kluczu zostanie 6760.
 #
-#  308 sword_clash   tresc 2,06 s  luka 0,98 s  7 prob  fill-take
-#  452 arcane_choir  tresc 2,60 s  luka 0,70 s  4 prob  bez fill-take, muzyka
-#  224 sword_clash   tresc 2,47 s  luka 0,57 s  2 prob  bez fill-take
+#  524 sword_clash   tresc 2,24 s  luka 1,07 s  4 prob  region WOLNY (0 sasiadow >=0,80)
+#  567 plate_clank   tresc 2,48 s  luka 0,56 s  3 prob  region WOLNY (0 sasiadow >=0,80)
+#  216 plate_clank   tresc 2,53 s  luka 0,51 s  3 prob  region WOLNY (0 sasiadow >=0,80)
 #
-# 308 — PRZYPADEK GRANICZNY. W r068 lamala attack_s (1,25-2,40).
-# W r069 wzorzec z karty 334 naprawil atak: v1 mial attack 0,020 i byl
-# TRAFIONY, ale wyszedl za krotki — 1,66 s przy obecnych 2,06 s.
-# Regula 1 pozwala instalowac tylko to, co nie psuje werdyktu, a
-# skrocenie z 2,06 do 1,66 by go popsulo w druga strone. Wiec nie
-# instalujemy i probujemy raz jeszcze: ten sam wzorzec plus trzecie
-# zdarzenie („then a third crack"), zeby wydluzyc.
+# Dobor po r074, ktora wyszla ZERO Z TRZECH — i to z pouczajacego
+# powodu. Wszystkie trzy tamte karty (260 creature_roar, 332
+# thunder_clap, 372 stone_slide) mialy centroid 255 / 652 / 435 Hz,
+# czyli niskie dudnienie. Wybrane zostaly po jednej liczbie — luce
+# do mediany klasy. Fingerprint pokazal, ze to za malo: wszystkie
+# dziewiec wariantow wpadlo w jeden gesto zaludniony rog przestrzeni
+# (317, 558, 562, 496, 241, 23, 347 — juz maja miedzy soba pary
+# 0,90-0,93). Najlepszy wariant 332 mial 4,00 s, werdykt trafiony
+# i zero flag, a i tak poszedl do kosza za trzy nowe pary.
 #
-# 452 — chór. arcane_choir wymaga tonal_frame >= 0,45, voiced >= 0,25,
-# sustain >= 0,35 i decay >= 0,8. Głosy naturalnie dają wszystkie
-# cztery. Obecny prompt jest samymi przymiotnikami („mystical",
-# „soft", „harmonious") i nie ma lancucha. Lancuch z akordow,
-# bez przymiotnikow. Uwaga: karta ma music_allowed = true, czyli
-# prompt NIE dostaje sufiksu NO_M i musi nazywac zrodlo — chór je
-# nazywa.
+# Nowa procedura wyboru: liczy sie nie tylko luka, ale i to, ilu
+# sasiadow ma karta. Ponizej policzone jest >=0,80 i >=0,85; wiecej
+# niz dwoch sasiadow >=0,85 oznacza region zajety.
 #
-# 224 — ta sama os co 308, ale karta swieza (tylko 2 przejscia) i
-# z promptem, ktory w ogole nie jest lancuchem: „Slow metallic
-# ticking and pinging of hot sword blades cooling". Dostaje ten sam
-# sprawdzony wzorzec co 308. Jesli zadziala na obu, bedzie to
-# najmocniejszy dotad dowód, ze wzorzec jest przenosny; jesli na
-# zadnej — ze 308 ma pecha do swoich rzeczownikow.
-
+#  524  najblizszy 0,5660 | >=0,80: 0 | >=0,85: 0
+#  567  najblizszy 0,7823 | >=0,80: 0 | >=0,85: 0
+#  216  najblizszy 0,7692 | >=0,80: 0 | >=0,85: 0
+#
+# 524 — 0 z 6 dotychczas, wszystkie na attack_s (0,58 / 1,46 / 2,07
+# oraz 3,21 / 2,90 / 1,32). W r072 i r073 dostawala „drawn from a
+# scabbard", czyli material, ktory sam w sobie zaprasza powolne
+# ciagniecie. Tu dostaje DOKLADNY tekst, ktory w 308 dal 3/3, z
+# czasownikiem uderzenia w otwarciu (striking) i inna nazwa broni.
+# To czysty test hipotezy z r072.
+#
+# 567 i 216 — plate_clank. Kontrakt ma decay_s <= 1,2, wiec nie mozna
+# przedluzac ogonem (to wlasnie ogon zabil 332). Lancuch jest samych
+# zdarzen: cztery trzaski bez wybrzmiewania, „striking to the end".
+# plate_clank wymaga tez onset_count >= 2 i crest >= 17, wiec same
+# uderzenia powinny przejsc latwo.
+#
 on:
   push:
     branches:
@@ -41,7 +49,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "260,332,372"
+  IDS: "216,524,567"
 
 jobs:
   variants:
@@ -52,13 +60,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r074]
+      - name: Guard — tylko commit z markerem [generate-r075]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r074]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r075]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r074] — nic nie generuję"
+            echo "brak markera [generate-r075] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -77,25 +85,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r074
+          mkdir -p variants/r075
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/r074/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r075/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r074 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r074/v$v" 2>&1 | tee -a variants/r074/generate.log
+              --ids "$IDS" --batch r075 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r075/v$v" 2>&1 | tee -a variants/r075/generate.log
           done
-          ls -la variants/r074 variants/r074/v1 variants/r074/v2 variants/r074/v3 || true
+          ls -la variants/r075 variants/r075/v1 variants/r075/v2 variants/r075/v3 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r074 data/samples/generated-manifest.jsonl
+          git add -f variants/r075 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r074: 9 wariantow (3 karty x 3) + log generacji [import-r074]"
+            git commit -m "r075: 9 wariantow (3 karty x 3) + log generacji [import-r075]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi

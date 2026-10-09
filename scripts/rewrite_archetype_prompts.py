@@ -488,6 +488,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # Próg klików jest dobrze skalibrowany: mediana korpusu 4, a pozostałe karty
     # robot_servo mają 2-29, więc to realna wada, nie zły próg.
     # r024 odwraca hierarchię: rytm jest zdarzeniem głównym, ton — tłem.
+    "567": (
+        "Claws striking chitin armour in the first instant: one hard crack of the "
+        "plates, then a second crack, then a third crack, then a fourth crack, the "
+        "striking to the end. " + NO_M,
+        "szpony uderzają w chitynowy pancerz w pierwszej chwili: jeden twardy trzask płyt, potem drugi trzask, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "568": ("A robot servo working: one precise mechanical tone at an absolutely fixed pitch that never bends or wavers, with two crisp clicks per second over it.",
             "serwo robota pracuje: jeden precyzyjny mechaniczny ton o absolutnie stałej wysokości, bez żadnego odchylania, z dwoma klikami na sekundę", False),
     # 317: 2,23 s — cztery uderzenia mają wypełnić cały czas.
@@ -650,6 +657,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "first one is by far the loudest moment of the whole take, landing at full "
         "force with no build-up. " + NO_M,
         "skrzyżowane ostrza kavu: pięć ostrych ziarnistych starć stali jedno po drugim, z których pierwsze jest zdecydowanie najgłośniejszym momentem całego take, uderzające z pełną siłą bez narastania",
+        False,
+    ),
+    "524": (
+        "A lightblade striking in the first instant: one hard crack of the blade, "
+        "then two long rasping cuts of steel drawn along steel, then a third "
+        "crack, the shearing to the end. " + NO_M,
+        "świetlne ostrze uderza w pierwszej chwili: jeden twardy trzask klingi, potem dwa długie zgrzyty stali o stal, potem trzeci trzask, cięcie do końca",
         False,
     ),
     "525": ("A rapier thrust throwing a wave of glacial spikes: one instant bright steel impact, then four sharp cracking strikes as the ice splinters, each with a glassy metallic ring.",
@@ -891,8 +905,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "ciężka kamienna płyta uderza o marmur: jedno miazdzące uderzenie z głębokim basowym łupnięciem, potem krótki ostry trzask", False),
     "164": ("A great winged creature taking off: several crisp wingbeats with a bright leathery snap and a high rushing hiss of air, each beat clearly in the middle of the range.",
             "wielka skrzydlata istota startuje: kilka sprężystych uderzeń skrzydeł z jasnym skórzanym trzaskiem i wysokim pędem powietrza", False),
-    "216": ("A stitched skaab shifting its armour: two hard sharp metal plate strikes that peak abruptly and separately, each far more sudden than the scraping around it.",
-            "zszyty skaab porusza pancerzem: dwa ostre twarde uderzenia blachy osiągające szczyt nagle i osobno, znacznie gwałtowniejsze niż zgrzyt wokół", False),
+    "216": (
+        "Armour plates clashing on a stitched body in the first instant: one hard "
+        "crack of the plates, then a second crack, then a third crack, then a "
+        "fourth crack, the striking to the end. " + NO_M,
+        "płyty pancerza stukają na zszytym ciele w pierwszej chwili: jeden twardy trzask płyt, potem drugi trzask, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "226": ("A makeshift construct stirring: one continuous low electronic servo tone held unbroken beneath the shifting limbs, sustaining steadily through the whole take.",
             "prowizoryczny konstrukt budzi się: jeden ciągły niski elektroniczny ton serwa trzymany bez przerwy pod poruszanymi kończynami", False),
     "228": ("Heavy armoured footsteps: exactly four boot steps on stone at strict metronome-even spacing, each step identical in weight and timing, with the same plate clank.",
