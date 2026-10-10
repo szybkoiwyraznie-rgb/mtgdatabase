@@ -1737,10 +1737,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "13": (
-        "Three gentle healing pulses sent one after another: three soft warm chime "
-        "swells as the loudest moment, golden sparkles drifting down like dust between "
-        "them. " + NO_M,
-        "trzy łagodne impulsy uzdrawiania jeden po drugim: trzy miękkie ciepłe uderzenia dzwonu jako najgłośniejszy moment, złote iskry opadające jak pył pomiędzy nimi",
+        "A healing spell: one hard crystalline shimmer, then a second shimmer, "
+        "then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
+        "zaklęcie uzdrawiania: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
         False,
     ),
     "519": (
@@ -1823,6 +1822,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "A wrench-hammer striking in the first instant: one hard metal bang, then a second bang, "
         "then a third bang, then a fourth bang, the striking to the end. " + NO_M,
         "klucz-młot: jeden twardy metaliczny huk, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "516": (
+        "A notched sword striking in the first instant: one hard steel clash, then a second clash, "
+        "then a third clash, then a fourth clash, the striking to the end. " + NO_M,
+        "wyszczerbiony miecz: jeden twardy szczęk stali, potem drugi, potem trzeci, potem czwarty, do końca",
         False,
     ),
 }
