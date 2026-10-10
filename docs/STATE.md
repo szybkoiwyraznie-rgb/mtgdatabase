@@ -583,6 +583,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r096 | 2026-10-10 | **dwie z dwóch**: 4 (1,14 → 1,59 s) i 150 (2,37 → 3,69 s) | `state-2026-10-10-r096.md` |
 | r097 | 2026-10-10 | **jedna z dwóch**: 2 (2,37 → 3,41 s); 263 cofnięta | `state-2026-10-10-r097.md` |
 | r098 | 2026-10-10 | **341 weszła** (2,66 s); 348 para z 207; 350/351 bez audio | `state-2026-10-10-r098.md` |
+| r099 | 2026-10-10 | prompty: 350 + 351, 2 × 5 | `state-2026-10-10-r099.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
