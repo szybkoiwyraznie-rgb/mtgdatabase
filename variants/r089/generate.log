@@ -1,0 +1,25 @@
+=== wariant v1 ===
+selected 2 scenario(s)
+OK 5: variants/r089/v1/5.mp3 (65245 bytes)
+OK 163: variants/r089/v1/163.mp3 (65245 bytes)
+done: generated=2, skipped=0, failed=0
+=== wariant v2 ===
+selected 2 scenario(s)
+OK 5: variants/r089/v2/5.mp3 (65245 bytes)
+OK 163: variants/r089/v2/163.mp3 (65245 bytes)
+done: generated=2, skipped=0, failed=0
+=== wariant v3 ===
+selected 2 scenario(s)
+OK 5: variants/r089/v3/5.mp3 (65245 bytes)
+OK 163: variants/r089/v3/163.mp3 (65245 bytes)
+done: generated=2, skipped=0, failed=0
+=== wariant v4 ===
+selected 2 scenario(s)
+OK 5: variants/r089/v4/5.mp3 (65245 bytes)
+OK 163: variants/r089/v4/163.mp3 (65245 bytes)
+done: generated=2, skipped=0, failed=0
+=== wariant v5 ===
+selected 2 scenario(s)
+OK 5: variants/r089/v5/5.mp3 (65245 bytes)
+OK 163: variants/r089/v5/163.mp3 (65245 bytes)
+done: generated=2, skipped=0, failed=0
