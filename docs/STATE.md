@@ -577,6 +577,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r094 | 2026-10-10 | **quota 0**; 2/10 plików, oba krótsze, bez instalacji | `state-2026-10-10-r094.md` |
 | r095 | 2026-10-10 | **zero z dwóch**; nowy budżet OK; 157/607 krótsze po łańcuchu | `state-2026-10-10-r095.md` |
 | r096 | 2026-10-10 | **dwie z dwóch**: 4 (1,14 → 1,59 s) i 150 (2,37 → 3,69 s) | `state-2026-10-10-r096.md` |
+| r097 | 2026-10-10 | prompty: 2 + 263, 2 × 5 | `state-2026-10-10-r097.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -585,8 +586,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r097` — 2 karty × 5.** r096: plusk się
-   wydłuża. Treść **< 2,5 s**. Rest plus `157`, `607`.
+1. **Następna transza: `r097` — 2 karty × 5.** `2` i `263`.
+   Treść < 2,5 s. Rest plus `157`, `607`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów

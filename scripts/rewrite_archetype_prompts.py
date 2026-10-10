@@ -790,8 +790,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "ciężkie gardło: jeden długi piersiowy ryk, potem drugi, potem trzeci, potem czwarty, ryk do końca",
         False,
     ),
-    "2": ("A stone thrown into deep water: one bright hard splash at the very first instant, then a hissing spray of droplets and three smaller plops spreading outward.",
-            "kamień rzucony w głęboką wodę: jeden jasny twardy plusk w pierwszej chwili, potem syk drobnego rozbryzgu i trzy mniejsze pluski", False),
+    "2": (
+        "A stone thrown into deep water: one hard splash, then a second splash, "
+        "then a third splash, then a fourth splash, the striking to the end. " + NO_M,
+        "kamień w głęboką wodę: jeden twardy plusk, potem drugi, potem trzeci, potem czwarty, pluskanie do końca",
+        False,
+    ),
+    "263": (
+        "A bioelectric sting in the first instant: one hard crackling zap, then a second "
+        "zap, then a third zap, then a fourth zap, the striking to the end. " + NO_M,
+        "bioelektryczne ukłucie: jeden twardy trzaskający zap, potem drugi, potem trzeci, potem czwarty, iskrzenie do końca",
+        False,
+    ),
     "559": (
         "A gaelicat screaming: four sharp rasping screeches in a row, the first at "
         "full force with no build-up, each with a leathery wing snap underneath. " + NO_M,
