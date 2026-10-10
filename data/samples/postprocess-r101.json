@@ -1,0 +1,51 @@
+{
+ "summary": {
+  "files": 1,
+  "errors": 0,
+  "target_lufs": -20.0,
+  "ceiling_dbtp": -1.0,
+  "max_gain_db": 15.0,
+  "dry_run": false,
+  "lufs_after_median": -20.0,
+  "lufs_after_min": -20.0,
+  "lufs_after_max": -20.0,
+  "lufs_after_std": 0.0,
+  "true_peak_after_max": -6.69,
+  "gain_capped_count": 0,
+  "limited_count": 0,
+  "over_ceiling_after_encode": 0,
+  "reencoded_count": 0,
+  "transcode_snr_median_db": 63.0,
+  "transcode_snr_min_db": 63.0
+ },
+ "files": [
+  {
+   "id": "382",
+   "hp_hz": 25.0,
+   "trim_removed_s": 0.24,
+   "lead_removed_s": 0.0,
+   "lufs_before": -13.96,
+   "lufs_after_hp": -14.17,
+   "gain_db": -5.83,
+   "gain_wanted_db": -5.83,
+   "gain_capped": false,
+   "makeup_db": 0.0,
+   "limiter_gr_db": 0.0,
+   "limiter_gr_mean_db": 0.0,
+   "true_peak_before": -0.91,
+   "dc_before": -0.0005,
+   "side_gain": 1.0,
+   "side_gain_db": 0.0,
+   "mono_excess_before_lu": 0.01,
+   "mono_excess_after_lu": 0.01,
+   "encode_attempts": 1,
+   "encoder_headroom_db": 0.7,
+   "lufs_after": -20.0,
+   "true_peak_after": -6.69,
+   "dc_after": -0.0,
+   "transcode_snr_db": 63.0,
+   "bytes_before": 65245,
+   "bytes_after": 70395
+  }
+ ]
+}

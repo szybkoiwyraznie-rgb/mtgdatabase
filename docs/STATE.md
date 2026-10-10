@@ -33,7 +33,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r100`** — nowa `350` *Temple of Abandon*
+- Ostatnia runda: **`r101`** — `382` *Geological Appraiser*
+  **2,29 → 2,89 s**. `348` cofnięta (`psychic_shriek`, attack).
+  Szczegóły: `state-2026-10-10-r101.md`.
+- Poprzednia runda: **`r100`** — nowa `350` *Temple of Abandon*
   **3,67 s** (`fire_crackle`, trafiony). `348` para 0,92 z `18`.
   Szczegóły: `state-2026-10-10-r100.md`.
 - Poprzednia runda: **`r099`** — nowa `351` *Sporecap Spider*
@@ -591,7 +594,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r098 | 2026-10-10 | **341 weszła** (2,66 s); 348 para z 207; 350/351 bez audio | `state-2026-10-10-r098.md` |
 | r099 | 2026-10-10 | **351 weszła** (3,84 s); 350 cofnięta (dzwon) | `state-2026-10-10-r099.md` |
 | r100 | 2026-10-10 | **350 weszła** (3,67 s, fire_crackle); 348 para z 18 | `state-2026-10-10-r100.md` |
-| r101 | 2026-10-10 | prompty: 348 psychic_shriek + 382, 2 × 5 | `state-2026-10-10-r101.md` |
+| r101 | 2026-10-10 | **382 +0,60 s**; 348 psychic_shriek cofnięta | `state-2026-10-10-r101.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -600,8 +603,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r101` — 2 karty × 5.** `348` `psychic_shriek`
-   i `382` `earth_rumble`.
+1. **Następna transza: `r102` — 2 karty × 5.** `348` Impulse nadal
+   bez audio (nie shimmer, nie shriek). Treść **< 2,5 s**.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
