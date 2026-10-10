@@ -543,6 +543,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r085 | 2026-10-10 | **dwie z dwóch**: 232 (0,98 → 3,36 s) i 280 (2,03 → 2,57 s) | `state-2026-10-10-r085.md` |
 | r086 | 2026-10-10 | **zero z dwóch**; 269 i 583 dłuższe, gorszy werdykt | `state-2026-10-10-r086.md` |
 | r087 | 2026-10-10 | **zero z dwóch**; 12 werdykt; 332 para 0,90 z 558 | `state-2026-10-10-r087.md` |
+| r088 | 2026-10-10 | prompty: 18 magic_shimmer + 571 wing_flutter, 2 × 5 | `state-2026-10-10-r088.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -551,10 +552,9 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r088` — 2 karty × 5.** r087 pusta: serwo
-   nie lubi łańcucha klików; `thunder_clap` wpadł w zajęty dół.
-   Rest: `534`, `548`, `370`, `210`, `209`, `277`, `576`, `269`,
-   `583`, `12`, `332`. Treść < 2,8 s, n85 = 0, nie `robot_servo`.
+1. **Następna transza: `r088` — 2 karty × 5.** `18` Lotusguard
+   Disciple (`magic_shimmer`, 2,10 s) i `571` Vow of Flight
+   (`wing_flutter`, 2,29 s). n85 ≤ 1. Rest bez zmian plus `12`, `332`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów

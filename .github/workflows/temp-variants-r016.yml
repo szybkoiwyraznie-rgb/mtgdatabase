@@ -1,9 +1,9 @@
-name: "TEMP r087 - 12 i 332: 2 x 5"
+name: "TEMP r088 - 18 i 571: 2 x 5"
 
-# r087: 2 karty x 5 = 400 kredytow.
-# 12  Merchant's Dockhand  robot_servo   1,80 s  n85=0
-# 332 Blitz of the Thunder-Raptor thunder_clap 2,29 s n85=0
-# Bez twardego attack_s<=0.15 i decay_s<=0.8 (wniosek z r086).
+# r088: 2 karty x 5 = 400 kredytow.
+# 18  Lotusguard Disciple  magic_shimmer  2,10 s  n85=1
+# 571 Vow of Flight        wing_flutter   2,29 s  n85=1
+# Nie robot_servo. magic_shimmer: narastanie, nie trzask. wing_flutter: onset>=6.
 
 on:
   push:
@@ -16,7 +16,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "12,332"
+  IDS: "18,571"
 
 jobs:
   variants:
@@ -27,13 +27,13 @@ jobs:
           fetch-depth: 0
           ref: arena/a9d0a113-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r087]
+      - name: Guard — tylko commit z markerem [generate-r088]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r087]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r088]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r087] — nic nie generuję"
+            echo "brak markera [generate-r088] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -52,13 +52,13 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r087
+          mkdir -p variants/r088
           for v in 1 2 3 4 5; do
-            echo "=== wariant v$v ===" | tee -a variants/r087/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r088/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r087 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r087/v$v" 2>&1 | tee -a variants/r087/generate.log
+              --ids "$IDS" --batch r088 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r088/v$v" 2>&1 | tee -a variants/r088/generate.log
           done
 
       - name: Commit variants and log back to the session branch
@@ -66,10 +66,10 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r087 data/samples/generated-manifest.jsonl
+          git add -f variants/r088 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r087: 10 wariantow (2 karty x 5) + log generacji [import-r087]"
+            git commit -m "r088: 10 wariantow (2 karty x 5) + log generacji [import-r088]"
             git push origin HEAD:arena/a9d0a113-mtgdatabase
           fi

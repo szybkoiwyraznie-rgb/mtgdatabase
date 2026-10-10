@@ -844,8 +844,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "gęsty rój z bliska: gładki bzyk na jednym równym tonie, wyraźnie harmoniczny i ciągły", False),
     "6": ("A lawmage's barrier: a glassy chime cluster with a hard low strike, then a long sustained shimmering tail that holds steadily to the very end of the take.",
             "bariera prawodawcy: szklisty klaster dzwonków z twardym uderzeniem, potem długi trzymany ogon migotania", False),
-    "18": ("Magic kindling: a rising crystalline shimmer with a bright tone and sparkles, holding its sustained glow right through to the end without dropping away.",
-            "magia się zapala: narastające krystaliczne migotanie trwające równo do samego końca", False),
+    "18": (
+        "Crystal magic swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "kryształowa magia: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
+    "571": (
+        "Small bird wings beating in the first instant: six separate flaps, then six more "
+        "flaps, the fluttering to the end. " + NO_M,
+        "skrzydła drobnych ptaków: sześć osobnych uderzeń, potem kolejne sześć, trzepot do końca",
+        False,
+    ),
     "15": ("Old parchment cards swirling, then a fire crack: the crack lands with zero build-up at the very first sample, an instantaneous snap with nothing before it.",
             "szelest wirujących kart i trzask ognia: trzask w pierwszej próbce, bez żadnego zamachu", False),
     "257": ("A fire whip coiling and dragging: one very sharp bright high crack with zero wind-up at the first instant, then a brief bright sputtering of flame.",
