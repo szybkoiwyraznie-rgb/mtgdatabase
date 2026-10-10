@@ -540,6 +540,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r084 | 2026-10-10 | **zero z dwóch**; 277 +0,15 s za mało; 576 dłuższe złamały flatness | `state-2026-10-10-r084.md` |
 | r085 | 2026-10-10 | **dwie z dwóch**: 232 (0,98 → 3,36 s) i 280 (2,03 → 2,57 s) | `state-2026-10-10-r085.md` |
 | r086 | 2026-10-10 | **zero z dwóch**; 269 i 583 dłuższe, gorszy werdykt | `state-2026-10-10-r086.md` |
+| r087 | 2026-10-10 | prompty: 12 robot_servo + 332 thunder_clap, 2 × 5 | `state-2026-10-10-r087.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -548,11 +549,10 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r087` — 2 karty × 5.** r086: łańcuch nie
-   pasuje do `beast_screech` (atak) ani `arrow_flight` (decay,
-   centroid). Rest: `534`, `548`, `370`, `210`, `209`, `277`,
-   `576`, `269`, `583`. Brać treść < 2,8 s, wolny region,
-   kontrakt bez twardego `attack_s` ≤ 0,15 i `decay_s` ≤ 0,8.
+1. **Następna transza: `r087` — 2 karty × 5.** `12` Merchant's
+   Dockhand (`robot_servo`, 1,80 s) i `332` Thunder-Raptor
+   (`thunder_clap`, 2,29 s). n85 = 0. Rest: `534`, `548`, `370`,
+   `210`, `209`, `277`, `576`, `269`, `583`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów

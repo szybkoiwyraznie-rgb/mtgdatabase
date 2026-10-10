@@ -433,8 +433,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "olbrzym wynurza się i druzgocze kamienny port: wyrzut wody, głazy pirsu rozbijane, gruz wpadający do wody, do końca", False),
     "334": ("A scythe striking a metal tree in the first instant: one hard crack of the blade, then two long rasping cuts of steel through copper, shearing to the end.",
             "podniebna kosa uderza w metalowy pień w pierwszej chwili: twarde uderzenie, dwa długie zgrzyty stali przez miedź, trzecie cięcie, do końca", False),
-    "332": ("A raptor folding its wings: one short whistle of air, then a crack of lightning, then a roll of thunder that stays loud for over a second before dying away into silence before the end.",
-            "gromoraptor składa skrzydła: krótki świat powietrza, trzask błyskawicy, potem grzmot trwający ponad sekundę i cichnący przed końcem", False),
+    "332": (
+        "A thunder body slamming in the first instant: one hard crack of the storm, "
+        "then a second crack, then a third crack, then a fourth crack, the striking to the end. " + NO_M,
+        "grzmot: jeden twardy trzask burzy, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
             "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
@@ -796,10 +800,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "12": (
-        "A dock robot's servo running: one smooth continuous tonal hum at a steady "
-        "pitch held unbroken, with an even buzzing undertone and eight soft mechanical "
-        "clicks over it. " + NO_M,
-        "serwo portowego robota w ruchu: jeden gładki ciągły tonalny pomruk o stałej wysokości trzymany bez przerwy, z jednostajnym bzyczącym podkładem i ośmioma miękkimi mechanicznymi kliknięciami",
+        "A dock robot servo ticking in the first instant: one hard click over a "
+        "steady hum, then a second click, then a third click, then a fourth click, "
+        "the striking to the end. " + NO_M,
+        "serwo portowego robota: jeden twardy klik na ciągłym pomruku, potem drugi, potem trzeci, potem czwarty, stukanie do końca",
         False,
     ),
     "5": (
