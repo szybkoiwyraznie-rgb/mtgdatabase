@@ -41,15 +41,18 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   Wszystkie siedem weszły **trafione i bez flag**; korpus urósł
   z 563 do **570**, a liczba flag i par nie drgnęła. Szczegóły
   w `docs/archive/state-2026-10-09-b074.md`.
-- Poprzednia runda: `r079` — pierwsza transza z **pięcioma** wariantami
-  na kartę zamiast trzech (2 karty × 5 = 10 generacji, 400
-  kredytów). `333` *Bring to Trial* **2,63 → 2,84 s (+0,21)**,
-  zero flag i przy tym **bardziej odrębna** niż poprzednia
-  (kosinus 0,78 wobec 0,8397). `534` dostała pięć prób i
-  **wszystkie pięć wyszło krótszych** — od 0,57 do 1,86 s. To
-  ważne: wariancja nie przesuwa środka rozkładu, tylko go
-  próbkuje. Pięć prób pomaga, gdy rozkład obejmuje wartość,
-  której szukam; `534` ma cały rozkład poniżej 2 s.
+- Poprzednia runda: `r080` — ta sama karta, ten sam prompt, pięć
+  prób zamiast trzech. `140` *Boros Challenger* **2,70 → 3,46 s
+  (+0,76)**, zero flag, kosinus 0,5561 — czyli **bardziej
+  odrębna** niż poprzednia (0,6993). W `r077` ta sama `140`
+  dostała trzy warianty i najdłuższy miał 2,42 s, czyli mniej niż
+  obecne 2,70. Pięć prób znalazło 3,46 s tam, gdzie trzy przeszły
+  obok. To pierwszy dowód, że zwiększenie liczby prób działa —
+  ale tylko wtedy, gdy rozkład długości obejmuje wartość
+  docelową. Druga karta, `370`, dostała pięć prób i **wszystkie
+  pięć wyszło dłuższych** (3,37–3,75 s wobec 2,34), ale cztery
+  nie przeszły kontraktu `arrow_flight`: zasysanie cieczy jest
+  zbyt tonalne jak na świst strzały. Cofnięta.
 - Poprzednia runda: `r078` — **zero z trzech**, druga pusta runda po
   `r074`. Hipoteza z `r077` (różny materiał ⇒ większa długość)
   **obalona**: brąz dał 2,64 s, kamień 3,34 s ale wszystkie trzy
@@ -216,14 +219,14 @@ Metryki korpusu (audyt `2026-10-09-after-r068`):
 | treść < 2 s | **12** |
 | poza oknem 2–5 s | **0** |
 | LUFS średnio | **-20.09** (odch. 0.48) |
-| archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 33 / 158** |
+| archetypy nie trafiony / prawdopodobnie / trafiony | **0 / 30 / 161** |
+| suma treści | **1590,99 s** |
 
 Budżet: **drugi klucz 10 000 kredytów wgrany 2026-10-09**, wydane
-  720, **zostaje 9280**. Pierwszy klucz wyczerpała paczka `b074`
-  (7 nowych kart).
-Rozbicie na rundy jest w sekcji „Ile zostało" poniżej.
-Realny koszt to **40 kredytów za generację**; pełna runda 8 kart po
-2 warianty = 16 generacji = **640 kredytów**, dostawa 2 kart = 160.
+  **5120**, **zostaje 4880**. Pierwszy klucz wyczerpała paczka `b074`
+  (7 nowych kart). Rozbicie na rundy jest w sekcji „Stan liczbowy”.
+Realny koszt to **40 kredytów za generację**; transza 2 karty po
+5 wariantów = 10 generacji = **400 kredytów**, dostawa 2 kart = 160.
 
 Mechanizm generacji: token bota Arena **nie może** użyć
 `workflow_dispatch` (HTTP 403), więc generacje idą przez tymczasowy
@@ -303,8 +306,8 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
   treść < 2 s **12**. Najczęstsze: `dull` 11, `harsh` 9, `boomy` 6,
   `speech_like` 6, `tonal_sustained` 5.
 - Archetypy: **0** nie trafionych, **30** prawdopodobnie, **161** trafionych.
-- Budżet: **5280 / 10 000** kredytów na drugim kluczu (r068–r078:
-  11 × 360, r079: 400). Pierwszy klucz 10 000 zamknęły: b072 560,
+- Budżet: **4880 / 10 000** kredytów na drugim kluczu (r068–r078:
+  11 × 360, r079: 400, r080: 400). Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,
   r062 360, r063 360, r064 360, r065 360, r066 360, r067 360,
   b074 840, b074b 600, b074c 480, b074d 240, b074e 120.
@@ -510,6 +513,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r077 | 2026-10-09 | 491 weszła (2,67 → 3,45 s) — jedyna niestalowa w transzy; 140 i 548 nie urosły mimo „clashing"; hipoteza z r076 obalona | `state-2026-10-09-r077.md` |
 | r078 | 2026-10-09 | **zero z trzech**; hipoteza o materiale obalona (brąz, kamień, bariera); wniosek: wariancja modelu większa niż zmienne w prompcie | `state-2026-10-09-r078.md` |
 | r079 | 2026-10-09 | pierwsza transza 2 × 5 wariantów; 333 weszła (+0,21 s) i jest bardziej odrębna; 534 dostała 5 prób i wszystkie wyszły krótsze | `state-2026-10-09-r079.md` |
+| r080 | 2026-10-09 | **pięć prób dało to, czego trzy nie dały** — 140 ten sam prompt co w r077, +0,76 s (2,70 → 3,46); 370 cofnięta: 5/5 dłuższych, 4/5 nie przeszło arrow_flight | `state-2026-10-09-r080.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -518,27 +522,36 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: znów 2 karty × 5 wariantów.** `r079` nie
-   rozstrzygnęła strategii (1 z 2 mieści się w dotychczasowym
-   rozrzucie), ale pokazała, na co warto wydać próby: karty,
-   których rozkład długości **obejmuje** wartość docelową. `333`
-   miała rozkład 0,48–2,84 s i dała się wyciągnąć; `534` miała
-   0,57–1,86 s i nie dała.
+1. **Następna transza: znów 2 karty × 5 wariantów.** `r080`
+   rozstrzygnęła spór z `r079`: pięć prób działa, ale wyłącznie
+   na kartach, których rozkład długości **obejmuje** wartość
+   docelową. Dowód jest na jednej karcie — `140` dostała ten sam
+   prompt w r077 (trzy próby, maksimum 2,42 s) i w r080 (pięć
+   prób, v2 = 3,46 s). Trzy przeszły obok ogona rozkładu, pięć
+   go znalazło.
+   Wybierać karty, które **już kiedyś wygenerowały coś blisko
+   celu**, choćby w jednym wariancie z wielu — to jedyny sygnał,
+   że rozkład tam sięga. Karty, których żaden wariant z dotychczas
+   wykonanych prób nie zbliżył się do celu, są skreślone
+   bez względu na to, ile prób dostaną: `534` (czternaście
+   wariantów, zero instalacji), `548`, `370`.
    Kandydaci z regionów wolnych i kontraktem o krótkim zaniku:
-   `71` heavy_impact (luka 0,21 s, 6 prób), `140` plate_clank
-   (0,48 s, 3 próby), `370` arrow_flight (0,32 s, 1 próba).
-   `534` i `548` idą na odpoczynek — cztery próby, czternaście
-   wariantów, zero instalacji. Ich obecne sample są dłuższe niż
-   cokolwiek, co model potrafi teraz wygenerować z ich promptu.
-   Jedyna droga dla takich kart to zmiana archetypu, jak z `340`,
-   która nie przeszła `robot_servo` w pięciu podejściach, a po
-   zmianie na `steam_hiss` weszła od razu.
+   `71` heavy_impact (luka 0,21 s), `210` heavy_impact (0,46 s),
+   `284` (0,46 s). Sprawdzić zajętość regionu przed i po.
+   Dla kart zablokowanych materiałem jedyna droga to zmiana
+   archetypu, jak z `340`, która nie przeszła `robot_servo` w
+   pięciu podejściach, a po zmianie na `steam_hiss` weszła od
+   razu.
 
-2. **Więcej prób próbkuje rozkład, nie przesuwa go.** Pięć
-   wariantów powiększa próbkę, ale nie zmienia środka. Pomaga
-   wtedy, gdy rozkład obejmuje wartość, której szukam. Nie pomaga,
-   gdy cały leży po złej stronie — `534` dostała pięć prób i
-   wszystkie wyszły krótsze.
+2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
+   wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
+   powiększa próbkę, ale nie zmienia środka. `140` to udowodniła
+   z obu stron: trzy próby dały 2,22 / 2,42 / 2,37 s, pięć dało
+   2,66 / **3,46** / 2,54 / 3,21 / 2,95. Rozkład był ten sam,
+   próbka większa i trafiła w ogon. Nie pomaga, gdy cały rozkład
+   leży po złej stronie — `534` dostała pięć prób i wszystkie
+   wyszły krótsze, `370` dostała pięć i żadna nie przeszła
+   kontraktu.
 
 3. **Przestać szukać jednej dźwigni w prompcie.** Łańcuch zdarzeń
    został — jest konieczny, bo bez niego większość wariantów w
