@@ -1,0 +1,287 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r088",
+ "applied": false,
+ "results": [
+  {
+   "id": "18",
+   "title": "Lotusguard Disciple",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r088/v1/18.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.68,
+      "content_rel_s": 3.35,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5887.2,
+      "spectral_flatness": 0.036,
+      "tonal_frame_fraction": 0.632,
+      "voiced_fraction": 0.927,
+      "crest_db": 16.84,
+      "attack_s": 0.57,
+      "decay_s": 2.01,
+      "onset_count": 0,
+      "sustain_ratio": 0.538,
+      "mod_peak_hz": 1.15
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r088/v2/18.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.39,
+      "content_rel_s": 3.28,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5415.6,
+      "spectral_flatness": 0.027,
+      "tonal_frame_fraction": 0.983,
+      "voiced_fraction": 0.853,
+      "crest_db": 17.43,
+      "attack_s": 0.88,
+      "decay_s": 1.17,
+      "onset_count": 0,
+      "sustain_ratio": 0.41,
+      "mod_peak_hz": 6.31
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r088/v5/18.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.29,
+      "content_rel_s": 3.14,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6194.9,
+      "spectral_flatness": 0.023,
+      "tonal_frame_fraction": 0.975,
+      "voiced_fraction": 0.889,
+      "crest_db": 16.97,
+      "attack_s": 1.0,
+      "decay_s": 1.05,
+      "onset_count": 0,
+      "sustain_ratio": 0.432,
+      "mod_peak_hz": 8.02
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r088/v4/18.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.24,
+      "content_rel_s": 3.13,
+      "lufs": -20.02,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4456.6,
+      "spectral_flatness": 0.037,
+      "tonal_frame_fraction": 0.83,
+      "voiced_fraction": 0.807,
+      "crest_db": 18.28,
+      "attack_s": 1.0,
+      "decay_s": 0.82,
+      "onset_count": 0,
+      "sustain_ratio": 0.34,
+      "mod_peak_hz": 1.28
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r088/v3/18.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.167, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.46,
+      "content_rel_s": 3.36,
+      "lufs": -20.02,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 7436.0,
+      "spectral_flatness": 0.072,
+      "tonal_frame_fraction": 0.167,
+      "voiced_fraction": 0.267,
+      "crest_db": 16.77,
+      "attack_s": 0.74,
+      "decay_s": 1.74,
+      "onset_count": 0,
+      "sustain_ratio": 0.592,
+      "mod_peak_hz": 1.47
+     }
+    }
+   ]
+  },
+  {
+   "id": "571",
+   "title": "Vow of Flight",
+   "archetype": "wing_flutter",
+   "archetype_label": "trzepot skrzydeł",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 2.0,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r088/v3/571.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.06,
+      "content_rel_s": 2.87,
+      "lufs": -20.02,
+      "low_all": 0.213,
+      "spectral_centroid_hz": 1708.3,
+      "spectral_flatness": 0.188,
+      "tonal_frame_fraction": 0.016,
+      "voiced_fraction": 0.007,
+      "crest_db": 23.44,
+      "attack_s": 0.13,
+      "decay_s": 0.58,
+      "onset_count": 22,
+      "sustain_ratio": 0.18,
+      "mod_peak_hz": 9.79
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r088/v2/571.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.087,
+      "content_rel_s": 2.797,
+      "lufs": -20.17,
+      "low_all": 0.07,
+      "spectral_centroid_hz": 1459.9,
+      "spectral_flatness": 0.151,
+      "tonal_frame_fraction": 0.053,
+      "voiced_fraction": 0.024,
+      "crest_db": 24.69,
+      "attack_s": 0.24,
+      "decay_s": 0.28,
+      "onset_count": 20,
+      "sustain_ratio": 0.127,
+      "mod_peak_hz": 13.9
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r088/v1/571.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "trzepot pulsuje w tempie machania (mod_peak_hz=1.050, oczekiwane 4.0–20.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.12,
+      "content_rel_s": 2.99,
+      "lufs": -20.24,
+      "low_all": 0.054,
+      "spectral_centroid_hz": 2344.6,
+      "spectral_flatness": 0.159,
+      "tonal_frame_fraction": 0.02,
+      "voiced_fraction": 0.0,
+      "crest_db": 25.67,
+      "attack_s": 0.22,
+      "decay_s": 0.48,
+      "onset_count": 13,
+      "sustain_ratio": 0.135,
+      "mod_peak_hz": 1.05
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r088/v5/571.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "trzepot pulsuje w tempie machania (mod_peak_hz=1.440, oczekiwane 4.0–20.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.648,
+      "content_rel_s": 2.438,
+      "lufs": -20.0,
+      "low_all": 0.133,
+      "spectral_centroid_hz": 938.2,
+      "spectral_flatness": 0.046,
+      "tonal_frame_fraction": 0.574,
+      "voiced_fraction": 0.01,
+      "crest_db": 24.56,
+      "attack_s": 0.29,
+      "decay_s": 0.23,
+      "onset_count": 16,
+      "sustain_ratio": 0.148,
+      "mod_peak_hz": 1.44
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r088/v4/571.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "trzepot pulsuje w tempie machania (mod_peak_hz=1.060, oczekiwane 4.0–20.0)",
+      "trzepot jest szelestem w środku pasma (spectral_centroid_hz=680.300, oczekiwane 800.0–6000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 2.71,
+      "content_rel_s": 2.33,
+      "lufs": -20.03,
+      "low_all": 0.148,
+      "spectral_centroid_hz": 680.3,
+      "spectral_flatness": 0.042,
+      "tonal_frame_fraction": 0.617,
+      "voiced_fraction": 0.0,
+      "crest_db": 22.6,
+      "attack_s": 0.08,
+      "decay_s": 0.06,
+      "onset_count": 16,
+      "sustain_ratio": 0.059,
+      "mod_peak_hz": 1.06
+     }
+    }
+   ]
+  }
+ ]
+}
