@@ -1,0 +1,282 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r095",
+ "applied": false,
+ "results": [
+  {
+   "id": "157",
+   "title": "Infectious Bloodlust",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v4",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v4",
+     "file": "variants/r095/v4/157.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.41,
+      "content_rel_s": 3.25,
+      "lufs": -20.01,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 7223.1,
+      "spectral_flatness": 0.041,
+      "tonal_frame_fraction": 0.707,
+      "voiced_fraction": 0.904,
+      "crest_db": 16.4,
+      "attack_s": 0.82,
+      "decay_s": 1.61,
+      "onset_count": 0,
+      "sustain_ratio": 0.551,
+      "mod_peak_hz": 1.2
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r095/v3/157.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.35,
+      "content_rel_s": 3.14,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6525.6,
+      "spectral_flatness": 0.031,
+      "tonal_frame_fraction": 0.964,
+      "voiced_fraction": 0.897,
+      "crest_db": 16.27,
+      "attack_s": 0.64,
+      "decay_s": 1.5,
+      "onset_count": 0,
+      "sustain_ratio": 0.481,
+      "mod_peak_hz": 1.25
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r095/v1/157.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.27,
+      "content_rel_s": 3.12,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6431.4,
+      "spectral_flatness": 0.02,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.016,
+      "crest_db": 14.85,
+      "attack_s": 0.9,
+      "decay_s": 1.42,
+      "onset_count": 0,
+      "sustain_ratio": 0.538,
+      "mod_peak_hz": 1.24
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r095/v5/157.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.173,
+      "content_rel_s": 2.893,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 6613.1,
+      "spectral_flatness": 0.035,
+      "tonal_frame_fraction": 0.844,
+      "voiced_fraction": 0.302,
+      "crest_db": 19.48,
+      "attack_s": 0.99,
+      "decay_s": 0.9,
+      "onset_count": 0,
+      "sustain_ratio": 0.448,
+      "mod_peak_hz": 1.02
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r095/v2/157.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.123, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.23,
+      "content_rel_s": 3.19,
+      "lufs": -20.01,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 7440.2,
+      "spectral_flatness": 0.088,
+      "tonal_frame_fraction": 0.123,
+      "voiced_fraction": 0.0,
+      "crest_db": 17.98,
+      "attack_s": 1.09,
+      "decay_s": 1.2,
+      "onset_count": 1,
+      "sustain_ratio": 0.52,
+      "mod_peak_hz": 2.81
+     }
+    }
+   ]
+  },
+  {
+   "id": "607",
+   "title": "Containment Membrane",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r095/v3/607.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.49,
+      "content_rel_s": 3.25,
+      "lufs": -20.09,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 8437.3,
+      "spectral_flatness": 0.062,
+      "tonal_frame_fraction": 0.33,
+      "voiced_fraction": 0.0,
+      "crest_db": 18.87,
+      "attack_s": 1.04,
+      "decay_s": 1.37,
+      "onset_count": 0,
+      "sustain_ratio": 0.533,
+      "mod_peak_hz": 12.01
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r095/v5/607.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.4,
+      "content_rel_s": 3.23,
+      "lufs": -20.01,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4472.3,
+      "spectral_flatness": 0.033,
+      "tonal_frame_fraction": 0.964,
+      "voiced_fraction": 0.933,
+      "crest_db": 19.38,
+      "attack_s": 0.76,
+      "decay_s": 1.05,
+      "onset_count": 0,
+      "sustain_ratio": 0.353,
+      "mod_peak_hz": 6.52
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r095/v4/607.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.28,
+      "content_rel_s": 3.13,
+      "lufs": -19.99,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 5032.1,
+      "spectral_flatness": 0.006,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 16.46,
+      "attack_s": 0.73,
+      "decay_s": 1.33,
+      "onset_count": 0,
+      "sustain_ratio": 0.445,
+      "mod_peak_hz": 5.7
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r095/v1/607.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.27,
+      "content_rel_s": 3.11,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5586.1,
+      "spectral_flatness": 0.031,
+      "tonal_frame_fraction": 0.974,
+      "voiced_fraction": 0.571,
+      "crest_db": 16.37,
+      "attack_s": 0.82,
+      "decay_s": 1.35,
+      "onset_count": 0,
+      "sustain_ratio": 0.474,
+      "mod_peak_hz": 1.58
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r095/v2/607.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.050, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.29,
+      "content_rel_s": 3.19,
+      "lufs": -20.01,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 7719.6,
+      "spectral_flatness": 0.077,
+      "tonal_frame_fraction": 0.05,
+      "voiced_fraction": 0.0,
+      "crest_db": 16.09,
+      "attack_s": 0.92,
+      "decay_s": 1.46,
+      "onset_count": 1,
+      "sustain_ratio": 0.556,
+      "mod_peak_hz": 1.56
+     }
+    }
+   ]
+  }
+ ]
+}

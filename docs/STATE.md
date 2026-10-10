@@ -32,7 +32,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r094`** — **quota 0**. Dwa ułomne warianty,
+- Ostatnia runda: **`r095`** — **zero z dwóch** na nowym budżecie
+  (10/10 OK). `157` i `607` już ~3 s, po łańcuchu krótsze;
+  `607` para 0,94 z `329`. Szczegóły: `state-2026-10-10-r095.md`.
+- Poprzednia runda: **`r094`** — **quota 0**. Dwa ułomne warianty,
   oba krótsze po łańcuchu. Generacja wstrzymana.
   Szczegóły: `state-2026-10-10-r094.md`.
 - Poprzednia runda: **`r093`** — z 2 kart weszła **jedna**: `468`
@@ -569,7 +572,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r092 | 2026-10-10 | **zero z dwóch**; 164 centroid; 72 decay | `state-2026-10-10-r092.md` |
 | r093 | 2026-10-10 | 468 weszła (2,85 → 3,16 s); 177 para 0,95 z 396 | `state-2026-10-10-r093.md` |
 | r094 | 2026-10-10 | **quota 0**; 2/10 plików, oba krótsze, bez instalacji | `state-2026-10-10-r094.md` |
-| r095 | 2026-10-10 | powtórka 157+607 na nowym budżecie, 2 × 5 | `state-2026-10-10-r095.md` |
+| r095 | 2026-10-10 | **zero z dwóch**; nowy budżet OK; 157/607 krótsze po łańcuchu | `state-2026-10-10-r095.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -578,8 +581,9 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r095` — 2 karty × 5.** Powtórka `157`/`607`
-   po nowym budżecie 10 000. n85 = 0, `magic_shimmer`.
+1. **Następna transza: `r096` — 2 karty × 5.** Nowy budżet działa.
+   Nie brać kart już ~3 s (`157`, `607`). Treść **< 2,5 s**.
+   Rest plus `157`, `607`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
