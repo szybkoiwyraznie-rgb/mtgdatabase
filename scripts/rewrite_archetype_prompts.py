@@ -998,6 +998,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "pięć ciał wpada do sadzawki jedno po drugim, pierwsze uderzenie najgłośniejsze: za każdym razem jasny syczący rozbryzg kropel, woda kłębi się i kapie do końca",
         False,
     ),
+    "150": (
+        "A stone fountain splashing in the first instant: one hard splash, then a second "
+        "splash, then a third splash, then a fourth splash, the striking to the end. " + NO_M,
+        "kamienna fontanna: jeden twardy plusk, potem drugi, potem trzeci, potem czwarty, pluskanie do końca",
+        False,
+    ),
     "40": ("Thick armour plates knocked together: two or three mid-pitched metal clanks, weighty and dull rather than bright, each plate struck separately.",
             "grube płyty pancerza zderzają się: dwa-trzy klanki w środku pasma, ciężkie i matowe raczej niż jasne", False),
     "96": (

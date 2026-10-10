@@ -573,6 +573,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r093 | 2026-10-10 | 468 weszła (2,85 → 3,16 s); 177 para 0,95 z 396 | `state-2026-10-10-r093.md` |
 | r094 | 2026-10-10 | **quota 0**; 2/10 plików, oba krótsze, bez instalacji | `state-2026-10-10-r094.md` |
 | r095 | 2026-10-10 | **zero z dwóch**; nowy budżet OK; 157/607 krótsze po łańcuchu | `state-2026-10-10-r095.md` |
+| r096 | 2026-10-10 | prompty: 4 + 150 water_splash, 2 × 5 | `state-2026-10-10-r096.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -581,9 +582,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r096` — 2 karty × 5.** Nowy budżet działa.
-   Nie brać kart już ~3 s (`157`, `607`). Treść **< 2,5 s**.
-   Rest plus `157`, `607`.
+1. **Następna transza: `r096` — 2 karty × 5.** `4` (1,14 s) i `150`
+   `water_splash`. Treść < 2,5 s.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
