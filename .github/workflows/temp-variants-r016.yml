@@ -48,7 +48,7 @@ jobs:
             echo "=== wariant v$v ===" | tee -a variants/r098/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r098 --force --retries 3 --prompt-influence 0.35 \
+              --ids "$IDS" --force --retries 3 --prompt-influence 0.35 \
               --out "variants/r098/v$v" 2>&1 | tee -a variants/r098/generate.log
           done
       - name: Commit variants
