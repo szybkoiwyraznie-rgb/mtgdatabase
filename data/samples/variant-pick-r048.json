@@ -1,0 +1,228 @@
+{
+  "variants_dir": "/home/user/mtgdatabase/variants/r048",
+  "applied": true,
+  "results": [
+    {
+      "id": "255",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r048/v1/255.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.86,
+          "lufs": -13.34,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r048/v2/255.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.49,
+          "lufs": -14.76,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "542",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r048/v1/542.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.0,
+          "lufs": -11.78,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r048/v2/542.mp3",
+          "duration_s": 4.0,
+          "content_s": 1.84,
+          "lufs": -9.57,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "87",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r048/v2/87.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.65,
+          "lufs": -24.59,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r048/v1/87.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.53,
+          "lufs": -24.76,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "259",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r048/v2/259.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.55,
+          "lufs": -28.55,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r048/v1/259.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.47,
+          "lufs": -12.18,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "563",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r048/v1/563.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.07,
+          "lufs": -26.5,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r048/v2/563.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.09,
+          "lufs": -22.57,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "289",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r048/v1/289.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.45,
+          "lufs": -22.26,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r048/v2/289.mp3",
+          "duration_s": 4.0,
+          "content_s": 0.67,
+          "lufs": -22.48,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "94",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r048/v1/94.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.33,
+          "lufs": -26.5,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r048/v2/94.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.31,
+          "lufs": -17.49,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "219",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r048/v1/219.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.07,
+          "lufs": -11.15,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r048/v2/219.mp3",
+          "duration_s": 4.0,
+          "content_s": 1.96,
+          "lufs": -16.22,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    }
+  ],
+  "final_audio_decisions": [
+    {
+      "id": "255",
+      "final": "v1 with 0.05 s tail trim",
+      "reason": "2.22 s content, no close neighbours or flags. v1 trim 0.05 preserved the transient shape; larger trims created a new edge to 487.",
+      "final_content_s": 2.22,
+      "final_flags": []
+    },
+    {
+      "id": "542",
+      "final": "restored pre-r048 audio",
+      "reason": "v1 and v2 postprocessed to 1.71 s and 1.54 s, both shorter than the original 1.75 s; retained original.",
+      "final_content_s": 1.75,
+      "final_flags": []
+    },
+    {
+      "id": "87",
+      "final": "restored pre-r048 audio",
+      "reason": "both generated variants were nearly sub-100 Hz (muffled/boomy/dull); rejected despite longer measured tails.",
+      "final_content_s": 1.8,
+      "final_flags": []
+    },
+    {
+      "id": "219",
+      "final": "restored pre-r048 audio",
+      "reason": "v1 made a new pair with protected card 2 and shortened content; v2 stayed below 2 s. Original 1.98 s has no pair or flags.",
+      "final_content_s": 1.98,
+      "final_flags": []
+    }
+  ]
+}

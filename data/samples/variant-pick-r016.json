@@ -1,0 +1,429 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r016",
+ "applied": true,
+ "results": [
+  {
+   "id": "387",
+   "title": "Molten Nursery",
+   "archetype": "volcanic_eruption",
+   "archetype_label": "wybuch wulkanu / lawy",
+   "chosen": "v1",
+   "chosen_score": 1.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r016/v1/387.mp3",
+     "score": 1.0,
+     "violations": [
+      "erupcja jest szumowa, nie tonalna (spectral_flatness=0.000, oczekiwane >= 0.04)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.18,
+      "lufs": -11.24,
+      "low_all": 0.889,
+      "spectral_centroid_hz": 148.9,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.228,
+      "crest_db": 13.51,
+      "attack_s": 0.21,
+      "decay_s": 1.31,
+      "onset_count": 11,
+      "sustain_ratio": 0.297,
+      "mod_peak_hz": 1.33
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r016/v3/387.mp3",
+     "score": 1.0,
+     "violations": [
+      "erupcja jest szumowa, nie tonalna (spectral_flatness=0.001, oczekiwane >= 0.04)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 2.93,
+      "lufs": -8.36,
+      "low_all": 0.868,
+      "spectral_centroid_hz": 191.7,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.102,
+      "crest_db": 13.66,
+      "attack_s": 0.15,
+      "decay_s": 0.92,
+      "onset_count": 3,
+      "sustain_ratio": 0.2,
+      "mod_peak_hz": 1.09
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r016/v2/387.mp3",
+     "score": 2.0,
+     "violations": [
+      "erupcja jest szumowa, nie tonalna (spectral_flatness=0.000, oczekiwane >= 0.04)",
+      "erupcja się toczy (decay_s=0.620, oczekiwane >= 0.8)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.07,
+      "lufs": -8.75,
+      "low_all": 0.93,
+      "spectral_centroid_hz": 151.2,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.486,
+      "crest_db": 12.26,
+      "attack_s": 0.83,
+      "decay_s": 0.62,
+      "onset_count": 17,
+      "sustain_ratio": 0.367,
+      "mod_peak_hz": 11.79
+     }
+    }
+   ]
+  },
+  {
+   "id": "396",
+   "title": "Vow of Wildness",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "chosen": "v3",
+   "chosen_score": 0,
+   "spread": 3.5,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r016/v3/396.mp3",
+     "score": 0,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.47,
+      "lufs": -10.2,
+      "low_all": 0.513,
+      "spectral_centroid_hz": 271.0,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.561,
+      "crest_db": 13.72,
+      "attack_s": 0.22,
+      "decay_s": 1.1,
+      "onset_count": 29,
+      "sustain_ratio": 0.355,
+      "mod_peak_hz": 19.63
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r016/v2/396.mp3",
+     "score": 2.5,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.095, oczekiwane >= 0.3)",
+      "ryk ma ciało w dole pasma (low_all=0.187, oczekiwane >= 0.45)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.03,
+      "lufs": -9.93,
+      "low_all": 0.187,
+      "spectral_centroid_hz": 412.4,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.095,
+      "crest_db": 14.32,
+      "attack_s": 0.76,
+      "decay_s": 0.65,
+      "onset_count": 23,
+      "sustain_ratio": 0.352,
+      "mod_peak_hz": 13.52
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r016/v1/396.mp3",
+     "score": 3.5,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.274, oczekiwane >= 0.3)",
+      "ryk ma ciało w dole pasma (low_all=0.234, oczekiwane >= 0.45)",
+      "ryk musi trwać, nie kliknąć (decay_s=0.130, oczekiwane >= 0.4)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.45,
+      "lufs": -14.33,
+      "low_all": 0.234,
+      "spectral_centroid_hz": 333.2,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.274,
+      "crest_db": 16.99,
+      "attack_s": 0.02,
+      "decay_s": 0.13,
+      "onset_count": 30,
+      "sustain_ratio": 0.385,
+      "mod_peak_hz": 2.35
+     }
+    }
+   ]
+  },
+  {
+   "id": "452",
+   "title": "Omenspeaker",
+   "archetype": "arcane_choir",
+   "archetype_label": "chór / zaświatowy śpiew bez słów",
+   "chosen": "v3",
+   "chosen_score": 0,
+   "spread": 0,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r016/v3/452.mp3",
+     "score": 0,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.15,
+      "lufs": -9.04,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 857.8,
+      "spectral_flatness": 0.003,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.784,
+      "crest_db": 17.4,
+      "attack_s": 1.38,
+      "decay_s": 0.93,
+      "onset_count": 0,
+      "sustain_ratio": 0.505,
+      "mod_peak_hz": 2.54
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r016/v2/452.mp3",
+     "score": 0,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 2.93,
+      "lufs": -8.21,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 901.5,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.478,
+      "crest_db": 15.62,
+      "attack_s": 1.47,
+      "decay_s": 0.88,
+      "onset_count": 0,
+      "sustain_ratio": 0.547,
+      "mod_peak_hz": 1.02
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r016/v1/452.mp3",
+     "score": 0,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 2.79,
+      "lufs": -6.31,
+      "low_all": 0.01,
+      "spectral_centroid_hz": 861.6,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.947,
+      "crest_db": 14.71,
+      "attack_s": 0.14,
+      "decay_s": 1.83,
+      "onset_count": 0,
+      "sustain_ratio": 0.453,
+      "mod_peak_hz": 1.08
+     }
+    }
+   ]
+  },
+  {
+   "id": "464",
+   "title": "Polluted Dead",
+   "archetype": "undead_groan",
+   "archetype_label": "jęk / pomruk nieumarłego",
+   "chosen": "v1",
+   "chosen_score": 2.5,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r016/v1/464.mp3",
+     "score": 2.5,
+     "violations": [
+      "jęk jest niski (spectral_centroid_hz=1111.100, oczekiwane 120.0–1000.0)",
+      "jęk ma ciało w dole (low_all=0.163, oczekiwane >= 0.55)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.85,
+      "lufs": -12.06,
+      "low_all": 0.163,
+      "spectral_centroid_hz": 1111.1,
+      "spectral_flatness": 0.044,
+      "tonal_frame_fraction": 0.542,
+      "voiced_fraction": 0.207,
+      "crest_db": 15.23,
+      "attack_s": 0.8,
+      "decay_s": 2.71,
+      "onset_count": 1,
+      "sustain_ratio": 0.775,
+      "mod_peak_hz": 10.54
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r016/v2/464.mp3",
+     "score": 2.5,
+     "violations": [
+      "jęk jest niski (spectral_centroid_hz=1252.600, oczekiwane 120.0–1000.0)",
+      "jęk ma ciało w dole (low_all=0.164, oczekiwane >= 0.55)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.74,
+      "lufs": -13.57,
+      "low_all": 0.164,
+      "spectral_centroid_hz": 1252.6,
+      "spectral_flatness": 0.024,
+      "tonal_frame_fraction": 0.827,
+      "voiced_fraction": 0.218,
+      "crest_db": 17.65,
+      "attack_s": 0.34,
+      "decay_s": 1.69,
+      "onset_count": 7,
+      "sustain_ratio": 0.385,
+      "mod_peak_hz": 1.08
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r016/v3/464.mp3",
+     "score": 2.5,
+     "violations": [
+      "jęk jest niski (spectral_centroid_hz=1212.500, oczekiwane 120.0–1000.0)",
+      "jęk ma ciało w dole (low_all=0.112, oczekiwane >= 0.55)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.37,
+      "lufs": -11.93,
+      "low_all": 0.112,
+      "spectral_centroid_hz": 1212.5,
+      "spectral_flatness": 0.031,
+      "tonal_frame_fraction": 0.863,
+      "voiced_fraction": 0.121,
+      "crest_db": 16.35,
+      "attack_s": 0.57,
+      "decay_s": 2.28,
+      "onset_count": 3,
+      "sustain_ratio": 0.54,
+      "mod_peak_hz": 7.12
+     }
+    }
+   ]
+  },
+  {
+   "id": "539",
+   "title": "Silvanus's Invoker",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "chosen": "v2",
+   "chosen_score": 0,
+   "spread": 0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r016/v2/539.mp3",
+     "score": 0,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.58,
+      "lufs": -10.09,
+      "low_all": 0.955,
+      "spectral_centroid_hz": 80.8,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.625,
+      "crest_db": 11.68,
+      "attack_s": 1.09,
+      "decay_s": 1.12,
+      "onset_count": 20,
+      "sustain_ratio": 0.505,
+      "mod_peak_hz": 9.94
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r016/v1/539.mp3",
+     "score": 0,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.52,
+      "lufs": -10.26,
+      "low_all": 0.982,
+      "spectral_centroid_hz": 86.3,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.906,
+      "crest_db": 11.62,
+      "attack_s": 0.36,
+      "decay_s": 1.62,
+      "onset_count": 24,
+      "sustain_ratio": 0.56,
+      "mod_peak_hz": 11.63
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r016/v3/539.mp3",
+     "score": 0,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.44,
+      "lufs": -9.13,
+      "low_all": 0.992,
+      "spectral_centroid_hz": 84.4,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.947,
+      "crest_db": 11.49,
+      "attack_s": 0.23,
+      "decay_s": 1.5,
+      "onset_count": 12,
+      "sustain_ratio": 0.415,
+      "mod_peak_hz": 3.82
+     }
+    }
+   ]
+  }
+ ]
+}

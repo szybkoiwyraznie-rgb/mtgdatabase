@@ -12,6 +12,11 @@ artifacts/
 work/
 *.wav
 
+# Warianty archetypowe z generacji (czysty artefakt: po wyborze wariantu
+# przez pick_archetype_variant.py trafia do korpusu tylko zwyciezca).
+# Katalog potrafi urosnac do ~25 MB MP3, a w gicie jest zbedny.
+variants/
+
 # Secrets and local configuration
 .env
 .env.*
@@ -22,3 +27,7 @@ work/
 .vscode/
 .idea/
 workspace-*.zip
+.cache/
+
+# robocze kopie zapasowe (nie wchodza do repozytorium)
+.arena-backup/

@@ -1,0 +1,221 @@
+{
+  "variants_dir": "/home/user/mtgdatabase/variants/r046",
+  "applied": true,
+  "results": [
+    {
+      "id": "271",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r046/v2/271.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.27,
+          "lufs": -4.99,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r046/v1/271.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.87,
+          "lufs": -5.71,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "389",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r046/v1/389.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.78,
+          "lufs": -21.24,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r046/v2/389.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.57,
+          "lufs": -23.09,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "477",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r046/v2/477.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.11,
+          "lufs": -10.07,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r046/v1/477.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.4,
+          "lufs": -10.96,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "151",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r046/v2/151.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.88,
+          "lufs": -20.42,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r046/v1/151.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.57,
+          "lufs": -30.37,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "512",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r046/v1/512.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.9,
+          "lufs": -25.36,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r046/v2/512.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.02,
+          "lufs": -19.14,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "403",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r046/v2/403.mp3",
+          "duration_s": 4.0,
+          "content_s": 0.91,
+          "lufs": -10.04,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r046/v1/403.mp3",
+          "duration_s": 4.0,
+          "content_s": 0.41,
+          "lufs": -15.1,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "443",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r046/v1/443.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.7,
+          "lufs": -21.0,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r046/v2/443.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.35,
+          "lufs": -20.64,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "288",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r046/v1/288.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.49,
+          "lufs": -13.69,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r046/v2/288.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.21,
+          "lufs": -10.17,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    }
+  ],
+  "final_audio_decisions": [
+    {
+      "id": "403",
+      "final": "restored pre-r046 audio",
+      "reason": "v2 had 0.91 s content and v1 0.41 s; both failed the 2 s floor. Kept original 1.68 s rather than a worse, shorter sample.",
+      "final_content_s": 1.68,
+      "final_flags": []
+    },
+    {
+      "id": "477",
+      "final": "v1 with 0.15 s tail trim",
+      "reason": "automatic v2 was longer but created two new pairs (261 at 0.918 and 103 at 0.908). v1 after trim retains 2.27 s, no >=0.90 neighbours or flags.",
+      "final_content_s": 2.27,
+      "final_flags": []
+    },
+    {
+      "id": "512",
+      "final": "v1 with mild low-shelf correction",
+      "reason": "content 2.26 s, no neighbours; -3 dB shelf at 180 Hz cleared the boomy flag, final centroid 142 -> 329 Hz. The v2 alternative was only 1.57 s with boomy/dull/long_trail_silence flags.",
+      "final_content_s": 2.26,
+      "final_flags": []
+    }
+  ]
+}

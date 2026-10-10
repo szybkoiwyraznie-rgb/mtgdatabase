@@ -1,0 +1,1810 @@
+{
+ "audit": "data/samples/audio-audit-2026-10-07-after-r056.json",
+ "checked": 178,
+ "by_verdict": {
+  "prawdopodobnie": 33,
+  "trafiony": 145
+ },
+ "results": [
+  {
+   "id": "31",
+   "title": "Carrion Call",
+   "archetype": "insect_swarm",
+   "archetype_label": "rój owadów / bzykanie",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "tonal_frame_fraction",
+     "reason": "bzykanie jest harmoniczne (tonal_frame_fraction=0.023, oczekiwane >= 0.3)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "3",
+   "title": "Nefarious Imp",
+   "archetype": "fire_crackle",
+   "archetype_label": "trzask ognia / żaru",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "trzaski są jasne (spectral_centroid_hz=7264.400, oczekiwane 1000.0–6000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "17",
+   "title": "Selhoff Occultist",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "stal uderza natychmiast (attack_s=0.140, oczekiwane <= 0.1)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "49",
+   "title": "Unstable Frontier",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "mid_up",
+     "reason": "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.009, oczekiwane >= 0.1)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "81",
+   "title": "Krotiq Nestguard",
+   "archetype": "insect_swarm",
+   "archetype_label": "rój owadów / bzykanie",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "bzykanie jest wysokie (spectral_centroid_hz=932.100, oczekiwane 1000.0–6000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "95",
+   "title": "Krumar Initiate",
+   "archetype": "door_creak",
+   "archetype_label": "skrzypienie drewna / zawiasów",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "mod_peak_hz",
+     "reason": "skrzypienie faluje (mod_peak_hz=1.360, oczekiwane 2.0–12.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "98",
+   "title": "Fleeting Distraction",
+   "archetype": "insect_swarm",
+   "archetype_label": "rój owadów / bzykanie",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "bzykanie jest wysokie (spectral_centroid_hz=8860.500, oczekiwane 1000.0–6000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "103",
+   "title": "Sweet Oblivion",
+   "archetype": "wind_gust",
+   "archetype_label": "podmuch wiatru",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "wiatr siedzi w środku pasma (spectral_centroid_hz=8601.600, oczekiwane 300.0–3000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "106",
+   "title": "Mosquito Guard",
+   "archetype": "insect_swarm",
+   "archetype_label": "rój owadów / bzykanie",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "bzykanie jest wysokie (spectral_centroid_hz=6176.800, oczekiwane 1000.0–6000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "144",
+   "title": "Stensia Innkeeper",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "mod_peak_hz",
+     "reason": "trele są szybkie (mod_peak_hz=2.760, oczekiwane 3.0–22.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "168",
+   "title": "Steel Sabotage",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "grzmot ziemi jest niski (spectral_centroid_hz=1446.800, oczekiwane <= 900.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "204",
+   "title": "Skilled Animator",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "onset_count",
+     "reason": "robot klika i pracuje (onset_count=1, oczekiwane >= 2)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "228",
+   "title": "Strandwalker",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "ioi_cv",
+     "reason": "kroki mają równy rytm (ioi_cv=0.640, oczekiwane <= 0.6)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "253",
+   "title": "Inspiring Bard",
+   "archetype": "folk_music",
+   "archetype_label": "muzyka ludowa / taneczna",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "mod_peak_hz",
+     "reason": "rytm taneczny 1–6 Hz (mod_peak_hz=1.130, oczekiwane 1.2–6.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "257",
+   "title": "Lash of the Balrog",
+   "archetype": "whip_crack",
+   "archetype_label": "trzask bicza",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "bicz pęka natychmiast (attack_s=0.140, oczekiwane <= 0.03)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "292",
+   "title": "Rediscover the Way",
+   "archetype": "wind_gust",
+   "archetype_label": "podmuch wiatru",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "sustain_ratio",
+     "reason": "podmuch płynie (sustain_ratio=0.258, oczekiwane >= 0.3)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "303",
+   "title": "Blanchwood Prowler",
+   "archetype": "door_creak",
+   "archetype_label": "skrzypienie drewna / zawiasów",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "mod_peak_hz",
+     "reason": "skrzypienie faluje (mod_peak_hz=17.390, oczekiwane 2.0–12.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "381",
+   "title": "Caravan Vigil",
+   "archetype": "door_creak",
+   "archetype_label": "skrzypienie drewna / zawiasów",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "mod_peak_hz",
+     "reason": "skrzypienie faluje (mod_peak_hz=1.100, oczekiwane 2.0–12.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "382",
+   "title": "Geological Appraiser",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "decay_s",
+     "reason": "grzmot się toczy (decay_s=0.310, oczekiwane >= 0.8)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "456",
+   "title": "Crawling Chorus",
+   "archetype": "insect_swarm",
+   "archetype_label": "rój owadów / bzykanie",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "bzykanie jest wysokie (spectral_centroid_hz=9314.700, oczekiwane 1000.0–6000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "492",
+   "title": "Secluded Steppe",
+   "archetype": "wind_gust",
+   "archetype_label": "podmuch wiatru",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "wiatr siedzi w środku pasma (spectral_centroid_hz=6780.700, oczekiwane 300.0–3000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "493",
+   "title": "Skyclave Geopede",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "decay_s",
+     "reason": "osuwisko się toczy (decay_s=0.130, oczekiwane >= 0.5)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "496",
+   "title": "Shiv's Embrace",
+   "archetype": "volcanic_eruption",
+   "archetype_label": "wybuch wulkanu / lawy",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_flatness",
+     "reason": "erupcja jest szumowa, nie tonalna (spectral_flatness=0.000, oczekiwane >= 0.04)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "513",
+   "title": "Spreading Insurrection",
+   "archetype": "wind_gust",
+   "archetype_label": "podmuch wiatru",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "wiatr siedzi w środku pasma (spectral_centroid_hz=3616.300, oczekiwane 300.0–3000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "531",
+   "title": "Disa the Restless",
+   "archetype": "door_creak",
+   "archetype_label": "skrzypienie drewna / zawiasów",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "decay_s",
+     "reason": "skrzypienie się ciągnie (decay_s=0.070, oczekiwane >= 0.3)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "537",
+   "title": "Kor Cartographer",
+   "archetype": "door_creak",
+   "archetype_label": "skrzypienie drewna / zawiasów",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "mod_peak_hz",
+     "reason": "skrzypienie faluje (mod_peak_hz=1.640, oczekiwane 2.0–12.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "553",
+   "title": "Coat with Venom",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "stal uderza natychmiast (attack_s=0.600, oczekiwane <= 0.1)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "568",
+   "title": "Nanoform Sentinel",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "f0_semitone_std",
+     "reason": "ton serwa jest stabilny (f0_semitone_std=4.380, oczekiwane <= 4.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "610",
+   "title": "Gearsmith Prodigy",
+   "archetype": "mechanism_click",
+   "archetype_label": "zegarowy mechanizm / zamek / zapadka",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "klik jest suchy i jasny (spectral_centroid_hz=9641.500, oczekiwane 800.0–6000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "611",
+   "title": "Lifecrafter's Gift",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "onset_count",
+     "reason": "robot klika i pracuje (onset_count=1, oczekiwane >= 2)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "345",
+   "title": "Porcelain Legionnaire",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_flatness",
+     "reason": "uderzenie ma szumowy transient (spectral_flatness=0.042, oczekiwane >= 0.05)",
+     "weight": 0.5
+    }
+   ]
+  },
+  {
+   "id": "435",
+   "title": "Warrior's Sword",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_flatness",
+     "reason": "uderzenie ma szumowy transient (spectral_flatness=0.028, oczekiwane >= 0.05)",
+     "weight": 0.5
+    }
+   ]
+  },
+  {
+   "id": "608",
+   "title": "Skymarch Bloodletter",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_flatness",
+     "reason": "uderzenie ma szumowy transient (spectral_flatness=0.007, oczekiwane >= 0.05)",
+     "weight": 0.5
+    }
+   ]
+  },
+  {
+   "id": "1",
+   "title": "Dunland Crebain",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "2",
+   "title": "Coralhelm Guide",
+   "archetype": "water_splash",
+   "archetype_label": "plusk / uderzenie w wodę",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "4",
+   "title": "Mystic Sanctuary",
+   "archetype": "water_splash",
+   "archetype_label": "plusk / uderzenie w wodę",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "5",
+   "title": "Academy Journeymage",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "6",
+   "title": "Azorius Justiciar",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "7",
+   "title": "Mindstab",
+   "archetype": "psychic_shriek",
+   "archetype_label": "przenikliwy jęk / uderzenie psychiczne",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "9",
+   "title": "Toll of the Invasion",
+   "archetype": "wind_gust",
+   "archetype_label": "podmuch wiatru",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "12",
+   "title": "Merchant's Dockhand",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "15",
+   "title": "Tellah, Great Sage",
+   "archetype": "whip_crack",
+   "archetype_label": "trzask bicza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "16",
+   "title": "Brawler's Plate",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "18",
+   "title": "Lotusguard Disciple",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "20",
+   "title": "Jeskai Devotee",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "23",
+   "title": "Brightwood Tracker",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "26",
+   "title": "Ember Beast",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "37",
+   "title": "Howl of the Night Pack",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "39",
+   "title": "Brute Force",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "40",
+   "title": "Expunge",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "42",
+   "title": "Murder of Crows",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "43",
+   "title": "Kor Sanctifiers",
+   "archetype": "wind_gust",
+   "archetype_label": "podmuch wiatru",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "45",
+   "title": "Piercing Rays",
+   "archetype": "electric_zap",
+   "archetype_label": "wyładowanie / iskra",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "52",
+   "title": "Divest",
+   "archetype": "mechanism_click",
+   "archetype_label": "zegarowy mechanizm / zamek / zapadka",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "56",
+   "title": "Diplomatic Relations",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "58",
+   "title": "Mobile Garrison",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "67",
+   "title": "Scorpion Sentinel",
+   "archetype": "war_machine",
+   "archetype_label": "silnik i mechanizm wojennej machiny",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "71",
+   "title": "Security Rhox",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "72",
+   "title": "Dragon Arch",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "73",
+   "title": "Bladed Sentinel",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "74",
+   "title": "Rush of Battle",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "75",
+   "title": "Phyrexian Rager",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "80",
+   "title": "Merciless Repurposing",
+   "archetype": "war_machine",
+   "archetype_label": "silnik i mechanizm wojennej machiny",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "82",
+   "title": "Messenger Falcons",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "92",
+   "title": "Silumgar Butcher",
+   "archetype": "undead_groan",
+   "archetype_label": "jęk / pomruk nieumarłego",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "96",
+   "title": "Voice of the Vermin",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "112",
+   "title": "Flurry of Wings",
+   "archetype": "wing_flutter",
+   "archetype_label": "trzepot skrzydeł",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "113",
+   "title": "Welder Automaton",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "118",
+   "title": "Dire-Strain Brawler",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "120",
+   "title": "Returned Centaur",
+   "archetype": "undead_groan",
+   "archetype_label": "jęk / pomruk nieumarłego",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "124",
+   "title": "Courage in Crisis",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "126",
+   "title": "Bird Admirer",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "128",
+   "title": "Undead Servant",
+   "archetype": "undead_groan",
+   "archetype_label": "jęk / pomruk nieumarłego",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "129",
+   "title": "Charismatic Vanguard",
+   "archetype": "anvil_strike",
+   "archetype_label": "uderzenie młota w kowadło",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "132",
+   "title": "Pilgrim's Eye",
+   "archetype": "mechanism_click",
+   "archetype_label": "zegarowy mechanizm / zamek / zapadka",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "140",
+   "title": "Boros Challenger",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "145",
+   "title": "Clone Shell",
+   "archetype": "beast_screech",
+   "archetype_label": "wrzask / pisk potwora",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "150",
+   "title": "Balamb Garden, SeeD Academy",
+   "archetype": "water_splash",
+   "archetype_label": "plusk / uderzenie w wodę",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "156",
+   "title": "Summary Judgment",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "157",
+   "title": "Infectious Bloodlust",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "163",
+   "title": "Ghoulcaller's Bell",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "164",
+   "title": "Gryffwing Cavalry",
+   "archetype": "wing_flutter",
+   "archetype_label": "trzepot skrzydeł",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "166",
+   "title": "Talion's Messenger",
+   "archetype": "insect_swarm",
+   "archetype_label": "rój owadów / bzykanie",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "172",
+   "title": "Mournful Zombie",
+   "archetype": "undead_groan",
+   "archetype_label": "jęk / pomruk nieumarłego",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "173",
+   "title": "Awaken the Bear",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "176",
+   "title": "Chocobo Kick",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "177",
+   "title": "Dire Fleet Ravager",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "187",
+   "title": "Idyllic Grange",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "192",
+   "title": "Crumbling Vestige",
+   "archetype": "glass_shatter",
+   "archetype_label": "tłuczenie szkła / kryształu",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "194",
+   "title": "Lionheart Maverick",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "196",
+   "title": "Mnemonic Wall",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "202",
+   "title": "Inferno Titan",
+   "archetype": "volcanic_eruption",
+   "archetype_label": "wybuch wulkanu / lawy",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "207",
+   "title": "Feed the Infection",
+   "archetype": "arrow_flight",
+   "archetype_label": "strzała / świst pocisku",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "209",
+   "title": "Burning-Yard Trainer",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "210",
+   "title": "Fiery Justice",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "213",
+   "title": "Reclusive Artificer",
+   "archetype": "mechanism_click",
+   "archetype_label": "zegarowy mechanizm / zamek / zapadka",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "214",
+   "title": "Snarling Wolf",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "216",
+   "title": "Armored Skaab",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "223",
+   "title": "Angel's Feather",
+   "archetype": "wing_flutter",
+   "archetype_label": "trzepot skrzydeł",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "224",
+   "title": "Immersturm Skullcairn",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "226",
+   "title": "Makeshift Mauler",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "231",
+   "title": "Anthem of Champions",
+   "archetype": "arcane_choir",
+   "archetype_label": "chór / zaświatowy śpiew bez słów",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "232",
+   "title": "Goblin Piker",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "241",
+   "title": "News Helicopter",
+   "archetype": "war_machine",
+   "archetype_label": "silnik i mechanizm wojennej machiny",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "244",
+   "title": "Natural Connection",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "247",
+   "title": "Subterranean Scout",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "250",
+   "title": "Loxodon Mender",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "251",
+   "title": "Stirring Bard",
+   "archetype": "folk_music",
+   "archetype_label": "muzyka ludowa / taneczna",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "260",
+   "title": "Etched Host Doombringer",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "261",
+   "title": "Universal Solvent",
+   "archetype": "steam_hiss",
+   "archetype_label": "syk pary / gazu",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "262",
+   "title": "Angel's Herald",
+   "archetype": "horn_call",
+   "archetype_label": "róg bojowy / sygnał dęty",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "263",
+   "title": "Man-o'-War",
+   "archetype": "electric_zap",
+   "archetype_label": "wyładowanie / iskra",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "265",
+   "title": "Boulder Salvo",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "266",
+   "title": "Druid of the Cowl",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "269",
+   "title": "Scouting Hawk",
+   "archetype": "beast_screech",
+   "archetype_label": "wrzask / pisk potwora",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "276",
+   "title": "Heap Gate",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "277",
+   "title": "Spinewoods Paladin",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "298",
+   "title": "Raise the Alarm",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "308",
+   "title": "Greatsword of Tyr",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "312",
+   "title": "Goblin Battle Jester",
+   "archetype": "creature_cackle",
+   "archetype_label": "chichot / pokrzykiwanie stworzenia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "317",
+   "title": "Village Bell-Ringer",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "335",
+   "title": "Gather the Townsfolk",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "343",
+   "title": "Puppeteer Clique",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "344",
+   "title": "Pain for All",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "347",
+   "title": "Pristine Talisman",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "352",
+   "title": "Evangel of Synthesis",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "355",
+   "title": "Cathartic Reunion",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "358",
+   "title": "Frontline War-Rager",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "370",
+   "title": "Consume Spirit",
+   "archetype": "arrow_flight",
+   "archetype_label": "strzała / świst pocisku",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "372",
+   "title": "Dragonbroods' Relic",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "383",
+   "title": "Supernatural Stamina",
+   "archetype": "door_creak",
+   "archetype_label": "skrzypienie drewna / zawiasów",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "387",
+   "title": "Molten Nursery",
+   "archetype": "volcanic_eruption",
+   "archetype_label": "wybuch wulkanu / lawy",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "396",
+   "title": "Vow of Wildness",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "431",
+   "title": "Delta Bloodflies",
+   "archetype": "insect_swarm",
+   "archetype_label": "rój owadów / bzykanie",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "434",
+   "title": "Epic Experiment",
+   "archetype": "war_machine",
+   "archetype_label": "silnik i mechanizm wojennej machiny",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "442",
+   "title": "Cenn's Tactician",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "444",
+   "title": "Colossodon Yearling",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "445",
+   "title": "Locthwain Paladin",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "452",
+   "title": "Omenspeaker",
+   "archetype": "arcane_choir",
+   "archetype_label": "chór / zaświatowy śpiew bez słów",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "453",
+   "title": "Elgaud Inquisitor",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "459",
+   "title": "Prismari Campus",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "460",
+   "title": "Ivy Lane Denizen",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "463",
+   "title": "Knockout Maneuver",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "464",
+   "title": "Polluted Dead",
+   "archetype": "undead_groan",
+   "archetype_label": "jęk / pomruk nieumarłego",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "468",
+   "title": "Cacophodon",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "469",
+   "title": "Chained Throatseeker",
+   "archetype": "chain_rattle",
+   "archetype_label": "grzechot łańcuchów / kolczugi",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "478",
+   "title": "Spare from Evil",
+   "archetype": "glass_shatter",
+   "archetype_label": "tłuczenie szkła / kryształu",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "482",
+   "title": "True Conviction",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "491",
+   "title": "Nature's Embrace",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "495",
+   "title": "Scorch Spitter",
+   "archetype": "volcanic_eruption",
+   "archetype_label": "wybuch wulkanu / lawy",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "501",
+   "title": "Exterminator Magmarch",
+   "archetype": "war_machine",
+   "archetype_label": "silnik i mechanizm wojennej machiny",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "506",
+   "title": "Spread the Sickness",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "510",
+   "title": "Angel of the Dawn",
+   "archetype": "arcane_choir",
+   "archetype_label": "chór / zaświatowy śpiew bez słów",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "515",
+   "title": "Warmaker Gunship",
+   "archetype": "war_machine",
+   "archetype_label": "silnik i mechanizm wojennej machiny",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "518",
+   "title": "Woolly Loxodon",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "521",
+   "title": "Leafcrown Dryad",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "522",
+   "title": "Hobble",
+   "archetype": "chain_rattle",
+   "archetype_label": "grzechot łańcuchów / kolczugi",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "524",
+   "title": "Squire's Lightblade",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "525",
+   "title": "Jill, Shiva's Dominant",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "532",
+   "title": "You're Confronted by Robbers",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "534",
+   "title": "Terminal Agony",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "539",
+   "title": "Silvanus's Invoker",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "540",
+   "title": "Chittering Rats",
+   "archetype": "insect_swarm",
+   "archetype_label": "rój owadów / bzykanie",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "548",
+   "title": "Steelclaw Lance",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "557",
+   "title": "Kishla Village",
+   "archetype": "folk_music",
+   "archetype_label": "muzyka ludowa / taneczna",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "558",
+   "title": "White Mage's Staff",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "559",
+   "title": "Gaelicat",
+   "archetype": "beast_screech",
+   "archetype_label": "wrzask / pisk potwora",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "562",
+   "title": "Shock",
+   "archetype": "thunder_clap",
+   "archetype_label": "grzmot / uderzenie pioruna",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "565",
+   "title": "Mana Cylix",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "567",
+   "title": "Jwar Isle Avenger",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "571",
+   "title": "Vow of Flight",
+   "archetype": "wing_flutter",
+   "archetype_label": "trzepot skrzydeł",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "574",
+   "title": "Invasive Species",
+   "archetype": "insect_swarm",
+   "archetype_label": "rój owadów / bzykanie",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "576",
+   "title": "Akroan Sergeant",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "580",
+   "title": "Loporrit Scout",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "583",
+   "title": "Kill Shot",
+   "archetype": "arrow_flight",
+   "archetype_label": "strzała / świst pocisku",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "594",
+   "title": "Ironclad Slayer",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "607",
+   "title": "Containment Membrane",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "616",
+   "title": "Act of Treason",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  }
+ ]
+}

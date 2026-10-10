@@ -1,0 +1,268 @@
+{
+  "variants_dir": "/home/user/mtgdatabase/variants/r042",
+  "applied": true,
+  "results": [
+    {
+      "id": "180",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r042/v2/180.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.9,
+          "lufs": -23.78,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r042/v1/180.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.72,
+          "lufs": -13.67,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "485",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r042/v2/485.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.59,
+          "lufs": -13.02,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r042/v1/485.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.48,
+          "lufs": -13.07,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "615",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r042/v1/615.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.21,
+          "lufs": -15.15,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r042/v2/615.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.3,
+          "lufs": -10.77,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "305",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r042/v2/305.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.52,
+          "lufs": -12.2,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r042/v1/305.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.41,
+          "lufs": -13.13,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "100",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r042/v1/100.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.52,
+          "lufs": -9.05,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r042/v2/100.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.03,
+          "lufs": -15.83,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "395",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r042/v1/395.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.27,
+          "lufs": -18.85,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r042/v2/395.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.0,
+          "lufs": -21.68,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r042/v2/28.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.13,
+          "lufs": -22.11,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r042/v1/28.mp3",
+          "duration_s": 4.0,
+          "content_s": 2.71,
+          "lufs": -13.82,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r042/v2/34.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.48,
+          "lufs": -12.5,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r042/v1/34.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.34,
+          "lufs": -9.37,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "46",
+      "chosen": "v2",
+      "variants": [
+        {
+          "variant": "v2",
+          "file": "variants/r042/v2/46.mp3",
+          "duration_s": 4.0,
+          "content_s": 1.71,
+          "lufs": -19.74,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v1",
+          "file": "variants/r042/v1/46.mp3",
+          "duration_s": 4.0,
+          "content_s": 1.39,
+          "lufs": -27.41,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    },
+    {
+      "id": "102",
+      "chosen": "v1",
+      "variants": [
+        {
+          "variant": "v1",
+          "file": "variants/r042/v1/102.mp3",
+          "duration_s": 4.0,
+          "content_s": 3.89,
+          "lufs": -10.09,
+          "flags": [],
+          "main_flags": []
+        },
+        {
+          "variant": "v2",
+          "file": "variants/r042/v2/102.mp3",
+          "duration_s": 4.0,
+          "content_s": 1.92,
+          "lufs": -11.13,
+          "flags": [],
+          "main_flags": []
+        }
+      ]
+    }
+  ],
+  "final_audio_decisions": [
+    {
+      "id": "28",
+      "final": "restored pre-r042 audio",
+      "reason": "v2 increased close pairs from 1 to 3; v1 candidate also formed 3 pairs; kept original to avoid two additional protected low-frequency neighbours",
+      "final_content_s": 2.08
+    },
+    {
+      "id": "46",
+      "final": "restored pre-r042 audio",
+      "reason": "both generated variants were under the 2.0 s content floor; selected v2 also shortened measured content 2.37 to 1.70 s without reducing the edge count",
+      "final_content_s": 2.31
+    },
+    {
+      "id": "100",
+      "final": "v2 (manual override)",
+      "reason": "v1 created two new close pairs; v2 has 3.03 s raw content and no close pairs; postprocessed final content 2.90 s",
+      "final_content_s": 2.89,
+      "final_flags": [],
+      "postprocessing": "manual v2 override; -6 dB high shelf at 8 kHz via tame_spectrum, final centroid 10,266 -> 8,695 Hz, harsh flag cleared"
+    }
+  ]
+}
