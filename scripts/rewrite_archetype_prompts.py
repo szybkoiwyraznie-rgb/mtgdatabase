@@ -433,10 +433,24 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "olbrzym wynurza się i druzgocze kamienny port: wyrzut wody, głazy pirsu rozbijane, gruz wpadający do wody, do końca", False),
     "334": ("A scythe striking a metal tree in the first instant: one hard crack of the blade, then two long rasping cuts of steel through copper, shearing to the end.",
             "podniebna kosa uderza w metalowy pień w pierwszej chwili: twarde uderzenie, dwa długie zgrzyty stali przez miedź, trzecie cięcie, do końca", False),
-    "332": ("A raptor folding its wings: one short whistle of air, then a crack of lightning, then a roll of thunder that stays loud for over a second before dying away into silence before the end.",
-            "gromoraptor składa skrzydła: krótki świat powietrza, trzask błyskawicy, potem grzmot trwający ponad sekundę i cichnący przed końcem", False),
-    "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
-            "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
+    "332": (
+        "A thunder body slamming in the first instant: one hard crack of the storm, "
+        "then a second crack, then a third crack, then a fourth crack, the striking to the end. " + NO_M,
+        "grzmot: jeden twardy trzask burzy, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
+    "329": (
+        "Crystal magic swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "kryształowa magia: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
+    "262": (
+        "A brass horn calling in the first moment: one long call, then a second call, "
+        "then a third call, then a fourth call, ringing to the end. " + NO_M,
+        "mosiężny róg: jedno długie wezwanie, potem drugie, potem trzecie, potem czwarte, dźwięk do końca",
+        False,
+    ),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
             "rustic, feet stamping the beat. " + NO_S,
             "wiejska muzyka: skrzypce grają żywą taneczną melodię nad bębenkiem, stopy wybijają rytm", True),
@@ -527,9 +541,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "zapadka kręcona powoli: powtarzalne głuche niskie kliki bez syku i jasnej krawędzi", False),
     # magic_shimmer: `5` i `607` trafiły na profil „mroczna magia" (niski pulsujący
     # pomruk) i wyszły z centroidem 93-104 Hz przy wymaganym high_all >= 0,4.
-    "607": ("A protective ward unfolding: a thin glassy chime cluster high in pitch, delicate "
-            "and sparkling, hovering bright at the end. " + NO_M,
-            "bariera się rozwija: cienki szklisty klaster dzwonków wysoko, delikatny i błyszczący", False),
+    "607": (
+        "Crystal magic swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "kryształowa magia: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
+    "157": (
+        "Glassy ward swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "szklana bariera: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
     # --- r027: 45 kart, w których karta obiecuje powtarzalne zdarzenie,
     # a sample miał jedno (treść 0,41-2,04 s). Prompt nazywa liczbę
     # powtórzeń wprost, bo model inaczej gra jedno zdarzenie i resztę ciszy.
@@ -590,8 +613,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "trzy ogniste kule rozszczepione w drewniane cele ćwiczebne: trzy kolejne ryczące świsty, każdy kończy się trzaskiem pękanego drewna", False),
     "441": ("Searching through smoking rubble for route maps: four successive shifts of broken stone and ash, each a gritty scraping handful.",
             "odnajdywanie planów marszruty w dymiących zgliszczach: cztery kolejne przesunięcia gruzu i popiołu, każde chropawym chwytem", False),
-    "453": ("Plate armour shifting as the inquisitor turns: five separate heavy steel plates clanking one after another across the whole take, each hit distinct and sharply struck.",
-            "zbroja płytowa się przesuwa: pięć osobnych ciężkich płyt dzwoni kolejno przez cały sample, każda wyraźnie i ostro uderzona", False),
+    "453": (
+        "Iron gorget plates clashing on a chest in the first instant: one hard crack "
+        "of the plates, then a second crack, then a third crack, then a fourth "
+        "crack, the striking to the end. " + NO_M,
+        "żelazny gorget na piersi: jeden twardy trzask płyt, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "462": ("Iron footsteps of a Marut crushing gold on the floor: four immense metallic steps, evenly spaced, each grinding coins beneath it.",
             "żelazne kroki Maruta miażdżące złoto na posadzce: cztery ogromne metaliczne kroki w równych odstępach, każdy miele monety", False),
     "463": ("A body slamming down hard onto ice: one instant deep weighted impact with no build-up, then two shorter cracking snaps of the ice sheet within the next second.",
@@ -646,13 +674,39 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "boggart biegnie tunelem: szybkie lekkie kroki bosych stóp tupoczą po wilgotnej glinie, tupot trwa bez przerwy do końca",
         False,
     ),
-    "250": ("A steel blade snapping back together: one bright hard clash at the very first instant, then four short sharp metallic clicks as the crack seals, each with a gritty shimmer.",
-            "ostrze scala się po pęknięciu: jeden jasny twardy szczęk w pierwszej chwili, potem cztery ostre metaliczne kliki", False),
+    "250": (
+        "A steel blade clashing shut in the first instant: one hard crack of the "
+        "blade, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "ostrze scala się trzaskami: jeden twardy trzask klingi, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
+    "209": (
+        "Training swords clashing in the first instant: one hard crack of the "
+        "blades, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "miecze treningowe: jeden twardy trzask kling, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
+    "277": (
+        "A paladin blade clashing on a wooden shield in the first instant: one hard crack "
+        "of the blade, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "klinga paladyna o drewnianą tarczę: jeden twardy trzask, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
+    "576": (
+        "Bronze sergeant blades clashing in the first instant: one hard crack of the "
+        "blades, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "brązowe klingi sierżanta: jeden twardy trzask, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "71": (
-        "A rhino soldier slams into a force wall: one instant deep impact, "
-        "then his armour plates clattering and the barrier cracking with "
-        "sharp splintering snaps, mid-range." + NO_M,
-        "nosoroż uderza w barierę siły: jeden natychmiastowy głęboki impet, potem płyty pancerza łomoczą i bariera pęka z ostrymi trzaskami, środek pasma",
+        "A rhino body slamming a stone wall in the first instant: one hard crack "
+        "of the body, then a second crack, then a third crack, then a fourth "
+        "crack, the striking to the end. " + NO_M,
+        "tułów nosoroża wali w kamienny mur w pierwszej chwili: jeden twardy trzask ciała o kamień, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
         False,
     ),
     "73": ("A golden construct's blade snapping out and striking: an instant bright steel hit at the very first moment, then three more crisp clashes with a harsh metallic ring.",
@@ -675,8 +729,19 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "stalowe płyty stukają na piersi w pierwszej chwili: jeden twardy trzask płyt, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
         False,
     ),
-    "232": ('A goblin shifting in plate armour: six separate hard steel plate knocks, each a sharp hit with a gritty unpitched scrape of steel on steel, clear silence between them, no ringing tone.',
-            'goblin przestępuje w za dużej zbroi: sześć oddzielnych twardych stuknięć płyt, każde z chrzęstem stali o stal, wyraźne przerwy między nimi', False),
+    "232": (
+        "Oversized goblin plates clashing in the first instant: one hard crack of the "
+        "plates, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "za duże płyty goblina: jeden twardy trzask, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
+    "280": (
+        "A vulture throat rasping in the first instant: one hard croak, then a second "
+        "croak, then a third croak, then a fourth croak, the rasping to the end. " + NO_M,
+        "gardło sępa: jeden twardy skrzek, potem drugi, potem trzeci, potem czwarty, charkot do końca",
+        False,
+    ),
     "16": ("A heavy breastplate lifted off a stone table: four separate steel plates clanking one after another, each distinct and sharply struck, mid-pitched with body.",
             "podniesienie ciężkiego napierśnika ze stołu: cztery osobne płyty dzwonią kolejno, każda wyraźna i z ciałem", False),
     "460": ("A horned breastplate buckled onto a young centaur: five firm knocks of plate against plate, each separate and mid-pitched, with a short leather creak between.",
@@ -713,8 +778,30 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     ),
     "434": ('A mizzium reactor overloading: a deep low engine rumble underneath, with loud gritty metallic knocking and clanking forward in the mid range, and heavy pressure vents blasting open one after another.',
             'przeciążenie reaktora mizzium: niski pomruk silnika, nad nim głośne metalowe stukanie, kolejne zawory wyrywające się jeden po drugim', False),
-    "2": ("A stone thrown into deep water: one bright hard splash at the very first instant, then a hissing spray of droplets and three smaller plops spreading outward.",
-            "kamień rzucony w głęboką wodę: jeden jasny twardy plusk w pierwszej chwili, potem syk drobnego rozbryzgu i trzy mniejsze pluski", False),
+    "177": (
+        "A deep beast roaring in the first moment: one long chest roar, then a second "
+        "roar, then a third roar, then a fourth roar, bellowing to the end. " + NO_M,
+        "głęboki ryk bestii: jeden długi piersiowy ryk, potem drugi, potem trzeci, potem czwarty, ryk do końca",
+        False,
+    ),
+    "468": (
+        "A heavy throat roaring in the first moment: one long chest roar, then a second "
+        "roar, then a third roar, then a fourth roar, bellowing to the end. " + NO_M,
+        "ciężkie gardło: jeden długi piersiowy ryk, potem drugi, potem trzeci, potem czwarty, ryk do końca",
+        False,
+    ),
+    "2": (
+        "A stone thrown into deep water: one hard splash, then a second splash, "
+        "then a third splash, then a fourth splash, the striking to the end. " + NO_M,
+        "kamień w głęboką wodę: jeden twardy plusk, potem drugi, potem trzeci, potem czwarty, pluskanie do końca",
+        False,
+    ),
+    "263": (
+        "A bioelectric sting in the first instant: one hard crackling zap, then a second "
+        "zap, then a third zap, then a fourth zap, the striking to the end. " + NO_M,
+        "bioelektryczne ukłucie: jeden twardy trzaskający zap, potem drugi, potem trzeci, potem czwarty, iskrzenie do końca",
+        False,
+    ),
     "559": (
         "A gaelicat screaming: four sharp rasping screeches in a row, the first at "
         "full force with no build-up, each with a leathery wing snap underneath. " + NO_M,
@@ -730,12 +817,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "583": (
-        "An arrow loosed at a target: a sharp bowstring twang, then the fletched shaft "
-        "hissing through the air, the whoosh swelling and fading as it flies off, "
-        "ending in a soft distant thud as it strikes home. " + NO_M,
-        "strzala wypuszczona do celu: ostre szarpniecie cieciwy, potem syk lotki przecinajacej "
-        "powietrze, swist wzbierajacy i powoli cichnacy w oddali, na koniec miekki gluchy stuk "
-        "trafienia",
+        "Bowstring arrows hissing in the first instant: one hard hiss of the shaft, "
+        "then a second hiss, then a third hiss, then a fourth hiss, the striking to the end. " + NO_M,
+        "strzały z cięciwy: jeden twardy syk lotki, potem drugi, potem trzeci, potem czwarty, świst do końca",
         False,
     ),
     "173": ("A warrior's roar taking bear form: a long deep chest roar with enormous low-frequency body underneath, dark and massive, sustained across the whole take.",
@@ -757,17 +841,22 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "12": (
-        "A dock robot's servo running: one smooth continuous tonal hum at a steady "
-        "pitch held unbroken, with an even buzzing undertone and eight soft mechanical "
-        "clicks over it. " + NO_M,
-        "serwo portowego robota w ruchu: jeden gładki ciągły tonalny pomruk o stałej wysokości trzymany bez przerwy, z jednostajnym bzyczącym podkładem i ośmioma miękkimi mechanicznymi kliknięciami",
+        "A dock robot servo ticking in the first instant: one hard click over a "
+        "steady hum, then a second click, then a third click, then a fourth click, "
+        "the striking to the end. " + NO_M,
+        "serwo portowego robota: jeden twardy klik na ciągłym pomruku, potem drugi, potem trzeci, potem czwarty, stukanie do końca",
         False,
     ),
     "5": (
-        "An arcane spell igniting: a bright crystalline shimmer swelling and holding "
-        "steadily, with sparkling glassy overtones ringing high above it for the whole "
-        "take. " + NO_M,
-        "arcydzieło magii się zapala: jasne krystaliczne migotanie narastające i trzymane jednostajnie, z iskrzącymi szklanymi alikwotami dzwoniącymi wysoko nad nim przez cały take",
+        "Crystal magic swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "kryształowa magia: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
+    "163": (
+        "A cracked bronze bell tolling in the first moment: one deep toll, then a second "
+        "toll, then a third toll, then a fourth toll, ringing to the end. " + NO_M,
+        "spękany brązowy dzwon: jedno głębokie bicie, potem drugie, potem trzecie, potem czwarte, dźwięk do końca",
         False,
     ),
     "253": ("An elven bard's lute at dawn: a short plucked phrase of five or six separate clear string notes played with even rhythm, warm and bright.",
@@ -778,8 +867,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # dlatego tylko wpisy per karta, profil rodzinny by je pogodzic nie mogl.
     "308": ("A greatsword striking in the first instant: one hard crack of the blade, then two long rasping cuts of steel drawn along steel, then a third crack, the shearing to the end.",
             "wielki miecz uderza w pierwszej chwili: twardy trzask ostrza, dwa długie zgrzyty stali o stal, trzeci trzask, cięcie do końca", False),
-    "9": ("A gust of wind: broadband hissing white noise of turbulent air, swelling and easing, with no whistle, no pitched note and no tonal hum anywhere in it.",
-            "podmuch wiatru: szerokopasmowy szumiący szum białego turbulentnego powietrza, bez gwizdu i bez tonu", False),
+    "9": (
+        "Turbulent wind swelling in the first moment: one broad hiss, then a second "
+        "hiss, then a third hiss, then a fourth hiss, flowing to the end. " + NO_M,
+        "turbulentny wiatr: jeden szeroki syk, potem drugi, potem trzeci, potem czwarty, podmuch do końca",
+        False,
+    ),
     "67": (
         "A war machine's engine: a piston knocking, a second piston "
         "joining in, gears grinding and a chain running over a sprocket, "
@@ -801,8 +894,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "gęsty rój z bliska: gładki bzyk na jednym równym tonie, wyraźnie harmoniczny i ciągły", False),
     "6": ("A lawmage's barrier: a glassy chime cluster with a hard low strike, then a long sustained shimmering tail that holds steadily to the very end of the take.",
             "bariera prawodawcy: szklisty klaster dzwonków z twardym uderzeniem, potem długi trzymany ogon migotania", False),
-    "18": ("Magic kindling: a rising crystalline shimmer with a bright tone and sparkles, holding its sustained glow right through to the end without dropping away.",
-            "magia się zapala: narastające krystaliczne migotanie trwające równo do samego końca", False),
+    "18": (
+        "Crystal magic swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "kryształowa magia: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
+    "571": (
+        "Small bird wings beating in the first instant: six separate flaps, then six more "
+        "flaps, the fluttering to the end. " + NO_M,
+        "skrzydła drobnych ptaków: sześć osobnych uderzeń, potem kolejne sześć, trzepot do końca",
+        False,
+    ),
     "15": ("Old parchment cards swirling, then a fire crack: the crack lands with zero build-up at the very first sample, an instantaneous snap with nothing before it.",
             "szelest wirujących kart i trzask ognia: trzask w pierwszej próbce, bez żadnego zamachu", False),
     "257": ("A fire whip coiling and dragging: one very sharp bright high crack with zero wind-up at the first instant, then a brief bright sputtering of flame.",
@@ -905,10 +1008,20 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "pięć ciał wpada do sadzawki jedno po drugim, pierwsze uderzenie najgłośniejsze: za każdym razem jasny syczący rozbryzg kropel, woda kłębi się i kapie do końca",
         False,
     ),
+    "150": (
+        "A stone fountain splashing in the first instant: one hard splash, then a second "
+        "splash, then a third splash, then a fourth splash, the striking to the end. " + NO_M,
+        "kamienna fontanna: jeden twardy plusk, potem drugi, potem trzeci, potem czwarty, pluskanie do końca",
+        False,
+    ),
     "40": ("Thick armour plates knocked together: two or three mid-pitched metal clanks, weighty and dull rather than bright, each plate struck separately.",
             "grube płyty pancerza zderzają się: dwa-trzy klanki w środku pasma, ciężkie i matowe raczej niż jasne", False),
-    "96": ("A stream of emerald magic: one continuous flowing shimmering tone with a clear sustained pitch and bright sparkling overtones, smooth and even throughout.",
-            "strumień szmaragdowej magii: jeden ciągły płynący migotliwy ton o wyraźnej wysokości i jasnych iskrzących alikwotach", False),
+    "96": (
+        "Emerald magic swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "szmaragdowa magia: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
     "113": ("A welder drone's servo locking up: one smooth steady hum at a single unwavering mid-low pitch, held at one even volume across the whole take, with two light clicks underneath far quieter than the hum.",
             'serwo drona się blokuje: jeden równy ciągły metaliczny brzęk o stałej niskiej wysokości, trzymany na tym samym poziomie przez cały czas bez zanikania, pod nim dwa lekkie trzaski dużo ciszej niż brzęk', False),
     "118": ("A monster's close roar: a guttural bellow sitting clearly in the low middle of the range, rough and raspy, well above a pure sub-bass rumble.",
@@ -922,8 +1035,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "kamienna płyta wali w marmur w pierwszej chwili: jedno miażdżące uderzenie, potem drugie, potem trzecie, potem czwarte, uderzanie do końca",
         False,
     ),
-    "164": ("A great winged creature taking off: several crisp wingbeats with a bright leathery snap and a high rushing hiss of air, each beat clearly in the middle of the range.",
-            "wielka skrzydlata istota startuje: kilka sprężystych uderzeń skrzydeł z jasnym skórzanym trzaskiem i wysokim pędem powietrza", False),
+    "164": (
+        "Leather wings beating in the first instant: six separate flaps, then six more "
+        "flaps, the fluttering to the end. " + NO_M,
+        "skórzane skrzydła: sześć osobnych uderzeń, potem kolejne sześć, trzepot do końca",
+        False,
+    ),
+    "72": (
+        "Low stone sliding in the first moment: one grinding slide, then a second slide, "
+        "then a third slide, then a fourth slide, rumbling to the end. " + NO_M,
+        "niskie tarcie skał: jeden zgrzyt, potem drugi, potem trzeci, potem czwarty, huk do końca",
+        False,
+    ),
     "216": (
         "Armour plates clashing on a stitched body in the first instant: one hard "
         "crack of the plates, then a second crack, then a third crack, then a "
@@ -939,8 +1062,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "cztery bezsłowne głosy nucą jeden trzymany dźwięk hymnu, otwierając się w akord, który brzmi i gaśnie bardzo powoli", False),
     "265": ("A cliff face collapsing: a long low grind of rock sliding off stone, deep and heavy, shards snapping, then a spreading low crash of debris settling.",
             "ściana klifu się wali: długi niski zgrzyt skały sunącej po kamieniu, głęboki i ciężki, potem niski rozlegający się łoskot gruzu", False),
-    "382": ("The ground splitting: one deep crack, then a low rolling rumble that keeps going and fades extremely slowly, still audible right to the end of the take.",
-            "ziemia pęka: jedno głębokie pęknięcie, potem niski toczący się grzmot gasnący niezwykle powoli, słyszalny do samego końca", False),
+    "382": (
+        "The ground splitting in the first instant: one hard deep rumble, then a second rumble, "
+        "then a third rumble, then a fourth rumble, the striking to the end. " + NO_M,
+        "ziemia pęka: jeden twardy głęboki grzmot, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
     "496": ("A volcano erupting close by: a broad roaring eruption of grinding rocky noise with enormous deep bass weight, gritty and broadband rather than a smooth tone.",
             "wulkan wybucha blisko: szeroki huczący wybuch mielącego skalnego szumu z olbrzymim basem, chropawy i szerokopasmowy", False),
     "558": ("A bronze temple bell struck once: a low, dark bronze tone well below the middle of the range, holding a steady even level while it rings rather than fading quickly, sustained to the end.",
@@ -952,8 +1079,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # PIERWSZY cios (attack_s liczy sie wstecz od globalnego szczytu). Reszta to
     # karty, ktore w r031 drgnely ku celowi albo dostaly nowa metryke po
     # naprawieniu poprzedniej.
-    "269": ("One piercing hawk screech, and its very first instant is by far the loudest moment of the whole take, bright and high, with two quieter wingbeats after it.",
-            "jastrząb: jeden przenikliwy krzyk, pierwsza chwila zdecydowanie najgłośniejsza, potem dwa cichsze uderzenia skrzydeł", False),
+    "269": (
+        "A hawk throat screeching in the first instant: one hard cry, then a second "
+        "cry, then a third cry, then a fourth cry, the striking to the end. " + NO_M,
+        "gardło jastrzębia: jeden twardy krzyk, potem drugi, potem trzeci, potem czwarty, wrzask do końca",
+        False,
+    ),
     # --- r033: dwie karty bez archetypu z flaga speech_like. Próg flagi to
     # mod_2_8hz_ratio > 0,55 (tempo sylab) + voiced > 0,35 + centroid 300-3000 Hz,
     # czyli NIE wykrywa mowy, tylko modulację w tempie sylab. Pięć pozostałych
@@ -1435,9 +1566,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "561": (
-        "A griffin stooping: branches rattling, prey slammed into mud, then both wings "
-        "spreading in four heavy beats, two sharp beak strikes finishing the hunt. " + NO_M,
-        "gryf spada: gałęzie grzechoczą, zdobycz ciskana w błoto, potem oba skrzydła rozpościerają się w czterech ciężkich uderzeniach, dwa ostre dziobnięcia kończą polowanie",
+        "A griffin roaring in the first instant: one hard chest roar, then a second roar, "
+        "then a third roar, then a fourth roar, the striking to the end. " + NO_M,
+        "gryf: jeden twardy piersiowy ryk, potem drugi, potem trzeci, potem czwarty, ryk do końca",
         False,
     ),
     "393": (
@@ -1490,10 +1621,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "219": (
-        "A party crossing a crystal portal: eight bootsteps echoing one after another, "
-        "a glassy chime answering each step, then the portal hum swelling and "
-        "releasing them. " + NO_M,
-        "drużyna przechodzi przez kryształowy portal: osiem kroków odbijających się echem jeden po drugim, szklisty dzwonek odpowiadający na każdy krok, potem nabrzmiewający brzęk portalu wypuszczający wędrowców",
+        "A crystal portal ringing in the first instant: one hard crystalline shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
+        "kryształowy portal: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
         False,
     ),
     "116": (
@@ -1607,10 +1737,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "13": (
-        "Three gentle healing pulses sent one after another: three soft warm chime "
-        "swells as the loudest moment, golden sparkles drifting down like dust between "
-        "them. " + NO_M,
-        "trzy łagodne impulsy uzdrawiania jeden po drugim: trzy miękkie ciepłe uderzenia dzwonu jako najgłośniejszy moment, złote iskry opadające jak pył pomiędzy nimi",
+        "A healing spell: one hard crystalline shimmer, then a second shimmer, "
+        "then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
+        "zaklęcie uzdrawiania: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
         False,
     ),
     "519": (
@@ -1642,10 +1771,75 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "145": (
-        "A cloning pod bursts open in a chain, the first metal bang the "
-        "loudest: a shrill metallic ring, then more seal pops and hatches "
-        "giving way, thick liquid splashing over iron plates to the end." + NO_M,
-        "komora klonująca pęka łańcuchowo, pierwszy metaliczny huk najgłośniejszy: piskliwy metaliczny dzwon, potem kolejne uszczelki i włazy ustępują, gęsty płyn chlapie o żelazne płyty do końca",
+        "A cloning pod bursting in the first instant: one hard metal bang, then a second bang, "
+        "then a third bang, then a fourth bang, the striking to the end. " + NO_M,
+        "komora klonująca: jeden twardy metaliczny huk, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "341": (
+        "A peace spell igniting in the first instant: one hard crystalline shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
+        "zaklęcie pokoju: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
+        False,
+    ),
+    "348": (
+        "A time-lock clicking in the first instant: one hard clockwork click, then a second click, "
+        "then a third click, then a fourth click, the striking to the end. " + NO_M,
+        "zamek czasu: jedno twarde zegarowe kliknięcie, potem drugie, potem trzecie, potem czwarte, do końca",
+        False,
+    ),
+    "350": (
+        "Temple hearths popping in the first instant: one hard crackle of dry wood, then a second "
+        "crackle, then a third crackle, then a fourth crackle, the striking to the end. " + NO_M,
+        "paleniska chramu: jeden twardy trzask suchego drewna, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "351": (
+        "A puff of sticky spores in the first instant: one hard hiss, then a second hiss, "
+        "then a third hiss, then a fourth hiss, the striking to the end. " + NO_M,
+        "chmura lepkich zarodników: jeden twardy syk, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "87": (
+        "An angelic blessing: one hard crystalline shimmer, then a second shimmer, "
+        "then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
+        "anielskie błogosławieństwo: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
+        False,
+    ),
+    "542": (
+        "A spellbomb bursting in the first instant: one hard metal bang, then a second bang, "
+        "then a third bang, then a fourth bang, the striking to the end. " + NO_M,
+        "bomba zaklęć: jeden twardy metaliczny huk, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "388": (
+        "Scrap metal tossed in the first instant: one hard plate clank, then a second clank, "
+        "then a third clank, then a fourth clank, the striking to the end. " + NO_M,
+        "złom na pokładzie: jeden twardy szczęk płyty, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "14": (
+        "A wrench-hammer striking in the first instant: one hard metal bang, then a second bang, "
+        "then a third bang, then a fourth bang, the striking to the end. " + NO_M,
+        "klucz-młot: jeden twardy metaliczny huk, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "516": (
+        "A notched sword striking in the first instant: one hard steel clash, then a second clash, "
+        "then a third clash, then a fourth clash, the striking to the end. " + NO_M,
+        "wyszczerbiony miecz: jeden twardy szczęk stali, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "29": (
+        "Steel blades ringing in the first instant: one hard plate clank, then a second clank, "
+        "then a third clank, then a fourth clank, the striking to the end. " + NO_M,
+        "ostrza w kręgu: jeden twardy szczęk płyty, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "316": (
+        "A rift swallowing meadow in the first instant: one hard hiss, then a second hiss, "
+        "then a third hiss, then a fourth hiss, the striking to the end. " + NO_M,
+        "szczelina połyka polanę: jeden twardy syk, potem drugi, potem trzeci, potem czwarty, do końca",
         False,
     ),
 }

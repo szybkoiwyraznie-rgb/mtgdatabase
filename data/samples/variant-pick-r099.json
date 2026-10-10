@@ -1,0 +1,286 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r099",
+ "applied": false,
+ "results": [
+  {
+   "id": "350",
+   "title": "Temple of Abandon",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "chosen": "v2",
+   "chosen_score": 11.47,
+   "spread": 1.18,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r099/v2/350.mp3",
+     "score": 11.47,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "dzwon siedzi w środku pasma (spectral_centroid_hz=4898.000, oczekiwane 400.0–3000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.906,
+      "content_rel_s": 1.736,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 4898.0,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.98,
+      "voiced_fraction": 0.778,
+      "crest_db": 18.5,
+      "attack_s": 0.45,
+      "decay_s": 0.42,
+      "onset_count": 1,
+      "sustain_ratio": 0.289,
+      "mod_peak_hz": 2.89
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r099/v3/350.mp3",
+     "score": 11.65,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.67,
+      "content_rel_s": 1.65,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 2138.9,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 15.05,
+      "attack_s": 0.03,
+      "decay_s": 0.8,
+      "onset_count": 1,
+      "sustain_ratio": 0.383,
+      "mod_peak_hz": 1.21
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r099/v5/350.mp3",
+     "score": 11.95,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.61,
+      "content_rel_s": 1.6,
+      "lufs": -20.01,
+      "low_all": 0.004,
+      "spectral_centroid_hz": 2557.6,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 17.48,
+      "attack_s": 0.09,
+      "decay_s": 0.5,
+      "onset_count": 0,
+      "sustain_ratio": 0.335,
+      "mod_peak_hz": 6.25
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r099/v4/350.mp3",
+     "score": 12.3,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "dzwon siedzi w środku pasma (spectral_centroid_hz=4735.300, oczekiwane 400.0–3000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.74,
+      "content_rel_s": 1.7,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 4735.3,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 17.66,
+      "attack_s": 0.07,
+      "decay_s": 0.79,
+      "onset_count": 1,
+      "sustain_ratio": 0.299,
+      "mod_peak_hz": 1.18
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r099/v1/350.mp3",
+     "score": 12.65,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "dzwon siedzi w środku pasma (spectral_centroid_hz=5887.200, oczekiwane 400.0–3000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.67,
+      "content_rel_s": 1.64,
+      "lufs": -20.02,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5887.2,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 19.03,
+      "attack_s": 0.02,
+      "decay_s": 0.56,
+      "onset_count": 0,
+      "sustain_ratio": 0.222,
+      "mod_peak_hz": 1.31
+     }
+    }
+   ]
+  },
+  {
+   "id": "351",
+   "title": "Sporecap Spider",
+   "archetype": "steam_hiss",
+   "archetype_label": "syk pary / gazu",
+   "chosen": "v4",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v4",
+     "file": "variants/r099/v4/351.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.9,
+      "lufs": -19.98,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 9886.2,
+      "spectral_flatness": 0.297,
+      "tonal_frame_fraction": 0.018,
+      "voiced_fraction": 0.0,
+      "crest_db": 20.02,
+      "attack_s": 1.72,
+      "decay_s": 0.11,
+      "onset_count": 1,
+      "sustain_ratio": 0.545,
+      "mod_peak_hz": 1.29
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r099/v2/351.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.73,
+      "content_rel_s": 3.39,
+      "lufs": -19.97,
+      "low_all": 0.013,
+      "spectral_centroid_hz": 8002.7,
+      "spectral_flatness": 0.16,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 19.72,
+      "attack_s": 0.18,
+      "decay_s": 2.52,
+      "onset_count": 1,
+      "sustain_ratio": 0.491,
+      "mod_peak_hz": 7.67
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r099/v5/351.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.66,
+      "content_rel_s": 3.02,
+      "lufs": -20.05,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 8769.9,
+      "spectral_flatness": 0.188,
+      "tonal_frame_fraction": 0.004,
+      "voiced_fraction": 0.0,
+      "crest_db": 14.34,
+      "attack_s": 1.64,
+      "decay_s": 1.24,
+      "onset_count": 2,
+      "sustain_ratio": 0.784,
+      "mod_peak_hz": 1.33
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r099/v3/351.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 2.91,
+      "lufs": -19.95,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 8837.0,
+      "spectral_flatness": 0.18,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 15.53,
+      "attack_s": 0.35,
+      "decay_s": 2.51,
+      "onset_count": 1,
+      "sustain_ratio": 0.703,
+      "mod_peak_hz": 1.01
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r099/v1/351.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "syk jest ciągły (sustain_ratio=0.170, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.82,
+      "lufs": -20.11,
+      "low_all": 0.011,
+      "spectral_centroid_hz": 8019.3,
+      "spectral_flatness": 0.343,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 24.22,
+      "attack_s": 0.04,
+      "decay_s": 0.03,
+      "onset_count": 8,
+      "sustain_ratio": 0.17,
+      "mod_peak_hz": 7.0
+     }
+    }
+   ]
+  }
+ ]
+}

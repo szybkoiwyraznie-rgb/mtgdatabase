@@ -3989,6 +3989,34 @@
       "title": "Ambulatory Edifice",
       "story": "Na zardzewiałych pobojowiskach Mirrodinu siły lokalnego oporu wielokrotnie przekonują się o podstępnej naturze biomechanicznych najeźdźców. Gdy wyczerpani partyzanci świętują pozorne zwycięstwo, stojący nieopodal bazaltowy monument nagle ożywa, rozwijając potężne, pajęcze odnóża ze stali. Ze szczelin pulsującego szkarłatem gmachu bucha fala trującej energii, paraliżując i osłabiając zaskoczonych mirrańskich obrońców. W bezwzględnym świecie Nowej Phyrexii nawet z pozoru martwe bryły kamienia i żelaza mogą w ułamku sekundy przeistoczyć się w polujące machiny zagłady.",
       "versions": []
+    },
+    {
+      "id": "341",
+      "art_id": "341DTK",
+      "title": "Pacifism",
+      "story": "W mroźnych, smaganych wichrem przełęczach pasma Qal Sisma na planie Tarkir nawet najbardziej przerażające bestie mogą ulec kojącej magii pokoju. Kolosalny ogr Krowg, znany dotąd z niepohamowanej siły, siedzi potulnie w śniegu, wpatrując się z dziecięcym zachwytem w barwnego motyla na czubku swego wielkiego palca. Zdumiony klanowy dowódca daremnie wymachuje orężem i wzywa olbrzyma do szarży, spotykając się jedynie z pełnym beztroski spojrzeniem i absolutnym brakiem woli do walki. Pod wpływem wszechogarniającego pacyfizmu potężny wojownik woli złożyć broń w zaspie, niż ryzykować zdeptanie choćby jednego kruchego leśnego stworzenia.",
+      "versions": []
+    },
+    {
+      "id": "348",
+      "art_id": "348DMU",
+      "title": "Impulse",
+      "story": "Na smaganych wiatrem nadmorskich tarasach Jamury na planie Dominaria mag czasu Teferi wielokrotnie udowadniał, że mądrość polega na dostrzeganiu właściwych ścieżek. W ułamku sekundy czarodziej zamraża bieg otaczającej go rzeczywistości, rozszczepiając teraźniejszość na cztery świetliste tafle potencjalnych przyszłości. Z niewzruszonym spokojem doświadczony chronomanta sięga w głąb najjaśniejszego z widm, wyciągając z zagięcia czasu bezcenny zwój potrzebny w decydującym momencie. Pozostałe echa rozpadają się w złocisty pył, potwierdzając, że młodzieńcza impulsywność w rękach dojrzałego mędrca staje się najpotężniejszą bronią przeciwko chaosowi.",
+      "versions": []
+    },
+    {
+      "id": "350",
+      "art_id": "350BLC",
+      "title": "Temple of Abandon",
+      "story": "Na malowniczym pograniczu prastarego lasu Jukai i wulkanicznych grani Sokenzan na planie Kamigawa wznosi się uświęcony chram dzikiej harmonii żywiołów. W kamiennej misie na tarasie świątynnym tańczą odbicia płonących palenisk i opadających liści, odsłaniając przed skupionymi kapłankami mistyczne wizje przyszłości. Pomiędzy wstęgami szkarłatnego jedwabiu i dymem kadzideł wyznawcy oddają się ekstatycznemu tańcowi, budząc uśpione w skałach i korzeniach duchy ognia oraz puszczy. Ten odcięty od zgiełku miast zakątek natury pozwala każdemu przybyszowi wyzwolić się z doczesnych trosk i zatracić w czystej, nieokiełznanej energii świata.",
+      "versions": []
+    },
+    {
+      "id": "351",
+      "art_id": "351ELD",
+      "title": "Sporecap Spider",
+      "story": "W wiecznie wilgotnych, cienistych ostępach lasu Maraleaf na planie Eldraine wiedźmy od lat zmagały się ze złośliwymi napaściami podniebnych chochlików. By położyć kres bezkarnym prowokacjom skrzydlatych sług księcia Rankle’a, zielarki sprowadziły do swoich chat potężne pająki o grzbietach porośniętych muchomorami. Na najmniejszy szelest obcych skrzydeł w koronach drzew leśny strażnik natychmiast wyrzuca z grzybów gęstą chmurę lepkich, obezwładniających zarodników. Ci niewzruszeni obrońcy runa z łatwością strącają zuchwałe wróżki z nieba, zapewniając mieszkankom Dziczy upragniony spokój przed złośliwymi psotami.",
+      "versions": []
     }
   ]
 }

@@ -1,0 +1,284 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r096",
+ "applied": false,
+ "results": [
+  {
+   "id": "4",
+   "title": "Mystic Sanctuary",
+   "archetype": "water_splash",
+   "archetype_label": "plusk / uderzenie w wodę",
+   "chosen": "v5",
+   "chosen_score": 0.0,
+   "spread": 15.55,
+   "variants": [
+    {
+     "variant": "v5",
+     "file": "variants/r096/v5/4.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.16,
+      "content_rel_s": 1.88,
+      "lufs": -20.11,
+      "low_all": 0.063,
+      "spectral_centroid_hz": 2012.4,
+      "spectral_flatness": 0.213,
+      "tonal_frame_fraction": 0.076,
+      "voiced_fraction": 0.018,
+      "crest_db": 21.46,
+      "attack_s": 0.04,
+      "decay_s": 0.5,
+      "onset_count": 3,
+      "sustain_ratio": 0.125,
+      "mod_peak_hz": 1.35
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r096/v2/4.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "plusk zaczyna się od razu (attack_s=0.120, oczekiwane <= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.62,
+      "content_rel_s": 2.28,
+      "lufs": -20.02,
+      "low_all": 0.35,
+      "spectral_centroid_hz": 4032.6,
+      "spectral_flatness": 0.175,
+      "tonal_frame_fraction": 0.046,
+      "voiced_fraction": 0.034,
+      "crest_db": 19.58,
+      "attack_s": 0.12,
+      "decay_s": 0.08,
+      "onset_count": 4,
+      "sustain_ratio": 0.053,
+      "mod_peak_hz": 2.19
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r096/v4/4.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "plusk zaczyna się od razu (attack_s=0.510, oczekiwane <= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.1,
+      "content_rel_s": 1.85,
+      "lufs": -19.98,
+      "low_all": 0.029,
+      "spectral_centroid_hz": 3812.0,
+      "spectral_flatness": 0.254,
+      "tonal_frame_fraction": 0.013,
+      "voiced_fraction": 0.0,
+      "crest_db": 20.0,
+      "attack_s": 0.51,
+      "decay_s": 0.23,
+      "onset_count": 2,
+      "sustain_ratio": 0.297,
+      "mod_peak_hz": 1.1
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r096/v3/4.mp3",
+     "score": 11.95,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.61,
+      "content_rel_s": 1.36,
+      "lufs": -20.08,
+      "low_all": 0.054,
+      "spectral_centroid_hz": 4165.0,
+      "spectral_flatness": 0.259,
+      "tonal_frame_fraction": 0.222,
+      "voiced_fraction": 0.0,
+      "crest_db": 22.75,
+      "attack_s": 0.03,
+      "decay_s": 0.36,
+      "onset_count": 3,
+      "sustain_ratio": 0.199,
+      "mod_peak_hz": 1.75
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r096/v1/4.mp3",
+     "score": 15.55,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "plusk zaczyna się od razu (attack_s=0.150, oczekiwane <= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.09,
+      "content_rel_s": 0.87,
+      "lufs": -20.06,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 8780.2,
+      "spectral_flatness": 0.338,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 17.28,
+      "attack_s": 0.15,
+      "decay_s": 0.55,
+      "onset_count": 1,
+      "sustain_ratio": 0.569,
+      "mod_peak_hz": 1.12
+     }
+    }
+   ]
+  },
+  {
+   "id": "150",
+   "title": "Balamb Garden, SeeD Academy",
+   "archetype": "water_splash",
+   "archetype_label": "plusk / uderzenie w wodę",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r096/v2/150.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.97,
+      "content_rel_s": 3.72,
+      "lufs": -19.94,
+      "low_all": 0.179,
+      "spectral_centroid_hz": 3645.2,
+      "spectral_flatness": 0.397,
+      "tonal_frame_fraction": 0.032,
+      "voiced_fraction": 0.008,
+      "crest_db": 23.99,
+      "attack_s": 0.02,
+      "decay_s": 0.91,
+      "onset_count": 3,
+      "sustain_ratio": 0.159,
+      "mod_peak_hz": 2.86
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r096/v3/150.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.66,
+      "content_rel_s": 3.54,
+      "lufs": -20.13,
+      "low_all": 0.01,
+      "spectral_centroid_hz": 4285.6,
+      "spectral_flatness": 0.309,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.008,
+      "crest_db": 24.85,
+      "attack_s": 0.02,
+      "decay_s": 0.41,
+      "onset_count": 3,
+      "sustain_ratio": 0.079,
+      "mod_peak_hz": 1.17
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r096/v4/150.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.38,
+      "content_rel_s": 3.33,
+      "lufs": -20.36,
+      "low_all": 0.01,
+      "spectral_centroid_hz": 4334.4,
+      "spectral_flatness": 0.379,
+      "tonal_frame_fraction": 0.004,
+      "voiced_fraction": 0.02,
+      "crest_db": 20.67,
+      "attack_s": 0.06,
+      "decay_s": 0.38,
+      "onset_count": 9,
+      "sustain_ratio": 0.305,
+      "mod_peak_hz": 1.14
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r096/v5/150.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.47,
+      "content_rel_s": 3.28,
+      "lufs": -20.02,
+      "low_all": 0.37,
+      "spectral_centroid_hz": 2528.8,
+      "spectral_flatness": 0.371,
+      "tonal_frame_fraction": 0.008,
+      "voiced_fraction": 0.028,
+      "crest_db": 22.99,
+      "attack_s": 0.05,
+      "decay_s": 0.61,
+      "onset_count": 7,
+      "sustain_ratio": 0.095,
+      "mod_peak_hz": 1.05
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r096/v1/150.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.37,
+      "content_rel_s": 3.23,
+      "lufs": -20.0,
+      "low_all": 0.032,
+      "spectral_centroid_hz": 4347.9,
+      "spectral_flatness": 0.386,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 21.86,
+      "attack_s": 0.05,
+      "decay_s": 0.09,
+      "onset_count": 2,
+      "sustain_ratio": 0.335,
+      "mod_peak_hz": 2.29
+     }
+    }
+   ]
+  }
+ ]
+}

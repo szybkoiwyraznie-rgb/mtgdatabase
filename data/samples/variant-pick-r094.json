@@ -1,0 +1,78 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r094",
+ "applied": false,
+ "results": [
+  {
+   "id": "157",
+   "title": "Infectious Bloodlust",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r094/v1/157.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.69,
+      "content_rel_s": 3.4,
+      "lufs": -19.97,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4788.3,
+      "spectral_flatness": 0.051,
+      "tonal_frame_fraction": 0.467,
+      "voiced_fraction": 0.635,
+      "crest_db": 16.68,
+      "attack_s": 1.44,
+      "decay_s": 1.02,
+      "onset_count": 0,
+      "sustain_ratio": 0.499,
+      "mod_peak_hz": 1.14
+     }
+    }
+   ]
+  },
+  {
+   "id": "607",
+   "title": "Containment Membrane",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v2",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r094/v2/607.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.17,
+      "content_rel_s": 3.02,
+      "lufs": -19.96,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6316.1,
+      "spectral_flatness": 0.019,
+      "tonal_frame_fraction": 0.963,
+      "voiced_fraction": 0.0,
+      "crest_db": 16.52,
+      "attack_s": 1.08,
+      "decay_s": 0.93,
+      "onset_count": 0,
+      "sustain_ratio": 0.451,
+      "mod_peak_hz": 1.29
+     }
+    }
+   ]
+  }
+ ]
+}
