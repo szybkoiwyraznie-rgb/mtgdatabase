@@ -591,6 +591,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r098 | 2026-10-10 | **341 weszła** (2,66 s); 348 para z 207; 350/351 bez audio | `state-2026-10-10-r098.md` |
 | r099 | 2026-10-10 | **351 weszła** (3,84 s); 350 cofnięta (dzwon) | `state-2026-10-10-r099.md` |
 | r100 | 2026-10-10 | **350 weszła** (3,67 s, fire_crackle); 348 para z 18 | `state-2026-10-10-r100.md` |
+| r101 | 2026-10-10 | prompty: 348 psychic_shriek + 382, 2 × 5 | `state-2026-10-10-r101.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -599,8 +600,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r101` — 2 karty × 5.** Powtórka `348` Impulse
-   (nie `magic_shimmer` — pary z `207` i `18`).
+1. **Następna transza: `r101` — 2 karty × 5.** `348` `psychic_shriek`
+   i `382` `earth_rumble`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów

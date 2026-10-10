@@ -1062,8 +1062,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "cztery bezsłowne głosy nucą jeden trzymany dźwięk hymnu, otwierając się w akord, który brzmi i gaśnie bardzo powoli", False),
     "265": ("A cliff face collapsing: a long low grind of rock sliding off stone, deep and heavy, shards snapping, then a spreading low crash of debris settling.",
             "ściana klifu się wali: długi niski zgrzyt skały sunącej po kamieniu, głęboki i ciężki, potem niski rozlegający się łoskot gruzu", False),
-    "382": ("The ground splitting: one deep crack, then a low rolling rumble that keeps going and fades extremely slowly, still audible right to the end of the take.",
-            "ziemia pęka: jedno głębokie pęknięcie, potem niski toczący się grzmot gasnący niezwykle powoli, słyszalny do samego końca", False),
+    "382": (
+        "The ground splitting in the first instant: one hard deep rumble, then a second rumble, "
+        "then a third rumble, then a fourth rumble, the striking to the end. " + NO_M,
+        "ziemia pęka: jeden twardy głęboki grzmot, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
     "496": ("A volcano erupting close by: a broad roaring eruption of grinding rocky noise with enormous deep bass weight, gritty and broadband rather than a smooth tone.",
             "wulkan wybucha blisko: szeroki huczący wybuch mielącego skalnego szumu z olbrzymim basem, chropawy i szerokopasmowy", False),
     "558": ("A bronze temple bell struck once: a low, dark bronze tone well below the middle of the range, holding a steady even level while it rings rather than fading quickly, sustained to the end.",
@@ -1782,9 +1786,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "348": (
-        "A time-freeze snapping in the first instant: one hard crystalline shimmer, then a second "
-        "shimmer, then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
-        "zamrożenie czasu: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
+        "A time-freeze snapping inside the skull in the first instant: one piercing tonal shriek, "
+        "held high and ringing, no build-up, the striking to the end. " + NO_M,
+        "zamrożenie czasu w czaszce: jeden przenikliwy tonalny krzyk, trzymany wysoko, bez narastania, do końca",
         False,
     ),
     "350": (
