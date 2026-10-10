@@ -1773,10 +1773,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "145": (
-        "A cloning pod bursts open in a chain, the first metal bang the "
-        "loudest: a shrill metallic ring, then more seal pops and hatches "
-        "giving way, thick liquid splashing over iron plates to the end." + NO_M,
-        "komora klonująca pęka łańcuchowo, pierwszy metaliczny huk najgłośniejszy: piskliwy metaliczny dzwon, potem kolejne uszczelki i włazy ustępują, gęsty płyn chlapie o żelazne płyty do końca",
+        "A cloning pod bursting in the first instant: one hard metal bang, then a second bang, "
+        "then a third bang, then a fourth bang, the striking to the end. " + NO_M,
+        "komora klonująca: jeden twardy metaliczny huk, potem drugi, potem trzeci, potem czwarty, do końca",
         False,
     ),
     "341": (
@@ -1786,9 +1785,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "348": (
-        "A time-freeze snapping inside the skull in the first instant: one piercing tonal shriek, "
-        "held high and ringing, no build-up, the striking to the end. " + NO_M,
-        "zamrożenie czasu w czaszce: jeden przenikliwy tonalny krzyk, trzymany wysoko, bez narastania, do końca",
+        "Golden future-dust hissing in the first instant: one hard hiss, then a second hiss, "
+        "then a third hiss, then a fourth hiss, the striking to the end. " + NO_M,
+        "złoty pył przyszłości: jeden twardy syk, potem drugi, potem trzeci, potem czwarty, do końca",
         False,
     ),
     "350": (
