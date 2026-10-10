@@ -836,8 +836,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # dlatego tylko wpisy per karta, profil rodzinny by je pogodzic nie mogl.
     "308": ("A greatsword striking in the first instant: one hard crack of the blade, then two long rasping cuts of steel drawn along steel, then a third crack, the shearing to the end.",
             "wielki miecz uderza w pierwszej chwili: twardy trzask ostrza, dwa długie zgrzyty stali o stal, trzeci trzask, cięcie do końca", False),
-    "9": ("A gust of wind: broadband hissing white noise of turbulent air, swelling and easing, with no whistle, no pitched note and no tonal hum anywhere in it.",
-            "podmuch wiatru: szerokopasmowy szumiący szum białego turbulentnego powietrza, bez gwizdu i bez tonu", False),
+    "9": (
+        "Turbulent wind swelling in the first moment: one broad hiss, then a second "
+        "hiss, then a third hiss, then a fourth hiss, flowing to the end. " + NO_M,
+        "turbulentny wiatr: jeden szeroki syk, potem drugi, potem trzeci, potem czwarty, podmuch do końca",
+        False,
+    ),
     "67": (
         "A war machine's engine: a piston knocking, a second piston "
         "joining in, gears grinding and a chain running over a sprocket, "
@@ -975,8 +979,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     ),
     "40": ("Thick armour plates knocked together: two or three mid-pitched metal clanks, weighty and dull rather than bright, each plate struck separately.",
             "grube płyty pancerza zderzają się: dwa-trzy klanki w środku pasma, ciężkie i matowe raczej niż jasne", False),
-    "96": ("A stream of emerald magic: one continuous flowing shimmering tone with a clear sustained pitch and bright sparkling overtones, smooth and even throughout.",
-            "strumień szmaragdowej magii: jeden ciągły płynący migotliwy ton o wyraźnej wysokości i jasnych iskrzących alikwotach", False),
+    "96": (
+        "Emerald magic swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "szmaragdowa magia: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
     "113": ("A welder drone's servo locking up: one smooth steady hum at a single unwavering mid-low pitch, held at one even volume across the whole take, with two light clicks underneath far quieter than the hum.",
             'serwo drona się blokuje: jeden równy ciągły metaliczny brzęk o stałej niskiej wysokości, trzymany na tym samym poziomie przez cały czas bez zanikania, pod nim dwa lekkie trzaski dużo ciszej niż brzęk', False),
     "118": ("A monster's close roar: a guttural bellow sitting clearly in the low middle of the range, rough and raspy, well above a pure sub-bass rumble.",
