@@ -1,0 +1,298 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r108",
+ "applied": false,
+ "results": [
+  {
+   "id": "29",
+   "title": "You're Not Alone",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 14.7,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r108/v1/29.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.89,
+      "content_rel_s": 3.62,
+      "lufs": -19.99,
+      "low_all": 0.011,
+      "spectral_centroid_hz": 4184.0,
+      "spectral_flatness": 0.071,
+      "tonal_frame_fraction": 0.462,
+      "voiced_fraction": 0.542,
+      "crest_db": 22.95,
+      "attack_s": 0.03,
+      "decay_s": 0.33,
+      "onset_count": 9,
+      "sustain_ratio": 0.144,
+      "mod_peak_hz": 4.05
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r108/v5/29.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "pancerz dzwoni kilkoma płytami (onset_count=1, oczekiwane >= 2)",
+      "brzęk stali ma szum (spectral_flatness=0.001, oczekiwane >= 0.03)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 2.12,
+      "content_rel_s": 2.08,
+      "lufs": -19.93,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 3683.6,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 0.961,
+      "voiced_fraction": 1.0,
+      "crest_db": 22.89,
+      "attack_s": 0.02,
+      "decay_s": 0.31,
+      "onset_count": 1,
+      "sustain_ratio": 0.075,
+      "mod_peak_hz": 5.77
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r108/v3/29.mp3",
+     "score": 13.35,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "pancerz dzwoni kilkoma płytami (onset_count=1, oczekiwane >= 2)",
+      "brzęk stali ma szum (spectral_flatness=0.000, oczekiwane >= 0.03)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.73,
+      "content_rel_s": 1.7,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 2237.7,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.993,
+      "voiced_fraction": 1.0,
+      "crest_db": 20.63,
+      "attack_s": 0.01,
+      "decay_s": 0.68,
+      "onset_count": 1,
+      "sustain_ratio": 0.22,
+      "mod_peak_hz": 1.18
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r108/v4/29.mp3",
+     "score": 14.3,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "pancerz dzwoni kilkoma płytami (onset_count=1, oczekiwane >= 2)",
+      "brzęk stali ma szum (spectral_flatness=0.001, oczekiwane >= 0.03)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.54,
+      "content_rel_s": 1.35,
+      "lufs": -19.98,
+      "low_all": 0.012,
+      "spectral_centroid_hz": 4230.4,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 0.872,
+      "voiced_fraction": 0.65,
+      "crest_db": 20.62,
+      "attack_s": 0.07,
+      "decay_s": 0.41,
+      "onset_count": 1,
+      "sustain_ratio": 0.162,
+      "mod_peak_hz": 1.48
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r108/v2/29.mp3",
+     "score": 14.7,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "pancerz dzwoni kilkoma płytami (onset_count=0, oczekiwane >= 2)",
+      "brzęk stali ma szum (spectral_flatness=0.001, oczekiwane >= 0.03)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.46,
+      "content_rel_s": 1.42,
+      "lufs": -19.99,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 2999.7,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 0.941,
+      "voiced_fraction": 0.878,
+      "crest_db": 21.62,
+      "attack_s": 0.01,
+      "decay_s": 0.35,
+      "onset_count": 0,
+      "sustain_ratio": 0.164,
+      "mod_peak_hz": 1.49
+     }
+    }
+   ]
+  },
+  {
+   "id": "316",
+   "title": "Wormfang Newt",
+   "archetype": "steam_hiss",
+   "archetype_label": "syk pary / gazu",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 1.5,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r108/v3/316.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.02,
+      "lufs": -20.01,
+      "low_all": 0.004,
+      "spectral_centroid_hz": 9034.7,
+      "spectral_flatness": 0.265,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 17.73,
+      "attack_s": 0.45,
+      "decay_s": 0.55,
+      "onset_count": 1,
+      "sustain_ratio": 0.51,
+      "mod_peak_hz": 1.28
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r108/v1/316.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "syk jest szumem (spectral_flatness=0.079, oczekiwane >= 0.15)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.61,
+      "content_rel_s": 3.36,
+      "lufs": -19.96,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 8326.3,
+      "spectral_flatness": 0.079,
+      "tonal_frame_fraction": 0.223,
+      "voiced_fraction": 0.0,
+      "crest_db": 16.29,
+      "attack_s": 2.24,
+      "decay_s": 1.05,
+      "onset_count": 1,
+      "sustain_ratio": 0.892,
+      "mod_peak_hz": 1.19
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r108/v5/316.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "syk jest szumem (spectral_flatness=0.128, oczekiwane >= 0.15)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.9,
+      "content_rel_s": 3.14,
+      "lufs": -20.05,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 8822.1,
+      "spectral_flatness": 0.128,
+      "tonal_frame_fraction": 0.096,
+      "voiced_fraction": 0.0,
+      "crest_db": 16.73,
+      "attack_s": 0.24,
+      "decay_s": 1.38,
+      "onset_count": 2,
+      "sustain_ratio": 0.464,
+      "mod_peak_hz": 1.38
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r108/v2/316.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "syk jest szumem (spectral_flatness=0.103, oczekiwane >= 0.15)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.03,
+      "lufs": -19.91,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 7873.2,
+      "spectral_flatness": 0.103,
+      "tonal_frame_fraction": 0.353,
+      "voiced_fraction": 0.283,
+      "crest_db": 20.25,
+      "attack_s": 0.52,
+      "decay_s": 0.66,
+      "onset_count": 5,
+      "sustain_ratio": 0.35,
+      "mod_peak_hz": 1.37
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r108/v4/316.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "syk jest szumem (spectral_flatness=0.144, oczekiwane >= 0.15)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.642,
+      "content_rel_s": 2.202,
+      "lufs": -19.99,
+      "low_all": 0.004,
+      "spectral_centroid_hz": 9567.4,
+      "spectral_flatness": 0.144,
+      "tonal_frame_fraction": 0.042,
+      "voiced_fraction": 0.0,
+      "crest_db": 13.43,
+      "attack_s": 0.15,
+      "decay_s": 2.02,
+      "onset_count": 1,
+      "sustain_ratio": 0.803,
+      "mod_peak_hz": 1.36
+     }
+    }
+   ]
+  }
+ ]
+}

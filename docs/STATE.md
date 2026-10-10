@@ -33,8 +33,8 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r107`** — **dwie z dwóch**: `13` **2,00 → 2,84 s**
-  i `516` **2,01 → 3,40 s**. Szczegóły: `state-2026-10-10-r107.md`.
+- Ostatnia runda: **`r108`** — **dwie z dwóch**: `29` **2,00 → 3,58 s**
+  i `316` **2,02 → 2,94 s**. Szczegóły: `state-2026-10-10-r108.md`.
 - Poprzednia runda: **`r104`** — **dwie z dwóch**: `87` *Angelic
   Benediction* **1,80 → 3,09 s** i `542` *Panic Spellbomb* **2,00 →
   2,80 s**. Szczegóły: `state-2026-10-10-r104.md`.
@@ -612,6 +612,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r105 | 2026-10-10 | **zero z dwóch**: 219 pary; 388 +0,11 s | `state-2026-10-10-r105.md` |
 | r106 | 2026-10-10 | **dwie z dwóch**: 14 +0,78 s i 561 +1,26 s | `state-2026-10-10-r106.md` |
 | r107 | 2026-10-10 | **dwie z dwóch**: 13 +0,84 s i 516 +1,39 s | `state-2026-10-10-r107.md` |
+| r108 | 2026-10-10 | **dwie z dwóch**: 29 +1,58 s i 316 +0,92 s | `state-2026-10-10-r108.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
