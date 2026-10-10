@@ -1830,6 +1830,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "wyszczerbiony miecz: jeden twardy szczęk stali, potem drugi, potem trzeci, potem czwarty, do końca",
         False,
     ),
+    "29": (
+        "Steel blades ringing in the first instant: one hard plate clank, then a second clank, "
+        "then a third clank, then a fourth clank, the striking to the end. " + NO_M,
+        "ostrza w kręgu: jeden twardy szczęk płyty, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "316": (
+        "A rift swallowing meadow in the first instant: one hard hiss, then a second hiss, "
+        "then a third hiss, then a fourth hiss, the striking to the end. " + NO_M,
+        "szczelina połyka polanę: jeden twardy syk, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
 }
 
 
