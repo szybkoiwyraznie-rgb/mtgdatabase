@@ -1,0 +1,301 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r087",
+ "applied": false,
+ "results": [
+  {
+   "id": "12",
+   "title": "Merchant's Dockhand",
+   "archetype": "robot_servo",
+   "archetype_label": "serwo i mechanizm robota",
+   "chosen": "v1",
+   "chosen_score": 0.5,
+   "spread": 1.5,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r087/v1/12.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "serwo pracuje ciągiem (sustain_ratio=0.040, oczekiwane >= 0.2)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.97,
+      "content_rel_s": 3.75,
+      "lufs": -19.98,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 3386.0,
+      "spectral_flatness": 0.089,
+      "tonal_frame_fraction": 0.467,
+      "voiced_fraction": 0.143,
+      "crest_db": 26.68,
+      "attack_s": 0.01,
+      "decay_s": 0.03,
+      "onset_count": 2,
+      "sustain_ratio": 0.04,
+      "mod_peak_hz": 3.64
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r087/v2/12.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "serwo trzyma ton (tonal_frame_fraction=0.087, oczekiwane >= 0.35)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.24,
+      "content_rel_s": 2.04,
+      "lufs": -19.94,
+      "low_all": 0.02,
+      "spectral_centroid_hz": 5444.2,
+      "spectral_flatness": 0.255,
+      "tonal_frame_fraction": 0.087,
+      "voiced_fraction": 0.015,
+      "crest_db": 23.31,
+      "attack_s": 0.03,
+      "decay_s": 0.07,
+      "onset_count": 7,
+      "sustain_ratio": 0.219,
+      "mod_peak_hz": 5.26
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r087/v5/12.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "serwo trzyma ton (tonal_frame_fraction=0.000, oczekiwane >= 0.35)",
+      "serwo pracuje ciągiem (sustain_ratio=0.077, oczekiwane >= 0.2)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.77,
+      "lufs": -20.3,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 9783.0,
+      "spectral_flatness": 0.223,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.159,
+      "crest_db": 25.11,
+      "attack_s": 0.02,
+      "decay_s": 0.03,
+      "onset_count": 17,
+      "sustain_ratio": 0.077,
+      "mod_peak_hz": 17.65
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r087/v4/12.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "serwo trzyma ton (tonal_frame_fraction=0.005, oczekiwane >= 0.35)",
+      "serwo pracuje ciągiem (sustain_ratio=0.197, oczekiwane >= 0.2)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.71,
+      "content_rel_s": 3.53,
+      "lufs": -20.11,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5515.6,
+      "spectral_flatness": 0.25,
+      "tonal_frame_fraction": 0.005,
+      "voiced_fraction": 0.041,
+      "crest_db": 25.71,
+      "attack_s": 0.05,
+      "decay_s": 0.03,
+      "onset_count": 12,
+      "sustain_ratio": 0.197,
+      "mod_peak_hz": 8.11
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r087/v3/12.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "serwo trzyma ton (tonal_frame_fraction=0.240, oczekiwane >= 0.35)",
+      "serwo pracuje ciągiem (sustain_ratio=0.090, oczekiwane >= 0.2)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 2.89,
+      "content_rel_s": 2.87,
+      "lufs": -20.87,
+      "low_all": 0.017,
+      "spectral_centroid_hz": 7418.8,
+      "spectral_flatness": 0.188,
+      "tonal_frame_fraction": 0.24,
+      "voiced_fraction": 0.048,
+      "crest_db": 26.45,
+      "attack_s": 0.02,
+      "decay_s": 0.04,
+      "onset_count": 17,
+      "sustain_ratio": 0.09,
+      "mod_peak_hz": 3.75
+     }
+    }
+   ]
+  },
+  {
+   "id": "332",
+   "title": "Blitz of the Thunder-Raptor",
+   "archetype": "thunder_clap",
+   "archetype_label": "grzmot / uderzenie pioruna",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 4.0,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r087/v3/332.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.15,
+      "content_rel_s": 3.12,
+      "lufs": -20.43,
+      "low_all": 0.657,
+      "spectral_centroid_hz": 328.1,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.996,
+      "voiced_fraction": 0.122,
+      "crest_db": 20.01,
+      "attack_s": 0.01,
+      "decay_s": 0.52,
+      "onset_count": 10,
+      "sustain_ratio": 0.127,
+      "mod_peak_hz": 1.31
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r087/v5/332.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot się toczy (decay_s=0.360, oczekiwane >= 0.5)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.36,
+      "content_rel_s": 3.01,
+      "lufs": -20.08,
+      "low_all": 0.521,
+      "spectral_centroid_hz": 322.7,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.027,
+      "crest_db": 20.68,
+      "attack_s": 0.05,
+      "decay_s": 0.36,
+      "onset_count": 14,
+      "sustain_ratio": 0.092,
+      "mod_peak_hz": 1.97
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r087/v2/332.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot uderza (crest_db=17.950, oczekiwane >= 18.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.54,
+      "content_rel_s": 2.99,
+      "lufs": -20.0,
+      "low_all": 0.617,
+      "spectral_centroid_hz": 293.7,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.023,
+      "crest_db": 17.95,
+      "attack_s": 0.59,
+      "decay_s": 1.02,
+      "onset_count": 3,
+      "sustain_ratio": 0.322,
+      "mod_peak_hz": 2.51
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r087/v4/332.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot uderza (crest_db=14.630, oczekiwane >= 18.0)",
+      "grzmot się toczy (decay_s=0.240, oczekiwane >= 0.5)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 2.76,
+      "content_rel_s": 2.73,
+      "lufs": -19.99,
+      "low_all": 0.77,
+      "spectral_centroid_hz": 234.9,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.134,
+      "crest_db": 14.63,
+      "attack_s": 0.57,
+      "decay_s": 0.24,
+      "onset_count": 12,
+      "sustain_ratio": 0.319,
+      "mod_peak_hz": 2.59
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r087/v1/332.mp3",
+     "score": 4.0,
+     "measured": "postprocess",
+     "twin_with": "562:0.9655",
+     "violations": [
+      "grzmot uderza (crest_db=17.870, oczekiwane >= 18.0)",
+      "grzmot się toczy (decay_s=0.370, oczekiwane >= 0.5)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.5,
+      "content_rel_s": 3.25,
+      "lufs": -20.0,
+      "low_all": 0.61,
+      "spectral_centroid_hz": 247.1,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.033,
+      "crest_db": 17.87,
+      "attack_s": 0.03,
+      "decay_s": 0.37,
+      "onset_count": 8,
+      "sustain_ratio": 0.117,
+      "mod_peak_hz": 2.19
+     }
+    }
+   ]
+  }
+ ]
+}
