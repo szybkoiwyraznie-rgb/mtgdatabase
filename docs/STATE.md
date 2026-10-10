@@ -24,8 +24,8 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Katalog: `fabuły270926.csv` + `data/catalog.json` — **574 fabuł**
   (dopisane `341`, `348`, `350`, `351`). ID = numeryczna część
   `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **573 MP3** w `audio/samples/<id>.mp3`; **574 scenariusze**.
-  Nowe: `341`, `350`, `351` mają audio; `348` jeszcze nie.
+- Sample: **574 MP3** w `audio/samples/<id>.mp3`; **574 scenariusze**
+  — 100 % katalogu. Nowe `341`/`348`/`350`/`351` mają audio.
 - Ostatnia dostawa: `b073` — `327BLB` *Brave-Kin Duo* (`water_splash`)
   i `328LRW` *Bog Hoodlums* (`heavy_impact`), obie **trafione, 0 flag**.
   `328` weszła z pierwszej tury; `327` dopiero po zmianie archetypu
@@ -33,7 +33,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r102`** — `145` *Clone Shell* **1,52 → 2,72 s**
+- Ostatnia runda: **`r103`** — nowa `348` *Impulse* **2,62 s**
+  (`mechanism_click`, trafiony). `263` cofnięta. Szczegóły:
+  `state-2026-10-10-r103.md`.
+- Poprzednia runda: **`r102`** — `145` *Clone Shell* **1,52 → 2,72 s**
   (`heavy_impact`, trafiony). `348` cofnięta (`steam_hiss`).
   Szczegóły: `state-2026-10-10-r102.md`.
 - Poprzednia runda: **`r101`** — `382` *Geological Appraiser*
@@ -599,7 +602,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r100 | 2026-10-10 | **350 weszła** (3,67 s, fire_crackle); 348 para z 18 | `state-2026-10-10-r100.md` |
 | r101 | 2026-10-10 | **382 +0,60 s**; 348 psychic_shriek cofnięta | `state-2026-10-10-r101.md` |
 | r102 | 2026-10-10 | **145 +1,20 s** (heavy_impact); 348 steam_hiss cofnięta | `state-2026-10-10-r102.md` |
-| r103 | 2026-10-10 | prompty: 348 mechanism_click + 263, 2 × 5 | `state-2026-10-10-r103.md` |
+| r103 | 2026-10-10 | **348 weszła** (2,62 s, mechanism_click); 263 cofnięta | `state-2026-10-10-r103.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -608,8 +611,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r103` — 2 karty × 5.** `348` `mechanism_click`
-   i `263` `electric_zap`.
+1. **Następna transza: `r104` — 2 karty × 5.** Katalog pełny (574/574).
+   Treść **< 2,5 s**. Nie `electric_zap`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
