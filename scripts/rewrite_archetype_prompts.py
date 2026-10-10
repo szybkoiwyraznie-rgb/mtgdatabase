@@ -1566,9 +1566,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "561": (
-        "A griffin stooping: branches rattling, prey slammed into mud, then both wings "
-        "spreading in four heavy beats, two sharp beak strikes finishing the hunt. " + NO_M,
-        "gryf spada: gałęzie grzechoczą, zdobycz ciskana w błoto, potem oba skrzydła rozpościerają się w czterech ciężkich uderzeniach, dwa ostre dziobnięcia kończą polowanie",
+        "A griffin roaring in the first instant: one hard chest roar, then a second roar, "
+        "then a third roar, then a fourth roar, the striking to the end. " + NO_M,
+        "gryf: jeden twardy piersiowy ryk, potem drugi, potem trzeci, potem czwarty, ryk do końca",
         False,
     ),
     "393": (
@@ -1817,6 +1817,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "Scrap metal tossed in the first instant: one hard plate clank, then a second clank, "
         "then a third clank, then a fourth clank, the striking to the end. " + NO_M,
         "złom na pokładzie: jeden twardy szczęk płyty, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "14": (
+        "A wrench-hammer striking in the first instant: one hard metal bang, then a second bang, "
+        "then a third bang, then a fourth bang, the striking to the end. " + NO_M,
+        "klucz-młot: jeden twardy metaliczny huk, potem drugi, potem trzeci, potem czwarty, do końca",
         False,
     ),
 }
