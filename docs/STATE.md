@@ -24,8 +24,8 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Katalog: `fabuły270926.csv` + `data/catalog.json` — **574 fabuł**
   (dopisane `341`, `348`, `350`, `351`). ID = numeryczna część
   `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **571 MP3** w `audio/samples/<id>.mp3`; **574 scenariusze**.
-  Nowe: `341` ma audio; `348`, `350`, `351` jeszcze nie.
+- Sample: **572 MP3** w `audio/samples/<id>.mp3`; **574 scenariusze**.
+  Nowe: `341` i `351` mają audio; `348`, `350` jeszcze nie.
 - Ostatnia dostawa: `b073` — `327BLB` *Brave-Kin Duo* (`water_splash`)
   i `328LRW` *Bog Hoodlums* (`heavy_impact`), obie **trafione, 0 flag**.
   `328` weszła z pierwszej tury; `327` dopiero po zmianie archetypu
@@ -33,7 +33,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r098`** — nowa `341` *Pacifism* **2,66 s**
+- Ostatnia runda: **`r099`** — nowa `351` *Sporecap Spider*
+  **3,84 s** (`steam_hiss`, trafiony). `350` cofnięta (dzwon:
+  centroid/sustain). Szczegóły: `state-2026-10-10-r099.md`.
+- Poprzednia runda: **`r098`** — nowa `341` *Pacifism* **2,66 s**
   (trafiony). `348` Impulse para 0,91 z `207`. Szczegóły:
   `state-2026-10-10-r098.md`.
 - Poprzednia runda: **`r096`** — **dwie z dwóch**: `4` *Mystic
@@ -583,7 +586,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r096 | 2026-10-10 | **dwie z dwóch**: 4 (1,14 → 1,59 s) i 150 (2,37 → 3,69 s) | `state-2026-10-10-r096.md` |
 | r097 | 2026-10-10 | **jedna z dwóch**: 2 (2,37 → 3,41 s); 263 cofnięta | `state-2026-10-10-r097.md` |
 | r098 | 2026-10-10 | **341 weszła** (2,66 s); 348 para z 207; 350/351 bez audio | `state-2026-10-10-r098.md` |
-| r099 | 2026-10-10 | prompty: 350 + 351, 2 × 5 | `state-2026-10-10-r099.md` |
+| r099 | 2026-10-10 | **351 weszła** (3,84 s); 350 cofnięta (dzwon) | `state-2026-10-10-r099.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -592,8 +595,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r099` — 2 karty × 5.** `350` Temple of Abandon
-   i `351` Sporecap Spider (nowe, bez audio). `348` do powtórki.
+1. **Następna transza: `r100` — 2 karty × 5.** Powtórka `348` Impulse
+   i `350` Temple of Abandon (inne archetypy / dzwon).
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
