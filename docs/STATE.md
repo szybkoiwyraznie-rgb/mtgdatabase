@@ -599,6 +599,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r100 | 2026-10-10 | **350 weszła** (3,67 s, fire_crackle); 348 para z 18 | `state-2026-10-10-r100.md` |
 | r101 | 2026-10-10 | **382 +0,60 s**; 348 psychic_shriek cofnięta | `state-2026-10-10-r101.md` |
 | r102 | 2026-10-10 | **145 +1,20 s** (heavy_impact); 348 steam_hiss cofnięta | `state-2026-10-10-r102.md` |
+| r103 | 2026-10-10 | prompty: 348 mechanism_click + 263, 2 × 5 | `state-2026-10-10-r103.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -607,8 +608,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r103` — 2 karty × 5.** `348` Impulse nadal
-   bez audio. Nie shimmer / shriek / hiss. Treść **< 2,5 s**.
+1. **Następna transza: `r103` — 2 karty × 5.** `348` `mechanism_click`
+   i `263` `electric_zap`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów

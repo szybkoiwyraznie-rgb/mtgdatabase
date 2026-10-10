@@ -1785,9 +1785,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "348": (
-        "Golden future-dust hissing in the first instant: one hard hiss, then a second hiss, "
-        "then a third hiss, then a fourth hiss, the striking to the end. " + NO_M,
-        "złoty pył przyszłości: jeden twardy syk, potem drugi, potem trzeci, potem czwarty, do końca",
+        "A time-lock clicking in the first instant: one hard clockwork click, then a second click, "
+        "then a third click, then a fourth click, the striking to the end. " + NO_M,
+        "zamek czasu: jedno twarde zegarowe kliknięcie, potem drugie, potem trzecie, potem czwarte, do końca",
         False,
     ),
     "350": (
