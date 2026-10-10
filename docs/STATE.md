@@ -32,7 +32,9 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r090`** — **dwie z dwóch**: `329` *Blinding
+- Ostatnia runda: **`r091`** — **zero z dwóch**: `9` centroid;
+  `96` po łańcuchu krótsza. Szczegóły: `state-2026-10-10-r091.md`.
+- Poprzednia runda: **`r090`** — **dwie z dwóch**: `329` *Blinding
   Drone* **2,17 → 2,59 s** i `262` *Angel's Herald* **2,44 → 3,27 s**.
   Szczegóły: `state-2026-10-10-r090.md`.
 - Poprzednia runda: **`r089`** — **zero z dwóch**: `5` para 0,90 z
@@ -555,7 +557,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r088 | 2026-10-10 | **dwie z dwóch**: 18 (2,10 → 2,70 s) i 571 (2,29 → 2,64 s) | `state-2026-10-10-r088.md` |
 | r089 | 2026-10-10 | **zero z dwóch**; 5 para z 98; 163 werdykt | `state-2026-10-10-r089.md` |
 | r090 | 2026-10-10 | **dwie z dwóch**: 329 (2,17 → 2,59 s) i 262 (2,44 → 3,27 s) | `state-2026-10-10-r090.md` |
-| r091 | 2026-10-10 | prompty: 9 wind_gust + 96 magic_shimmer, 2 × 5 | `state-2026-10-10-r091.md` |
+| r091 | 2026-10-10 | **zero z dwóch**; 9 centroid; 96 krótsza po łańcuchu | `state-2026-10-10-r091.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
