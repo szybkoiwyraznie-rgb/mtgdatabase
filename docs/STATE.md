@@ -32,7 +32,9 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r088`** — **dwie z dwóch**: `18` *Lotusguard
+- Ostatnia runda: **`r089`** — **zero z dwóch**: `5` para 0,90 z
+  `98`; `163` gorszy werdykt. Szczegóły: `state-2026-10-10-r089.md`.
+- Poprzednia runda: **`r088`** — **dwie z dwóch**: `18` *Lotusguard
   Disciple* **2,10 → 2,70 s** (`magic_shimmer`) i `571` *Vow of
   Flight* **2,29 → 2,64 s** (`wing_flutter`). Szczegóły:
   `state-2026-10-10-r088.md`.
@@ -548,7 +550,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r086 | 2026-10-10 | **zero z dwóch**; 269 i 583 dłuższe, gorszy werdykt | `state-2026-10-10-r086.md` |
 | r087 | 2026-10-10 | **zero z dwóch**; 12 werdykt; 332 para 0,90 z 558 | `state-2026-10-10-r087.md` |
 | r088 | 2026-10-10 | **dwie z dwóch**: 18 (2,10 → 2,70 s) i 571 (2,29 → 2,64 s) | `state-2026-10-10-r088.md` |
-| r089 | 2026-10-10 | prompty: 5 magic_shimmer + 163 temple_bell, 2 × 5 | `state-2026-10-10-r089.md` |
+| r089 | 2026-10-10 | **zero z dwóch**; 5 para z 98; 163 werdykt | `state-2026-10-10-r089.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
