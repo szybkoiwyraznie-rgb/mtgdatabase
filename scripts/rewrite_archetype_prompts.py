@@ -1621,10 +1621,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "219": (
-        "A party crossing a crystal portal: eight bootsteps echoing one after another, "
-        "a glassy chime answering each step, then the portal hum swelling and "
-        "releasing them. " + NO_M,
-        "drużyna przechodzi przez kryształowy portal: osiem kroków odbijających się echem jeden po drugim, szklisty dzwonek odpowiadający na każdy krok, potem nabrzmiewający brzęk portalu wypuszczający wędrowców",
+        "A crystal portal ringing in the first instant: one hard crystalline shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
+        "kryształowy portal: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
         False,
     ),
     "116": (
@@ -1812,6 +1811,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "A spellbomb bursting in the first instant: one hard metal bang, then a second bang, "
         "then a third bang, then a fourth bang, the striking to the end. " + NO_M,
         "bomba zaklęć: jeden twardy metaliczny huk, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
+    "388": (
+        "Scrap metal tossed in the first instant: one hard plate clank, then a second clank, "
+        "then a third clank, then a fourth clank, the striking to the end. " + NO_M,
+        "złom na pokładzie: jeden twardy szczęk płyty, potem drugi, potem trzeci, potem czwarty, do końca",
         False,
     ),
 }

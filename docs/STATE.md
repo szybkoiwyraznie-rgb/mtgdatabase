@@ -607,6 +607,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r102 | 2026-10-10 | **145 +1,20 s** (heavy_impact); 348 steam_hiss cofnięta | `state-2026-10-10-r102.md` |
 | r103 | 2026-10-10 | **348 weszła** (2,62 s, mechanism_click); 263 cofnięta | `state-2026-10-10-r103.md` |
 | r104 | 2026-10-10 | **dwie z dwóch**: 87 (1,80 → 3,09 s) i 542 (2,00 → 2,80 s) | `state-2026-10-10-r104.md` |
+| r105 | 2026-10-10 | prompty: 219 shimmer + 388 plate_clank, 2 × 5 | `state-2026-10-10-r105.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -615,8 +616,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r105` — 2 karty × 5.** Treść **< 2,5 s**,
-   n85=0, z archetypem albo nowym przypisaniem. Nie `electric_zap`.
+1. **Następna transza: `r105` — 2 karty × 5.** `219` i `388`, n85=0.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
