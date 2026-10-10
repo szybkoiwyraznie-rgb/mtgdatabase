@@ -998,8 +998,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "kamienna płyta wali w marmur w pierwszej chwili: jedno miażdżące uderzenie, potem drugie, potem trzecie, potem czwarte, uderzanie do końca",
         False,
     ),
-    "164": ("A great winged creature taking off: several crisp wingbeats with a bright leathery snap and a high rushing hiss of air, each beat clearly in the middle of the range.",
-            "wielka skrzydlata istota startuje: kilka sprężystych uderzeń skrzydeł z jasnym skórzanym trzaskiem i wysokim pędem powietrza", False),
+    "164": (
+        "Leather wings beating in the first instant: six separate flaps, then six more "
+        "flaps, the fluttering to the end. " + NO_M,
+        "skórzane skrzydła: sześć osobnych uderzeń, potem kolejne sześć, trzepot do końca",
+        False,
+    ),
+    "72": (
+        "Low stone sliding in the first moment: one grinding slide, then a second slide, "
+        "then a third slide, then a fourth slide, rumbling to the end. " + NO_M,
+        "niskie tarcie skał: jeden zgrzyt, potem drugi, potem trzeci, potem czwarty, huk do końca",
+        False,
+    ),
     "216": (
         "Armour plates clashing on a stitched body in the first instant: one hard "
         "crack of the plates, then a second crack, then a third crack, then a "

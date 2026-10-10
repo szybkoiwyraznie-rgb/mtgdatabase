@@ -558,6 +558,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r089 | 2026-10-10 | **zero z dwóch**; 5 para z 98; 163 werdykt | `state-2026-10-10-r089.md` |
 | r090 | 2026-10-10 | **dwie z dwóch**: 329 (2,17 → 2,59 s) i 262 (2,44 → 3,27 s) | `state-2026-10-10-r090.md` |
 | r091 | 2026-10-10 | **zero z dwóch**; 9 centroid; 96 krótsza po łańcuchu | `state-2026-10-10-r091.md` |
+| r092 | 2026-10-10 | prompty: 164 wing_flutter + 72 stone_slide, 2 × 5 | `state-2026-10-10-r092.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -566,8 +567,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r091` — 2 karty × 5.** `9` wind_gust i
-   `96` magic_shimmer. Rest plus `5`, `163`.
+1. **Następna transza: `r092` — 2 karty × 5.** `164` wing_flutter i
+   `72` stone_slide. Rest plus `9`, `96`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
