@@ -488,7 +488,7 @@
    "archetype": "plate_clank",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "Chitin plates snapping shut one after another: six short dry clicks, each distinct and mid-pitched, evenly spaced with a faint gritty edge. Signature sound of t"
+   "prompt": "Chitin plates clashing shut in the first instant: one hard crack of the plates, then a second crack, then a third crack, then a fourth crack, the striking to th"
   },
   {
    "id": "57",
@@ -1720,7 +1720,7 @@
    "archetype": "heavy_impact",
    "rule": "ręczna deklaracja",
    "confidence": "manual",
-   "prompt": "A rune staff cracks hard against a castle stone floor; branching sacred fire erupts outward with a hot whoosh and many sharp irregular flame crackles, ending wi"
+   "prompt": "A rune staff clashing on stone in the first instant: one hard crack of the staff, then a second crack, then a third crack, then a fourth crack, the striking to "
   },
   {
    "id": "211",
