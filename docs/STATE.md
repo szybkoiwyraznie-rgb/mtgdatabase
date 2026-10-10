@@ -32,7 +32,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r082`** — **dwie z dwóch**: `71` *Security Rhox*
+- Ostatnia runda: **`r083`** — z 2 kart weszła **jedna**: `250`
+  *Loxodon Mender* **2,70 → 3,11 s**, `sword_clash`. `209` cofnięta
+  (+0,01 s po łańcuchu — za mało). Szczegóły: `state-2026-10-10-r083.md`.
+- Poprzednia runda: **`r082`** — **dwie z dwóch**: `71` *Security Rhox*
   **2,30 → 3,21 s** (`heavy_impact`) i `453` *Elgaud Inquisitor*
   **2,97 → 3,36 s** (`plate_clank`). Obie trafione, 0 flag, 0 par.
   Szczegóły: `docs/archive/state-2026-10-10-r082.md`.
@@ -524,7 +527,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r080 | 2026-10-09 | **pięć prób dało to, czego trzy nie dały** — 140 ten sam prompt co w r077, +0,76 s (2,70 → 3,46); 370 cofnięta: 5/5 dłuższych, 4/5 nie przeszło arrow_flight | `state-2026-10-09-r080.md` |
 | r081 | 2026-10-10 | 56 weszła (3,00 → 4,00 s); 210 cofnięta na `low_all`; kostur o kamień skreślony | `state-2026-10-10-r081.md` |
 | r082 | 2026-10-10 | **dwie z dwóch**: 71 (2,30 → 3,21 s) i 453 (2,97 → 3,36 s), obie trafione, 0 flag | `state-2026-10-10-r082.md` |
-| r083 | 2026-10-10 | prompty: 209 i 250 sword_clash, 2 × 5, czeka na generację | `state-2026-10-10-r083.md` |
+| r083 | 2026-10-10 | 250 weszła (2,70 → 3,11 s); 209 cofnięta (+0,01 s) | `state-2026-10-10-r083.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -533,10 +536,10 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r083` — 2 karty × 5.** `209` Burning-Yard
-   Trainer (2,89 s) i `250` Loxodon Mender (2,70 s), obie
-   `sword_clash`, region wolny. Ten sam łańcuch co r082. Rest:
-   `534`, `548`, `370`, `210`.
+1. **Następna transza: `r084` — 2 karty × 5.** r083: jedna z dwóch.
+   `209` nie urosła (rozrzut 1,73–3,09, obecne 2,89 leży w środku).
+   Rest: `534`, `548`, `370`, `210`, plus `209` na jedną rundę.
+   Kandydaci: trafione, treść < 3,2 s, wolny region, krótki zanik.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
