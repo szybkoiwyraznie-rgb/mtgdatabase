@@ -437,6 +437,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "gromoraptor składa skrzydła: krótki świat powietrza, trzask błyskawicy, potem grzmot trwający ponad sekundę i cichnący przed końcem", False),
     "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
             "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
+    "370": (
+        "Liquid drawn through a narrow glass tube in the first instant: one rasp "
+        "of liquid, then a second rasp, then a third rasp, then a fourth rasp, the "
+        "pulling to the end. " + NO_M,
+        "ciecz ciągnięta przez wąską szklaną rurkę w pierwszej chwili: jeden zgrzyt cieczy, potem drugi, potem trzeci, potem czwarty, ciągnięcie do końca",
+        False,
+    ),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
             "rustic, feet stamping the beat. " + NO_S,
             "wiejska muzyka: skrzypce grają żywą taneczną melodię nad bębenkiem, stopy wybijają rytm", True),
@@ -668,9 +675,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "fala lodowcowych kolców od ciosu rapiera: natychmiastowy jasny cios, potem cztery ostre trzaski pękanego lodu", False),
     "594": ("A sword wrenched out of mud and struck: an instant hard bright steel clash at the very first moment, then three more gritty ringing strikes.",
             "miecz wyrwany z błota i cios: natychmiastowy twardy szczęk stali, potem trzy chrapliwe dzwoniące uderzenia", False),
-    "140": ("A fighter rolling up from a packed yard: five separate steel plates clanking one "
-           "after another, each distinct, sharply struck and mid-pitched, with a gritty scrape.",
-            "przewrotka po ubitym placu: pięć osobnych płyt zbroi dzwoni kolejno, każda wyraźna i ze środka pasma", False),
+    "140": (
+        "Steel plates clashing on a chest in the first instant: one hard crack of "
+        "the plates, then a second crack, then a third crack, then a fourth "
+        "crack, the striking to the end. " + NO_M,
+        "stalowe płyty stukają na piersi w pierwszej chwili: jeden twardy trzask płyt, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "232": ('A goblin shifting in plate armour: six separate hard steel plate knocks, each a sharp hit with a gritty unpitched scrape of steel on steel, clear silence between them, no ringing tone.',
             'goblin przestępuje w za dużej zbroi: sześć oddzielnych twardych stuknięć płyt, każde z chrzęstem stali o stal, wyraźne przerwy między nimi', False),
     "16": ("A heavy breastplate lifted off a stone table: four separate steel plates clanking one after another, each distinct and sharply struck, mid-pitched with body.",

@@ -1,38 +1,35 @@
-name: "TEMP r079 - 333 i 534: piec wariantow na karte"
+name: "TEMP r080 - 140 i 370: druga transza 2 x 5"
 
-# r079: 2 karty x 5 wariantow = 10 generacji x 40 kredytow = 400 kredytow.
-# Po tej paczce na drugim kluczu zostanie 5280.
+# r080: 2 karty x 5 wariantow = 10 generacji x 40 kredytow = 400 kredytow.
+# Po tej paczce na drugim kluczu zostanie 4880.
 #
-#  534 plate_clank  tresc 2,73 s  luka 0,44 s  3 prob  0 sasiadow >=0,80
-#  333 plate_clank  tresc 2,63 s  luka 0,55 s  2 prob  0 sasiadow >=0,80
+#  140 plate_clank   tresc 2,70 s  luka 0,48 s  3 prob  0 sasiadow >=0,80
+#  370 arrow_flight  tresc 2,34 s  luka 0,32 s  1 prob  0 sasiadow >=0,80
 #
-# PIERWSZA TRANsza PO ZMIANIE STRATEGII. r078 zakonczyla sie
-# zero z trzech i obalila trzecia hipoteze z rzedu (lancuch
-# zdarzen -> czasownik uderzenia -> material). Zostalo policzone:
+# Druga transza w formacie 2 x 5. r079 nie rozstrzygla, czy piec
+# wariantow na karte jest lepsze niz trzy (1 z 2 miesci sie w
+# dotychczasowym rozrzucie), ale pokazala, NA CO warto wydac
+# proby: na karty, ktorych rozklad dlugosci OBEJMUJE wartosc
+# docelowa. 333 mial rozklad 0,48-2,84 s i dala sie wyciagnac;
+# 534 miala 0,57-1,86 s i nie dala sie, mimo pieciu prob.
 #
-#   r077  ten sam prompt -> 0,36 s i 3,45 s
-#   r078  ten sam prompt -> 0,76 s i 2,64 s
+#  140  proba 4. Poprzednie: r077 z tym samym tekstem dala
+#       2,22 / 2,42 / 2,37 s, wszystkie krotsze od obecnych 2,70.
+#       Dostaje piec prob z tym samym promptem — czysty test,
+#       czy dochodzenie nastepuje przez liczbe prob, czy nie.
 #
-# Rozrzut dlugosci wewnatrz jednego promptu jest wiekszy niz
-# roznice miedzy promptami. Szukanie kolejnej zmiennej w tekscie
-# ma malejacy zwrot; zwiekszenie liczby prob jest tym, co da sie
-# zaplanowac.
+#  370  proba 2. Pierwsza proba (b031) dala 2,34 s. Dostaje
+#       lancuch czterech zgrzytow cieczy, ale UTRZYMUJE material
+#       z obecnego promptu: to zasysanie, nie strzaly.
+#       arrow_flight wymaga decay_s <= 0,8, wiec konczymy na
+#       zdarzeniu („the pulling to the end"), nie na wybrzmieniu.
+#       Zmiana materialu na strzaly poprawilaby klasyfikator, ale
+#       popsulaby zwiazek dzwieku z karta (Consume Spirit) —
+#       a to jest glowny zarzut wlasciciela.
 #
-# Dlatego: PIEC wariantow na DWOCH kartach zamiast trzech na
-# trzech. 10 generacji za 400 kredytow, czyli 200 na karte
-# zamiast 120. Jesli wariancja jest glowna zmienna, piec prob
-# powinno dac lepszy plon niz trzy — z jednego promptu r077
-# wyciagnelabym 3,45 s przy pieciu probach tak samo jak przy
-# trzech, ale karty takie jak 534 czy 548 dostaly szanse, ktorej
-# trzy proby im nie daly.
-#
-# Obie karty sa plate_clank, region wolny, kontrakt z krotkim
-# zanikiem (decay_s <= 1,2). 534 probowana trzy razy, 333 dwa.
-# Szkielet bez zmian: cztery trzaski, bez wybrzmiewania,
-# „striking to the end".
-#
-# Zmiana w workflow: petla `for v in 1 2 3 4 5`. Odbior i ocena
-# musza objac piec wariantow na karte, nie trzy.
+# Obie karty: region wolny (0 sasiadow >= 0,80 i >= 0,85),
+# kontrakt z krotkim zanikiem (plate_clank <= 1,2,
+# arrow_flight <= 0,8).
 #
 on:
   push:
@@ -45,7 +42,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "333,534"
+  IDS: "140,370"
 
 jobs:
   variants:
@@ -56,13 +53,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r079]
+      - name: Guard — tylko commit z markerem [generate-r080]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r079]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r080]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r079] — nic nie generuję"
+            echo "brak markera [generate-r080] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -81,25 +78,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r079
+          mkdir -p variants/r080
           for v in 1 2 3 4 5; do
-            echo "=== wariant v$v ===" | tee -a variants/r079/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r080/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r079 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r079/v$v" 2>&1 | tee -a variants/r079/generate.log
+              --ids "$IDS" --batch r080 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r080/v$v" 2>&1 | tee -a variants/r080/generate.log
           done
-          ls -la variants/r079 variants/r079/v1 variants/r079/v2 variants/r079/v3 variants/r079/v4 variants/r079/v5 || true
+          ls -la variants/r080 variants/r080/v1 variants/r080/v2 variants/r080/v3 variants/r080/v4 variants/r080/v5 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r079 data/samples/generated-manifest.jsonl
+          git add -f variants/r080 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r079: 9 wariantow (3 karty x 3) + log generacji [import-r079]"
+            git commit -m "r080: 9 wariantow (3 karty x 3) + log generacji [import-r080]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
