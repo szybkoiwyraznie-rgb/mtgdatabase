@@ -33,7 +33,9 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r104`** — **dwie z dwóch**: `87` *Angelic
+- Ostatnia runda: **`r105`** — **zero z dwóch**: `219` pary shimmer;
+  `388` +0,11 s. Szczegóły: `state-2026-10-10-r105.md`.
+- Poprzednia runda: **`r104`** — **dwie z dwóch**: `87` *Angelic
   Benediction* **1,80 → 3,09 s** i `542` *Panic Spellbomb* **2,00 →
   2,80 s**. Szczegóły: `state-2026-10-10-r104.md`.
 - Poprzednia runda: **`r103`** — nowa `348` *Impulse* **2,62 s**
@@ -607,7 +609,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r102 | 2026-10-10 | **145 +1,20 s** (heavy_impact); 348 steam_hiss cofnięta | `state-2026-10-10-r102.md` |
 | r103 | 2026-10-10 | **348 weszła** (2,62 s, mechanism_click); 263 cofnięta | `state-2026-10-10-r103.md` |
 | r104 | 2026-10-10 | **dwie z dwóch**: 87 (1,80 → 3,09 s) i 542 (2,00 → 2,80 s) | `state-2026-10-10-r104.md` |
-| r105 | 2026-10-10 | prompty: 219 shimmer + 388 plate_clank, 2 × 5 | `state-2026-10-10-r105.md` |
+| r105 | 2026-10-10 | **zero z dwóch**: 219 pary; 388 +0,11 s | `state-2026-10-10-r105.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -616,7 +618,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r105` — 2 karty × 5.** `219` i `388`, n85=0.
+1. **Następna transza: `r106` — 2 karty × 5.** Treść **< 2,5 s**,
+   n85=0. Nie shimmer na kartach bez własnego tonu (r105 `219`).
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
