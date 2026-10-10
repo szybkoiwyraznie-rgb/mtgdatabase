@@ -1,0 +1,292 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r098",
+ "applied": false,
+ "results": [
+  {
+   "id": "341",
+   "title": "Pacifism",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v5",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v5",
+     "file": "variants/r098/v5/341.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.49,
+      "content_rel_s": 3.37,
+      "lufs": -19.96,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 6672.5,
+      "spectral_flatness": 0.063,
+      "tonal_frame_fraction": 0.36,
+      "voiced_fraction": 0.244,
+      "crest_db": 18.36,
+      "attack_s": 0.58,
+      "decay_s": 1.86,
+      "onset_count": 0,
+      "sustain_ratio": 0.542,
+      "mod_peak_hz": 1.16
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r098/v1/341.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.27,
+      "content_rel_s": 3.1,
+      "lufs": -20.05,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 7995.4,
+      "spectral_flatness": 0.041,
+      "tonal_frame_fraction": 0.74,
+      "voiced_fraction": 0.037,
+      "crest_db": 16.1,
+      "attack_s": 0.19,
+      "decay_s": 2.08,
+      "onset_count": 1,
+      "sustain_ratio": 0.59,
+      "mod_peak_hz": 3.46
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r098/v2/341.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.000, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.04,
+      "content_rel_s": 3.01,
+      "lufs": -19.94,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 8607.1,
+      "spectral_flatness": 0.158,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.402,
+      "crest_db": 19.47,
+      "attack_s": 0.87,
+      "decay_s": 1.25,
+      "onset_count": 1,
+      "sustain_ratio": 0.536,
+      "mod_peak_hz": 1.32
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r098/v3/341.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.271, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.97,
+      "content_rel_s": 2.94,
+      "lufs": -19.93,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 8335.8,
+      "spectral_flatness": 0.065,
+      "tonal_frame_fraction": 0.271,
+      "voiced_fraction": 0.0,
+      "crest_db": 17.84,
+      "attack_s": 0.78,
+      "decay_s": 1.46,
+      "onset_count": 0,
+      "sustain_ratio": 0.512,
+      "mod_peak_hz": 1.02
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r098/v4/341.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.000, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.87,
+      "content_rel_s": 2.81,
+      "lufs": -19.99,
+      "low_all": 0.067,
+      "spectral_centroid_hz": 7242.8,
+      "spectral_flatness": 0.095,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 20.09,
+      "attack_s": 0.13,
+      "decay_s": 1.67,
+      "onset_count": 1,
+      "sustain_ratio": 0.449,
+      "mod_peak_hz": 1.07
+     }
+    }
+   ]
+  },
+  {
+   "id": "348",
+   "title": "Impulse",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r098/v1/348.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.64,
+      "content_rel_s": 3.53,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 7388.3,
+      "spectral_flatness": 0.049,
+      "tonal_frame_fraction": 0.54,
+      "voiced_fraction": 0.962,
+      "crest_db": 16.2,
+      "attack_s": 0.97,
+      "decay_s": 2.06,
+      "onset_count": 1,
+      "sustain_ratio": 0.706,
+      "mod_peak_hz": 1.11
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r098/v4/348.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.172, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.55,
+      "content_rel_s": 3.45,
+      "lufs": -20.04,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 8329.8,
+      "spectral_flatness": 0.072,
+      "tonal_frame_fraction": 0.172,
+      "voiced_fraction": 0.0,
+      "crest_db": 17.33,
+      "attack_s": 1.11,
+      "decay_s": 1.34,
+      "onset_count": 0,
+      "sustain_ratio": 0.515,
+      "mod_peak_hz": 2.86
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r098/v2/348.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.000, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.43,
+      "content_rel_s": 3.31,
+      "lufs": -19.79,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 9960.4,
+      "spectral_flatness": 0.168,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 17.1,
+      "attack_s": 0.76,
+      "decay_s": 1.71,
+      "onset_count": 1,
+      "sustain_ratio": 0.548,
+      "mod_peak_hz": 1.18
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r098/v3/348.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.000, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.96,
+      "content_rel_s": 2.81,
+      "lufs": -19.96,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 6279.7,
+      "spectral_flatness": 0.104,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.326,
+      "crest_db": 17.61,
+      "attack_s": 0.74,
+      "decay_s": 1.13,
+      "onset_count": 0,
+      "sustain_ratio": 0.456,
+      "mod_peak_hz": 1.05
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r098/v5/348.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.029, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.8,
+      "content_rel_s": 2.74,
+      "lufs": -19.93,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 7014.9,
+      "spectral_flatness": 0.202,
+      "tonal_frame_fraction": 0.029,
+      "voiced_fraction": 0.0,
+      "crest_db": 18.51,
+      "attack_s": 0.68,
+      "decay_s": 1.19,
+      "onset_count": 0,
+      "sustain_ratio": 0.493,
+      "mod_peak_hz": 1.08
+     }
+    }
+   ]
+  }
+ ]
+}
