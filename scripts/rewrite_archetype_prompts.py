@@ -1802,6 +1802,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "chmura lepkich zarodników: jeden twardy syk, potem drugi, potem trzeci, potem czwarty, do końca",
         False,
     ),
+    "87": (
+        "An angelic blessing: one hard crystalline shimmer, then a second shimmer, "
+        "then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
+        "anielskie błogosławieństwo: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
+        False,
+    ),
+    "542": (
+        "A spellbomb bursting in the first instant: one hard metal bang, then a second bang, "
+        "then a third bang, then a fourth bang, the striking to the end. " + NO_M,
+        "bomba zaklęć: jeden twardy metaliczny huk, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
 }
 
 
