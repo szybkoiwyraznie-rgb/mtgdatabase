@@ -807,10 +807,15 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "5": (
-        "An arcane spell igniting: a bright crystalline shimmer swelling and holding "
-        "steadily, with sparkling glassy overtones ringing high above it for the whole "
-        "take. " + NO_M,
-        "arcydzieło magii się zapala: jasne krystaliczne migotanie narastające i trzymane jednostajnie, z iskrzącymi szklanymi alikwotami dzwoniącymi wysoko nad nim przez cały take",
+        "Crystal magic swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "kryształowa magia: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
+    "163": (
+        "A cracked bronze bell tolling in the first moment: one deep toll, then a second "
+        "toll, then a third toll, then a fourth toll, ringing to the end. " + NO_M,
+        "spękany brązowy dzwon: jedno głębokie bicie, potem drugie, potem trzecie, potem czwarte, dźwięk do końca",
         False,
     ),
     "253": ("An elven bard's lute at dawn: a short plucked phrase of five or six separate clear string notes played with even rhythm, warm and bright.",

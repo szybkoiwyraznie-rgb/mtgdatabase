@@ -548,6 +548,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r086 | 2026-10-10 | **zero z dwóch**; 269 i 583 dłuższe, gorszy werdykt | `state-2026-10-10-r086.md` |
 | r087 | 2026-10-10 | **zero z dwóch**; 12 werdykt; 332 para 0,90 z 558 | `state-2026-10-10-r087.md` |
 | r088 | 2026-10-10 | **dwie z dwóch**: 18 (2,10 → 2,70 s) i 571 (2,29 → 2,64 s) | `state-2026-10-10-r088.md` |
+| r089 | 2026-10-10 | prompty: 5 magic_shimmer + 163 temple_bell, 2 × 5 | `state-2026-10-10-r089.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -556,10 +557,9 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r089` — 2 karty × 5.** r088: łańcuch bez
-   twardego trzasku działa na `magic_shimmer` i `wing_flutter`.
-   Treść < 2,8 s, n85 ≤ 1. Rest: `534`, `548`, `370`, `210`, `209`,
-   `277`, `576`, `269`, `583`, `12`, `332`.
+1. **Następna transza: `r089` — 2 karty × 5.** `5` Academy
+   Journeymage (`magic_shimmer`) i `163` Ghoulcaller's Bell
+   (`temple_bell`).
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
