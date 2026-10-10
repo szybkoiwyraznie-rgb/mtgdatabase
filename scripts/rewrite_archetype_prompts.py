@@ -541,9 +541,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "zapadka kręcona powoli: powtarzalne głuche niskie kliki bez syku i jasnej krawędzi", False),
     # magic_shimmer: `5` i `607` trafiły na profil „mroczna magia" (niski pulsujący
     # pomruk) i wyszły z centroidem 93-104 Hz przy wymaganym high_all >= 0,4.
-    "607": ("A protective ward unfolding: a thin glassy chime cluster high in pitch, delicate "
-            "and sparkling, hovering bright at the end. " + NO_M,
-            "bariera się rozwija: cienki szklisty klaster dzwonków wysoko, delikatny i błyszczący", False),
+    "607": (
+        "Crystal magic swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "kryształowa magia: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
+    "157": (
+        "Glassy ward swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "szklana bariera: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
     # --- r027: 45 kart, w których karta obiecuje powtarzalne zdarzenie,
     # a sample miał jedno (treść 0,41-2,04 s). Prompt nazywa liczbę
     # powtórzeń wprost, bo model inaczej gra jedno zdarzenie i resztę ciszy.
