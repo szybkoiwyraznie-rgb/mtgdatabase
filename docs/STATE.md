@@ -32,7 +32,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r083`** — z 2 kart weszła **jedna**: `250`
+- Ostatnia runda: **`r084`** — **zero z dwóch**: `277` i `576`
+  `sword_clash` cofnięte. `277` +0,15 s (za mało); `576` dłuższe
+  warianty złamały `spectral_flatness`. Szczegóły: `state-2026-10-10-r084.md`.
+- Poprzednia runda: **`r083`** — z 2 kart weszła **jedna**: `250`
   *Loxodon Mender* **2,70 → 3,11 s**, `sword_clash`. `209` cofnięta
   (+0,01 s po łańcuchu — za mało). Szczegóły: `state-2026-10-10-r083.md`.
 - Poprzednia runda: **`r082`** — **dwie z dwóch**: `71` *Security Rhox*
@@ -528,7 +531,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r081 | 2026-10-10 | 56 weszła (3,00 → 4,00 s); 210 cofnięta na `low_all`; kostur o kamień skreślony | `state-2026-10-10-r081.md` |
 | r082 | 2026-10-10 | **dwie z dwóch**: 71 (2,30 → 3,21 s) i 453 (2,97 → 3,36 s), obie trafione, 0 flag | `state-2026-10-10-r082.md` |
 | r083 | 2026-10-10 | 250 weszła (2,70 → 3,11 s); 209 cofnięta (+0,01 s) | `state-2026-10-10-r083.md` |
-| r084 | 2026-10-10 | prompty: 277 i 576 sword_clash, 2 × 5, czeka na generację | `state-2026-10-10-r084.md` |
+| r084 | 2026-10-10 | **zero z dwóch**; 277 +0,15 s za mało; 576 dłuższe złamały flatness | `state-2026-10-10-r084.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -537,9 +540,10 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r084` — 2 karty × 5.** `277` Spinewoods
-   Paladin (3,04 s) i `576` Akroan Sergeant (3,00 s), obie
-   `sword_clash`, region wolny. Rest: `534`, `548`, `370`, `210`, `209`.
+1. **Następna transza: `r085` — 2 karty × 5.** r084 pusta: karty
+   już ~3 s trudno wydłużyć bez pogorszenia werdyktu. Brać treść
+   **< 2,8 s**, nie `sword_clash` z r083–r084. Rest: `534`, `548`,
+   `370`, `210`, `209`, `277`, `576`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
