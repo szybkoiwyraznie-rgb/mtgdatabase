@@ -1782,16 +1782,16 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "348": (
-        "Four panes of future light in the first instant: one hard crystalline shimmer, then a second "
+        "A time-freeze snapping in the first instant: one hard crystalline shimmer, then a second "
         "shimmer, then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
-        "cztery tafle przyszłości: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
+        "zamrożenie czasu: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
         False,
     ),
     "350": (
-        "A single bronze temple bell struck once and left to ring: a deep struck tone "
-        "with warm shimmering partials, ringing on and slowly fading. " + NO_S,
-        "uderzenie dzwonu chramu: jeden głęboki ton brązu, dzwoni i powoli gaśnie",
-        True,
+        "Temple hearths popping in the first instant: one hard crackle of dry wood, then a second "
+        "crackle, then a third crackle, then a fourth crackle, the striking to the end. " + NO_M,
+        "paleniska chramu: jeden twardy trzask suchego drewna, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
     ),
     "351": (
         "A puff of sticky spores in the first instant: one hard hiss, then a second hiss, "
