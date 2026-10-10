@@ -439,8 +439,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "grzmot: jeden twardy trzask burzy, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
         False,
     ),
-    "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
-            "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
+    "329": (
+        "Crystal magic swelling in the first moment: one bright shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, glowing to the end. " + NO_M,
+        "kryształowa magia: jedno jasne migotanie, potem drugie, potem trzecie, potem czwarte, żar do końca",
+        False,
+    ),
+    "262": (
+        "A brass horn calling in the first moment: one long call, then a second call, "
+        "then a third call, then a fourth call, ringing to the end. " + NO_M,
+        "mosiężny róg: jedno długie wezwanie, potem drugie, potem trzecie, potem czwarte, dźwięk do końca",
+        False,
+    ),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
             "rustic, feet stamping the beat. " + NO_S,
             "wiejska muzyka: skrzypce grają żywą taneczną melodię nad bębenkiem, stopy wybijają rytm", True),
