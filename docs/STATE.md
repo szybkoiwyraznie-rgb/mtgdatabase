@@ -532,6 +532,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r082 | 2026-10-10 | **dwie z dwóch**: 71 (2,30 → 3,21 s) i 453 (2,97 → 3,36 s), obie trafione, 0 flag | `state-2026-10-10-r082.md` |
 | r083 | 2026-10-10 | 250 weszła (2,70 → 3,11 s); 209 cofnięta (+0,01 s) | `state-2026-10-10-r083.md` |
 | r084 | 2026-10-10 | **zero z dwóch**; 277 +0,15 s za mało; 576 dłuższe złamały flatness | `state-2026-10-10-r084.md` |
+| r085 | 2026-10-10 | prompty: 232 plate_clank + 280 creature_cackle, 2 × 5 | `state-2026-10-10-r085.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -540,10 +541,10 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r085` — 2 karty × 5.** r084 pusta: karty
-   już ~3 s trudno wydłużyć bez pogorszenia werdyktu. Brać treść
-   **< 2,8 s**, nie `sword_clash` z r083–r084. Rest: `534`, `548`,
-   `370`, `210`, `209`, `277`, `576`.
+1. **Następna transza: `r085` — 2 karty × 5.** `232` Goblin Piker
+   (0,98 s, `plate_clank`) i `280` Sultai Scavenger (2,03 s,
+   `creature_cackle`). Treść < 2,8 s, wolny region. Rest: `534`,
+   `548`, `370`, `210`, `209`, `277`, `576`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów

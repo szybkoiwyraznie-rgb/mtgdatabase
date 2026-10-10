@@ -706,8 +706,19 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "stalowe płyty stukają na piersi w pierwszej chwili: jeden twardy trzask płyt, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
         False,
     ),
-    "232": ('A goblin shifting in plate armour: six separate hard steel plate knocks, each a sharp hit with a gritty unpitched scrape of steel on steel, clear silence between them, no ringing tone.',
-            'goblin przestępuje w za dużej zbroi: sześć oddzielnych twardych stuknięć płyt, każde z chrzęstem stali o stal, wyraźne przerwy między nimi', False),
+    "232": (
+        "Oversized goblin plates clashing in the first instant: one hard crack of the "
+        "plates, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "za duże płyty goblina: jeden twardy trzask, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
+    "280": (
+        "A vulture throat rasping in the first instant: one hard croak, then a second "
+        "croak, then a third croak, then a fourth croak, the rasping to the end. " + NO_M,
+        "gardło sępa: jeden twardy skrzek, potem drugi, potem trzeci, potem czwarty, charkot do końca",
+        False,
+    ),
     "16": ("A heavy breastplate lifted off a stone table: four separate steel plates clanking one after another, each distinct and sharply struck, mid-pitched with body.",
             "podniesienie ciężkiego napierśnika ze stołu: cztery osobne płyty dzwonią kolejno, każda wyraźna i z ciałem", False),
     "460": ("A horned breastplate buckled onto a young centaur: five firm knocks of plate against plate, each separate and mid-pitched, with a short leather creak between.",
