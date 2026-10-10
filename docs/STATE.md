@@ -32,7 +32,11 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r084`** — **zero z dwóch**: `277` i `576`
+- Ostatnia runda: **`r085`** — **dwie z dwóch**: `232` *Goblin Piker*
+  **0,98 → 3,36 s** (`plate_clank`, +2,38) i `280` *Sultai Scavenger*
+  **2,03 → 2,57 s** (`creature_cackle`). Obie trafione, 0 flag.
+  Szczegóły: `state-2026-10-10-r085.md`.
+- Poprzednia runda: **`r084`** — **zero z dwóch**: `277` i `576`
   `sword_clash` cofnięte. `277` +0,15 s (za mało); `576` dłuższe
   warianty złamały `spectral_flatness`. Szczegóły: `state-2026-10-10-r084.md`.
 - Poprzednia runda: **`r083`** — z 2 kart weszła **jedna**: `250`
@@ -532,7 +536,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r082 | 2026-10-10 | **dwie z dwóch**: 71 (2,30 → 3,21 s) i 453 (2,97 → 3,36 s), obie trafione, 0 flag | `state-2026-10-10-r082.md` |
 | r083 | 2026-10-10 | 250 weszła (2,70 → 3,11 s); 209 cofnięta (+0,01 s) | `state-2026-10-10-r083.md` |
 | r084 | 2026-10-10 | **zero z dwóch**; 277 +0,15 s za mało; 576 dłuższe złamały flatness | `state-2026-10-10-r084.md` |
-| r085 | 2026-10-10 | prompty: 232 plate_clank + 280 creature_cackle, 2 × 5 | `state-2026-10-10-r085.md` |
+| r085 | 2026-10-10 | **dwie z dwóch**: 232 (0,98 → 3,36 s) i 280 (2,03 → 2,57 s) | `state-2026-10-10-r085.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -541,10 +545,9 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r085` — 2 karty × 5.** `232` Goblin Piker
-   (0,98 s, `plate_clank`) i `280` Sultai Scavenger (2,03 s,
-   `creature_cackle`). Treść < 2,8 s, wolny region. Rest: `534`,
-   `548`, `370`, `210`, `209`, `277`, `576`.
+1. **Następna transza: `r086` — 2 karty × 5.** r085 potwierdziła:
+   brać treść **< 2,8 s** i wolny region. Rest: `534`, `548`,
+   `370`, `210`, `209`, `277`, `576`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
