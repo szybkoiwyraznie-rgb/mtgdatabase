@@ -651,8 +651,20 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "boggart biegnie tunelem: szybkie lekkie kroki bosych stóp tupoczą po wilgotnej glinie, tupot trwa bez przerwy do końca",
         False,
     ),
-    "250": ("A steel blade snapping back together: one bright hard clash at the very first instant, then four short sharp metallic clicks as the crack seals, each with a gritty shimmer.",
-            "ostrze scala się po pęknięciu: jeden jasny twardy szczęk w pierwszej chwili, potem cztery ostre metaliczne kliki", False),
+    "250": (
+        "A steel blade clashing shut in the first instant: one hard crack of the "
+        "blade, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "ostrze scala się trzaskami: jeden twardy trzask klingi, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
+    "209": (
+        "Training swords clashing in the first instant: one hard crack of the "
+        "blades, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "miecze treningowe: jeden twardy trzask kling, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "71": (
         "A rhino body slamming a stone wall in the first instant: one hard crack "
         "of the body, then a second crack, then a third crack, then a fourth "

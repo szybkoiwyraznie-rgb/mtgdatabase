@@ -524,6 +524,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r080 | 2026-10-09 | **pięć prób dało to, czego trzy nie dały** — 140 ten sam prompt co w r077, +0,76 s (2,70 → 3,46); 370 cofnięta: 5/5 dłuższych, 4/5 nie przeszło arrow_flight | `state-2026-10-09-r080.md` |
 | r081 | 2026-10-10 | 56 weszła (3,00 → 4,00 s); 210 cofnięta na `low_all`; kostur o kamień skreślony | `state-2026-10-10-r081.md` |
 | r082 | 2026-10-10 | **dwie z dwóch**: 71 (2,30 → 3,21 s) i 453 (2,97 → 3,36 s), obie trafione, 0 flag | `state-2026-10-10-r082.md` |
+| r083 | 2026-10-10 | prompty: 209 i 250 sword_clash, 2 × 5, czeka na generację | `state-2026-10-10-r083.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -532,13 +533,10 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: znów 2 karty × 5 wariantów (`r083`).**
-   r082 weszła w całości — łańcuch z czasownikiem uderzenia dał
-   długość na `heavy_impact` i `plate_clank` naraz. Kandydaci:
-   trafione, treść < 3,2 s, wolny region, krótki zanik, nie na
-   odpoczynku (`534`, `548`, `370`, `210`). `284` bez archetypu
-   — nie w tej transzy. Pięć prób tylko tam, gdzie rozkład kiedyś
-   sięgnął celu.
+1. **Następna transza: `r083` — 2 karty × 5.** `209` Burning-Yard
+   Trainer (2,89 s) i `250` Loxodon Mender (2,70 s), obie
+   `sword_clash`, region wolny. Ten sam łańcuch co r082. Rest:
+   `534`, `548`, `370`, `210`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
@@ -723,7 +721,8 @@ docs/archive/state-2026-10-09-r068.md   runda r068 (501 i 565 weszły, 308 cofni
 docs/archive/state-2026-10-09-r069.md   runda r069 (74 weszła, 308 i 177 cofnięte)
 docs/archive/state-2026-10-09-b074.md   paczka b074 (7 nowych kart, 5 paczek generacji)
 docs/archive/state-2026-10-10-r081.md   runda r081 (56 weszła, 210 cofnięta)
-docs/archive/state-2026-10-10-r082.md   runda r082 (prompty 71, 453)
+docs/archive/state-2026-10-10-r082.md   runda r082 (71 i 453 weszły)
+docs/archive/state-2026-10-10-r083.md   runda r083 (prompty 209, 250)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:

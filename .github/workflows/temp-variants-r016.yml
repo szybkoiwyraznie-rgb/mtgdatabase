@@ -1,14 +1,12 @@
-name: "TEMP r082 - 71 i 453: 2 x 5"
+name: "TEMP r083 - 209 i 250: 2 x 5"
 
-# r082: 2 karty x 5 wariantow = 10 generacji x 40 kredytow = 400 kredytow.
+# r083: 2 karty x 5 wariantow = 10 generacji x 40 kredytow = 400 kredytow.
 #
-#   71 Security Rhox      heavy_impact  tresc 2,30 s  luka 1,70 s
-#  453 Elgaud Inquisitor  plate_clank   tresc 2,97 s  luka 1,03 s
+#  209 Burning-Yard Trainer  sword_clash  tresc 2,89 s  0 sasiadow >=0,80
+#  250 Loxodon Mender        sword_clash  tresc 2,70 s  0 sasiadow >=0,80
 #
-# Po r081: 56 weszla (3,00 -> 4,00 s), 210 cofnieta (5/5 low_all < 0,2).
-# 210 skreslona przy tym materiale. 71 wraca z lancuchem ciala o kamien
-# (low_all >= 0,2). 453 miala czasownik ruchu „shifting/turns" — dostaje
-# ten sam lancuch clashing co 140/333/56.
+# Po r082 (dwie z dwóch): ten sam łańcuch clashing. Obie trafione,
+# wolny region, attack_s <= 0,1 wymaga uderzenia w pierwszej chwili.
 
 on:
   push:
@@ -21,7 +19,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "71,453"
+  IDS: "209,250"
 
 jobs:
   variants:
@@ -32,13 +30,13 @@ jobs:
           fetch-depth: 0
           ref: arena/a9d0a113-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r082]
+      - name: Guard — tylko commit z markerem [generate-r083]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r082]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r083]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r082] — nic nie generuję"
+            echo "brak markera [generate-r083] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -57,25 +55,24 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r082
+          mkdir -p variants/r083
           for v in 1 2 3 4 5; do
-            echo "=== wariant v$v ===" | tee -a variants/r082/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r083/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r082 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r082/v$v" 2>&1 | tee -a variants/r082/generate.log
+              --ids "$IDS" --batch r083 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r083/v$v" 2>&1 | tee -a variants/r083/generate.log
           done
-          ls -la variants/r082 variants/r082/v1 variants/r082/v2 variants/r082/v3 variants/r082/v4 variants/r082/v5 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r082 data/samples/generated-manifest.jsonl
+          git add -f variants/r083 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r082: 10 wariantow (2 karty x 5) + log generacji [import-r082]"
+            git commit -m "r083: 10 wariantow (2 karty x 5) + log generacji [import-r083]"
             git push origin HEAD:arena/a9d0a113-mtgdatabase
           fi
