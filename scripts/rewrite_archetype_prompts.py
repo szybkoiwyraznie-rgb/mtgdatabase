@@ -685,8 +685,20 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "podwójne kopnięcie szponów w płytową zbroję: jedno ciężkie, jedno lżejsze, potem cztery osobne płyty dzwonią", False),
     "194": ("A warhorse's steel caparison rattling: seven quick separate plate chinks in an uneven cluster, each mid-pitched and sharply struck, ending in a short scrape.",
             "grzechot stalowego kropierza rumaka: siedem szybkich osobnych brzęków w nierównej grupie, ze środka pasma", False),
-    "56": ("Chitin plates snapping shut one after another: six short dry clicks, each distinct and mid-pitched, evenly spaced with a faint gritty edge.",
-            "chitynowe płytki zatrzaskują się kolejno: sześć krótkich suchych klików, każdy wyraźny i ze środka pasma", False),
+    "210": (
+        "A rune staff clashing on stone in the first instant: one hard crack of "
+        "the staff, then a second crack, then a third crack, then a fourth "
+        "crack, the striking to the end. " + NO_M,
+        "runowy kostur uderza o kamienną posadzkę w pierwszej chwili: jeden twardy trzask kostura o kamień, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
+    "56": (
+        "Chitin plates clashing shut in the first instant: one hard crack of "
+        "the plates, then a second crack, then a third crack, then a fourth "
+        "crack, the striking to the end. " + NO_M,
+        "chitynowe płyty zatrzaskują się w pierwszej chwili: jeden twardy trzask płyt, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "355": ("Armour set down on a workbench: a steel breastplate dropped, a helmet and a buckler clanking after it, then three more plates dropped one after another, the last plate clanging to the end.",
             "odkładanie zbroi na stół: napierśnik, hełm i puklerz dzwonią kolejno, potem trzy następne płyty, ostatnia do końca", False),
     "39": ("An orc stamping into soft mud: five heavy sodden footsteps in a steady even rhythm, each deep and low with a wet mud splash, filling the whole take.",

@@ -1,35 +1,42 @@
-name: "TEMP r080 - 140 i 370: druga transza 2 x 5"
+name: "TEMP r081 - 210 i 56: trzecia transza 2 x 5"
 
-# r080: 2 karty x 5 wariantow = 10 generacji x 40 kredytow = 400 kredytow.
-# Po tej paczce na drugim kluczu zostanie 4880.
+# r081: 2 karty x 5 wariantow = 10 generacji x 40 kredytow = 400 kredytow.
+# Po tej paczce na drugim kluczu zostanie 4480.
 #
-#  140 plate_clank   tresc 2,70 s  luka 0,48 s  3 prob  0 sasiadow >=0,80
-#  370 arrow_flight  tresc 2,34 s  luka 0,32 s  1 prob  0 sasiadow >=0,80
+#  210 heavy_impact  tresc 2,54 s  luka 0,96 s  0 sasiadow >=0,80  max kos. 0,5601
+#   56 plate_clank   tresc 3,00 s  luka 0,50 s  0 sasiadow >=0,80  max kos. 0,5206
 #
-# Druga transza w formacie 2 x 5. r079 nie rozstrzygla, czy piec
-# wariantow na karte jest lepsze niz trzy (1 z 2 miesci sie w
-# dotychczasowym rozrzucie), ale pokazala, NA CO warto wydac
-# proby: na karty, ktorych rozklad dlugosci OBEJMUJE wartosc
-# docelowa. 333 mial rozklad 0,48-2,84 s i dala sie wyciagnac;
-# 534 miala 0,57-1,86 s i nie dala sie, mimo pieciu prob.
+# Wybor po r080, ktora rozstrzygnela spor z r079: piec prob dziala,
+# ale wylacznie na kartach, ktorych rozklad dlugosci OBEJMUJE wartosc
+# docelowa. 140 dostala ten sam prompt w r077 (3 proby, maksimum
+# 2,42 s) i w r080 (5 prob, v2 = 3,46 s). Trzy przeszly obok ogona
+# rozkladu, piec go znalazly.
 #
-#  140  proba 4. Poprzednie: r077 z tym samym tekstem dala
-#       2,22 / 2,42 / 2,37 s, wszystkie krotsze od obecnych 2,70.
-#       Dostaje piec prob z tym samym promptem — czysty test,
-#       czy dochodzenie nastepuje przez liczbe prob, czy nie.
+# Nowe kryterium doboru: karty, ktorych REGION jest wolny i ktore
+# maja realna luke do 4 s. Z 22 kandydatow o wolnym regionie i
+# kontrakcie z krotkim zanikiem wybrano dwie z najbardziej
+# odrebnym otoczeniem i najwieksza luka:
 #
-#  370  proba 2. Pierwsza proba (b031) dala 2,34 s. Dostaje
-#       lancuch czterech zgrzytow cieczy, ale UTRZYMUJE material
-#       z obecnego promptu: to zasysanie, nie strzaly.
-#       arrow_flight wymaga decay_s <= 0,8, wiec konczymy na
-#       zdarzeniu („the pulling to the end"), nie na wybrzmieniu.
-#       Zmiana materialu na strzaly poprawilaby klasyfikator, ale
-#       popsulaby zwiazek dzwieku z karta (Consume Spirit) —
-#       a to jest glowny zarzut wlasciciela.
+#  210  Fiery Justice         heavy_impact  max kosinus 0,5601
+#       Kontrakt: crest >= 14, attack <= 0,15, decay <= 1,4, low_all >= 0,2.
+#       Obecny prompt (b061) byl gesty: trzask kostura + wybuch ognia
+#       + trzaski plomieni + szczek zbroi. Dostaje lancuch czterech
+#       trzaskow kostura o kamien — low_all >= 0,2 wymaga dołu pasma,
+#       wiec trzask kostura o kamien niesie ciezar kontraktu, ogien
+#       znika z promptu.
+#
+#   56  Diplomatic Relations  plate_clank   max kosinus 0,5206
+#       Kontrakt: crest >= 17, centroid 1000-6000, onset_count >= 2,
+#       flatness >= 0,03, decay <= 1,2. Obecny prompt (r028) mial juz
+#       lancuch (szesc klikniec), ale czasownik ruchu: „snapping shut".
+#       Dostaje ten sam lancuch co 140 i 333, czyli czasownik
+#       uderzenia: „clashing shut" + cztery trzaski. plate_clank
+#       wymaga onset_count >= 2, wiec lancuch jest tu wymogiem
+#       kontraktu, nie ozdoba.
 #
 # Obie karty: region wolny (0 sasiadow >= 0,80 i >= 0,85),
-# kontrakt z krotkim zanikiem (plate_clank <= 1,2,
-# arrow_flight <= 0,8).
+# kontrakt z krotkim zanikiem (heavy_impact <= 1,4,
+# plate_clank <= 1,2).
 #
 on:
   push:
@@ -42,7 +49,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "140,370"
+  IDS: "210,56"
 
 jobs:
   variants:
@@ -53,13 +60,13 @@ jobs:
           fetch-depth: 0
           ref: arena/01a108e2-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-r080]
+      - name: Guard — tylko commit z markerem [generate-r081]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r080]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r081]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r080] — nic nie generuję"
+            echo "brak markera [generate-r081] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -78,25 +85,25 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r080
+          mkdir -p variants/r081
           for v in 1 2 3 4 5; do
-            echo "=== wariant v$v ===" | tee -a variants/r080/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r081/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r080 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r080/v$v" 2>&1 | tee -a variants/r080/generate.log
+              --ids "$IDS" --batch r081 --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r081/v$v" 2>&1 | tee -a variants/r081/generate.log
           done
-          ls -la variants/r080 variants/r080/v1 variants/r080/v2 variants/r080/v3 variants/r080/v4 variants/r080/v5 || true
+          ls -la variants/r081 variants/r081/v1 variants/r081/v2 variants/r081/v3 variants/r081/v4 variants/r081/v5 || true
 
       - name: Commit variants and log back to the session branch
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r080 data/samples/generated-manifest.jsonl
+          git add -f variants/r081 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then
             echo "nic do zacommitowania"
           else
-            git commit -m "r080: 9 wariantow (3 karty x 3) + log generacji [import-r080]"
+            git commit -m "r081: 10 wariantow (2 karty x 5) + log generacji [import-r081]"
             git push origin HEAD:arena/01a108e2-mtgdatabase
           fi
