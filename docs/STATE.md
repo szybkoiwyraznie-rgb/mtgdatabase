@@ -537,6 +537,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r083 | 2026-10-10 | 250 weszła (2,70 → 3,11 s); 209 cofnięta (+0,01 s) | `state-2026-10-10-r083.md` |
 | r084 | 2026-10-10 | **zero z dwóch**; 277 +0,15 s za mało; 576 dłuższe złamały flatness | `state-2026-10-10-r084.md` |
 | r085 | 2026-10-10 | **dwie z dwóch**: 232 (0,98 → 3,36 s) i 280 (2,03 → 2,57 s) | `state-2026-10-10-r085.md` |
+| r086 | 2026-10-10 | prompty: 269 beast_screech + 583 arrow_flight, 2 × 5 | `state-2026-10-10-r086.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -545,9 +546,9 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r086` — 2 karty × 5.** r085 potwierdziła:
-   brać treść **< 2,8 s** i wolny region. Rest: `534`, `548`,
-   `370`, `210`, `209`, `277`, `576`.
+1. **Następna transza: `r086` — 2 karty × 5.** `269` Scouting Hawk
+   (1,84 s, `beast_screech`) i `583` Kill Shot (2,66 s,
+   `arrow_flight`). Wolny region. Rest bez zmian.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów

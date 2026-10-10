@@ -772,12 +772,9 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         False,
     ),
     "583": (
-        "An arrow loosed at a target: a sharp bowstring twang, then the fletched shaft "
-        "hissing through the air, the whoosh swelling and fading as it flies off, "
-        "ending in a soft distant thud as it strikes home. " + NO_M,
-        "strzala wypuszczona do celu: ostre szarpniecie cieciwy, potem syk lotki przecinajacej "
-        "powietrze, swist wzbierajacy i powoli cichnacy w oddali, na koniec miekki gluchy stuk "
-        "trafienia",
+        "Bowstring arrows hissing in the first instant: one hard hiss of the shaft, "
+        "then a second hiss, then a third hiss, then a fourth hiss, the striking to the end. " + NO_M,
+        "strzały z cięciwy: jeden twardy syk lotki, potem drugi, potem trzeci, potem czwarty, świst do końca",
         False,
     ),
     "173": ("A warrior's roar taking bear form: a long deep chest roar with enormous low-frequency body underneath, dark and massive, sustained across the whole take.",
@@ -994,8 +991,12 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     # PIERWSZY cios (attack_s liczy sie wstecz od globalnego szczytu). Reszta to
     # karty, ktore w r031 drgnely ku celowi albo dostaly nowa metryke po
     # naprawieniu poprzedniej.
-    "269": ("One piercing hawk screech, and its very first instant is by far the loudest moment of the whole take, bright and high, with two quieter wingbeats after it.",
-            "jastrząb: jeden przenikliwy krzyk, pierwsza chwila zdecydowanie najgłośniejsza, potem dwa cichsze uderzenia skrzydeł", False),
+    "269": (
+        "A hawk throat screeching in the first instant: one hard cry, then a second "
+        "cry, then a third cry, then a fourth cry, the striking to the end. " + NO_M,
+        "gardło jastrzębia: jeden twardy krzyk, potem drugi, potem trzeci, potem czwarty, wrzask do końca",
+        False,
+    ),
     # --- r033: dwie karty bez archetypu z flaga speech_like. Próg flagi to
     # mod_2_8hz_ratio > 0,55 (tempo sylab) + voiced > 0,35 + centroid 300-3000 Hz,
     # czyli NIE wykrywa mowy, tylko modulację w tempie sylab. Pięć pozostałych
