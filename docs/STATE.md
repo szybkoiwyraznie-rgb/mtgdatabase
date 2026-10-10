@@ -32,7 +32,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r096`** — **dwie z dwóch**: `4` *Mystic
+- Ostatnia runda: **`r097`** — **jedna z dwóch**: `2` *Coralhelm
+  Guide* **2,37 → 3,41 s**. `263` cofnięta (electric_zap, attack).
+  Szczegóły: `state-2026-10-10-r097.md`.
+- Poprzednia runda: **`r096`** — **dwie z dwóch**: `4` *Mystic
   Sanctuary* **1,14 → 1,59 s** i `150` *Balamb Garden* **2,37 →
   3,69 s** (`water_splash`). Szczegóły: `state-2026-10-10-r096.md`.
 - Poprzednia runda: **`r095`** — **zero z dwóch** na nowym budżecie
@@ -577,7 +580,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r094 | 2026-10-10 | **quota 0**; 2/10 plików, oba krótsze, bez instalacji | `state-2026-10-10-r094.md` |
 | r095 | 2026-10-10 | **zero z dwóch**; nowy budżet OK; 157/607 krótsze po łańcuchu | `state-2026-10-10-r095.md` |
 | r096 | 2026-10-10 | **dwie z dwóch**: 4 (1,14 → 1,59 s) i 150 (2,37 → 3,69 s) | `state-2026-10-10-r096.md` |
-| r097 | 2026-10-10 | prompty: 2 + 263, 2 × 5 | `state-2026-10-10-r097.md` |
+| r097 | 2026-10-10 | **jedna z dwóch**: 2 (2,37 → 3,41 s); 263 cofnięta | `state-2026-10-10-r097.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -586,8 +589,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r097` — 2 karty × 5.** `2` i `263`.
-   Treść < 2,5 s. Rest plus `157`, `607`.
+1. **Następna transza: `r098` — 2 karty × 5.** Plusk się wydłuża.
+   Nie `electric_zap` (r097). Treść **< 2,5 s**. Rest plus `157`, `607`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
