@@ -437,13 +437,6 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "gromoraptor składa skrzydła: krótki świat powietrza, trzask błyskawicy, potem grzmot trwający ponad sekundę i cichnący przed końcem", False),
     "329": ("Obsidian plates lifting: a whine of stone sounding from the very first moment and swelling, then a beam released with a glassy shimmer, then two more whines, the shimmer to the end.",
             "płyty obsydianu unoszą się: narastający jęk kamienia, potem snop energii ze szklistym połyskiem, jeszcze dwa jęki, połysk do końca", False),
-    "370": (
-        "Liquid drawn through a narrow glass tube in the first instant: one rasp "
-        "of liquid, then a second rasp, then a third rasp, then a fourth rasp, the "
-        "pulling to the end. " + NO_M,
-        "ciecz ciągnięta przez wąską szklaną rurkę w pierwszej chwili: jeden zgrzyt cieczy, potem drugi, potem trzeci, potem czwarty, ciągnięcie do końca",
-        False,
-    ),
     "557": ("Village folk music: a fiddle playing a lively dance tune over a hand drum, warm and "
             "rustic, feet stamping the beat. " + NO_S,
             "wiejska muzyka: skrzypce grają żywą taneczną melodię nad bębenkiem, stopy wybijają rytm", True),
