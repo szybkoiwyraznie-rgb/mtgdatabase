@@ -1775,6 +1775,30 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "komora klonująca pęka łańcuchowo, pierwszy metaliczny huk najgłośniejszy: piskliwy metaliczny dzwon, potem kolejne uszczelki i włazy ustępują, gęsty płyn chlapie o żelazne płyty do końca",
         False,
     ),
+    "341": (
+        "A peace spell igniting in the first instant: one hard crystalline shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
+        "zaklęcie pokoju: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
+        False,
+    ),
+    "348": (
+        "Four panes of future light in the first instant: one hard crystalline shimmer, then a second "
+        "shimmer, then a third shimmer, then a fourth shimmer, the striking to the end. " + NO_M,
+        "cztery tafle przyszłości: jedno twarde krystaliczne migotanie, potem drugie, potem trzecie, potem czwarte, do końca",
+        False,
+    ),
+    "350": (
+        "A single bronze temple bell struck once and left to ring: a deep struck tone "
+        "with warm shimmering partials, ringing on and slowly fading. " + NO_S,
+        "uderzenie dzwonu chramu: jeden głęboki ton brązu, dzwoni i powoli gaśnie",
+        True,
+    ),
+    "351": (
+        "A puff of sticky spores in the first instant: one hard hiss, then a second hiss, "
+        "then a third hiss, then a fourth hiss, the striking to the end. " + NO_M,
+        "chmura lepkich zarodników: jeden twardy syk, potem drugi, potem trzeci, potem czwarty, do końca",
+        False,
+    ),
 }
 
 

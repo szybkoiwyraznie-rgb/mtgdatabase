@@ -21,10 +21,11 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 
 ## Aktualny stan produkcji
 
-- Katalog: `fabuły270926.csv` — **563 fabuł** (walidacja: 563 rekordów).
-  ID fabuły to numeryczna część `Ilustracja` (`280KTK` → fabuła `280`).
-- Sample: **563 MP3** w `audio/samples/<id>.mp3`, **563 scenariuszy**
-  w `data/samples/scenarios.jsonl` — 100 % katalogu.
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **574 fabuł**
+  (dopisane `341`, `348`, `350`, `351`). ID = numeryczna część
+  `Ilustracja` (`341DTK` → fabuła `341`).
+- Sample: **570 MP3** w `audio/samples/<id>.mp3`; **574 scenariusze**
+  w `data/samples/scenarios.jsonl`. Cztery nowe karty czekają na audio.
 - Ostatnia dostawa: `b073` — `327BLB` *Brave-Kin Duo* (`water_splash`)
   i `328LRW` *Bog Hoodlums* (`heavy_impact`), obie **trafione, 0 flag**.
   `328` weszła z pierwszej tury; `327` dopiero po zmianie archetypu
@@ -581,6 +582,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r095 | 2026-10-10 | **zero z dwóch**; nowy budżet OK; 157/607 krótsze po łańcuchu | `state-2026-10-10-r095.md` |
 | r096 | 2026-10-10 | **dwie z dwóch**: 4 (1,14 → 1,59 s) i 150 (2,37 → 3,69 s) | `state-2026-10-10-r096.md` |
 | r097 | 2026-10-10 | **jedna z dwóch**: 2 (2,37 → 3,41 s); 263 cofnięta | `state-2026-10-10-r097.md` |
+| r098 | 2026-10-10 | nowe fabuły 341/348/350/351; generacja 341+348 | `state-2026-10-10-r098.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -589,8 +591,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r098` — 2 karty × 5.** Plusk się wydłuża.
-   Nie `electric_zap` (r097). Treść **< 2,5 s**. Rest plus `157`, `607`.
+1. **Następna transza: `r098` — 2 karty × 5.** Nowe: `341` Pacifism
+   i `348` Impulse (`magic_shimmer`). Potem `350`, `351`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
