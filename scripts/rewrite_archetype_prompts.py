@@ -665,6 +665,20 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
         "miecze treningowe: jeden twardy trzask kling, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
         False,
     ),
+    "277": (
+        "A paladin blade clashing on a wooden shield in the first instant: one hard crack "
+        "of the blade, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "klinga paladyna o drewnianą tarczę: jeden twardy trzask, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
+    "576": (
+        "Bronze sergeant blades clashing in the first instant: one hard crack of the "
+        "blades, then a second crack, then a third crack, then a fourth crack, "
+        "the striking to the end. " + NO_M,
+        "brązowe klingi sierżanta: jeden twardy trzask, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "71": (
         "A rhino body slamming a stone wall in the first instant: one hard crack "
         "of the body, then a second crack, then a third crack, then a fourth "
