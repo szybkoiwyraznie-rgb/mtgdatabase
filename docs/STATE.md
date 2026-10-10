@@ -32,7 +32,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r093`** — z 2 kart weszła **jedna**: `468`
+- Ostatnia runda: **`r094`** — **quota 0**. Dwa ułomne warianty,
+  oba krótsze po łańcuchu. Generacja wstrzymana.
+  Szczegóły: `state-2026-10-10-r094.md`.
+- Poprzednia runda: **`r093`** — z 2 kart weszła **jedna**: `468`
   *Cacophodon* **2,85 → 3,16 s**. `177` para 0,95 z `396`.
   Szczegóły: `state-2026-10-10-r093.md`.
 - Poprzednia runda: **`r092`** — **zero z dwóch**: `164` centroid;
@@ -565,7 +568,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r091 | 2026-10-10 | **zero z dwóch**; 9 centroid; 96 krótsza po łańcuchu | `state-2026-10-10-r091.md` |
 | r092 | 2026-10-10 | **zero z dwóch**; 164 centroid; 72 decay | `state-2026-10-10-r092.md` |
 | r093 | 2026-10-10 | 468 weszła (2,85 → 3,16 s); 177 para 0,95 z 396 | `state-2026-10-10-r093.md` |
-| r094 | 2026-10-10 | prompty: 157 + 607 magic_shimmer, 2 × 5 | `state-2026-10-10-r094.md` |
+| r094 | 2026-10-10 | **quota 0**; 2/10 plików, oba krótsze, bez instalacji | `state-2026-10-10-r094.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -574,8 +577,9 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r094` — 2 karty × 5.** `157` i `607`
-   `magic_shimmer`, n85 = 0. Rest plus `177`.
+1. **Stop generacji: konto ElevenLabs ma 0 kredytów.** Po doładowaniu
+   sekretu `ELEVENLABS` wrócić do `157`/`607` albo innej pary
+   `magic_shimmer`/`horn_call` z n85 = 0. Rest plus `177`.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
