@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-07** (sesja `arena/01a108e2-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-10** (sesja `arena/a9d0a113-mtgdatabase`).
 
 > Ten plik jest **obowiązkową lekturą agenta** i musi się mieścić w limicie
 > 50 000 tokenów razem z resztą plików z `docs/required-reading.md`
@@ -32,7 +32,11 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: `r059` — z 2 kart weszła **jedna**: `434`
+- Ostatnia runda: **`r081`** — z 2 kart weszła **jedna**: `56`
+  *Diplomatic Relations* **3,00 → 4,00 s**, `plate_clank`, zero flag.
+  `210` *Fiery Justice* cofnięta: 5/5 złamało `low_all`. Skreślona przy
+  tym materiale. `duration_seconds` wraca do 2,76 s.
+- Poprzednia runda: `r059` — z 2 kart weszła **jedna**: `434`
   *Epic Experiment* urosła z **1,20 → 3,91 s** treści, kontrakt
   `war_machine` spełniony. Cena: nowy bliźniak `325-434` (0,9422).
   `232` znów cofnięta — crest 12,9–14,9 przy progu 17.
@@ -514,6 +518,8 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r078 | 2026-10-09 | **zero z trzech**; hipoteza o materiale obalona (brąz, kamień, bariera); wniosek: wariancja modelu większa niż zmienne w prompcie | `state-2026-10-09-r078.md` |
 | r079 | 2026-10-09 | pierwsza transza 2 × 5 wariantów; 333 weszła (+0,21 s) i jest bardziej odrębna; 534 dostała 5 prób i wszystkie wyszły krótsze | `state-2026-10-09-r079.md` |
 | r080 | 2026-10-09 | **pięć prób dało to, czego trzy nie dały** — 140 ten sam prompt co w r077, +0,76 s (2,70 → 3,46); 370 cofnięta: 5/5 dłuższych, 4/5 nie przeszło arrow_flight | `state-2026-10-09-r080.md` |
+| r081 | 2026-10-10 | 56 weszła (3,00 → 4,00 s); 210 cofnięta na `low_all`; kostur o kamień skreślony | `state-2026-10-10-r081.md` |
+| r082 | 2026-10-10 | prompty: 71 heavy_impact + 453 plate_clank, 2 × 5, czeka na generację | `state-2026-10-10-r082.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -522,26 +528,12 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: znów 2 karty × 5 wariantów.** `r080`
-   rozstrzygnęła spór z `r079`: pięć prób działa, ale wyłącznie
-   na kartach, których rozkład długości **obejmuje** wartość
-   docelową. Dowód jest na jednej karcie — `140` dostała ten sam
-   prompt w r077 (trzy próby, maksimum 2,42 s) i w r080 (pięć
-   prób, v2 = 3,46 s). Trzy przeszły obok ogona rozkładu, pięć
-   go znalazło.
-   Wybierać karty, które **już kiedyś wygenerowały coś blisko
-   celu**, choćby w jednym wariancie z wielu — to jedyny sygnał,
-   że rozkład tam sięga. Karty, których żaden wariant z dotychczas
-   wykonanych prób nie zbliżył się do celu, są skreślone
-   bez względu na to, ile prób dostaną: `534` (czternaście
-   wariantów, zero instalacji), `548`, `370`.
-   Kandydaci z regionów wolnych i kontraktem o krótkim zaniku:
-   `71` heavy_impact (luka 0,21 s), `210` heavy_impact (0,46 s),
-   `284` (0,46 s). Sprawdzić zajętość regionu przed i po.
-   Dla kart zablokowanych materiałem jedyna droga to zmiana
-   archetypu, jak z `340`, która nie przeszła `robot_servo` w
-   pięciu podejściach, a po zmianie na `steam_hiss` weszła od
-   razu.
+1. **Następna transza: `r082` — 2 karty × 5 wariantów.**
+   `71` Security Rhox (`heavy_impact`, 2,30 s) i `453` Elgaud
+   Inquisitor (`plate_clank`, 2,97 s). `210` skreślona przy
+   materiale „kostur o kamień” (5/5 `low_all`). `534`, `548`,
+   `370` nadal na odpoczynku. Pięć prób tylko tam, gdzie rozkład
+   kiedyś sięgnął celu. `284` bez archetypu — nie w tej transzy.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
@@ -725,6 +717,8 @@ docs/archive/state-2026-10-09-b074.md   paczka b074 (7 nowych kart, 5 paczek gen
 docs/archive/state-2026-10-09-r068.md   runda r068 (501 i 565 weszły, 308 cofnięta)
 docs/archive/state-2026-10-09-r069.md   runda r069 (74 weszła, 308 i 177 cofnięte)
 docs/archive/state-2026-10-09-b074.md   paczka b074 (7 nowych kart, 5 paczek generacji)
+docs/archive/state-2026-10-10-r081.md   runda r081 (56 weszła, 210 cofnięta)
+docs/archive/state-2026-10-10-r082.md   runda r082 (prompty 71, 453)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:

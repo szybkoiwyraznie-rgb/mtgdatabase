@@ -590,8 +590,13 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
             "trzy ogniste kule rozszczepione w drewniane cele ćwiczebne: trzy kolejne ryczące świsty, każdy kończy się trzaskiem pękanego drewna", False),
     "441": ("Searching through smoking rubble for route maps: four successive shifts of broken stone and ash, each a gritty scraping handful.",
             "odnajdywanie planów marszruty w dymiących zgliszczach: cztery kolejne przesunięcia gruzu i popiołu, każde chropawym chwytem", False),
-    "453": ("Plate armour shifting as the inquisitor turns: five separate heavy steel plates clanking one after another across the whole take, each hit distinct and sharply struck.",
-            "zbroja płytowa się przesuwa: pięć osobnych ciężkich płyt dzwoni kolejno przez cały sample, każda wyraźnie i ostro uderzona", False),
+    "453": (
+        "Iron gorget plates clashing on a chest in the first instant: one hard crack "
+        "of the plates, then a second crack, then a third crack, then a fourth "
+        "crack, the striking to the end. " + NO_M,
+        "żelazny gorget na piersi: jeden twardy trzask płyt, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
+        False,
+    ),
     "462": ("Iron footsteps of a Marut crushing gold on the floor: four immense metallic steps, evenly spaced, each grinding coins beneath it.",
             "żelazne kroki Maruta miażdżące złoto na posadzce: cztery ogromne metaliczne kroki w równych odstępach, każdy miele monety", False),
     "463": ("A body slamming down hard onto ice: one instant deep weighted impact with no build-up, then two shorter cracking snaps of the ice sheet within the next second.",
@@ -649,10 +654,10 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     "250": ("A steel blade snapping back together: one bright hard clash at the very first instant, then four short sharp metallic clicks as the crack seals, each with a gritty shimmer.",
             "ostrze scala się po pęknięciu: jeden jasny twardy szczęk w pierwszej chwili, potem cztery ostre metaliczne kliki", False),
     "71": (
-        "A rhino soldier slams into a force wall: one instant deep impact, "
-        "then his armour plates clattering and the barrier cracking with "
-        "sharp splintering snaps, mid-range." + NO_M,
-        "nosoroż uderza w barierę siły: jeden natychmiastowy głęboki impet, potem płyty pancerza łomoczą i bariera pęka z ostrymi trzaskami, środek pasma",
+        "A rhino body slamming a stone wall in the first instant: one hard crack "
+        "of the body, then a second crack, then a third crack, then a fourth "
+        "crack, the striking to the end. " + NO_M,
+        "tułów nosoroża wali w kamienny mur w pierwszej chwili: jeden twardy trzask ciała o kamień, potem drugi, potem trzeci, potem czwarty, uderzanie do końca",
         False,
     ),
     "73": ("A golden construct's blade snapping out and striking: an instant bright steel hit at the very first moment, then three more crisp clashes with a harsh metallic ring.",
