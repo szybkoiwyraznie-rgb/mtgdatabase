@@ -769,6 +769,18 @@ OVERRIDES: dict[str, tuple[str, str, bool]] = {
     ),
     "434": ('A mizzium reactor overloading: a deep low engine rumble underneath, with loud gritty metallic knocking and clanking forward in the mid range, and heavy pressure vents blasting open one after another.',
             'przeciążenie reaktora mizzium: niski pomruk silnika, nad nim głośne metalowe stukanie, kolejne zawory wyrywające się jeden po drugim', False),
+    "177": (
+        "A deep beast roaring in the first moment: one long chest roar, then a second "
+        "roar, then a third roar, then a fourth roar, bellowing to the end. " + NO_M,
+        "głęboki ryk bestii: jeden długi piersiowy ryk, potem drugi, potem trzeci, potem czwarty, ryk do końca",
+        False,
+    ),
+    "468": (
+        "A heavy throat roaring in the first moment: one long chest roar, then a second "
+        "roar, then a third roar, then a fourth roar, bellowing to the end. " + NO_M,
+        "ciężkie gardło: jeden długi piersiowy ryk, potem drugi, potem trzeci, potem czwarty, ryk do końca",
+        False,
+    ),
     "2": ("A stone thrown into deep water: one bright hard splash at the very first instant, then a hissing spray of droplets and three smaller plops spreading outward.",
             "kamień rzucony w głęboką wodę: jeden jasny twardy plusk w pierwszej chwili, potem syk drobnego rozbryzgu i trzy mniejsze pluski", False),
     "559": (
