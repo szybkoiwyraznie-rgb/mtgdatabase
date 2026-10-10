@@ -32,7 +32,10 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r092`** — **zero z dwóch**: `164` centroid;
+- Ostatnia runda: **`r093`** — z 2 kart weszła **jedna**: `468`
+  *Cacophodon* **2,85 → 3,16 s**. `177` para 0,95 z `396`.
+  Szczegóły: `state-2026-10-10-r093.md`.
+- Poprzednia runda: **`r092`** — **zero z dwóch**: `164` centroid;
   `72` decay. Szczegóły: `state-2026-10-10-r092.md`.
 - Poprzednia runda: **`r091`** — **zero z dwóch**: `9` centroid;
   `96` po łańcuchu krótsza. Szczegóły: `state-2026-10-10-r091.md`.
@@ -561,7 +564,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r090 | 2026-10-10 | **dwie z dwóch**: 329 (2,17 → 2,59 s) i 262 (2,44 → 3,27 s) | `state-2026-10-10-r090.md` |
 | r091 | 2026-10-10 | **zero z dwóch**; 9 centroid; 96 krótsza po łańcuchu | `state-2026-10-10-r091.md` |
 | r092 | 2026-10-10 | **zero z dwóch**; 164 centroid; 72 decay | `state-2026-10-10-r092.md` |
-| r093 | 2026-10-10 | prompty: 177 + 468 creature_roar, 2 × 5 | `state-2026-10-10-r093.md` |
+| r093 | 2026-10-10 | 468 weszła (2,85 → 3,16 s); 177 para 0,95 z 396 | `state-2026-10-10-r093.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -570,8 +573,9 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r093` — 2 karty × 5.** `177` i `468`
-   `creature_roar`. Rest plus `9`, `96`, `164`, `72`.
+1. **Następna transza: `r094`.** Pula krótkich, wolnych, bez twardego
+   ataku jest niemal pusta. Rest plus `177`, `9`, `96`, `164`, `72`.
+   Szukać `magic_shimmer`/`horn_call` z treścią < 3 s i n85 ≤ 2.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
