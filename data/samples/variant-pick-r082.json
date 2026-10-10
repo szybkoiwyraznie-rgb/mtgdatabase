@@ -1,0 +1,280 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r082",
+ "applied": true,
+ "results": [
+  {
+   "id": "71",
+   "title": "Security Rhox",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "chosen": "v4",
+   "chosen_score": 0.0,
+   "spread": 13.14,
+   "variants": [
+    {
+     "variant": "v4",
+     "file": "variants/r082/v4/71.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.56,
+      "content_rel_s": 3.21,
+      "lufs": -20.05,
+      "low_all": 0.688,
+      "spectral_centroid_hz": 336.7,
+      "spectral_flatness": 0.036,
+      "tonal_frame_fraction": 0.563,
+      "voiced_fraction": 0.513,
+      "crest_db": 21.22,
+      "attack_s": 0.06,
+      "decay_s": 0.14,
+      "onset_count": 3,
+      "sustain_ratio": 0.037,
+      "mod_peak_hz": 1.27
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r082/v2/71.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.27,
+      "content_rel_s": 2.36,
+      "lufs": -20.06,
+      "low_all": 0.369,
+      "spectral_centroid_hz": 933.7,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.75,
+      "voiced_fraction": 0.635,
+      "crest_db": 25.62,
+      "attack_s": 0.12,
+      "decay_s": 0.11,
+      "onset_count": 11,
+      "sustain_ratio": 0.052,
+      "mod_peak_hz": 1.42
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r082/v5/71.mp3",
+     "score": 10.9,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.82,
+      "content_rel_s": 1.41,
+      "lufs": -20.01,
+      "low_all": 0.876,
+      "spectral_centroid_hz": 199.3,
+      "spectral_flatness": 0.006,
+      "tonal_frame_fraction": 0.76,
+      "voiced_fraction": 0.55,
+      "crest_db": 18.71,
+      "attack_s": 0.02,
+      "decay_s": 0.23,
+      "onset_count": 6,
+      "sustain_ratio": 0.099,
+      "mod_peak_hz": 2.65
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r082/v3/71.mp3",
+     "score": 10.95,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.81,
+      "content_rel_s": 1.49,
+      "lufs": -19.99,
+      "low_all": 0.933,
+      "spectral_centroid_hz": 97.8,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.188,
+      "crest_db": 15.36,
+      "attack_s": 0.01,
+      "decay_s": 0.21,
+      "onset_count": 3,
+      "sustain_ratio": 0.155,
+      "mod_peak_hz": 1.77
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r082/v1/71.mp3",
+     "score": 13.14,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie jest natychmiastowe (attack_s=0.170, oczekiwane <= 0.15)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.571,
+      "content_rel_s": 1.121,
+      "lufs": -20.0,
+      "low_all": 0.714,
+      "spectral_centroid_hz": 353.5,
+      "spectral_flatness": 0.009,
+      "tonal_frame_fraction": 0.969,
+      "voiced_fraction": 0.345,
+      "crest_db": 15.51,
+      "attack_s": 0.17,
+      "decay_s": 0.35,
+      "onset_count": 8,
+      "sustain_ratio": 0.255,
+      "mod_peak_hz": 5.5
+     }
+    }
+   ]
+  },
+  {
+   "id": "453",
+   "title": "Elgaud Inquisitor",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "chosen": "v4",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v4",
+     "file": "variants/r082/v4/453.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.66,
+      "lufs": -20.74,
+      "low_all": 0.025,
+      "spectral_centroid_hz": 3922.3,
+      "spectral_flatness": 0.281,
+      "tonal_frame_fraction": 0.148,
+      "voiced_fraction": 0.089,
+      "crest_db": 26.45,
+      "attack_s": 0.03,
+      "decay_s": 0.03,
+      "onset_count": 10,
+      "sustain_ratio": 0.03,
+      "mod_peak_hz": 5.56
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r082/v1/453.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.9,
+      "content_rel_s": 3.52,
+      "lufs": -20.0,
+      "low_all": 0.011,
+      "spectral_centroid_hz": 3433.7,
+      "spectral_flatness": 0.166,
+      "tonal_frame_fraction": 0.048,
+      "voiced_fraction": 0.235,
+      "crest_db": 25.68,
+      "attack_s": 0.02,
+      "decay_s": 0.03,
+      "onset_count": 6,
+      "sustain_ratio": 0.033,
+      "mod_peak_hz": 6.02
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r082/v5/453.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.83,
+      "content_rel_s": 3.52,
+      "lufs": -20.01,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 3934.4,
+      "spectral_flatness": 0.2,
+      "tonal_frame_fraction": 0.036,
+      "voiced_fraction": 0.0,
+      "crest_db": 25.6,
+      "attack_s": 0.03,
+      "decay_s": 0.06,
+      "onset_count": 4,
+      "sustain_ratio": 0.042,
+      "mod_peak_hz": 3.3
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r082/v2/453.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.74,
+      "content_rel_s": 3.43,
+      "lufs": -19.97,
+      "low_all": 0.049,
+      "spectral_centroid_hz": 3230.0,
+      "spectral_flatness": 0.104,
+      "tonal_frame_fraction": 0.256,
+      "voiced_fraction": 0.312,
+      "crest_db": 25.14,
+      "attack_s": 0.01,
+      "decay_s": 0.07,
+      "onset_count": 9,
+      "sustain_ratio": 0.053,
+      "mod_peak_hz": 1.63
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r082/v3/453.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.94,
+      "content_rel_s": 2.76,
+      "lufs": -20.29,
+      "low_all": 0.496,
+      "spectral_centroid_hz": 2118.1,
+      "spectral_flatness": 0.262,
+      "tonal_frame_fraction": 0.148,
+      "voiced_fraction": 0.091,
+      "crest_db": 22.76,
+      "attack_s": 0.02,
+      "decay_s": 0.2,
+      "onset_count": 10,
+      "sustain_ratio": 0.075,
+      "mod_peak_hz": 2.0
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -32,7 +32,11 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: **`r081`** — z 2 kart weszła **jedna**: `56`
+- Ostatnia runda: **`r082`** — **dwie z dwóch**: `71` *Security Rhox*
+  **2,30 → 3,21 s** (`heavy_impact`) i `453` *Elgaud Inquisitor*
+  **2,97 → 3,36 s** (`plate_clank`). Obie trafione, 0 flag, 0 par.
+  Szczegóły: `docs/archive/state-2026-10-10-r082.md`.
+- Poprzednia runda: **`r081`** — z 2 kart weszła **jedna**: `56`
   *Diplomatic Relations* **3,00 → 4,00 s**, `plate_clank`, zero flag.
   `210` *Fiery Justice* cofnięta: 5/5 złamało `low_all`. Skreślona przy
   tym materiale. `duration_seconds` wraca do 2,76 s.
@@ -519,7 +523,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r079 | 2026-10-09 | pierwsza transza 2 × 5 wariantów; 333 weszła (+0,21 s) i jest bardziej odrębna; 534 dostała 5 prób i wszystkie wyszły krótsze | `state-2026-10-09-r079.md` |
 | r080 | 2026-10-09 | **pięć prób dało to, czego trzy nie dały** — 140 ten sam prompt co w r077, +0,76 s (2,70 → 3,46); 370 cofnięta: 5/5 dłuższych, 4/5 nie przeszło arrow_flight | `state-2026-10-09-r080.md` |
 | r081 | 2026-10-10 | 56 weszła (3,00 → 4,00 s); 210 cofnięta na `low_all`; kostur o kamień skreślony | `state-2026-10-10-r081.md` |
-| r082 | 2026-10-10 | prompty: 71 heavy_impact + 453 plate_clank, 2 × 5, czeka na generację | `state-2026-10-10-r082.md` |
+| r082 | 2026-10-10 | **dwie z dwóch**: 71 (2,30 → 3,21 s) i 453 (2,97 → 3,36 s), obie trafione, 0 flag | `state-2026-10-10-r082.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -528,12 +532,13 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r082` — 2 karty × 5 wariantów.**
-   `71` Security Rhox (`heavy_impact`, 2,30 s) i `453` Elgaud
-   Inquisitor (`plate_clank`, 2,97 s). `210` skreślona przy
-   materiale „kostur o kamień” (5/5 `low_all`). `534`, `548`,
-   `370` nadal na odpoczynku. Pięć prób tylko tam, gdzie rozkład
-   kiedyś sięgnął celu. `284` bez archetypu — nie w tej transzy.
+1. **Następna transza: znów 2 karty × 5 wariantów (`r083`).**
+   r082 weszła w całości — łańcuch z czasownikiem uderzenia dał
+   długość na `heavy_impact` i `plate_clank` naraz. Kandydaci:
+   trafione, treść < 3,2 s, wolny region, krótki zanik, nie na
+   odpoczynku (`534`, `548`, `370`, `210`). `284` bez archetypu
+   — nie w tej transzy. Pięć prób tylko tam, gdzie rozkład kiedyś
+   sięgnął celu.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
