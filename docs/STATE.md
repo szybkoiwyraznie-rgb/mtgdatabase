@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-10** (sesja `arena/a9d0a113-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-11** (sesja `arena/ee59daa7-mtgdatabase`).
 
 > Ten plik jest **obowiązkową lekturą agenta** i musi się mieścić w limicie
 > 50 000 tokenów razem z resztą plików z `docs/required-reading.md`
@@ -21,6 +21,18 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 
 ## Aktualny stan produkcji
 
+- **Decyzja właściciela (2026-10-11): kończymy pętlę kolejnych regeneracji.**
+  Nowe wersje przestały być lepsze od starszych (sporo regresji). Zamiast
+  kolejnych rund rNNN: **pełny audyt odsłuchowy** w `odsluch/` (buduje go
+  `scripts/build_listening_audit.py` z całej historii gita — produkcja
+  + kandydaci z `variants/`, od POC 2026-09-27). Strona `odsluch/index.html`
+  listuje 574 fabuły ze wszystkimi **4743 wersjami** MP3, wybory zapisuje
+  w localStorage (odporne na przeładowanie), a „Stwórz raport" pobiera JSON
+  z wyborami i uwagami. Po odebraniu raportu: dream team najlepszych wersji
+  wraca do `audio/samples/`, „Żadne" dostają nowe prompty wg uwag, plus
+  analiza preferencji na przyszłe generacje. Katalog jest samodzielny
+  (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
+  z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
 - Katalog: `fabuły270926.csv` + `data/catalog.json` — **574 fabuł**
   (dopisane `341`, `348`, `350`, `351`). ID = numeryczna część
   `Ilustracja` (`341DTK` → fabuła `341`).
@@ -327,6 +339,9 @@ python3 -m venv .venv && .venv/bin/pip install numpy scipy soundfile pyyaml pylo
 - `data/samples/scenarios.jsonl` — ręcznie pisane małe paczki scenariuszy sampli.
 - `data/samples/generated-manifest.jsonl` — manifest generacji scouta ElevenLabs.
 - `audio/samples/<id>.mp3` — aktualne wygenerowane sample produkcyjne.
+- `odsluch/` — samodzielna strona audytu odsłuchowego (index.html, data.js,
+  audio/<id>/<vid>.mp3). Odbudowa: `python scripts/build_listening_audit.py`
+  (wymaga pełnej historii: `git fetch origin '+refs/heads/*:refs/remotes/origin/*'`).
 - `site/generated/` — biblioteka HTML do sandboxa i Pages, generowana lokalnie.
 - `build/samples-latest.zip` — płaski ZIP z `<id>.mp3`, generowany lokalnie.
 - `docs/archive/state-*.md` — historia rund i dostaw (nie jest obowiązkową lekturą).
@@ -344,6 +359,7 @@ python scripts/rewrite_archetype_prompts.py --ids 1,2,3 --batch rNNN --fill-take
 python scripts/postprocess_samples.py --ids 1,2,3 --max-gain-db 26 --report data/samples/postprocess-rNNN.json
 python scripts/build_site.py --out site/generated
 python scripts/build_pack.py --output build/samples-latest.zip
+python scripts/build_listening_audit.py   # odbudowuje odsluch/ z historii gita
 python scripts/check_required_reading.py
 ```
 
@@ -621,7 +637,11 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r107`–`r115`.** Treść < 2,5 s, n85=0.
+1. **Czekać na raport z audytu odsłuchowego** (`odsluch/index.html` — patrz
+  decyzja u góry). Po odebraniu: (a) dream team — wybrane wersje wracają do
+   `audio/samples/` (blob po `vid` z raportu), (b) „Żadne" — nowe prompty
+   zgodnie z uwagami, (c) analiza preferencji na dużej próbie (które epoki,
+   kontrakty i parametry brzmią dobrze).
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
