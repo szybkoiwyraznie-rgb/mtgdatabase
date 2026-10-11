@@ -1,0 +1,284 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r084",
+ "applied": false,
+ "results": [
+  {
+   "id": "277",
+   "title": "Spinewoods Paladin",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v5",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v5",
+     "file": "variants/r084/v5/277.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.57,
+      "content_rel_s": 3.19,
+      "lufs": -20.05,
+      "low_all": 0.088,
+      "spectral_centroid_hz": 5819.9,
+      "spectral_flatness": 0.123,
+      "tonal_frame_fraction": 0.411,
+      "voiced_fraction": 0.375,
+      "crest_db": 25.52,
+      "attack_s": 0.03,
+      "decay_s": 0.18,
+      "onset_count": 4,
+      "sustain_ratio": 0.084,
+      "mod_peak_hz": 2.17
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r084/v4/277.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.85,
+      "content_rel_s": 3.1,
+      "lufs": -20.12,
+      "low_all": 0.108,
+      "spectral_centroid_hz": 3362.4,
+      "spectral_flatness": 0.336,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.019,
+      "crest_db": 24.75,
+      "attack_s": 0.02,
+      "decay_s": 0.03,
+      "onset_count": 16,
+      "sustain_ratio": 0.036,
+      "mod_peak_hz": 6.67
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r084/v3/277.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.72,
+      "content_rel_s": 2.48,
+      "lufs": -19.93,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 5860.4,
+      "spectral_flatness": 0.339,
+      "tonal_frame_fraction": 0.282,
+      "voiced_fraction": 0.0,
+      "crest_db": 27.89,
+      "attack_s": 0.08,
+      "decay_s": 0.07,
+      "onset_count": 2,
+      "sustain_ratio": 0.044,
+      "mod_peak_hz": 2.63
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r084/v1/277.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.27,
+      "content_rel_s": 2.02,
+      "lufs": -20.07,
+      "low_all": 0.006,
+      "spectral_centroid_hz": 4907.0,
+      "spectral_flatness": 0.077,
+      "tonal_frame_fraction": 0.407,
+      "voiced_fraction": 0.2,
+      "crest_db": 23.35,
+      "attack_s": 0.02,
+      "decay_s": 0.11,
+      "onset_count": 2,
+      "sustain_ratio": 0.115,
+      "mod_peak_hz": 1.01
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r084/v2/277.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.13,
+      "content_rel_s": 1.89,
+      "lufs": -19.95,
+      "low_all": 0.025,
+      "spectral_centroid_hz": 3602.2,
+      "spectral_flatness": 0.134,
+      "tonal_frame_fraction": 0.315,
+      "voiced_fraction": 0.323,
+      "crest_db": 24.25,
+      "attack_s": 0.01,
+      "decay_s": 0.03,
+      "onset_count": 2,
+      "sustain_ratio": 0.075,
+      "mod_peak_hz": 3.39
+     }
+    }
+   ]
+  },
+  {
+   "id": "576",
+   "title": "Akroan Sergeant",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r084/v3/576.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.782,
+      "content_rel_s": 2.442,
+      "lufs": -20.01,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 4664.8,
+      "spectral_flatness": 0.061,
+      "tonal_frame_fraction": 0.434,
+      "voiced_fraction": 0.631,
+      "crest_db": 18.59,
+      "attack_s": 0.08,
+      "decay_s": 0.16,
+      "onset_count": 4,
+      "sustain_ratio": 0.237,
+      "mod_peak_hz": 1.71
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r084/v1/576.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.7,
+      "content_rel_s": 2.42,
+      "lufs": -19.96,
+      "low_all": 0.034,
+      "spectral_centroid_hz": 5716.7,
+      "spectral_flatness": 0.083,
+      "tonal_frame_fraction": 0.385,
+      "voiced_fraction": 0.108,
+      "crest_db": 18.97,
+      "attack_s": 0.03,
+      "decay_s": 0.24,
+      "onset_count": 5,
+      "sustain_ratio": 0.274,
+      "mod_peak_hz": 1.3
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r084/v4/576.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.007, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.93,
+      "lufs": -20.01,
+      "low_all": 0.225,
+      "spectral_centroid_hz": 4130.4,
+      "spectral_flatness": 0.007,
+      "tonal_frame_fraction": 0.755,
+      "voiced_fraction": 0.75,
+      "crest_db": 21.95,
+      "attack_s": 0.02,
+      "decay_s": 0.14,
+      "onset_count": 6,
+      "sustain_ratio": 0.13,
+      "mod_peak_hz": 2.18
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r084/v5/576.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.027, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.59,
+      "content_rel_s": 3.36,
+      "lufs": -20.06,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 5885.1,
+      "spectral_flatness": 0.027,
+      "tonal_frame_fraction": 0.582,
+      "voiced_fraction": 0.598,
+      "crest_db": 23.45,
+      "attack_s": 0.01,
+      "decay_s": 0.27,
+      "onset_count": 7,
+      "sustain_ratio": 0.164,
+      "mod_peak_hz": 1.1
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r084/v2/576.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "stal uderza natychmiast (attack_s=0.140, oczekiwane <= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.944,
+      "content_rel_s": 2.584,
+      "lufs": -19.98,
+      "low_all": 0.021,
+      "spectral_centroid_hz": 4783.0,
+      "spectral_flatness": 0.053,
+      "tonal_frame_fraction": 0.443,
+      "voiced_fraction": 0.396,
+      "crest_db": 20.69,
+      "attack_s": 0.14,
+      "decay_s": 0.28,
+      "onset_count": 4,
+      "sustain_ratio": 0.207,
+      "mod_peak_hz": 1.01
+     }
+    }
+   ]
+  }
+ ]
+}

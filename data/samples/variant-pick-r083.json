@@ -1,0 +1,288 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r083",
+ "applied": false,
+ "results": [
+  {
+   "id": "209",
+   "title": "Burning-Yard Trainer",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 11.75,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r083/v3/209.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.28,
+      "content_rel_s": 3.09,
+      "lufs": -19.92,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6534.9,
+      "spectral_flatness": 0.133,
+      "tonal_frame_fraction": 0.254,
+      "voiced_fraction": 0.149,
+      "crest_db": 19.84,
+      "attack_s": 0.02,
+      "decay_s": 0.42,
+      "onset_count": 6,
+      "sustain_ratio": 0.299,
+      "mod_peak_hz": 1.28
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r083/v2/209.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.92,
+      "content_rel_s": 2.74,
+      "lufs": -20.1,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 7616.0,
+      "spectral_flatness": 0.073,
+      "tonal_frame_fraction": 0.458,
+      "voiced_fraction": 0.0,
+      "crest_db": 22.52,
+      "attack_s": 0.07,
+      "decay_s": 0.21,
+      "onset_count": 5,
+      "sustain_ratio": 0.185,
+      "mod_peak_hz": 2.69
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r083/v5/209.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.97,
+      "content_rel_s": 2.73,
+      "lufs": -20.01,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 6757.3,
+      "spectral_flatness": 0.153,
+      "tonal_frame_fraction": 0.189,
+      "voiced_fraction": 0.143,
+      "crest_db": 18.77,
+      "attack_s": 0.03,
+      "decay_s": 0.6,
+      "onset_count": 4,
+      "sustain_ratio": 0.32,
+      "mod_peak_hz": 3.33
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r083/v1/209.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.66,
+      "content_rel_s": 2.46,
+      "lufs": -19.86,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 7206.8,
+      "spectral_flatness": 0.113,
+      "tonal_frame_fraction": 0.257,
+      "voiced_fraction": 0.276,
+      "crest_db": 19.94,
+      "attack_s": 0.02,
+      "decay_s": 0.32,
+      "onset_count": 11,
+      "sustain_ratio": 0.312,
+      "mod_peak_hz": 5.74
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r083/v4/209.mp3",
+     "score": 11.75,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "cios stali jest ostry (crest_db=17.940, oczekiwane >= 18.0)",
+      "uderzenie ma szumowy transient (spectral_flatness=0.022, oczekiwane >= 0.05)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.95,
+      "content_rel_s": 1.73,
+      "lufs": -19.99,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 6238.1,
+      "spectral_flatness": 0.022,
+      "tonal_frame_fraction": 0.693,
+      "voiced_fraction": 0.222,
+      "crest_db": 17.94,
+      "attack_s": 0.03,
+      "decay_s": 0.24,
+      "onset_count": 4,
+      "sustain_ratio": 0.533,
+      "mod_peak_hz": 2.3
+     }
+    }
+   ]
+  },
+  {
+   "id": "250",
+   "title": "Loxodon Mender",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v4",
+   "chosen_score": 0.0,
+   "spread": 13.95,
+   "variants": [
+    {
+     "variant": "v4",
+     "file": "variants/r083/v4/250.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.38,
+      "content_rel_s": 3.15,
+      "lufs": -20.04,
+      "low_all": 0.279,
+      "spectral_centroid_hz": 3459.0,
+      "spectral_flatness": 0.096,
+      "tonal_frame_fraction": 0.475,
+      "voiced_fraction": 0.473,
+      "crest_db": 25.02,
+      "attack_s": 0.03,
+      "decay_s": 0.04,
+      "onset_count": 4,
+      "sustain_ratio": 0.08,
+      "mod_peak_hz": 1.48
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r083/v2/250.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.66,
+      "content_rel_s": 2.41,
+      "lufs": -20.01,
+      "low_all": 0.024,
+      "spectral_centroid_hz": 5823.3,
+      "spectral_flatness": 0.175,
+      "tonal_frame_fraction": 0.045,
+      "voiced_fraction": 0.407,
+      "crest_db": 26.93,
+      "attack_s": 0.03,
+      "decay_s": 0.03,
+      "onset_count": 7,
+      "sustain_ratio": 0.056,
+      "mod_peak_hz": 6.15
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r083/v1/250.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.025, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.72,
+      "content_rel_s": 3.47,
+      "lufs": -19.94,
+      "low_all": 0.018,
+      "spectral_centroid_hz": 5343.4,
+      "spectral_flatness": 0.025,
+      "tonal_frame_fraction": 0.588,
+      "voiced_fraction": 0.448,
+      "crest_db": 27.03,
+      "attack_s": 0.05,
+      "decay_s": 0.05,
+      "onset_count": 4,
+      "sustain_ratio": 0.04,
+      "mod_peak_hz": 1.2
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r083/v5/250.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.005, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.68,
+      "content_rel_s": 2.34,
+      "lufs": -19.98,
+      "low_all": 0.012,
+      "spectral_centroid_hz": 4989.4,
+      "spectral_flatness": 0.005,
+      "tonal_frame_fraction": 0.667,
+      "voiced_fraction": 0.556,
+      "crest_db": 23.99,
+      "attack_s": 0.1,
+      "decay_s": 0.18,
+      "onset_count": 3,
+      "sustain_ratio": 0.116,
+      "mod_peak_hz": 2.4
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r083/v3/250.mp3",
+     "score": 13.95,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "stal uderza natychmiast (attack_s=0.200, oczekiwane <= 0.1)",
+      "uderzenie ma szumowy transient (spectral_flatness=0.002, oczekiwane >= 0.05)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.51,
+      "content_rel_s": 1.35,
+      "lufs": -20.0,
+      "low_all": 0.004,
+      "spectral_centroid_hz": 4520.0,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 0.678,
+      "voiced_fraction": 0.66,
+      "crest_db": 20.84,
+      "attack_s": 0.2,
+      "decay_s": 0.37,
+      "onset_count": 0,
+      "sustain_ratio": 0.238,
+      "mod_peak_hz": 1.55
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,301 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r101",
+ "applied": false,
+ "results": [
+  {
+   "id": "348",
+   "title": "Impulse",
+   "archetype": "psychic_shriek",
+   "archetype_label": "przenikliwy jęk / uderzenie psychiczne",
+   "chosen": "v3",
+   "chosen_score": 1.5,
+   "spread": 12.3,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r101/v3/348.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie psychiczne jest natychmiastowe (attack_s=0.320, oczekiwane <= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.15,
+      "content_rel_s": 2.85,
+      "lufs": -19.99,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 2932.3,
+      "spectral_flatness": 0.138,
+      "tonal_frame_fraction": 0.304,
+      "voiced_fraction": 0.438,
+      "crest_db": 19.86,
+      "attack_s": 0.32,
+      "decay_s": 0.02,
+      "onset_count": 5,
+      "sustain_ratio": 0.143,
+      "mod_peak_hz": 2.31
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r101/v2/348.mp3",
+     "score": 11.58,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie psychiczne jest natychmiastowe (attack_s=0.370, oczekiwane <= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.984,
+      "content_rel_s": 1.584,
+      "lufs": -19.98,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 2453.3,
+      "spectral_flatness": 0.013,
+      "tonal_frame_fraction": 0.964,
+      "voiced_fraction": 0.893,
+      "crest_db": 15.3,
+      "attack_s": 0.37,
+      "decay_s": 0.84,
+      "onset_count": 1,
+      "sustain_ratio": 0.586,
+      "mod_peak_hz": 1.9
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r101/v4/348.mp3",
+     "score": 11.7,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie psychiczne jest natychmiastowe (attack_s=0.550, oczekiwane <= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.96,
+      "content_rel_s": 1.79,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 3868.4,
+      "spectral_flatness": 0.02,
+      "tonal_frame_fraction": 0.779,
+      "voiced_fraction": 0.561,
+      "crest_db": 17.59,
+      "attack_s": 0.55,
+      "decay_s": 0.5,
+      "onset_count": 2,
+      "sustain_ratio": 0.388,
+      "mod_peak_hz": 1.08
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r101/v1/348.mp3",
+     "score": 12.05,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie psychiczne jest natychmiastowe (attack_s=0.800, oczekiwane <= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.89,
+      "content_rel_s": 1.66,
+      "lufs": -19.98,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 3525.7,
+      "spectral_flatness": 0.031,
+      "tonal_frame_fraction": 0.752,
+      "voiced_fraction": 0.667,
+      "crest_db": 15.19,
+      "attack_s": 0.8,
+      "decay_s": 0.32,
+      "onset_count": 1,
+      "sustain_ratio": 0.624,
+      "mod_peak_hz": 1.16
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r101/v5/348.mp3",
+     "score": 13.8,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie psychiczne jest natychmiastowe (attack_s=0.410, oczekiwane <= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.54,
+      "content_rel_s": 1.43,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 2756.8,
+      "spectral_flatness": 0.014,
+      "tonal_frame_fraction": 0.966,
+      "voiced_fraction": 0.902,
+      "crest_db": 14.33,
+      "attack_s": 0.41,
+      "decay_s": 0.52,
+      "onset_count": 1,
+      "sustain_ratio": 0.539,
+      "mod_peak_hz": 3.68
+     }
+    }
+   ]
+  },
+  {
+   "id": "382",
+   "title": "Geological Appraiser",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "chosen": "v5",
+   "chosen_score": 1.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v5",
+     "file": "variants/r101/v5/382.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.000, oczekiwane >= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.76,
+      "content_rel_s": 3.37,
+      "lufs": -20.0,
+      "low_all": 1.0,
+      "spectral_centroid_hz": 75.0,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 16.46,
+      "attack_s": 0.17,
+      "decay_s": 0.88,
+      "onset_count": 17,
+      "sustain_ratio": 0.186,
+      "mod_peak_hz": 15.75
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r101/v2/382.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.000, oczekiwane >= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.52,
+      "content_rel_s": 3.35,
+      "lufs": -20.0,
+      "low_all": 1.0,
+      "spectral_centroid_hz": 63.1,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 14.3,
+      "attack_s": 0.11,
+      "decay_s": 1.22,
+      "onset_count": 17,
+      "sustain_ratio": 0.318,
+      "mod_peak_hz": 12.62
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r101/v3/382.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot się toczy (decay_s=0.400, oczekiwane >= 0.8)",
+      "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.000, oczekiwane >= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.43,
+      "content_rel_s": 3.18,
+      "lufs": -20.0,
+      "low_all": 1.0,
+      "spectral_centroid_hz": 54.3,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 16.71,
+      "attack_s": 0.05,
+      "decay_s": 0.4,
+      "onset_count": 17,
+      "sustain_ratio": 0.172,
+      "mod_peak_hz": 17.18
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r101/v4/382.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot się toczy (decay_s=0.320, oczekiwane >= 0.8)",
+      "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.000, oczekiwane >= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.37,
+      "content_rel_s": 3.12,
+      "lufs": -20.0,
+      "low_all": 1.0,
+      "spectral_centroid_hz": 57.3,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 16.01,
+      "attack_s": 0.04,
+      "decay_s": 0.32,
+      "onset_count": 12,
+      "sustain_ratio": 0.142,
+      "mod_peak_hz": 10.04
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r101/v1/382.mp3",
+     "score": 2.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "grzmot się toczy (decay_s=0.250, oczekiwane >= 0.8)",
+      "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.000, oczekiwane >= 0.1)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.19,
+      "content_rel_s": 2.82,
+      "lufs": -20.0,
+      "low_all": 1.0,
+      "spectral_centroid_hz": 72.6,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 16.69,
+      "attack_s": 0.37,
+      "decay_s": 0.25,
+      "onset_count": 14,
+      "sustain_ratio": 0.21,
+      "mod_peak_hz": 1.18
+     }
+    }
+   ]
+  }
+ ]
+}

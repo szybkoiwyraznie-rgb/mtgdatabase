@@ -1,0 +1,290 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r106",
+ "applied": false,
+ "results": [
+  {
+   "id": "14",
+   "title": "Crew Captain",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 0.5,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r106/v3/14.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.23,
+      "content_rel_s": 2.98,
+      "lufs": -19.96,
+      "low_all": 0.335,
+      "spectral_centroid_hz": 1273.6,
+      "spectral_flatness": 0.05,
+      "tonal_frame_fraction": 0.503,
+      "voiced_fraction": 0.013,
+      "crest_db": 17.15,
+      "attack_s": 0.02,
+      "decay_s": 0.44,
+      "onset_count": 3,
+      "sustain_ratio": 0.198,
+      "mod_peak_hz": 2.3
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r106/v4/14.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.99,
+      "content_rel_s": 2.74,
+      "lufs": -20.01,
+      "low_all": 0.332,
+      "spectral_centroid_hz": 811.5,
+      "spectral_flatness": 0.028,
+      "tonal_frame_fraction": 0.573,
+      "voiced_fraction": 0.117,
+      "crest_db": 17.35,
+      "attack_s": 0.05,
+      "decay_s": 0.44,
+      "onset_count": 3,
+      "sustain_ratio": 0.151,
+      "mod_peak_hz": 1.52
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r106/v5/14.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma masę (low_all=0.055, oczekiwane >= 0.2)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.53,
+      "content_rel_s": 2.49,
+      "lufs": -19.96,
+      "low_all": 0.055,
+      "spectral_centroid_hz": 2091.8,
+      "spectral_flatness": 0.077,
+      "tonal_frame_fraction": 0.111,
+      "voiced_fraction": 0.0,
+      "crest_db": 22.35,
+      "attack_s": 0.13,
+      "decay_s": 0.28,
+      "onset_count": 1,
+      "sustain_ratio": 0.115,
+      "mod_peak_hz": 1.2
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r106/v2/14.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma masę (low_all=0.141, oczekiwane >= 0.2)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.55,
+      "content_rel_s": 2.3,
+      "lufs": -19.99,
+      "low_all": 0.141,
+      "spectral_centroid_hz": 811.7,
+      "spectral_flatness": 0.004,
+      "tonal_frame_fraction": 0.984,
+      "voiced_fraction": 0.0,
+      "crest_db": 16.47,
+      "attack_s": 0.12,
+      "decay_s": 0.27,
+      "onset_count": 1,
+      "sustain_ratio": 0.114,
+      "mod_peak_hz": 1.33
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r106/v1/14.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma masę (low_all=0.099, oczekiwane >= 0.2)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.52,
+      "content_rel_s": 2.27,
+      "lufs": -19.99,
+      "low_all": 0.099,
+      "spectral_centroid_hz": 791.2,
+      "spectral_flatness": 0.011,
+      "tonal_frame_fraction": 0.714,
+      "voiced_fraction": 0.021,
+      "crest_db": 17.87,
+      "attack_s": 0.03,
+      "decay_s": 0.25,
+      "onset_count": 2,
+      "sustain_ratio": 0.075,
+      "mod_peak_hz": 1.0
+     }
+    }
+   ]
+  },
+  {
+   "id": "561",
+   "title": "Time to Feed",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 1.5,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r106/v3/561.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.9,
+      "content_rel_s": 3.45,
+      "lufs": -19.8,
+      "low_all": 0.667,
+      "spectral_centroid_hz": 272.5,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.382,
+      "crest_db": 10.24,
+      "attack_s": 0.16,
+      "decay_s": 0.41,
+      "onset_count": 3,
+      "sustain_ratio": 0.408,
+      "mod_peak_hz": 1.24
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r106/v1/561.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.08,
+      "content_rel_s": 2.71,
+      "lufs": -20.0,
+      "low_all": 0.615,
+      "spectral_centroid_hz": 312.6,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.423,
+      "crest_db": 7.87,
+      "attack_s": 1.03,
+      "decay_s": 1.61,
+      "onset_count": 2,
+      "sustain_ratio": 0.828,
+      "mod_peak_hz": 1.11
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r106/v4/561.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.241, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.67,
+      "content_rel_s": 3.34,
+      "lufs": -20.0,
+      "low_all": 0.619,
+      "spectral_centroid_hz": 326.8,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.241,
+      "crest_db": 9.94,
+      "attack_s": 1.01,
+      "decay_s": 2.12,
+      "onset_count": 11,
+      "sustain_ratio": 0.706,
+      "mod_peak_hz": 1.2
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r106/v2/561.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.275, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.55,
+      "content_rel_s": 3.28,
+      "lufs": -20.0,
+      "low_all": 0.672,
+      "spectral_centroid_hz": 353.0,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 0.988,
+      "voiced_fraction": 0.275,
+      "crest_db": 12.54,
+      "attack_s": 0.11,
+      "decay_s": 1.31,
+      "onset_count": 17,
+      "sustain_ratio": 0.532,
+      "mod_peak_hz": 1.37
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r106/v5/561.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.229, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.12,
+      "content_rel_s": 2.78,
+      "lufs": -20.0,
+      "low_all": 0.787,
+      "spectral_centroid_hz": 247.4,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.229,
+      "crest_db": 9.7,
+      "attack_s": 0.3,
+      "decay_s": 1.36,
+      "onset_count": 4,
+      "sustain_ratio": 0.397,
+      "mod_peak_hz": 1.09
+     }
+    }
+   ]
+  }
+ ]
+}

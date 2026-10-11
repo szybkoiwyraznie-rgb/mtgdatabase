@@ -1,0 +1,292 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r102",
+ "applied": false,
+ "results": [
+  {
+   "id": "145",
+   "title": "Clone Shell",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 1.5,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r102/v1/145.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.05,
+      "content_rel_s": 2.78,
+      "lufs": -20.01,
+      "low_all": 0.337,
+      "spectral_centroid_hz": 1006.7,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 0.743,
+      "voiced_fraction": 0.195,
+      "crest_db": 15.22,
+      "attack_s": 0.05,
+      "decay_s": 0.29,
+      "onset_count": 4,
+      "sustain_ratio": 0.19,
+      "mod_peak_hz": 1.23
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r102/v4/145.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.72,
+      "content_rel_s": 2.47,
+      "lufs": -20.1,
+      "low_all": 0.311,
+      "spectral_centroid_hz": 1033.6,
+      "spectral_flatness": 0.023,
+      "tonal_frame_fraction": 0.828,
+      "voiced_fraction": 0.0,
+      "crest_db": 17.0,
+      "attack_s": 0.12,
+      "decay_s": 0.42,
+      "onset_count": 2,
+      "sustain_ratio": 0.162,
+      "mod_peak_hz": 1.79
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r102/v2/145.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.54,
+      "content_rel_s": 2.29,
+      "lufs": -19.95,
+      "low_all": 0.408,
+      "spectral_centroid_hz": 1188.5,
+      "spectral_flatness": 0.045,
+      "tonal_frame_fraction": 0.511,
+      "voiced_fraction": 0.0,
+      "crest_db": 17.86,
+      "attack_s": 0.01,
+      "decay_s": 0.27,
+      "onset_count": 2,
+      "sustain_ratio": 0.15,
+      "mod_peak_hz": 1.0
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r102/v5/145.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma masę (low_all=0.167, oczekiwane >= 0.2)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.84,
+      "content_rel_s": 3.65,
+      "lufs": -19.91,
+      "low_all": 0.167,
+      "spectral_centroid_hz": 2228.5,
+      "spectral_flatness": 0.045,
+      "tonal_frame_fraction": 0.526,
+      "voiced_fraction": 0.02,
+      "crest_db": 24.8,
+      "attack_s": 0.02,
+      "decay_s": 0.23,
+      "onset_count": 2,
+      "sustain_ratio": 0.078,
+      "mod_peak_hz": 2.05
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r102/v3/145.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma ostry szczyt (crest_db=13.720, oczekiwane >= 14.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.77,
+      "content_rel_s": 2.51,
+      "lufs": -20.01,
+      "low_all": 0.532,
+      "spectral_centroid_hz": 570.4,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.836,
+      "voiced_fraction": 0.0,
+      "crest_db": 13.72,
+      "attack_s": 0.05,
+      "decay_s": 0.45,
+      "onset_count": 4,
+      "sustain_ratio": 0.199,
+      "mod_peak_hz": 1.99
+     }
+    }
+   ]
+  },
+  {
+   "id": "348",
+   "title": "Impulse",
+   "archetype": "steam_hiss",
+   "archetype_label": "syk pary / gazu",
+   "chosen": "v5",
+   "chosen_score": 1.5,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v5",
+     "file": "variants/r102/v5/348.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "syk jest szumem (spectral_flatness=0.138, oczekiwane >= 0.15)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.69,
+      "content_rel_s": 3.45,
+      "lufs": -19.96,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 8344.1,
+      "spectral_flatness": 0.138,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 15.95,
+      "attack_s": 0.17,
+      "decay_s": 3.23,
+      "onset_count": 0,
+      "sustain_ratio": 0.902,
+      "mod_peak_hz": 2.88
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r102/v1/348.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "syk jest szumem (spectral_flatness=0.127, oczekiwane >= 0.15)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.22,
+      "content_rel_s": 2.99,
+      "lufs": -20.01,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 8436.8,
+      "spectral_flatness": 0.127,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 16.05,
+      "attack_s": 1.37,
+      "decay_s": 1.51,
+      "onset_count": 1,
+      "sustain_ratio": 0.848,
+      "mod_peak_hz": 1.0
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r102/v3/348.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "syk jest szumem (spectral_flatness=0.129, oczekiwane >= 0.15)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.98,
+      "content_rel_s": 2.77,
+      "lufs": -20.06,
+      "low_all": 0.013,
+      "spectral_centroid_hz": 8339.6,
+      "spectral_flatness": 0.129,
+      "tonal_frame_fraction": 0.045,
+      "voiced_fraction": 0.0,
+      "crest_db": 15.89,
+      "attack_s": 0.2,
+      "decay_s": 2.17,
+      "onset_count": 0,
+      "sustain_ratio": 0.718,
+      "mod_peak_hz": 1.06
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r102/v4/348.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "syk jest szumem (spectral_flatness=0.079, oczekiwane >= 0.15)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.86,
+      "content_rel_s": 2.65,
+      "lufs": -20.02,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 8314.5,
+      "spectral_flatness": 0.079,
+      "tonal_frame_fraction": 0.008,
+      "voiced_fraction": 0.0,
+      "crest_db": 16.06,
+      "attack_s": 0.72,
+      "decay_s": 1.64,
+      "onset_count": 0,
+      "sustain_ratio": 0.741,
+      "mod_peak_hz": 1.09
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r102/v2/348.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "syk jest szumem (spectral_flatness=0.099, oczekiwane >= 0.15)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.51,
+      "content_rel_s": 2.32,
+      "lufs": -20.03,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 8446.5,
+      "spectral_flatness": 0.099,
+      "tonal_frame_fraction": 0.053,
+      "voiced_fraction": 0.0,
+      "crest_db": 15.94,
+      "attack_s": 0.67,
+      "decay_s": 1.45,
+      "onset_count": 1,
+      "sustain_ratio": 0.793,
+      "mod_peak_hz": 1.26
+     }
+    }
+   ]
+  }
+ ]
+}

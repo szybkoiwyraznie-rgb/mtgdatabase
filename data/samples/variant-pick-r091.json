@@ -1,0 +1,288 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r091",
+ "applied": false,
+ "results": [
+  {
+   "id": "9",
+   "title": "Toll of the Invasion",
+   "archetype": "wind_gust",
+   "archetype_label": "podmuch wiatru",
+   "chosen": "v2",
+   "chosen_score": 1.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r091/v2/9.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "wiatr siedzi w środku pasma (spectral_centroid_hz=8558.400, oczekiwane 300.0–3000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.86,
+      "content_rel_s": 3.27,
+      "lufs": -20.23,
+      "low_all": 0.016,
+      "spectral_centroid_hz": 8558.4,
+      "spectral_flatness": 0.299,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 15.29,
+      "attack_s": 0.83,
+      "decay_s": 2.01,
+      "onset_count": 0,
+      "sustain_ratio": 0.687,
+      "mod_peak_hz": 1.22
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r091/v4/9.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "wiatr siedzi w środku pasma (spectral_centroid_hz=9153.500, oczekiwane 300.0–3000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.24,
+      "lufs": -20.12,
+      "low_all": 0.012,
+      "spectral_centroid_hz": 9153.5,
+      "spectral_flatness": 0.329,
+      "tonal_frame_fraction": 0.007,
+      "voiced_fraction": 0.0,
+      "crest_db": 16.88,
+      "attack_s": 0.49,
+      "decay_s": 2.31,
+      "onset_count": 0,
+      "sustain_ratio": 0.635,
+      "mod_peak_hz": 1.19
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r091/v3/9.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "wiatr siedzi w środku pasma (spectral_centroid_hz=10098.300, oczekiwane 300.0–3000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.17,
+      "content_rel_s": 2.91,
+      "lufs": -20.04,
+      "low_all": 0.015,
+      "spectral_centroid_hz": 10098.3,
+      "spectral_flatness": 0.413,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 14.61,
+      "attack_s": 0.59,
+      "decay_s": 2.27,
+      "onset_count": 1,
+      "sustain_ratio": 0.88,
+      "mod_peak_hz": 2.4
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r091/v5/9.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "wiatr siedzi w środku pasma (spectral_centroid_hz=7790.000, oczekiwane 300.0–3000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 2.48,
+      "lufs": -20.1,
+      "low_all": 0.012,
+      "spectral_centroid_hz": 7790.0,
+      "spectral_flatness": 0.196,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 18.24,
+      "attack_s": 0.64,
+      "decay_s": 1.12,
+      "onset_count": 0,
+      "sustain_ratio": 0.315,
+      "mod_peak_hz": 1.18
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r091/v1/9.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "wiatr siedzi w środku pasma (spectral_centroid_hz=8140.300, oczekiwane 300.0–3000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.92,
+      "content_rel_s": 2.46,
+      "lufs": -20.03,
+      "low_all": 0.005,
+      "spectral_centroid_hz": 8140.3,
+      "spectral_flatness": 0.338,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.0,
+      "crest_db": 17.01,
+      "attack_s": 1.62,
+      "decay_s": 0.62,
+      "onset_count": 0,
+      "sustain_ratio": 0.675,
+      "mod_peak_hz": 1.22
+     }
+    }
+   ]
+  },
+  {
+   "id": "96",
+   "title": "Voice of the Vermin",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v4",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v4",
+     "file": "variants/r091/v4/96.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.59,
+      "content_rel_s": 3.42,
+      "lufs": -20.01,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 5855.4,
+      "spectral_flatness": 0.026,
+      "tonal_frame_fraction": 0.86,
+      "voiced_fraction": 0.852,
+      "crest_db": 17.6,
+      "attack_s": 1.65,
+      "decay_s": 0.98,
+      "onset_count": 0,
+      "sustain_ratio": 0.557,
+      "mod_peak_hz": 1.44
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r091/v5/96.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.22,
+      "content_rel_s": 3.11,
+      "lufs": -20.01,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5659.3,
+      "spectral_flatness": 0.031,
+      "tonal_frame_fraction": 0.974,
+      "voiced_fraction": 1.0,
+      "crest_db": 16.56,
+      "attack_s": 0.84,
+      "decay_s": 1.33,
+      "onset_count": 1,
+      "sustain_ratio": 0.481,
+      "mod_peak_hz": 3.81
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r091/v3/96.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.27,
+      "content_rel_s": 3.06,
+      "lufs": -19.98,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 5322.6,
+      "spectral_flatness": 0.036,
+      "tonal_frame_fraction": 0.879,
+      "voiced_fraction": 0.966,
+      "crest_db": 16.87,
+      "attack_s": 0.86,
+      "decay_s": 1.53,
+      "onset_count": 0,
+      "sustain_ratio": 0.569,
+      "mod_peak_hz": 2.54
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r091/v2/96.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.09,
+      "content_rel_s": 3.05,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 7739.9,
+      "spectral_flatness": 0.04,
+      "tonal_frame_fraction": 0.798,
+      "voiced_fraction": 0.824,
+      "crest_db": 20.48,
+      "attack_s": 0.81,
+      "decay_s": 1.2,
+      "onset_count": 0,
+      "sustain_ratio": 0.485,
+      "mod_peak_hz": 2.61
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r091/v1/96.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.207,
+      "content_rel_s": 2.817,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4871.8,
+      "spectral_flatness": 0.045,
+      "tonal_frame_fraction": 0.592,
+      "voiced_fraction": 0.598,
+      "crest_db": 17.6,
+      "attack_s": 0.9,
+      "decay_s": 0.98,
+      "onset_count": 0,
+      "sustain_ratio": 0.456,
+      "mod_peak_hz": 1.05
+     }
+    }
+   ]
+  }
+ ]
+}

@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-07** (sesja `arena/01a108e2-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-10** (sesja `arena/a9d0a113-mtgdatabase`).
 
 > Ten plik jest **obowiązkową lekturą agenta** i musi się mieścić w limicie
 > 50 000 tokenów razem z resztą plików z `docs/required-reading.md`
@@ -21,10 +21,11 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 
 ## Aktualny stan produkcji
 
-- Katalog: `fabuły270926.csv` — **563 fabuł** (walidacja: 563 rekordów).
-  ID fabuły to numeryczna część `Ilustracja` (`280KTK` → fabuła `280`).
-- Sample: **563 MP3** w `audio/samples/<id>.mp3`, **563 scenariuszy**
-  w `data/samples/scenarios.jsonl` — 100 % katalogu.
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **574 fabuł**
+  (dopisane `341`, `348`, `350`, `351`). ID = numeryczna część
+  `Ilustracja` (`341DTK` → fabuła `341`).
+- Sample: **574 MP3** w `audio/samples/<id>.mp3`; **574 scenariusze**
+  — 100 % katalogu. Nowe `341`/`348`/`350`/`351` mają audio.
 - Ostatnia dostawa: `b073` — `327BLB` *Brave-Kin Duo* (`water_splash`)
   i `328LRW` *Bog Hoodlums* (`heavy_impact`), obie **trafione, 0 flag**.
   `328` weszła z pierwszej tury; `327` dopiero po zmianie archetypu
@@ -32,7 +33,77 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Poprzednia dostawa: `b072` — `324DSK` *Spineseeker Centipede*
   (`mechanism_click`) i `325TDM` *Narset's Rebuke* (`thunder_clap`),
   obie **trafione, 0 flag**; `325` wymagała 5 prób i montażu.
-- Ostatnia runda: `r059` — z 2 kart weszła **jedna**: `434`
+- Ostatnia runda: **`r108`** — **dwie z dwóch**: `29` **2,00 → 3,58 s**
+  i `316` **2,02 → 2,94 s**. Szczegóły: `state-2026-10-10-r108.md`.
+- Poprzednia runda: **`r104`** — **dwie z dwóch**: `87` *Angelic
+  Benediction* **1,80 → 3,09 s** i `542` *Panic Spellbomb* **2,00 →
+  2,80 s**. Szczegóły: `state-2026-10-10-r104.md`.
+- Poprzednia runda: **`r103`** — nowa `348` *Impulse* **2,62 s**
+  (`mechanism_click`, trafiony). `263` cofnięta. Szczegóły:
+  `state-2026-10-10-r103.md`.
+- Poprzednia runda: **`r102`** — `145` *Clone Shell* **1,52 → 2,72 s**
+  (`heavy_impact`, trafiony). `348` cofnięta (`steam_hiss`).
+  Szczegóły: `state-2026-10-10-r102.md`.
+- Poprzednia runda: **`r101`** — `382` *Geological Appraiser*
+  **2,29 → 2,89 s**. `348` cofnięta (`psychic_shriek`, attack).
+  Szczegóły: `state-2026-10-10-r101.md`.
+- Poprzednia runda: **`r100`** — nowa `350` *Temple of Abandon*
+  **3,67 s** (`fire_crackle`, trafiony). `348` para 0,92 z `18`.
+  Szczegóły: `state-2026-10-10-r100.md`.
+- Poprzednia runda: **`r099`** — nowa `351` *Sporecap Spider*
+  **3,84 s** (`steam_hiss`, trafiony). `350` cofnięta (dzwon).
+  Szczegóły: `state-2026-10-10-r099.md`.
+- Poprzednia runda: **`r098`** — nowa `341` *Pacifism* **2,66 s**
+  (trafiony). `348` Impulse para 0,91 z `207`. Szczegóły:
+  `state-2026-10-10-r098.md`.
+- Poprzednia runda: **`r096`** — **dwie z dwóch**: `4` *Mystic
+  Sanctuary* **1,14 → 1,59 s** i `150` *Balamb Garden* **2,37 →
+  3,69 s** (`water_splash`). Szczegóły: `state-2026-10-10-r096.md`.
+- Poprzednia runda: **`r095`** — **zero z dwóch** na nowym budżecie
+  (10/10 OK). `157` i `607` już ~3 s, po łańcuchu krótsze;
+  `607` para 0,94 z `329`. Szczegóły: `state-2026-10-10-r095.md`.
+- Poprzednia runda: **`r094`** — **quota 0**. Dwa ułomne warianty,
+  oba krótsze po łańcuchu. Generacja wstrzymana.
+  Szczegóły: `state-2026-10-10-r094.md`.
+- Poprzednia runda: **`r093`** — z 2 kart weszła **jedna**: `468`
+  *Cacophodon* **2,85 → 3,16 s**. `177` para 0,95 z `396`.
+  Szczegóły: `state-2026-10-10-r093.md`.
+- Poprzednia runda: **`r092`** — **zero z dwóch**: `164` centroid;
+  `72` decay. Szczegóły: `state-2026-10-10-r092.md`.
+- Poprzednia runda: **`r091`** — **zero z dwóch**: `9` centroid;
+  `96` po łańcuchu krótsza. Szczegóły: `state-2026-10-10-r091.md`.
+- Poprzednia runda: **`r090`** — **dwie z dwóch**: `329` *Blinding
+  Drone* **2,17 → 2,59 s** i `262` *Angel's Herald* **2,44 → 3,27 s**.
+  Szczegóły: `state-2026-10-10-r090.md`.
+- Poprzednia runda: **`r089`** — **zero z dwóch**: `5` para 0,90 z
+  `98`; `163` gorszy werdykt. Szczegóły: `state-2026-10-10-r089.md`.
+- Poprzednia runda: **`r088`** — **dwie z dwóch**: `18` *Lotusguard
+  Disciple* **2,10 → 2,70 s** (`magic_shimmer`) i `571` *Vow of
+  Flight* **2,29 → 2,64 s** (`wing_flutter`). Szczegóły:
+  `state-2026-10-10-r088.md`.
+- Poprzednia runda: **`r087`** — **zero z dwóch**: `12` gorszy werdykt;
+  `332` +0,80 s ale para 0,90 z `558`. Szczegóły: `state-2026-10-10-r087.md`.
+- Poprzednia runda: **`r086`** — **zero z dwóch**: `269` i `583`
+  cofnięte (dłuższe, ale gorszy werdykt). Szczegóły: `state-2026-10-10-r086.md`.
+- Poprzednia runda: **`r085`** — **dwie z dwóch**: `232` *Goblin Piker*
+  **0,98 → 3,36 s** (`plate_clank`, +2,38) i `280` *Sultai Scavenger*
+  **2,03 → 2,57 s** (`creature_cackle`). Obie trafione, 0 flag.
+  Szczegóły: `state-2026-10-10-r085.md`.
+- Poprzednia runda: **`r084`** — **zero z dwóch**: `277` i `576`
+  `sword_clash` cofnięte. `277` +0,15 s (za mało); `576` dłuższe
+  warianty złamały `spectral_flatness`. Szczegóły: `state-2026-10-10-r084.md`.
+- Poprzednia runda: **`r083`** — z 2 kart weszła **jedna**: `250`
+  *Loxodon Mender* **2,70 → 3,11 s**, `sword_clash`. `209` cofnięta
+  (+0,01 s po łańcuchu — za mało). Szczegóły: `state-2026-10-10-r083.md`.
+- Poprzednia runda: **`r082`** — **dwie z dwóch**: `71` *Security Rhox*
+  **2,30 → 3,21 s** (`heavy_impact`) i `453` *Elgaud Inquisitor*
+  **2,97 → 3,36 s** (`plate_clank`). Obie trafione, 0 flag, 0 par.
+  Szczegóły: `docs/archive/state-2026-10-10-r082.md`.
+- Poprzednia runda: **`r081`** — z 2 kart weszła **jedna**: `56`
+  *Diplomatic Relations* **3,00 → 4,00 s**, `plate_clank`, zero flag.
+  `210` *Fiery Justice* cofnięta: 5/5 złamało `low_all`. Skreślona przy
+  tym materiale. `duration_seconds` wraca do 2,76 s.
+- Poprzednia runda: `r059` — z 2 kart weszła **jedna**: `434`
   *Epic Experiment* urosła z **1,20 → 3,91 s** treści, kontrakt
   `war_machine` spełniony. Cena: nowy bliźniak `325-434` (0,9422).
   `232` znów cofnięta — crest 12,9–14,9 przy progu 17.
@@ -514,6 +585,34 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | r078 | 2026-10-09 | **zero z trzech**; hipoteza o materiale obalona (brąz, kamień, bariera); wniosek: wariancja modelu większa niż zmienne w prompcie | `state-2026-10-09-r078.md` |
 | r079 | 2026-10-09 | pierwsza transza 2 × 5 wariantów; 333 weszła (+0,21 s) i jest bardziej odrębna; 534 dostała 5 prób i wszystkie wyszły krótsze | `state-2026-10-09-r079.md` |
 | r080 | 2026-10-09 | **pięć prób dało to, czego trzy nie dały** — 140 ten sam prompt co w r077, +0,76 s (2,70 → 3,46); 370 cofnięta: 5/5 dłuższych, 4/5 nie przeszło arrow_flight | `state-2026-10-09-r080.md` |
+| r081 | 2026-10-10 | 56 weszła (3,00 → 4,00 s); 210 cofnięta na `low_all`; kostur o kamień skreślony | `state-2026-10-10-r081.md` |
+| r082 | 2026-10-10 | **dwie z dwóch**: 71 (2,30 → 3,21 s) i 453 (2,97 → 3,36 s), obie trafione, 0 flag | `state-2026-10-10-r082.md` |
+| r083 | 2026-10-10 | 250 weszła (2,70 → 3,11 s); 209 cofnięta (+0,01 s) | `state-2026-10-10-r083.md` |
+| r084 | 2026-10-10 | **zero z dwóch**; 277 +0,15 s za mało; 576 dłuższe złamały flatness | `state-2026-10-10-r084.md` |
+| r085 | 2026-10-10 | **dwie z dwóch**: 232 (0,98 → 3,36 s) i 280 (2,03 → 2,57 s) | `state-2026-10-10-r085.md` |
+| r086 | 2026-10-10 | **zero z dwóch**; 269 i 583 dłuższe, gorszy werdykt | `state-2026-10-10-r086.md` |
+| r087 | 2026-10-10 | **zero z dwóch**; 12 werdykt; 332 para 0,90 z 558 | `state-2026-10-10-r087.md` |
+| r088 | 2026-10-10 | **dwie z dwóch**: 18 (2,10 → 2,70 s) i 571 (2,29 → 2,64 s) | `state-2026-10-10-r088.md` |
+| r089 | 2026-10-10 | **zero z dwóch**; 5 para z 98; 163 werdykt | `state-2026-10-10-r089.md` |
+| r090 | 2026-10-10 | **dwie z dwóch**: 329 (2,17 → 2,59 s) i 262 (2,44 → 3,27 s) | `state-2026-10-10-r090.md` |
+| r091 | 2026-10-10 | **zero z dwóch**; 9 centroid; 96 krótsza po łańcuchu | `state-2026-10-10-r091.md` |
+| r092 | 2026-10-10 | **zero z dwóch**; 164 centroid; 72 decay | `state-2026-10-10-r092.md` |
+| r093 | 2026-10-10 | 468 weszła (2,85 → 3,16 s); 177 para 0,95 z 396 | `state-2026-10-10-r093.md` |
+| r094 | 2026-10-10 | **quota 0**; 2/10 plików, oba krótsze, bez instalacji | `state-2026-10-10-r094.md` |
+| r095 | 2026-10-10 | **zero z dwóch**; nowy budżet OK; 157/607 krótsze po łańcuchu | `state-2026-10-10-r095.md` |
+| r096 | 2026-10-10 | **dwie z dwóch**: 4 (1,14 → 1,59 s) i 150 (2,37 → 3,69 s) | `state-2026-10-10-r096.md` |
+| r097 | 2026-10-10 | **jedna z dwóch**: 2 (2,37 → 3,41 s); 263 cofnięta | `state-2026-10-10-r097.md` |
+| r098 | 2026-10-10 | **341 weszła** (2,66 s); 348 para z 207; 350/351 bez audio | `state-2026-10-10-r098.md` |
+| r099 | 2026-10-10 | **351 weszła** (3,84 s); 350 cofnięta (dzwon) | `state-2026-10-10-r099.md` |
+| r100 | 2026-10-10 | **350 weszła** (3,67 s, fire_crackle); 348 para z 18 | `state-2026-10-10-r100.md` |
+| r101 | 2026-10-10 | **382 +0,60 s**; 348 psychic_shriek cofnięta | `state-2026-10-10-r101.md` |
+| r102 | 2026-10-10 | **145 +1,20 s** (heavy_impact); 348 steam_hiss cofnięta | `state-2026-10-10-r102.md` |
+| r103 | 2026-10-10 | **348 weszła** (2,62 s, mechanism_click); 263 cofnięta | `state-2026-10-10-r103.md` |
+| r104 | 2026-10-10 | **dwie z dwóch**: 87 (1,80 → 3,09 s) i 542 (2,00 → 2,80 s) | `state-2026-10-10-r104.md` |
+| r105 | 2026-10-10 | **zero z dwóch**: 219 pary; 388 +0,11 s | `state-2026-10-10-r105.md` |
+| r106 | 2026-10-10 | **dwie z dwóch**: 14 +0,78 s i 561 +1,26 s | `state-2026-10-10-r106.md` |
+| r107 | 2026-10-10 | **dwie z dwóch**: 13 +0,84 s i 516 +1,39 s | `state-2026-10-10-r107.md` |
+| r108 | 2026-10-10 | **dwie z dwóch**: 29 +1,58 s i 316 +0,92 s | `state-2026-10-10-r108.md` |
 | b059–b070 | 2026-10-01…04 | dostawy właściciela, 553 → 557 | `state-2026-10-01.md` |
 | b054–b058, r001–r009 | 2026-09-28…30 | start flow v2 | `state-2026-09-28.md` |
 
@@ -522,26 +621,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: znów 2 karty × 5 wariantów.** `r080`
-   rozstrzygnęła spór z `r079`: pięć prób działa, ale wyłącznie
-   na kartach, których rozkład długości **obejmuje** wartość
-   docelową. Dowód jest na jednej karcie — `140` dostała ten sam
-   prompt w r077 (trzy próby, maksimum 2,42 s) i w r080 (pięć
-   prób, v2 = 3,46 s). Trzy przeszły obok ogona rozkładu, pięć
-   go znalazło.
-   Wybierać karty, które **już kiedyś wygenerowały coś blisko
-   celu**, choćby w jednym wariancie z wielu — to jedyny sygnał,
-   że rozkład tam sięga. Karty, których żaden wariant z dotychczas
-   wykonanych prób nie zbliżył się do celu, są skreślone
-   bez względu na to, ile prób dostaną: `534` (czternaście
-   wariantów, zero instalacji), `548`, `370`.
-   Kandydaci z regionów wolnych i kontraktem o krótkim zaniku:
-   `71` heavy_impact (luka 0,21 s), `210` heavy_impact (0,46 s),
-   `284` (0,46 s). Sprawdzić zajętość regionu przed i po.
-   Dla kart zablokowanych materiałem jedyna droga to zmiana
-   archetypu, jak z `340`, która nie przeszła `robot_servo` w
-   pięciu podejściach, a po zmianie na `steam_hiss` weszła od
-   razu.
+1. **Następna transza: `r107`–`r115`.** Treść < 2,5 s, n85=0.
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów
@@ -725,6 +805,9 @@ docs/archive/state-2026-10-09-b074.md   paczka b074 (7 nowych kart, 5 paczek gen
 docs/archive/state-2026-10-09-r068.md   runda r068 (501 i 565 weszły, 308 cofnięta)
 docs/archive/state-2026-10-09-r069.md   runda r069 (74 weszła, 308 i 177 cofnięte)
 docs/archive/state-2026-10-09-b074.md   paczka b074 (7 nowych kart, 5 paczek generacji)
+docs/archive/state-2026-10-10-r081.md   runda r081 (56 weszła, 210 cofnięta)
+docs/archive/state-2026-10-10-r082.md   runda r082 (71 i 453 weszły)
+docs/archive/state-2026-10-10-r083.md   runda r083 (prompty 209, 250)
 ```
 
 Archiwum powstało 2026-10-07 przez wycięcie historii z tego pliku:

@@ -1,0 +1,298 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r092",
+ "applied": false,
+ "results": [
+  {
+   "id": "72",
+   "title": "Dragon Arch",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "chosen": "v2",
+   "chosen_score": 1.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/r092/v2/72.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "osuwisko się toczy (decay_s=0.130, oczekiwane >= 0.5)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.77,
+      "lufs": -20.0,
+      "low_all": 0.538,
+      "spectral_centroid_hz": 951.1,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 0.704,
+      "voiced_fraction": 0.086,
+      "crest_db": 20.21,
+      "attack_s": 0.27,
+      "decay_s": 0.13,
+      "onset_count": 14,
+      "sustain_ratio": 0.128,
+      "mod_peak_hz": 1.41
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r092/v4/72.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "osuwisko się toczy (decay_s=0.110, oczekiwane >= 0.5)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.93,
+      "content_rel_s": 3.66,
+      "lufs": -20.04,
+      "low_all": 0.644,
+      "spectral_centroid_hz": 577.6,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 0.873,
+      "voiced_fraction": 0.08,
+      "crest_db": 23.0,
+      "attack_s": 0.05,
+      "decay_s": 0.11,
+      "onset_count": 22,
+      "sustain_ratio": 0.135,
+      "mod_peak_hz": 8.33
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r092/v3/72.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "osuwisko się toczy (decay_s=0.120, oczekiwane >= 0.5)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.92,
+      "content_rel_s": 3.57,
+      "lufs": -20.01,
+      "low_all": 0.273,
+      "spectral_centroid_hz": 763.4,
+      "spectral_flatness": 0.004,
+      "tonal_frame_fraction": 0.789,
+      "voiced_fraction": 0.069,
+      "crest_db": 19.1,
+      "attack_s": 0.21,
+      "decay_s": 0.12,
+      "onset_count": 9,
+      "sustain_ratio": 0.406,
+      "mod_peak_hz": 2.0
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r092/v5/72.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "osuwisko się toczy (decay_s=0.180, oczekiwane >= 0.5)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.58,
+      "content_rel_s": 3.33,
+      "lufs": -20.01,
+      "low_all": 0.538,
+      "spectral_centroid_hz": 475.4,
+      "spectral_flatness": 0.014,
+      "tonal_frame_fraction": 0.905,
+      "voiced_fraction": 0.265,
+      "crest_db": 18.96,
+      "attack_s": 0.16,
+      "decay_s": 0.18,
+      "onset_count": 16,
+      "sustain_ratio": 0.279,
+      "mod_peak_hz": 1.34
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r092/v1/72.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "osuwisko się toczy (decay_s=0.110, oczekiwane >= 0.5)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 2.75,
+      "lufs": -20.0,
+      "low_all": 0.691,
+      "spectral_centroid_hz": 230.6,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.176,
+      "crest_db": 19.79,
+      "attack_s": 0.07,
+      "decay_s": 0.11,
+      "onset_count": 19,
+      "sustain_ratio": 0.095,
+      "mod_peak_hz": 1.09
+     }
+    }
+   ]
+  },
+  {
+   "id": "164",
+   "title": "Gryffwing Cavalry",
+   "archetype": "wing_flutter",
+   "archetype_label": "trzepot skrzydeł",
+   "chosen": "v5",
+   "chosen_score": 1.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v5",
+     "file": "variants/r092/v5/164.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "trzepot jest szelestem w środku pasma (spectral_centroid_hz=370.600, oczekiwane 800.0–6000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.7,
+      "content_rel_s": 3.56,
+      "lufs": -20.18,
+      "low_all": 0.502,
+      "spectral_centroid_hz": 370.6,
+      "spectral_flatness": 0.043,
+      "tonal_frame_fraction": 0.549,
+      "voiced_fraction": 0.025,
+      "crest_db": 22.06,
+      "attack_s": 0.03,
+      "decay_s": 0.04,
+      "onset_count": 32,
+      "sustain_ratio": 0.151,
+      "mod_peak_hz": 6.59
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r092/v3/164.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "trzepot jest szelestem w środku pasma (spectral_centroid_hz=306.000, oczekiwane 800.0–6000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.488,
+      "content_rel_s": 3.348,
+      "lufs": -20.11,
+      "low_all": 0.589,
+      "spectral_centroid_hz": 306.0,
+      "spectral_flatness": 0.037,
+      "tonal_frame_fraction": 0.619,
+      "voiced_fraction": 0.011,
+      "crest_db": 20.68,
+      "attack_s": 0.05,
+      "decay_s": 0.03,
+      "onset_count": 22,
+      "sustain_ratio": 0.129,
+      "mod_peak_hz": 6.01
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r092/v2/164.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "trzepot jest szelestem w środku pasma (spectral_centroid_hz=365.600, oczekiwane 800.0–6000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.37,
+      "content_rel_s": 3.3,
+      "lufs": -20.25,
+      "low_all": 0.631,
+      "spectral_centroid_hz": 365.6,
+      "spectral_flatness": 0.045,
+      "tonal_frame_fraction": 0.548,
+      "voiced_fraction": 0.0,
+      "crest_db": 21.66,
+      "attack_s": 0.08,
+      "decay_s": 0.06,
+      "onset_count": 19,
+      "sustain_ratio": 0.16,
+      "mod_peak_hz": 7.06
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r092/v4/164.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "trzepot jest szelestem w środku pasma (spectral_centroid_hz=301.900, oczekiwane 800.0–6000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.057,
+      "content_rel_s": 2.877,
+      "lufs": -19.99,
+      "low_all": 0.745,
+      "spectral_centroid_hz": 301.9,
+      "spectral_flatness": 0.036,
+      "tonal_frame_fraction": 0.688,
+      "voiced_fraction": 0.058,
+      "crest_db": 19.38,
+      "attack_s": 0.02,
+      "decay_s": 0.05,
+      "onset_count": 24,
+      "sustain_ratio": 0.213,
+      "mod_peak_hz": 12.31
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r092/v1/164.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "trzepot jest szelestem w środku pasma (spectral_centroid_hz=425.000, oczekiwane 800.0–6000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.426,
+      "content_rel_s": 2.226,
+      "lufs": -20.21,
+      "low_all": 0.455,
+      "spectral_centroid_hz": 425.0,
+      "spectral_flatness": 0.062,
+      "tonal_frame_fraction": 0.421,
+      "voiced_fraction": 0.05,
+      "crest_db": 23.02,
+      "attack_s": 0.02,
+      "decay_s": 0.04,
+      "onset_count": 16,
+      "sustain_ratio": 0.079,
+      "mod_peak_hz": 11.24
+     }
+    }
+   ]
+  }
+ ]
+}

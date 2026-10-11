@@ -1,0 +1,289 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r104",
+ "applied": false,
+ "results": [
+  {
+   "id": "87",
+   "title": "Angelic Benediction",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r104/v3/87.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.7,
+      "content_rel_s": 3.57,
+      "lufs": -19.99,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 2858.0,
+      "spectral_flatness": 0.036,
+      "tonal_frame_fraction": 0.718,
+      "voiced_fraction": 0.881,
+      "crest_db": 17.87,
+      "attack_s": 0.82,
+      "decay_s": 1.55,
+      "onset_count": 1,
+      "sustain_ratio": 0.424,
+      "mod_peak_hz": 7.0
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r104/v4/87.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.29,
+      "content_rel_s": 3.22,
+      "lufs": -19.98,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5566.9,
+      "spectral_flatness": 0.051,
+      "tonal_frame_fraction": 0.486,
+      "voiced_fraction": 0.89,
+      "crest_db": 18.81,
+      "attack_s": 0.7,
+      "decay_s": 1.53,
+      "onset_count": 0,
+      "sustain_ratio": 0.535,
+      "mod_peak_hz": 1.23
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r104/v5/87.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.03,
+      "content_rel_s": 2.99,
+      "lufs": -20.07,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 7006.9,
+      "spectral_flatness": 0.044,
+      "tonal_frame_fraction": 0.641,
+      "voiced_fraction": 1.0,
+      "crest_db": 18.26,
+      "attack_s": 1.03,
+      "decay_s": 0.9,
+      "onset_count": 1,
+      "sustain_ratio": 0.482,
+      "mod_peak_hz": 1.0
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r104/v1/87.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.011, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.28,
+      "content_rel_s": 3.17,
+      "lufs": -19.94,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 7286.4,
+      "spectral_flatness": 0.103,
+      "tonal_frame_fraction": 0.011,
+      "voiced_fraction": 0.009,
+      "crest_db": 18.13,
+      "attack_s": 0.75,
+      "decay_s": 1.81,
+      "onset_count": 0,
+      "sustain_ratio": 0.601,
+      "mod_peak_hz": 1.25
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r104/v2/87.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.004, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.97,
+      "content_rel_s": 2.92,
+      "lufs": -19.99,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 5017.9,
+      "spectral_flatness": 0.1,
+      "tonal_frame_fraction": 0.004,
+      "voiced_fraction": 0.451,
+      "crest_db": 18.09,
+      "attack_s": 0.77,
+      "decay_s": 1.3,
+      "onset_count": 0,
+      "sustain_ratio": 0.495,
+      "mod_peak_hz": 1.03
+     }
+    }
+   ]
+  },
+  {
+   "id": "542",
+   "title": "Panic Spellbomb",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 2.5,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r104/v3/542.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.06,
+      "content_rel_s": 2.81,
+      "lufs": -19.99,
+      "low_all": 0.44,
+      "spectral_centroid_hz": 1068.6,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 0.611,
+      "voiced_fraction": 0.385,
+      "crest_db": 19.66,
+      "attack_s": 0.02,
+      "decay_s": 0.21,
+      "onset_count": 4,
+      "sustain_ratio": 0.144,
+      "mod_peak_hz": 1.89
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r104/v5/542.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.06,
+      "content_rel_s": 2.77,
+      "lufs": -20.03,
+      "low_all": 0.519,
+      "spectral_centroid_hz": 655.2,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 0.809,
+      "voiced_fraction": 0.222,
+      "crest_db": 14.92,
+      "attack_s": 0.03,
+      "decay_s": 0.39,
+      "onset_count": 7,
+      "sustain_ratio": 0.19,
+      "mod_peak_hz": 1.37
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r104/v1/542.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma ostry szczyt (crest_db=13.310, oczekiwane >= 14.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.36,
+      "content_rel_s": 3.05,
+      "lufs": -20.02,
+      "low_all": 0.593,
+      "spectral_centroid_hz": 602.0,
+      "spectral_flatness": 0.008,
+      "tonal_frame_fraction": 0.777,
+      "voiced_fraction": 0.237,
+      "crest_db": 13.31,
+      "attack_s": 0.08,
+      "decay_s": 0.67,
+      "onset_count": 2,
+      "sustain_ratio": 0.286,
+      "mod_peak_hz": 1.05
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r104/v4/542.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma ostry szczyt (crest_db=13.680, oczekiwane >= 14.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.12,
+      "content_rel_s": 2.79,
+      "lufs": -20.02,
+      "low_all": 0.705,
+      "spectral_centroid_hz": 456.7,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.928,
+      "voiced_fraction": 0.571,
+      "crest_db": 13.68,
+      "attack_s": 0.09,
+      "decay_s": 0.61,
+      "onset_count": 7,
+      "sustain_ratio": 0.298,
+      "mod_peak_hz": 1.99
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r104/v2/542.mp3",
+     "score": 2.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma ostry szczyt (crest_db=13.550, oczekiwane >= 14.0)",
+      "uderzenie jest natychmiastowe (attack_s=0.170, oczekiwane <= 0.15)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.07,
+      "content_rel_s": 2.77,
+      "lufs": -19.97,
+      "low_all": 0.542,
+      "spectral_centroid_hz": 688.7,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.703,
+      "voiced_fraction": 0.01,
+      "crest_db": 13.55,
+      "attack_s": 0.17,
+      "decay_s": 0.27,
+      "onset_count": 5,
+      "sustain_ratio": 0.267,
+      "mod_peak_hz": 1.44
+     }
+    }
+   ]
+  }
+ ]
+}

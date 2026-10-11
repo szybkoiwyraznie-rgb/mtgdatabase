@@ -1,47 +1,9 @@
-name: "TEMP r081 - 210 i 56: trzecia transza 2 x 5"
+name: "TEMP r108 - 29 i 316: 2 x 5"
 
-# r081: 2 karty x 5 wariantow = 10 generacji x 40 kredytow = 400 kredytow.
-# Po tej paczce na drugim kluczu zostanie 4480.
-#
-#  210 heavy_impact  tresc 2,54 s  luka 0,96 s  0 sasiadow >=0,80  max kos. 0,5601
-#   56 plate_clank   tresc 3,00 s  luka 0,50 s  0 sasiadow >=0,80  max kos. 0,5206
-#
-# Wybor po r080, ktora rozstrzygnela spor z r079: piec prob dziala,
-# ale wylacznie na kartach, ktorych rozklad dlugosci OBEJMUJE wartosc
-# docelowa. 140 dostala ten sam prompt w r077 (3 proby, maksimum
-# 2,42 s) i w r080 (5 prob, v2 = 3,46 s). Trzy przeszly obok ogona
-# rozkladu, piec go znalazly.
-#
-# Nowe kryterium doboru: karty, ktorych REGION jest wolny i ktore
-# maja realna luke do 4 s. Z 22 kandydatow o wolnym regionie i
-# kontrakcie z krotkim zanikiem wybrano dwie z najbardziej
-# odrebnym otoczeniem i najwieksza luka:
-#
-#  210  Fiery Justice         heavy_impact  max kosinus 0,5601
-#       Kontrakt: crest >= 14, attack <= 0,15, decay <= 1,4, low_all >= 0,2.
-#       Obecny prompt (b061) byl gesty: trzask kostura + wybuch ognia
-#       + trzaski plomieni + szczek zbroi. Dostaje lancuch czterech
-#       trzaskow kostura o kamien — low_all >= 0,2 wymaga dołu pasma,
-#       wiec trzask kostura o kamien niesie ciezar kontraktu, ogien
-#       znika z promptu.
-#
-#   56  Diplomatic Relations  plate_clank   max kosinus 0,5206
-#       Kontrakt: crest >= 17, centroid 1000-6000, onset_count >= 2,
-#       flatness >= 0,03, decay <= 1,2. Obecny prompt (r028) mial juz
-#       lancuch (szesc klikniec), ale czasownik ruchu: „snapping shut".
-#       Dostaje ten sam lancuch co 140 i 333, czyli czasownik
-#       uderzenia: „clashing shut" + cztery trzaski. plate_clank
-#       wymaga onset_count >= 2, wiec lancuch jest tu wymogiem
-#       kontraktu, nie ozdoba.
-#
-# Obie karty: region wolny (0 sasiadow >= 0,80 i >= 0,85),
-# kontrakt z krotkim zanikiem (heavy_impact <= 1,4,
-# plate_clank <= 1,2).
-#
 on:
   push:
     branches:
-      - arena/01a108e2-mtgdatabase
+      - arena/a9d0a113-mtgdatabase
 
 permissions:
   contents: write
@@ -49,7 +11,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "210,56"
+  IDS: "29,316"
 
 jobs:
   variants:
@@ -58,26 +20,22 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: arena/01a108e2-mtgdatabase
-
-      - name: Guard — tylko commit z markerem [generate-r081]
+          ref: arena/a9d0a113-mtgdatabase
+      - name: Guard — tylko commit z markerem [generate-r108]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-r081]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-r108]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-r081] — nic nie generuję"
+            echo "brak markera [generate-r108] — nic nie generuję"
           fi
-
       - uses: actions/setup-python@v5
         if: steps.guard.outputs.run == '1'
         with:
           python-version: "3.12"
-
       - name: Validate scenarios
         if: steps.guard.outputs.run == '1'
         run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
-
       - name: Generate 5 variants per story
         if: steps.guard.outputs.run == '1'
         continue-on-error: true
@@ -85,25 +43,21 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/r081
+          mkdir -p variants/r108
           for v in 1 2 3 4 5; do
-            echo "=== wariant v$v ===" | tee -a variants/r081/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/r108/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
-              --ids "$IDS" --batch r081 --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/r081/v$v" 2>&1 | tee -a variants/r081/generate.log
+              --ids "$IDS" --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/r108/v$v" 2>&1 | tee -a variants/r108/generate.log
           done
-          ls -la variants/r081 variants/r081/v1 variants/r081/v2 variants/r081/v3 variants/r081/v4 variants/r081/v5 || true
-
-      - name: Commit variants and log back to the session branch
+      - name: Commit variants
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/r081 data/samples/generated-manifest.jsonl
-          if git diff --cached --quiet; then
-            echo "nic do zacommitowania"
-          else
-            git commit -m "r081: 10 wariantow (2 karty x 5) + log generacji [import-r081]"
-            git push origin HEAD:arena/01a108e2-mtgdatabase
+          git add -f variants/r108 data/samples/generated-manifest.jsonl
+          if git diff --cached --quiet; then echo nic; else
+            git commit -m "r108: 10 wariantow (2 karty x 5) + log generacji [import-r108]"
+            git push origin HEAD:arena/a9d0a113-mtgdatabase
           fi

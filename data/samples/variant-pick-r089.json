@@ -1,0 +1,287 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r089",
+ "applied": false,
+ "results": [
+  {
+   "id": "5",
+   "title": "Academy Journeymage",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v3",
+   "chosen_score": 0.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v3",
+     "file": "variants/r089/v3/5.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.16,
+      "content_rel_s": 3.12,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 7312.1,
+      "spectral_flatness": 0.039,
+      "tonal_frame_fraction": 0.6,
+      "voiced_fraction": 0.0,
+      "crest_db": 16.73,
+      "attack_s": 0.96,
+      "decay_s": 1.31,
+      "onset_count": 1,
+      "sustain_ratio": 0.522,
+      "mod_peak_hz": 1.28
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r089/v4/5.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.36,
+      "content_rel_s": 3.09,
+      "lufs": -20.01,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5259.4,
+      "spectral_flatness": 0.027,
+      "tonal_frame_fraction": 0.989,
+      "voiced_fraction": 0.222,
+      "crest_db": 18.01,
+      "attack_s": 0.99,
+      "decay_s": 1.03,
+      "onset_count": 0,
+      "sustain_ratio": 0.458,
+      "mod_peak_hz": 1.55
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r089/v1/5.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.27,
+      "content_rel_s": 3.08,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6606.6,
+      "spectral_flatness": 0.047,
+      "tonal_frame_fraction": 0.609,
+      "voiced_fraction": 0.99,
+      "crest_db": 17.84,
+      "attack_s": 0.88,
+      "decay_s": 1.14,
+      "onset_count": 0,
+      "sustain_ratio": 0.443,
+      "mod_peak_hz": 1.59
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r089/v5/5.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.06,
+      "content_rel_s": 2.78,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6286.3,
+      "spectral_flatness": 0.04,
+      "tonal_frame_fraction": 0.727,
+      "voiced_fraction": 1.0,
+      "crest_db": 18.6,
+      "attack_s": 1.07,
+      "decay_s": 0.57,
+      "onset_count": 0,
+      "sustain_ratio": 0.379,
+      "mod_peak_hz": 1.06
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r089/v2/5.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 2.7,
+      "content_rel_s": 2.61,
+      "lufs": -19.98,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 5865.0,
+      "spectral_flatness": 0.016,
+      "tonal_frame_fraction": 0.991,
+      "voiced_fraction": 0.72,
+      "crest_db": 16.03,
+      "attack_s": 0.72,
+      "decay_s": 1.08,
+      "onset_count": 1,
+      "sustain_ratio": 0.496,
+      "mod_peak_hz": 1.13
+     }
+    }
+   ]
+  },
+  {
+   "id": "163",
+   "title": "Ghoulcaller's Bell",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "chosen": "v4",
+   "chosen_score": 1.0,
+   "spread": 13.6,
+   "variants": [
+    {
+     "variant": "v4",
+     "file": "variants/r089/v4/163.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "dzwon siedzi w środku pasma (spectral_centroid_hz=5279.800, oczekiwane 400.0–3000.0)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.78,
+      "content_rel_s": 2.63,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 5279.8,
+      "spectral_flatness": 0.006,
+      "tonal_frame_fraction": 0.983,
+      "voiced_fraction": 0.991,
+      "crest_db": 16.53,
+      "attack_s": 0.58,
+      "decay_s": 1.15,
+      "onset_count": 1,
+      "sustain_ratio": 0.504,
+      "mod_peak_hz": 1.52
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r089/v3/163.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "dzwon trzyma poziom (sustain_ratio=0.181, oczekiwane >= 0.2)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.38,
+      "content_rel_s": 2.29,
+      "lufs": -20.01,
+      "low_all": 0.002,
+      "spectral_centroid_hz": 2468.0,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 0.99,
+      "voiced_fraction": 0.907,
+      "crest_db": 20.81,
+      "attack_s": 0.11,
+      "decay_s": 0.85,
+      "onset_count": 1,
+      "sustain_ratio": 0.181,
+      "mod_peak_hz": 3.06
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r089/v2/163.mp3",
+     "score": 10.25,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.95,
+      "content_rel_s": 1.93,
+      "lufs": -20.0,
+      "low_all": 0.003,
+      "spectral_centroid_hz": 2372.5,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.98,
+      "crest_db": 18.24,
+      "attack_s": 0.01,
+      "decay_s": 0.92,
+      "onset_count": 0,
+      "sustain_ratio": 0.246,
+      "mod_peak_hz": 1.04
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r089/v5/163.mp3",
+     "score": 11.7,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "dzwon siedzi w środku pasma (spectral_centroid_hz=4541.200, oczekiwane 400.0–3000.0)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.86,
+      "content_rel_s": 1.84,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4541.2,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.984,
+      "crest_db": 14.82,
+      "attack_s": 0.16,
+      "decay_s": 1.11,
+      "onset_count": 1,
+      "sustain_ratio": 0.495,
+      "mod_peak_hz": 1.09
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r089/v1/163.mp3",
+     "score": 14.6,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "dzwon siedzi w środku pasma (spectral_centroid_hz=4803.500, oczekiwane 400.0–3000.0)",
+      "dzwon musi potrwać (content_rel_s=1.400, oczekiwane >= 1.5)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 1.48,
+      "content_rel_s": 1.4,
+      "lufs": -20.0,
+      "low_all": 0.0,
+      "spectral_centroid_hz": 4803.5,
+      "spectral_flatness": 0.005,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 1.0,
+      "crest_db": 18.23,
+      "attack_s": 0.02,
+      "decay_s": 0.76,
+      "onset_count": 1,
+      "sustain_ratio": 0.291,
+      "mod_peak_hz": 1.53
+     }
+    }
+   ]
+  }
+ ]
+}

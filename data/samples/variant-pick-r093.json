@@ -1,0 +1,295 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r093",
+ "applied": false,
+ "results": [
+  {
+   "id": "177",
+   "title": "Dire Fleet Ravager",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 2.5,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r093/v1/177.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.53,
+      "content_rel_s": 3.22,
+      "lufs": -20.0,
+      "low_all": 0.52,
+      "spectral_centroid_hz": 272.7,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.414,
+      "crest_db": 9.48,
+      "attack_s": 0.61,
+      "decay_s": 1.91,
+      "onset_count": 14,
+      "sustain_ratio": 0.66,
+      "mod_peak_hz": 15.77
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r093/v2/177.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk ma ciało w dole pasma (low_all=0.100, oczekiwane >= 0.45)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.46,
+      "content_rel_s": 3.0,
+      "lufs": -20.0,
+      "low_all": 0.1,
+      "spectral_centroid_hz": 407.7,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.413,
+      "crest_db": 10.84,
+      "attack_s": 1.13,
+      "decay_s": 1.31,
+      "onset_count": 7,
+      "sustain_ratio": 0.63,
+      "mod_peak_hz": 12.88
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r093/v3/177.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.172, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.453,
+      "content_rel_s": 2.893,
+      "lufs": -20.0,
+      "low_all": 0.458,
+      "spectral_centroid_hz": 274.3,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.172,
+      "crest_db": 12.3,
+      "attack_s": 1.75,
+      "decay_s": 0.7,
+      "onset_count": 7,
+      "sustain_ratio": 0.652,
+      "mod_peak_hz": 17.42
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r093/v4/177.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.243, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.94,
+      "content_rel_s": 2.69,
+      "lufs": -20.0,
+      "low_all": 0.553,
+      "spectral_centroid_hz": 408.6,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.243,
+      "crest_db": 12.56,
+      "attack_s": 0.12,
+      "decay_s": 0.9,
+      "onset_count": 15,
+      "sustain_ratio": 0.592,
+      "mod_peak_hz": 1.16
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r093/v5/177.mp3",
+     "score": 2.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.117, oczekiwane >= 0.3)",
+      "ryk ma ciało w dole pasma (low_all=0.369, oczekiwane >= 0.45)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 2.8,
+      "content_rel_s": 2.59,
+      "lufs": -20.0,
+      "low_all": 0.369,
+      "spectral_centroid_hz": 400.2,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.117,
+      "crest_db": 9.29,
+      "attack_s": 0.02,
+      "decay_s": 2.14,
+      "onset_count": 2,
+      "sustain_ratio": 0.779,
+      "mod_peak_hz": 1.17
+     }
+    }
+   ]
+  },
+  {
+   "id": "468",
+   "title": "Cacophodon",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "chosen": "v1",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r093/v1/468.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.61,
+      "content_rel_s": 3.34,
+      "lufs": -20.0,
+      "low_all": 0.864,
+      "spectral_centroid_hz": 218.9,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.415,
+      "crest_db": 9.12,
+      "attack_s": 1.92,
+      "decay_s": 0.95,
+      "onset_count": 22,
+      "sustain_ratio": 0.654,
+      "mod_peak_hz": 18.54
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r093/v2/468.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk ma ciało w dole pasma (low_all=0.160, oczekiwane >= 0.45)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.27,
+      "content_rel_s": 2.85,
+      "lufs": -20.0,
+      "low_all": 0.16,
+      "spectral_centroid_hz": 386.2,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.423,
+      "crest_db": 10.91,
+      "attack_s": 1.67,
+      "decay_s": 0.83,
+      "onset_count": 8,
+      "sustain_ratio": 0.709,
+      "mod_peak_hz": 4.91
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r093/v5/468.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk ma ciało w dole pasma (low_all=0.041, oczekiwane >= 0.45)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.17,
+      "content_rel_s": 2.82,
+      "lufs": -20.0,
+      "low_all": 0.041,
+      "spectral_centroid_hz": 735.2,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.51,
+      "crest_db": 11.73,
+      "attack_s": 0.18,
+      "decay_s": 0.78,
+      "onset_count": 12,
+      "sustain_ratio": 0.486,
+      "mod_peak_hz": 2.14
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r093/v4/468.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk ma ciało w dole pasma (low_all=0.128, oczekiwane >= 0.45)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.14,
+      "content_rel_s": 2.74,
+      "lufs": -20.0,
+      "low_all": 0.128,
+      "spectral_centroid_hz": 437.1,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.464,
+      "crest_db": 11.55,
+      "attack_s": 0.53,
+      "decay_s": 1.66,
+      "onset_count": 3,
+      "sustain_ratio": 0.567,
+      "mod_peak_hz": 1.1
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r093/v3/468.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk ma ciało w dole pasma (low_all=0.010, oczekiwane >= 0.45)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.278,
+      "content_rel_s": 2.718,
+      "lufs": -20.0,
+      "low_all": 0.01,
+      "spectral_centroid_hz": 702.0,
+      "spectral_flatness": 0.001,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.369,
+      "crest_db": 10.19,
+      "attack_s": 0.24,
+      "decay_s": 1.69,
+      "onset_count": 6,
+      "sustain_ratio": 0.602,
+      "mod_peak_hz": 1.11
+     }
+    }
+   ]
+  }
+ ]
+}

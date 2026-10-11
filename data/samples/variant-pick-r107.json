@@ -1,0 +1,293 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/r107",
+ "applied": false,
+ "results": [
+  {
+   "id": "13",
+   "title": "Soulmender",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "chosen": "v4",
+   "chosen_score": 0.0,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v4",
+     "file": "variants/r107/v4/13.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.45,
+      "content_rel_s": 3.33,
+      "lufs": -19.97,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 4402.9,
+      "spectral_flatness": 0.051,
+      "tonal_frame_fraction": 0.493,
+      "voiced_fraction": 0.623,
+      "crest_db": 18.41,
+      "attack_s": 0.63,
+      "decay_s": 1.73,
+      "onset_count": 1,
+      "sustain_ratio": 0.484,
+      "mod_peak_hz": 1.21
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r107/v2/13.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.02,
+      "content_rel_s": 2.93,
+      "lufs": -19.96,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5886.2,
+      "spectral_flatness": 0.055,
+      "tonal_frame_fraction": 0.309,
+      "voiced_fraction": 0.596,
+      "crest_db": 18.8,
+      "attack_s": 0.76,
+      "decay_s": 1.06,
+      "onset_count": 0,
+      "sustain_ratio": 0.437,
+      "mod_peak_hz": 1.01
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r107/v3/13.mp3",
+     "score": 0.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [],
+     "verdict": "trafiony",
+     "metrics": {
+      "duration_s": 3.09,
+      "content_rel_s": 2.75,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 7061.1,
+      "spectral_flatness": 0.04,
+      "tonal_frame_fraction": 0.741,
+      "voiced_fraction": 0.014,
+      "crest_db": 14.98,
+      "attack_s": 0.74,
+      "decay_s": 1.42,
+      "onset_count": 0,
+      "sustain_ratio": 0.553,
+      "mod_peak_hz": 1.04
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r107/v5/13.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.181, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.226,
+      "content_rel_s": 3.136,
+      "lufs": -19.99,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 6363.4,
+      "spectral_flatness": 0.089,
+      "tonal_frame_fraction": 0.181,
+      "voiced_fraction": 0.838,
+      "crest_db": 18.44,
+      "attack_s": 1.55,
+      "decay_s": 0.73,
+      "onset_count": 0,
+      "sustain_ratio": 0.488,
+      "mod_peak_hz": 1.27
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/r107/v1/13.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "migotanie jest tonalne (tonal_frame_fraction=0.196, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.18,
+      "content_rel_s": 3.08,
+      "lufs": -19.96,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5272.8,
+      "spectral_flatness": 0.074,
+      "tonal_frame_fraction": 0.196,
+      "voiced_fraction": 0.921,
+      "crest_db": 18.81,
+      "attack_s": 0.45,
+      "decay_s": 1.52,
+      "onset_count": 0,
+      "sustain_ratio": 0.399,
+      "mod_peak_hz": 1.3
+     }
+    }
+   ]
+  },
+  {
+   "id": "516",
+   "title": "Tenth District Veteran",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "chosen": "v1",
+   "chosen_score": 0.5,
+   "spread": 1.0,
+   "variants": [
+    {
+     "variant": "v1",
+     "file": "variants/r107/v1/516.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.014, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.71,
+      "content_rel_s": 3.48,
+      "lufs": -19.99,
+      "low_all": 0.007,
+      "spectral_centroid_hz": 4180.9,
+      "spectral_flatness": 0.014,
+      "tonal_frame_fraction": 0.752,
+      "voiced_fraction": 0.659,
+      "crest_db": 20.54,
+      "attack_s": 0.05,
+      "decay_s": 0.24,
+      "onset_count": 2,
+      "sustain_ratio": 0.116,
+      "mod_peak_hz": 1.31
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/r107/v3/516.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.006, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.4,
+      "content_rel_s": 3.17,
+      "lufs": -19.54,
+      "low_all": 0.009,
+      "spectral_centroid_hz": 3096.2,
+      "spectral_flatness": 0.006,
+      "tonal_frame_fraction": 0.748,
+      "voiced_fraction": 0.553,
+      "crest_db": 21.16,
+      "attack_s": 0.02,
+      "decay_s": 0.34,
+      "onset_count": 1,
+      "sustain_ratio": 0.094,
+      "mod_peak_hz": 1.55
+     }
+    },
+    {
+     "variant": "v2",
+     "file": "variants/r107/v2/516.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.022, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.45,
+      "content_rel_s": 2.3,
+      "lufs": -20.03,
+      "low_all": 0.056,
+      "spectral_centroid_hz": 4199.6,
+      "spectral_flatness": 0.022,
+      "tonal_frame_fraction": 0.624,
+      "voiced_fraction": 0.447,
+      "crest_db": 23.61,
+      "attack_s": 0.03,
+      "decay_s": 0.39,
+      "onset_count": 1,
+      "sustain_ratio": 0.094,
+      "mod_peak_hz": 1.0
+     }
+    },
+    {
+     "variant": "v4",
+     "file": "variants/r107/v4/516.mp3",
+     "score": 0.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie ma szumowy transient (spectral_flatness=0.016, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.36,
+      "content_rel_s": 2.11,
+      "lufs": -20.04,
+      "low_all": 0.053,
+      "spectral_centroid_hz": 3293.8,
+      "spectral_flatness": 0.016,
+      "tonal_frame_fraction": 0.661,
+      "voiced_fraction": 0.408,
+      "crest_db": 18.63,
+      "attack_s": 0.04,
+      "decay_s": 0.47,
+      "onset_count": 2,
+      "sustain_ratio": 0.233,
+      "mod_peak_hz": 1.55
+     }
+    },
+    {
+     "variant": "v5",
+     "file": "variants/r107/v5/516.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "stal uderza natychmiast (attack_s=0.160, oczekiwane <= 0.1)",
+      "uderzenie ma szumowy transient (spectral_flatness=0.010, oczekiwane >= 0.05)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.72,
+      "content_rel_s": 2.53,
+      "lufs": -20.01,
+      "low_all": 0.011,
+      "spectral_centroid_hz": 2936.2,
+      "spectral_flatness": 0.01,
+      "tonal_frame_fraction": 0.722,
+      "voiced_fraction": 0.173,
+      "crest_db": 18.84,
+      "attack_s": 0.16,
+      "decay_s": 0.48,
+      "onset_count": 2,
+      "sustain_ratio": 0.21,
+      "mod_peak_hz": 1.09
+     }
+    }
+   ]
+  }
+ ]
+}
