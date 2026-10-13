@@ -4,3 +4,15 @@ No selected ready scenario for IDs: ['361']
 No selected ready scenario for IDs: ['361']
 === wariant v3 ===
 No selected ready scenario for IDs: ['361']
+=== wariant v1 ===
+selected 1 scenario(s)
+OK 361: variants/b076d/v1/361.mp3 (65245 bytes)
+done: generated=1, skipped=0, failed=0
+=== wariant v2 ===
+selected 1 scenario(s)
+OK 361: variants/b076d/v2/361.mp3 (65245 bytes)
+done: generated=1, skipped=0, failed=0
+=== wariant v3 ===
+selected 1 scenario(s)
+OK 361: variants/b076d/v3/361.mp3 (65245 bytes)
+done: generated=1, skipped=0, failed=0
