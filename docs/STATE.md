@@ -33,12 +33,21 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   analiza preferencji na przyszłe generacje. Katalog jest samodzielny
   (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
   z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **574 fabuł**
-  (dopisane `341`, `348`, `350`, `351`). ID = numeryczna część
-  `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **574 MP3** w `audio/samples/<id>.mp3`; **574 scenariusze**
-  — 100 % katalogu. Nowe `341`/`348`/`350`/`351` mają audio.
-- Ostatnia dostawa: `b073` — `327BLB` *Brave-Kin Duo* (`water_splash`)
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **583 fabuły**
+  (dopisane `353`, `356`, `357`, `359`, `361`, `363`, `364`, `365`, `368`).
+  ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
+- Sample: **583 MP3** w `audio/samples/<id>.mp3`; **583 scenariusze**
+  — 100 % katalogu. Nowe karty z b076 mają audio.
+- Ostatnia dostawa: **`b076`** (2026-10-13) — **9 nowych kart** właściciela:
+  `353` Warden of Geometries (`magic_shimmer`), `356` Cazur (`mechanism_click`),
+  `357` Lorescale Coatl (`steam_hiss`), `359` Foul Orchard (`insect_swarm`),
+  `361` Noble Vestige (`temple_bell`), `363` Wild Celebrants (`glass_shatter`),
+  `364` Naturalize (`bone_snap`), `365` Rakish Revelers (`folk_music`,
+  `music_allowed` — jazz), `368` Scythe Tiger (`heavy_impact`).
+  **8/9 trafione, 0 nowych par, 0 bliźniaków**; 4 paczki generacji
+  (b076 27 + b076b 15 + b076c 6 + b076d 3 = 51 generacji ≈ 2040 kr).
+  Szczegóły i lekcje poniżej (runda wpisana pod b076).
+- Poprzednia dostawa: `b073` — `327BLB` *Brave-Kin Duo* (`water_splash`)
   i `328LRW` *Bog Hoodlums* (`heavy_impact`), obie **trafione, 0 flag**.
   `328` weszła z pierwszej tury; `327` dopiero po zmianie archetypu
   z `liquid_pour` na `water_splash` — patrz reguła 25.
@@ -388,7 +397,7 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **570 fabuł**, scenariusze **570** (100 %), sample **570**.
+- Katalog: **583 fabuły**, scenariusze **583** (100 %), sample **583**.
 - Flagi **38** łącznie (38 kart z flagą), pary ≥ 0,90 **25**,
   treść < 2 s **12**. Najczęstsze: `dull` 11, `harsh` 9, `boomy` 6,
   `speech_like` 6, `tonal_sustained` 5.
@@ -561,6 +570,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 | batch | data | wynik | archiwum |
 |---|---|---|---|
+| b076 | 2026-10-13 | 9 nowych kart (353–368), 8/9 trafionych, 0 par; 361 po podwójnym dzwonie (para 0,9498 z 196 rozwiązana trymem) | ten plik |
 | r016–r033 | 2026-10-05 | kontrakty archetypów, 69 → 0 nie trafionych | `state-2026-10-05.md` |
 | r034–r037 | 2026-10-06 | różnicowanie węzłów: 175 → 81 par | `state-2026-10-06.md` |
 | r038–r045 | 2026-10-06 | kolejne piętra + trym ogonów: 81 → 21 par | `state-2026-10-06.md` |
