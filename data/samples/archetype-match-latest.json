@@ -1,9 +1,9 @@
 {
- "audit": "data/samples/audio-audit-2026-10-13-b076c.json",
- "checked": 212,
+ "audit": "data/samples/audio-audit-2026-10-14-b077b.json",
+ "checked": 222,
  "by_verdict": {
-  "prawdopodobnie": 32,
-  "trafiony": 180
+  "prawdopodobnie": 36,
+  "trafiony": 186
  },
  "results": [
   {
@@ -17,6 +17,36 @@
     {
      "check": "tonal_frame_fraction",
      "reason": "bzykanie jest harmoniczne (tonal_frame_fraction=0.023, oczekiwane >= 0.3)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "390",
+   "title": "Battlefield Butcher",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "śpiew ptaków jest wysoki (spectral_centroid_hz=1339.100, oczekiwane 1500.0–6500.0)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "394",
+   "title": "Cancel",
+   "archetype": "psychic_shriek",
+   "archetype_label": "przenikliwy jęk / uderzenie psychiczne",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "uderzenie psychiczne jest natychmiastowe (attack_s=0.110, oczekiwane <= 0.1)",
      "weight": 1.5
     }
    ]
@@ -247,6 +277,21 @@
    ]
   },
   {
+   "id": "378",
+   "title": "Sentry Bot",
+   "archetype": "horn_call",
+   "archetype_label": "róg bojowy / sygnał dęty",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "decay_s",
+     "reason": "sygnał rogu wybrzmiewa (decay_s=0.390, oczekiwane >= 0.6)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
    "id": "381",
    "title": "Caravan Vigil",
    "archetype": "door_creak",
@@ -467,6 +512,21 @@
     {
      "check": "low_all",
      "reason": "uderzenie ma masę (low_all=0.080, oczekiwane >= 0.2)",
+     "weight": 0.5
+    }
+   ]
+  },
+  {
+   "id": "380",
+   "title": "Artful Maneuver",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "score": 0.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "low_all",
+     "reason": "uderzenie ma masę (low_all=0.094, oczekiwane >= 0.2)",
      "weight": 0.5
     }
    ]
@@ -1621,10 +1681,28 @@
    "violations": []
   },
   {
+   "id": "369",
+   "title": "Improbable Alliance",
+   "archetype": "water_splash",
+   "archetype_label": "plusk / uderzenie w wodę",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
    "id": "370",
    "title": "Consume Spirit",
    "archetype": "arrow_flight",
    "archetype_label": "strzała / świst pocisku",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "371",
+   "title": "Spellkeeper Weird",
+   "archetype": "electric_zap",
+   "archetype_label": "wyładowanie / iskra",
    "score": 0,
    "verdict": "trafiony",
    "violations": []
@@ -1657,10 +1735,46 @@
    "violations": []
   },
   {
+   "id": "391",
+   "title": "Wolf's Quarry",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "392",
+   "title": "Kuldotha Ringleader",
+   "archetype": "horn_call",
+   "archetype_label": "róg bojowy / sygnał dęty",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
    "id": "396",
    "title": "Vow of Wildness",
    "archetype": "creature_roar",
    "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "397",
+   "title": "Render Speechless",
+   "archetype": "whip_crack",
+   "archetype_label": "trzask bicza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "398",
+   "title": "Intrepid Tenderfoot",
+   "archetype": "chain_rattle",
+   "archetype_label": "grzechot łańcuchów / kolczugi",
    "score": 0,
    "verdict": "trafiony",
    "violations": []

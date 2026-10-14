@@ -33,12 +33,26 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   analiza preferencji na przyszłe generacje. Katalog jest samodzielny
   (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
   z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **583 fabuły**
-  (dopisane `353`, `356`, `357`, `359`, `361`, `363`, `364`, `365`, `368`).
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **593 fabuły**
+  (dopisane `369`, `371`, `378`, `380`, `390`, `391`, `392`, `394`,
+  `397`, `398`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **583 MP3** w `audio/samples/<id>.mp3`; **583 scenariusze**
-  — 100 % katalogu. Nowe karty z b076 mają audio.
-- Ostatnia dostawa: **`b076`** (2026-10-13) — **9 nowych kart** właściciela:
+- Sample: **593 MP3** w `audio/samples/<id>.mp3`; **593 scenariusze**
+  — 100 % katalogu. Nowe karty z b077 mają audio.
+- Ostatnia dostawa: **`b077`** (2026-10-14) — **10 nowych kart**:
+  `369` Improbable Alliance (`water_splash`), `371` Spellkeeper Weird
+  (`electric_zap`), `378` Sentry Bot (`horn_call`), `380` Artful Maneuver
+  (`heavy_impact`), `390` Battlefield Butcher (`forest_birdsong`),
+  `391` Wolf's Quarry (`creature_roar`), `392` Kuldotha Ringleader
+  (`horn_call` — ryk-sygnał; pod `creature_roar` warianty nie przechodziły,
+  pod horn_call trafione), `394` Cancel (`psychic_shriek`),
+  `397` Render Speechless (`whip_crack`), `398` Intrepid Tenderfoot
+  (`chain_rattle` — pękająca łuska brzmi serią suchych trzasków).
+  **6/10 trafionych, 4 prawdopodobne, 0 nowych par, 0 bliźniaków**;
+  63 generacje w 5 paczkach (b077/b077b/b077c×2/b077d) ≈ 2520 kr.
+  Świadome flagi: 371 harsh i 394 tonal_sustained (fizyka źródła),
+  378 tonal_sustained (syrena = ton).
+- Poprzednia dostawa: **`b076`** (2026-10-13) — **9 nowych kart** właściciela:
   `353` Warden of Geometries (`magic_shimmer`), `356` Cazur (`mechanism_click`),
   `357` Lorescale Coatl (`steam_hiss`), `359` Foul Orchard (`insect_swarm`),
   `361` Noble Vestige (`temple_bell`), `363` Wild Celebrants (`glass_shatter`),
@@ -397,7 +411,7 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **583 fabuły**, scenariusze **583** (100 %), sample **583**.
+- Katalog: **593 fabuły**, scenariusze **593** (100 %), sample **593**.
 - Flagi **38** łącznie (38 kart z flagą), pary ≥ 0,90 **25**,
   treść < 2 s **12**. Najczęstsze: `dull` 11, `harsh` 9, `boomy` 6,
   `speech_like` 6, `tonal_sustained` 5.
@@ -570,6 +584,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 | batch | data | wynik | archiwum |
 |---|---|---|---|
+| b077 | 2026-10-14 | 10 nowych kart (369–398), 6/10 trafionych, 0 nowych par; 392→horn_call i 398→chain_rattle po audycie brzmienia | ten plik |
 | b076 | 2026-10-13 | 9 nowych kart (353–368), 8/9 trafionych, 0 par; 361 po podwójnym dzwonie (para 0,9498 z 196 rozwiązana trymem) | ten plik |
 | r016–r033 | 2026-10-05 | kontrakty archetypów, 69 → 0 nie trafionych | `state-2026-10-05.md` |
 | r034–r037 | 2026-10-06 | różnicowanie węzłów: 175 → 81 par | `state-2026-10-06.md` |
