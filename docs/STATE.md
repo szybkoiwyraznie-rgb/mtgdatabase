@@ -585,6 +585,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | batch | data | wynik | archiwum |
 |---|---|---|---|
 | b077 | 2026-10-14 | 10 nowych kart (369–398), 6/10 trafionych, 0 nowych par; 392→horn_call i 398→chain_rattle po audycie brzmienia | ten plik |
+| b078 | 2026-10-17 | **WSTRZYMANA: limit kredytów ElevenLabs (0/10000)** — wygenerowane tylko 4/30 wariantów v1 (400/402/404/405, żaden nie przeszedł kontraktu); CSV 603 fabuły + 10 scenariuszy gotowe, wznowienie = push z markerem [generate-b078b] po doładowaniu | ten plik |
 | b076 | 2026-10-13 | 9 nowych kart (353–368), 8/9 trafionych, 0 par; 361 po podwójnym dzwonie (para 0,9498 z 196 rozwiązana trymem) | ten plik |
 | r016–r033 | 2026-10-05 | kontrakty archetypów, 69 → 0 nie trafionych | `state-2026-10-05.md` |
 | r034–r037 | 2026-10-06 | różnicowanie węzłów: 175 → 81 par | `state-2026-10-06.md` |
