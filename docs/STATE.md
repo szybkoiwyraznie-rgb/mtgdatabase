@@ -33,13 +33,31 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   analiza preferencji na przyszłe generacje. Katalog jest samodzielny
   (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
   z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **593 fabuły**
-  (dopisane `369`, `371`, `378`, `380`, `390`, `391`, `392`, `394`,
-  `397`, `398`).
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **603 fabuły**
+  (dopisane `400`, `402`, `404`, `405`, `406`, `407`, `408`, `409`,
+  `410`, `411`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **593 MP3** w `audio/samples/<id>.mp3`; **593 scenariusze**
-  — 100 % katalogu. Nowe karty z b077 mają audio.
-- Ostatnia dostawa: **`b077`** (2026-10-14) — **10 nowych kart**:
+- Sample: **603 MP3** w `audio/samples/<id>.mp3`; **603 scenariusze**
+  — 100 % katalogu. Nowe karty z b078 mają audio.
+- Ostatnia dostawa: **`b078`** (2026-10-17) — **10 nowych kart**:
+  `400` Kulrath Zealot (`fire_crackle`), `402` Bloodfire Expert
+  (`arrow_flight`), `404` Meteorite (`earth_rumble`), `405` Raze to
+  the Ground (`stone_slide`), `406` Stymied Hopes (`glass_shatter`),
+  `407` Secure the Scene (`magic_shimmer`), `408` Halo Scarab
+  (`mechanism_click`), `409` Child of Night (`liquid_pour`),
+  `410` Austere Command (`thunder_clap`), `411` Neurok Invisimancer
+  (`war_machine`) — 10 różnych archetypów.
+  **3/10 trafionych, 4 prawdopodobnie, 3 nie trafionych (402/404/405),
+  0 nowych par, 0 bliźniaków**; 85 generacji ≈ 3400 kr w 6 paczkach.
+  W połowie b078 stary klucz API wyczerpał limit (0/10000) — wymiana
+  klucza i wznowienie. Region stone_slide/impact nasycony: wszystkie
+  kontraktowe 405 (6 sztuk w b078e/f) miały pary ≥0.90 — wybrano
+  bezparową b078b/v3 (2.5 pkt). 402 zabrakło 0.01 s ataku (10.48+ w
+  b078f — regres). Świadome flagi: 404 muffled/boomy/dull (głęboki
+  pomruk krateru), 406 long_trail_silence (dzwoniący ogon kryształu;
+  trim 0.4/0.6 s tworzył parę 0.91), 408 harsh (jasne tykanie
+  zegarowca), 411 mono_collapse (wycentrowany marsz patrolu).
+- Poprzednia dostawa: **`b077`** (2026-10-14) — **10 nowych kart**:
   `369` Improbable Alliance (`water_splash`), `371` Spellkeeper Weird
   (`electric_zap`), `378` Sentry Bot (`horn_call`), `380` Artful Maneuver
   (`heavy_impact`), `390` Battlefield Butcher (`forest_birdsong`),
@@ -411,7 +429,7 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **593 fabuły**, scenariusze **593** (100 %), sample **593**.
+- Katalog: **603 fabuły**, scenariusze **603** (100 %), sample **603**.
 - Flagi **38** łącznie (38 kart z flagą), pary ≥ 0,90 **25**,
   treść < 2 s **12**. Najczęstsze: `dull` 11, `harsh` 9, `boomy` 6,
   `speech_like` 6, `tonal_sustained` 5.
@@ -585,7 +603,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | batch | data | wynik | archiwum |
 |---|---|---|---|
 | b077 | 2026-10-14 | 10 nowych kart (369–398), 6/10 trafionych, 0 nowych par; 392→horn_call i 398→chain_rattle po audycie brzmienia | ten plik |
-| b078 | 2026-10-17 | **WSTRZYMANA: limit kredytów ElevenLabs (0/10000)** — wygenerowane tylko 4/30 wariantów v1 (400/402/404/405, żaden nie przeszedł kontraktu); CSV 603 fabuły + 10 scenariuszy gotowe, wznowienie = push z markerem [generate-b078b] po doładowaniu | ten plik |
+| b078 | 2026-10-17 | 10 nowych kart (400–411), 3/10 trafionych, 0 nowych par; po drodze wyczerpany limit kredytów → nowy klucz; 405 bezparowe 2.5 pkt (kontraktowe warianty miały pary ≥0.90) | ten plik |
 | b076 | 2026-10-13 | 9 nowych kart (353–368), 8/9 trafionych, 0 par; 361 po podwójnym dzwonie (para 0,9498 z 196 rozwiązana trymem) | ten plik |
 | r016–r033 | 2026-10-05 | kontrakty archetypów, 69 → 0 nie trafionych | `state-2026-10-05.md` |
 | r034–r037 | 2026-10-06 | różnicowanie węzłów: 175 → 81 par | `state-2026-10-06.md` |

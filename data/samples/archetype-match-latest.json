@@ -1,11 +1,72 @@
 {
- "audit": "data/samples/audio-audit-2026-10-14-b077b.json",
- "checked": 222,
+ "audit": "data/samples/audio-audit-2026-10-17-b078.json",
+ "checked": 232,
  "by_verdict": {
-  "prawdopodobnie": 36,
-  "trafiony": 186
+  "nie trafiony": 3,
+  "prawdopodobnie": 40,
+  "trafiony": 189
  },
  "results": [
+  {
+   "id": "405",
+   "title": "Raze to the Ground",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "score": 2.5,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "low_all",
+     "reason": "skały mają masę w dole (low_all=0.093, oczekiwane >= 0.25)",
+     "weight": 1.5
+    },
+    {
+     "check": "decay_s",
+     "reason": "osuwisko się toczy (decay_s=0.090, oczekiwane >= 0.5)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "402",
+   "title": "Bloodfire Expert",
+   "archetype": "arrow_flight",
+   "archetype_label": "strzała / świst pocisku",
+   "score": 2.0,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "strzała startuje od razu (attack_s=0.110, oczekiwane <= 0.1)",
+     "weight": 1.0
+    },
+    {
+     "check": "spectral_flatness",
+     "reason": "świst jest szumowy (spectral_flatness=0.054, oczekiwane >= 0.1)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "404",
+   "title": "Meteorite",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "score": 2.0,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "decay_s",
+     "reason": "grzmot się toczy (decay_s=0.040, oczekiwane >= 0.8)",
+     "weight": 1.0
+    },
+    {
+     "check": "mid_up",
+     "reason": "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.004, oczekiwane >= 0.1)",
+     "weight": 1.0
+    }
+   ]
+  },
   {
    "id": "31",
    "title": "Carrion Call",
@@ -317,6 +378,66 @@
     {
      "check": "mid_up",
      "reason": "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.000, oczekiwane >= 0.1)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "400",
+   "title": "Kulrath Zealot",
+   "archetype": "fire_crackle",
+   "archetype_label": "trzask ognia / żaru",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "trzaski są jasne (spectral_centroid_hz=7977.500, oczekiwane 1000.0–6000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "406",
+   "title": "Stymied Hopes",
+   "archetype": "glass_shatter",
+   "archetype_label": "tłuczenie szkła / kryształu",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "onset_count",
+     "reason": "odłamki dzwonią serią (onset_count=3, oczekiwane >= 5)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "408",
+   "title": "Halo Scarab",
+   "archetype": "mechanism_click",
+   "archetype_label": "zegarowy mechanizm / zamek / zapadka",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "klik jest suchy i jasny (spectral_centroid_hz=10323.600, oczekiwane 800.0–6000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "409",
+   "title": "Child of Night",
+   "archetype": "liquid_pour",
+   "archetype_label": "lanie cieczy / bulgot mikstury",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "sustain_ratio",
+     "reason": "lanie jest ciągłe (sustain_ratio=0.265, oczekiwane >= 0.3)",
      "weight": 1.0
     }
    ]
@@ -1775,6 +1896,33 @@
    "title": "Intrepid Tenderfoot",
    "archetype": "chain_rattle",
    "archetype_label": "grzechot łańcuchów / kolczugi",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "407",
+   "title": "Secure the Scene",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "410",
+   "title": "Austere Command",
+   "archetype": "thunder_clap",
+   "archetype_label": "grzmot / uderzenie pioruna",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "411",
+   "title": "Neurok Invisimancer",
+   "archetype": "war_machine",
+   "archetype_label": "silnik i mechanizm wojennej machiny",
    "score": 0,
    "verdict": "trafiony",
    "violations": []
