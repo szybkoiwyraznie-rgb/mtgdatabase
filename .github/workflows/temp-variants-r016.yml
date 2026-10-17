@@ -1,4 +1,4 @@
-name: "TEMP b078e - 402 i 405 x 3"
+name: "TEMP b078f - 402/404/405 x 3"
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "402,405"
+  IDS: "402,404,405"
 
 jobs:
   variants:
@@ -21,13 +21,13 @@ jobs:
         with:
           fetch-depth: 0
           ref: arena/ee59daa7-mtgdatabase
-      - name: Guard — tylko commit z markerem [generate-b078e]
+      - name: Guard — tylko commit z markerem [generate-b078f]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b078e]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b078f]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b078e] — nic nie generuję"
+            echo "brak markera [generate-b078f] — nic nie generuję"
           fi
       - uses: actions/setup-python@v5
         if: steps.guard.outputs.run == '1'
@@ -43,21 +43,21 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b078e
+          mkdir -p variants/b078f
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/b078e/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b078f/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
               --ids "$IDS" --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b078e/v$v" 2>&1 | tee -a variants/b078e/generate.log
+              --out "variants/b078f/v$v" 2>&1 | tee -a variants/b078f/generate.log
           done
       - name: Commit variants
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b078e data/samples/generated-manifest.jsonl
+          git add -f variants/b078f data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then echo nic; else
-            git commit -m "b078e: 6 wariantow (2 karty x 3) + log generacji [import-b078e]"
+            git commit -m "b078f: 9 wariantow (3 karty x 3) + log generacji [import-b078f]"
             git push origin HEAD:arena/ee59daa7-mtgdatabase
           fi
