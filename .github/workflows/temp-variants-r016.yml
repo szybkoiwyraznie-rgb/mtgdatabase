@@ -43,7 +43,7 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b078
+          mkdir -p variants/b078b
           for v in 1 2 3; do
             echo "=== wariant v$v ===" | tee -a variants/b078b/generate.log
             python scripts/elevenlabs_sample_scout.py \
@@ -56,7 +56,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b078 data/samples/generated-manifest.jsonl
+          git add -f variants/b078b data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then echo nic; else
             git commit -m "b078: 30 wariantow (10 nowych kart x 3) + log generacji [import-b078b]"
             git push origin HEAD:arena/ee59daa7-mtgdatabase
