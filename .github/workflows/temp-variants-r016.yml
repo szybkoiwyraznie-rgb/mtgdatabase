@@ -1,4 +1,4 @@
-name: "TEMP b078 - 10 nowych kart x 3"
+name: "TEMP b078b - 10 nowych kart x 3 (nowy klucz)"
 
 on:
   push:
@@ -21,13 +21,13 @@ jobs:
         with:
           fetch-depth: 0
           ref: arena/ee59daa7-mtgdatabase
-      - name: Guard — tylko commit z markerem [generate-b078]
+      - name: Guard — tylko commit z markerem [generate-b078b]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b078]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b078b]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b078] — nic nie generuję"
+            echo "brak markera [generate-b078b] — nic nie generuję"
           fi
       - uses: actions/setup-python@v5
         if: steps.guard.outputs.run == '1'
@@ -45,11 +45,11 @@ jobs:
         run: |
           mkdir -p variants/b078
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/b078/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b078b/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
               --ids "$IDS" --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b078/v$v" 2>&1 | tee -a variants/b078/generate.log
+              --out "variants/b078b/v$v" 2>&1 | tee -a variants/b078b/generate.log
           done
       - name: Commit variants
         if: always() && steps.guard.outputs.run == '1'
@@ -58,6 +58,6 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -f variants/b078 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then echo nic; else
-            git commit -m "b078: 30 wariantow (10 nowych kart x 3) + log generacji [import-b078]"
+            git commit -m "b078: 30 wariantow (10 nowych kart x 3) + log generacji [import-b078b]"
             git push origin HEAD:arena/ee59daa7-mtgdatabase
           fi
