@@ -1,4 +1,4 @@
-name: "TEMP b078c - 7 kart poprawki x 3"
+name: "TEMP b078d - 5 kart poprawky x 3"
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "400,402,404,405,408,409,410"
+  IDS: "400,402,404,408,410"
 
 jobs:
   variants:
@@ -21,13 +21,13 @@ jobs:
         with:
           fetch-depth: 0
           ref: arena/ee59daa7-mtgdatabase
-      - name: Guard — tylko commit z markerem [generate-b078c]
+      - name: Guard — tylko commit z markerem [generate-b078d]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b078c]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b078d]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b078c] — nic nie generuję"
+            echo "brak markera [generate-b078d] — nic nie generuję"
           fi
       - uses: actions/setup-python@v5
         if: steps.guard.outputs.run == '1'
@@ -43,21 +43,21 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b078c
+          mkdir -p variants/b078d
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/b078c/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b078d/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
               --ids "$IDS" --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b078c/v$v" 2>&1 | tee -a variants/b078c/generate.log
+              --out "variants/b078d/v$v" 2>&1 | tee -a variants/b078d/generate.log
           done
       - name: Commit variants
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b078c data/samples/generated-manifest.jsonl
+          git add -f variants/b078d data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then echo nic; else
-            git commit -m "b078c: 21 wariantow (7 kart poprawki x 3) + log generacji [import-b078c]"
+            git commit -m "b078d: 15 wariantow (5 kart x 3) + log generacji [import-b078d]"
             git push origin HEAD:arena/ee59daa7-mtgdatabase
           fi
