@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-10** (sesja `arena/a9d0a113-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-11** (sesja `arena/ee59daa7-mtgdatabase`).
 
 > Ten plik jest **obowiązkową lekturą agenta** i musi się mieścić w limicie
 > 50 000 tokenów razem z resztą plików z `docs/required-reading.md`
@@ -21,12 +21,65 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 
 ## Aktualny stan produkcji
 
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **574 fabuł**
-  (dopisane `341`, `348`, `350`, `351`). ID = numeryczna część
-  `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **574 MP3** w `audio/samples/<id>.mp3`; **574 scenariusze**
-  — 100 % katalogu. Nowe `341`/`348`/`350`/`351` mają audio.
-- Ostatnia dostawa: `b073` — `327BLB` *Brave-Kin Duo* (`water_splash`)
+- **Decyzja właściciela (2026-10-11): kończymy pętlę kolejnych regeneracji.**
+  Nowe wersje przestały być lepsze od starszych (sporo regresji). Zamiast
+  kolejnych rund rNNN: **pełny audyt odsłuchowy** w `odsluch/` (buduje go
+  `scripts/build_listening_audit.py` z całej historii gita — produkcja
+  + kandydaci z `variants/`, od POC 2026-09-27). Strona `odsluch/index.html`
+  listuje 574 fabuły ze wszystkimi **4743 wersjami** MP3, wybory zapisuje
+  w localStorage (odporne na przeładowanie), a „Stwórz raport" pobiera JSON
+  z wyborami i uwagami. Po odebraniu raportu: dream team najlepszych wersji
+  wraca do `audio/samples/`, „Żadne" dostają nowe prompty wg uwag, plus
+  analiza preferencji na przyszłe generacje. Katalog jest samodzielny
+  (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
+  z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **603 fabuły**
+  (dopisane `400`, `402`, `404`, `405`, `406`, `407`, `408`, `409`,
+  `410`, `411`).
+  ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
+- Sample: **603 MP3** w `audio/samples/<id>.mp3`; **603 scenariusze**
+  — 100 % katalogu. Nowe karty z b078 mają audio.
+- Ostatnia dostawa: **`b078`** (2026-10-17) — **10 nowych kart**:
+  `400` Kulrath Zealot (`fire_crackle`), `402` Bloodfire Expert
+  (`arrow_flight`), `404` Meteorite (`earth_rumble`), `405` Raze to
+  the Ground (`stone_slide`), `406` Stymied Hopes (`glass_shatter`),
+  `407` Secure the Scene (`magic_shimmer`), `408` Halo Scarab
+  (`mechanism_click`), `409` Child of Night (`liquid_pour`),
+  `410` Austere Command (`thunder_clap`), `411` Neurok Invisimancer
+  (`war_machine`) — 10 różnych archetypów.
+  **3/10 trafionych, 4 prawdopodobnie, 3 nie trafionych (402/404/405),
+  0 nowych par, 0 bliźniaków**; 85 generacji ≈ 3400 kr w 6 paczkach.
+  W połowie b078 stary klucz API wyczerpał limit (0/10000) — wymiana
+  klucza i wznowienie. Region stone_slide/impact nasycony: wszystkie
+  kontraktowe 405 (6 sztuk w b078e/f) miały pary ≥0.90 — wybrano
+  bezparową b078b/v3 (2.5 pkt). 402 zabrakło 0.01 s ataku (10.48+ w
+  b078f — regres). Świadome flagi: 404 muffled/boomy/dull (głęboki
+  pomruk krateru), 406 long_trail_silence (dzwoniący ogon kryształu;
+  trim 0.4/0.6 s tworzył parę 0.91), 408 harsh (jasne tykanie
+  zegarowca), 411 mono_collapse (wycentrowany marsz patrolu).
+- Poprzednia dostawa: **`b077`** (2026-10-14) — **10 nowych kart**:
+  `369` Improbable Alliance (`water_splash`), `371` Spellkeeper Weird
+  (`electric_zap`), `378` Sentry Bot (`horn_call`), `380` Artful Maneuver
+  (`heavy_impact`), `390` Battlefield Butcher (`forest_birdsong`),
+  `391` Wolf's Quarry (`creature_roar`), `392` Kuldotha Ringleader
+  (`horn_call` — ryk-sygnał; pod `creature_roar` warianty nie przechodziły,
+  pod horn_call trafione), `394` Cancel (`psychic_shriek`),
+  `397` Render Speechless (`whip_crack`), `398` Intrepid Tenderfoot
+  (`chain_rattle` — pękająca łuska brzmi serią suchych trzasków).
+  **6/10 trafionych, 4 prawdopodobne, 0 nowych par, 0 bliźniaków**;
+  63 generacje w 5 paczkach (b077/b077b/b077c×2/b077d) ≈ 2520 kr.
+  Świadome flagi: 371 harsh i 394 tonal_sustained (fizyka źródła),
+  378 tonal_sustained (syrena = ton).
+- Poprzednia dostawa: **`b076`** (2026-10-13) — **9 nowych kart** właściciela:
+  `353` Warden of Geometries (`magic_shimmer`), `356` Cazur (`mechanism_click`),
+  `357` Lorescale Coatl (`steam_hiss`), `359` Foul Orchard (`insect_swarm`),
+  `361` Noble Vestige (`temple_bell`), `363` Wild Celebrants (`glass_shatter`),
+  `364` Naturalize (`bone_snap`), `365` Rakish Revelers (`folk_music`,
+  `music_allowed` — jazz), `368` Scythe Tiger (`heavy_impact`).
+  **8/9 trafione, 0 nowych par, 0 bliźniaków**; 4 paczki generacji
+  (b076 27 + b076b 15 + b076c 6 + b076d 3 = 51 generacji ≈ 2040 kr).
+  Szczegóły i lekcje poniżej (runda wpisana pod b076).
+- Poprzednia dostawa: `b073` — `327BLB` *Brave-Kin Duo* (`water_splash`)
   i `328LRW` *Bog Hoodlums* (`heavy_impact`), obie **trafione, 0 flag**.
   `328` weszła z pierwszej tury; `327` dopiero po zmianie archetypu
   z `liquid_pour` na `water_splash` — patrz reguła 25.
@@ -327,6 +380,9 @@ python3 -m venv .venv && .venv/bin/pip install numpy scipy soundfile pyyaml pylo
 - `data/samples/scenarios.jsonl` — ręcznie pisane małe paczki scenariuszy sampli.
 - `data/samples/generated-manifest.jsonl` — manifest generacji scouta ElevenLabs.
 - `audio/samples/<id>.mp3` — aktualne wygenerowane sample produkcyjne.
+- `odsluch/` — samodzielna strona audytu odsłuchowego (index.html, data.js,
+  audio/<id>/<vid>.mp3). Odbudowa: `python scripts/build_listening_audit.py`
+  (wymaga pełnej historii: `git fetch origin '+refs/heads/*:refs/remotes/origin/*'`).
 - `site/generated/` — biblioteka HTML do sandboxa i Pages, generowana lokalnie.
 - `build/samples-latest.zip` — płaski ZIP z `<id>.mp3`, generowany lokalnie.
 - `docs/archive/state-*.md` — historia rund i dostaw (nie jest obowiązkową lekturą).
@@ -344,6 +400,7 @@ python scripts/rewrite_archetype_prompts.py --ids 1,2,3 --batch rNNN --fill-take
 python scripts/postprocess_samples.py --ids 1,2,3 --max-gain-db 26 --report data/samples/postprocess-rNNN.json
 python scripts/build_site.py --out site/generated
 python scripts/build_pack.py --output build/samples-latest.zip
+python scripts/build_listening_audit.py   # odbudowuje odsluch/ z historii gita
 python scripts/check_required_reading.py
 ```
 
@@ -372,7 +429,7 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **570 fabuł**, scenariusze **570** (100 %), sample **570**.
+- Katalog: **603 fabuły**, scenariusze **603** (100 %), sample **603**.
 - Flagi **38** łącznie (38 kart z flagą), pary ≥ 0,90 **25**,
   treść < 2 s **12**. Najczęstsze: `dull` 11, `harsh` 9, `boomy` 6,
   `speech_like` 6, `tonal_sustained` 5.
@@ -545,6 +602,9 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 | batch | data | wynik | archiwum |
 |---|---|---|---|
+| b077 | 2026-10-14 | 10 nowych kart (369–398), 6/10 trafionych, 0 nowych par; 392→horn_call i 398→chain_rattle po audycie brzmienia | ten plik |
+| b078 | 2026-10-17 | 10 nowych kart (400–411), 3/10 trafionych, 0 nowych par; po drodze wyczerpany limit kredytów → nowy klucz; 405 bezparowe 2.5 pkt (kontraktowe warianty miały pary ≥0.90) | ten plik |
+| b076 | 2026-10-13 | 9 nowych kart (353–368), 8/9 trafionych, 0 par; 361 po podwójnym dzwonie (para 0,9498 z 196 rozwiązana trymem) | ten plik |
 | r016–r033 | 2026-10-05 | kontrakty archetypów, 69 → 0 nie trafionych | `state-2026-10-05.md` |
 | r034–r037 | 2026-10-06 | różnicowanie węzłów: 175 → 81 par | `state-2026-10-06.md` |
 | r038–r045 | 2026-10-06 | kolejne piętra + trym ogonów: 81 → 21 par | `state-2026-10-06.md` |
@@ -621,7 +681,11 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 ## Co robić dalej
 
-1. **Następna transza: `r107`–`r115`.** Treść < 2,5 s, n85=0.
+1. **Czekać na raport z audytu odsłuchowego** (`odsluch/index.html` — patrz
+  decyzja u góry). Po odebraniu: (a) dream team — wybrane wersje wracają do
+   `audio/samples/` (blob po `vid` z raportu), (b) „Żadne" — nowe prompty
+   zgodnie z uwagami, (c) analiza preferencji na dużej próbie (które epoki,
+   kontrakty i parametry brzmią dobrze).
 
 2. **Więcej prób próbkuje rozkład, nie przesuwa go — a to
    wystarcza, gdy rozkład obejmuje cel.** Pięć wariantów

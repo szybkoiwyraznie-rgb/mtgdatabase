@@ -1,0 +1,374 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Audyt odsłuchowy — wszystkie wersje sampli MTG</title>
+<style>
+:root{
+  --bg:#f4f5f7; --card:#fff; --ink:#1c2733; --mut:#68758a; --line:#dde3ec;
+  --acc:#2563eb; --ok:#16a34a; --bad:#dc2626; --amber:#b45309;
+}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.45 system-ui,"Segoe UI",Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg)}
+header#top{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--line);padding:10px 16px;backdrop-filter:blur(4px);background:rgba(255,255,255,.94)}
+h1{font-size:19px;margin:2px 0 8px}
+.controls{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:8px}
+button{font:inherit;border:1px solid var(--line);background:#fff;border-radius:8px;padding:7px 12px;cursor:pointer}
+button:hover{border-color:var(--acc);color:var(--acc)}
+button.primary{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:600}
+button.primary:hover{filter:brightness(1.08);color:#fff}
+button.big{font-size:17px;padding:12px 26px}
+button.ghost{background:transparent}
+select,input[type=search]{font:inherit;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:#fff}
+input#search{min-width:220px;flex:1}
+.progress-wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bar{flex:1;min-width:160px;height:10px;background:var(--line);border-radius:6px;overflow:hidden}
+#bar-fill{height:100%;width:0;background:linear-gradient(90deg,#22c55e,#16a34a);transition:width .25s}
+#progress-text{font-weight:700;white-space:nowrap}
+#progress-detail{color:var(--mut);font-size:13px;white-space:nowrap}
+.hint{color:var(--mut);font-size:12.5px;margin:6px 0 0}
+.settings{font-size:13.5px}
+.settings input{width:60%;font:inherit;padding:4px 8px;border:1px solid var(--line);border-radius:6px}
+main{max-width:980px;margin:0 auto;padding:16px 16px 60px}
+article.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin:14px 0;box-shadow:0 1px 2px rgba(20,30,50,.04)}
+article.card.answered{border-left:5px solid var(--ok)}
+article.card.hidden{display:none}
+.chead{display:flex;gap:14px;align-items:flex-start}
+.thumb{width:76px;height:76px;flex:0 0 76px;border-radius:10px;background:var(--line);display:flex;align-items:center;justify-content:center;overflow:hidden;color:var(--mut);font-weight:700;font-size:20px}
+.thumb img{width:100%;height:100%;object-fit:cover}
+.chead h2{margin:0;font-size:17px}
+.sid{display:inline-block;background:var(--ink);color:#fff;border-radius:6px;padding:1px 8px;margin-right:8px;font-size:14px}
+.vcount{color:var(--mut);font-size:13px;margin:2px 0 4px}
+details.narr{margin-top:4px}
+details.narr summary,details.pdet summary{cursor:pointer;color:var(--mut);font-size:13px}
+details.narr p,details.pdet p{margin:6px 0 2px;white-space:pre-wrap;font-size:13.5px}
+.versions{margin-top:10px;display:flex;flex-direction:column;gap:7px}
+label.vrow{display:flex;gap:12px;align-items:center;border:1.5px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer;background:#fff;transition:border-color .15s, background .15s}
+label.vrow:hover{border-color:var(--acc)}
+label.vrow.sel{border-color:var(--ok);background:#f2fdf5}
+label.vrow.cur{border-style:dashed}
+label.vrow input{position:absolute;opacity:0;pointer-events:none}
+.check{width:20px;height:20px;flex:0 0 20px;border-radius:50%;border:2px solid #b6c0d2;background:#fff;position:relative}
+label.vrow.sel .check{border-color:var(--ok)}
+label.vrow.sel .check::after{content:"✓";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--ok);font-weight:800;font-size:14px}
+.vinfo{flex:0 0 240px;min-width:180px}
+.vlabel{font-weight:600;font-size:13.5px}
+.vline{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.badge{font-size:11px;font-weight:700;border-radius:5px;padding:1px 6px;letter-spacing:.02em}
+.b-cur{background:#dcfce7;color:#14532d}
+.b-prod{background:#e2e8f0;color:#334155}
+.b-cand{background:#fef3c7;color:#92400e}
+.b-none{background:#fee2e2;color:#7f1d1d}
+audio{flex:1;min-width:230px;height:36px}
+label.vrow.none{border-style:dotted}
+textarea.comment{width:100%;margin-top:9px;font:inherit;padding:8px 10px;border:1px solid var(--line);border-radius:8px;min-height:44px;resize:vertical;background:#fbfcfe}
+textarea.comment:focus{outline:2px solid var(--acc);border-color:var(--acc)}
+.anschip{font-size:12px;color:var(--ok);font-weight:700}
+footer{max-width:980px;margin:30px auto 60px;padding:0 16px}
+#general-notes{width:100%;min-height:80px;font:inherit;padding:10px;border:1px solid var(--line);border-radius:10px}
+.footbox{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px}
+@media (max-width:760px){
+  label.vrow{flex-wrap:wrap}
+  .vinfo{flex:1 1 100%}
+  audio{flex:1 1 100%}
+}
+</style>
+</head>
+<body>
+<header id="top">
+  <h1>🎧 Audyt odsłuchowy — wszystkie wersje sampli</h1>
+  <div class="progress-wrap">
+    <div class="bar"><div id="bar-fill"></div></div>
+    <div id="progress-text">…</div>
+    <div id="progress-detail"></div>
+  </div>
+  <div class="controls">
+    <select id="filter">
+      <option value="all">Wszystkie</option>
+      <option value="unanswered">Nieocenione</option>
+      <option value="answered">Ocenione</option>
+      <option value="none">Ocenione „Żadna”</option>
+      <option value="commented">Z komentarzem</option>
+    </select>
+    <input id="search" type="search" placeholder="Szukaj: numer lub nazwa karty…">
+    <button id="btn-jump" class="ghost" title="Przewiń do pierwszej nieocenionej fabuły">▼ pierwsza nieoceniona</button>
+  </div>
+  <div class="controls">
+    <button id="btn-save" class="ghost" title="Pobierz plik z postępem — można go potem wczytać">💾 Kopia postępu</button>
+    <button id="btn-load" class="ghost">📂 Wczytaj kopię</button>
+    <input type="file" id="file-load" accept=".json,application/json" hidden>
+    <button id="btn-report-top" class="primary">Stwórz raport (JSON)</button>
+    <details class="settings">
+      <summary>⚙ Folder miniatur</summary>
+      <p class="hint">Domyślnie: <code>C:\Users\Jacek PC\Desktop\MtG Fusion\img</code> — pliki <code>&lt;numer&gt;FOT.png</code>.<br>
+      Możesz też skopiować folder <code>img/</code> do katalogu <code>odsluch/</code> (obok index.html) — wtedy zadziała bez ścieżki.</p>
+      <input id="imgdir" placeholder="C:\Users\…\img\">
+    </details>
+  </div>
+  <p class="hint">Wybory zapisują się same w przeglądarce (localStorage) — zamknięcie karty nie traci postępu.
+  Głośność wersji z różnych epok bywa różna (normalizacja −20 LUFS weszła później) — oceń brzmienie, nie głośność.</p>
+</header>
+<main id="list"></main>
+<footer>
+  <div class="footbox">
+    <h2 style="margin-top:0">Uwagi ogólne do całego audytu</h2>
+    <textarea id="general-notes" placeholder="Co ogólnie Ci się podoba / nie podoba? Jakie dźwięki są OK, jakie nie? Wzorce, które widzisz w nowych vs starych wersjach…"></textarea>
+    <div class="controls" style="margin-top:14px;justify-content:center">
+      <button id="btn-report" class="primary big">⬇ Stwórz raport (JSON)</button>
+    </div>
+    <p class="hint" style="text-align:center">Raport zawiera wszystkie Twoje wybory i komentarze. Pobrany plik wyślij agentowi (czat Arena) — na jego podstawie złapie dream team najlepszych MP3 i zaplanuje poprawki „Żadnych”.</p>
+  </div>
+</footer>
+<script src="data.js"></script>
+<script>
+"use strict";
+const NONE='__none__';
+const LS='mtg-odsluch-audit-v1';
+let state=(()=>{try{return JSON.parse(localStorage.getItem(LS))||{}}catch(e){return{}}})();
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const save=()=>{try{localStorage.setItem(LS,JSON.stringify(state))}catch(e){console.warn('localStorage:',e)}};
+
+function winURL(dir,id){
+  let p=String(dir||'').replace(/\\/g,'/').replace(/\/+$/,'');
+  if(!p) return null;
+  if(!/^([a-zA-Z]:|file:\/\/)/.test(p)) return null;
+  return 'file:///'+encodeURI(p).replace(/#/g,'%23')+'/'+id+'FOT.png';
+}
+function labelOf(v){
+  const parts=[];
+  if(v.round) parts.push(v.round);
+  if(v.batch) parts.push(v.batch+(v.vno?(' v'+v.vno):''));
+  if(!parts.length&&v.slug) parts.push(v.slug);
+  if(!parts.length) parts.push('bez etykiety');
+  return parts.join(' · ')+' · '+v.date;
+}
+function cardHTML(s){
+  const st=state[s.id]||{};
+  const rows=s.versions.map(v=>{
+    const badges=[
+      v.current?'<span class="badge b-cur">OBECNY</span>':'',
+      v.kinds.includes('prod')?'<span class="badge b-prod">produkcja</span>':'',
+      (!v.kinds.includes('prod')&&v.kinds.includes('cand'))?'<span class="badge b-cand">kandydat</span>':'',
+    ].join('');
+    const det=(v.scenario||v.prompt)?('<details class="pdet"><summary>scenariusz / prompt tej generacji</summary><p>'
+      +(v.scenario?('<b>'+esc(v.scenario)+'</b><br><br>'):'')+esc(v.prompt||'')
+      +(v.gen?('<br><br><span style="color:var(--mut)">wygenerowano: '+esc(v.gen)+(v.gen_batch?(' · paczka '+esc(v.gen_batch)):'')+'</span>'):'')
+      +'</p></details>'):'';
+    return '<label class="vrow'+(v.current?' cur':'')+'" data-vid="'+v.vid+'">'
+      +'<input type="radio" name="c_'+s.id+'" value="'+v.vid+'">'
+      +'<span class="check"></span>'
+      +'<div class="vinfo"><div class="vline">'+badges+'<span class="vlabel">'+esc(labelOf(v))+'</span></div>'+det+'</div>'
+      +'<audio controls preload="none" src="audio/'+s.id+'/'+v.vid+'.mp3"></audio></label>';
+  }).join('');
+  const noneRow='<label class="vrow none" data-vid="'+NONE+'">'
+    +'<input type="radio" name="c_'+s.id+'" value="'+NONE+'">'
+    +'<span class="check"></span>'
+    +'<div class="vinfo"><div class="vline"><span class="badge b-none">ŻADNA</span>'
+    +'<span class="vlabel">żadna z powyższych — opisz dlaczego w uwagach</span></div></div></label>';
+  return '<article class="card" data-id="'+s.id+'" data-titlelow="'+esc((''+s.title).toLowerCase())+'">'
+    +'<div class="chead"><div class="thumb" data-id="'+s.id+'">'+esc(s.id)+'</div><div style="flex:1">'
+    +'<h2><span class="sid">'+esc(s.id)+'</span>'+esc(s.title)+'</h2>'
+    +'<div class="vcount">wersji audio: '+s.versions.length+(st.choice?' <span class="anschip">✓ oceniono</span>':'')+'</div>'
+    +'<details class="narr"><summary>narracja fabuły</summary><p>'+esc(s.story||'')+'</p></details>'
+    +(s.cur_scenario?('<details class="narr"><summary>obecny scenariusz sampla</summary><p>'+esc(s.cur_scenario)+'</p></details>'):'')
+    +'</div></div>'
+    +'<div class="versions">'+rows+noneRow+'</div>'
+    +'<textarea class="comment" placeholder="Uwagi do tej fabuły (opcjonalnie) — która wersja i dlaczego, co poprawić…">'+esc(st.comment||'')+'</textarea>'
+    +'</article>';
+}
+function renderAll(){
+  $('#list').innerHTML=DATA.stories.map(cardHTML).join('');
+  DATA.stories.forEach(s=>{
+    const st=state[s.id]||{};
+    if(st.choice) markChoice(s.id,st.choice);
+  });
+  applyFilter(); updateProgress();
+}
+function markChoice(id,val){
+  const card=document.querySelector('.card[data-id="'+CSS.escape(id)+'"]');
+  if(!card) return;
+  card.querySelectorAll('label.vrow').forEach(l=>l.classList.toggle('sel',l.dataset.vid===val));
+  card.classList.toggle('answered',!!val);
+  const chip=card.querySelector('.anschip');
+  if(val&&!chip){
+    const vc=card.querySelector('.vcount');
+    if(vc) vc.insertAdjacentHTML('beforeend',' <span class="anschip">✓ oceniono</span>');
+  } else if(!val&&chip){chip.remove();}
+}
+function thumbsInit(){
+  document.querySelectorAll('.thumb').forEach(t=>{
+    const id=t.dataset.id;
+    const img=document.createElement('img');
+    img.loading='lazy'; img.alt='miniaturka '+id;
+    let stage=0;
+    const abs=winURL(state._imgdir||DATA.img_dir_default,id);
+    img.onerror=()=>{
+      stage++;
+      if(stage===1&&abs){img.src=abs;return;}
+      img.remove(); // zostaje numer jako placeholder
+    };
+    img.src='img/'+id+'FOT.png';
+    t.appendChild(img);
+  });
+}
+const storyById=new Map(DATA.stories.map(s=>[s.id,s]));
+function cardVisible(card){
+  const id=card.dataset.id;
+  const st=state[id]||{}; const ans=!!st.choice;
+  const f=$('#filter').value;
+  if(f==='unanswered'&&ans)return false;
+  if(f==='answered'&&!ans)return false;
+  if(f==='none'&&st.choice!==NONE)return false;
+  if(f==='commented'&&!st.comment)return false;
+  const q=$('#search').value.trim().toLowerCase();
+  if(q){
+    const s=storyById.get(id);
+    const low=card.dataset.titlelow||(''+(s?s.title:'')).toLowerCase();
+    if(!(id===q||id.startsWith(q)||low.includes(q)))return false;
+  }
+  return true;
+}
+function applyFilter(){
+  document.querySelectorAll('article.card').forEach(c=>c.classList.toggle('hidden',!cardVisible(c)));
+}
+function updateProgress(){
+  const total=DATA.stories.length;
+  let ans=0,none=0,comm=0;
+  DATA.stories.forEach(s=>{
+    const st=state[s.id]||{};
+    if(st.choice){ans++;if(st.choice===NONE)none++;}
+    if(st.comment)comm++;
+  });
+  $('#bar-fill').style.width=(total?Math.round(100*ans/total):0)+'%';
+  $('#progress-text').textContent='Ocenione: '+ans+' / '+total;
+  $('#progress-detail').textContent='wybrane wersje: '+(ans-none)+' · „żadna”: '+none+' · z komentarzem: '+comm;
+}
+document.addEventListener('play',e=>{
+  if(e.target.tagName==='AUDIO')
+    document.querySelectorAll('audio').forEach(a=>{if(a!==e.target)a.pause();});
+},true);
+$('#list').addEventListener('change',e=>{
+  if(e.target.matches('input[type=radio]')){
+    const card=e.target.closest('.card');const id=card.dataset.id;
+    state[id]=state[id]||{};
+    state[id].choice=e.target.value;
+    state[id].ts=new Date().toISOString();
+    save();markChoice(id,e.target.value);updateProgress();applyFilter();
+  }
+});
+let cTimer=null;
+$('#list').addEventListener('input',e=>{
+  if(e.target.classList.contains('comment')){
+    const id=e.target.closest('.card').dataset.id;
+    state[id]=state[id]||{};
+    state[id].comment=e.target.value;
+    state[id].ts=new Date().toISOString();
+    clearTimeout(cTimer);cTimer=setTimeout(save,350);
+  }
+});
+$('#filter').addEventListener('change',applyFilter);
+$('#search').addEventListener('input',applyFilter);
+$('#btn-jump').addEventListener('click',()=>{
+  const s=DATA.stories.find(s=>!(state[s.id]||{}).choice);
+  if(!s){alert('Wszystkie fabuły są ocenione. 🎉');return;}
+  const card=document.querySelector('.card[data-id="'+CSS.escape(s.id)+'"]');
+  if(card){card.scrollIntoView({behavior:'smooth',block:'center'});card.style.outline='3px solid var(--acc)';
+    setTimeout(()=>card.style.outline='',1800);}
+});
+$('#imgdir').value=state._imgdir||DATA.img_dir_default;
+$('#imgdir').addEventListener('change',()=>{
+  state._imgdir=$('#imgdir').value;save();thumbsInit();
+});
+$('#general-notes').value=state._notes||'';
+$('#general-notes').addEventListener('input',()=>{
+  state._notes=$('#general-notes').value;clearTimeout(cTimer);cTimer=setTimeout(save,350);
+});
+function download(name,text){
+  const b=new Blob([text],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(b);a.download=name;
+  document.body.appendChild(a);a.click();a.remove();
+  setTimeout(()=>URL.revokeObjectURL(a.href),8000);
+}
+function stamp(){const d=new Date();const p=n=>String(n).padStart(2,'0');
+  return d.getFullYear()+p(d.getMonth()+1)+p(d.getDate())+'-'+p(d.getHours())+p(d.getMinutes());}
+function buildReport(){
+  const choices=DATA.stories.map(s=>{
+    const st=state[s.id]||{};
+    const v=s.versions.find(x=>x.vid===st.choice);
+    return{
+      story_id:s.id,title:s.title,n_versions:s.versions.length,
+      choice:st.choice===NONE?null:(st.choice||null),
+      choice_none:st.choice===NONE,
+      choice_label:v?labelOf(v):null,
+      choice_current:v?!!v.current:null,
+      choice_prompt:v?(v.prompt||null):null,
+      choice_scenario:v?(v.scenario||null):null,
+      comment:st.comment||'',answered_at:st.ts||null,
+      versions:s.versions.map(x=>({vid:x.vid,label:labelOf(x),current:!!x.current,kinds:x.kinds}))
+    };
+  });
+  const answered=choices.filter(c=>c.choice||c.choice_none).length;
+  return{
+    type:'listening-audit-report',version:1,generated_at:new Date().toISOString(),
+    audit:{commit:DATA.commit,built:DATA.generated,stories:DATA.stories.length,
+           versions_total:DATA.total_versions},
+    summary:{stories:DATA.stories.length,answered,
+             chose_version:choices.filter(c=>c.choice).length,
+             chose_none:choices.filter(c=>c.choice_none).length,
+             unanswered:DATA.stories.length-answered,
+             with_comments:choices.filter(c=>c.comment).length},
+    image_dir:state._imgdir||DATA.img_dir_default,
+    general_notes:$('#general-notes').value||'',
+    choices
+  };
+}
+function makeReport(){
+  const r=buildReport();
+  if(r.summary.unanswered>0){
+    if(!confirm('Masz jeszcze '+r.summary.unanswered+' nieocenionych fabuł.\n'
+      +'Wygenerować raport mimo to? (Anuluj = wróć do słuchania)'))return;
+  }
+  download('raport-audytu-odsluchowego-'+stamp()+'.json',JSON.stringify(r,null,2));
+  alert('Raport zapisany: ocenione '+r.summary.answered+'/'+r.summary.stories
+    +'\n(„żadna”: '+r.summary.chose_none+', z komentarzem: '+r.summary.with_comments+')\n'
+    +'Wyślij pobrany plik agentowi.');
+}
+$('#btn-report').addEventListener('click',makeReport);
+$('#btn-report-top').addEventListener('click',makeReport);
+$('#btn-save').addEventListener('click',()=>{
+  download('kopia-postepu-audytu-'+stamp()+'.json',JSON.stringify({
+    type:'listening-audit-progress',version:1,
+    saved_at:new Date().toISOString(),state},null,2));
+});
+$('#btn-load').addEventListener('click',()=>$('#file-load').click());
+$('#file-load').addEventListener('change',e=>{
+  const f=e.target.files[0];if(!f)return;
+  const rd=new FileReader();
+  rd.onload=()=>{
+    try{
+      const d=JSON.parse(rd.result);
+      let st=null;
+      if(d&&d.type==='listening-audit-progress'&&d.state)st=d.state;
+      else if(d&&d.type==='listening-audit-report'&&Array.isArray(d.choices)){
+        st={};
+        d.choices.forEach(c=>{st[c.story_id]={};if(c.choice)st[c.story_id].choice=c.choice;
+          if(c.choice_none)st[c.story_id].choice=NONE;
+          if(c.comment)st[c.story_id].comment=c.comment;});
+        if(d.general_notes)st._notes=d.general_notes;
+      }else{alert('Nieznany format pliku.');return;}
+      state=Object.assign({},state,st);
+      save();renderAll();thumbsInit();
+      $('#general-notes').value=state._notes||'';
+      alert('Wczytano kopię postępu.');
+    }catch(err){alert('Błąd wczytywania: '+err);}
+  };
+  rd.readAsText(f);e.target.value='';
+});
+window.addEventListener('beforeunload',save);
+renderAll();thumbsInit();
+</script>
+</body>
+</html>
