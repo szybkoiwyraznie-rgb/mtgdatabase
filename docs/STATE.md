@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-11** (sesja `arena/ee59daa7-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-20** (sesja `arena/16fc62ed-mtgdatabase`).
 
 > Ten plik jest **obowiązkową lekturą agenta** i musi się mieścić w limicie
 > 50 000 tokenów razem z resztą plików z `docs/required-reading.md`
@@ -26,20 +26,35 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   kolejnych rund rNNN: **pełny audyt odsłuchowy** w `odsluch/` (buduje go
   `scripts/build_listening_audit.py` z całej historii gita — produkcja
   + kandydaci z `variants/`, od POC 2026-09-27). Strona `odsluch/index.html`
-  listuje 574 fabuły ze wszystkimi **4743 wersjami** MP3, wybory zapisuje
+  listuje 603 fabuły ze wszystkimi **4955 wersjami** MP3, wybory zapisuje
   w localStorage (odporne na przeładowanie), a „Stwórz raport" pobiera JSON
   z wyborami i uwagami. Po odebraniu raportu: dream team najlepszych wersji
   wraca do `audio/samples/`, „Żadne" dostają nowe prompty wg uwag, plus
   analiza preferencji na przyszłe generacje. Katalog jest samodzielny
   (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
   z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **603 fabuły**
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **613 fabuł**
   (dopisane `400`, `402`, `404`, `405`, `406`, `407`, `408`, `409`,
-  `410`, `411`).
+  `410`, `411`, `412`, `413`, `414`, `415`, `416`, `417`, `418`, `423`, `424`, `425`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **603 MP3** w `audio/samples/<id>.mp3`; **603 scenariusze**
-  — 100 % katalogu. Nowe karty z b078 mają audio.
-- Ostatnia dostawa: **`b078`** (2026-10-17) — **10 nowych kart**:
+- Sample: **613 MP3** w `audio/samples/<id>.mp3`; **613 scenariuszy**
+  — 100 % katalogu. Nowe karty z b079 mają audio.
+- Ostatnia dostawa: **`b079`** (2026-10-20) — **10 nowych kart**:
+  `412` Makindi Aeronaut (`wing_flutter`), `413` Bloodfire Infusion
+  (`fire_crackle`), `414` Tuskguard Captain (`heavy_footsteps`),
+  `415` Kavu Primarch (`creature_roar`), `416` Fleeting Flight
+  (`wind_gust`), `417` Heron-Blessed Geist (`forest_birdsong`), `418` Ior
+  Ruin Expedition (`water_splash`), `423` Gnoll War Band (`creature_cackle`),
+  `424` Gruul Beastmaster (`heavy_impact`), `425` Myr Scrapling
+  (`mechanism_click`) — 10 różnych archetypów.
+  **1/10 trafionych (423), 3 prawdopodobnie (414/418/424), 6 nie trafionych,
+  0 nowych par ≥0.90, 0 bliźniaków**; 30 generacji (3×10) ≈1200 kr,
+  4 z 10 po postprodukcji z flagą (416 harsh, 417 long_trail, 423 speech_like,
+  424 long_trail — świadome, fizyka źródła). Archetypy: trafiony 190 /
+  prawdopodobnie 43 / nie trafiony 9 (242 z zadeklarowanym archetypem).
+  Wybór: 412 v2, 413 v3, 414 v1, 415 v2, 416 v1, 417 v1, 418 v2, 423 v1,
+  424 v1, 425 v1 — LUFS −20±1.9, 0 over-ceiling, 4 limited.
+- Poprzednia dostawa: **`b078`** (2026-10-17) — **10 nowych kart**:
   `400` Kulrath Zealot (`fire_crackle`), `402` Bloodfire Expert
   (`arrow_flight`), `404` Meteorite (`earth_rumble`), `405` Raze to
   the Ground (`stone_slide`), `406` Stymied Hopes (`glass_shatter`),
@@ -429,7 +444,7 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **603 fabuły**, scenariusze **603** (100 %), sample **603**.
+- Katalog: **613 fabuł**, scenariusze **613** (100 %), sample **613**.
 - Flagi **38** łącznie (38 kart z flagą), pary ≥ 0,90 **25**,
   treść < 2 s **12**. Najczęstsze: `dull` 11, `harsh` 9, `boomy` 6,
   `speech_like` 6, `tonal_sustained` 5.
@@ -603,6 +618,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | batch | data | wynik | archiwum |
 |---|---|---|---|
 | b077 | 2026-10-14 | 10 nowych kart (369–398), 6/10 trafionych, 0 nowych par; 392→horn_call i 398→chain_rattle po audycie brzmienia | ten plik |
+| b079 | 2026-10-20 | 10 nowych kart (412–418,423–425), 1/10 trafionych, 3 prawd., 0 nowych par; 30 generacji w 1 paczce b079 (1200 kr), 4 flagi świadome | ten plik |
 | b078 | 2026-10-17 | 10 nowych kart (400–411), 3/10 trafionych, 0 nowych par; po drodze wyczerpany limit kredytów → nowy klucz; 405 bezparowe 2.5 pkt (kontraktowe warianty miały pary ≥0.90) | ten plik |
 | b076 | 2026-10-13 | 9 nowych kart (353–368), 8/9 trafionych, 0 par; 361 po podwójnym dzwonie (para 0,9498 z 196 rozwiązana trymem) | ten plik |
 | r016–r033 | 2026-10-05 | kontrakty archetypów, 69 → 0 nie trafionych | `state-2026-10-05.md` |

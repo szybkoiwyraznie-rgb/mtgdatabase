@@ -4220,6 +4220,76 @@
       "title": "Neurok Invisimancer",
       "story": "Na metalicznych pomostach rozciągniętych ponad Morzem Żywego Srebra czarodziejka z ludu Neurok prowadzi dywersanta mirrańskiego ruchu oporu wprost za linie wroga. Dzięki mistrzowskiej manipulacji światłem Błękitnego Słońca i rtęciowym serum sylwetki obojga zwiadowców zlewają się z chromowaną architekturą Świetlistej Kraty. Ciężki patrol biomechanicznych strażników Nowej Phyreksji przechodzi zaledwie kilka kroków dalej, nie dostrzegając ani rzucanego cienia, ani zagięcia przestrzeni. Jedynym namacalnym śladem obecności niewidzialnych szpiegów pozostaje obnażona klinga z lustrzanej stali, gotowa do zadania bezszelestnego ciosu.",
       "versions": []
+    },
+    {
+      "id": "412",
+      "art_id": "412OGW",
+      "title": "Makindi Aeronaut",
+      "story": "Pomiędzy lewitującymi hedronami wznoszącymi się nad Rowami Makindi zwiadowczyni z rasy Korów tnie powietrze na skrzydłach lekkiej lotni z kościanym stelażem. Silne prądy termiczne kontynentu Ondu niosą jej aerodynamiczną konstrukcję tuż nad urwiskami, pozwalając na bezszelestne patrolowanie nieprzebytych rozpadlin. W cieniu skalnych ścian na dnie kanionu dostrzega kredowobiałe ślady spustoszenia, pozostawione przez pełzające pomioty pożeraczy światów Eldrazi. Dłoń zwiadowczyni natychmiast sięga po mosiężny gwizdek sygnalizacyjny, by ostrzec obóz Sojuszników przed kolejnym uderzeniem obcych potworów.",
+      "versions": []
+    },
+    {
+      "id": "413",
+      "art_id": "413APC",
+      "title": "Bloodfire Infusion",
+      "story": "Na zamarzniętych rubieżach Kislevu berserker z klanów Północy staje się żywym naczyniem dla niszczycielskiej potęgi Boga Krwi. Zamiast krwi w jego nabrzmiałych żyłach krąży czysty ogień Khorna, rozrywający chitynę pancerza i rozżarzający żelazną obrożę do białości. W momencie ostatecznego szału tors wojownika eksploduje potężną falą szkarłatnego płomienia, która zmiata w powietrze całą linię cesarskich halabardników. Piekielna detonacja obraca w zgliszcza zasieki i sztandary Altdorfu, składając na ołtarzu Chaosu hekatombę ze wszystkich zgromadzonych na polu walki.",
+      "versions": []
+    },
+    {
+      "id": "414",
+      "art_id": "414_2X2",
+      "title": "Tuskguard Captain",
+      "story": "Na zamarzniętych tundrach Bretagardu wojownicy z klanu Tuskeri cierpliwie wyczekują na wietrznych graniach na odpowiedni moment do natarcia. Stojąca w wojennym siodle kapitan pochyla się ku potężnemu uchu bojowego mamuta, wypowiadając ciche słowo pradawnego rozkazu. Podkute żelazem ciosy olbrzymiego zwierzęcia prują śnieżne zaspy, gdy bestia rusza w dół zbocza, wzbijając za sobą oślepiającą zamieć. Ziemia drży pod uderzeniami kolumny mamutów, których niepowstrzymana szarża rozbija w pył każdy mur tarcz napotkany na drodze do chwały.",
+      "versions": []
+    },
+    {
+      "id": "415",
+      "art_id": "415DMR",
+      "title": "Kavu Primarch",
+      "story": "W głębi pradawnej Puszczy Yavimaya leśne elfy i zwinne stada zwiadowców wznoszą pieśń przebudzenia pośród plątaniny korzeni drzewa żelaznego. Z podziemnej groty wyłania się kolosalny prymas Kavu, którego potężne, najeżone kolcami cielsko porastają wiekowe mchy i pnącza. Ciężka, opancerzona łapa prastarej bestii miażdży skalny głaz z impetem, który wzbija w powietrze chmurę świecących zarodników i leśnego pyłu. Ogłuszający ryk budzącego się tytana niesie się echem po koronie drzew, zwiastując zjednoczony marsz obrońców Dominarii przeciwko każdemu zagrożeniu.",
+      "versions": []
+    },
+    {
+      "id": "416",
+      "art_id": "416FDN",
+      "title": "Fleeting Flight",
+      "story": "Ponad dachami Waterdeep sir Brilbury spogląda w zawrotną otchłań dzielącą blanki zamkowe od bruku Dolnego Miasta. Choć paraliżujący lęk wysokości mrozi krew w jego żyłach, rycerska przysięga złożona świątyni Lathandera okazuje się silniejsza niż instynkt samozachowawczy. W ułamku sekundy po skoku z kamiennego gzymsu z pancerza wojownika wystrzeliwują świetliste, złociste skrzydła, które z impetem wyhamowują niebezpieczny upadek. Otoczony promienistą tarczą boskiej opieki rycerz szybuje w stronę dolnego dziedzińca, by zstąpić na napastników niczym niepowstrzymany posłaniec poranka.",
+      "versions": []
+    },
+    {
+      "id": "417",
+      "art_id": "417VOW",
+      "title": "Heron-Blessed Geist",
+      "story": "W spowitych gęstą mgłą lasach Kessig zdesperowani wieśniacy szukają schronienia na stopniach ufortyfikowanej kaplicy Sigardy. Z pękniętego portalu wyłania się świetlisty duch dawnej kapłanki Zastępu Czapli, roztaczając wokół siebie opiekuńczy całun z bursztynowej ektoplazmy. Z jej rozpostartych ramion wystrzeliwują w powietrze dwie widmowe czaple o skrzydłach z czystego światła, które z impetem odpędzają czające się w zaroślach wilkołaki. Nawet po śmierci sługi Srebrnego Księżyca pozostają wierne swej przysiędze, rozpraszając mrok nocy i strzegąc ostatnich ocalałych przed krwawym żniwem potworów.",
+      "versions": []
+    },
+    {
+      "id": "418",
+      "art_id": "418ZEN",
+      "title": "Ior Ruin Expedition",
+      "story": "W głębi heksagonalnej niecki jeziora Szklana Sadzawka ekspedycja badaczy z Akoum dociera do na wpół zatopionych kolumnad prastarych ruin Ior. Zanurzony w krystalicznie czystej wodzie merfolk ostrożnie odsłania reliefy pokrywające kamienną ścianę, z której wciąż bije blask przed-eldrazińskiej magii. Na wystającym ponad taflę gzymsie zwiadowca z liny zabezpiecza haki wspinaczkowe, pilnując zwojów i map kartograficznych przed czyhającymi w głębinach drakonami. Każdy kolejny odczytany z dna glif przybliża śmiałków do odkrycia zaginionej wiedzy, która przez tysiąclecia spoczywała nietknięta przez niszczycielskie wstrząsy Roilu.",
+      "versions": []
+    },
+    {
+      "id": "423",
+      "art_id": "423CLB",
+      "title": "Gnoll War Band",
+      "story": "W skalistych wąwozach wzdłuż Traktu Handlowego na Wybrzeżu Mieczy ogłuszający rechot hienogłowych łupieżców zwiastuje nadejście krwawego polowania. Zrodzona z mrocznej woli Yeenoghu wataha gnolli z impetem zbiega po kamienistym zboczu, biorąc w kleszcze rozbity obóz kupieckiej karawany. Potężny wódz sfory unosi najeżony kolcami kiścień, podczas gdy kolejne skrzydła drapieżców rozpraszają się wzdłuż grani, odcinając obrońcom wszelkie drogi ucieczki. Zapach świeżej krwi i dym z płonących wozów napełniają bestie nieposkromionym szałem, obracając każde starcie w bezlitosną rzeź w blasku zachodzącego słońca.",
+      "versions": []
+    },
+    {
+      "id": "424",
+      "art_id": "424RNA",
+      "title": "Gruul Beastmaster",
+      "story": "Na poszarpanych rubieżach Gruzowisk szamanka klanu Zhur-Taa prowadzi potężną rogatą bestię wprost na ufortyfikowany posterunek Dziesiątej Dzielnicy. Z wzniesionego ku niebu kostura tryska szmaragdowo-czerwona aura pierwotnego szału, która nasyca mięśnie taranującego kolosa nieposkromioną furią klanów Gruul. Pod naporem opancerzonego łba potwora marmurowe kolumny i kute kraty pękają z hukiem, rozpadając się w deszcz kamiennego pyłu. Każdy kolejny wyłom w murach cywilizacji zbliża dzikie hordy do ostatecznego zrównania z ziemią znienawidzonego porządku miejskich gildii.",
+      "versions": []
+    },
+    {
+      "id": "425",
+      "art_id": "425MH2",
+      "title": "Myr Scrapling",
+      "story": "Na bezkresnych, chromowanych taflach Błyszczącej Pustki mały myr niestrudzenie przeczesuje pobojowiska w poszukiwaniu porzuconych nitów i pancerzy. Zrodzone z zamysłu Memnarcha mechaniczne sługi instynktownie gromadzą metalowy złom, by naprawiać uszkodzenia większych machin mirrańskiego oporu. Snop jaskrawych iskier spawalniczych oświetla łuskowatą nogę golema, gdy filigranowy automat bez wahania oddaje własne tryby, by zespawać pęknięty pancerz sojusznika. Dla chłodnych badaczy z rasy Vedalkenów te kruche konstrukty stanowią jedynie tanie, łatwo zastępowalne części zamienne na bezlitosnym świecie ze stali.",
+      "versions": []
     }
   ]
 }
