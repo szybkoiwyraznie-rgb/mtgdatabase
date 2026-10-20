@@ -26,7 +26,7 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   kolejnych rund rNNN: **pełny audyt odsłuchowy** w `odsluch/` (buduje go
   `scripts/build_listening_audit.py` z całej historii gita — produkcja
   + kandydaci z `variants/`, od POC 2026-09-27). Strona `odsluch/index.html`
-  listuje 574 fabuły ze wszystkimi **4743 wersjami** MP3, wybory zapisuje
+  listuje 603 fabuły ze wszystkimi **4955 wersjami** MP3, wybory zapisuje
   w localStorage (odporne na przeładowanie), a „Stwórz raport" pobiera JSON
   z wyborami i uwagami. Po odebraniu raportu: dream team najlepszych wersji
   wraca do `audio/samples/`, „Żadne" dostają nowe prompty wg uwag, plus
