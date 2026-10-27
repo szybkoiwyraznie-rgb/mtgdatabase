@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-20** (sesja `arena/16fc62ed-mtgdatabase`).
+Ostatnia aktualizacja: **2026-10-27** (sesja `arena/16fc62ed-mtgdatabase`).
 
 > Ten plik jest **obowiązkową lekturą agenta** i musi się mieścić w limicie
 > 50 000 tokenów razem z resztą plików z `docs/required-reading.md`
@@ -26,20 +26,32 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   kolejnych rund rNNN: **pełny audyt odsłuchowy** w `odsluch/` (buduje go
   `scripts/build_listening_audit.py` z całej historii gita — produkcja
   + kandydaci z `variants/`, od POC 2026-09-27). Strona `odsluch/index.html`
-  listuje 603 fabuły ze wszystkimi **4955 wersjami** MP3, wybory zapisuje
+  listuje 623 fabuły ze wszystkimi **5035 wersjami** MP3, wybory zapisuje
   w localStorage (odporne na przeładowanie), a „Stwórz raport" pobiera JSON
   z wyborami i uwagami. Po odebraniu raportu: dream team najlepszych wersji
   wraca do `audio/samples/`, „Żadne" dostają nowe prompty wg uwag, plus
   analiza preferencji na przyszłe generacje. Katalog jest samodzielny
   (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
   z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **613 fabuł**
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **623 fabuł**
   (dopisane `400`, `402`, `404`, `405`, `406`, `407`, `408`, `409`,
   `410`, `411`, `412`, `413`, `414`, `415`, `416`, `417`, `418`, `423`, `424`, `425`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **613 MP3** w `audio/samples/<id>.mp3`; **613 scenariuszy**
+- Sample: **623 MP3** w `audio/samples/<id>.mp3`; **623 scenariuszy**
   — 100 % katalogu. Nowe karty z b079 mają audio.
-- Ostatnia dostawa: **`b079`** (2026-10-20) — **10 nowych kart**:
+- Ostatnia dostawa: **`b080`** (2026-10-27) — **10 nowych kart**:
+  `426` Paranormal Analyst (`electric_zap`), `427` Jilt (`glass_shatter`),
+  `429` Vault of Whispers (`war_machine`), `618` Kaleidoscorch (`fire_crackle`),
+  `619` Orazca Puzzle-Door (`mechanism_click`), `620` Fen Hauler (`water_splash`),
+  `621` Moldgraf Millipede (`heavy_impact`), `622` Magma Pummeler (`earth_rumble`),
+  `623` Trigon of Rage (`thunder_clap`), `624` Arlinn's Wolf (`creature_roar`)
+  — 10 różnych archetypów. **2/10 trafionych (427,619), 6 prawdopodobnie,
+  2 nie trafionych (429,623), 0 nowych par ≥0.90, 0 bliźniaków**; 30 generacji
+  (3×10) ≈1200 kr, 4 flagi świadome (618/621 long_trail, 622 muffled, 623 boomy
+  — fizyka źródła). Archetypy: trafiony 192 / prawdopodobnie 49 / nie 11
+  (252 z zadeklarowanym archetypem). Wybór: 426 v1, 427 v2, 429 v1, 618 v3,
+  619 v1, 620 v1, 621 v1, 622 v1, 623 v3, 624 v2 — LUFS −20.0±0.2, 0 over-ceiling.
+- Poprzednia dostawa: **`b079`** (2026-10-20) — **10 nowych kart**:
   `412` Makindi Aeronaut (`wing_flutter`), `413` Bloodfire Infusion
   (`fire_crackle`), `414` Tuskguard Captain (`heavy_footsteps`),
   `415` Kavu Primarch (`creature_roar`), `416` Fleeting Flight
@@ -444,7 +456,7 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **613 fabuł**, scenariusze **613** (100 %), sample **613**.
+- Katalog: **623 fabuł**, scenariusze **623** (100 %), sample **613**.
 - Flagi **38** łącznie (38 kart z flagą), pary ≥ 0,90 **25**,
   treść < 2 s **12**. Najczęstsze: `dull` 11, `harsh` 9, `boomy` 6,
   `speech_like` 6, `tonal_sustained` 5.
@@ -618,6 +630,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | batch | data | wynik | archiwum |
 |---|---|---|---|
 | b077 | 2026-10-14 | 10 nowych kart (369–398), 6/10 trafionych, 0 nowych par; 392→horn_call i 398→chain_rattle po audycie brzmienia | ten plik |
+| b080 | 2026-10-27 | 10 nowych kart (426,427,429,618–624), 2/10 trafionych, 6 prawd., 0 nowych par; 30 generacji (1200 kr), 4 flagi świadome | ten plik |
 | b079 | 2026-10-20 | 10 nowych kart (412–418,423–425), 1/10 trafionych, 3 prawd., 0 nowych par; 30 generacji w 1 paczce b079 (1200 kr), 4 flagi świadome | ten plik |
 | b078 | 2026-10-17 | 10 nowych kart (400–411), 3/10 trafionych, 0 nowych par; po drodze wyczerpany limit kredytów → nowy klucz; 405 bezparowe 2.5 pkt (kontraktowe warianty miały pary ≥0.90) | ten plik |
 | b076 | 2026-10-13 | 9 nowych kart (353–368), 8/9 trafionych, 0 par; 361 po podwójnym dzwonie (para 0,9498 z 196 rozwiązana trymem) | ten plik |

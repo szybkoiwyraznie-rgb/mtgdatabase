@@ -1,12 +1,87 @@
 {
- "audit": "data/samples/audio-audit-2026-10-17-b078.json",
- "checked": 232,
+ "audit": "/tmp/audit-after-b080.json",
+ "checked": 252,
  "by_verdict": {
-  "nie trafiony": 3,
-  "prawdopodobnie": 40,
-  "trafiony": 189
+  "nie trafiony": 11,
+  "prawdopodobnie": 49,
+  "trafiony": 192
  },
  "results": [
+  {
+   "id": "415",
+   "title": "Kavu Primarch",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 4.0,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "voiced_fraction",
+     "reason": "ryk musi być harmoniczny (voiced) (voiced_fraction=0.034, oczekiwane >= 0.3)",
+     "weight": 1.5
+    },
+    {
+     "check": "spectral_flatness",
+     "reason": "ryk nie może być szumem (spectral_flatness=0.160, oczekiwane <= 0.15)",
+     "weight": 1.5
+    },
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "ryk siedzi w niskim środku pasma (spectral_centroid_hz=1795.700, oczekiwane 150.0–1600.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "417",
+   "title": "Heron-Blessed Geist",
+   "archetype": "forest_birdsong",
+   "archetype_label": "śpiew ptaków",
+   "score": 4.0,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "onset_count",
+     "reason": "ptaki to wiele zawołań (onset_count=1, oczekiwane >= 4)",
+     "weight": 1.5
+    },
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "śpiew ptaków jest wysoki (spectral_centroid_hz=1089.600, oczekiwane 1500.0–6500.0)",
+     "weight": 1.5
+    },
+    {
+     "check": "mod_peak_hz",
+     "reason": "trele są szybkie (mod_peak_hz=1.290, oczekiwane 3.0–22.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "416",
+   "title": "Fleeting Flight",
+   "archetype": "wind_gust",
+   "archetype_label": "podmuch wiatru",
+   "score": 3.0,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "sustain_ratio",
+     "reason": "podmuch płynie (sustain_ratio=0.030, oczekiwane >= 0.3)",
+     "weight": 1.0
+    },
+    {
+     "check": "attack_s",
+     "reason": "podmach narasta (attack_s=0.050, oczekiwane >= 0.3)",
+     "weight": 1.0
+    },
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "wiatr siedzi w środku pasma (spectral_centroid_hz=9028.500, oczekiwane 300.0–3000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
   {
    "id": "405",
    "title": "Raze to the Ground",
@@ -23,6 +98,66 @@
     {
      "check": "decay_s",
      "reason": "osuwisko się toczy (decay_s=0.090, oczekiwane >= 0.5)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "412",
+   "title": "Makindi Aeronaut",
+   "archetype": "wing_flutter",
+   "archetype_label": "trzepot skrzydeł",
+   "score": 2.5,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "onset_count",
+     "reason": "skrzydła biją wielokrotnie (onset_count=1, oczekiwane >= 6)",
+     "weight": 1.5
+    },
+    {
+     "check": "mod_peak_hz",
+     "reason": "trzepot pulsuje w tempie machania (mod_peak_hz=1.050, oczekiwane 4.0–20.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "413",
+   "title": "Bloodfire Infusion",
+   "archetype": "fire_crackle",
+   "archetype_label": "trzask ognia / żaru",
+   "score": 2.5,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "spectral_flatness",
+     "reason": "ogień jest szumowy (spectral_flatness=0.008, oczekiwane >= 0.1)",
+     "weight": 1.5
+    },
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "trzaski są jasne (spectral_centroid_hz=553.000, oczekiwane 1000.0–6000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "429",
+   "title": "Vault of Whispers",
+   "archetype": "war_machine",
+   "archetype_label": "silnik i mechanizm wojennej machiny",
+   "score": 2.5,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "low_all",
+     "reason": "machina dudni dołem (low_all=0.003, oczekiwane >= 0.35)",
+     "weight": 1.5
+    },
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "machina nie jest cienka (spectral_centroid_hz=7193.800, oczekiwane <= 2600.0)",
      "weight": 1.0
     }
    ]
@@ -68,6 +203,46 @@
    ]
   },
   {
+   "id": "425",
+   "title": "Myr Scrapling",
+   "archetype": "mechanism_click",
+   "archetype_label": "zegarowy mechanizm / zamek / zapadka",
+   "score": 2.0,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "klik jest suchy i jasny (spectral_centroid_hz=8899.100, oczekiwane 800.0–6000.0)",
+     "weight": 1.0
+    },
+    {
+     "check": "ioi_cv",
+     "reason": "mechanizm ma rytm (ioi_cv=0.802, oczekiwane <= 0.8)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "623",
+   "title": "Trigon of Rage",
+   "archetype": "thunder_clap",
+   "archetype_label": "grzmot / uderzenie pioruna",
+   "score": 2.0,
+   "verdict": "nie trafiony",
+   "violations": [
+    {
+     "check": "crest_db",
+     "reason": "grzmot uderza (crest_db=14.790, oczekiwane >= 18.0)",
+     "weight": 1.0
+    },
+    {
+     "check": "mid_up",
+     "reason": "grzmot musi być słyszalny też na małych głośnikach (mid_up=0.049, oczekiwane >= 0.08)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
    "id": "31",
    "title": "Carrion Call",
    "archetype": "insect_swarm",
@@ -108,6 +283,66 @@
     {
      "check": "attack_s",
      "reason": "uderzenie psychiczne jest natychmiastowe (attack_s=0.110, oczekiwane <= 0.1)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "418",
+   "title": "Ior Ruin Expedition",
+   "archetype": "water_splash",
+   "archetype_label": "plusk / uderzenie w wodę",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_flatness",
+     "reason": "plusk jest szumowy (spectral_flatness=0.002, oczekiwane >= 0.08)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "426",
+   "title": "Paranormal Analyst",
+   "archetype": "electric_zap",
+   "archetype_label": "wyładowanie / iskra",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "wyładowanie jest natychmiastowe (attack_s=0.780, oczekiwane <= 0.03)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "618",
+   "title": "Kaleidoscorch",
+   "archetype": "fire_crackle",
+   "archetype_label": "trzask ognia / żaru",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "onset_count",
+     "reason": "ogień strzela wieloma trzaskami (onset_count=0, oczekiwane >= 8)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "624",
+   "title": "Arlinn's Wolf",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "voiced_fraction",
+     "reason": "ryk musi być harmoniczny (voiced) (voiced_fraction=0.215, oczekiwane >= 0.3)",
      "weight": 1.5
     }
    ]
@@ -443,6 +678,36 @@
    ]
   },
   {
+   "id": "414",
+   "title": "Tuskguard Captain",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "ioi_cv",
+     "reason": "kroki mają równy rytm (ioi_cv=0.634, oczekiwane <= 0.6)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "424",
+   "title": "Gruul Beastmaster",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "uderzenie jest natychmiastowe (attack_s=0.910, oczekiwane <= 0.15)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
    "id": "456",
    "title": "Crawling Chorus",
    "archetype": "insect_swarm",
@@ -603,6 +868,51 @@
     {
      "check": "onset_count",
      "reason": "robot klika i pracuje (onset_count=1, oczekiwane >= 2)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "620",
+   "title": "Fen Hauler",
+   "archetype": "water_splash",
+   "archetype_label": "plusk / uderzenie w wodę",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "plusk zaczyna się od razu (attack_s=0.250, oczekiwane <= 0.1)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "621",
+   "title": "Moldgraf Millipede",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "uderzenie jest natychmiastowe (attack_s=0.290, oczekiwane <= 0.15)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "622",
+   "title": "Magma Pummeler",
+   "archetype": "earth_rumble",
+   "archetype_label": "grzmot ziemi / osuwisko skalne",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "mid_up",
+     "reason": "grzmot musi być słyszalny też na małych głośnikach, nie sam infrabas (mid_up=0.014, oczekiwane >= 0.1)",
      "weight": 1.0
     }
    ]
@@ -1928,6 +2238,24 @@
    "violations": []
   },
   {
+   "id": "423",
+   "title": "Gnoll War Band",
+   "archetype": "creature_cackle",
+   "archetype_label": "chichot / pokrzykiwanie stworzenia",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "427",
+   "title": "Jilt",
+   "archetype": "glass_shatter",
+   "archetype_label": "tłuczenie szkła / kryształu",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
    "id": "431",
    "title": "Delta Bloodflies",
    "archetype": "insect_swarm",
@@ -2364,6 +2692,15 @@
    "title": "Act of Treason",
    "archetype": "sword_clash",
    "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "619",
+   "title": "Orazca Puzzle-Door",
+   "archetype": "mechanism_click",
+   "archetype_label": "zegarowy mechanizm / zamek / zapadka",
    "score": 0,
    "verdict": "trafiony",
    "violations": []
