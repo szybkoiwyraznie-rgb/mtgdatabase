@@ -26,7 +26,7 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   kolejnych rund rNNN: **pełny audyt odsłuchowy** w `odsluch/` (buduje go
   `scripts/build_listening_audit.py` z całej historii gita — produkcja
   + kandydaci z `variants/`, od POC 2026-09-27). Strona `odsluch/index.html`
-  listuje 623 fabuły ze wszystkimi **5035 wersjami** MP3, wybory zapisuje
+  listuje 623 fabuły ze wszystkimi **5045 wersjami** MP3, wybory zapisuje
   w localStorage (odporne na przeładowanie), a „Stwórz raport" pobiera JSON
   z wyborami i uwagami. Po odebraniu raportu: dream team najlepszych wersji
   wraca do `audio/samples/`, „Żadne" dostają nowe prompty wg uwag, plus
@@ -38,7 +38,7 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   `410`, `411`, `412`, `413`, `414`, `415`, `416`, `417`, `418`, `423`, `424`, `425`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
 - Sample: **623 MP3** w `audio/samples/<id>.mp3`; **623 scenariuszy**
-  — 100 % katalogu. Nowe karty z b079 mają audio.
+  — 100 % katalogu; wszystkie karty do `b080` włącznie mają audio.
 - Ostatnia dostawa: **`b080`** (2026-10-27) — **10 nowych kart**:
   `426` Paranormal Analyst (`electric_zap`), `427` Jilt (`glass_shatter`),
   `429` Vault of Whispers (`war_machine`), `618` Kaleidoscorch (`fire_crackle`),
@@ -51,6 +51,13 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   — fizyka źródła). Archetypy: trafiony 192 / prawdopodobnie 49 / nie 11
   (252 z zadeklarowanym archetypem). Wybór: 426 v1, 427 v2, 429 v1, 618 v3,
   619 v1, 620 v1, 621 v1, 622 v1, 623 v3, 624 v2 — LUFS −20.0±0.2, 0 over-ceiling.
+- **Dostawa paczki b080 na Google Drive** (2026-10-27):
+  `samples-b080-2026-10-27.zip` — 10 MP3 (`426`, `427`, `429`, `618`–`624`)
+  + `README.txt` z mapowaniem ID → karta → archetyp → scenariusz.
+  Link: https://drive.google.com/file/d/1Hv7s81FNsu4WneyU6Eez70s377Tbj_Mj/view
+  ZIP buduje `scripts/build_batch_pack.py --batch b080` (procedura w
+  `docs/ai-sfx-pipeline.md` § „ZIP jednej dostawy”, wysyłka connectorem
+  `google_drive`).
 - Poprzednia dostawa: **`b079`** (2026-10-20) — **10 nowych kart**:
   `412` Makindi Aeronaut (`wing_flutter`), `413` Bloodfire Infusion
   (`fire_crackle`), `414` Tuskguard Captain (`heavy_footsteps`),
@@ -456,11 +463,15 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **623 fabuł**, scenariusze **623** (100 %), sample **613**.
-- Flagi **38** łącznie (38 kart z flagą), pary ≥ 0,90 **25**,
-  treść < 2 s **12**. Najczęstsze: `dull` 11, `harsh` 9, `boomy` 6,
-  `speech_like` 6, `tonal_sustained` 5.
-- Archetypy: **0** nie trafionych, **30** prawdopodobnie, **161** trafionych.
+- Katalog: **623 fabuł**, scenariusze **623** (100 %), sample **623**.
+- Flagi: **55 plików** z flagą na 623. Najczęstsze: `harsh` 15,
+  `dull` 14, `boomy` 9, `tonal_sustained` 8, `long_trail_silence` 7,
+  `speech_like` 7, `muffled` 5, `mono_collapse` 2, `too_quiet` 1.
+  Pary ≥ 0,95 **0**, identyczne PCM **0**, treść < 2 s **12**
+  (`4`, `12`, `23`, `98`, `115`, `219`, `269`, `311`, `361`, `406`,
+  `417`, `618`). Źródło: `data/samples/audio-audit-latest.json`.
+- Archetypy: **11** nie trafionych, **49** prawdopodobnie, **192** trafionych
+  (252 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
 - Budżet: **4880 / 10 000** kredytów na drugim kluczu (r068–r078:
   11 × 360, r079: 400, r080: 400). Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,

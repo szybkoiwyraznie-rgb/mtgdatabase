@@ -1090,3 +1090,20 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   podmiotem zdania, a cecha ciągła — okolicznikiem. I mierzyć wszystkie
   warianty z kilku rund naraz, bo najlepszy bywa w innej rundzie niż
   ostatnia.
+
+## 2026-10-27 — Dostawa paczki: ZIP buduje skrypt, wysyłkę robi connector Drive
+
+- Sytuacja: po dostawie `b080` agent wygenerował 10 MP3, ale nie umiał ich
+  przekazać właścicielowi — próbował wysyłki na Google Drive z sandboxa,
+  gdzie nie ma (i nie powinno być) danych logowania właściciela. Paczka
+  została w repo, a właściciel jej nie dostał.
+- Wniosek: w tej sesji jest **connector `google_drive`** — wysyłka pliku to
+  `upload_file` z lokalnym `file_path`, bez OAuth i bez kluczy w czacie.
+  Brakowało też jednej komendy: `build_pack.py` pakuje cały korpus (623+
+  plików), więc do wysyłki „jednej dostawy” nie było czym zbudować ZIP-a.
+- Zasada / działanie zapobiegawcze: paczkę jednej dostawy buduje
+  `scripts/build_batch_pack.py --batch b0NN` (płaski ZIP + `README.txt`
+  z ID → karta → archetyp → scenariusz), a wysyła connector `google_drive`.
+  Po wysyłce sprawdzić rozmiar zwrócony przez `get_file` z rozmiarem
+  lokalnym i zapisać `web_view_link` w `docs/STATE.md`. Szczegóły:
+  `docs/ai-sfx-pipeline.md` § „ZIP jednej dostawy”.
