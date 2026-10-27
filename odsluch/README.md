@@ -50,4 +50,4 @@ wyborami i komentarzami. **Wyślij ten plik agentowi** — na jego podstawie:
 - Stronę przebudowuje `python scripts/build_listening_audit.py`
   (wymaga pełnej historii gita: `git fetch origin '+refs/heads/*:refs/remotes/origin/*'`).
 
-Wygenerowano: 2026-10-20 · commit `e55e54934b` · fabuł: 613 · wersji audio: 5005.
+Wygenerowano: 2026-10-27 · commit `3768b15a13` · fabuł: 623 · wersji audio: 5045.
