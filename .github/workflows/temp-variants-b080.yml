@@ -1,0 +1,64 @@
+name: "TEMP b080 - 10 nowych kart x 3 warianty"
+
+on:
+  push:
+    branches:
+      - arena/16fc62ed-mtgdatabase
+
+permissions:
+  contents: write
+
+env:
+  SCENARIOS: data/samples/scenarios.jsonl
+  MANIFEST: data/samples/generated-manifest.jsonl
+  IDS: "426,427,429,618,619,620,621,622,623,624"
+
+jobs:
+  variants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: arena/16fc62ed-mtgdatabase
+      - name: Guard — tylko commit z markerem [generate-b080]
+        id: guard
+        run: |
+          if git log -1 --pretty=%B | grep -qF '[generate-b080]'; then
+            echo "run=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "brak markera [generate-b080] — nic nie generuję"
+            echo "run=0" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.guard.outputs.run == '1'
+        with:
+          python-version: "3.12"
+      - name: Validate scenarios
+        if: steps.guard.outputs.run == '1'
+        run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
+      - name: Generate 3 variants per story
+        if: steps.guard.outputs.run == '1'
+        continue-on-error: true
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: |
+          mkdir -p variants/b080
+          for v in 1 2 3; do
+            echo "=== wariant v$v ===" | tee -a variants/b080/generate.log
+            python scripts/elevenlabs_sample_scout.py \
+              --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
+              --ids "$IDS" --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b080/v$v" 2>&1 | tee -a variants/b080/generate.log
+          done
+      - name: Commit variants
+        if: always() && steps.guard.outputs.run == '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f variants/b080 data/samples/generated-manifest.jsonl
+          if git diff --cached --quiet; then echo nic; else
+            git commit -m "b080: 30 wariantow (10 kart x 3) + log generacji [import-b080]"
+            git push origin HEAD:arena/16fc62ed-mtgdatabase
+          fi
