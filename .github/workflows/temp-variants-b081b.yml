@@ -1,0 +1,64 @@
+name: "TEMP b081b - 627 Rumbling Rockslide x 3 warianty (poprawka kontraktu)"
+
+on:
+  push:
+    branches:
+      - arena/f6c474a6-mtgdatabase
+
+permissions:
+  contents: write
+
+env:
+  SCENARIOS: data/samples/scenarios.jsonl
+  MANIFEST: data/samples/generated-manifest.jsonl
+  IDS: "627"
+
+jobs:
+  variants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: arena/f6c474a6-mtgdatabase
+      - name: Guard — tylko commit z markerem [generate-b081b]
+        id: guard
+        run: |
+          if git log -1 --pretty=%B | grep -qF '[generate-b081b]'; then
+            echo "run=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "brak markera [generate-b081b] — nic nie generuję"
+            echo "run=0" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.guard.outputs.run == '1'
+        with:
+          python-version: "3.12"
+      - name: Validate scenarios
+        if: steps.guard.outputs.run == '1'
+        run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
+      - name: Generate 3 variants per story
+        if: steps.guard.outputs.run == '1'
+        continue-on-error: true
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: |
+          mkdir -p variants/b081b
+          for v in 1 2 3; do
+            echo "=== wariant v$v ===" | tee -a variants/b081b/generate.log
+            python scripts/elevenlabs_sample_scout.py \
+              --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
+              --ids "$IDS" --force --retries 3 --prompt-influence 0.35 \
+              --out "variants/b081b/v$v" 2>&1 | tee -a variants/b081b/generate.log
+          done
+      - name: Commit variants
+        if: always() && steps.guard.outputs.run == '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f variants/b081b data/samples/generated-manifest.jsonl
+          if git diff --cached --quiet; then echo nic; else
+            git commit -m "b081b: 3 warianty 627 (poprawka stone_slide) + log generacji [import-b081b]"
+            git push origin HEAD:arena/f6c474a6-mtgdatabase
+          fi
