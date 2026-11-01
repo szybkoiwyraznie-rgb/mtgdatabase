@@ -4360,6 +4360,76 @@
       "title": "Arlinn's Wolf",
       "story": "Na zrujnowanych placach Dziesiątej Dzielnicy wilkołacza przewodniczka Arlinn Kord staje do walki w obronie odciętych mieszkańców metropolii. U jej boku potężny basior sprowadzony z mglistych puszcz Kessig szczerzy kły w mrożącym krew w żyłach warkocie, blokując wąskie przejście między kamienicami. Dłoń planeswalkerki spoczywa spokojnie na najeżonym karku bestii, podczas gdy jej wzrok rzuca surowe ostrzeżenie zbliżającym się żołnierzom armii Przedwiecznych. Żaden pomniejszy sługa najeźdźcy nie odważy się przekroczyć tej granicy, wiedząc, że pojedynczy fałszywy krok oznacza natychmiastowe rozdarcie krtani przez dzikiego obrońcę.",
       "versions": []
+    },
+    {
+      "id": "625",
+      "art_id": "625EXO",
+      "title": "Vampire Hounds",
+      "story": "Zamiast zwierzęcego skowytu z rozwartych paszcz bestii wydobywa się upiorny chór ludzkich krzyków i jęków, należących do nieszczęśników pochłoniętych podczas poprzednich polowań. Potwory rosną w siłę z każdym pożartym trupem, napinając grube żelazne łańcuchy trzymane przez konnego pana nocy. Dla każdego wędrowca zagubionego na bagnach ten przerażający jazgot oznacza, że mroczni władcy Starego Świata rozpoczęli bezlitosne łowy.",
+      "versions": []
+    },
+    {
+      "id": "626",
+      "art_id": "626ISD",
+      "title": "Curse of the Bloody Tome",
+      "story": "W ukrytym sanktuarium pod górą Wundagore czarnoksiężnik ślęczy nad kartami Mrocznej Twierdzy, usiłując zgłębić zakazane sekrety bóstwa Chthona. Zamiast upragnionego oświecenia ze stronic przeklętego grymuaru zaczyna sączyć się gęsta krew, która bezlitośnie zalewa i niszczy wieloletnie notatki badacza. Widmowe szepty pradawnego zła przenikają do umysłu nieszczęśnika, obracając jego wspomnienia i wiedzę w chaotyczny obłęd. Zbroczone posoką manuskrypty spływają z kamiennego pulpitu, podczas gdy opętany mag z histerycznym śmiechem poddaje się szaleństwu w gasnącym blasku świec.",
+      "versions": []
+    },
+    {
+      "id": "627",
+      "art_id": "627LCI",
+      "title": "Rumbling Rockslide",
+      "story": "W głębokich rozpadlinach Kanionu Piekielnych Ostróg wyprawa poszukiwaczy złota przedziera się przez wąskie, wyschnięte koryto rzeczne. Niestabilne ściany z czerwonego piaskowca pękają z ogłuszającym hukiem, zrzucając w dół potężną lawinę wielotonowych głazów i duszącego pyłu. Ciężki wóz z zaopatrzeniem rozpada się w drzazgi pod naporem osuwiska, zmuszając zwiadowców do panicznej ucieczki na spłoszonych bestiach jucznych. Na bezlitosnym pograniczu Thunder Junction ziemia nie potrzebuje magii, by jednym tąpnięciem zniweczyć tygodnie żmudnej wędrówki śmiałków.",
+      "versions": []
+    },
+    {
+      "id": "628",
+      "art_id": "628JMP",
+      "title": "Ambassador Oak",
+      "story": "Na słonecznym pograniczu Lasu Fangorn i złotych gajów Lothlórien wiekowy Pasterz Drzew kroczy majestatycznie przez kobierzec leśnych paproci. Wysoko na jego potężnym dębowym ramieniu czuwa zwiadowca z ludu Galadhrimów, wypatrujący ruchu nieprzyjaciela z wysokości liściastej korony. Pradawne przymierze zrodzone w czasach, gdy elfy po raz pierwszy nauczyły puszczę mowy, trwa niewzruszone w obliczu cienia nadciągającego zza Anduiny. Wspólna straż dębowego olbrzyma i łucznika chroni święte ostępy przed siepaczami z Isengardu, niosąc spokojną siłę natury wprost na rubieże Śródziemia.",
+      "versions": []
+    },
+    {
+      "id": "629",
+      "art_id": "629DTK",
+      "title": "Tail Slash",
+      "story": "W lodowatych wąwozach pasma Qal Sisma potężny smok z lęgów Atarki obraca się gwałtownie na ośnieżonej półce skalnej. Jego opancerzony, najeżony żarzącymi się kolcami ogon tnie rzadkie górskie powietrze w niszczycielskim łuku, roztrzaskując pancerz szarżującego napastnika w chmurę lodu i kamieni. Na pierwszym planie koczowniczy wojownik Yikaro trwa w głębokim pokłonie z czołem przyciśniętym do zmarzniętego gruntu, pozwalając śmiercionośnemu uderzeniu przemknąć tuż nad swymi plecami. Na rządzonym przez wiecznie nienasycone smoki Tarkirze bezwzględne posłuszeństwo i znajomość bestialskich obyczajów są jedyną tarczą chroniącą myśliwych przed zagładą.",
+      "versions": []
+    },
+    {
+      "id": "630",
+      "art_id": "630LRW",
+      "title": "Changeling Berserker",
+      "story": "W skutych lodem wąwozach Bretagardu zrodzony w tajemniczej krainie Littjara zmiennokształtny odrzuca ceremonialną maskę z drewna sosnowego, by stanąć w obronie rannego towarzysza broni. Półpłynna, opalizująca tkanka stwora gwałtownie tężeje pod wpływem bitewnego szału, naśladując nabrzmiałe mięśnie i bezwzględną siłę najdzikszych berserkerów z klanu Tuskeri. Uzbrojony w ciężkie, kute topory olbrzym rzuca się do szaleńczej szarży, rozrywając śnieżne zaspy i osłaniając wycofującego się wojownika własnym potężnym cielskiem. W surowym świecie Kaldheimu nawet istoty z mgły i lodu ulegają zewowi wojennej pieśni, obracając dar nieograniczonej metamorfozy w niszczycielski oręż przeciwko wrogom klanu.",
+      "versions": []
+    },
+    {
+      "id": "631",
+      "art_id": "631ALA",
+      "title": "Sphinx's Herald",
+      "story": "Na najwyższej iglicy obserwatorium w odłamie Esper czteroręki vedalkeński herold wznosi ku niebiosom mistyczną zagadkę zrodzoną z czystej logiki. Z jego zintegrowanych ze stopem eterium dłoni wypływa świetlista spirala fraktalnych glifów, łącząc kwarcową posadzkę ze szczeliną w geometrycznych obłokach. Trzy ceremonialne naczynia wypełnione esencją białej, błękitnej i czarnej magii dogasają u jego stóp, oddając swą moc rytuałowi wezwania. W odpowiedzi na bezbłędne rozwikłanie tajemnicy z rozstępujących się chmur wyłania się monumentalny Suweren Sfinksów, niosąc niezachwianą wolę władców tego świata ze stopu i magii.",
+      "versions": []
+    },
+    {
+      "id": "632",
+      "art_id": "632DTK",
+      "title": "Anticipate",
+      "story": "W zacisznej komnacie medytacyjnej na szczycie Świątyni Jedi na Coruscant mistrz Mace Windu zagłębia się w prądy Mocy, by przejrzeć rozgałęziające się ścieżki nadchodzącego starcia Wojen Klonów. Wokół skupionego mistrza krystalizują się trzy świetliste widma, z których każde ukazuje inny wariant pojedynku na miecze świetlne. Posługując się unikalną techniką odnajdywania punktów przełomowych, szermierz bezbłędnie wybiera tę jedną sekwencję, która gwarantuje natychmiastowe przełamanie obrony nieprzyjaciela. Odrzucone wizje rozpadają się w błękitny pył na granitowej posadzce, odbierając oponentowi jakąkolwiek szansę na skuteczną obronę w chwili, gdy fioletowe ostrze rozetnie powietrze.",
+      "versions": []
+    },
+    {
+      "id": "633",
+      "art_id": "633M10",
+      "title": "Trumpet Blast",
+      "story": "Na zamarzniętych, dymiących wulkanicznym żarem pustkowiach Keld rozlega się przeszywający ryk wojennej trąby. Stojący na bazaltowym głazie herold dmie w potężny róg z mosiądzu, z którego czary bucha stożek dźwiękowej fali i gorącej pary. Popielatoskórzy wojownicy z klanów Keldonów ruszają do bezwzględnego natarcia, rozbijając zmarzlinę pod ciężkimi butami i unosząc zębate topory. Żelazna dyscyplina bojowa tych zaprawionych w bojach berserkerów sprawia, że potężny dźwięk sygnału nie jest dla nich wezwaniem do ataku, lecz jedyną siłą zdolną powstrzymać ich ślepy, niszczycielski pęd.",
+      "versions": []
+    },
+    {
+      "id": "634",
+      "art_id": "634DSK",
+      "title": "Violent Urge",
+      "story": "W strugach ulewnego deszczu na dachu manhattańskiej kamienicy Raphael zostaje osaczony przez elitarny oddział zabójców Klanu Piechoty. Choć przytłaczająca przewaga wrogów i wizja zasadzki na jego braci budzą chwilowy paraliż, głęboko skrywany strach natychmiast ustępuje miejsca dzikiej furii. W ułamku sekundy zmutowany wojownik przełamuje okrążenie, a jego stalowe sztylety sai rozcinają strugi wody w błyskawicznej serii parowań i bezwzględnych kontrataków. Czerwona bandana żółwia powiewa na tle rozświetlonych neonami wieżowców Nowego Jorku, podczas gdy jego nieposkromiony gniew obraca śmiertelną pułapkę w spektakularny triumf.",
+      "versions": []
     }
   ]
 }
