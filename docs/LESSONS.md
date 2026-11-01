@@ -1107,3 +1107,22 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   Po wysyłce sprawdzić rozmiar zwrócony przez `get_file` z rozmiarem
   lokalnym i zapisać `web_view_link` w `docs/STATE.md`. Szczegóły:
   `docs/ai-sfx-pipeline.md` § „ZIP jednej dostawy”.
+## 2026-11-01 — Gdy wszystkie warianty leżą, winny bywa prompt, nie etykieta archetypu
+
+- Sytuacja: `627` *Rumbling Rockslide* dostał trzy warianty i wszystkie trzy
+  wypadły poza kontrakt `stone_slide` (low_all 0,02–0,07 przy progu 0,25,
+  centroid 2,7–3,0 kHz przy ≤2 kHz, decay 0,08–0,38 s). Prompt mówił
+  „a crack of splitting sandstone” i „a wagon snapping under the rubble” —
+  model zrobił jasny, krótki trzask gruzu, a nie toczące się osuwisko.
+- Wniosek: przed dopisaniem karty do „nie trafionych” warto policzyć jej
+  istniejące pliki pod inne archetypy (`earth_rumble`, `thunder_clap`,
+  `volcanic_eruption`, `heavy_impact` — 0 kredytów). Tu żaden też nie
+  przechodził, co przesądziło, że to wada treści, nie etykiety. Po przepisaniu
+  promptu na sam ruch i masę („a long low rumble of stone grinding on stone
+  that rolls without pause”) centroid spadł 2,9 kHz → 394 Hz, `low_all`
+  0,07 → 0,72, kontrakt 3,5 → 1,0 pkt.
+- Zasada / działanie zaproponowane: przy archetypach „masy” (`stone_slide`,
+  `earth_rumble`, `volcanic_eruption`) NIE wolno w pierwszym zdaniu stawiać
+  jasnych, krótkich zdarzeń (`crack`, `snap`, `burst`) — model realizuje
+  rzeczownik z nagłówka i gubi dół pasma. Nagłówek ma opisywać ruch ciągły
+  (`rolls without pause`, `grinding on stone`), a szczegóły dopiero potem.
