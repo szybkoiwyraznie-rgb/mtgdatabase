@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-27** (sesja `arena/16fc62ed-mtgdatabase`).
+Ostatnia aktualizacja: **2026-11-01** (sesja `arena/f6c474a6-mtgdatabase`).
 
 > Ten plik jest **obowiązkową lekturą agenta** i musi się mieścić w limicie
 > 50 000 tokenów razem z resztą plików z `docs/required-reading.md`
@@ -33,12 +33,11 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   analiza preferencji na przyszłe generacje. Katalog jest samodzielny
   (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
   z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **623 fabuł**
-  (dopisane `400`, `402`, `404`, `405`, `406`, `407`, `408`, `409`,
-  `410`, `411`, `412`, `413`, `414`, `415`, `416`, `417`, `418`, `423`, `424`, `425`).
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **633 fabuły**
+  (ostatnia dostawa: `625`–`634`; wcześniej `400`–`425` i `618`–`624`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **623 MP3** w `audio/samples/<id>.mp3`; **623 scenariuszy**
-  — 100 % katalogu; wszystkie karty do `b080` włącznie mają audio.
+- Sample: **633 MP3** w `audio/samples/<id>.mp3`; **633 scenariusze**
+  — 100 % katalogu; wszystkie karty do `b081` włącznie mają audio.
 - Ostatnia dostawa: **`b080`** (2026-10-27) — **10 nowych kart**:
   `426` Paranormal Analyst (`electric_zap`), `427` Jilt (`glass_shatter`),
   `429` Vault of Whispers (`war_machine`), `618` Kaleidoscorch (`fire_crackle`),
@@ -51,6 +50,29 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   — fizyka źródła). Archetypy: trafiony 192 / prawdopodobnie 49 / nie 11
   (252 z zadeklarowanym archetypem). Wybór: 426 v1, 427 v2, 429 v1, 618 v3,
   619 v1, 620 v1, 621 v1, 622 v1, 623 v3, 624 v2 — LUFS −20.0±0.2, 0 over-ceiling.
+- Ostatnia dostawa: **`b081`** (2026-11-01) — **10 nowych kart**:
+  `625` Vampire Hounds (`undead_groan`), `626` Curse of the Bloody Tome
+  (`liquid_pour`), `627` Rumbling Rockslide (`stone_slide`), `628` Ambassador Oak
+  (`heavy_footsteps`), `629` Tail Slash (`heavy_impact`), `630` Changeling
+  Berserker (`plate_clank`), `631` Sphinx's Herald (`magic_shimmer`), `632`
+  Anticipate (`electric_zap`), `633` Trumpet Blast (`horn_call`, `music_allowed`),
+  `634` Violent Urge (`sword_clash`) — 10 różnych archetypów.
+  **4/10 trafionych (630, 631, 633, 634), 6 prawdopodobnie, 0 nie trafionych,
+  0 flag, 0 bliźniaków**; 33 generacje (3×10 + 3 poprawki `627`) ≈1320 kr.
+  `627` w pierwszym podejściu wypadł poza `stone_slide` we wszystkich trzech
+  wariantach (low_all 0,02–0,07 przy progu 0,25, centroid 2,7–3,0 kHz przy
+  ≤2 kHz, decay 0,08–0,38 s) — model zrobił jasny trzask, nie toczące się
+  osuwisko. Test na innych archetypach (earth_rumble, thunder_clap,
+  volcanic_eruption, heavy_impact) potwierdził, że winny jest prompt, nie
+  etykieta. Po przepisaniu na „long low rumble of stone grinding on stone
+  that rolls without pause” (`b081b`): low_all 0,72, centroid 394 Hz, wynik
+  kontraktu 3,5 → 1,0 pkt. Wybór: 625 v1, 626 v2, 627 v2 (b081b), 628 v3,
+  629 v1, 630 v1, 631 v2, 632 v1, 633 v3, 634 v3 — LUFS −20,0 ± 0,1,
+  0 over-ceiling. `628` wymagał `--max-gain-db 20` (surowy wariant −37,5 LUFS,
+  przy limicie +15 dB wyszedł −22,7).
+- **Dostawa paczki b081 na Google Drive** (2026-11-01):
+  `samples-b081-2026-11-01.zip` (831 492 B, 10 MP3 + `README.txt`)
+  Link: https://drive.google.com/file/d/1IZAnj0jfrjmHBRsy_FUBI2S0dfU-6lLF/view
 - **Dostawa paczki b080 na Google Drive** (2026-10-27):
   `samples-b080-2026-10-27.zip` — 10 MP3 (`426`, `427`, `429`, `618`–`624`)
   + `README.txt` z mapowaniem ID → karta → archetyp → scenariusz.
@@ -463,15 +485,16 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **623 fabuł**, scenariusze **623** (100 %), sample **623**.
-- Flagi: **55 plików** z flagą na 623. Najczęstsze: `harsh` 15,
+- Katalog: **633 fabuły**, scenariusze **633** (100 %, 58 `generated`
+  + 575 `ready`), sample **633**.
+- Flagi: **55 plików** z flagą na 633 — dostawa `b081` weszła bez flag. Najczęstsze: `harsh` 15,
   `dull` 14, `boomy` 9, `tonal_sustained` 8, `long_trail_silence` 7,
   `speech_like` 7, `muffled` 5, `mono_collapse` 2, `too_quiet` 1.
   Pary ≥ 0,95 **0**, identyczne PCM **0**, treść < 2 s **12**
   (`4`, `12`, `23`, `98`, `115`, `219`, `269`, `311`, `361`, `406`,
   `417`, `618`). Źródło: `data/samples/audio-audit-latest.json`.
-- Archetypy: **11** nie trafionych, **49** prawdopodobnie, **192** trafionych
-  (252 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
+- Archetypy: **11** nie trafionych, **55** prawdopodobnie, **196** trafionych
+  (262 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
 - Budżet: **4880 / 10 000** kredytów na drugim kluczu (r068–r078:
   11 × 360, r079: 400, r080: 400). Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,
