@@ -69,6 +69,16 @@ class BuildBatchPackTests(unittest.TestCase):
         )
         self.assertEqual(packed, ["2"])
 
+    def test_label_overrides_batch_in_readme(self) -> None:
+        out = self.tmp / "labelled.zip"
+        pack.build_pack(
+            ids=["2", "5"], output=out, scenarios=ROWS, titles={},
+            src=self.src, label="b900",
+        )
+        with zipfile.ZipFile(out) as z:
+            readme = z.read("README.txt").decode("utf-8")
+        self.assertIn("Paczka b900", readme)
+
     def test_readme_handles_missing_duration(self) -> None:
         text = pack.readme_text(["2"], batch="b900", rows={"2": {"sample_scenario": "x"}}, titles={"2": "Two"})
         self.assertIn("Two", text)

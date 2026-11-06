@@ -1126,3 +1126,36 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   jasnych, krótkich zdarzeń (`crack`, `snap`, `burst`) — model realizuje
   rzeczownik z nagłówka i gubi dół pasma. Nagłówek ma opisywać ruch ciągły
   (`rolls without pause`, `grinding on stone`), a szczegóły dopiero potem.
+
+## 2026-11-06 — Wybór słowa w prompcie potrafi odwrócić metrykę: „rises” vs „strikes at once”
+
+- Sytuacja: `644` *Lich's Caress* pod `psychic_shriek` dostał 2,5 pkt we
+  wszystkich trzech wariantach. Prompt mówił „one thin piercing tonal shriek
+  that **rises** and thins out”; kontrakt wymaga `attack_s` ≤ 0,10 s, a model
+  zrealizował narastanie — wyszło 0,77–1,57 s ataku. Po zmianie na „that
+  **strikes at once** and thins out” ten sam archetyp spadł do 1,5 pkt
+  (attack 0,77 → najlepszy wariant z voiced 0,87).
+- Wniosek: czasownik opisujący *kształt w czasie* jest instrukcją dla modelu,
+  nie ozdobnikiem. „Rises”, „swells”, „builds” = atak długi; „strikes”,
+  „snaps”, „hits” = atak krótki. Dotyczy to także `magic_shimmer`, gdzie
+  kontrakt **wymaga** `attack_s` ≥ 0,10, więc tam „rises” jest pożądane.
+- Zasada / działanie zapobiegawcze: przy każdej poprawce promptu sprawdzić,
+  czy archetyp ma w kontrakcie próg na `attack_s`, i dobrać czasownik do
+  progu — zamiast pisać „dramatycznie”, pisać zgodnie z metryką.
+
+## 2026-11-06 — Szum w prompcie zjada harmoniczność (creature_roar)
+
+- Sytuacja: `635` *Feral Ridgewolf* pod `creature_roar` dał 3,5 pkt we
+  wszystkich wariantach mimo poprawnego słowa „snarl”. Prompt wyliczał
+  „claws tearing gravel, breath rasping hard, jaws snapping” — trzy źródła
+  szumu na jedno gardłowe zdarzenie. `voiced_fraction` spadało pod próg 0,30.
+  Po usunięciu szumu i zostawieniu samego warkotu (długi, niski, warstwowany)
+  wynik spadł do 1,0 pkt.
+- Wniosek: kontrakty harmoniczne (`creature_roar`, `undead_groan`,
+  `arcane_choir`, `horn_call`) liczą udział ramek tonalnych w całości pliku.
+  Każdy dopisany szum — żwir, oddech, wiatr, ogień — proporcjonalnie go
+  obniża, nawet jeśli sam ryk jest idealny.
+- Zasada / działanie zapobiegawcze: przy archetypach tonalnych dopisać
+  najwyżej jedno zdarzenie poboczne i tylko wtedy, gdy niesie rozpoznawalność
+  karty (łańcuch u ogarów, pieczęć u dzwonu). Resztę materiału zostawić
+  poza promptem.

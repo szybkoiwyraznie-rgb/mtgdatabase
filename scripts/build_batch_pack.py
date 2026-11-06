@@ -89,6 +89,7 @@ def build_pack(
     titles: dict[str, str],
     src: Path = DEFAULT_SRC,
     allow_missing: bool = False,
+    label: str | None = None,
 ) -> list[str]:
     rows = {str(r["story_id"]): r for r in scenarios}
     available = []
@@ -104,7 +105,9 @@ def build_pack(
         raise SystemExit("brak plików do spakowania")
 
     output.parent.mkdir(parents=True, exist_ok=True)
-    batch = next((rows[i].get("batch") for i in available if rows.get(i, {}).get("batch")), None)
+    # Etykieta paczki: jawna (--label) wygrywa, bo po poprawkach część ID ma
+    # batch b0NNb i wtedy README nazywałby dostawę po jednym poprawionym wierszu.
+    batch = label or next((rows[i].get("batch") for i in available if rows.get(i, {}).get("batch")), None)
     with zipfile.ZipFile(output, "w", zipfile.ZIP_DEFLATED) as pack:
         for i in available:
             pack.write(src / f"{i}.mp3", arcname=f"{i}.mp3")
@@ -120,6 +123,7 @@ def main() -> None:
     parser.add_argument("--catalog", type=Path, default=DEFAULT_CATALOG)
     parser.add_argument("--src", type=Path, default=DEFAULT_SRC)
     parser.add_argument("--output", type=Path, help="domyślnie build/samples-<batch|ids>-<data>.zip")
+    parser.add_argument("--label", help="etykieta paczki w README (domyślnie: batch pierwszego wiersza)")
     parser.add_argument("--allow-missing", action="store_true", help="pomiń ID bez MP3 zamiast kończyć błędem")
     args = parser.parse_args()
 
@@ -133,6 +137,7 @@ def main() -> None:
         titles=load_titles(args.catalog),
         src=args.src,
         allow_missing=args.allow_missing,
+        label=args.label,
     )
     print(f"{output}: {len(packed)} sample(s) ({packed[0]}…{packed[-1]})")
 
