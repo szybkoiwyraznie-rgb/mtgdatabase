@@ -1,0 +1,15 @@
+=== wariant v1 ===
+selected 2 scenario(s)
+OK 635: variants/b082b/v1/635.mp3 (65244 bytes)
+OK 644: variants/b082b/v1/644.mp3 (65244 bytes)
+done: generated=2, skipped=0, failed=0
+=== wariant v2 ===
+selected 2 scenario(s)
+OK 635: variants/b082b/v2/635.mp3 (65244 bytes)
+OK 644: variants/b082b/v2/644.mp3 (65244 bytes)
+done: generated=2, skipped=0, failed=0
+=== wariant v3 ===
+selected 2 scenario(s)
+OK 635: variants/b082b/v3/635.mp3 (65244 bytes)
+OK 644: variants/b082b/v3/644.mp3 (65244 bytes)
+done: generated=2, skipped=0, failed=0
