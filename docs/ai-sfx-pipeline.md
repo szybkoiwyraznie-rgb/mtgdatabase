@@ -108,6 +108,39 @@ python scripts/serve_site.py --port 3000 --dir site/generated
 `build_site.py` kopiuje `audio/samples/*.mp3` do `site/generated/samples/`, więc
 biblioteka działa lokalnie w sandboxie i na GitHub Pages.
 
+## ZIP jednej dostawy (paczka dla właściciela)
+
+`build_pack.py` pakuje **cały** korpus do `build/samples-latest.zip` (623+ plików).
+Do wysłania jednej dostawy służy `build_batch_pack.py` — płaski ZIP z paczki
+plus `README.txt` z mapowaniem ID → karta → archetyp → scenariusz → długość:
+
+```bash
+python scripts/build_batch_pack.py --batch b080
+# → build/samples-b080-<data>.zip  (10 MP3 + README.txt)
+
+python scripts/build_batch_pack.py --ids 426,427,429 --output build/test.zip
+python scripts/build_batch_pack.py --batch b080 --allow-missing   # pomiń braki
+```
+
+Skrypt kończy się kodem 1, gdy w `audio/samples/` brakuje MP3 dla ID z paczki
+(chyba że podano `--allow-missing`) — dzięki temu nie wyślemy niepełnej paczki.
+
+### Dostawa na Google Drive
+
+Paczka idzie na Drive przez **connector `google_drive`** (narzędzia
+`upload_file` / `create_file`), nie przez API Drive z OAuth w sandboxie —
+sandbox nie ma i nie powinien mieć danych logowania właściciela.
+Procedura:
+
+1. `python scripts/build_batch_pack.py --batch b0NN`
+2. `google_drive.upload_file` z `file_path=build/samples-b0NN-<data>.zip`,
+   `content_mime_type=application/zip` i opisem paczki,
+3. sprawdzenie zwróconego rozmiaru (`get_file`) względem pliku lokalnego,
+4. link `web_view_link` + lista ID do wpisu w `docs/STATE.md`.
+
+Konwencja nazwy: `samples-<batch>-<RRRR-MM-DD>.zip`. Pliki `build/` są
+ignorowane przez git — do repozytorium trafia tylko wpis w dokumentacji.
+
 ## GitHub Actions
 
 Workflow ręczny:

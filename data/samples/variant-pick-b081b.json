@@ -1,0 +1,98 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/b081b",
+ "applied": true,
+ "results": [
+  {
+   "id": "627",
+   "title": "Rumbling Rockslide",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "chosen": "v2",
+   "chosen_score": 1.0,
+   "spread": 0.0,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/b081b/v2/627.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "osuwisko się toczy (decay_s=0.180, oczekiwane >= 0.5)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.7,
+      "content_rel_s": 3.66,
+      "lufs": -20.05,
+      "low_all": 0.725,
+      "spectral_centroid_hz": 393.9,
+      "spectral_flatness": 0.002,
+      "tonal_frame_fraction": 0.993,
+      "voiced_fraction": 0.342,
+      "crest_db": 21.81,
+      "attack_s": 0.24,
+      "decay_s": 0.18,
+      "onset_count": 25,
+      "sustain_ratio": 0.389,
+      "mod_peak_hz": 1.16
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/b081b/v1/627.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "osuwisko się toczy (decay_s=0.240, oczekiwane >= 0.5)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.36,
+      "content_rel_s": 3.1,
+      "lufs": -20.0,
+      "low_all": 0.806,
+      "spectral_centroid_hz": 361.0,
+      "spectral_flatness": 0.008,
+      "tonal_frame_fraction": 0.924,
+      "voiced_fraction": 0.549,
+      "crest_db": 17.36,
+      "attack_s": 0.4,
+      "decay_s": 0.24,
+      "onset_count": 19,
+      "sustain_ratio": 0.405,
+      "mod_peak_hz": 1.01
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/b081b/v3/627.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "osuwisko się toczy (decay_s=0.070, oczekiwane >= 0.5)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.23,
+      "content_rel_s": 2.97,
+      "lufs": -20.14,
+      "low_all": 0.538,
+      "spectral_centroid_hz": 655.2,
+      "spectral_flatness": 0.004,
+      "tonal_frame_fraction": 0.965,
+      "voiced_fraction": 0.243,
+      "crest_db": 22.21,
+      "attack_s": 0.08,
+      "decay_s": 0.07,
+      "onset_count": 23,
+      "sustain_ratio": 0.167,
+      "mod_peak_hz": 6.53
+     }
+    }
+   ]
+  }
+ ]
+}

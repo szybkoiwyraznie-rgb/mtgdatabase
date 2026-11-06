@@ -1090,3 +1090,72 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   podmiotem zdania, a cecha ciągła — okolicznikiem. I mierzyć wszystkie
   warianty z kilku rund naraz, bo najlepszy bywa w innej rundzie niż
   ostatnia.
+
+## 2026-10-27 — Dostawa paczki: ZIP buduje skrypt, wysyłkę robi connector Drive
+
+- Sytuacja: po dostawie `b080` agent wygenerował 10 MP3, ale nie umiał ich
+  przekazać właścicielowi — próbował wysyłki na Google Drive z sandboxa,
+  gdzie nie ma (i nie powinno być) danych logowania właściciela. Paczka
+  została w repo, a właściciel jej nie dostał.
+- Wniosek: w tej sesji jest **connector `google_drive`** — wysyłka pliku to
+  `upload_file` z lokalnym `file_path`, bez OAuth i bez kluczy w czacie.
+  Brakowało też jednej komendy: `build_pack.py` pakuje cały korpus (623+
+  plików), więc do wysyłki „jednej dostawy” nie było czym zbudować ZIP-a.
+- Zasada / działanie zapobiegawcze: paczkę jednej dostawy buduje
+  `scripts/build_batch_pack.py --batch b0NN` (płaski ZIP + `README.txt`
+  z ID → karta → archetyp → scenariusz), a wysyła connector `google_drive`.
+  Po wysyłce sprawdzić rozmiar zwrócony przez `get_file` z rozmiarem
+  lokalnym i zapisać `web_view_link` w `docs/STATE.md`. Szczegóły:
+  `docs/ai-sfx-pipeline.md` § „ZIP jednej dostawy”.
+## 2026-11-01 — Gdy wszystkie warianty leżą, winny bywa prompt, nie etykieta archetypu
+
+- Sytuacja: `627` *Rumbling Rockslide* dostał trzy warianty i wszystkie trzy
+  wypadły poza kontrakt `stone_slide` (low_all 0,02–0,07 przy progu 0,25,
+  centroid 2,7–3,0 kHz przy ≤2 kHz, decay 0,08–0,38 s). Prompt mówił
+  „a crack of splitting sandstone” i „a wagon snapping under the rubble” —
+  model zrobił jasny, krótki trzask gruzu, a nie toczące się osuwisko.
+- Wniosek: przed dopisaniem karty do „nie trafionych” warto policzyć jej
+  istniejące pliki pod inne archetypy (`earth_rumble`, `thunder_clap`,
+  `volcanic_eruption`, `heavy_impact` — 0 kredytów). Tu żaden też nie
+  przechodził, co przesądziło, że to wada treści, nie etykiety. Po przepisaniu
+  promptu na sam ruch i masę („a long low rumble of stone grinding on stone
+  that rolls without pause”) centroid spadł 2,9 kHz → 394 Hz, `low_all`
+  0,07 → 0,72, kontrakt 3,5 → 1,0 pkt.
+- Zasada / działanie zaproponowane: przy archetypach „masy” (`stone_slide`,
+  `earth_rumble`, `volcanic_eruption`) NIE wolno w pierwszym zdaniu stawiać
+  jasnych, krótkich zdarzeń (`crack`, `snap`, `burst`) — model realizuje
+  rzeczownik z nagłówka i gubi dół pasma. Nagłówek ma opisywać ruch ciągły
+  (`rolls without pause`, `grinding on stone`), a szczegóły dopiero potem.
+
+## 2026-11-06 — Wybór słowa w prompcie potrafi odwrócić metrykę: „rises” vs „strikes at once”
+
+- Sytuacja: `644` *Lich's Caress* pod `psychic_shriek` dostał 2,5 pkt we
+  wszystkich trzech wariantach. Prompt mówił „one thin piercing tonal shriek
+  that **rises** and thins out”; kontrakt wymaga `attack_s` ≤ 0,10 s, a model
+  zrealizował narastanie — wyszło 0,77–1,57 s ataku. Po zmianie na „that
+  **strikes at once** and thins out” ten sam archetyp spadł do 1,5 pkt
+  (attack 0,77 → najlepszy wariant z voiced 0,87).
+- Wniosek: czasownik opisujący *kształt w czasie* jest instrukcją dla modelu,
+  nie ozdobnikiem. „Rises”, „swells”, „builds” = atak długi; „strikes”,
+  „snaps”, „hits” = atak krótki. Dotyczy to także `magic_shimmer`, gdzie
+  kontrakt **wymaga** `attack_s` ≥ 0,10, więc tam „rises” jest pożądane.
+- Zasada / działanie zapobiegawcze: przy każdej poprawce promptu sprawdzić,
+  czy archetyp ma w kontrakcie próg na `attack_s`, i dobrać czasownik do
+  progu — zamiast pisać „dramatycznie”, pisać zgodnie z metryką.
+
+## 2026-11-06 — Szum w prompcie zjada harmoniczność (creature_roar)
+
+- Sytuacja: `635` *Feral Ridgewolf* pod `creature_roar` dał 3,5 pkt we
+  wszystkich wariantach mimo poprawnego słowa „snarl”. Prompt wyliczał
+  „claws tearing gravel, breath rasping hard, jaws snapping” — trzy źródła
+  szumu na jedno gardłowe zdarzenie. `voiced_fraction` spadało pod próg 0,30.
+  Po usunięciu szumu i zostawieniu samego warkotu (długi, niski, warstwowany)
+  wynik spadł do 1,0 pkt.
+- Wniosek: kontrakty harmoniczne (`creature_roar`, `undead_groan`,
+  `arcane_choir`, `horn_call`) liczą udział ramek tonalnych w całości pliku.
+  Każdy dopisany szum — żwir, oddech, wiatr, ogień — proporcjonalnie go
+  obniża, nawet jeśli sam ryk jest idealny.
+- Zasada / działanie zapobiegawcze: przy archetypach tonalnych dopisać
+  najwyżej jedno zdarzenie poboczne i tylko wtedy, gdy niesie rozpoznawalność
+  karty (łańcuch u ogarów, pieczęć u dzwonu). Resztę materiału zostawić
+  poza promptem.

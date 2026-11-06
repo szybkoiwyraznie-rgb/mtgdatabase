@@ -1,10 +1,10 @@
 {
- "audit": "/tmp/audit-after-b080.json",
- "checked": 252,
+ "audit": "/home/user/mtgdatabase/data/samples/audio-audit-latest.json",
+ "checked": 272,
  "by_verdict": {
   "nie trafiony": 11,
-  "prawdopodobnie": 49,
-  "trafiony": 192
+  "prawdopodobnie": 62,
+  "trafiony": 199
  },
  "results": [
   {
@@ -343,6 +343,51 @@
     {
      "check": "voiced_fraction",
      "reason": "ryk musi być harmoniczny (voiced) (voiced_fraction=0.215, oczekiwane >= 0.3)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "632",
+   "title": "Anticipate",
+   "archetype": "electric_zap",
+   "archetype_label": "wyładowanie / iskra",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "wyładowanie jest natychmiastowe (attack_s=2.360, oczekiwane <= 0.03)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "643",
+   "title": "Shining Aerosaur",
+   "archetype": "wing_flutter",
+   "archetype_label": "trzepot skrzydeł",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "onset_count",
+     "reason": "skrzydła biją wielokrotnie (onset_count=2, oczekiwane >= 6)",
+     "weight": 1.5
+    }
+   ]
+  },
+  {
+   "id": "644",
+   "title": "Lich's Caress",
+   "archetype": "psychic_shriek",
+   "archetype_label": "przenikliwy jęk / uderzenie psychiczne",
+   "score": 1.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "attack_s",
+     "reason": "uderzenie psychiczne jest natychmiastowe (attack_s=0.770, oczekiwane <= 0.1)",
      "weight": 1.5
     }
    ]
@@ -918,6 +963,141 @@
    ]
   },
   {
+   "id": "625",
+   "title": "Vampire Hounds",
+   "archetype": "undead_groan",
+   "archetype_label": "jęk / pomruk nieumarłego",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "low_all",
+     "reason": "jęk ma ciało w dole (low_all=0.002, oczekiwane >= 0.44)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "626",
+   "title": "Curse of the Bloody Tome",
+   "archetype": "liquid_pour",
+   "archetype_label": "lanie cieczy / bulgot mikstury",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "sustain_ratio",
+     "reason": "lanie jest ciągłe (sustain_ratio=0.173, oczekiwane >= 0.3)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "627",
+   "title": "Rumbling Rockslide",
+   "archetype": "stone_slide",
+   "archetype_label": "osuwisko / tarcie skał",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "decay_s",
+     "reason": "osuwisko się toczy (decay_s=0.180, oczekiwane >= 0.5)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "628",
+   "title": "Ambassador Oak",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "krok nie jest cienki (spectral_centroid_hz=6399.500, oczekiwane <= 2000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "635",
+   "title": "Feral Ridgewolf",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "low_all",
+     "reason": "ryk ma ciało w dole pasma (low_all=0.107, oczekiwane >= 0.45)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "636",
+   "title": "Creeping Peeper",
+   "archetype": "creature_cackle",
+   "archetype_label": "chichot / pokrzykiwanie stworzenia",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "mod_peak_hz",
+     "reason": "chichot pulsuje w tempie śmiechu (mod_peak_hz=1.280, oczekiwane 2.5–14.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "637",
+   "title": "Vortex Runner",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "tonal_frame_fraction",
+     "reason": "migotanie jest tonalne (tonal_frame_fraction=0.033, oczekiwane >= 0.3)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "639",
+   "title": "Open the Gates",
+   "archetype": "door_creak",
+   "archetype_label": "skrzypienie drewna / zawiasów",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "mod_peak_hz",
+     "reason": "skrzypienie faluje (mod_peak_hz=1.780, oczekiwane 2.0–12.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
+   "id": "641",
+   "title": "Banishing Light",
+   "archetype": "temple_bell",
+   "archetype_label": "dzwon / dzwonek / gong",
+   "score": 1.0,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "spectral_centroid_hz",
+     "reason": "dzwon siedzi w środku pasma (spectral_centroid_hz=137.700, oczekiwane 400.0–3000.0)",
+     "weight": 1.0
+    }
+   ]
+  },
+  {
    "id": "345",
    "title": "Porcelain Legionnaire",
    "archetype": "sword_clash",
@@ -973,6 +1153,21 @@
     {
      "check": "spectral_flatness",
      "reason": "uderzenie ma szumowy transient (spectral_flatness=0.014, oczekiwane >= 0.05)",
+     "weight": 0.5
+    }
+   ]
+  },
+  {
+   "id": "629",
+   "title": "Tail Slash",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "score": 0.5,
+   "verdict": "prawdopodobnie",
+   "violations": [
+    {
+     "check": "low_all",
+     "reason": "uderzenie ma masę (low_all=0.072, oczekiwane >= 0.2)",
      "weight": 0.5
     }
    ]
@@ -2701,6 +2896,69 @@
    "title": "Orazca Puzzle-Door",
    "archetype": "mechanism_click",
    "archetype_label": "zegarowy mechanizm / zamek / zapadka",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "630",
+   "title": "Changeling Berserker",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "631",
+   "title": "Sphinx's Herald",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "633",
+   "title": "Trumpet Blast",
+   "archetype": "horn_call",
+   "archetype_label": "róg bojowy / sygnał dęty",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "634",
+   "title": "Violent Urge",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "638",
+   "title": "Kraken Hatchling",
+   "archetype": "anvil_strike",
+   "archetype_label": "uderzenie młota w kowadło",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "640",
+   "title": "Living History",
+   "archetype": "undead_groan",
+   "archetype_label": "jęk / pomruk nieumarłego",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "642",
+   "title": "Pheres-Band Centaurs",
+   "archetype": "plate_clank",
+   "archetype_label": "pancerz / płyty stalowe",
    "score": 0,
    "verdict": "trafiony",
    "violations": []
