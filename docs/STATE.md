@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-10-27** (sesja `arena/16fc62ed-mtgdatabase`).
+Ostatnia aktualizacja: **2026-11-06** (sesja `arena/f6c474a6-mtgdatabase`).
 
 > Ten plik jest **obowiązkową lekturą agenta** i musi się mieścić w limicie
 > 50 000 tokenów razem z resztą plików z `docs/required-reading.md`
@@ -26,19 +26,18 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   kolejnych rund rNNN: **pełny audyt odsłuchowy** w `odsluch/` (buduje go
   `scripts/build_listening_audit.py` z całej historii gita — produkcja
   + kandydaci z `variants/`, od POC 2026-09-27). Strona `odsluch/index.html`
-  listuje 623 fabuły ze wszystkimi **5035 wersjami** MP3, wybory zapisuje
+  listuje 623 fabuły ze wszystkimi **5045 wersjami** MP3, wybory zapisuje
   w localStorage (odporne na przeładowanie), a „Stwórz raport" pobiera JSON
   z wyborami i uwagami. Po odebraniu raportu: dream team najlepszych wersji
   wraca do `audio/samples/`, „Żadne" dostają nowe prompty wg uwag, plus
   analiza preferencji na przyszłe generacje. Katalog jest samodzielny
   (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
   z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **623 fabuł**
-  (dopisane `400`, `402`, `404`, `405`, `406`, `407`, `408`, `409`,
-  `410`, `411`, `412`, `413`, `414`, `415`, `416`, `417`, `418`, `423`, `424`, `425`).
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **643 fabuły**
+  (ostatnia dostawa: `635`–`644`; wcześniej `625`–`634`, `400`–`425`, `618`–`624`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **623 MP3** w `audio/samples/<id>.mp3`; **623 scenariuszy**
-  — 100 % katalogu. Nowe karty z b079 mają audio.
+- Sample: **643 MP3** w `audio/samples/<id>.mp3`; **643 scenariusze**
+  — 100 % katalogu; wszystkie karty do `b082` włącznie mają audio.
 - Ostatnia dostawa: **`b080`** (2026-10-27) — **10 nowych kart**:
   `426` Paranormal Analyst (`electric_zap`), `427` Jilt (`glass_shatter`),
   `429` Vault of Whispers (`war_machine`), `618` Kaleidoscorch (`fire_crackle`),
@@ -51,6 +50,58 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   — fizyka źródła). Archetypy: trafiony 192 / prawdopodobnie 49 / nie 11
   (252 z zadeklarowanym archetypem). Wybór: 426 v1, 427 v2, 429 v1, 618 v3,
   619 v1, 620 v1, 621 v1, 622 v1, 623 v3, 624 v2 — LUFS −20.0±0.2, 0 over-ceiling.
+- Ostatnia dostawa: **`b082`** (2026-11-06) — **10 nowych kart**:
+  `635` Feral Ridgewolf (`creature_roar`), `636` Creeping Peeper
+  (`creature_cackle`), `637` Vortex Runner (`magic_shimmer`), `638` Kraken
+  Hatchling (`anvil_strike`), `639` Open the Gates (`door_creak`), `640` Living
+  History (`undead_groan`), `641` Banishing Light (`temple_bell`), `642`
+  Pheres-Band Centaurs (`plate_clank`), `643` Shining Aerosaur (`wing_flutter`),
+  `644` Lich's Caress (`psychic_shriek`) — 10 różnych archetypów.
+  **3/10 trafionych (638, 640, 642), 7 prawdopodobnie, 0 nie trafionych**;
+  36 generacji (30 + 6 poprawek) ≈1440 kr. Dwie karty wymagały drugiego podejścia
+  (`b082b`): `635` miała w prompcie żwir, kłapanie kłów i charczący oddech — model
+  zrobił szum zamiast warkotu (creature_roar 3,5 → 1,0 pkt po prompcie o samym
+  gardłowym warkocie); `644` miała „shriek that rises” — kontrakt wymaga
+  `attack_s` ≤ 0,10, więc model narastał (2,5 → 1,5 pkt po „strikes at once”).
+  Test alternatywnych etykiet (0 kredytów) nie dał lepszego wyniku: `635` pod
+  `heavy_impact` ma 0,0 pkt, ale to byłby cios, nie warkot karty; `644` pod
+  `steam_hiss` 1,0 pkt, ale to syk, nie krzyk duszy. Wybór: 635 v2 (b082b),
+  636 v3, 637 v1, 638 v2, 639 v1, 640 v3, 641 v2, 642 v1, 643 v1, 644 v2 (b082b)
+  — LUFS −20,0 ± 0,1, 0 over-ceiling. Flagi świadome: 640 `muffled`+`dull`
+  (niski, ciemny jęk widma), 641 `boomy`+`dull` (głęboki dzwon) — fizyka źródła.
+- **Dostawa paczki b082 na Google Drive** (2026-11-06):
+  `samples-b082-2026-11-06.zip` (747 983 B, 10 MP3 + `README.txt`)
+  Link: https://drive.google.com/file/d/16QKhPuGZKqyhcMDQSIq3Jz6UM2vqbaFJ/view
+- Poprzednia dostawa: **`b081`** (2026-11-01) — **10 nowych kart**:
+  `625` Vampire Hounds (`undead_groan`), `626` Curse of the Bloody Tome
+  (`liquid_pour`), `627` Rumbling Rockslide (`stone_slide`), `628` Ambassador Oak
+  (`heavy_footsteps`), `629` Tail Slash (`heavy_impact`), `630` Changeling
+  Berserker (`plate_clank`), `631` Sphinx's Herald (`magic_shimmer`), `632`
+  Anticipate (`electric_zap`), `633` Trumpet Blast (`horn_call`, `music_allowed`),
+  `634` Violent Urge (`sword_clash`) — 10 różnych archetypów.
+  **4/10 trafionych (630, 631, 633, 634), 6 prawdopodobnie, 0 nie trafionych,
+  0 flag, 0 bliźniaków**; 33 generacje (3×10 + 3 poprawki `627`) ≈1320 kr.
+  `627` w pierwszym podejściu wypadł poza `stone_slide` we wszystkich trzech
+  wariantach (low_all 0,02–0,07 przy progu 0,25, centroid 2,7–3,0 kHz przy
+  ≤2 kHz, decay 0,08–0,38 s) — model zrobił jasny trzask, nie toczące się
+  osuwisko. Test na innych archetypach (earth_rumble, thunder_clap,
+  volcanic_eruption, heavy_impact) potwierdził, że winny jest prompt, nie
+  etykieta. Po przepisaniu na „long low rumble of stone grinding on stone
+  that rolls without pause” (`b081b`): low_all 0,72, centroid 394 Hz, wynik
+  kontraktu 3,5 → 1,0 pkt. Wybór: 625 v1, 626 v2, 627 v2 (b081b), 628 v3,
+  629 v1, 630 v1, 631 v2, 632 v1, 633 v3, 634 v3 — LUFS −20,0 ± 0,1,
+  0 over-ceiling. `628` wymagał `--max-gain-db 20` (surowy wariant −37,5 LUFS,
+  przy limicie +15 dB wyszedł −22,7).
+- **Dostawa paczki b081 na Google Drive** (2026-11-01):
+  `samples-b081-2026-11-01.zip` (831 492 B, 10 MP3 + `README.txt`)
+  Link: https://drive.google.com/file/d/1IZAnj0jfrjmHBRsy_FUBI2S0dfU-6lLF/view
+- **Dostawa paczki b080 na Google Drive** (2026-10-27):
+  `samples-b080-2026-10-27.zip` — 10 MP3 (`426`, `427`, `429`, `618`–`624`)
+  + `README.txt` z mapowaniem ID → karta → archetyp → scenariusz.
+  Link: https://drive.google.com/file/d/1Hv7s81FNsu4WneyU6Eez70s377Tbj_Mj/view
+  ZIP buduje `scripts/build_batch_pack.py --batch b080` (procedura w
+  `docs/ai-sfx-pipeline.md` § „ZIP jednej dostawy”, wysyłka connectorem
+  `google_drive`).
 - Poprzednia dostawa: **`b079`** (2026-10-20) — **10 nowych kart**:
   `412` Makindi Aeronaut (`wing_flutter`), `413` Bloodfire Infusion
   (`fire_crackle`), `414` Tuskguard Captain (`heavy_footsteps`),
@@ -456,12 +507,18 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **623 fabuł**, scenariusze **623** (100 %), sample **613**.
-- Flagi **38** łącznie (38 kart z flagą), pary ≥ 0,90 **25**,
-  treść < 2 s **12**. Najczęstsze: `dull` 11, `harsh` 9, `boomy` 6,
-  `speech_like` 6, `tonal_sustained` 5.
-- Archetypy: **0** nie trafionych, **30** prawdopodobnie, **161** trafionych.
-- Budżet: **4880 / 10 000** kredytów na drugim kluczu (r068–r078:
+- Katalog: **643 fabuły**, scenariusze **643** (100 %, 68 `generated`
+  + 575 `ready`), sample **643**.
+- Flagi: **57 plików** z flagą na 643 (dostawa `b082` dołożyła 2 świadome:
+  `640` muffled+dull, `641` boomy+dull). Najczęstsze: `harsh` 15,
+  `dull` 14, `boomy` 9, `tonal_sustained` 8, `long_trail_silence` 7,
+  `speech_like` 7, `muffled` 5, `mono_collapse` 2, `too_quiet` 1.
+  Pary ≥ 0,95 **0**, identyczne PCM **0**, treść < 2 s **12**
+  (`4`, `12`, `23`, `98`, `115`, `219`, `269`, `311`, `361`, `406`,
+  `417`, `618`). Źródło: `data/samples/audio-audit-latest.json`.
+- Archetypy: **11** nie trafionych, **62** prawdopodobnie, **199** trafionych
+  (272 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
+- Budżet: **~7520 / 10 000** kredytów na drugim kluczu (ostatnio b081 ≈1320, b082 ≈1440) (r068–r078:
   11 × 360, r079: 400, r080: 400). Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,
   r062 360, r063 360, r064 360, r065 360, r066 360, r067 360,

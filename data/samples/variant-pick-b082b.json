@@ -1,0 +1,191 @@
+{
+ "variants_dir": "/home/user/mtgdatabase/variants/b082b",
+ "applied": true,
+ "results": [
+  {
+   "id": "635",
+   "title": "Feral Ridgewolf",
+   "archetype": "creature_roar",
+   "archetype_label": "ryk / porykiwanie dużego zwierzęcia",
+   "chosen": "v2",
+   "chosen_score": 1.0,
+   "spread": 0.5,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/b082b/v2/635.mp3",
+     "score": 1.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk ma ciało w dole pasma (low_all=0.107, oczekiwane >= 0.45)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 3.87,
+      "content_rel_s": 3.48,
+      "lufs": -20.0,
+      "low_all": 0.107,
+      "spectral_centroid_hz": 488.4,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.387,
+      "crest_db": 13.17,
+      "attack_s": 0.95,
+      "decay_s": 0.96,
+      "onset_count": 10,
+      "sustain_ratio": 0.481,
+      "mod_peak_hz": 1.18
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/b082b/v1/635.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.278, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.87,
+      "lufs": -20.0,
+      "low_all": 0.661,
+      "spectral_centroid_hz": 342.1,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.278,
+      "crest_db": 18.38,
+      "attack_s": 0.59,
+      "decay_s": 0.46,
+      "onset_count": 29,
+      "sustain_ratio": 0.223,
+      "mod_peak_hz": 1.05
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/b082b/v3/635.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "ryk musi być harmoniczny (voiced) (voiced_fraction=0.173, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 4.0,
+      "content_rel_s": 3.83,
+      "lufs": -20.0,
+      "low_all": 0.657,
+      "spectral_centroid_hz": 312.6,
+      "spectral_flatness": 0.0,
+      "tonal_frame_fraction": 1.0,
+      "voiced_fraction": 0.173,
+      "crest_db": 16.93,
+      "attack_s": 0.3,
+      "decay_s": 1.6,
+      "onset_count": 29,
+      "sustain_ratio": 0.385,
+      "mod_peak_hz": 15.47
+     }
+    }
+   ]
+  },
+  {
+   "id": "644",
+   "title": "Lich's Caress",
+   "archetype": "psychic_shriek",
+   "archetype_label": "przenikliwy jęk / uderzenie psychiczne",
+   "chosen": "v2",
+   "chosen_score": 1.5,
+   "spread": 1.5,
+   "variants": [
+    {
+     "variant": "v2",
+     "file": "variants/b082b/v2/644.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie psychiczne jest natychmiastowe (attack_s=0.770, oczekiwane <= 0.1)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.94,
+      "content_rel_s": 2.87,
+      "lufs": -20.0,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 3948.2,
+      "spectral_flatness": 0.036,
+      "tonal_frame_fraction": 0.754,
+      "voiced_fraction": 0.869,
+      "crest_db": 16.38,
+      "attack_s": 0.77,
+      "decay_s": 1.19,
+      "onset_count": 1,
+      "sustain_ratio": 0.5,
+      "mod_peak_hz": 1.1
+     }
+    },
+    {
+     "variant": "v3",
+     "file": "variants/b082b/v3/644.mp3",
+     "score": 1.5,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "to ton, nie szum (tonal_frame_fraction=0.000, oczekiwane >= 0.3)"
+     ],
+     "verdict": "prawdopodobnie",
+     "metrics": {
+      "duration_s": 2.46,
+      "content_rel_s": 2.41,
+      "lufs": -19.94,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5806.2,
+      "spectral_flatness": 0.268,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.023,
+      "crest_db": 24.25,
+      "attack_s": 0.07,
+      "decay_s": 0.91,
+      "onset_count": 2,
+      "sustain_ratio": 0.138,
+      "mod_peak_hz": 13.39
+     }
+    },
+    {
+     "variant": "v1",
+     "file": "variants/b082b/v1/644.mp3",
+     "score": 3.0,
+     "measured": "postprocess",
+     "twin_with": null,
+     "violations": [
+      "uderzenie psychiczne jest natychmiastowe (attack_s=1.570, oczekiwane <= 0.1)",
+      "to ton, nie szum (tonal_frame_fraction=0.000, oczekiwane >= 0.3)"
+     ],
+     "verdict": "nie trafiony",
+     "metrics": {
+      "duration_s": 3.26,
+      "content_rel_s": 3.2,
+      "lufs": -19.98,
+      "low_all": 0.001,
+      "spectral_centroid_hz": 5998.0,
+      "spectral_flatness": 0.199,
+      "tonal_frame_fraction": 0.0,
+      "voiced_fraction": 0.006,
+      "crest_db": 18.47,
+      "attack_s": 1.57,
+      "decay_s": 1.14,
+      "onset_count": 9,
+      "sustain_ratio": 0.497,
+      "mod_peak_hz": 1.91
+     }
+    }
+   ]
+  }
+ ]
+}

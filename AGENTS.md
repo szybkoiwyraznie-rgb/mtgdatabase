@@ -111,9 +111,15 @@ Publikacja/test:
 
 ```bash
 python scripts/build_site.py --out site/generated
-python scripts/build_pack.py --output build/samples-latest.zip
+python scripts/build_pack.py --output build/samples-latest.zip      # cały korpus
+python scripts/build_batch_pack.py --batch b0NN                     # ZIP jednej paczki
 python scripts/serve_site.py --port 3000 --dir site/generated
 ```
+
+Gdy właściciel prosi o paczkę na Google Drive: zbuduj ZIP przez
+`build_batch_pack.py` i wyślij go **connectorem `google_drive`**
+(`upload_file`), a nie ręcznym API Drive. Link i lista ID idą do
+`docs/STATE.md`.
 
 Walidacja przed commitem:
 
