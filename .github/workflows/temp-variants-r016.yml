@@ -1,9 +1,9 @@
-name: "TEMP b078f - 402/404/405 x 3"
+name: "TEMP b083 - 645-655 x 3"
 
 on:
   push:
     branches:
-      - arena/ee59daa7-mtgdatabase
+      - arena/204cf1cc-mtgdatabase
 
 permissions:
   contents: write
@@ -11,7 +11,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "402,404,405"
+  IDS: "645,646,647,648,649,650,651,652,653,654,655"
 
 jobs:
   variants:
@@ -20,14 +20,14 @@ jobs:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: arena/ee59daa7-mtgdatabase
-      - name: Guard — tylko commit z markerem [generate-b078f]
+          ref: arena/204cf1cc-mtgdatabase
+      - name: Guard — tylko commit z markerem [generate-b083]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b078f]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b083]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b078f] — nic nie generuję"
+            echo "brak markera [generate-b083] — nic nie generuję"
           fi
       - uses: actions/setup-python@v5
         if: steps.guard.outputs.run == '1'
@@ -36,6 +36,25 @@ jobs:
       - name: Validate scenarios
         if: steps.guard.outputs.run == '1'
         run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
+      - name: Sprawdź stan budżetu (subskrypcja)
+        if: steps.guard.outputs.run == '1'
+        continue-on-error: true
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+        run: |
+          python - <<'PY'
+          import json, os, urllib.request
+          key = os.environ.get("ELEVENLABS")
+          if not key:
+              print("brak sekretu ELEVENLABS"); raise SystemExit(0)
+          req = urllib.request.Request("https://api.elevenlabs.io/v1/user/subscription",
+                                       headers={"xi-api-key": key})
+          with urllib.request.urlopen(req, timeout=30) as resp:
+              d = json.load(resp)
+          print("character_count:", d.get("character_count"))
+          print("character_limit:", d.get("character_limit"))
+          print("remaining:", (d.get("character_limit") or 0) - (d.get("character_count") or 0))
+          PY
       - name: Generate 3 variants per story
         if: steps.guard.outputs.run == '1'
         continue-on-error: true
@@ -43,21 +62,30 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b078f
+          mkdir -p variants/b083
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/b078f/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b083/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
               --ids "$IDS" --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b078f/v$v" 2>&1 | tee -a variants/b078f/generate.log
+              --out "variants/b083/v$v" 2>&1 | tee -a variants/b083/generate.log
           done
+      - name: Podsumowanie plików
+        if: always() && steps.guard.outputs.run == '1'
+        run: |
+          echo "--- wygenerowane pliki ---"
+          find variants/b083 -name '*.mp3' | sort | while read f; do
+            echo "$f $(stat -c%s "$f") B"
+          done
+          echo "--- razem ---"
+          find variants/b083 -name '*.mp3' | wc -l
       - name: Commit variants
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b078f data/samples/generated-manifest.jsonl
+          git add -f variants/b083 data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then echo nic; else
-            git commit -m "b078f: 9 wariantow (3 karty x 3) + log generacji [import-b078f]"
-            git push origin HEAD:arena/ee59daa7-mtgdatabase
+            git commit -m "b083: warianty (3 karty x 3) + log generacji [import-b083]"
+            git push origin HEAD:arena/204cf1cc-mtgdatabase
           fi
