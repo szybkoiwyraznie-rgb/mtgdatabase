@@ -58,7 +58,7 @@ Ten skan dokłada cztery wymiary, których wcześniej nie sprawdzaliśmy:
 | ŚREDNIE — offset DC | 0 | wysoka | filtr górnoprzepustowy 20 Hz |
 | ŚREDNIE — dominacja dudnienia (boomy) | 10 | niska | filtr dolnozaporowy / shelf |
 | ŚREDNIE — brak góry (dull) | 16 | niska | korekta high-shelf |
-| ŚREDNIE — ostra góra (harsh) | 16 | niska | łagodne cięcie 4-6 kHz |
+| ŚREDNIE — ostra góra (harsh) | 15 | niska | łagodne cięcie 4-6 kHz |
 | DO ODSŁUCHU — tonalne/„muzyczne" | 8 | niska | weryfikacja uchem |
 | DO ODSŁUCHU — podobne do mowy | 7 | niska | weryfikacja uchem |
 | DO ODSŁUCHU — start na pełnym poziomie | 0 | niska | weryfikacja uchem / fade-in |
@@ -66,14 +66,14 @@ Ten skan dokłada cztery wymiary, których wcześniej nie sprawdzaliśmy:
 | KOSMETYCZNE — długa cisza wiodąca | 0 | wysoka | opcjonalny trym |
 | KOSMETYCZNE — długa cisza końcowa | 7 | wysoka | opcjonalny trym |
 
-Plików z co najmniej jedną flagą: **58** / 654.
+Plików z co najmniej jedną flagą: **57** / 654.
 Plików z flagą **merytoryczną** (bez kategorii kosmetycznych i „start na pełnym
 poziomie"): **7**.
 
 
 ## Najważniejszy wniosek: korpus nie ma wyrównanej głośności
 
-Rozkład głośności percepcyjnej: mediana **-20.0 LUFS**, p10 **-20.2**, p90 **-20.0**, σ **0.7 LU**, rozpiętość **11.9 LU** (od -31.0 do -19.0).
+Rozkład głośności percepcyjnej: mediana **-20.0 LUFS**, p10 **-20.2**, p90 **-19.9**, σ **0.7 LU**, rozpiętość **11.9 LU** (od -31.0 do -19.0).
 
 To nie jest kwestia pojedynczych odstających plików — **cały korpus jest nierówny**.
 Przy odsłuchu biblioteki po kolei jedne sample są ledwie słyszalne, inne wyrywają

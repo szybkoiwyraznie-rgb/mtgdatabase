@@ -2984,8 +2984,8 @@
   {
    "id": "647",
    "title": "Get the Point",
-   "archetype": "bone_snap",
-   "archetype_label": "trzask kości / łamanie",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
    "score": 0,
    "verdict": "trafiony",
    "violations": []
