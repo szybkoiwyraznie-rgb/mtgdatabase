@@ -1,4 +1,4 @@
-name: "TEMP b083b - 647/650/655 x 3"
+name: "TEMP b083c - 655 x 3"
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "647,650,655"
+  IDS: "655"
 
 jobs:
   variants:
@@ -21,13 +21,13 @@ jobs:
         with:
           fetch-depth: 0
           ref: arena/204cf1cc-mtgdatabase
-      - name: Guard — tylko commit z markerem [generate-b083b]
+      - name: Guard — tylko commit z markerem [generate-b083c]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b083b]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b083c]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b083b] — nic nie generuję"
+            echo "brak markera [generate-b083c] — nic nie generuję"
           fi
       - uses: actions/setup-python@v5
         if: steps.guard.outputs.run == '1'
@@ -62,30 +62,30 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b083b
+          mkdir -p variants/b083c
           for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/b083b/generate.log
+            echo "=== wariant v$v ===" | tee -a variants/b083c/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
               --ids "$IDS" --force --retries 3 --prompt-influence 0.35 \
-              --out "variants/b083b/v$v" 2>&1 | tee -a variants/b083b/generate.log
+              --out "variants/b083c/v$v" 2>&1 | tee -a variants/b083c/generate.log
           done
       - name: Podsumowanie plików
         if: always() && steps.guard.outputs.run == '1'
         run: |
           echo "--- wygenerowane pliki ---"
-          find variants/b083b -name '*.mp3' | sort | while read f; do
+          find variants/b083c -name '*.mp3' | sort | while read f; do
             echo "$f $(stat -c%s "$f") B"
           done
           echo "--- razem ---"
-          find variants/b083b -name '*.mp3' | wc -l
+          find variants/b083c -name '*.mp3' | wc -l
       - name: Commit variants
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b083b data/samples/generated-manifest.jsonl
+          git add -f variants/b083c data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then echo nic; else
-            git commit -m "b083b: warianty (3 karty x 3) + log generacji [import-b083b]"
+            git commit -m "b083c: warianty (655 x 3) + log generacji [import-b083c]"
             git push origin HEAD:arena/204cf1cc-mtgdatabase
           fi
