@@ -1,0 +1,21 @@
+=== wariant v1 ===
+WARN 655: attempt 1/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"7c2a51bf3093ad666a489fd0d45db2a1"}}
+WARN 655: attempt 2/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"b8caf9980373c3c2a179c34bbb36bf3e"}}
+WARN 655: attempt 3/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"181815517fbc1cb0f92aaaa127bbeefe"}}
+WARN 655: attempt 4/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"27e092b8971ac298a18f260eb7289591"}}
+selected 1 scenario(s)
+done: generated=0, skipped=0, failed=1
+=== wariant v2 ===
+WARN 655: attempt 1/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"d077ea41658ae78f13bc92311e187a2a"}}
+WARN 655: attempt 2/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"26157105d611946cdf6b35fcb3e0cdd8"}}
+WARN 655: attempt 3/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"049c72fe6bcb12b1e434b2c043b92b1a"}}
+WARN 655: attempt 4/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"99b19624af28c874f8ff73fa3eaabbe6"}}
+selected 1 scenario(s)
+done: generated=0, skipped=0, failed=1
+=== wariant v3 ===
+WARN 655: attempt 1/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"c69037d503a47120c078baf5e8e98d93"}}
+WARN 655: attempt 2/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"bbfa49e0a372d15b95dfc0a0330b9b5d"}}
+WARN 655: attempt 3/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"6866da54c36bf860e1bccb464a75de7f"}}
+WARN 655: attempt 4/4: HTTP 401: {"detail":{"type":"invalid_request","code":"quota_exceeded","message":"This request exceeds your quota of 10000. You have 0 credits remaining, while 40 credits are required for this request.","status":"quota_exceeded","request_id":"3c2fa20d0dfa92a89d60f7cc6ad450b0"}}
+selected 1 scenario(s)
+done: generated=0, skipped=0, failed=1
