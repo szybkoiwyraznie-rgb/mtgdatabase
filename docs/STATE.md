@@ -1,6 +1,6 @@
 # Stan produkcji — AI SFX v2
 
-Ostatnia aktualizacja: **2026-11-06** (sesja `arena/f6c474a6-mtgdatabase`).
+Ostatnia aktualizacja: **2026-11-14** (sesja `arena/204cf1cc-mtgdatabase`).
 
 > Ten plik jest **obowiązkową lekturą agenta** i musi się mieścić w limicie
 > 50 000 tokenów razem z resztą plików z `docs/required-reading.md`
@@ -33,11 +33,49 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   analiza preferencji na przyszłe generacje. Katalog jest samodzielny
   (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
   z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **643 fabuły**
-  (ostatnia dostawa: `635`–`644`; wcześniej `625`–`634`, `400`–`425`, `618`–`624`).
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **654 fabuły**
+  (ostatnia dostawa: `645`–`655`; wcześniej `635`–`644`, `625`–`634`, `400`–`425`, `618`–`624`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **643 MP3** w `audio/samples/<id>.mp3`; **643 scenariusze**
-  — 100 % katalogu; wszystkie karty do `b082` włącznie mają audio.
+- Sample: **654 MP3** w `audio/samples/<id>.mp3`; **654 scenariusze**
+  — 100 % katalogu; wszystkie karty do `b083` włącznie mają audio.
+- Ostatnia dostawa: **`b083`** (2026-11-14) — **11 nowych kart**: `655` Plummet
+  (`beast_screech`), `654` Kessig Flamebreather (`mechanism_click`), `653`
+  Necrosavant (`heavy_impact`), `652` River Herald Guide (`water_splash`), `645`
+  Might Beyond Reason (`steam_hiss`), `651` Leonin Lightbringer (`magic_shimmer`),
+  `646` Messenger's Speed (`heavy_footsteps`), `648` Seton's Desire
+  (`heavy_footsteps`), `647` Get the Point (`sword_clash`), `649` Spring-Loaded
+  Sawblades (`mechanism_click`), `650` Bladewheel Chariot (`chain_rattle`).
+  **11/11 trafionych, 0 flag, 0 nowych par, 0 poza oknem 2–5 s**; 33 generacje
+  (11 kart × 3) + 9 poprawek (`b083b`) ≈ **1680 kr — cały pozostały budżet,
+  konto zeszło do 0**.
+  **Sześć kart z 11 nie przeszło swojego archetypu w żadnym wariancie, ale
+  ich materiał był trafiony pod inną etykietą** (test krzyżowy, 0 kr):
+  `649`→`mechanism_click` (3/3 trafione), `650`→`chain_rattle` (2/3),
+  `645`→`steam_hiss` (3/3), `654`→`mechanism_click` (tylko v2), `647`→`bone_snap`
+  (ale 1,03 s — poza oknem), `655`→`beast_screech` (v1/v3). Dwie ostatnie
+  wymagały przepisania promptu i przejścia przez `b083b`.
+  `647`: prompt o „iskrach i napierśniku” dał 1,03 s; sprawdzony szkielet
+  z 7 trafionych `sword_clash` („one hard crack of the blade, then two long
+  rasping cuts of steel drawn along steel, then a third crack, the shearing
+  held to the end”) dał 3,49 s i 0 pkt. `650`: piły tarczowe dały 99,5 %
+  energii > 2 kHz (centroid 9012 Hz) i flagę `harsh` — dorzucone „deep low
+  iron rumble of the chassis” + zwolnione tempo `chain_rattle` zdjęło flagę
+  i dało 0 pkt. `655`: cisza na końcu (2,23 s) wymagała trymu ogona do 1,1 s
+  (`--trim-trail-s`), a cisza na starcie cięcia ręcznego 0,35 s — po obu
+  zabiegach 2,49 s, 0 pkt, 0 flag (metryka flagi czyta `trail_silence_s`
+  z łańcucha 10 ms, nie `content_s`; skrypt pomocniczy musi czytać
+  `metrics['flags']`, nie `FileResult.flags`).
+  Wybór: 645 v3, 646 v1, 647 v3 (b083b), 648 v3, 649 v3, 650 v2 (b083b),
+  651 v3, 652 v1, 653 v3, 654 v2, 655 v3 (trym) — LUFS −20,0 ± 0,3,
+  0 over-ceiling, wszystkie 2,49–4,00 s.
+- **Dostawa paczki b083 na Google Drive** (2026-11-14):
+  `samples-b083-2026-11-14.zip` (904 478 B, 11 MP3 + `README.txt`)
+  ID pliku: `13dFvOcsv_rLMAjxf49nu07PMctPoecON`
+  Link: https://drive.google.com/file/d/13dFvOcsv_rLMAjxf49nu07PMctPoecON/view
+  **Uwaga na budowę ZIP-a:** `build_batch_pack.py --batch b083` pakuje tylko
+  karty z polem `batch == "b083"`; `647` i `650` siedzą w `b083b`, więc paczkę
+  zbudowano `--ids 645,...,655`. Przy dostawach z poprawkami (`bNNNb`) zawsze
+  podawać listę ID albo ujednolicić pole `batch` przed budową.
 - Ostatnia dostawa: **`b080`** (2026-10-27) — **10 nowych kart**:
   `426` Paranormal Analyst (`electric_zap`), `427` Jilt (`glass_shatter`),
   `429` Vault of Whispers (`war_machine`), `618` Kaleidoscorch (`fire_crackle`),
@@ -507,19 +545,24 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **643 fabuły**, scenariusze **643** (100 %, 68 `generated`
-  + 575 `ready`), sample **643**.
-- Flagi: **57 plików** z flagą na 643 (dostawa `b082` dołożyła 2 świadome:
-  `640` muffled+dull, `641` boomy+dull). Najczęstsze: `harsh` 15,
-  `dull` 14, `boomy` 9, `tonal_sustained` 8, `long_trail_silence` 7,
-  `speech_like` 7, `muffled` 5, `mono_collapse` 2, `too_quiet` 1.
-  Pary ≥ 0,95 **0**, identyczne PCM **0**, treść < 2 s **12**
+- Katalog: **654 fabuły**, scenariusze **654** (100 %, 79 `generated`
+  + 575 `ready`), sample **654**.
+- Flagi: **57 plików** z flagą na 654 — po dostawie `b083` **bez zmian**
+  (11 nowych kart weszło z 0 flag, dwie świadome flagi `650 harsh` i
+  `655 long_trail_silence` zdjęto w `b083b`). Najczęstsze: `dull` 16,
+  `harsh` 15, `boomy` 10, `tonal_sustained` 8, `long_trail_silence` 7,
+  `speech_like` 7, `muffled` 6, `mono_collapse` 2, `too_quiet` 1.
+  Pary ≥ 0,95 **0**, identyczne PCM **0**, treść < 2 s **13**
   (`4`, `12`, `23`, `98`, `115`, `219`, `269`, `311`, `361`, `406`,
-  `417`, `618`). Źródło: `data/samples/audio-audit-latest.json`.
-- Archetypy: **11** nie trafionych, **62** prawdopodobnie, **199** trafionych
-  (272 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
-- Budżet: **~7520 / 10 000** kredytów na drugim kluczu (ostatnio b081 ≈1320, b082 ≈1440) (r068–r078:
-  11 × 360, r079: 400, r080: 400). Pierwszy klucz 10 000 zamknęły: b072 560,
+  `417`, `618`, `655` — `655` ma 0,57 s treści przy 2,49 s pliku, bo to
+  jeden wrzask i cisza; świadome). Źródło: `data/samples/audio-audit-latest.json`.
+- Archetypy: **11** nie trafionych, **62** prawdopodobnie, **210** trafionych
+  (283 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
+- Budżet: **0 / 10 000** kredytów — dostawa `b083` + `b083b` (42 generacje)
+  wyczerpała drugi klucz. **Do dalszej generacji potrzebny trzeci klucz.**
+  Poprzednie zużycie: b081 ≈1320, b082 ≈1440, b083 33×40 = 1320,
+  b083b 9×40 = 360.
+  Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,
   r062 360, r063 360, r064 360, r065 360, r066 360, r067 360,
   b074 840, b074b 600, b074c 480, b074d 240, b074e 120.
@@ -672,6 +715,46 @@ archetypu zmierzyć sporną metrykę na istniejących kartach tej
 klasy; jeśli większość jej nie domyka, wziąć inny archetyp dla
 tego samego dźwięku.
 
+**26. Zanim uznasz kartę za przegraną, przetestuj jej plik pod wszystkimi
+34 etykietami (0 kredytów).** W `b083` **sześć z jedenastu** kart nie
+przeszło swojego archetypu w żadnym z trzech wariantów, a jednocześnie były
+**trafione w 0 pkt** pod inną etykietą: `649`→`mechanism_click` (3/3),
+`650`→`chain_rattle` (2/3), `645`→`steam_hiss` (3/3), `654`→`mechanism_click`
+(tylko v2), `655`→`beast_screech` (2/3), `647`→`bone_snap` (pierwszy wariant).
+Test to pętla po `CONTRACTS` na pliku po postprodukcji — koszt zero, a ratuje
+całą turę. Reguła 25 mówi „sprawdź, czy kontrakt jest osiągalny”; ta mówi
+„sprawdź, który kontrakt jest osiągalny”. Warunek: etykieta musi **opisywać
+ten sam dźwięk**, nie tylko przechodzić metryki — `649` pod `plate_clank`
+też miało 0 pkt, ale piły z posadzki to nie płyty pancerza, a pod
+`mechanism_click` (zapadki i sprężyny) tak.
+
+**27. Prompt, który daje krótki plik, cierpi zwykle na brak szkielettu
+zdarzeń, nie na „pechu”.** `647` *Get the Point* w pierwszej próbie
+(„rapier trafia w napierśnik, snop iskier, maska szermierza”) dał 1,03 s
+i zero możliwości naprawy. Siedem trafionych `sword_clash` w korpusie ma
+**identyczny szkielet**: „one hard crack of the blade, then two long rasping
+cuts of steel drawn along steel, then a third crack, the shearing held to the
+end”. Ten sam szkielet w tym samym prompcie (reszta bez zmian) dał 3,49 s
+i 0 pkt. Tak samo `650`: dopisanie „deep low iron rumble of the chassis
+underneath” przed piłami zdjęło flagę `harsh` (centroid 9012 Hz → 4352 Hz,
+energia > 2 kHz 99,5 % → ~50 %), bo model realizuje **pierwszy rzeczownik
+z nagłówka** — jeśli nagłówek to same piły, dostajesz pisk, nie maszynę.
+Przed pisaniem nowego promptu: `grep`-em po `scenarios.jsonl` znaleźć 5–7
+kart tego samego archetypu z werdyktem `trafiony` i użyć ich składni.
+
+**28. Metryka flagi, trym i odczyt wyniku — trzy pułapki, które kosztowały
+cztery podejścia w `b083`.** (a) `audit_samples_full.analyze()` zwraca
+`FileResult` z polami `metrics` i `fp` — flagi siedzą w
+`metrics['flags']`, nie w `result.flags`. Mój skrypt testowy czytał
+nieistniejące pole i przez dwie iteracje „potwierdzał” brak flagi, której
+audyt nie widział. (b) `--trim-trail-s` N (tryb względny) przycina do
+N sekund ciszy **poniżej szczytu**; żeby zbić `trail_silence_s` (próg
+bezwzględny −45 dBFS, flaga > 1,5 s) trzeba zwykle zejść do 0,9–1,1 s,
+a nie 1,5 s. (c) `--trim-lead-s` nie rusza ciszy **w środku**, gdy model
+zrobił 0,3 s wstępu — trzeba pociąć `sf.read` ręcznie i zapisać przez
+`process_one` od nowa (jedno kodowanie). Po cięciu `duration_seconds`
+w scenariuszu musi iść za `sf.info()`.
+
 **24. Korekcję EQ aplikować tylko tam, gdzie zdejmuje flagę.** Próba na
 27 kartach (`16 dull` + `11 harsh`) dała ten sam zysk flag (52 → 46),
 ale 19 kart bez zysku dorzuciło **2 nowe pary** i podbiło maksimum
@@ -686,6 +769,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 
 | batch | data | wynik | archiwum |
 |---|---|---|---|
+| b083 | 2026-11-14 | 11 nowych kart (645–655), **11/11 trafionych**, 0 flag, 0 par; 6 kart uratowanych testem krzyżowym archetypów (0 kr), 42 generacje ≈1680 kr → budżet 0 | ten plik |
 | b077 | 2026-10-14 | 10 nowych kart (369–398), 6/10 trafionych, 0 nowych par; 392→horn_call i 398→chain_rattle po audycie brzmienia | ten plik |
 | b080 | 2026-10-27 | 10 nowych kart (426,427,429,618–624), 2/10 trafionych, 6 prawd., 0 nowych par; 30 generacji (1200 kr), 4 flagi świadome | ten plik |
 | b079 | 2026-10-20 | 10 nowych kart (412–418,423–425), 1/10 trafionych, 3 prawd., 0 nowych par; 30 generacji w 1 paczce b079 (1200 kr), 4 flagi świadome | ten plik |

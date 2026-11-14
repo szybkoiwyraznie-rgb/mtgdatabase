@@ -1159,3 +1159,63 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   najwyżej jedno zdarzenie poboczne i tylko wtedy, gdy niesie rozpoznawalność
   karty (łańcuch u ogarów, pieczęć u dzwonu). Resztę materiału zostawić
   poza promptem.
+
+## 2026-11-14 — Test krzyżowy archetypów uratował 6 z 11 kart (b083)
+
+- Sytuacja: w dostawie `b083` tylko 5 kart przeszło swój archetyp w pierwszej
+  turze. Sześć innych przepadło (0/3 wariantów) — wyglądało to na wadę promptu.
+  Pętla po wszystkich 34 kontraktach na tych samych plikach, po postprodukcji,
+  kosztowała **zero kredytów** i pokazała, że **cztery z nich są trafione w 0 pkt
+  pod inną etykietą**: `649`→`mechanism_click`, `645`→`steam_hiss`,
+  `650`→`chain_rattle`, `654`→`mechanism_click`, a dwie kolejne
+  (`655`→`beast_screech`, `647`→`bone_snap`) po 1–2 wariantach.
+- Wniosek: „nie trafiony w swoim archetypie” **nie znaczy „zły dźwięk”**.
+  Etykieta archetypu to hipoteza o tym, jak brzmi opis karty; model realizuje
+  materiał, nie etykietę. Zanim wyda się kredyty na przepisanie promptu,
+  trzeba sprawdzić, czy **istniejący** plik nie pasuje do innej etykiety.
+- Zasada / działanie zapobiegawcze: po każdej turze generacji na kartach
+  „nie trafionych” uruchomić pętlę `for a in CONTRACTS: evaluate(a, metrics)`
+  i wypisać 4 najniższe wyniki. Przyjmować nową etykietę tylko wtedy, gdy
+  **opisuje to samo zdarzenie** — `649` pod `plate_clank` też miało 0 pkt,
+  ale piły z posadzki to nie płyty pancerza, a pod `mechanism_click`
+  (zapadki i sprężyny) tak. Reguła 26 w `docs/STATE.md`.
+
+## 2026-11-14 — Krótki plik = brak szkielettu zdarzeń w prompcie, nie pech modelu
+
+- Sytuacja: `647` *Get the Point* dał 1,03 s przy celu 4,0 s. Prompt był
+  bogaty fabularnie (rapier, napierśnik, iskry, porcelanowa maska, kielich
+  Judith), ale **nie zawierał ani jednego następstwa zdarzeń** — jedno
+  trafienie i koniec opisu. Siedem trafionych kart `sword_clash` w korpusie
+  ma jeden szkielet: „one hard crack of the blade, then two long rasping cuts
+  of steel drawn along steel, then a third crack, the shearing held to the
+  end”. Wstawienie tego szkieletu (reszta promptu bez zmian) dało 3,49 s
+  i 0 pkt.
+- Wniosek: długość sampla bierze się z **liczby nazwanych faz zdarzenia**,
+  nie z bogactwa narracji. Nazwy własne, miejsca i postaci z karty nie niosą
+  żadnej informacji dla generatora — a zajmują budżet 450 znaków, który
+  zjada szkiclet.
+- Zasada / działanie zapobiegawcze: przed napisaniem promptu `grep`-em po
+  `scenarios.jsonl` znaleźć 5–7 kart tego samego archetypu z werdyktem
+  `trafiony` i **skopiować ich składnię** (faza 1 → faza 2 → faza 3 →
+  „held to the end”). Sygnaturę karty skrócić do jednego zdania, nie
+  streszczać narrację. Reguła 27 w `docs/STATE.md`.
+
+## 2026-11-14 — Pierwszy rzeczownik w nagłówku decyduje o barwie (piły vs maszyna)
+
+- Sytuacja: `650` *Bladewheel Chariot* dostał `harsh` (centroid 9012 Hz,
+  99,5 % energii > 2 kHz) — brzmiał jak pisk, nie jak rydwan. Prompt zaczynał
+  się od „two giant saw-blade wheels” i cały był o piłach; „riveted iron
+  chariot” stał w dalszej części zdania. Po przestawieniu nagłówka na
+  „a riveted iron chariot rolling... a deep low iron rumble of the chassis
+  underneath, the saw teeth biting the floor...” centroid spadł do 4352 Hz
+  i flaga zniknęła, przy zachowaniu 0 pkt w kontrakcie.
+- Wniosek: to ta sama prawidłowość, którą `LESSONS` zanotował przy
+  `stone_slide` (`627`: „crack” w nagłówku zabił dół pasma) — ale liczona
+  w drugą stronę. Nagłówek ustawia **centroid**, ogon promptu dokłada
+  szczegóły, których model już nie podnosi do rangi źródła.
+- Zasada / działanie zapobiegawcze: jeśli karta ma być „ciężka”, nagłówek
+  nazywa **masę i materiał** („riveted iron chariot”, „long low rumble of
+  stone on stone”), a jasne elementy (piły, iskry, szkło) idą **po** nim.
+  Odwrotnie dla kart, które mają być ostre: nagłówek nazywa to, co ma
+  błyszczeć. Przed generacją sprawdzić, czy nagłówek zgadza się z progiem
+  `spectral_centroid_hz` kontraktu.

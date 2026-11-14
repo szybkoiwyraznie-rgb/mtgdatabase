@@ -4500,6 +4500,83 @@
       "title": "Lich's Caress",
       "story": "W podziemiach bazaltowego zigguratu w Thay szkieletowy lisz z przymierza Czerwonych Magów dokonuje rytuału odnowienia swego nieśmiertelnego bytu. Kościste palce nieumarłego czarnoksiężnika muskają czoło schwytanego zwiadowcy Harfiarzy, rozprzestrzeniając po jego ciele mroźny całun seledynowej energii. Ze zwiotczałych warg śmiertelnika ulatuje błękitna, widmowa esencja duszy, która spiralnym wirem zostaje wessana wprost do obsydianowego filakterium spoczywającego na piersi potwora. Pradawna wiedza zakonu Szassa Tama wymaga nieustannych ofiar z żywego ducha, by truchło maga nie obróciło się w bezsilny proch i mogło dalej siać grozę na ziemiach Faerûnu.",
       "versions": []
+    },
+    {
+      "id": "655",
+      "art_id": "655M20",
+      "title": "Plummet",
+      "story": "Na omszałych tarasach świątynnej piramidy w głębi dżungli Ixalanu skrzydlaty władca podniebnych przestworzy zostaje zmuszony do uległości wobec praw lasu. Młody pterodon, który jeszcze przed chwilą szybował ponad chmurami, spoczywa nieruchomo na kamiennych płytach, spętany grubymi pnączami zrosłymi z prastarą puszczą. Obok uziemionej bestii czuwa łucznik Imperium Słońca Mahuiz, opierając o kamień wysoki łuk wyciosany z kości drapieżnego gada. Spokojna postawa myśliwego przypomina o dawnej mądrości ludu Orazca, głoszącej, że nawet najpotężniejsze skrzydła muszą w końcu złożyć pokłon potędze zielonego baldachimu.",
+      "versions": []
+    },
+    {
+      "id": "654",
+      "art_id": "654VOW",
+      "title": "Kessig Flamebreather",
+      "story": "Na drewnianej palisadzie strażnicy wznoszącej się na skraju nieprzebytego lasu Ulvenwald zwiadowca z prowincji Kessig rozprasza nocny mrok potężnym żywiołem. Z ust szamana Ralena wydobywa się zwarty strumień świętego ognia łowców, który rozświetla sosnowe pnie i gęstą mgłę unoszącą się nad traktem. Choć tajemna sztuka ziania płomieniem powstała w celu obrony przed krążącymi w zaroślach watahami wilkołaków, pewny swych umiejętności myśliwy z dumą demonstruje mistrzostwo przed stacjonującą załogą. Złocisty żar rzuca wyraziste cienie na zarysy opartej o poręcz kuszy, dając mieszkańcom osady rzadkie w tym ponurym świecie poczucie przewagi nad czającym się w ciemności zagrożeniem.",
+      "versions": []
+    },
+    {
+      "id": "653",
+      "art_id": "653DMR",
+      "title": "Necrosavant",
+      "story": "W zalanych mrokiem katakumbach pod mokradłami Sedgemoor uczeń Kolegium Witherbloom przeprowadza swoje pierwsze ćwiczenia z magii ożywienia. Rozrysowany na posadzce miniaturowy krąg z kredy i pojedyncza świeca miały posłużyć do wskrzeszenia zwykłego szkieletu, lecz kamienna płyta krypty skrywała znacznie potężniejszą tajemnicę. Z pękniętego, wielotonowego sarkofagu powoli podnosi się kolosalny zombi-gigant, którego barki porasta wiekowy bagienny mech i fosforyzujące huby. Blady, fioletowy płomień tli się w oczodołach pradawnego nieumarłego, uświadamiając młodemu adeptowi ze Strixhaven konsekwencje zbyt dosłownego odczytania starych map cmentarnych.",
+      "versions": []
+    },
+    {
+      "id": "652",
+      "art_id": "652LCI",
+      "title": "River Herald Guide",
+      "story": "W zalanych jaskiniach głęboko pod dżunglą Ixalanu przewodniczka z plemienia Heroldów Rzek bada nieznane dotąd nurty podziemnych koryt. Wyrzeźbione ze świętego nefrytu ostrze włóczni i zbroja z rybich łusek zdradzają przynależność do klanu, który od tysiącleci strzeże dawnych tajemnic kontynentu. Klęcząca na omszałym głazie zwiadowczyni odczytuje kierunek prądów z krystalicznej toni i wypatruje bezpiecznego przejścia między zalanymi ruinami prastarych świątyń. Szmaragdowa poświata bijąca ze skalnych ścian oświetla jej skupioną twarz, wyznaczając nowy szlak przez nieprzebyty labirynt jaskiń.",
+      "versions": []
+    },
+    {
+      "id": "645",
+      "art_id": "645SOI",
+      "title": "Might Beyond Reason",
+      "story": "W zalanych wodą podziemiach Manhattanu wybitny intelekt zmutowanego aligatora Leatherheada zostaje zepchnięty w cień przez pierwotną, gadzią furię. W odpowiedzi na zasadzkę zabójców z Klanu Piechoty potężny mutant bez trudu wyrywa ze ściany potężną magistralę wodną, unosząc żeliwną rurę wysoko nad głowę niczym drewnianą pałkę. Strugi spienionej wody tryskają pod wielkim ciśnieniem z pękniętej instalacji, zmywając zaskoczonych napastników z wąskich metalowych pomostów kolektora. Ogłuszający ryk bestii niesie się echem po ceglanych sklepieniach, dowodząc, że w starciu z bezkresną siłą zrodzoną z mutagenu wszelka ludzka kalkulacja traci rację bytu.",
+      "versions": []
+    },
+    {
+      "id": "651",
+      "art_id": "651ONE",
+      "title": "Leonin Lightbringer",
+      "story": "W ciemnych, żebrowanych korytarzach pod powierzchnią Mirrodinu zwiadowca z klanu leoninów prowadzi patrol mirrańskiego ruchu oporu. Wrośnięte w jego skórę mosiężne łuski mycosynthu lśnią w promieniach kryształowej włóczni, która rozprasza mrok wrogiego świata maszyn. Wojownik Kha Kemby trwa niewzruszenie na straży przejścia, dzierżąc naładowany światłem rynsztunek wykuty w ostatnich wolnych kuźniach obrońców. Promienisty blask niesiony przez samotnego strażnika wyznacza bezpieczny szlak dla ocalałych uchodźców, dając im nadzieję na przetrwanie w najczarniejszej godzinie ich ojczyzny.",
+      "versions": []
+    },
+    {
+      "id": "646",
+      "art_id": "646THS",
+      "title": "Messenger's Speed",
+      "story": "Na skalistym szlaku łączącym twierdzę Akros z obozowiskami stada Lagonna królewski goniec mknie z pilną depeszą wzdłuż morskich urwisk. Błogosławieństwo boga Iroasa nasyca nogi biegacza nadludzką chyżością, pozostawiając za jego sandałami smugę płomiennego pyłu i złotych iskier. Zasadzka zbójców z wąwozu okazuje się bezużyteczna, gdyż wypuszczone z łuków strzały prują powietrze daleko za plecami posłańca, a prowizoryczne barykady pękają w drzazgi pod samym impetem jego pędu. Zgodnie ze słowami kronikarki Baymy żaden wrogi grot ani rzucona w ślad za nim obelga nie są w stanie dogonić człowieka niosącego wolę poleis.",
+      "versions": []
+    },
+    {
+      "id": "648",
+      "art_id": "648DMR",
+      "title": "Seton's Desire",
+      "story": "W sercu dzikiego Lasu Krosa na kontynencie Otaria potężny centaur Seton staje na straży nienaruszalności pradawnej puszczy. Wbity w wilgotną ziemię kościany kostur druida rozbłyskuje intensywnym szmaragdowym światłem, nasycając powietrze pulsującą falą pierwotnej energii natury. Nieodparty blask druidycznego wyzwania działa niczym potężny magnes na zwiadowców wrogich armii, zmuszając ich do wyjścia z ukrycia w gęstwinie paproci i skupienia całej wrogości na samotnym obrońcy gaju. Pragnienie zachowania wolności Krosy przed niszczycielską chciwością najeźdźców dodaje strażnikowi sił, czyniąc go nieugiętym bastionem przeciwko każdemu zagrożeniu.",
+      "versions": []
+    },
+    {
+      "id": "647",
+      "art_id": "647RNA",
+      "title": "Get the Point",
+      "story": "Na brukowanej scenie plenerowego teatru w Dziesiątej Dzielnicy szermierczy spektakl Kultu Rakdosa osiąga swój widowiskowy finał. W ułamku sekundy prosta klinga rapiera trafia prosto w napierśnik golgariańskiego zwiadowcy, wyzwalając na styku stali snop jaskrawych estradowych iskier. Zaskoczony precyzją trafienia wojownik upuszcza z bezwładnych dłoni obosieczne sierpy, zamierając w bezruchu przed porcelanową maską uśmiechniętego szermierza. Z wysokości kamiennych schodów Judith z drwiącym uśmiechem wznosi kielich za mistrzowski spektakl, dowodząc, że dla mieszkańców Ravnicy śmierć staje się prawdziwą sztuką dopiero wtedy, gdy towarzyszy jej bezbłędnie wymierzona puenta.",
+      "versions": []
+    },
+    {
+      "id": "649",
+      "art_id": "649LCI",
+      "title": "Spring-Loaded Sawblades",
+      "story": "W wilgotnych, granitowych korytarzach Podgórza pod Waterdeep mechaniczne pułapki Szalonego Maga Halastera bezlitośnie strzegą dostępu do dolnych poziomów lochu. Ze szczelin w kamiennej posadzce wystrzeliwują potężne, zębate piły ze stali, napędzane przez ukryte pod płytami zwoje ciężkich żelaznych sprężyn. Rozcięta na dwoje drewniana tarcza leżąca na kamieniach świadczy o potwornej sile mechanizmu, który w ułamku sekundy ukarał intruzów za zbyt pośpieszny krok. Odbity w stalowych ostrzach blask pochodni zmusza poszukiwaczy przygód do ostrożnego marszu przez zdradliwe korytarze najsłynniejszego megaslochu Faerûnu.",
+      "versions": []
+    },
+    {
+      "id": "650",
+      "art_id": "650LCI",
+      "title": "Bladewheel Chariot",
+      "story": "W warsztatach rusznikarskich w głębi Podgórza rzemieślnicy ze świątyni Gonda w Waterdeep przekształcają odzyskane części podziemnych pułapek w samobieżne machiny bojowe. Masywny rydwan z nitowanego żelaza opiera się na dwóch gigantycznych piłach tarczowych z hartowanej stali, które służą jednocześnie za koła napędowe i śmiercionośny taran. Za pancerną osłoną kokpitu krasnoludzki sternik w mosiężnych goglach opiera dłonie na dźwigniach sterowniczych, gotowy do ruszenia w głąb niebezpiecznych korytarzy. Zbudowana ze złomu i prastarych sprężyn konstrukcja z łatwością toruje sobie drogę przez zawaliska, obracając dawną grozę lochów w potężną broń przeciwko sługom Szalonego Maga.",
+      "versions": []
     }
   ]
 }

@@ -1,10 +1,10 @@
 {
- "audit": "/home/user/mtgdatabase/data/samples/audio-audit-latest.json",
- "checked": 272,
+ "audit": "data/samples/audio-audit-latest.json",
+ "checked": 283,
  "by_verdict": {
   "nie trafiony": 11,
   "prawdopodobnie": 62,
-  "trafiony": 199
+  "trafiony": 210
  },
  "results": [
   {
@@ -2959,6 +2959,105 @@
    "title": "Pheres-Band Centaurs",
    "archetype": "plate_clank",
    "archetype_label": "pancerz / płyty stalowe",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "645",
+   "title": "Might Beyond Reason",
+   "archetype": "steam_hiss",
+   "archetype_label": "syk pary / gazu",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "646",
+   "title": "Messenger's Speed",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "647",
+   "title": "Get the Point",
+   "archetype": "sword_clash",
+   "archetype_label": "starcie stali / cios miecza",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "648",
+   "title": "Seton's Desire",
+   "archetype": "heavy_footsteps",
+   "archetype_label": "ciężkie kroki / kopyta",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "649",
+   "title": "Spring-Loaded Sawblades",
+   "archetype": "mechanism_click",
+   "archetype_label": "zegarowy mechanizm / zamek / zapadka",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "650",
+   "title": "Bladewheel Chariot",
+   "archetype": "chain_rattle",
+   "archetype_label": "grzechot łańcuchów / kolczugi",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "651",
+   "title": "Leonin Lightbringer",
+   "archetype": "magic_shimmer",
+   "archetype_label": "magiczne migotanie / aureola",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "652",
+   "title": "River Herald Guide",
+   "archetype": "water_splash",
+   "archetype_label": "plusk / uderzenie w wodę",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "653",
+   "title": "Necrosavant",
+   "archetype": "heavy_impact",
+   "archetype_label": "potężne uderzenie / upadek ciała",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "654",
+   "title": "Kessig Flamebreather",
+   "archetype": "mechanism_click",
+   "archetype_label": "zegarowy mechanizm / zamek / zapadka",
+   "score": 0,
+   "verdict": "trafiony",
+   "violations": []
+  },
+  {
+   "id": "655",
+   "title": "Plummet",
+   "archetype": "beast_screech",
+   "archetype_label": "wrzask / pisk potwora",
    "score": 0,
    "verdict": "trafiony",
    "violations": []
