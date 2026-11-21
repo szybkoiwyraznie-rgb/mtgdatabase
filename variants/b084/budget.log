@@ -1,0 +1,2 @@
+HTTP 401 przy odczycie subskrypcji: {"detail":{"type":"authentication_error","code":"unauthorized","message":"The API key you used is missing the permission user_read to execute this operation.","status":"missing_permissions","request_id":"be762600d3bf43be552c5a9d538b1d66"}}
+ok=0
