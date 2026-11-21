@@ -1,0 +1,106 @@
+name: "TEMP b084 - 656-665 x 3"
+
+on:
+  push:
+    branches:
+      - arena/204cf1cc-mtgdatabase
+
+permissions:
+  contents: write
+
+env:
+  SCENARIOS: data/samples/scenarios.jsonl
+  MANIFEST: data/samples/generated-manifest.jsonl
+  IDS: "656,657,658,659,660,661,662,663,664,665"
+
+jobs:
+  variants:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          ref: arena/204cf1cc-mtgdatabase
+
+      - name: Guard — tylko commit z markerem [generate-b084]
+        id: guard
+        run: |
+          if git log -1 --pretty=%B | grep -qF '[generate-b084]'; then
+            echo "run=1" >> "$GITHUB_OUTPUT"
+          else
+            echo "brak markera [generate-b084] — nic nie generuję"
+          fi
+
+      - uses: actions/setup-python@v5
+        if: steps.guard.outputs.run == '1'
+        with:
+          python-version: "3.12"
+
+      - name: Validate scenarios
+        if: steps.guard.outputs.run == '1'
+        run: python scripts/validate_sample_scenarios.py "$SCENARIOS" --catalog data/catalog.json
+
+      - name: Sprawdź budżet — przerwij przy zerze
+        id: budget
+        if: steps.guard.outputs.run == '1'
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+        run: |
+          python - <<'PY' >> "$GITHUB_OUTPUT"
+          import json, os, urllib.request
+          key = os.environ.get("ELEVENLABS")
+          if not key:
+              print("brak sekretu ELEVENLABS"); print("ok=0"); raise SystemExit(0)
+          req = urllib.request.Request("https://api.elevenlabs.io/v1/user/subscription",
+                                       headers={"xi-api-key": key})
+          try:
+              with urllib.request.urlopen(req, timeout=30) as resp:
+                  d = json.load(resp)
+          except Exception as exc:
+              print(f"nie udało się odczytać budżetu: {exc}", file=__import__('sys').stderr)
+              print("ok=1"); raise SystemExit(0)
+          used = d.get("character_count") or 0
+          limit = d.get("character_limit") or 0
+          left = limit - used
+          print(f"character_count: {used}", file=__import__('sys').stderr)
+          print(f"character_limit: {limit}", file=__import__('sys').stderr)
+          print(f"remaining: {left}", file=__import__('sys').stderr)
+          print(f"ok={1 if left >= 40 else 0}")
+          PY
+
+      - name: Generate 3 variants per story
+        if: steps.guard.outputs.run == '1' && steps.budget.outputs.ok == '1'
+        continue-on-error: true
+        env:
+          ELEVENLABS: ${{ secrets.ELEVENLABS }}
+          ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
+        run: |
+          mkdir -p variants/b084
+          for v in 1 2 3; do
+            echo "=== wariant v$v ===" | tee -a variants/b084/generate.log
+            python scripts/elevenlabs_sample_scout.py \
+              --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
+              --ids "$IDS" --force --retries 2 --prompt-influence 0.35 \
+              --out "variants/b084/v$v" 2>&1 | tee -a variants/b084/generate.log
+          done
+
+      - name: Podsumowanie plików
+        if: always() && steps.guard.outputs.run == '1'
+        run: |
+          echo "--- wygenerowane pliki ---"
+          find variants/b084 -name '*.mp3' 2>/dev/null | sort | while read f; do
+            echo "$f $(stat -c%s "$f") B"
+          done
+          echo "--- razem ---"
+          find variants/b084 -name '*.mp3' 2>/dev/null | wc -l
+
+      - name: Commit variants
+        if: always() && steps.guard.outputs.run == '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f variants/b084 data/samples/generated-manifest.jsonl
+          if git diff --cached --quiet; then echo nic; else
+            git commit -m "b084: warianty (656-665 x 3) + log generacji [import-b084]"
+            git push origin HEAD:arena/204cf1cc-mtgdatabase
+          fi

@@ -4577,6 +4577,76 @@
       "title": "Bladewheel Chariot",
       "story": "W warsztatach rusznikarskich w głębi Podgórza rzemieślnicy ze świątyni Gonda w Waterdeep przekształcają odzyskane części podziemnych pułapek w samobieżne machiny bojowe. Masywny rydwan z nitowanego żelaza opiera się na dwóch gigantycznych piłach tarczowych z hartowanej stali, które służą jednocześnie za koła napędowe i śmiercionośny taran. Za pancerną osłoną kokpitu krasnoludzki sternik w mosiężnych goglach opiera dłonie na dźwigniach sterowniczych, gotowy do ruszenia w głąb niebezpiecznych korytarzy. Zbudowana ze złomu i prastarych sprężyn konstrukcja z łatwością toruje sobie drogę przez zawaliska, obracając dawną grozę lochów w potężną broń przeciwko sługom Szalonego Maga.",
       "versions": []
+    },
+    {
+      "id": "665",
+      "art_id": "665PIP",
+      "title": "Mirelurk Queen",
+      "story": "W zalanych ściekami podziemiach pod nowojorskim portem wyciek mutagenu z laboratoriów TCRI powołuje do życia potwory z miejskich legend. W sercu ceglanego kolektora królowa krabów-mutantów strzeże swego leża i brodzi w mętnej wodzie rozświetlonej seledynową poświatą chemicznego szlamu. Jej zmutowany pancerz z chityny z łatwością odbija uderzenia oręża, a masywne szczypce bez trudu miażdżą zardzewiałe żeliwne magistrale. Wszyscy mieszkańcy nowojorskiego podziemia omijają z daleka te skażone głębiny, wiedząc, że władczyni kanałów rośnie w siłę z każdym kolejnym zrzuconym do rzeki toksycznym odpadem.",
+      "versions": []
+    },
+    {
+      "id": "664",
+      "art_id": "664M20",
+      "title": "Frilled Sea Serpent",
+      "story": "Na wzburzonych wodach Morza Mieczy w pobliżu Wysp Moonshae samotna poławiaczka Gertruda wypływa drewnianą łodzią na połów głębinowy. Zamiast ławicy dorszy gruba lina rybacka napina się do granic wytrzymałości, zwiastując schwytanie czegoś znacznie potężniejszego. Z morskiej toni z łomotem wynurza się kolosalny wąż morski o jaskrawym, pasiastym grzebieniu i kłach ociekających morską pianą. Widok prastarego potwora górującego nad kruchą łupiną łodzi natychmiast uświadamia rybaczce, że niektóre dary głębin Faerûnu najlepiej bez wahania zwrócić oceanowi.",
+      "versions": []
+    },
+    {
+      "id": "663",
+      "art_id": "663KTK",
+      "title": "Temur Banner",
+      "story": "Na wietrznej przełęczy pasma Qal Sisma powiewa ciężki sztandar klanu Temur i wyznacza granicę koczowisk wolnych myśliwych. Wyprawione niedźwiedzie futro rozpięte na mamucich ciosach nosi wymalowany ochrą ślad szponu, będący symbolem pierwotnej siły niezbędnej do przetrwania na lodowych pustkowiach Tarkiru. Stojący na warcie zwiadowca spogląda z urwiska na wijący się w dole lodowiec i pilnuje bezpieczeństwa szlaków wiodących do obozowisk. Prastary znak budzi w sercach koczowników niezłomną odwagę, dowodząc, że szacunek dla surowej natury stanowi najpewniejszą drogę do ocalenia.",
+      "versions": []
+    },
+    {
+      "id": "662",
+      "art_id": "662MBS",
+      "title": "Loxodon Partisan",
+      "story": "Na lśniących metalicznych stepach Pól Brzytw loxodoński weteran wznosi swój oręż, by zjednoczyć podzielone dotąd ludy Mirrodinu. Wbita w podłoże stalowa partyzana i tarcza z symbolem słońca przypominają obrońcom, że wolność świata zależy od zatarcia dawnych waśni między plemionami. Donośny zew wojenny olbrzyma niesie się echem ponad ostrymi trawami i zwołuje pod wspólny sztandar zwiadowców z klanów Aurioków, Sylvoków oraz Leoninów. W obliczu niszczycielskiej zarazy z głębin metalicznego globu przymierze wolnych ras staje się jedyną siłą zdolną zatrzymać marsz biomechanicznych najeźdźców.",
+      "versions": []
+    },
+    {
+      "id": "661",
+      "art_id": "661KTK",
+      "title": "Arrow Storm",
+      "story": "Z wysokiej skalnej grani ponad stepami Tarkiru łucznik hordy Mardu posyła w powietrze niszczycielską salwę w stronę odległego wrogiego garnizonu. Tysiące wypuszczonych jednocześnie strzał wznoszą się na niebie w gigantyczną, ciemną parabolę, przysłaniając burzowe chmury niczym zwiastun żelaznego deszczu. Ciężkie groty z czernionej stali żarzą się czerwonym blaskiem stepowych błyskawic, mknąc ponad równiną prosto ku obwarowaniom nieprzyjaciela. Gdy ogłuszający grzmot setek cięciw przetacza się echem po bezdrożach, nadciągająca z nieba nawałnica nie daje obrońcom ani chwili na znalezienie bezpiecznej osłony.",
+      "versions": []
+    },
+    {
+      "id": "660",
+      "art_id": "660MID",
+      "title": "Lambholt Harrier",
+      "story": "Na zamglonych rubieżach leśnej parafii Lambholt wilczy harcownik z watahy Mondronen zajmuje pozycję na kamiennym słupie granicznym. Każdej nocy potężny basior zjawia się na skraju ufortyfikowanej palisady, paraliżując mieszkańców osady głuchym warkotem i widokiem jarzących się w mroku ślepi. Zgodnie z taktyką wilkołaczego władcy Tovolara nieustanna presja i bezsenne noce mają doszczętnie złamać morale miejscowej straży przed nadejściem głównego uderzenia. Zimne światło księżyca w pełni oświetla opustoszały posterunek wartowniczy, zwiastując nieuchronny upadek obrony w sercu prowincji Kessig.",
+      "versions": []
+    },
+    {
+      "id": "659",
+      "art_id": "659WOC",
+      "title": "Gylwain, Casting Director",
+      "story": "W oświetlonym lampionami namiocie wędrownej trupy na obrzeżach Kniei bard Gylwain przygotowuje obsadę do wieczornego spektaklu. Na dębowym stole reżyserskim spoczywają gotowe rekwizyty: złocisty diadem władcy, kryształowa różdżka czarnoksiężnika oraz rogata maska leśnej bestii. Charyzmatyczny dyrektor teatru nanosi ostatnie poprawki w oprawionej w skórę kronice i przypisuje baśniowe role kolejnym wędrowcom. Na zaczarowanych bezdrożach Eldraine granica między sceniczną fikcją a prawdziwą magią zaciera się z chwilą, gdy aktor zakłada powierzony mu rekwizyt.",
+      "versions": []
+    },
+    {
+      "id": "656",
+      "art_id": "656EXO",
+      "title": "Grollub",
+      "story": "W wilgotnych pieczarach Gór Krańca Świata podziemne plemiona Nocnych Goblinów wykorzystują przysadziste bestie jaskiniowe jako powolne zwierzęta juczne. Spokojna natura i gruba, pofałdowana skóra grolluba czynią zeń idealny cel dla złośliwych intryg małych goblinich sługusów. Przyłapany na stłuczeniu cennego gąsiorka z grzybowym piwem młody goblin bez wahania wskazuje kościstym palcem na stojącego obok, niewinnego olbrzyma. Ciężki orkowy nadzorca z zadowoleniem chwyta za nabijaną ćwiekami pałkę, nie potrzebując żadnego innego powodu, by po raz kolejny wyładować złość na cierpliwym bydlęciu.",
+      "versions": []
+    },
+    {
+      "id": "657",
+      "art_id": "657PLC",
+      "title": "Saltfield Recluse",
+      "story": "Poza ochronną barierą Hekmy bezlitosne solniska Amonkhetu rozciągają się aż po horyzont i bezpowrotnie zacierają ślady dawnego życia. Wśród palących wiatrów pustyni Shefet samotny pustelnik z dawnego kleru bogini Oketry przemierza spękaną skorupę soli, wspierając się na sękatym akacjowym kosturze. Choć kapłan wciąż pamięta uzdrawiający blask marmurowych świątyń Naktamun, dziś jego jedyną tarczą przed pustynnymi bestiami pozostaje wysuszający żar i słony pył. Każde zbliżające się ku niemu stworzenie traci dawną siłę pod naporem duszącego wiatru, który bezlitośnie gasi wolę walki w znojnym bezkresie pustkowi.",
+      "versions": []
+    },
+    {
+      "id": "658",
+      "art_id": "658DOM",
+      "title": "Memorial to Genius",
+      "story": "Na nadmorskim przylądku Nowej Tolarii wznosi się monumentalny pomnik wykuty ku pamięci niezrównanego geniuszu Urzy. Kolosalna rzeźba z białego granitu i polerowanego mosiądzu przedstawia Najwyższego Rzemieślnika w dostojnych szatach mistrza Malzry, dzierżącego sferę armilarną. W kamiennej twarzy tytana lśnią dwa szafirowe kryształy na pamiątkę pradawnych Kamieni Mocy, rzucając łagodną błękitną poświatę na lustrzaną taflę basenów. U stóp monumentu tolariańscy uczeni czerpią natchnienie z bezkresnej wiedzy czarnoksiężnika, którego wizjonerski umysł na zawsze odmienił bieg historii Dominarii.",
+      "versions": []
     }
   ]
 }
