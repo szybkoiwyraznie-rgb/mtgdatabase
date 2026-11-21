@@ -1,4 +1,4 @@
-name: "TEMP b084b - 663/665 x 3"
+name: "TEMP b084c - 665 x 5"
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
 env:
   SCENARIOS: data/samples/scenarios.jsonl
   MANIFEST: data/samples/generated-manifest.jsonl
-  IDS: "663,665"
+  IDS: "665"
 
 jobs:
   variants:
@@ -22,13 +22,13 @@ jobs:
           fetch-depth: 0
           ref: arena/204cf1cc-mtgdatabase
 
-      - name: Guard — tylko commit z markerem [generate-b084b]
+      - name: Guard — tylko commit z markerem [generate-b084c]
         id: guard
         run: |
-          if git log -1 --pretty=%B | grep -qF '[generate-b084b]'; then
+          if git log -1 --pretty=%B | grep -qF '[generate-b084c]'; then
             echo "run=1" >> "$GITHUB_OUTPUT"
           else
-            echo "brak markera [generate-b084b] — nic nie generuję"
+            echo "brak markera [generate-b084c] — nic nie generuję"
           fi
 
       - uses: actions/setup-python@v5
@@ -46,8 +46,8 @@ jobs:
         env:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
         run: |
-          mkdir -p variants/b084b
-          python - <<'PY2' 2>&1 | tee -a variants/b084b/budget.log | tee /dev/stderr | grep '^ok=' >> "$GITHUB_OUTPUT"
+          mkdir -p variants/b084c
+          python - <<'PY2' 2>&1 | tee -a variants/b084c/budget.log | tee /dev/stderr | grep '^ok=' >> "$GITHUB_OUTPUT"
           import json, os, urllib.request
           key = os.environ.get("ELEVENLABS")
           if not key:
@@ -87,32 +87,32 @@ jobs:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
           ELEVENLABS_SOUNDGEN_ENDPOINT: ${{ secrets.ELEVENLABS_SOUNDGEN_ENDPOINT }}
         run: |
-          mkdir -p variants/b084b
-          for v in 1 2 3; do
-            echo "=== wariant v$v ===" | tee -a variants/b084b/generate.log
+          mkdir -p variants/b084c
+          for v in 1 2 3 4 5; do
+            echo "=== wariant v$v ===" | tee -a variants/b084c/generate.log
             python scripts/elevenlabs_sample_scout.py \
               --scenarios "$SCENARIOS" --manifest "$MANIFEST" \
               --ids "$IDS" --force --retries 2 --prompt-influence 0.35 \
-              --out "variants/b084b/v$v" 2>&1 | tee -a variants/b084b/generate.log
+              --out "variants/b084c/v$v" 2>&1 | tee -a variants/b084c/generate.log
           done
 
       - name: Podsumowanie plików
         if: always() && steps.guard.outputs.run == '1'
         run: |
           echo "--- wygenerowane pliki ---"
-          find variants/b084b -name '*.mp3' 2>/dev/null | sort | while read f; do
+          find variants/b084c -name '*.mp3' 2>/dev/null | sort | while read f; do
             echo "$f $(stat -c%s "$f") B"
           done
           echo "--- razem ---"
-          find variants/b084b -name '*.mp3' 2>/dev/null | wc -l
+          find variants/b084c -name '*.mp3' 2>/dev/null | wc -l
 
       - name: Commit variants
         if: always() && steps.guard.outputs.run == '1'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f variants/b084b data/samples/generated-manifest.jsonl
+          git add -f variants/b084c data/samples/generated-manifest.jsonl
           if git diff --cached --quiet; then echo nic; else
-            git commit -m "b084b: warianty (663/665 x 3) + log generacji [import-b084b]"
+            git commit -m "b084c: warianty (665 x 5) + log generacji [import-b084c]"
             git push origin HEAD:arena/204cf1cc-mtgdatabase
           fi
