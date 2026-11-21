@@ -46,7 +46,7 @@ jobs:
         env:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
         run: |
-          python - <<'PY' >> "$GITHUB_OUTPUT"
+          python - <<'PY2' >> "$GITHUB_OUTPUT"
           import json, os, urllib.request
           key = os.environ.get("ELEVENLABS")
           if not key:
@@ -56,6 +56,12 @@ jobs:
           try:
               with urllib.request.urlopen(req, timeout=30) as resp:
                   d = json.load(resp)
+          except urllib.error.HTTPError as exc:
+              body = exc.read().decode("utf-8", "replace")[:300]
+              print(f"HTTP {exc.code} przy odczycie subskrypcji: {body}", file=__import__('sys').stderr)
+              # 400/401/403 = zły lub cofnięty klucz. Twardy stop — inaczej
+              # generacja poleci 30 razy i zapisze 30 wpisów 'failed' (b084).
+              print("ok=0"); raise SystemExit(0)
           except Exception as exc:
               print(f"nie udało się odczytać budżetu: {exc}", file=__import__('sys').stderr)
               print("ok=1"); raise SystemExit(0)
@@ -66,7 +72,7 @@ jobs:
           print(f"character_limit: {limit}", file=__import__('sys').stderr)
           print(f"remaining: {left}", file=__import__('sys').stderr)
           print(f"ok={1 if left >= 40 else 0}")
-          PY
+          PY2
 
       - name: Generate 3 variants per story
         if: steps.guard.outputs.run == '1' && steps.budget.outputs.ok == '1'
