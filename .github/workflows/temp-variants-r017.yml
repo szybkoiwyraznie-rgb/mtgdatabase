@@ -46,7 +46,8 @@ jobs:
         env:
           ELEVENLABS: ${{ secrets.ELEVENLABS }}
         run: |
-          python - <<'PY2' >> "$GITHUB_OUTPUT"
+          mkdir -p variants/b084
+          python - <<'PY2' 2>&1 | tee -a variants/b084/budget.log | tee /dev/stderr | grep '^ok=' >> "$GITHUB_OUTPUT"
           import json, os, urllib.request
           key = os.environ.get("ELEVENLABS")
           if not key:
