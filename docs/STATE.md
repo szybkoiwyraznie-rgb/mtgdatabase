@@ -33,11 +33,13 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   analiza preferencji na przyszłe generacje. Katalog jest samodzielny
   (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
   z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **654 fabuły**
-  (ostatnia dostawa: `645`–`655`; wcześniej `635`–`644`, `625`–`634`, `400`–`425`, `618`–`624`).
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **664 fabuły**
+  (ostatnia dostawa: `656`–`665`; wcześniej `645`–`655`, `635`–`644`, `625`–`634`, `400`–`425`, `618`–`624`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **654 MP3** w `audio/samples/<id>.mp3`; **654 scenariusze**
-  — 100 % katalogu; wszystkie karty do `b083` włącznie mają audio.
+- Sample: **654 MP3** w `audio/samples/<id>.mp3`; **664 scenariusze**
+  — 100 % katalogu ma scenariusz, audio do `b083` włącznie.
+  Dostawa `b084` (`656`–`665`) ma scenariusze, ale **nie ma audio** —
+  blokada po stronie klucza ElevenLabs (patrz „Budżet”).
 - Ostatnia dostawa: **`b083`** (2026-11-14) — **11 nowych kart**: `655` Plummet
   (`beast_screech`), `654` Kessig Flamebreather (`mechanism_click`), `653`
   Necrosavant (`heavy_impact`), `652` River Herald Guide (`water_splash`), `645`
@@ -68,6 +70,26 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   Wybór: 645 v3, 646 v1, 647 v3 (b083b), 648 v3, 649 v3, 650 v2 (b083b),
   651 v3, 652 v1, 653 v3, 654 v2, 655 v3 (trym) — LUFS −20,0 ± 0,3,
   0 over-ceiling, wszystkie 2,49–4,00 s.
+- **Dostawa `b084`** (2026-11-14) — **10 nowych kart**: `656`–`665`.
+  **Scenariusze gotowe, audio zablokowane na kluczu API** (szczegóły w „Stan
+  liczbowy” → Budżet). Karty i dobrane archetypy:
+  `656` Grollub → `heavy_impact` (tępy łomot pałki o skórzasty grzbiet),
+  `657` Saltfield Recluse → `glass_shatter` (skorupa soli pęka pod kosturem),
+  `658` Memorial to Genius → `temple_bell` (jeden mosiężny ton sfery armilarnej),
+  `659` Gylwain → `folk_music` (**`music_allowed: true`**, lutnia + bębenek,
+  bo karta stawia trupa i spektakl w kadrze),
+  `660` Lambholt Harrier → `creature_roar` (warkot basiora pod palisadą),
+  `661` Arrow Storm → `arrow_flight` (trzask cięciw + szum przelotu),
+  `662` Loxodon Partisan → `horn_call` (zew wojenny z piersi olbrzyma),
+  `663` Temur Banner → `wind_gust` (sztandar łopocze na przełęczy),
+  `664` Frilled Sea Serpent → `water_splash` (potwór wynurza się z toni),
+  `665` Mirelurk Queen → `creature_roar` (gardłowy ryk w kolektorze).
+  **9 różnych archetypów na 10 kart** — świadomie omijano najgęstsze klastry
+  (`sword_clash` 24, `plate_clank` 23, `magic_shimmer` 16), bo dokładanie do
+  nich powiększa ryzyko par ≥ 0,95 i powtarzalności brzmienia.
+  Dwie karty z `creature_roar` rozdzielone rejestrem: `665` to wrzask z mokrym
+  chrobotem żwiru (wyżej), `660` to warkot z piersi (niżej) — przy różnych
+  długościach 3,8 vs 3,6 s.
 - **Dostawa paczki b083 na Google Drive** (2026-11-14):
   `samples-b083-2026-11-14.zip` (904 478 B, 11 MP3 + `README.txt`)
   ID pliku: `13dFvOcsv_rLMAjxf49nu07PMctPoecON`
@@ -545,8 +567,8 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **654 fabuły**, scenariusze **654** (100 %, 79 `generated`
-  + 575 `ready`), sample **654**.
+- Katalog: **664 fabuły**, scenariusze **664** (100 %, 79 `generated`
+  + 585 `ready`), sample **654** (10 kart `b084` czeka na generację).
 - Flagi: **57 plików** z flagą na 654 — po dostawie `b083` **bez zmian**
   (11 nowych kart weszło z 0 flag, dwie świadome flagi `650 harsh` i
   `655 long_trail_silence` zdjęto w `b083b`). Najczęstsze: `dull` 16,
@@ -559,7 +581,20 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 - Archetypy: **11** nie trafionych, **62** prawdopodobnie, **210** trafionych
   (283 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
 - Budżet: **0 / 10 000** kredytów — dostawa `b083` + `b083b` (42 generacje)
-  wyczerpała drugi klucz. **Do dalszej generacji potrzebny trzeci klucz.**
+  wyczerpała drugi klucz.
+  **Dostawa `b084` NIE ZUŻYŁA ANI JEDNEGO KREDYTU — padła na kluczu API, nie
+  na budżecie.** Sekret `ELEVENLABS` zawiera teraz *API key ID* zamiast klucza:
+  ```
+  HTTP 400 authentication_error / api_key_id_used_as_api_key
+  "API key ID used as API key - only valid API keys can be used.
+   API keys start with 'sk_' and are shown when the key is created or rotated."
+  ```
+  Naprawa po stronie właściciela: wgrać pełny klucz `sk_...` jako sekret
+  `ELEVENLABS` (`gh secret set ELEVENLABS`, albo Settings → Secrets → Actions).
+  Po naprawie wystarczy push z markerem `[generate-b084]` — workflow
+  `temp-variants-r017.yml` zrobi resztę, budżet wystarczy (10 kart × 3 = 30
+  generacji × 40 kr = **1200 kr**, o ile konto jest doładowane — poprzedni
+  stan to 0/10000).
   Poprzednie zużycie: b081 ≈1320, b082 ≈1440, b083 33×40 = 1320,
   b083b 9×40 = 360.
   Pierwszy klucz 10 000 zamknęły: b072 560,
@@ -755,6 +790,28 @@ zrobił 0,3 s wstępu — trzeba pociąć `sf.read` ręcznie i zapisać przez
 `process_one` od nowa (jedno kodowanie). Po cięciu `duration_seconds`
 w scenariuszu musi iść za `sf.info()`.
 
+**29. `api_key_id_used_as_api_key` — zanim uznasz, że padł budżet, sprawdź
+sam klucz.** Dostawa `b084` zwróciła 30 × HTTP 400, a raport bota był
+„success”, bo generacja ma `continue-on-error` i loguje błędy zamiast je
+rzucać. Komunikat brzmiał jednoznacznie: *„API key ID used as API key — only
+valid API keys can be used. API keys start with `sk_`”*. **Zużycie kredytów
+było przy tym zerowe** — nieudane uwierzytelnienie nie kosztuje nic. Wniosek:
+`quota_exceeded` (b083c) i `invalid_api_key` (b084) to **dwie różne choroby**
+o tym samym objawie „brak MP3”. Przed każdą diagnozą „skończyły się kredyty”
+odczytać typ błędu z `variants/<batch>/generate.log`. Poprawna reakcja to
+zmiana sekretu, nie zmiana promptu ani archetypu.
+
+**30. Nie zostawiaj wpisów `status: failed` w manifeście po nieudanej turze.**
+Scout zapisuje do `data/samples/generated-manifest.jsonl` jeden wpis na każdą
+**próbę**, także nieudaną — z pełnym JSON-em błędu w polu `error`. Po `b084`
+doszło 30 takich wpisów (po 10 na wariant), z których żaden nie odpowiada
+istniejącemu plikowi. Manifest jest w repo i rośnie liniowo z liczbą prób,
+więc po turze zakończonej zerem generacji **trzeba je usunąć osobnym
+commitem** (filtr: `batch == "bNNN" and status == "failed"`), inaczej następna
+analiza „ile mamy sampli” liczy duchy. Wcześniejsze batche mają 96 takich
+wpisów (`b031` 10, `b051` 10, `r016b` 9, `r094` 8, `b078` 26, `b083c` 3) —
+zostawione jako historia, ale **nie są źródłem prawdy o plikach**.
+
 **24. Korekcję EQ aplikować tylko tam, gdzie zdejmuje flagę.** Próba na
 27 kartach (`16 dull` + `11 harsh`) dała ten sam zysk flag (52 → 46),
 ale 19 kart bez zysku dorzuciło **2 nowe pary** i podbiło maksimum
@@ -770,6 +827,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | batch | data | wynik | archiwum |
 |---|---|---|---|
 | b083 | 2026-11-14 | 11 nowych kart (645–655), **11/11 trafionych**, 0 flag, 0 par; 6 kart uratowanych testem krzyżowym archetypów (0 kr), 42 generacje ≈1680 kr → budżet 0 | ten plik |
+| b084 | 2026-11-14 | 10 nowych kart (656–665) w katalogu i ze scenariuszami; **generacja nieudana — `invalid_api_key`** (sekret = API key ID, nie klucz `sk_`), 0 kredytów zużytych, 0 MP3 | ten plik |
 | b077 | 2026-10-14 | 10 nowych kart (369–398), 6/10 trafionych, 0 nowych par; 392→horn_call i 398→chain_rattle po audycie brzmienia | ten plik |
 | b080 | 2026-10-27 | 10 nowych kart (426,427,429,618–624), 2/10 trafionych, 6 prawd., 0 nowych par; 30 generacji (1200 kr), 4 flagi świadome | ten plik |
 | b079 | 2026-10-20 | 10 nowych kart (412–418,423–425), 1/10 trafionych, 3 prawd., 0 nowych par; 30 generacji w 1 paczce b079 (1200 kr), 4 flagi świadome | ten plik |

@@ -1219,3 +1219,69 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   Odwrotnie dla kart, które mają być ostre: nagłówek nazywa to, co ma
   błyszczeć. Przed generacją sprawdzić, czy nagłówek zgadza się z progiem
   `spectral_centroid_hz` kontraktu.
+
+## 2026-11-14 — „Brak MP3” to nie zawsze „brak kredytów” (b084)
+
+- Sytuacja: dostawa `b084` (10 kart) przeszła import, scenariusze i walidację,
+  a workflow zakończył się **`success`** — po czym w repo były 0 plików MP3.
+  Log pokazał 30 × HTTP 400: `api_key_id_used_as_api_key`, *„API key ID used as
+  API key — only valid API keys can be used. API keys start with `sk_`”*.
+  Sekret `ELEVENLABS` zawierał **identyfikator klucza**, nie klucz. Zużycie
+  kredytów: **zero** (nieudane uwierzytelnienie nic nie kosztuje).
+- Wniosek: dwa różne błędy dają ten sam objaw „nie ma plików”:
+  `quota_exceeded` (b083c — konto naprawdę puste) i `invalid_api_key`
+  (b084 — złe poświadczenie). Diagnoza po samym braku MP3 jest zgadywaniem;
+  typ błędu siedzi w `variants/<batch>/generate.log`.
+- Zasada / działanie zapobiegawcze: workflow ma krok „Sprawdź budżet — przerwij
+  przy zerze”, który odczytuje `/v1/user/subscription`. **Ten krok nie złapie
+  złego klucza**, bo sam używa tego samego klucza — przy `invalid_api_key`
+  wyjątek jest łapany i workflow idzie dalej. Kolejna wersja powinna traktować
+  błąd 400/401 z endpointu subskrypcji jako **twardy stop**, nie ostrzeżenie.
+  Reguła 29 w `docs/STATE.md`.
+
+## 2026-11-14 — `continue-on-error` na generacji maskuje zero pracy
+
+- Sytuacja: krok „Generate 3 variants per story” ma `continue-on-error: true`
+  (celowo — pojedyncza karta nie może wywalić całej transzy). Skutek: gdy
+  padły **wszystkie 30 wywołań**, run i tak był `success`, a jedynym śladem
+  była garść linii `WARN` w logu, którego `gh run view --log` nie potrafił
+  nawet pobrać (EOF z results-receiver).
+- Wniosek: zielony check na PR nic nie mówi o tym, czy sample powstały.
+  Trzeba czytać ostatnią linię logu: `done: generated=X, skipped=Y, failed=Z`,
+  i dopiero `Z == 0` jest sukcesem.
+- Zasada / działanie zapobiegawcze: po każdym runie generacji sprawdzić
+  `git ls-tree origin/<branch> variants/<batch>` — jeśli nie ma nowych MP3,
+  dostawa **nie ruszyła**, niezależnie od koloru checka.
+
+## 2026-11-14 — Manifest generacji to dziennik prób, nie inwentarz plików
+
+- Sytuacja: po nieudanej turze `b084` `data/samples/generated-manifest.jsonl`
+  urósł o **30 wpisów `status: "failed"`** — scout zapisuje każdą próbę,
+  z pełnym JSON-em błędu API w polu `error`. Żaden z tych wpisów nie
+  odpowiadał istniejącemu plikowi. W repo było już wcześniej 96 takich
+  wpisów (`b031`, `b051`, `r016b`, `r094`, `b078`, `b083c`).
+- Wniosek: plik nazywa się „manifest”, ale jest **dziennikiem**: jeden wiersz
+  na próbę, także nieudaną. Liczenie „ile mamy sampli” z manifestu zawyża
+  wynik o każdą porażkę.
+- Zasada / działanie zapobiegawcze: źródłem prawdy o plikach jest
+  `audio/samples/*.mp3` (`ls | wc -l`), nie manifest. Po turze z zerem
+  generacji usunąć świeże wpisy `failed` osobnym commitem — inaczej przy
+  każdej kolejnej niedostępności API przybywa 30 nowych duchów. Reguła 30
+  w `docs/STATE.md`.
+
+## 2026-11-14 — Ile archetypów na partię: 9 na 10 kart działa, ale nie zawsze
+
+- Sytuacja: `b084` dostało 9 różnych archetypów na 10 kart — świadomie, żeby
+  nie dokładać do klastrów `sword_clash` (24), `plate_clank` (23),
+  `magic_shimmer` (16). Dwie karty z `creature_roar` rozdzielono rejestrem:
+  `665` Mirelurk Queen to wrzask **wyżej** (mokry chrobot żwiru, 3,8 s), `660`
+  Lambholt Harrier to warkot **niżej** (z piersi basiora, 3,6 s).
+- Wniosek: różnorodność archetypów jest tania (0 kredytów, decyzja przy
+  pisaniu scenariusza), a rozdrobnienie najgęstszych klastrów zmniejsza
+  ryzyko par ≥ 0,95 przy audycie. Jednocześnie **różnica rejestru musi być
+  zapisana w prompcie**, nie tylko w nazwie karty — inaczej dwie karty
+  dostaną ten sam dźwięk z innym tytułem.
+- Zasada / działanie zapobiegawcze: przy partii ≥ 5 kart rozpisać archetypy
+  w tabeli **przed** pisaniem promptów, z kolumną „czym różni się od
+  najbliższego sąsiada w korpusie”. Jeśli różnicy nie da się nazwać jednym
+  zdaniem, to nie jest różnica.
