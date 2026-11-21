@@ -1,6 +1,6 @@
-# Pełny audyt korpusu sampli — 2026-11-14
+# Pełny audyt korpusu sampli — 2026-11-21
 
-Zakres: **654** plików `audio/samples/<id>.mp3`. Skan od zera skryptem
+Zakres: **664** plików `audio/samples/<id>.mp3`. Skan od zera skryptem
 `scripts/audit_samples_full.py` (dekodowanie PCM → metryki sygnałowe,
 głośnościowe, widmowe i odciski brzmieniowe). Audyt **niczego nie zmienia**.
 
@@ -66,14 +66,14 @@ Ten skan dokłada cztery wymiary, których wcześniej nie sprawdzaliśmy:
 | KOSMETYCZNE — długa cisza wiodąca | 0 | wysoka | opcjonalny trym |
 | KOSMETYCZNE — długa cisza końcowa | 7 | wysoka | opcjonalny trym |
 
-Plików z co najmniej jedną flagą: **57** / 654.
+Plików z co najmniej jedną flagą: **57** / 664.
 Plików z flagą **merytoryczną** (bez kategorii kosmetycznych i „start na pełnym
 poziomie"): **7**.
 
 
 ## Najważniejszy wniosek: korpus nie ma wyrównanej głośności
 
-Rozkład głośności percepcyjnej: mediana **-20.0 LUFS**, p10 **-20.2**, p90 **-19.9**, σ **0.7 LU**, rozpiętość **11.9 LU** (od -31.0 do -19.0).
+Rozkład głośności percepcyjnej: mediana **-20.0 LUFS**, p10 **-20.2**, p90 **-20.0**, σ **0.7 LU**, rozpiętość **11.9 LU** (od -31.0 do -19.0).
 
 To nie jest kwestia pojedynczych odstających plików — **cały korpus jest nierówny**.
 Przy odsłuchu biblioteki po kolei jedne sample są ledwie słyszalne, inne wyrywają
@@ -83,7 +83,7 @@ Gdyby wyrównać wszystko do **-20 LUFS** z sufitem **−1 dBTP**:
 
 - plików wymagających wzmocnienia > +10 dB: **1** (z tego > +15 dB: 0 — tam wyjdzie szum tła, lepiej zregenerować),
 - plików wymagających wyciszenia > 6 dB: **0**,
-- plików w granicach ±3 dB od celu: **645**.
+- plików w granicach ±3 dB od celu: **655**.
 
 Operacja jest lokalna, odwracalna i **nie kosztuje kredytów**. Rekomendacja: zrobić ją
 jednym przebiegiem na całym korpusie, dopiero potem oceniać pojedyncze sample uchem —

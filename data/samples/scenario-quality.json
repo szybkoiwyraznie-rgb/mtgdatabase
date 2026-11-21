@@ -1,10 +1,10 @@
 {
-  "count": 654,
+  "count": 664,
   "median_score": 64.0,
   "below_threshold": 21,
   "threshold": 40.0,
   "no_sound_word": 193,
-  "no_material": 254,
+  "no_material": 259,
   "results": [
     {
       "id": "266",
@@ -2762,6 +2762,20 @@
       ]
     },
     {
+      "id": "657",
+      "title": "Saltfield Recluse",
+      "scenario": "spękana skorupa soli pęka pod kosturem: seria kruchych trzasków, cienkie płatki suną i chrzęszczą, ostatni ostry odprysk",
+      "score": 53.5,
+      "sound_hits": 1,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 17,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
       "id": "5",
       "title": "Academy Journeymage",
       "scenario": "arcydzieło magii się zapala: jasne krystaliczne migotanie narastające i trzymane jednostajnie, z iskrzącymi szklanymi alikwotami dzwoniącymi wysoko nad nim przez cały take",
@@ -3004,6 +3018,18 @@
       "visual_hits": 1,
       "abstract_hits": 0,
       "words": 14,
+      "problems": []
+    },
+    {
+      "id": "659",
+      "title": "Gylwain, Casting Director",
+      "scenario": "krótka dawna melodia do tańca w namiocie trupy: lutnia gra żywą powtarzaną frazę, mały bębenek bije rytm, jeden kryształowy dzwonek na koniec",
+      "score": 56.0,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 22,
       "problems": []
     },
     {
@@ -3795,6 +3821,20 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 16,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
+      "id": "662",
+      "title": "Loxodon Partisan",
+      "scenario": "zew wojenny loxodona: jedno długie, niskie, mosiężne wycie z piersi, potem drugi krótszy sygnał",
+      "score": 58.0,
+      "sound_hits": 1,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 14,
       "problems": [
         "brak materiału/kontaktu (co uderza o co)"
       ]
@@ -4637,6 +4677,18 @@
       "problems": []
     },
     {
+      "id": "658",
+      "title": "Memorial to Genius",
+      "scenario": "jeden głęboki mosiężny ton uderzony w sferę armilarną: dzwoni i rozbrzmiewa alikwotami, nad nim cienki kryształowy błysk",
+      "score": 63.5,
+      "sound_hits": 1,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 17,
+      "problems": []
+    },
+    {
       "id": "1",
       "title": "Dunland Crebain",
       "scenario": "ptaki w lesie: kilka wyraźnych gwizdanych zawołań i treli, jedno po drugim",
@@ -5359,6 +5411,20 @@
       ]
     },
     {
+      "id": "665",
+      "title": "Mirelurk Queen",
+      "scenario": "królowa krabów-mutantów ryczy w zalonym kolektorze: jeden długi gardłowy ryk z olbrzymim niskim ciałem pod spodem, chropawy, potem krótszy warkot",
+      "score": 64.5,
+      "sound_hits": 2,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 21,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
       "id": "111",
       "title": "Final Parting",
       "scenario": "pasmo jedwabiu powoli rozdarte na dwoje: długi włóknisty dźwięk przez cały sample z kolejnymi pęknięciami włókien",
@@ -5454,6 +5520,18 @@
       "id": "412",
       "title": "Makindi Aeronaut",
       "scenario": "korowa lotnia tnie powietrze nad hedronami: napięta skóra trzepocze na kościanym stelażu, wiatr tnie krawędzie skrzydła, kończy ostry mosiężny gwizd",
+      "score": 66.0,
+      "sound_hits": 1,
+      "material_hits": 2,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 20,
+      "problems": []
+    },
+    {
+      "id": "663",
+      "title": "Temur Banner",
+      "scenario": "podmuch lodowatego wiatru na górskiej przełęczy: szeroki szumiący strumień powietrza wzbiera i opada falami, tkanina sztandaru szeleszcze w nim cicho",
       "score": 66.0,
       "sound_hits": 1,
       "material_hits": 2,
@@ -6787,6 +6865,20 @@
       "problems": []
     },
     {
+      "id": "660",
+      "title": "Lambholt Harrier",
+      "scenario": "wilczy basior warczy pod palisadą: głęboki, chrapliwy warkot z piersi, potem krótki ostry szczek",
+      "score": 75.0,
+      "sound_hits": 2,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 14,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
       "id": "3",
       "title": "Nefarious Imp",
       "scenario": "ognisko z suchego drewna: gęsty deszcz trzasków w środku pasma, ciepły i drewniany raczej niż jasny czy syczący",
@@ -6906,6 +6998,18 @@
       "visual_hits": 1,
       "abstract_hits": 0,
       "words": 24,
+      "problems": []
+    },
+    {
+      "id": "656",
+      "title": "Grollub",
+      "scenario": "pałka z ćwiekami spada na gruby skórzasty grzbiet: jeden tępy, masywny łomot, z zwierzęcia wyrywa się niski pomruk",
+      "score": 76.0,
+      "sound_hits": 2,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 18,
       "problems": []
     },
     {
@@ -7074,6 +7178,18 @@
       "id": "624",
       "title": "Arlinn's Wolf",
       "scenario": "wilkołaczy basior Arlinn szczerzy kły: głęboki gardłowy warkot, łapa blokuje przejście, oddech warczy groźnie tuż nad kamieniem",
+      "score": 77.5,
+      "sound_hits": 2,
+      "material_hits": 1,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 17,
+      "problems": []
+    },
+    {
+      "id": "664",
+      "title": "Frilled Sea Serpent",
+      "scenario": "coś ogromnego wynurza się z morza: potężny plusk wody wyrzuconej w górę, potem drugi, krótszy trzask tafli",
       "score": 77.5,
       "sound_hits": 2,
       "material_hits": 1,
@@ -8316,6 +8432,20 @@
       "visual_hits": 0,
       "abstract_hits": 0,
       "words": 13,
+      "problems": [
+        "brak materiału/kontaktu (co uderza o co)"
+      ]
+    },
+    {
+      "id": "661",
+      "title": "Arrow Storm",
+      "scenario": "salwa setek strzał: trzask cięciw naraz, potem szeroki szumiący przelot bełtów nad głową, ucięty nagle",
+      "score": 87.5,
+      "sound_hits": 4,
+      "material_hits": 0,
+      "visual_hits": 0,
+      "abstract_hits": 0,
+      "words": 15,
       "problems": [
         "brak materiału/kontaktu (co uderza o co)"
       ]

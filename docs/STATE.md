@@ -36,10 +36,8 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
 - Katalog: `fabuły270926.csv` + `data/catalog.json` — **664 fabuły**
   (ostatnia dostawa: `656`–`665`; wcześniej `645`–`655`, `635`–`644`, `625`–`634`, `400`–`425`, `618`–`624`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **654 MP3** w `audio/samples/<id>.mp3`; **664 scenariusze**
-  — 100 % katalogu ma scenariusz, audio do `b083` włącznie.
-  Dostawa `b084` (`656`–`665`) ma scenariusze, ale **nie ma audio** —
-  blokada po stronie klucza ElevenLabs (patrz „Budżet”).
+- Sample: **664 MP3** w `audio/samples/<id>.mp3`; **664 scenariusze**
+  — 100 % katalogu ma audio i scenariusz (do `b084` włącznie).
 - Ostatnia dostawa: **`b083`** (2026-11-14) — **11 nowych kart**: `655` Plummet
   (`beast_screech`), `654` Kessig Flamebreather (`mechanism_click`), `653`
   Necrosavant (`heavy_impact`), `652` River Herald Guide (`water_splash`), `645`
@@ -70,9 +68,13 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   Wybór: 645 v3, 646 v1, 647 v3 (b083b), 648 v3, 649 v3, 650 v2 (b083b),
   651 v3, 652 v1, 653 v3, 654 v2, 655 v3 (trym) — LUFS −20,0 ± 0,3,
   0 over-ceiling, wszystkie 2,49–4,00 s.
-- **Dostawa `b084`** (2026-11-14) — **10 nowych kart**: `656`–`665`.
-  **Scenariusze gotowe, audio zablokowane na kluczu API** (szczegóły w „Stan
-  liczbowy” → Budżet). Karty i dobrane archetypy:
+- **Dostawa `b084`** (2026-11-14) — **10 nowych kart**: `656`–`665`,
+  **10/10 trafionych, 0 flag, 0 par**, wszystkie 2,11–4,00 s.
+  Finalne długości: 656 2,11 s (v3 + EQ presence, *nie* surowy wariant —
+  patrz niżej), 657 3,39 (v2), 658 2,63 (v2), 659 4,00 (v2),
+  660 3,25 (v2 + EQ +5 dB presence / +6 dB góra), 661 2,90 (v1),
+  662 2,30 (v2), 663 3,99 (**b084b** v1), 664 3,40 (v1),
+  665 3,20 (**b084c** v5, piąta próba). Karty i dobrane archetypy:
   `656` Grollub → `heavy_impact` (tępy łomot pałki o skórzasty grzbiet),
   `657` Saltfield Recluse → `glass_shatter` (skorupa soli pęka pod kosturem),
   `658` Memorial to Genius → `temple_bell` (jeden mosiężny ton sfery armilarnej),
@@ -87,9 +89,28 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   **9 różnych archetypów na 10 kart** — świadomie omijano najgęstsze klastry
   (`sword_clash` 24, `plate_clank` 23, `magic_shimmer` 16), bo dokładanie do
   nich powiększa ryzyko par ≥ 0,95 i powtarzalności brzmienia.
-  Dwie karty z `creature_roar` rozdzielone rejestrem: `665` to wrzask z mokrym
-  chrobotem żwiru (wyżej), `660` to warkot z piersi (niżej) — przy różnych
-  długościach 3,8 vs 3,6 s.
+  Dwie karty z `creature_roar` rozdzielone rejestrem: `665` to ryk z klatki
+  piersiowej (niżej), `660` to warkot z piersi (niżej) — rozdzielone długością
+  i materiałem (665: kolektor, 660: wilk pod palisadą).
+  **Trzy rundy generacji, bo dwie karty nie chciały wejść:**
+  `b084` (30 gen) dało 8 kart na 0 pkt; `663` i `665` odpadły.
+  `b084b` (6 gen) — przepisane prompty: `663` weszło na 0 pkt (v1) po tym, jak
+  usunąłem z promptu nazwane „trzepnięcia skóry” (*sustain_ratio* 0,248 przy
+  progu 0,3 — plik był sekwencją pacnięć, nie ciągłym podmuchem); `665` nadal
+  2,5 pkt. `b084c` (5 gen) — `665` dostało nowy nagłówek („deep chest roar
+  through a flooded sewer tunnel”, bez „crab” i „brick”, które ciągnęły barwę
+  w chitynę i plusk) i **3 z 5 wariantów weszły na 0 pkt** (v1/v3/v5: voiced
+  0,74–0,79, `low_all` 0,60–0,97, centroid 170–252 Hz; w b084b było voiced
+  ≈0,10 i `low_all` ≈0,005). Wybrano v5 (najkrótszy z trafionych, 3,20 s).
+  **`660` wymagało EQ, bo kontrakt i audyt są sprzeczne:** `creature_roar`
+  chce `low_all ≥ 0,45`, a flaga `boomy`/`dull` pada przy centroid < 250 Hz.
+  Wszystkie 3 warianty leżały na 141–171 Hz. Po +5 dB w paśmie 500 Hz i
+  +6 dB półki powyżej 2 kHz centroid wchodzi na 251 Hz, flagi znikają,
+  werdykt zostaje 0 pkt (`voiced` 0,43). To jedyna karta w dostawie z EQ.
+- **Dostawa paczki b084 na Google Drive** (2026-11-14):
+  `samples-b084-2026-11-14.zip` (692 108 B, 10 MP3 + `README.txt`)
+  ID pliku: `1fPb7Y9_jzUnBEWXBPnZzse00h2g08k8y`
+  Link: https://drive.google.com/file/d/1fPb7Y9_jzUnBEWXBPnZzse00h2g08k8y/view
 - **Dostawa paczki b083 na Google Drive** (2026-11-14):
   `samples-b083-2026-11-14.zip` (904 478 B, 11 MP3 + `README.txt`)
   ID pliku: `13dFvOcsv_rLMAjxf49nu07PMctPoecON`
@@ -567,9 +588,9 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **664 fabuły**, scenariusze **664** (100 %, 79 `generated`
-  + 585 `ready`), sample **654** (10 kart `b084` czeka na generację).
-- Flagi: **57 plików** z flagą na 654 — po dostawie `b083` **bez zmian**
+- Katalog: **664 fabuły**, scenariusze **664** (100 %, 89 `generated`
+  + 575 `ready`), sample **664**.
+- Flagi: **57 plików** z flagą na 664 — po dostawie `b084` **bez zmian**
   (11 nowych kart weszło z 0 flag, dwie świadome flagi `650 harsh` i
   `655 long_trail_silence` zdjęto w `b083b`). Najczęstsze: `dull` 16,
   `harsh` 15, `boomy` 10, `tonal_sustained` 8, `long_trail_silence` 7,
@@ -578,25 +599,24 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
   (`4`, `12`, `23`, `98`, `115`, `219`, `269`, `311`, `361`, `406`,
   `417`, `618`, `655` — `655` ma 0,57 s treści przy 2,49 s pliku, bo to
   jeden wrzask i cisza; świadome). Źródło: `data/samples/audio-audit-latest.json`.
-- Archetypy: **11** nie trafionych, **62** prawdopodobnie, **210** trafionych
-  (283 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
-- Budżet: **0 / 10 000** kredytów — dostawa `b083` + `b083b` (42 generacje)
-  wyczerpała drugi klucz.
-  **Dostawa `b084` NIE ZUŻYŁA ANI JEDNEGO KREDYTU — padła na kluczu API, nie
-  na budżecie.** Sekret `ELEVENLABS` zawiera teraz *API key ID* zamiast klucza:
+- Archetypy: **11** nie trafionych, **62** prawdopodobnie, **220** trafionych
+  (293 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
+- Budżet: **nowy klucz, 10 000 kredytów** (wgrany 2026-11-14 przez właściciela).
+  Dostawa `b084` zużyła **41 generacji ≈ 1640 kr**: `b084` 30, `b084b` 6,
+  `b084c` 5. Zostało **≈ 8360 kr**.
+  **Klucz ma za mało uprawnień, żeby czytać subskrypcję:**
   ```
-  HTTP 400 authentication_error / api_key_id_used_as_api_key
-  "API key ID used as API key - only valid API keys can be used.
-   API keys start with 'sk_' and are shown when the key is created or rotated."
+  HTTP 401 authentication_error / missing_permissions
+  "The API key you used is missing the permission user_read"
   ```
-  Naprawa po stronie właściciela: wgrać pełny klucz `sk_...` jako sekret
-  `ELEVENLABS` (`gh secret set ELEVENLABS`, albo Settings → Secrets → Actions).
-  Po naprawie wystarczy push z markerem `[generate-b084]` — workflow
-  `temp-variants-r017.yml` zrobi resztę, budżet wystarczy (10 kart × 3 = 30
-  generacji × 40 kr = **1200 kr**, o ile konto jest doładowane — poprzedni
-  stan to 0/10000).
-  Poprzednie zużycie: b081 ≈1320, b082 ≈1440, b083 33×40 = 1320,
-  b083b 9×40 = 360.
+  Generacja (`sound-generation`) działa bez tego uprawnienia — tylko odczyt
+  `/v1/user/subscription` jest zablokowany. Kontrola budżetu w workflow
+  wykrywa `missing_permissions` i **przepuszcza** generację (b084 v2), ale
+  **nie zna salda** — koszt trzeba liczyć ręcznie (40 kr/generację).
+  Naprawa (opcjonalna, dla auto-kontroli): dodać `user_read` do uprawnień
+  klucza w panelu ElevenLabs.
+  Poprzednie klucze: b081 ≈1320, b082 ≈1440, b083 1320, b083b 360 (drugi
+  klucz wyczerpany do 0).
   Pierwszy klucz 10 000 zamknęły: b072 560,
   r057 640, b073 360, r058 360, r059 240, r060 360, r061 360,
   r062 360, r063 360, r064 360, r065 360, r066 360, r067 360,
@@ -812,6 +832,45 @@ analiza „ile mamy sampli” liczy duchy. Wcześniejsze batche mają 96 takich
 wpisów (`b031` 10, `b051` 10, `r016b` 9, `r094` 8, `b078` 26, `b083c` 3) —
 zostawione jako historia, ale **nie są źródłem prawdy o plikach**.
 
+**31. `missing_permissions` / `user_read` to nie zły klucz — nie blokuj
+generacji.** Nowy klucz z pełną pulą 10 000 kredytów zwrócił na
+`/v1/user/subscription` HTTP 401 `missing_permissions`: *„The API key you used
+is missing the permission user_read”*. Pierwsza wersja kontroli budżetu
+traktowała każde 400/401/403 jako twardy stop (słusznie po `b084`), więc
+**zablokowała generację, choć klucz był dobry** — endpoint
+`sound-generation` działa bez `user_read`. Poprawna logika: jeśli w treści
+błędu jest `user_read`/`missing_permissions`, to **klucz działa**, tylko nie
+wolno mu czytać salda → generuj, ale policz koszt ręcznie. Twardy stop
+zostaje dla `invalid_api_key`/`api_key_id_used_as_api_key`.
+Wniosek uboczny: **kontrola budżetu nie jest bezpiecznikiem**, dopóki klucz
+nie ma `user_read`. Koszt liczymy z liczby generacji × 40 kr.
+
+**32. Kontrakt archetypu i audyt flag mogą być sprzeczne — wtedy EQ, ale
+tylko po sprawdzeniu wyniku.** `creature_roar` wymaga `low_all ≥ 0,45`
+(masa w dole), a flaga `dull` pada przy `high_share < 0,005` i centroid
+< 250 Hz, `boomy` przy `low_share > 0,85` i centroid < 200 Hz. Karta `660`
+trafiła dokładnie w ten klin: wszystkie 3 warianty na 141–171 Hz, werdykt
+0 pkt, ale dwie flagi. **Żaden wybór wariantu tego nie rozwiązuje** — trzeba
+zmienić widowmo pasma. Sprawdzona procedura: sweep podbicia pasma obecności
+(300–1500 Hz) × półki górnej (2 kHz), po każdej kombinacji **liczyć flagi
+z progów ręcznie** (bo `analyze()` ich nie zwraca — patrz reguła 33) i werdykt
+przez `evaluate()`. W `660` wystarczyło +5 dB / +6 dB: centroid 203 → 251 Hz,
+flagi znikły, werdykt pozostał 0 pkt. Wybierać **najłagodniejszą**
+kombinację, która przechodzi, i zapisać ją w `STATE.md`.
+
+**33. `analyze()` NIE liczy flag i NIE daje `attack_s`/`decay_s`/`onset_count`.**
+`audit_samples_full.analyze()` zwraca tylko metryki bazowe (`bands`,
+`crest_db`, `voiced_fraction`, centroid, czasy ciszy…). Flagi dodaje
+`add_flags()` — ale **dopiero na całej liście plików**, z progami liczonymi
+względem korpusu (`active_rms_db`, `lufs`). Metryki kontraktowe
+(`attack_s`, `decay_s`, `onset_count`, `sustain_ratio`, `mod_peak_hz`)
+dokłada `audit_semantic_match.extra_features(path)`. Skrypt oceniający
+warianty **musi** zrobić oba kroki:
+`m = analyze(p,…).metrics; m.update(extra_features(p))`, a flagi policzyć
+z progów samodzielnie (albo uruchomić pełny audyt). Pominąłem to w pierwszym
+sweepie EQ i dostałem 9 „czystych” kombinacji, z których większość miała
+`dull`. Test pozytywny bez flag jest gorszy niż brak testu.
+
 **24. Korekcję EQ aplikować tylko tam, gdzie zdejmuje flagę.** Próba na
 27 kartach (`16 dull` + `11 harsh`) dała ten sam zysk flag (52 → 46),
 ale 19 kart bez zysku dorzuciło **2 nowe pary** i podbiło maksimum
@@ -827,7 +886,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 | batch | data | wynik | archiwum |
 |---|---|---|---|
 | b083 | 2026-11-14 | 11 nowych kart (645–655), **11/11 trafionych**, 0 flag, 0 par; 6 kart uratowanych testem krzyżowym archetypów (0 kr), 42 generacje ≈1680 kr → budżet 0 | ten plik |
-| b084 | 2026-11-14 | 10 nowych kart (656–665) w katalogu i ze scenariuszami; **generacja nieudana — `invalid_api_key`** (sekret = API key ID, nie klucz `sk_`), 0 kredytów zużytych, 0 MP3 | ten plik |
+| b084 | 2026-11-14 | 10 nowych kart (656–665), **10/10 trafionych**, 0 flag, 0 par; 3 rundy (b084 30 gen, b084b 6, b084c 5) ≈1640 kr; 665 weszło dopiero za 5. wariantem, 660 wymagało EQ | ten plik |
 | b077 | 2026-10-14 | 10 nowych kart (369–398), 6/10 trafionych, 0 nowych par; 392→horn_call i 398→chain_rattle po audycie brzmienia | ten plik |
 | b080 | 2026-10-27 | 10 nowych kart (426,427,429,618–624), 2/10 trafionych, 6 prawd., 0 nowych par; 30 generacji (1200 kr), 4 flagi świadome | ten plik |
 | b079 | 2026-10-20 | 10 nowych kart (412–418,423–425), 1/10 trafionych, 3 prawd., 0 nowych par; 30 generacji w 1 paczce b079 (1200 kr), 4 flagi świadome | ten plik |

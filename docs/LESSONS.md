@@ -1285,3 +1285,56 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   w tabeli **przed** pisaniem promptów, z kolumną „czym różni się od
   najbliższego sąsiada w korpusie”. Jeśli różnicy nie da się nazwać jednym
   zdaniem, to nie jest różnica.
+
+## 2026-11-14 — Kontrakt archetypu i audyt flag mogą być sprzeczne (b084/660)
+
+- Sytuacja: `660` Lambholt Harrier trafiło w `creature_roar` na 0 pkt, ale
+  dostało `boomy` + `dull`. Kontrakt wymaga `low_all ≥ 0,45` (masa w dole),
+  a audyt flaguje `boomy` przy `low_share > 0,85` i centroid < 200 Hz oraz
+  `dull` przy `high_share < 0,005` i centroid < 250 Hz. Wszystkie trzy
+  warianty leżały na 141–171 Hz — **żaden wybór wariantu nie mógł tego
+  rozwiązać**.
+- Wniosek: niektóre archetypy (te „ciężkie”: `creature_roar`, `earth_rumble`,
+  `thunder_clap`, `heavy_impact`) siedzą w paśmie, w którym audyt karze za
+  ciemność. Sprzeczność jest strukturalna, nie przypadkowa.
+- Zasada / działanie zapobiegawcze: przy takim konflikcie **nie wybierać
+  między werdyktem a flagą** — zmienić widmo. Sweep podbicia pasma obecności
+  (300–1500 Hz) × półki powyżej 2 kHz, po każdej kombinacji liczyć flagi
+  z progów i werdykt przez `evaluate()`. Wybrać najłagodniejszą kombinację,
+  która daje 0 pkt **i** zero flag, i zapisać ją w `STATE.md` (`660`: +5 dB
+  presence / +6 dB air → centroid 203 → 251 Hz, `voiced` 0,43). Reguła 32.
+
+## 2026-11-14 — `analyze()` nie liczy flag ani metryk kontraktowych
+
+- Sytuacja: pierwszy sweep EQ na `660` pokazał **9 kombinacji „bez flag i z
+  0 pkt”**. Wszystkie były fałszywie pozytywne: `analyze()` nie zwraca pola
+  `flags` (flagi dokłada `add_flags()` na całej liście plików, z progami
+  licznymi względem korpusu), a metryki kontraktowe (`attack_s`, `decay_s`,
+  `onset_count`, `sustain_ratio`, `mod_peak_hz`) dokłada dopiero
+  `audit_semantic_match.extra_features(path)`. Bez tego `evaluate()` zwraca
+  „brak metryki X” i karta wychodzi **lepiej** niż jest.
+- Wniosek: skrypt oceniający musi robić **oba** kroki i flagi liczyć sam:
+  `m = analyze(p, …).metrics; m.update(extra_features(p))`, potem progi
+  `boomy`/`dull`/`harsh` z `audit_samples_full`. Brak kroku = test, który
+  zawsze przechodzi.
+- Zasada / działanie zapobiegawcze: po każdym sweepie **zweryfikować wynik
+  pełnym audytem korpusu** (`audit_samples_full.py`) przed commitem —
+  to jedyny moment, w którym flagi są liczone tak, jak zobaczy je właściciel.
+  Pojedyncze „brak flag” z ręcznego skryptu traktować jako podejrzane.
+  Reguła 33.
+
+## 2026-11-14 — Klucz dobry, ale bez `user_read`: nie blokuj generacji (b084 v2)
+
+- Sytuacja: nowy klucz z pełną pulą zwrócił na `/v1/user/subscription`
+  HTTP 401 `missing_permissions` / „missing the permission user_read”.
+  Kontrola budżetu w workflow (dodana po aferze `invalid_api_key`) potraktowała
+  każde 401 jako twardy stop i **zablokowała generację**, choć klucz był
+  sprawny — `sound-generation` działa bez `user_read`.
+- Wniosek: „nie mogę odczytać budżetu” i „klucz jest zły” to dwie różne
+  rzeczy. Pierwsze znaczy *jedź dalej i licz koszt ręcznie*, drugie znaczy
+  *stop*. Rozpoznanie po treści błędu: `user_read`/`missing_permissions`
+  → jedź; `invalid_api_key`/`api_key_id_used_as_api_key` → stop.
+- Zasada / działanie zapobiegawcze: każdy bezpiecznik oparty na zdalnym
+  odczycie musi mieć **ścieżkę degradacji** (nie znam stanu → działam
+  ostrożnie), a nie tylko ścieżkę blokady. Inaczej pierwszy brak uprawnienia
+  zatrzymuje produkcję. Reguła 31.
