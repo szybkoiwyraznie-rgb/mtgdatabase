@@ -60,8 +60,13 @@ jobs:
           except urllib.error.HTTPError as exc:
               body = exc.read().decode("utf-8", "replace")[:300]
               print(f"HTTP {exc.code} przy odczycie subskrypcji: {body}", file=__import__('sys').stderr)
-              # 400/401/403 = zły lub cofnięty klucz. Twardy stop — inaczej
-              # generacja poleci 30 razy i zapisze 30 wpisów 'failed' (b084).
+              # missing_permissions/user_read = klucz działa, tylko nie wolno mu
+              # czytać subskrypcji. Nie blokujemy generacji (b084 v2).
+              if "user_read" in body or "missing_permissions" in body:
+                  print("klucz bez uprawnienia user_read — pomijam kontrolę, generuję dalej",
+                        file=__import__('sys').stderr)
+                  print("ok=1"); raise SystemExit(0)
+              # 400/401/403 bez tego wyjątku = zły lub cofnięty klucz. Twardy stop.
               print("ok=0"); raise SystemExit(0)
           except Exception as exc:
               print(f"nie udało się odczytać budżetu: {exc}", file=__import__('sys').stderr)
