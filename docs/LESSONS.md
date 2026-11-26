@@ -1159,3 +1159,237 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   najwyżej jedno zdarzenie poboczne i tylko wtedy, gdy niesie rozpoznawalność
   karty (łańcuch u ogarów, pieczęć u dzwonu). Resztę materiału zostawić
   poza promptem.
+
+## 2026-11-14 — Test krzyżowy archetypów uratował 6 z 11 kart (b083)
+
+- Sytuacja: w dostawie `b083` tylko 5 kart przeszło swój archetyp w pierwszej
+  turze. Sześć innych przepadło (0/3 wariantów) — wyglądało to na wadę promptu.
+  Pętla po wszystkich 34 kontraktach na tych samych plikach, po postprodukcji,
+  kosztowała **zero kredytów** i pokazała, że **cztery z nich są trafione w 0 pkt
+  pod inną etykietą**: `649`→`mechanism_click`, `645`→`steam_hiss`,
+  `650`→`chain_rattle`, `654`→`mechanism_click`, a dwie kolejne
+  (`655`→`beast_screech`, `647`→`bone_snap`) po 1–2 wariantach.
+- Wniosek: „nie trafiony w swoim archetypie” **nie znaczy „zły dźwięk”**.
+  Etykieta archetypu to hipoteza o tym, jak brzmi opis karty; model realizuje
+  materiał, nie etykietę. Zanim wyda się kredyty na przepisanie promptu,
+  trzeba sprawdzić, czy **istniejący** plik nie pasuje do innej etykiety.
+- Zasada / działanie zapobiegawcze: po każdej turze generacji na kartach
+  „nie trafionych” uruchomić pętlę `for a in CONTRACTS: evaluate(a, metrics)`
+  i wypisać 4 najniższe wyniki. Przyjmować nową etykietę tylko wtedy, gdy
+  **opisuje to samo zdarzenie** — `649` pod `plate_clank` też miało 0 pkt,
+  ale piły z posadzki to nie płyty pancerza, a pod `mechanism_click`
+  (zapadki i sprężyny) tak. Reguła 26 w `docs/STATE.md`.
+
+## 2026-11-14 — Krótki plik = brak szkielettu zdarzeń w prompcie, nie pech modelu
+
+- Sytuacja: `647` *Get the Point* dał 1,03 s przy celu 4,0 s. Prompt był
+  bogaty fabularnie (rapier, napierśnik, iskry, porcelanowa maska, kielich
+  Judith), ale **nie zawierał ani jednego następstwa zdarzeń** — jedno
+  trafienie i koniec opisu. Siedem trafionych kart `sword_clash` w korpusie
+  ma jeden szkielet: „one hard crack of the blade, then two long rasping cuts
+  of steel drawn along steel, then a third crack, the shearing held to the
+  end”. Wstawienie tego szkieletu (reszta promptu bez zmian) dało 3,49 s
+  i 0 pkt.
+- Wniosek: długość sampla bierze się z **liczby nazwanych faz zdarzenia**,
+  nie z bogactwa narracji. Nazwy własne, miejsca i postaci z karty nie niosą
+  żadnej informacji dla generatora — a zajmują budżet 450 znaków, który
+  zjada szkiclet.
+- Zasada / działanie zapobiegawcze: przed napisaniem promptu `grep`-em po
+  `scenarios.jsonl` znaleźć 5–7 kart tego samego archetypu z werdyktem
+  `trafiony` i **skopiować ich składnię** (faza 1 → faza 2 → faza 3 →
+  „held to the end”). Sygnaturę karty skrócić do jednego zdania, nie
+  streszczać narrację. Reguła 27 w `docs/STATE.md`.
+
+## 2026-11-14 — Pierwszy rzeczownik w nagłówku decyduje o barwie (piły vs maszyna)
+
+- Sytuacja: `650` *Bladewheel Chariot* dostał `harsh` (centroid 9012 Hz,
+  99,5 % energii > 2 kHz) — brzmiał jak pisk, nie jak rydwan. Prompt zaczynał
+  się od „two giant saw-blade wheels” i cały był o piłach; „riveted iron
+  chariot” stał w dalszej części zdania. Po przestawieniu nagłówka na
+  „a riveted iron chariot rolling... a deep low iron rumble of the chassis
+  underneath, the saw teeth biting the floor...” centroid spadł do 4352 Hz
+  i flaga zniknęła, przy zachowaniu 0 pkt w kontrakcie.
+- Wniosek: to ta sama prawidłowość, którą `LESSONS` zanotował przy
+  `stone_slide` (`627`: „crack” w nagłówku zabił dół pasma) — ale liczona
+  w drugą stronę. Nagłówek ustawia **centroid**, ogon promptu dokłada
+  szczegóły, których model już nie podnosi do rangi źródła.
+- Zasada / działanie zapobiegawcze: jeśli karta ma być „ciężka”, nagłówek
+  nazywa **masę i materiał** („riveted iron chariot”, „long low rumble of
+  stone on stone”), a jasne elementy (piły, iskry, szkło) idą **po** nim.
+  Odwrotnie dla kart, które mają być ostre: nagłówek nazywa to, co ma
+  błyszczeć. Przed generacją sprawdzić, czy nagłówek zgadza się z progiem
+  `spectral_centroid_hz` kontraktu.
+
+## 2026-11-14 — „Brak MP3” to nie zawsze „brak kredytów” (b084)
+
+- Sytuacja: dostawa `b084` (10 kart) przeszła import, scenariusze i walidację,
+  a workflow zakończył się **`success`** — po czym w repo były 0 plików MP3.
+  Log pokazał 30 × HTTP 400: `api_key_id_used_as_api_key`, *„API key ID used as
+  API key — only valid API keys can be used. API keys start with `sk_`”*.
+  Sekret `ELEVENLABS` zawierał **identyfikator klucza**, nie klucz. Zużycie
+  kredytów: **zero** (nieudane uwierzytelnienie nic nie kosztuje).
+- Wniosek: dwa różne błędy dają ten sam objaw „nie ma plików”:
+  `quota_exceeded` (b083c — konto naprawdę puste) i `invalid_api_key`
+  (b084 — złe poświadczenie). Diagnoza po samym braku MP3 jest zgadywaniem;
+  typ błędu siedzi w `variants/<batch>/generate.log`.
+- Zasada / działanie zapobiegawcze: workflow ma krok „Sprawdź budżet — przerwij
+  przy zerze”, który odczytuje `/v1/user/subscription`. **Ten krok nie złapie
+  złego klucza**, bo sam używa tego samego klucza — przy `invalid_api_key`
+  wyjątek jest łapany i workflow idzie dalej. Kolejna wersja powinna traktować
+  błąd 400/401 z endpointu subskrypcji jako **twardy stop**, nie ostrzeżenie.
+  Reguła 29 w `docs/STATE.md`.
+
+## 2026-11-14 — `continue-on-error` na generacji maskuje zero pracy
+
+- Sytuacja: krok „Generate 3 variants per story” ma `continue-on-error: true`
+  (celowo — pojedyncza karta nie może wywalić całej transzy). Skutek: gdy
+  padły **wszystkie 30 wywołań**, run i tak był `success`, a jedynym śladem
+  była garść linii `WARN` w logu, którego `gh run view --log` nie potrafił
+  nawet pobrać (EOF z results-receiver).
+- Wniosek: zielony check na PR nic nie mówi o tym, czy sample powstały.
+  Trzeba czytać ostatnią linię logu: `done: generated=X, skipped=Y, failed=Z`,
+  i dopiero `Z == 0` jest sukcesem.
+- Zasada / działanie zapobiegawcze: po każdym runie generacji sprawdzić
+  `git ls-tree origin/<branch> variants/<batch>` — jeśli nie ma nowych MP3,
+  dostawa **nie ruszyła**, niezależnie od koloru checka.
+
+## 2026-11-14 — Manifest generacji to dziennik prób, nie inwentarz plików
+
+- Sytuacja: po nieudanej turze `b084` `data/samples/generated-manifest.jsonl`
+  urósł o **30 wpisów `status: "failed"`** — scout zapisuje każdą próbę,
+  z pełnym JSON-em błędu API w polu `error`. Żaden z tych wpisów nie
+  odpowiadał istniejącemu plikowi. W repo było już wcześniej 96 takich
+  wpisów (`b031`, `b051`, `r016b`, `r094`, `b078`, `b083c`).
+- Wniosek: plik nazywa się „manifest”, ale jest **dziennikiem**: jeden wiersz
+  na próbę, także nieudaną. Liczenie „ile mamy sampli” z manifestu zawyża
+  wynik o każdą porażkę.
+- Zasada / działanie zapobiegawcze: źródłem prawdy o plikach jest
+  `audio/samples/*.mp3` (`ls | wc -l`), nie manifest. Po turze z zerem
+  generacji usunąć świeże wpisy `failed` osobnym commitem — inaczej przy
+  każdej kolejnej niedostępności API przybywa 30 nowych duchów. Reguła 30
+  w `docs/STATE.md`.
+
+## 2026-11-14 — Ile archetypów na partię: 9 na 10 kart działa, ale nie zawsze
+
+- Sytuacja: `b084` dostało 9 różnych archetypów na 10 kart — świadomie, żeby
+  nie dokładać do klastrów `sword_clash` (24), `plate_clank` (23),
+  `magic_shimmer` (16). Dwie karty z `creature_roar` rozdzielono rejestrem:
+  `665` Mirelurk Queen to wrzask **wyżej** (mokry chrobot żwiru, 3,8 s), `660`
+  Lambholt Harrier to warkot **niżej** (z piersi basiora, 3,6 s).
+- Wniosek: różnorodność archetypów jest tania (0 kredytów, decyzja przy
+  pisaniu scenariusza), a rozdrobnienie najgęstszych klastrów zmniejsza
+  ryzyko par ≥ 0,95 przy audycie. Jednocześnie **różnica rejestru musi być
+  zapisana w prompcie**, nie tylko w nazwie karty — inaczej dwie karty
+  dostaną ten sam dźwięk z innym tytułem.
+- Zasada / działanie zapobiegawcze: przy partii ≥ 5 kart rozpisać archetypy
+  w tabeli **przed** pisaniem promptów, z kolumną „czym różni się od
+  najbliższego sąsiada w korpusie”. Jeśli różnicy nie da się nazwać jednym
+  zdaniem, to nie jest różnica.
+
+## 2026-11-14 — Kontrakt archetypu i audyt flag mogą być sprzeczne (b084/660)
+
+- Sytuacja: `660` Lambholt Harrier trafiło w `creature_roar` na 0 pkt, ale
+  dostało `boomy` + `dull`. Kontrakt wymaga `low_all ≥ 0,45` (masa w dole),
+  a audyt flaguje `boomy` przy `low_share > 0,85` i centroid < 200 Hz oraz
+  `dull` przy `high_share < 0,005` i centroid < 250 Hz. Wszystkie trzy
+  warianty leżały na 141–171 Hz — **żaden wybór wariantu nie mógł tego
+  rozwiązać**.
+- Wniosek: niektóre archetypy (te „ciężkie”: `creature_roar`, `earth_rumble`,
+  `thunder_clap`, `heavy_impact`) siedzą w paśmie, w którym audyt karze za
+  ciemność. Sprzeczność jest strukturalna, nie przypadkowa.
+- Zasada / działanie zapobiegawcze: przy takim konflikcie **nie wybierać
+  między werdyktem a flagą** — zmienić widmo. Sweep podbicia pasma obecności
+  (300–1500 Hz) × półki powyżej 2 kHz, po każdej kombinacji liczyć flagi
+  z progów i werdykt przez `evaluate()`. Wybrać najłagodniejszą kombinację,
+  która daje 0 pkt **i** zero flag, i zapisać ją w `STATE.md` (`660`: +5 dB
+  presence / +6 dB air → centroid 203 → 251 Hz, `voiced` 0,43). Reguła 32.
+
+## 2026-11-14 — `analyze()` nie liczy flag ani metryk kontraktowych
+
+- Sytuacja: pierwszy sweep EQ na `660` pokazał **9 kombinacji „bez flag i z
+  0 pkt”**. Wszystkie były fałszywie pozytywne: `analyze()` nie zwraca pola
+  `flags` (flagi dokłada `add_flags()` na całej liście plików, z progami
+  licznymi względem korpusu), a metryki kontraktowe (`attack_s`, `decay_s`,
+  `onset_count`, `sustain_ratio`, `mod_peak_hz`) dokłada dopiero
+  `audit_semantic_match.extra_features(path)`. Bez tego `evaluate()` zwraca
+  „brak metryki X” i karta wychodzi **lepiej** niż jest.
+- Wniosek: skrypt oceniający musi robić **oba** kroki i flagi liczyć sam:
+  `m = analyze(p, …).metrics; m.update(extra_features(p))`, potem progi
+  `boomy`/`dull`/`harsh` z `audit_samples_full`. Brak kroku = test, który
+  zawsze przechodzi.
+- Zasada / działanie zapobiegawcze: po każdym sweepie **zweryfikować wynik
+  pełnym audytem korpusu** (`audit_samples_full.py`) przed commitem —
+  to jedyny moment, w którym flagi są liczone tak, jak zobaczy je właściciel.
+  Pojedyncze „brak flag” z ręcznego skryptu traktować jako podejrzane.
+  Reguła 33.
+
+## 2026-11-14 — Klucz dobry, ale bez `user_read`: nie blokuj generacji (b084 v2)
+
+- Sytuacja: nowy klucz z pełną pulą zwrócił na `/v1/user/subscription`
+  HTTP 401 `missing_permissions` / „missing the permission user_read”.
+  Kontrola budżetu w workflow (dodana po aferze `invalid_api_key`) potraktowała
+  każde 401 jako twardy stop i **zablokowała generację**, choć klucz był
+  sprawny — `sound-generation` działa bez `user_read`.
+- Wniosek: „nie mogę odczytać budżetu” i „klucz jest zły” to dwie różne
+  rzeczy. Pierwsze znaczy *jedź dalej i licz koszt ręcznie*, drugie znaczy
+  *stop*. Rozpoznanie po treści błędu: `user_read`/`missing_permissions`
+  → jedź; `invalid_api_key`/`api_key_id_used_as_api_key` → stop.
+- Zasada / działanie zapobiegawcze: każdy bezpiecznik oparty na zdalnym
+  odczycie musi mieć **ścieżkę degradacji** (nie znam stanu → działam
+  ostrożnie), a nie tylko ścieżkę blokady. Inaczej pierwszy brak uprawnienia
+  zatrzymuje produkcję. Reguła 31.
+
+## 2026-11-14 — Oceniałem plik przed normalizacją, a do korpusu szło coś innego (b085)
+
+- Sytuacja: `rescue_b085.py` znalazł dla 9 kart kombinacje EQ/cięcia dające
+  0 pkt. Po instalacji i uruchomieniu `audit_archetype_match.py` trzy karty
+  (`669`, `674`, `675`) **wypadły z 0 pkt** — dokładnie te, które przeszły
+  przez `process_one`. Okazało się, że normalizacja do −20 LUFS + limiter
+  −1 dBTP + highpass 25 Hz zmienia `decay_s`, `f0_semitone_std` i `attack_s`.
+  `669` miało 0,460 s pogłosu na surowym pliku i 0,460 to za mało wobec progu
+  0,5 — ale na surowym pliku ten sam próg przechodziło, bo surowy plik był
+  głośniejszy o 2,7 LU i inaczej liczyła się energia w oknach.
+- Wniosek: **mierz to, co trafi do korpusu**. Pipeline postprodukcji jest
+  częścią przedmiotu oceny, nie etapem po ocenie. Wybór wariantu „na sucho”
+  jest wyborem innego pliku niż ten, który dostanie właściciel.
+- Zasada / działanie zapobiegawcze: pętla oceny ma wyglądać
+  `obróbka → process_one → pomiar → werdykt`, nigdy `obróbka → pomiar →
+  process_one`. Gotowy wzorzec: `.arena-backup/finalize_b085.py`.
+  Dodatkowo: `process_one` zjada 1,2–2,7 LU na limiterze, więc cel trzeba
+  **iterować** (`target += −20 − zmierzone`) — inaczej plik ląduje na −22,7
+  i wypada z okna. Reguła 34.
+
+## 2026-11-14 — 10 kart na 0 pkt bez ani jednej generacji ratunkowej (b085)
+
+- Sytuacja: po dwóch rundach (57 generacji) tylko 2 z 10 kart miało 0 pkt.
+  Poprzednie dostawy rozwiązywały to trzecią i czwartą rundą generacji
+  (`b084c`, `b083c`). Tutaj skończył się na tym pomysł: zamiast płacić,
+  przeliczyłem **6 wariantów × 10 obróbek × lista dozwolonych etykiet**.
+  Wyszło 9/10, a dziesiąta (`666`) po `hp400 +20 dB` też weszła.
+- Wniosek: materiał, który „nie pasuje do archetypu”, często pasuje do
+  **innego** archetypu — a różnicę można czasem zrobić samą barwą.
+  667 to chrupanie zieleniny: jako `liquid_pour` nie miało sensu, jako
+  `water_splash` (chlupot soku) jest uczciwe i ma 0 pkt. 675 to dron:
+  jako `psychic_shriek` wymagał ataku ≤ 0,1 s, którego model nie umiał
+  wygenerować przez dwie rundy; jako `arcane_choir` (bezcielesny śpiew)
+  jest dokładnie tym, co słychać.
+- Zasada / działanie zapobiegawcze: zanim wydasz kredyty na kolejną rundę,
+  policz obróbki na tym, co masz. Warunek: nowa etykieta musi **uczciwie**
+  opisywać plik (i wtedy przepisz też `sample_scenario`, żeby opis nie
+  obiecywał czegoś innego). Zmiana etykiety „pod wynik” jest porażką.
+  Reguły 35 i 36.
+
+## 2026-11-14 — `attack_s` to nie opóźnienie startu, tylko rozpęd do szczytu (b085)
+
+- Sytuacja: `668`, `671`, `675` miały szczyt na 78 %, 42 % i 65 % długości
+  pliku, więc `attack_s` wychodził 2,35 / 1,25 / 2,31 s. Próbowałem ciąć
+  ciszę na starcie — `lead_silence_s` był zerowy we wszystkich trzech,
+  więc cięcie nie miało czego usunąć.
+- Wniosek: miara mierzy **czas do globalnego maksimum**, a nie moment,
+  w którym dźwięk się zaczyna. Każdy dźwięk narastający (dron, ryk
+  wchodzący falami, pogłos) będzie miał długi atak i nie naprawi tego
+  żadne trymowanie ciszy.
+- Zasada / działanie zapobiegawcze: przy kontraktach z `attack_s` patrz
+  najpierw na **pozycję szczytu** w pliku; pomaga cięcie końca (szczyt
+  przesuwa się względnie wcześniej) albo EQ, nie cięcie startu.
+  Reguła 37.
