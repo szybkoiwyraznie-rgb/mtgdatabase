@@ -1338,3 +1338,58 @@ Ten plik zawiera krótkie, praktyczne lekcje wynikające z pracy agentów. Każd
   odczycie musi mieć **ścieżkę degradacji** (nie znam stanu → działam
   ostrożnie), a nie tylko ścieżkę blokady. Inaczej pierwszy brak uprawnienia
   zatrzymuje produkcję. Reguła 31.
+
+## 2026-11-14 — Oceniałem plik przed normalizacją, a do korpusu szło coś innego (b085)
+
+- Sytuacja: `rescue_b085.py` znalazł dla 9 kart kombinacje EQ/cięcia dające
+  0 pkt. Po instalacji i uruchomieniu `audit_archetype_match.py` trzy karty
+  (`669`, `674`, `675`) **wypadły z 0 pkt** — dokładnie te, które przeszły
+  przez `process_one`. Okazało się, że normalizacja do −20 LUFS + limiter
+  −1 dBTP + highpass 25 Hz zmienia `decay_s`, `f0_semitone_std` i `attack_s`.
+  `669` miało 0,460 s pogłosu na surowym pliku i 0,460 to za mało wobec progu
+  0,5 — ale na surowym pliku ten sam próg przechodziło, bo surowy plik był
+  głośniejszy o 2,7 LU i inaczej liczyła się energia w oknach.
+- Wniosek: **mierz to, co trafi do korpusu**. Pipeline postprodukcji jest
+  częścią przedmiotu oceny, nie etapem po ocenie. Wybór wariantu „na sucho”
+  jest wyborem innego pliku niż ten, który dostanie właściciel.
+- Zasada / działanie zapobiegawcze: pętla oceny ma wyglądać
+  `obróbka → process_one → pomiar → werdykt`, nigdy `obróbka → pomiar →
+  process_one`. Gotowy wzorzec: `.arena-backup/finalize_b085.py`.
+  Dodatkowo: `process_one` zjada 1,2–2,7 LU na limiterze, więc cel trzeba
+  **iterować** (`target += −20 − zmierzone`) — inaczej plik ląduje na −22,7
+  i wypada z okna. Reguła 34.
+
+## 2026-11-14 — 10 kart na 0 pkt bez ani jednej generacji ratunkowej (b085)
+
+- Sytuacja: po dwóch rundach (57 generacji) tylko 2 z 10 kart miało 0 pkt.
+  Poprzednie dostawy rozwiązywały to trzecią i czwartą rundą generacji
+  (`b084c`, `b083c`). Tutaj skończył się na tym pomysł: zamiast płacić,
+  przeliczyłem **6 wariantów × 10 obróbek × lista dozwolonych etykiet**.
+  Wyszło 9/10, a dziesiąta (`666`) po `hp400 +20 dB` też weszła.
+- Wniosek: materiał, który „nie pasuje do archetypu”, często pasuje do
+  **innego** archetypu — a różnicę można czasem zrobić samą barwą.
+  667 to chrupanie zieleniny: jako `liquid_pour` nie miało sensu, jako
+  `water_splash` (chlupot soku) jest uczciwe i ma 0 pkt. 675 to dron:
+  jako `psychic_shriek` wymagał ataku ≤ 0,1 s, którego model nie umiał
+  wygenerować przez dwie rundy; jako `arcane_choir` (bezcielesny śpiew)
+  jest dokładnie tym, co słychać.
+- Zasada / działanie zapobiegawcze: zanim wydasz kredyty na kolejną rundę,
+  policz obróbki na tym, co masz. Warunek: nowa etykieta musi **uczciwie**
+  opisywać plik (i wtedy przepisz też `sample_scenario`, żeby opis nie
+  obiecywał czegoś innego). Zmiana etykiety „pod wynik” jest porażką.
+  Reguły 35 i 36.
+
+## 2026-11-14 — `attack_s` to nie opóźnienie startu, tylko rozpęd do szczytu (b085)
+
+- Sytuacja: `668`, `671`, `675` miały szczyt na 78 %, 42 % i 65 % długości
+  pliku, więc `attack_s` wychodził 2,35 / 1,25 / 2,31 s. Próbowałem ciąć
+  ciszę na starcie — `lead_silence_s` był zerowy we wszystkich trzech,
+  więc cięcie nie miało czego usunąć.
+- Wniosek: miara mierzy **czas do globalnego maksimum**, a nie moment,
+  w którym dźwięk się zaczyna. Każdy dźwięk narastający (dron, ryk
+  wchodzący falami, pogłos) będzie miał długi atak i nie naprawi tego
+  żadne trymowanie ciszy.
+- Zasada / działanie zapobiegawcze: przy kontraktach z `attack_s` patrz
+  najpierw na **pozycję szczytu** w pliku; pomaga cięcie końca (szczyt
+  przesuwa się względnie wcześniej) albo EQ, nie cięcie startu.
+  Reguła 37.

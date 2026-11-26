@@ -33,11 +33,11 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   analiza preferencji na przyszłe generacje. Katalog jest samodzielny
   (ścieżki względne, działa z rozpakowanej gałęzi na pulpicie); miniaturki
   z `C:\Users\Jacek PC\Desktop\MtG Fusion\img\<id>FOT.png`.
-- Katalog: `fabuły270926.csv` + `data/catalog.json` — **664 fabuły**
-  (ostatnia dostawa: `656`–`665`; wcześniej `645`–`655`, `635`–`644`, `625`–`634`, `400`–`425`, `618`–`624`).
+- Katalog: `fabuły270926.csv` + `data/catalog.json` — **674 fabuły**
+  (ostatnia dostawa: `666`–`675`; wcześniej `645`–`655`, `635`–`644`, `625`–`634`, `400`–`425`, `618`–`624`).
   ID = numeryczna część `Ilustracja` (`341DTK` → fabuła `341`).
-- Sample: **664 MP3** w `audio/samples/<id>.mp3`; **664 scenariusze**
-  — 100 % katalogu ma audio i scenariusz (do `b084` włącznie).
+- Sample: **674 MP3** w `audio/samples/<id>.mp3`; **674 scenariusze**
+  — 100 % katalogu ma audio i scenariusz (do `b085` włącznie).
 - Ostatnia dostawa: **`b083`** (2026-11-14) — **11 nowych kart**: `655` Plummet
   (`beast_screech`), `654` Kessig Flamebreather (`mechanism_click`), `653`
   Necrosavant (`heavy_impact`), `652` River Herald Guide (`water_splash`), `645`
@@ -107,6 +107,35 @@ Czyste skrobanie, syczenie, stuknięcie czy szelest bez rozpoznawalnego
   Wszystkie 3 warianty leżały na 141–171 Hz. Po +5 dB w paśmie 500 Hz i
   +6 dB półki powyżej 2 kHz centroid wchodzi na 251 Hz, flagi znikają,
   werdykt zostaje 0 pkt (`voiced` 0,43). To jedyna karta w dostawie z EQ.
+- **Dostawa `b085`** (2026-11-14) — **10 nowych kart**: `666`–`675`,
+  **10/10 trafionych, 0 flag, 0 par**, wszystkie 2,56–4,00 s,
+  **wszystkie 0,0 pkt w kontrakcie — i to bez ani jednej dodatkowej
+  generacji** (tylko 2 rundy: `b085` 30 gen + `b085b` 27 gen ≈ 1140 kr).
+  Finalne długości: 666 3,70 s, 667 3,40, 668 3,00, 669 3,00,
+  670 4,00, 671 3,20, 672 3,40, 673 2,56, 674 4,00, 675 3,56.
+  Karty i archetypy: `666` Undersea Invader → `creature_roar`,
+  `667` Gysahl Greens → `water_splash`, `668` Battle Hurda → `beast_screech`,
+  `669` Lightning Spear → `thunder_clap`, `670` Vaporkin → `wing_flutter`,
+  `671` Coordinated Maneuver → `mechanism_click`, `672` Malevolent Noble →
+  `chain_rattle`, `673` Hired Blade → `bone_snap`, `674` Mister Gutsy →
+  `robot_servo`, `675` Kozilek's Translator → `arcane_choir`.
+  **Cztery etykiety zmieniono na uczciwe**, bo materiał nie był tym, co
+  obiecywał prompt: `667` liquid_pour → **`water_splash`** (chrupanie
+  zieleniny to plusk soku, nie przelewanie), `671` sword_clash →
+  **`mechanism_click`** (ściana tarcz zamyka szyk — równy mechaniczny stuk),
+  `675` psychic_shriek → **`arcane_choir`** (dron Eldrazi to bezcielesny
+  śpiew bez słów; żaden z 6 wariantów nie miał ataku ≤ 0,1 s — model
+  ignorował „in the very first instant" dwie rundy), `674` został
+  `robot_servo`, ale po `lp2200`. Przy każdej zmianie etykiety przepisano
+  też `sample_scenario`, żeby opis mówił prawdę o pliku.
+  **Runda ratunkowa bez kredytów:** 9 z 10 kart doszło do 0 pkt samą
+  obróbką wariantów (EQ + cięcie okna), `666` po `hp400 +20 dB`
+  do `creature_roar`. `finalize_b085.py` wkłada normalizację **w środek
+  pętli oceny** — szczegóły w regułach 34–37.
+- **Dostawa paczki b085 na Google Drive** (2026-11-14):
+  `samples-b085-2026-11-14.zip` (695 790 B, 10 MP3 + `README.txt`)
+  ID pliku: `1_KpaJWJw8Oj3wFA-uldiDUBpKnY3oSNz`
+  Link: https://drive.google.com/file/d/1_KpaJWJw8Oj3wFA-uldiDUBpKnY3oSNz/view
 - **Dostawa paczki b084 na Google Drive** (2026-11-14):
   `samples-b084-2026-11-14.zip` (692 108 B, 10 MP3 + `README.txt`)
   ID pliku: `1fPb7Y9_jzUnBEWXBPnZzse00h2g08k8y`
@@ -588,9 +617,9 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
 
 ## Stan liczbowy
 
-- Katalog: **664 fabuły**, scenariusze **664** (100 %, 89 `generated`
-  + 575 `ready`), sample **664**.
-- Flagi: **57 plików** z flagą na 664 — po dostawie `b084` **bez zmian**
+- Katalog: **674 fabuły**, scenariusze **674** (100 %, 99 `generated`
+  + 575 `ready`), sample **674**.
+- Flagi: **57 plików** z flagą na 674 — po dostawie `b085` **bez zmian**
   (11 nowych kart weszło z 0 flag, dwie świadome flagi `650 harsh` i
   `655 long_trail_silence` zdjęto w `b083b`). Najczęstsze: `dull` 16,
   `harsh` 15, `boomy` 10, `tonal_sustained` 8, `long_trail_silence` 7,
@@ -599,11 +628,13 @@ jak wyżej, ale prompty idą przez `rewrite_archetype_prompts.py`
   (`4`, `12`, `23`, `98`, `115`, `219`, `269`, `311`, `361`, `406`,
   `417`, `618`, `655` — `655` ma 0,57 s treści przy 2,49 s pliku, bo to
   jeden wrzask i cisza; świadome). Źródło: `data/samples/audio-audit-latest.json`.
-- Archetypy: **11** nie trafionych, **62** prawdopodobnie, **220** trafionych
-  (293 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
+- Archetypy: **11** nie trafionych, **62** prawdopodobnie, **230** trafionych
+  (303 z zadeklarowanym archetypem; `data/samples/archetype-match-latest.json`).
 - Budżet: **nowy klucz, 10 000 kredytów** (wgrany 2026-11-14 przez właściciela).
   Dostawa `b084` zużyła **41 generacji ≈ 1640 kr**: `b084` 30, `b084b` 6,
-  `b084c` 5. Zostało **≈ 8360 kr**.
+  `b084c` 5. Dostawa `b085` zużyła **57 generacji ≈ 2280 kr**: `b085` 30,
+  `b085b` 27 — i **ani jednej generacji ratunkowej** (ratunek robiono
+  obróbką, patrz reguła 34). Zostało **≈ 6080 kr**.
   **Klucz ma za mało uprawnień, żeby czytać subskrypcję:**
   ```
   HTTP 401 authentication_error / missing_permissions
@@ -871,6 +902,45 @@ z progów samodzielnie (albo uruchomić pełny audyt). Pominąłem to w pierwszy
 sweepie EQ i dostałem 9 „czystych” kombinacji, z których większość miała
 `dull`. Test pozytywny bez flag jest gorszy niż brak testu.
 
+**34. Oceniaj kandydata PO `process_one`, nie przed.** Normalizacja do
+−20 LUFS + limit −1 dBTP + highpass 25 Hz zmienia metryki kontraktowe
+i to niekosmetycznie. `b085`: `669` miało 0 pkt na surowym pliku i traciło
+`decay_s` (0,460 < 0,5) po normalizacji; `674` psuło `f0_semitone_std`
+(6,33 > 4,0); `675` miało `attack_s` 0,69. Wniosek: `pick_archetype_variant.py`
+i każdy własny sweep muszą przepuścić kandydata przez `process_one`
+**w środku pętli oceny** i mierzyć plik już znormalizowany — inaczej wybierasz
+coś, czego nie ma w korpusie. Gotowy wzorzec: `.arena-backup/finalize_b085.py`.
+Dodatkowo `process_one` zjada 1,2–2,7 LU na limiterze; gdy plik ma wysoki
+crest, trzeba **iterować cel** (`target += -20 − zmierzone_lufs`), bo inaczej
+wynik wychodzi poza okno −20 ± 0,5.
+
+**35. Nie każ problem „trudnego archetypu” rozwiązywać generacją.**
+`b085` dobiło do 10/10 na 0 pkt **bez ani jednej generacji ratunkowej**:
+9 kart z 6 wariantów + EQ (lowpass/highpass) + cięcie okna, `666` po
+`hp400 +20 dB`. Reguła: zanim wydasz kredyty, policz wszystkie 6 wariantów
+× ~10 obróbek × lista `ALLOWED` etykiet (`.arena-backup/rescue_b085.py`,
+`finalize_b085.py`). Warunek wejścia: etykieta musi **uczciwie** pasować
+do pliku — zmiana `psychic_shriek` → `arcane_choir` jest poprawna, bo dron
+naprawdę jest bezcielesnym śpiewem; zmiana na cokolwiek, co tylko daje 0 pkt,
+jest porażką (reguła właściciela: dźwięk ma się kojarzyć z kartą).
+
+**36. Test krzyżowy 37 kontraktów nie służy do wyboru etykiety.**
+W `b085` `b085-exhaustive.json` pokazał, że chrupanie zieleniny (`667`)
+przechodzi pod `sword_clash`, `beast_screech`, `plate_clank` i 9 innymi —
+kontrakty są zbyt tolerancyjne, bo mierzą barwę, nie źródło. Do wyboru
+etykiety używaj **ręcznej listy `ALLOWED` per karta** (co semantycznie
+pasuje do scenki), a test krzyżowy traktuj tylko jako podpowiedź, który
+kontrakt jest w ogóle osiągalny z tego materiału.
+
+**37. `attack_s` to rozpęd do GLOBALNEGO szczytu, nie opóźnienie startu.**
+Dźwięki narastające (szczyt na 65–78 % długości) zawsze dostaną długi
+`attack_s`, choćby cisza na starcie była zerowa (`lead_silence_s = 0`
+w 668/671/675). Nie da się tego naprawić cięciem ciszy — pomaga dopiero
+cięcie okna (ucinaj koniec, żeby szczyt wypadł wcześniej) albo EQ.
+Kontrakt `bone_snap` chce `attack_s ≤ 0,05`; `673` weszło po `lp2200`
+i cięciu 30 ms.
+
+
 **24. Korekcję EQ aplikować tylko tam, gdzie zdejmuje flagę.** Próba na
 27 kartach (`16 dull` + `11 harsh`) dała ten sam zysk flag (52 → 46),
 ale 19 kart bez zysku dorzuciło **2 nowe pary** i podbiło maksimum
@@ -887,6 +957,7 @@ Pełne opisy w `docs/archive/`. Skrót: `pary` = liczba par ≥ 0,90,
 |---|---|---|---|
 | b083 | 2026-11-14 | 11 nowych kart (645–655), **11/11 trafionych**, 0 flag, 0 par; 6 kart uratowanych testem krzyżowym archetypów (0 kr), 42 generacje ≈1680 kr → budżet 0 | ten plik |
 | b084 | 2026-11-14 | 10 nowych kart (656–665), **10/10 trafionych**, 0 flag, 0 par; 3 rundy (b084 30 gen, b084b 6, b084c 5) ≈1640 kr; 665 weszło dopiero za 5. wariantem, 660 wymagało EQ | ten plik |
+| b085 | 2026-11-14 | 10 nowych kart (666–675), **10/10 trafionych, 10/10 na 0 pkt**, 0 flag, 0 par; 57 gen ≈2280 kr i **zero generacji ratunkowych** — ratunek obróbką (EQ + cięcie okna), 4 zmienione etykiety na uczciwe (667→water_splash, 671→mechanism_click, 675→arcane_choir) | ten plik |
 | b077 | 2026-10-14 | 10 nowych kart (369–398), 6/10 trafionych, 0 nowych par; 392→horn_call i 398→chain_rattle po audycie brzmienia | ten plik |
 | b080 | 2026-10-27 | 10 nowych kart (426,427,429,618–624), 2/10 trafionych, 6 prawd., 0 nowych par; 30 generacji (1200 kr), 4 flagi świadome | ten plik |
 | b079 | 2026-10-20 | 10 nowych kart (412–418,423–425), 1/10 trafionych, 3 prawd., 0 nowych par; 30 generacji w 1 paczce b079 (1200 kr), 4 flagi świadome | ten plik |
