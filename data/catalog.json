@@ -4647,6 +4647,76 @@
       "title": "Memorial to Genius",
       "story": "Na nadmorskim przylądku Nowej Tolarii wznosi się monumentalny pomnik wykuty ku pamięci niezrównanego geniuszu Urzy. Kolosalna rzeźba z białego granitu i polerowanego mosiądzu przedstawia Najwyższego Rzemieślnika w dostojnych szatach mistrza Malzry, dzierżącego sferę armilarną. W kamiennej twarzy tytana lśnią dwa szafirowe kryształy na pamiątkę pradawnych Kamieni Mocy, rzucając łagodną błękitną poświatę na lustrzaną taflę basenów. U stóp monumentu tolariańscy uczeni czerpią natchnienie z bezkresnej wiedzy czarnoksiężnika, którego wizjonerski umysł na zawsze odmienił bieg historii Dominarii.",
       "versions": []
+    },
+    {
+      "id": "675",
+      "art_id": "675OGW",
+      "title": "Kozilek's Translator",
+      "story": "Na spustoszonej równinie wokół ruin Morskiej Bramy bezgłośny dron z lęgu Kozileka wznosi się ponad geometrycznymi formacjami bizmutu. Pozbawiona twarzy istota o gładkim, kredowobiałym ciele pozostaje niewzruszona, podczas gdy nad jej głową lewitują czarne obsydianowe trójkąty. W miejscu zetknięcia obcej obecności ze skałami Zendikaru żywa ziemia zamiera, przekształcając się w kanciaste, opalizujące schody krystalicznej nicości. Wysysając resztki witalności z otoczenia, tajemniczy wysłannik tytana przekuwa pustkę w surową energię zasilającą bezlitosną inwazję Eldrazi.",
+      "versions": []
+    },
+    {
+      "id": "673",
+      "art_id": "673M19",
+      "title": "Hired Blade",
+      "story": "W zadymionym wnętrzu podziemnego baru w dzielnicy Mezzio najemny zabójca z Nowej Kapenny oczekuje na kolejnego zdesperowanego klienta. Ostre światło mosiężnej lampy odbija się od smukłego stalowego sztyletu położonego na marmurowym blacie tuż obok garści złotych monet. Chłodny profesjonalista w prążkowanym garniturze gardzi tanimi metodami ulicznych trucicieli, oferując zamiast nich wyrachowane i bezwzględne zlecenie. W bezlitosnym półświatku pięciu rodzin mafijnych odpowiednia zapłata gwarantuje, że wskazany wróg zapamięta swoje ostatnie chwile na długo przed ostatecznym ciosem.",
+      "versions": []
+    },
+    {
+      "id": "672",
+      "art_id": "672ELD",
+      "title": "Malevolent Noble",
+      "story": "W mrocznych komnatach redańskiego zamku bezwzględny możnowładca gromadzi bogactwo i wpływy poprzez bezlitosne polowania na leśne wiedźmy. Szlachcic zwabia naiwne znachorki z zapadłych wsi obietnicą zakazanych relikwii i rzadkich składników alchemicznych, zastawiając na nie starannie przygotowane pułapki. Kolejne zagrabione amulety oraz ofiary z popleczników wzmacniają jego pozycję na dworze, budząc lęk nawet wśród okrutnych łowców czarownic z Novigradu. Za ciężkimi, okutymi żelazem drzwiami jego gabinetu nikt nie szuka sprawiedliwości, gdyż chłód srebrnego łańcucha arystokraty zwiastuje jedynie bezduszną zdradę.",
+      "versions": []
+    },
+    {
+      "id": "671",
+      "art_id": "671TDM",
+      "title": "Coordinated Maneuver",
+      "story": "Pod szalejącą na niebie Tarkiru smoczą burzą zwiadowcy hordy Mardu formują zwarty szyk bojowy w obliczu nowo narodzonego zagrożenia. Zrodzony ze szkarłatnych wyładowań młody smok opada na kamienisty step, lecz natychmiast napotyka zgraną ścianę ciężkich tarcz i wymierzonych włóczni. Barczysty ork z żelaznym toporem wiąże uwagę bestii z przodu, podczas gdy towarzysząca mu wojowniczka zamyka flankę długą piką. Skoordynowany manewr zaprawionych w bojach koczowników udowadnia słuszność rozkazów chana Zurgo, poskramiając furię burzy żelazną dyscypliną klanu.",
+      "versions": []
+    },
+    {
+      "id": "670",
+      "art_id": "670THS",
+      "title": "Vaporkin",
+      "story": "Ponad lazurowymi wodami u wybrzeży Meletis żywiołaki morskiej mgły dryfują swobodnie w ciepłych podmuchach wiatru. Ich zwiewne, utkane z pary sylwetki unoszą się ponad mieliznami, ignorując ostre skały i spienione fale zatoki. Wypoczywający na rafie tryton obserwuje podniebny taniec beztroskich duchów, podziwiając ich niezależność od ziemskich barier. Mądrość bohatera Thrasiosa przypomina żeglarzom Therosu, że prawdziwa wolność polega na płynięciu tam, gdzie prądy nie napotykają żadnego oporu.",
+      "versions": []
+    },
+    {
+      "id": "669",
+      "art_id": "669MH2",
+      "title": "Lightning Spear",
+      "story": "W smaganych wichrem szczytach gór Sokenzan kowale zamykają furię burzowych kami w kutej stali. Grot włóczni bezustannie pulsuje szkarłatnymi wyładowaniami, które rozgrzewają okoliczny bazalt do białości. Strażnik górskiej przełęczy z trudem powstrzymuje oręż przed wyrwaniem się z dłoni, czując wibrującą w drzewcu pierwotną energię błyskawicy. Wypuszczona z rąk broń mknie prosto ku celowi, uderzając z niszczycielską siłą gromu sprowadzonego prosto z niebios.",
+      "versions": []
+    },
+    {
+      "id": "668",
+      "art_id": "668WWK",
+      "title": "Battle Hurda",
+      "story": "Na skalistym trakcie w kanionach Murasy karawana koczowników z Goma Fada rozbija bezpieczny obóz pod czujnym okiem bojowego hurdy. Masywny, opancerzony gigant o gadziej skórze zajmuje pozycję na wąskim przesmyku, skutecznie odstraszając grasujących w okolicy zbójców. Znany z twardego charakteru pasterz Bruse Tarl powierza tym nieokiełznanym stworzeniom obronę szlaku, wiedząc, że ich wrodzona agresja nie toleruje żadnych intruzów. Nieruchoma sylwetka potwora na tle zachodzącego słońca gwarantuje wędrowcom bezpieczeństwo na nieprzewidywalnych bezdrożach Zendikaru.",
+      "versions": []
+    },
+    {
+      "id": "667",
+      "art_id": "667FIN",
+      "title": "Gysahl Greens",
+      "story": "Na bezkresnych, zielonych wzgórzach Ronfaure podróżnicy z Królestwa San d'Oria przygotowują wierzchowce do dalekiej wyprawy przez krainę Vana'diel. Świeżo zerwane, chrupiące liście warzyw Gysahl stanowią niezawodny przysmak, który zjednuje bezgraniczne zaufanie i wierność każdego młodego chocobo. Dosiadający ptaka zwiadowca dopina skórzane juki i sprawdza uprząż, podczas gdy złocisty nielot z zadowoleniem przeżuwa soczystą zieleninę. Pożywna strawa napełnia potężne nogi zwierzęcia niezwykłą energią, pozwalając mu mknąć pośród traw z prędkością wiatru ku najdalszym rubieżom świata.",
+      "versions": []
+    },
+    {
+      "id": "666",
+      "art_id": "666KHM",
+      "title": "Undersea Invader",
+      "story": "W lodowatych wodach fiordu na wybrzeżu Bretagardu rybak Rathstaf z klanu Kannah zamiera na ośnieżonym pomoście, dostrzegając gwałtowny odpływ morskiej toni. Spomiędzy ciemnych fal z głuchym pomrukiem wyłaniają się zroszone pianą barki i siwa grzywa potężnego podmorskiego giganta. Pradawny olbrzym z głębin opiera szponiastą dłoń o podwodny głaz, wbijając zimne, jarzące się ślepia w drewniane zabudowania nadbrzeżnej osady. Gdy zielona zorza Drzewa Świata rozświetla spienioną wodę, mieszkańcy północy uświadamiają sobie, że zrodzony w otchłani koszmar przerwał wieloletni sen, by upomnieć się o lądowe łupy.",
+      "versions": []
+    },
+    {
+      "id": "674",
+      "art_id": "674PIP",
+      "title": "Mister Gutsy",
+      "story": "Na piaszczystych obrzeżach portu kosmicznego Mos Eisley na Tatooine zardzewiały droid repulsorowy przechodzi gruntowną przeróbkę na maszynę bojową. Pustynni złomiarze montują na jego kulistym, plastalowym korpusie dodatkowe uzbrojenie w postaci ciężkiego blastera, palnika plazmowego oraz obrotowej piły tnącej. Kolejne doczepiane moduły i opancerzenie zamieniają niepozornego robota serwisowego w nieustępliwego strażnika karawan Zewnętrznych Rubieży. Choć w starciu z bezwzględnymi łowcami nagród maszyna może zostać rozbita na kawałki, pozostały po niej stos cennych części natychmiast trafia na targowiska Jawów.",
+      "versions": []
     }
   ]
 }
