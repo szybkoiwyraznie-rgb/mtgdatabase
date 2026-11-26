@@ -1,0 +1,4 @@
+klucz: dlugosc=51, prefix='sk_9'
+HTTP 401: {"detail":{"type":"authentication_error","code":"unauthorized","message":"The API key you used is missing the permission user_read to execute this operation.","status":"missing_permissions","request_id":"8f138b658691741d8ea2e0b3f4332b4d"}}
+klucz dziala, brak tylko odczytu salda -> generuje
+ok=1
